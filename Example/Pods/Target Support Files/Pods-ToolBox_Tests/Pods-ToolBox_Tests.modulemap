@@ -1,0 +1,6 @@
+framework module Pods_ToolBox_Tests {
+  umbrella header "Pods-ToolBox_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}
