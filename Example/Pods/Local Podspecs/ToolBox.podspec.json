@@ -1,22 +1,84 @@
 {
   "name": "ToolBox",
   "version": "0.1.0",
-  "summary": "A short description of ToolBox.",
+  "summary": "Developer's toolbox for debugging applications",
   "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/vlaho.poluta@infinum.hr/ToolBox",
+  "homepage": "https://github.com/infinum/ios-toolbox",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
   },
   "authors": {
-    "vlaho.poluta@infinum.hr": "vlaho.poluta@infinum.hr"
+    "Infinum": "ios@infinum.hr",
+    "Vlaho Poluta": "vlaho.poluta@infinum.hr"
   },
   "source": {
-    "git": "https://github.com/vlaho.poluta@infinum.hr/ToolBox.git",
+    "git": "https://github.com/infinum/ios-toolbox.git",
     "tag": "0.1.0"
   },
+  "requires_arc": true,
   "platforms": {
-    "ios": "8.0"
+    "ios": "10.0"
   },
-  "source_files": "ToolBox/Classes/**/*"
+  "default_subspecs": "Default",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "ToolBox/Classes/Core/**/*",
+      "frameworks": "UIKit"
+    },
+    {
+      "name": "UserDefaults",
+      "source_files": "ToolBox/Classes/UserDefaults/**/*",
+      "dependencies": {
+        "ToolBox/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "CustomInfo",
+      "source_files": "ToolBox/Classes/CustomInfo/**/*",
+      "dependencies": {
+        "ToolBox/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "GeneralInfo",
+      "source_files": "ToolBox/Classes/GeneralInfo/**/*",
+      "dependencies": {
+        "ToolBox/CustomInfo": [
+
+        ]
+      }
+    },
+    {
+      "name": "Loggie",
+      "source_files": "ToolBox/Classes/Loggie/**/*",
+      "dependencies": {
+        "ToolBox/Core": [
+
+        ],
+        "Loggie": [
+          "~> 2.2"
+        ]
+      }
+    },
+    {
+      "name": "Default",
+      "dependencies": {
+        "ToolBox/Core": [
+
+        ],
+        "ToolBox/UserDefaults": [
+
+        ],
+        "ToolBox/GeneralInfo": [
+
+        ]
+      }
+    }
+  ]
 }

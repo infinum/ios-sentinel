@@ -1,7 +1,19 @@
 PODS:
   - Nimble (7.3.4)
   - Quick (1.2.0)
-  - ToolBox (0.1.0)
+  - ToolBox (0.1.0):
+    - ToolBox/Default (= 0.1.0)
+  - ToolBox/Core (0.1.0)
+  - ToolBox/CustomInfo (0.1.0):
+    - ToolBox/Core
+  - ToolBox/Default (0.1.0):
+    - ToolBox/Core
+    - ToolBox/GeneralInfo
+    - ToolBox/UserDefaults
+  - ToolBox/GeneralInfo (0.1.0):
+    - ToolBox/CustomInfo
+  - ToolBox/UserDefaults (0.1.0):
+    - ToolBox/Core
 
 DEPENDENCIES:
   - Nimble (~> 7.0)
@@ -20,8 +32,8 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Nimble: 051e3d8912d40138fa5591c78594f95fb172af37
   Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
-  ToolBox: 6e5fae72d55029e8821ac260933e23b73272146d
+  ToolBox: ca5899e34db98c8c88dd2017c50d42ce5eb9d66f
 
-PODFILE CHECKSUM: d4ebd8582e8eee7ff4584e08ebe99cbba058c109
+PODFILE CHECKSUM: b8d87302f3ee18b3ed9adc976b68597d30c863fc
 
 COCOAPODS: 1.9.3

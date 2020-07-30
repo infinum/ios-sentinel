@@ -1,0 +1,84 @@
+//
+//  ToolboxTableViewController.swift
+//  ToolBox
+//
+//  Created by Vlaho Poluta on 30/07/2020.
+//
+
+import UIKit
+
+class ToolboxTableViewController: UIViewController {
+
+    @IBOutlet var tableView: UITableView!
+    @IBOutlet var closeButton: UIBarButtonItem!
+    private var toolTable: ToolTable!
+    
+    static func crete(with toolTable: ToolTable) -> ToolboxTableViewController {
+        let viewController = UIStoryboard.toolBox.instantiateViewController(ofType: Self.self)
+        viewController.toolTable = toolTable
+        return viewController
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        title = toolTable.name
+        toolTable.sections
+            .flatMap { $0.items }
+            .forEach { $0.register(at: tableView) }
+        if (navigationController?.viewControllers.count ?? 0) > 1 {
+            navigationItem.rightBarButtonItems = nil
+        }
+    }
+    
+    @IBAction func closeSelected() {
+        if (navigationController?.viewControllers.count ?? 0) > 1 {
+            navigationController?.popViewController(animated: true)
+        } else {
+            dismiss(animated: true)
+        }
+    }
+
+}
+
+extension ToolboxTableViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        toolTable[indexPath].height
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        toolTable[indexPath].estimatedHeight
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        toolTable[indexPath].didSelect(from: self)
+    }
+}
+
+extension ToolboxTableViewController: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        toolTable.sections.count
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        toolTable.sections[section].items.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        toolTable[indexPath].cell(from: tableView, at: indexPath)
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        toolTable[section].title
+    }
+}
+
+extension ToolTable {
+    subscript(index: Int) -> ToolTableSection {
+        sections[index]
+    }
+    subscript(indexPath: IndexPath) -> ToolTableItem {
+        sections[indexPath.section].items[indexPath.row]
+    }
+}
