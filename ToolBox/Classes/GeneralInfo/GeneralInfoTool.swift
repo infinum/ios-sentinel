@@ -27,6 +27,10 @@ public class GeneralInfoTool: Tool {
                     .init(title: "Version of the plist", value: stringFromPlist(for: kCFBundleInfoDictionaryVersionKey)),
                 ]
             ),
+            CustomInfoTool.Section(
+                title: "Bundle all info",
+                items: bundleAllInfos
+            )
         ]
     )
     
@@ -38,14 +42,18 @@ public class GeneralInfoTool: Tool {
 
 extension GeneralInfoTool {
     
-    var appVersion: String { Bundle.main.object(forInfoDictionaryKey: kCFBundleVersionKey as String) as! String }
-    
     func stringFromPlist(for key: CFString) -> String {
         stringFromPlist(for: key as String)
     }
     
     func stringFromPlist(for key: String) -> String {
         Bundle.main.object(forInfoDictionaryKey: key).map { String(describing: $0) } ?? ""
+    }
+    
+    var bundleAllInfos: [CustomInfoTool.Item] {
+        Bundle.main.infoDictionary?
+            .map { CustomInfoTool.Item(title: $0.key, value: String(describing: $0.value)) }
+            ?? []
     }
     
 }
