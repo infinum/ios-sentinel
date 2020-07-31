@@ -60,6 +60,12 @@ TODO: Add long description of the pod here.
     sp.dependency 'Loggie', '~> 2.2'
   end
   
+  s.subspec 'Bugsnatch' do |sp|
+    sp.source_files = 'ToolBox/Classes/Bugsnatch/**/*'
+    sp.dependency 'ToolBox/Core'
+    sp.dependency 'Bugsnatch/Core', '~> 1.0'
+  end
+  
   s.subspec 'Default' do |sp|
     sp.dependency 'ToolBox/Core'
     sp.dependency 'ToolBox/UserDefaults'

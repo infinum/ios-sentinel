@@ -67,6 +67,18 @@
       }
     },
     {
+      "name": "Bugsnatch",
+      "source_files": "ToolBox/Classes/Bugsnatch/**/*",
+      "dependencies": {
+        "ToolBox/Core": [
+
+        ],
+        "Bugsnatch/Core": [
+          "~> 1.0"
+        ]
+      }
+    },
+    {
       "name": "Default",
       "dependencies": {
         "ToolBox/Core": [
