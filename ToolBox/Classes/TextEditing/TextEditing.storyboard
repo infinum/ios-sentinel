@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uEM-np-6oE">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="Sjp-n2-o42">
+            <objects>
+                <navigationController id="uEM-np-6oE" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1Tz-W2-PqG">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="lh4-jV-G3x" kind="relationship" relationship="rootViewController" id="gaP-Kr-qCu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X9n-L0-amm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1103" y="149"/>
+        </scene>
+        <!--Text Editing View Controller-->
+        <scene sceneID="6OI-kd-s4k">
+            <objects>
+                <viewController storyboardIdentifier="TextEditingViewController" id="lh4-jV-G3x" customClass="TextEditingViewController" customModule="ToolBox" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rQg-Ji-zjo">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Y6g-VO-MRq">
+                                <rect key="frame" x="16" y="104" width="382" height="792"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AFW-5d-3VV">
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5aM-iS-Oq8">
+                                        <rect key="frame" x="0.0" y="36.5" width="382" height="755.5"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="PZu-Su-pIc" firstAttribute="trailing" secondItem="Y6g-VO-MRq" secondAttribute="trailing" constant="16" id="2vJ-ba-hYz"/>
+                            <constraint firstAttribute="bottom" secondItem="Y6g-VO-MRq" secondAttribute="bottom" id="Thj-ua-PpG"/>
+                            <constraint firstItem="Y6g-VO-MRq" firstAttribute="leading" secondItem="PZu-Su-pIc" secondAttribute="leading" constant="16" id="nsc-36-UkU"/>
+                            <constraint firstItem="Y6g-VO-MRq" firstAttribute="top" secondItem="PZu-Su-pIc" secondAttribute="top" constant="16" id="rh7-cD-cdd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="PZu-Su-pIc"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="D2o-XF-2ZA">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="FuM-WR-ZlS">
+                            <connections>
+                                <action selector="didSelectSave" destination="lh4-jV-G3x" id="DCG-iZ-PMX"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="titleLabel" destination="AFW-5d-3VV" id="iUg-4o-4Hv"/>
+                        <outlet property="valueTextView" destination="5aM-iS-Oq8" id="ZMb-1K-7yL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ck3-2d-3Gx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-165" y="149"/>
+        </scene>
+    </scenes>
+</document>

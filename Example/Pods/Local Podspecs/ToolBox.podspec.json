@@ -55,6 +55,15 @@
       }
     },
     {
+      "name": "TextEditing",
+      "source_files": "ToolBox/Classes/TextEditing/**/*",
+      "dependencies": {
+        "ToolBox/Core": [
+
+        ]
+      }
+    },
+    {
       "name": "Loggie",
       "source_files": "ToolBox/Classes/Loggie/**/*",
       "dependencies": {
@@ -97,6 +106,9 @@
 
         ],
         "ToolBox/GeneralInfo": [
+
+        ],
+        "ToolBox/TextEditing": [
 
         ]
       }

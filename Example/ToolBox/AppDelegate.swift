@@ -21,6 +21,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
+enum AppUrl {
+    static var baseURL = "http://google.com"
+}
+
 extension AppDelegate {
     
     func setupToolBox() {
@@ -29,6 +33,7 @@ extension AppDelegate {
             tools: [
                 GeneralInfoTool(),
                 UserDefaultsTool(),
+                baseUrlTool,
 //                BugsnatchTool(triggerActionConfig: EmailConfig()),
 //                LoggieTool(),
 //                AnalyticsCollectorTool(),
@@ -36,6 +41,15 @@ extension AppDelegate {
         )
         
         ToolBox.shared.setup(with: configuration)
+    }
+    
+    var baseUrlTool: Tool {
+        TextEditingTool(
+            name: "Base URL",
+            setter: { AppUrl.baseURL = $0 },
+            getter: { AppUrl.baseURL },
+            userDefaultsKey: "base_url_user_defaults_key"
+        )
     }
     
 }

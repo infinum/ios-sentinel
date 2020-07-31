@@ -30,7 +30,7 @@ class ToolboxTableViewController: UIViewController {
         }
     }
     
-    @IBAction func closeSelected() {
+    @IBAction private func closeSelected() {
         if (navigationController?.viewControllers.count ?? 0) > 1 {
             navigationController?.popViewController(animated: true)
         } else {

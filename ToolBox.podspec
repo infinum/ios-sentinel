@@ -54,6 +54,11 @@ TODO: Add long description of the pod here.
     sp.dependency 'ToolBox/CustomInfo'
   end
   
+  s.subspec 'TextEditing' do |sp|
+    sp.source_files = 'ToolBox/Classes/TextEditing/**/*'
+    sp.dependency 'ToolBox/Core'
+  end
+  
   s.subspec 'Loggie' do |sp|
     sp.source_files = 'ToolBox/Classes/Loggie/**/*'
     sp.dependency 'ToolBox/Core'
@@ -77,6 +82,7 @@ TODO: Add long description of the pod here.
     sp.dependency 'ToolBox/Core'
     sp.dependency 'ToolBox/UserDefaults'
     sp.dependency 'ToolBox/GeneralInfo'
+    sp.dependency 'ToolBox/TextEditing'
   end
   
 end
