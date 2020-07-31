@@ -31,6 +31,7 @@ extension AppDelegate {
                 UserDefaultsTool(),
 //                BugsnatchTool(triggerActionConfig: EmailConfig()),
 //                LoggieTool(),
+//                AnalyticsCollectorTool(),
             ]
         )
         

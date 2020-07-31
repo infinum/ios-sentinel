@@ -66,6 +66,13 @@ TODO: Add long description of the pod here.
     sp.dependency 'Bugsnatch/Core', '~> 1.0'
   end
   
+#  This won't work untill AnalyticsCollector is added to main cocapods repo
+  s.subspec 'AnalyticsCollector' do |sp|
+    sp.source_files = 'ToolBox/Classes/AnalyticsCollector/**/*'
+    sp.dependency 'ToolBox/Core'
+#    pod 'AnalyticsCollector', :git => 'https://github.com/infinum/ios-analytics-collector'
+  end
+  
   s.subspec 'Default' do |sp|
     sp.dependency 'ToolBox/Core'
     sp.dependency 'ToolBox/UserDefaults'

@@ -79,6 +79,15 @@
       }
     },
     {
+      "name": "AnalyticsCollector",
+      "source_files": "ToolBox/Classes/AnalyticsCollector/**/*",
+      "dependencies": {
+        "ToolBox/Core": [
+
+        ]
+      }
+    },
+    {
       "name": "Default",
       "dependencies": {
         "ToolBox/Core": [
