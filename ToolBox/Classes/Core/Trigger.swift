@@ -51,7 +51,7 @@ public class ScreenshotTrigger: Trigger {
     let notificationTrigger: NotificationTrigger
     
     public init() {
-        notificationTrigger = NotificationTrigger(notificationName: .UIApplicationUserDidTakeScreenshot)
+        notificationTrigger = NotificationTrigger(notificationName: UIApplication.userDidTakeScreenshotNotification)
     }
     
     public func subscribe(on events: @escaping () -> ()) {
@@ -88,7 +88,7 @@ extension UIApplication {
        method_exchangeImplementations(originalMethod, swizzledMethod)
     }()
     
-    @objc func swizzled_motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+    @objc func swizzled_motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         swizzled_motionEnded(motion, with: event)
         if motion == .motionShake {
             NotificationCenter.default.post(name: .shakeMotionDetected, object: nil)
