@@ -29,6 +29,14 @@ class ToolboxTableViewController: UIViewController {
             navigationItem.rightBarButtonItems = nil
         }
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        if let selectedIndexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: selectedIndexPath, animated: true)
+        }
+    }
     
     @IBAction private func closeSelected() {
         if (navigationController?.viewControllers.count ?? 0) > 1 {

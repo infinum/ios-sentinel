@@ -1,6 +1,4 @@
 PODS:
-  - Nimble (7.3.4)
-  - Quick (1.2.0)
   - ToolBox (0.1.0):
     - ToolBox/Default (= 0.1.0)
   - ToolBox/Core (0.1.0)
@@ -19,24 +17,15 @@ PODS:
     - ToolBox/Core
 
 DEPENDENCIES:
-  - Nimble (~> 7.0)
-  - Quick (~> 1.2.0)
   - ToolBox (from `../`)
-
-SPEC REPOS:
-  trunk:
-    - Nimble
-    - Quick
 
 EXTERNAL SOURCES:
   ToolBox:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Nimble: 051e3d8912d40138fa5591c78594f95fb172af37
-  Quick: 58d203b1c5e27fff7229c4c1ae445ad7069a7a08
   ToolBox: e8c8293dd3784eabf4be41306f89df7fdba4d49a
 
-PODFILE CHECKSUM: b8d87302f3ee18b3ed9adc976b68597d30c863fc
+PODFILE CHECKSUM: 9b72e3f79370eb248d8d9886c14fbef37beef631
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.9.1

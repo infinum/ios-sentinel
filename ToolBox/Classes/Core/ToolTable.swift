@@ -54,7 +54,7 @@ public protocol ToolTableItem {
 
 public extension ToolTableItem {
     
-    var height: CGFloat { UITableViewAutomaticDimension }
+    var height: CGFloat { UITableView.automaticDimension }
     var estimatedHeight: CGFloat { 44 }
     func register(at tableView: UITableView) {}
     func didSelect(from viewController: UIViewController) {}
