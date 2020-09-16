@@ -7,24 +7,40 @@
 
 import UIKit
 
+/// Defines interaction with trigger.
 public protocol Trigger {
+    /// Subscribes to the triggering event.
+    ///
+    /// - Parameter events: The block which will be called when notification arrives.
     func subscribe(on events: @escaping () -> ())
 }
 
+/// Provides different trigger types based on the event which makes the trigger.
 public enum Triggers {
+    /// The trigger type which is triggered on the shake event.
     public static var shake: Trigger { ShakeTrigger() }
+    
+    /// The trigger type which is triggered on the screenshot event.
     public static var screenshot: Trigger { ScreenshotTrigger() }
+    
+    /// The trigger type which is triggered on the specified notification name.
     public static func notification(forName name: Notification.Name) -> Trigger {
         NotificationTrigger(notificationName: name)
     }
 }
 
+/// Defines trigger which is triggered when on the notification event.
 public class NotificationTrigger: Trigger {
     
     private var observer: (() -> ())?
     private let notificationName: Notification.Name
     private let queue: OperationQueue
 
+    /// Creates an instance of the notification trigger.
+    ///
+    /// - Parameters:
+    ///     - notificationName: The string used for observing notification.
+    ///     - queue: The operation queue type used for observing notifications.
     public init(notificationName: Notification.Name, queue: OperationQueue = .main) {
         self.notificationName = notificationName
         self.queue = queue
@@ -46,23 +62,27 @@ public class NotificationTrigger: Trigger {
     
 }
 
+/// Defines trigger which is triggered when on the screenshot event.
 public class ScreenshotTrigger: Trigger {
     
     let notificationTrigger: NotificationTrigger
     
+    /// Creates an instance of the screenshot trigger.
     public init() {
         notificationTrigger = NotificationTrigger(notificationName: UIApplication.userDidTakeScreenshotNotification)
     }
-    
+
     public func subscribe(on events: @escaping () -> ()) {
         notificationTrigger.subscribe(on: events)
     }
 }
 
+/// Defines trigger which is triggered when on the shake event.
 public class ShakeTrigger: Trigger {
     
     let notificationTrigger: NotificationTrigger
     
+    /// Creates an instance of the shake trigger.
     public init() {
         UIApplication.classInit
         notificationTrigger = NotificationTrigger(notificationName: .shakeMotionDetected)
@@ -76,6 +96,7 @@ public class ShakeTrigger: Trigger {
 // MARK: - Internal -
 
 extension Notification.Name {
+    /// The notification name for shake event.
     static var shakeMotionDetected: Notification.Name { .init("toolbox_shake_motion_detected") }
 }
 

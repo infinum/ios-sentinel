@@ -9,9 +9,8 @@ import UIKit
 
 /// Defines singleton instance of the toolbox.
 ///
-/// The toolbox can be configured with different configurations
-/// and based on the configuration used will be triggered from
-/// different events and show different tools.
+/// The toolbox can be configured with different configurations and based on
+/// the configuration used will be triggered from different events and show different tools.
 public class ToolBox {
     
     private var configuration: Configuration?
@@ -36,7 +35,7 @@ public class ToolBox {
     /// Defines configuration used to define toolbox.
     ///
     /// Based on the provided properties, toolbox will be shown based on different event
-    ///  and it will show different tools.
+    /// and it will show different tools.
     public class Configuration {
         
         /// The trigger event which starts the toolbox.
