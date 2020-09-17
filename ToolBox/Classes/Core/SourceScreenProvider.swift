@@ -5,18 +5,36 @@
 //  Created by Vlaho Poluta on 30/07/2020.
 //
 
-import UIKit
+import Foundation
 
-public protocol SourceScreenProvider {
+@objc
+public protocol SourceScreenProvider: NSObjectProtocol {
     var viewControllerForShowingTools: UIViewController? { get }
 }
 
-public enum SourceScreenProviders {
+@objcMembers
+public class SourceScreenProviders: NSObject {
+    
+    // MARK: - Public providers
+    
+    @objc(defaultProvider)
     public static var `default`: SourceScreenProvider { DefaultSourceScreenProvider() }
+    
+    // MARK: - Lifecycle
+    
+    private override init() {
+        super.init()
+    }
 }
 
-public class DefaultSourceScreenProvider: SourceScreenProvider {
+@objcMembers
+public class DefaultSourceScreenProvider: NSObject, SourceScreenProvider {
+    
+    // MARK: - Public properties
+    
     public var viewControllerForShowingTools: UIViewController? { topMostController() }
+    
+    // MARK: - Private methods
     
     private func topMostController() -> UIViewController? {
         guard let window = UIApplication.shared.keyWindow, let rootViewController = window.rootViewController else {

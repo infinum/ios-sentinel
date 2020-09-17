@@ -5,14 +5,29 @@
 //  Created by Vlaho Poluta on 30/07/2020.
 //
 
-import UIKit
+import Foundation
 
-public class ToolBox {
+@objcMembers
+public class ToolBox: NSObject {
     
-    private init() {}
-    public static let shared = ToolBox()
+    // MARK: - Private properties
+    
     private var configuration: Configuration?
+
+    // MARK: - Public properties
     
+    @objc(sharedInstance)
+    public static let shared = ToolBox()
+    
+    // MARK: - Lifecycle
+    
+    private override init() {
+        super.init()
+    }
+    
+    // MARK: - Public methods
+    
+    @objc(setupWithConfiguration:)
     public func setup(with configuration: Configuration) {
         self.configuration = configuration
         configuration.trigger.subscribe { [weak self] in
@@ -22,10 +37,18 @@ public class ToolBox {
         }
     }
     
-    public class Configuration {
+    // MARK: - Inner classes
+    
+    @objcMembers
+    public class Configuration: NSObject {
+        
+        // MARK: - Public properties
+        
         public let trigger: Trigger
         public let sourceScreenProvider: SourceScreenProvider
         public let tools: [Tool]
+        
+        // MARK: - Lifecycle
 
         public init(
             trigger: Trigger,
@@ -35,6 +58,7 @@ public class ToolBox {
             self.trigger = trigger
             self.sourceScreenProvider = sourceScreenProvider
             self.tools = tools
+            super.init()
         }
     }
     

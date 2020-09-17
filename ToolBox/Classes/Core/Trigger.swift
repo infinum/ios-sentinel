@@ -7,33 +7,54 @@
 
 import UIKit
 
-public protocol Trigger {
+@objc
+public protocol Trigger: NSObjectProtocol {
     func subscribe(on events: @escaping () -> ())
 }
 
-public enum Triggers {
+@objcMembers
+public class Triggers: NSObject {
+    
+    // MARK: - Public triggers
+    
     public static var shake: Trigger { ShakeTrigger() }
     public static var screenshot: Trigger { ScreenshotTrigger() }
     public static func notification(forName name: Notification.Name) -> Trigger {
         NotificationTrigger(notificationName: name)
     }
+    
+    // MARK: - Lifecycle
+    
+    private override init() {
+        super.init()
+    }
 }
 
-public class NotificationTrigger: Trigger {
+@objcMembers
+public class NotificationTrigger: NSObject, Trigger {
+
+    // MARK: - Private properties
     
     private var observer: (() -> ())?
     private let notificationName: Notification.Name
     private let queue: OperationQueue
 
+    // MARK: - Lifecycle
+    
     public init(notificationName: Notification.Name, queue: OperationQueue = .main) {
         self.notificationName = notificationName
         self.queue = queue
+        super.init()
         setup()
     }
+    
+    // MARK: - Public methods
     
     public func subscribe(on events: @escaping () -> ()) {
         self.observer = events
     }
+    
+    // MARK: - Private methods
 
     private func setup() {
         NotificationCenter.default.addObserver(
@@ -46,27 +67,43 @@ public class NotificationTrigger: Trigger {
     
 }
 
-public class ScreenshotTrigger: Trigger {
+@objcMembers
+public class ScreenshotTrigger: NSObject, Trigger {
+    
+    // MARK: - Public properties
     
     let notificationTrigger: NotificationTrigger
     
-    public init() {
+    // MARK: - Lifecycle
+    
+    public override init() {
         notificationTrigger = NotificationTrigger(notificationName: UIApplication.userDidTakeScreenshotNotification)
+        super.init()
     }
+    
+    // MARK: - Public methods
     
     public func subscribe(on events: @escaping () -> ()) {
         notificationTrigger.subscribe(on: events)
     }
 }
 
-public class ShakeTrigger: Trigger {
+@objcMembers
+public class ShakeTrigger: NSObject, Trigger {
+    
+    // MARK: - Public properties
     
     let notificationTrigger: NotificationTrigger
     
-    public init() {
+    // MARK: - Lifecycle
+    
+    public override init() {
         UIApplication.classInit
         notificationTrigger = NotificationTrigger(notificationName: .shakeMotionDetected)
+        super.init()
     }
+    
+    // MARK: - Public methods
     
     public func subscribe(on events: @escaping () -> ()) {
         notificationTrigger.subscribe(on: events)
