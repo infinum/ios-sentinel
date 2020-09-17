@@ -9,6 +9,7 @@ import UIKit
 
 @objc
 public protocol Trigger: NSObjectProtocol {
+    @objc(subscribeOnEvents:)
     func subscribe(on events: @escaping () -> ())
 }
 
@@ -19,6 +20,7 @@ public class Triggers: NSObject {
     
     public static var shake: Trigger { ShakeTrigger() }
     public static var screenshot: Trigger { ScreenshotTrigger() }
+    @objc(notificationForName:)
     public static func notification(forName name: Notification.Name) -> Trigger {
         NotificationTrigger(notificationName: name)
     }

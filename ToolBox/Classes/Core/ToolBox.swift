@@ -61,5 +61,4 @@ public class ToolBox: NSObject {
             super.init()
         }
     }
-    
 }

@@ -29,6 +29,7 @@ public class ToolTable: NSObject, Tool {
         presentPreview(from: viewController, push: true)
     }
     
+    @objc(presentPreviewFromViewController:push:)
     func presentPreview(from viewController: UIViewController, push: Bool) {
         let toolBoxController = ToolboxTableViewController.crete(with: self)
         if let navController = viewController.navigationController, push {
