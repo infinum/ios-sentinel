@@ -31,7 +31,7 @@
 		B350311B77F61DB20D2F3C77F41106EF /* TextEditingTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E5031BB4228F72979B26B2D3C21A75 /* TextEditingTool.swift */; };
 		B5CB54481FBF982237AF9F6A763E1E55 /* Pods-ToolBox_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 72A95F1A707B85D222526D05A93F5F85 /* Pods-ToolBox_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CC70FEC5DE63D139CD543701B936DE2B /* ToolBox-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 92651C126CFE9ED36D7482E3AFF31694 /* ToolBox-dummy.m */; };
-		D2A12BA07A5FCD5FB26D9B57F02207D1 /* NavigationToolTableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1484C6427F06C1A541DF721692AD89A /* NavigationToolTableItem.swift */; };
+		D2A12BA07A5FCD5FB26D9B57F02207D1 /* NavigationToolTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1484C6427F06C1A541DF721692AD89A /* NavigationToolTableCell.swift */; };
 		D78E1FAA20D8789E71B2C6AB19626E0B /* ToolboxTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F22C3FDA14B72A8E46857D7938A095D /* ToolboxTableViewController.swift */; };
 		DC6B2B03076D160AFA5197EE867B4215 /* DetailToolTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259314B4A4DD13ACAC00689F3F5C69AB /* DetailToolTableCell.swift */; };
 		F2360E386271B9140DD8C290B7BBBC3E /* Trigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DEB96F66D96996798D7BFB8CC8A1C30 /* Trigger.swift */; };
@@ -61,7 +61,7 @@
 		000FABAFDFBE8A49B01E0A73365A0814 /* Pods-ToolBox_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ToolBox_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		03EED3B7E78D025C5DF1446BA486E955 /* TextEditingViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextEditingViewController.swift; path = ToolBox/Classes/TextEditing/TextEditingViewController.swift; sourceTree = "<group>"; };
 		050C90104B34A4CAE887329AF8EABB85 /* Pods-ToolBox_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ToolBox_Example-umbrella.h"; sourceTree = "<group>"; };
-		0593D051D57AA5FD6CAA3D7DFD28D80E /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		0593D051D57AA5FD6CAA3D7DFD28D80E /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0DEB96F66D96996798D7BFB8CC8A1C30 /* Trigger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Trigger.swift; path = ToolBox/Classes/Core/Trigger.swift; sourceTree = "<group>"; };
 		0F09B4B353BEC3840FF3C28DA3090D2B /* Pods-ToolBox_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-ToolBox_Tests.modulemap"; sourceTree = "<group>"; };
 		18E98AC47BAE14F5D02C680DE510C64D /* Pods-ToolBox_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ToolBox_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -76,25 +76,25 @@
 		3AB8AD878EC7547A594642A6F76362A9 /* ToolBox-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ToolBox-prefix.pch"; sourceTree = "<group>"; };
 		436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		45F235241DBC46B02C5109D605F80D9A /* UserDefaultsTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UserDefaultsTool.swift; path = ToolBox/Classes/UserDefaults/UserDefaultsTool.swift; sourceTree = "<group>"; };
-		4D747DE4E3AFC0C074833206802E33C9 /* Pods_ToolBox_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ToolBox_Example.framework; path = "Pods-ToolBox_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D747DE4E3AFC0C074833206802E33C9 /* Pods_ToolBox_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToolBox_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F52ACE5390461680D23AA1CFD99D3A2 /* ToolBox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ToolBox.swift; path = ToolBox/Classes/Core/ToolBox.swift; sourceTree = "<group>"; };
 		5241378F0DAED9C5E88115FD241EAFC8 /* ToolBox-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ToolBox-umbrella.h"; sourceTree = "<group>"; };
 		581D45E15A6C5CD7A28911546AE2BF1D /* Pods-ToolBox_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ToolBox_Tests-Info.plist"; sourceTree = "<group>"; };
 		666E89F3A50D89E6C3145C8F86AE5931 /* DetailToolTableCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = DetailToolTableCell.xib; sourceTree = "<group>"; };
 		6744D5B596339870C6D886DB8454705A /* GeneralInfoTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GeneralInfoTool.swift; path = ToolBox/Classes/GeneralInfo/GeneralInfoTool.swift; sourceTree = "<group>"; };
-		6ADD1E8FB7C72CA0531223D70F756206 /* ToolBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ToolBox.framework; path = ToolBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6ADD1E8FB7C72CA0531223D70F756206 /* ToolBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ToolBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BD636C5F40804597013572A96C3A09B /* SourceScreenProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SourceScreenProvider.swift; path = ToolBox/Classes/Core/SourceScreenProvider.swift; sourceTree = "<group>"; };
 		724BD5E23C7D62EF469662C512F65580 /* UserDefaults.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; name = UserDefaults.storyboard; path = ToolBox/Classes/UserDefaults/UserDefaults.storyboard; sourceTree = "<group>"; };
 		72A95F1A707B85D222526D05A93F5F85 /* Pods-ToolBox_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ToolBox_Tests-umbrella.h"; sourceTree = "<group>"; };
-		7EA8A24DF2F852587880B7B1BC1038B0 /* Pods_ToolBox_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ToolBox_Tests.framework; path = "Pods-ToolBox_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7EA8A24DF2F852587880B7B1BC1038B0 /* Pods_ToolBox_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToolBox_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8331B93E60F67A164D0C79991AC110DC /* Pods-ToolBox_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ToolBox_Example-dummy.m"; sourceTree = "<group>"; };
 		8859D52B323BA8E09360F378DF335D4D /* Pods-ToolBox_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-ToolBox_Example.modulemap"; sourceTree = "<group>"; };
 		8F57D763FDE376D506611D78DC7D45A9 /* NavigationToolTableCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = NavigationToolTableCell.xib; sourceTree = "<group>"; };
 		92651C126CFE9ED36D7482E3AFF31694 /* ToolBox-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ToolBox-dummy.m"; sourceTree = "<group>"; };
 		9419784FDF9FA8D035D1F8DA9EF5BCD8 /* Pods-ToolBox_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ToolBox_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		9B3CF2AC0150CC9CC86ADC6A684A3D74 /* ToolBox-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ToolBox-Info.plist"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A1484C6427F06C1A541DF721692AD89A /* NavigationToolTableItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NavigationToolTableItem.swift; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A1484C6427F06C1A541DF721692AD89A /* NavigationToolTableCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NavigationToolTableCell.swift; sourceTree = "<group>"; };
 		A3C91AD76EEC56F4D396FD49D466CC1C /* CustomInfoTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CustomInfoTool.swift; path = ToolBox/Classes/CustomInfo/CustomInfoTool.swift; sourceTree = "<group>"; };
 		A3E5031BB4228F72979B26B2D3C21A75 /* TextEditingTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextEditingTool.swift; path = ToolBox/Classes/TextEditing/TextEditingTool.swift; sourceTree = "<group>"; };
 		AB14BBA54E81EBA1543C6B7E4AFDFA46 /* Pods-ToolBox_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ToolBox_Example-Info.plist"; sourceTree = "<group>"; };
@@ -108,9 +108,9 @@
 		D549FCEDD9AF7085DDB9C775AAA9C6AB /* ToolBoxUIKitExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ToolBoxUIKitExtensions.swift; sourceTree = "<group>"; };
 		DEBF6CC690A33C278E814F9AE1D9C690 /* Pods-ToolBox_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ToolBox_Tests-dummy.m"; sourceTree = "<group>"; };
 		F158E2AD25C2F593EE2346FA6C28B89F /* TextEditing.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; name = TextEditing.storyboard; path = ToolBox/Classes/TextEditing/TextEditing.storyboard; sourceTree = "<group>"; };
-		F186B63D3A13C13FA4A55A3805155815 /* ToolBox.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = ToolBox.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		F186B63D3A13C13FA4A55A3805155815 /* ToolBox.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = ToolBox.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		F649B4996151FE943AE94BD7E17AB5EC /* ToolBox.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; path = ToolBox.storyboard; sourceTree = "<group>"; };
-		FC16BF30F634DA2E3FEC9B0F518B035E /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		FC16BF30F634DA2E3FEC9B0F518B035E /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		FEE97CF797C2255A115ACCD56B9853C9 /* Pods-ToolBox_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ToolBox_Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -251,8 +251,8 @@
 			children = (
 				259314B4A4DD13ACAC00689F3F5C69AB /* DetailToolTableCell.swift */,
 				666E89F3A50D89E6C3145C8F86AE5931 /* DetailToolTableCell.xib */,
+				A1484C6427F06C1A541DF721692AD89A /* NavigationToolTableCell.swift */,
 				8F57D763FDE376D506611D78DC7D45A9 /* NavigationToolTableCell.xib */,
-				A1484C6427F06C1A541DF721692AD89A /* NavigationToolTableItem.swift */,
 			);
 			name = ToolTableItems;
 			path = ToolBox/Classes/Core/ToolTableItems;
@@ -494,7 +494,7 @@
 				2F13FB994986A77CEE84AC63A33A9857 /* DetailToolTableCell.xib in Sources */,
 				7BAA96BCE1E5698AED2D5F32DD950760 /* GeneralInfoTool.swift in Sources */,
 				01CCEB4BDF52E423E169D34B43E4A99A /* NavigationToolTableCell.xib in Sources */,
-				D2A12BA07A5FCD5FB26D9B57F02207D1 /* NavigationToolTableItem.swift in Sources */,
+				D2A12BA07A5FCD5FB26D9B57F02207D1 /* NavigationToolTableCell.swift in Sources */,
 				31693D38144A148E70FD979B48C38969 /* SourceScreenProvider.swift in Sources */,
 				67647ADCA466DC2ED405DC0EBA63948E /* TextEditing.storyboard in Sources */,
 				B350311B77F61DB20D2F3C77F41106EF /* TextEditingTool.swift in Sources */,
@@ -800,8 +800,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
