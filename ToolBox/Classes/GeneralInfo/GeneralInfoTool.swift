@@ -5,11 +5,18 @@
 //  Created by Vlaho Poluta on 30/07/2020.
 //
 
-import UIKit
+import Foundation
 
-public class GeneralInfoTool: Tool {
+@objcMembers
+public class GeneralInfoTool: NSObject, Tool {
     
-    public init() {}
+    // MARK: - Lifecycle
+    
+    public override init() {
+        super.init()
+    }
+    
+    // MARK: - Private properties
     
     private(set) lazy var tool = CustomInfoTool(
         name: "General Info",
@@ -34,18 +41,26 @@ public class GeneralInfoTool: Tool {
         ]
     )
     
+    // MARK: - Public properties
+    
     public var name: String { tool.name }
+    
+    // MARK: - Public methods
+    
     public func presentPreview(from viewController: UIViewController) {
         tool.presentPreview(from: viewController)
     }
 }
 
+@objc
 extension GeneralInfoTool {
     
+    @objc(stringFromPlistForCFKey:)
     func stringFromPlist(for key: CFString) -> String {
         stringFromPlist(for: key as String)
     }
     
+    @objc(stringFromPlistForKey:)
     func stringFromPlist(for key: String) -> String {
         Bundle.main.object(forInfoDictionaryKey: key).map { String(describing: $0) } ?? ""
     }

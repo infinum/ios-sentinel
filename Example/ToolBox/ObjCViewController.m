@@ -18,6 +18,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    CustomInfoToolItem *item = [[CustomInfoToolItem alloc] initWithTitle:@"" value:@""];
 }
 
 @end
