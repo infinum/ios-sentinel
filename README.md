@@ -44,7 +44,7 @@ In this chapter, some of the most important pieces of the library will be introd
 
 To be able to configure `Toolbox` object, the `Configuration` object is introduced. This object contains multiple objects which defines general *Toolbox* behaviour. The inputs which this object needs are; `trigger`, `sourceScreenProvider` and `tools`. 
 
-The `trigger` object is a type of `Trigger` which defines on which event the *Toolbox* will be triggered. Currently, three types of are supported; `ShakeTrigger`, `ScreenshotTrigger`, `NotificationTrigger`.
+The `trigger` object is a type of `Trigger` which defines on which event the *Toolbox* will be triggered. Currently, three types of are supported; `ShakeTrigger`, `ScreenshotTrigger`, `NotificationTrigger`. New triggers can be added as well, just by conforming the `Trigger` protocol.
 
 The `sourceScreenProvider` object is a type of `SourceScreenProvider` which should provide a view controller from where will *Toolbox* be presented. Currently, one type is supported; `default`.
 
@@ -84,7 +84,8 @@ ToolBox.shared.setup(with: configuration)
 
 ## Author
 
-* Vlaho Poluta, vlaho.poluta@infinum.hr
+* Vlaho Poluta, vlaho.poluta@infinum.com
+* Nikola Majcen, nikola.majcen@infinum.com
 
 ## License
 
