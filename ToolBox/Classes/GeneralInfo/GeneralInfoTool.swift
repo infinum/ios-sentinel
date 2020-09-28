@@ -7,14 +7,11 @@
 
 import Foundation
 
-@objcMembers
-public class GeneralInfoTool: NSObject, Tool {
+public class GeneralInfoTool: Tool {
     
     // MARK: - Lifecycle
     
-    public override init() {
-        super.init()
-    }
+    public init() {}
     
     // MARK: - Private properties
     
@@ -52,15 +49,12 @@ public class GeneralInfoTool: NSObject, Tool {
     }
 }
 
-@objc
 extension GeneralInfoTool {
     
-    @objc(stringFromPlistForCFKey:)
     func stringFromPlist(for key: CFString) -> String {
         stringFromPlist(for: key as String)
     }
     
-    @objc(stringFromPlistForKey:)
     func stringFromPlist(for key: String) -> String {
         Bundle.main.object(forInfoDictionaryKey: key).map { String(describing: $0) } ?? ""
     }

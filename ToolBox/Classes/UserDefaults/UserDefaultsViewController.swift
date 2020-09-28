@@ -7,12 +7,10 @@
 
 import Foundation
 
-@objc
 extension UIStoryboard {
     static var userDefaults: UIStoryboard { UIStoryboard(name: "UserDefaults", bundle: .toolBox) }
 }
 
-@objcMembers
 class UserDefaultsViewController: UIViewController {
 
     // MARK: - Private properties
@@ -27,7 +25,6 @@ class UserDefaultsViewController: UIViewController {
     
     // MARK: - Public methods
     
-    @objc(createWithTitle:details:)
     static func create(withTitle title: String, details: String) -> UserDefaultsViewController {
         let viewController = UIStoryboard.userDefaults.instantiateViewController(ofType: UserDefaultsViewController.self)
         viewController.text = title

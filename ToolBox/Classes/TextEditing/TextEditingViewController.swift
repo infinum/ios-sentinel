@@ -7,12 +7,10 @@
 
 import UIKit
 
-@objc
 extension UIStoryboard {
     static var textEditing: UIStoryboard { UIStoryboard(name: "TextEditing", bundle: .toolBox) }
 }
 
-@objcMembers
 class TextEditingViewController: UIViewController {
 
     // MARK: - Private properties
@@ -28,7 +26,6 @@ class TextEditingViewController: UIViewController {
     
     // MARK: - Public methods
     
-    @objc(createWithTitle:setter:getter:)
     static func create(
         withTitle name: String,
         setter: @escaping (String) -> (),

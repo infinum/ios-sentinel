@@ -7,8 +7,7 @@
 
 import Foundation
 
-@objcMembers
-public class CustomInfoTool: NSObject, Tool {
+public class CustomInfoTool: Tool {
     
     // MARK: - Public properties
     
@@ -23,7 +22,6 @@ public class CustomInfoTool: NSObject, Tool {
     public init(name: String, info: [Section]) {
         self.name = name
         self.info = info
-        super.init()
     }
     
     // MARK: - Public properties
@@ -40,12 +38,9 @@ public class CustomInfoTool: NSObject, Tool {
     }
 }
 
-@objc
 extension CustomInfoTool {
     
-    @objcMembers
-    @objc(CustomInfoToolSection)
-    public class Section: NSObject {
+    public class Section {
         
         // MARK: - Public properties
         
@@ -57,13 +52,10 @@ extension CustomInfoTool {
         public init(title: String? = nil, items: [Item]) {
             self.title = title
             self.items = items
-            super.init()
         }
     }
     
-    @objcMembers
-    @objc(CustomInfoToolItem)
-    public class Item: NSObject {
+    public class Item {
         
         // MARK: - Public properties
 
@@ -75,7 +67,6 @@ extension CustomInfoTool {
         public init(title: String, value: String) {
             self.title = title
             self.value = value
-            super.init()
         }
     }
     

@@ -7,8 +7,7 @@
 
 import Foundation
 
-@objcMembers
-public class TextEditingTool: NSObject, Tool {
+public class TextEditingTool: Tool {
     
     // MARK: - Public properties
     
@@ -32,7 +31,6 @@ public class TextEditingTool: NSObject, Tool {
         self.setter = setter
         self.getter = getter
         self.userDefaultsKey = userDefaultsKey
-        super.init()
         loadStoredValue()
     }
     
@@ -48,10 +46,8 @@ public class TextEditingTool: NSObject, Tool {
     }
 }
 
-@objc
 extension TextEditingTool {
     
-    @objc(storeNewValue:)
     func store(newValue: String) {
         if let key = userDefaultsKey {
             UserDefaults.standard.set(newValue, forKey: key)
@@ -59,7 +55,6 @@ extension TextEditingTool {
         setter(newValue)
     }
     
-    @objc
     func loadStoredValue() {
         guard
             let key = userDefaultsKey,

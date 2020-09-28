@@ -7,8 +7,7 @@
 
 import Foundation
 
-@objcMembers
-public class UserDefaultsTool: NSObject, Tool {
+public class UserDefaultsTool: Tool {
     
     // MARK: - Public properties
     
@@ -23,7 +22,6 @@ public class UserDefaultsTool: NSObject, Tool {
     public init(name: String = "User Defaults Inspector", userDefaults: UserDefaults = .standard) {
         self.name = name
         self.userDefaults = userDefaults
-        super.init()
     }
     
     // MARK: - Public methods
