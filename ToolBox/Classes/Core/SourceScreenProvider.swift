@@ -7,16 +7,21 @@
 
 import Foundation
 
+/// Defines source screen which will be used to present toolbox when triggered.
 @objc
 public protocol SourceScreenProvider: NSObjectProtocol {
+
+    /// The view controller used for presenting the toolbox.
     var viewControllerForShowingTools: UIViewController? { get }
 }
 
+/// Provides possible source screens used for presenting the toolbox.
 @objcMembers
 public class SourceScreenProviders: NSObject {
     
     // MARK: - Public providers
     
+    /// Default source screen provider.
     @objc(defaultProvider)
     public static var `default`: SourceScreenProvider { DefaultSourceScreenProvider() }
     
@@ -27,6 +32,7 @@ public class SourceScreenProviders: NSObject {
     }
 }
 
+/// Defines detauls source screen provider used for presenting the toolbox.
 @objcMembers
 public class DefaultSourceScreenProvider: NSObject, SourceScreenProvider {
     

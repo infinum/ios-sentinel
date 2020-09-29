@@ -7,6 +7,10 @@
 
 import Foundation
 
+/// Defines singleton instance of the toolbox.
+///
+/// The toolbox can be configured with different configurations and based on
+/// the configuration used will be triggered from different events and show different tools.
 @objcMembers
 public class ToolBox: NSObject {
     
@@ -16,6 +20,7 @@ public class ToolBox: NSObject {
 
     // MARK: - Public properties
     
+    /// Singleton instance of the toolbox.
     @objc(sharedInstance)
     public static let shared = ToolBox()
     
@@ -27,6 +32,9 @@ public class ToolBox: NSObject {
     
     // MARK: - Public methods
     
+    /// Setups the toolbox with provided configuration.
+    ///
+    /// - Parameter configuration: The configuration used to setup current instance of the toolbox.
     @objc(setupWithConfiguration:)
     public func setup(with configuration: Configuration) {
         self.configuration = configuration
@@ -39,17 +47,32 @@ public class ToolBox: NSObject {
     
     // MARK: - Inner classes
     
+    /// Defines configuration used to define toolbox.
+    ///
+    /// Based on the provided properties, toolbox will be shown based on different event
+    /// and it will show different tools.
     @objcMembers
     public class Configuration: NSObject {
         
         // MARK: - Public properties
         
+        /// The trigger event which starts the toolbox.
         public let trigger: Trigger
+        
+        /// The screen used for presenting the toolbox.
         public let sourceScreenProvider: SourceScreenProvider
+        
+        /// Tools which are available from the toolbox.
         public let tools: [Tool]
         
         // MARK: - Lifecycle
 
+        /// Creates a new configuration.
+        ///
+        /// - Parameters:
+        ///     - trigger: The trigger event which opens the toolbox.
+        ///     - sourceScreenProvider: The screen from which toolbox can be presented.
+        ///     - tools: Tools available from the toolbox.
         public init(
             trigger: Trigger,
             sourceScreenProvider: SourceScreenProvider = SourceScreenProviders.default,

@@ -1,5 +1,5 @@
 //
-//  NavigationToolTableItem.swift
+//  NavigationToolTableCell.swift
 //  ToolBox
 //
 //  Created by Vlaho Poluta on 30/07/2020.
