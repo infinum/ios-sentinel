@@ -79,8 +79,8 @@
 		436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		45F235241DBC46B02C5109D605F80D9A /* UserDefaultsTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UserDefaultsTool.swift; path = ToolBox/Classes/UserDefaults/UserDefaultsTool.swift; sourceTree = "<group>"; };
 		4D747DE4E3AFC0C074833206802E33C9 /* Pods_ToolBox_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToolBox_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4F0C7BCF25237F4300A1B6BB /* ToolTableSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolTableSection.swift; sourceTree = "<group>"; };
-		4F0C7BD725237F7A00A1B6BB /* ToolTableItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolTableItem.swift; sourceTree = "<group>"; };
+		4F0C7BCF25237F4300A1B6BB /* ToolTableSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ToolTableSection.swift; path = ToolBox/Classes/Core/ToolTableSection.swift; sourceTree = "<group>"; };
+		4F0C7BD725237F7A00A1B6BB /* ToolTableItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ToolTableItem.swift; path = ToolBox/Classes/Core/ToolTableItem.swift; sourceTree = "<group>"; };
 		4F52ACE5390461680D23AA1CFD99D3A2 /* ToolBox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ToolBox.swift; path = ToolBox/Classes/Core/ToolBox.swift; sourceTree = "<group>"; };
 		5241378F0DAED9C5E88115FD241EAFC8 /* ToolBox-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ToolBox-umbrella.h"; sourceTree = "<group>"; };
 		581D45E15A6C5CD7A28911546AE2BF1D /* Pods-ToolBox_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ToolBox_Tests-Info.plist"; sourceTree = "<group>"; };
@@ -258,7 +258,8 @@
 				A1484C6427F06C1A541DF721692AD89A /* NavigationToolTableCell.swift */,
 				8F57D763FDE376D506611D78DC7D45A9 /* NavigationToolTableCell.xib */,
 			);
-			path = ToolTableItems;
+			name = ToolTableItems;
+			path = ToolBox/Classes/Core/ToolTableItems;
 			sourceTree = "<group>";
 		};
 		75EF012F82D1E60F9B1EF1A588EE5ACC /* UserDefaults */ = {
@@ -495,7 +496,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				54F97646F358D299A377C408195217D8 /* CustomInfoTool.swift in Sources */,
-				4F0C7BD025237F4300A1B6BB /* ToolTableSection.swift in Sources */,
 				DC6B2B03076D160AFA5197EE867B4215 /* DetailToolTableCell.swift in Sources */,
 				2F13FB994986A77CEE84AC63A33A9857 /* DetailToolTableCell.xib in Sources */,
 				7BAA96BCE1E5698AED2D5F32DD950760 /* GeneralInfoTool.swift in Sources */,
@@ -514,6 +514,7 @@
 				A05EE56C2017A74CD5489C050A4BFF7D /* ToolBoxUIKitExtensions.swift in Sources */,
 				881C2679961855BE7C56AFF5A6AB2DEF /* ToolTable.swift in Sources */,
 				4F0C7BD825237F7A00A1B6BB /* ToolTableItem.swift in Sources */,
+				4F0C7BD025237F4300A1B6BB /* ToolTableSection.swift in Sources */,
 				F2360E386271B9140DD8C290B7BBBC3E /* Trigger.swift in Sources */,
 				53A369E24F7324E96F715DA9F491E0DA /* UserDefaults.storyboard in Sources */,
 				237C03AA5DF62B01DB5FDA5AADCD6274 /* UserDefaultsTool.swift in Sources */,
