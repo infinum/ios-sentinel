@@ -13,7 +13,7 @@ class ToolboxTableViewController: UIViewController {
     @IBOutlet var closeButton: UIBarButtonItem!
     private var toolTable: ToolTable!
     
-    static func crete(with toolTable: ToolTable) -> ToolboxTableViewController {
+    static func create(with toolTable: ToolTable) -> ToolboxTableViewController {
         let viewController = UIStoryboard.toolBox.instantiateViewController(ofType: Self.self)
         viewController.toolTable = toolTable
         return viewController
