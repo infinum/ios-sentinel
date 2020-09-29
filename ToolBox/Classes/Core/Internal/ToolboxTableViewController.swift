@@ -9,8 +9,8 @@ import UIKit
 
 class ToolboxTableViewController: UIViewController {
 
-    @IBOutlet var tableView: UITableView!
-    @IBOutlet var closeButton: UIBarButtonItem!
+    @IBOutlet private var tableView: UITableView!
+    @IBOutlet private var closeButton: UIBarButtonItem!
     private var toolTable: ToolTable!
     
     static func create(with toolTable: ToolTable) -> ToolboxTableViewController {
