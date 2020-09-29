@@ -25,7 +25,7 @@ enum AppUrl {
     static var baseURL = "http://google.com"
 }
 
-extension AppDelegate {
+private extension AppDelegate {
     
     func setupToolBox() {
         let configuration = ToolBox.Configuration(

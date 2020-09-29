@@ -47,6 +47,10 @@ public class NotificationTrigger: Trigger {
         setup()
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     public func subscribe(on events: @escaping () -> ()) {
         self.observer = events
     }
