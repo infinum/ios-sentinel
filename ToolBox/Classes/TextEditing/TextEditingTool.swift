@@ -12,12 +12,14 @@ public class TextEditingTool: Tool {
     public let name: String
     private let setter: (String) -> ()
     private let getter: () -> (String)
+    private let userDefaults: UserDefaults?
     private let userDefaultsKey: String?
 
-    public init(name: String, setter: @escaping (String) -> (), getter: @escaping () -> (String), userDefaultsKey: String? = nil) {
+    public init(name: String, setter: @escaping (String) -> (), getter: @escaping () -> (String), userDefaults: UserDefaults?, userDefaultsKey: String? = nil) {
         self.name = name
         self.setter = setter
         self.getter = getter
+        self.userDefaults = userDefaults
         self.userDefaultsKey = userDefaultsKey
         loadStoredValue()
     }
@@ -35,16 +37,17 @@ public class TextEditingTool: Tool {
 extension TextEditingTool {
     
     func store(newValue: String) {
-        if let key = userDefaultsKey {
-            UserDefaults.standard.set(newValue, forKey: key)
+        if let storage = userDefaults, let key = userDefaultsKey {
+            storage.set(newValue, forKey: key)
         }
         setter(newValue)
     }
     
     func loadStoredValue() {
         guard
+            let storage = userDefaults,
             let key = userDefaultsKey,
-            let value = UserDefaults.standard.string(forKey: key)
+            let value = storage.string(forKey: key)
         else { return }
         setter(value)
     }

@@ -48,6 +48,7 @@ extension AppDelegate {
             name: "Base URL",
             setter: { AppUrl.baseURL = $0 },
             getter: { AppUrl.baseURL },
+            userDefaults: .standard,
             userDefaultsKey: "base_url_user_defaults_key"
         )
     }
