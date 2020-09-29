@@ -71,6 +71,14 @@ public class ToolTableSection: NSObject {
 @objc
 public protocol ToolTableItem: NSObjectProtocol {
     
+    /// Cell used for the item representation.
+    ///
+    /// - Parameters:
+    ///     - tableView: The table view which from which item is available.
+    ///     - indexPath: The index path in the table view from where cell should be fetched.
+    @objc(cellFromTableView:atIndexPath:)
+    func cell(from tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell
+    
     /// The height of the item.
     ///
     /// If not defined, a default value is used as `UITableView.automaticDimension`.
@@ -87,19 +95,11 @@ public protocol ToolTableItem: NSObjectProtocol {
     ///
     /// - Parameter tableView: The table view which shows the items.
     @objc(registerAtTableView:)
-    func register(at tableView: UITableView)
-    
-    /// Cell used for the item representation.
-    ///
-    /// - Parameters:
-    ///     - tableView: The table view which from which item is available.
-    ///     - indexPath: The index path in the table view from where cell should be fetched.
-    @objc(cellFromTableView:atIndexPath:)
-    func cell(from tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell
+    optional func register(at tableView: UITableView)
     
     /// It is called when the item is selected.
     ///
     /// - Parameter viewController: The view controller from which the item has been selected.
     @objc(didSelectFromViewController:)
-    func didSelect(from viewController: UIViewController)
+    optional func didSelect(from viewController: UIViewController)
 }

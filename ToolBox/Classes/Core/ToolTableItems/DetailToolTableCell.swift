@@ -37,8 +37,6 @@ extension DetailToolTableItem: ToolTableItem {
         cell.configure(with: self)
         return cell
     }
-    
-    public func didSelect(from viewController: UIViewController) { }
 }
 
 class DetailToolTableCell: UITableViewCell {
