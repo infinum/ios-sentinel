@@ -26,16 +26,7 @@ public class DetailToolTableItem: NSObject {
 
 // MARK: - ToolTableItem
 
-@objc
 extension DetailToolTableItem: ToolTableItem {
-    
-    public var height: CGFloat {
-        return (self as ToolTableItem).height
-    }
-    
-    public var estimatedHeight: CGFloat {
-        return (self as ToolTableItem).estimatedHeight
-    }
     
     public func register(at tableView: UITableView) {
         tableView.registerNib(cellOfType: DetailToolTableCell.self)
@@ -50,12 +41,10 @@ extension DetailToolTableItem: ToolTableItem {
     public func didSelect(from viewController: UIViewController) { }
 }
 
-@objcMembers
 class DetailToolTableCell: UITableViewCell {
     
     // MARK: - Public methods
     
-    @objc(configureWithItem:)
     func configure(with item: DetailToolTableItem) {
         textLabel?.text = item.title
         detailTextLabel?.text = item.detail

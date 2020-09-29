@@ -72,10 +72,16 @@ public class ToolTableSection: NSObject {
 public protocol ToolTableItem: NSObjectProtocol {
     
     /// The height of the item.
-    var height: CGFloat { get }
+    ///
+    /// If not defined, a default value is used as `UITableView.automaticDimension`.
+    @objc
+    optional var height: CGFloat { get }
     
     /// The estimated height of the item.
-    var estimatedHeight: CGFloat { get }
+    ///
+    /// If not defined, a default value is used as `44.0`.
+    @objc
+    optional var estimatedHeight: CGFloat { get }
     
     /// Registers the item to the provided table view.
     ///
@@ -96,10 +102,4 @@ public protocol ToolTableItem: NSObjectProtocol {
     /// - Parameter viewController: The view controller from which the item has been selected.
     @objc(didSelectFromViewController:)
     func didSelect(from viewController: UIViewController)
-}
-
-public extension ToolTableItem {
-    
-    var height: CGFloat { UITableView.automaticDimension }
-    var estimatedHeight: CGFloat { 44 }
 }

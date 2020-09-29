@@ -20,23 +20,13 @@ public class NavigationToolTableItem: NSObject {
     public init(title: String, navigate: @escaping (UIViewController) -> ()) {
         self.title = title
         self.navigate = navigate
-        super.init()
     }
 }
 
 // MARK: - ToolTableItem
 
-@objc
 extension NavigationToolTableItem: ToolTableItem {
-    
-    public var height: CGFloat {
-        return (self as ToolTableItem).height
-    }
-    
-    public var estimatedHeight: CGFloat {
-        return (self as ToolTableItem).estimatedHeight
-    }
-    
+
     public func register(at tableView: UITableView) {
         tableView.registerNib(cellOfType: NavigationToolTableCell.self)
     }
@@ -52,12 +42,10 @@ extension NavigationToolTableItem: ToolTableItem {
     }
 }
 
-@objcMembers
 class NavigationToolTableCell: UITableViewCell {
     
     // MARK: - Public methods
     
-    @objc(configureWithItem:)
     func configure(with item: NavigationToolTableItem) {
         textLabel?.text = item.title
     }
