@@ -82,7 +82,7 @@ let configuration = ToolBox.Configuration(
 ToolBox.shared.setup(with: configuration)
 ```
 
-## Author
+## Authors
 
 * Vlaho Poluta, vlaho.poluta@infinum.com
 * Nikola Majcen, nikola.majcen@infinum.com

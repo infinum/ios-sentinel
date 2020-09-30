@@ -5,24 +5,37 @@
 //  Created by Vlaho Poluta on 30/07/2020.
 //
 
-import UIKit
+import Foundation
 
 /// Defines singleton instance of the toolbox.
 ///
 /// The toolbox can be configured with different configurations and based on
 /// the configuration used will be triggered from different events and show different tools.
-public class ToolBox {
+@objcMembers
+public class ToolBox: NSObject {
+    
+    // MARK: - Private properties
     
     private var configuration: Configuration?
+
+    // MARK: - Public properties
     
     /// Singleton instance of the toolbox.
+    @objc(sharedInstance)
     public static let shared = ToolBox()
     
-    private init() { }
+    // MARK: - Lifecycle
+    
+    private override init() {
+        super.init()
+    }
+    
+    // MARK: - Public methods
     
     /// Setups the toolbox with provided configuration.
     ///
     /// - Parameter configuration: The configuration used to setup current instance of the toolbox.
+    @objc(setupWithConfiguration:)
     public func setup(with configuration: Configuration) {
         self.configuration = configuration
         configuration.trigger.subscribe { [weak self] in
@@ -32,11 +45,16 @@ public class ToolBox {
         }
     }
     
+    // MARK: - Inner classes
+    
     /// Defines configuration used to define toolbox.
     ///
     /// Based on the provided properties, toolbox will be shown based on different event
     /// and it will show different tools.
-    public class Configuration {
+    @objcMembers
+    public class Configuration: NSObject {
+        
+        // MARK: - Public properties
         
         /// The trigger event which starts the toolbox.
         public let trigger: Trigger
@@ -46,6 +64,8 @@ public class ToolBox {
         
         /// Tools which are available from the toolbox.
         public let tools: [Tool]
+        
+        // MARK: - Lifecycle
 
         /// Creates a new configuration.
         ///
@@ -61,7 +81,7 @@ public class ToolBox {
             self.trigger = trigger
             self.sourceScreenProvider = sourceScreenProvider
             self.tools = tools
+            super.init()
         }
     }
-    
 }
