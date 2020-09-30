@@ -15,7 +15,7 @@ public class TextEditingTool: Tool {
     private let userDefaults: UserDefaults?
     private let userDefaultsKey: String?
 
-    public init(name: String, setter: @escaping (String) -> (), getter: @escaping () -> (String), userDefaults: UserDefaults?, userDefaultsKey: String? = nil) {
+    public init(name: String, setter: @escaping (String) -> (), getter: @escaping () -> (String), userDefaults: UserDefaults = .standard, userDefaultsKey: String? = nil) {
         self.name = name
         self.setter = setter
         self.getter = getter
