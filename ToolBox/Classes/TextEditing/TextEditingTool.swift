@@ -17,7 +17,7 @@ public class TextEditingTool: Tool {
     
     private let setter: (String) -> ()
     private let getter: () -> (String)
-    private let userDefaults: UserDefaults?
+    private let userDefaults: UserDefaults
     private let userDefaultsKey: String?
 
     // MARK: - Lifecycle
@@ -52,17 +52,16 @@ public class TextEditingTool: Tool {
 extension TextEditingTool {
     
     func store(newValue: String) {
-        if let storage = userDefaults, let key = userDefaultsKey {
-            storage.set(newValue, forKey: key)
+        if let key = userDefaultsKey {
+            userDefaults.set(newValue, forKey: key)
         }
         setter(newValue)
     }
     
     func loadStoredValue() {
         guard
-            let storage = userDefaults,
             let key = userDefaultsKey,
-            let value = storage.string(forKey: key)
+            let value = userDefaults.string(forKey: key)
         else { return }
         setter(value)
     }

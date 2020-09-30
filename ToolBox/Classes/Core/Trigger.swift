@@ -69,7 +69,7 @@ public class NotificationTrigger: NSObject, Trigger {
     }
     
     deinit {
-        guard let token = self.observerToken else { return }
+        guard let token = observerToken else { return }
         NotificationCenter.default.removeObserver(token)
     }
     // MARK: - Public methods
