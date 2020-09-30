@@ -51,13 +51,11 @@ class ToolboxTableViewController: UIViewController {
 extension ToolboxTableViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        guard let height = toolTable[indexPath].height else { return UITableView.automaticDimension }
-        return height
+        return toolTable[indexPath].height ?? UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        guard let estimatedHeight = toolTable[indexPath].estimatedHeight else { return 44.0 }
-        return estimatedHeight
+        return toolTable[indexPath].estimatedHeight ?? 44.0
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
