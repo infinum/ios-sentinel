@@ -33,6 +33,7 @@ public enum Triggers {
 public class NotificationTrigger: Trigger {
     
     private var observer: (() -> ())?
+    private var observerToken: NSObjectProtocol?
     private let notificationName: Notification.Name
     private let queue: OperationQueue
 
@@ -48,7 +49,9 @@ public class NotificationTrigger: Trigger {
     }
     
     deinit {
-        NotificationCenter.default.removeObserver(self)
+        if let token = self.observerToken {
+            NotificationCenter.default.removeObserver(token)
+        }
     }
     
     public func subscribe(on events: @escaping () -> ()) {
@@ -56,7 +59,7 @@ public class NotificationTrigger: Trigger {
     }
 
     private func setup() {
-        NotificationCenter.default.addObserver(
+        self.observerToken = NotificationCenter.default.addObserver(
             forName: notificationName,
             object: nil,
             queue: queue,
