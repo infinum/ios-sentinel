@@ -17,6 +17,7 @@ public class TextEditingTool: Tool {
     
     private let setter: (String) -> ()
     private let getter: () -> (String)
+    private let userDefaults: UserDefaults
     private let userDefaultsKey: String?
 
     // MARK: - Lifecycle
@@ -25,11 +26,13 @@ public class TextEditingTool: Tool {
         name: String,
         setter: @escaping (String) -> (),
         getter: @escaping () -> (String),
+        userDefaults: UserDefaults = .standard,
         userDefaultsKey: String? = nil
     ) {
         self.name = name
         self.setter = setter
         self.getter = getter
+        self.userDefaults = userDefaults
         self.userDefaultsKey = userDefaultsKey
         loadStoredValue()
     }
@@ -50,7 +53,7 @@ extension TextEditingTool {
     
     func store(newValue: String) {
         if let key = userDefaultsKey {
-            UserDefaults.standard.set(newValue, forKey: key)
+            userDefaults.set(newValue, forKey: key)
         }
         setter(newValue)
     }
@@ -58,7 +61,7 @@ extension TextEditingTool {
     func loadStoredValue() {
         guard
             let key = userDefaultsKey,
-            let value = UserDefaults.standard.string(forKey: key)
+            let value = userDefaults.string(forKey: key)
         else { return }
         setter(value)
     }

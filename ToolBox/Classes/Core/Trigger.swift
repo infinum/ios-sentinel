@@ -50,6 +50,7 @@ public class NotificationTrigger: NSObject, Trigger {
     // MARK: - Private properties
     
     private var observer: (() -> ())?
+    private var observerToken: NSObjectProtocol?
     private let notificationName: Notification.Name
     private let queue: OperationQueue
 
@@ -67,6 +68,10 @@ public class NotificationTrigger: NSObject, Trigger {
         setup()
     }
     
+    deinit {
+        guard let token = observerToken else { return }
+        NotificationCenter.default.removeObserver(token)
+    }
     // MARK: - Public methods
     
     public func subscribe(on events: @escaping () -> ()) {
@@ -76,7 +81,7 @@ public class NotificationTrigger: NSObject, Trigger {
     // MARK: - Private methods
 
     private func setup() {
-        NotificationCenter.default.addObserver(
+        self.observerToken = NotificationCenter.default.addObserver(
             forName: notificationName,
             object: nil,
             queue: queue,

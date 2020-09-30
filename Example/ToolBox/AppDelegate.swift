@@ -25,7 +25,7 @@ enum AppUrl {
     static var baseURL = "http://google.com"
 }
 
-extension AppDelegate {
+private extension AppDelegate {
     
     func setupToolBox() {
         let configuration = ToolBox.Configuration(
@@ -48,6 +48,7 @@ extension AppDelegate {
             name: "Base URL",
             setter: { AppUrl.baseURL = $0 },
             getter: { AppUrl.baseURL },
+            userDefaults: .standard,
             userDefaultsKey: "base_url_user_defaults_key"
         )
     }
