@@ -5,17 +5,26 @@
 //  Created by Vlaho Poluta on 30/07/2020.
 //
 
-import UIKit
+import Foundation
 
 public class CustomInfoTool: Tool {
     
+    // MARK: - Public properties
+    
     public let name: String
+    
+    // MARK: - Private properties
+    
     private let info: [Section]
 
+    // MARK: - Lifecycle
+    
     public init(name: String, info: [Section]) {
         self.name = name
         self.info = info
     }
+    
+    // MARK: - Public properties
     
     public func presentPreview(from viewController: UIViewController) {
         let sections = info.map { (section) in
@@ -29,11 +38,16 @@ public class CustomInfoTool: Tool {
     }
 }
 
-public extension CustomInfoTool {
+extension CustomInfoTool {
     
-    class Section {
+    public class Section {
+        
+        // MARK: - Public properties
+        
         let title: String?
         let items: [Item]
+        
+        // MARK: - Lifecycle
 
         public init(title: String? = nil, items: [Item]) {
             self.title = title
@@ -41,10 +55,15 @@ public extension CustomInfoTool {
         }
     }
     
-    class Item {
+    public class Item {
+        
+        // MARK: - Public properties
+
         let title: String
         let value: String
 
+        // MARK: - Lifecycle
+        
         public init(title: String, value: String) {
             self.title = title
             self.value = value

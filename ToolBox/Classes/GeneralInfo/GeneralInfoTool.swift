@@ -5,11 +5,15 @@
 //  Created by Vlaho Poluta on 30/07/2020.
 //
 
-import UIKit
+import Foundation
 
 public class GeneralInfoTool: Tool {
     
+    // MARK: - Lifecycle
+    
     public init() {}
+    
+    // MARK: - Private properties
     
     private(set) lazy var tool = CustomInfoTool(
         name: "General Info",
@@ -34,7 +38,12 @@ public class GeneralInfoTool: Tool {
         ]
     )
     
+    // MARK: - Public properties
+    
     public var name: String { tool.name }
+    
+    // MARK: - Public methods
+    
     public func presentPreview(from viewController: UIViewController) {
         tool.presentPreview(from: viewController)
     }

@@ -24,7 +24,7 @@ class ToolboxTableViewController: UIViewController {
         title = toolTable.name
         toolTable.sections
             .flatMap { $0.items }
-            .forEach { $0.register(at: tableView) }
+            .forEach { $0.register?(at: tableView) }
         if (navigationController?.viewControllers.count ?? 0) > 1 {
             navigationItem.rightBarButtonItems = nil
         }
@@ -51,15 +51,15 @@ class ToolboxTableViewController: UIViewController {
 extension ToolboxTableViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        toolTable[indexPath].height
+        return toolTable[indexPath].height ?? UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        toolTable[indexPath].estimatedHeight
+        return toolTable[indexPath].estimatedHeight ?? 44.0
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        toolTable[indexPath].didSelect(from: self)
+        toolTable[indexPath].didSelect?(from: self)
     }
 }
 

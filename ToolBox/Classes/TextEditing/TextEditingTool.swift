@@ -5,22 +5,36 @@
 //  Created by Vlaho Poluta on 31/07/2020.
 //
 
-import UIKit
+import Foundation
 
 public class TextEditingTool: Tool {
     
+    // MARK: - Public properties
+    
     public let name: String
+    
+    // MARK: - Private properties
+    
     private let setter: (String) -> ()
     private let getter: () -> (String)
     private let userDefaultsKey: String?
 
-    public init(name: String, setter: @escaping (String) -> (), getter: @escaping () -> (String), userDefaultsKey: String? = nil) {
+    // MARK: - Lifecycle
+    
+    public init(
+        name: String,
+        setter: @escaping (String) -> (),
+        getter: @escaping () -> (String),
+        userDefaultsKey: String? = nil
+    ) {
         self.name = name
         self.setter = setter
         self.getter = getter
         self.userDefaultsKey = userDefaultsKey
         loadStoredValue()
     }
+    
+    // MARK: - Public methods
     
     public func presentPreview(from viewController: UIViewController) {
         let textEditing = TextEditingViewController.create(
