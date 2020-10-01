@@ -43,6 +43,10 @@ class CustomLocationViewController: UIViewController {
         configureLocationManager()
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     // MARK: - Public methods
     
     static func create(locationProvider: CustomLocationProvider) -> CustomLocationViewController {
