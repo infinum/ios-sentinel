@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class LocationMockTool: Tool {
+public class CustomLocationTool: Tool {
     
     // MARK: - Public properties
     
@@ -15,20 +15,20 @@ public class LocationMockTool: Tool {
     
     // MARK: - Private properties
     
-    private let mocker: LocationMocker
+    private let mocker = LocationMockUtility()
     
     // MARK: - Lifecycle
     
     public init(name: String = "Location Mock") {
         self.name = name
-        self.mocker = LocationMocker()
-        self.mocker.initializeMock()
     }
     
     // MARK: - Public methods
     
     public func presentPreview(from viewController: UIViewController) {
-        let locationMockViewController = LocationMockViewController.create()
-        viewController.navigationController?.pushViewController(locationMockViewController, animated: true)
+        let customLocationViewController = CustomLocationViewController.create(
+            customLocationUtility: mocker
+        )
+        viewController.navigationController?.pushViewController(customLocationViewController, animated: true)
     }
 }

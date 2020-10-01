@@ -19,9 +19,9 @@
 		3B1FFA5EF3EA69769B5E1669F2EEB60F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
 		4F0C7BD025237F4300A1B6BB /* ToolTableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0C7BCF25237F4300A1B6BB /* ToolTableSection.swift */; };
 		4F0C7BD825237F7A00A1B6BB /* ToolTableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0C7BD725237F7A00A1B6BB /* ToolTableItem.swift */; };
-		4F5E2F0A25260AF4008FD644 /* LocationMockTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5E2F0925260AF4008FD644 /* LocationMockTool.swift */; };
-		4F5E2F1425260C04008FD644 /* LocationMockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5E2F1325260C04008FD644 /* LocationMockViewController.swift */; };
-		4F5E2F2125260D06008FD644 /* LocationMock.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = 4F5E2F0E25260BE2008FD644 /* LocationMock.storyboard */; };
+		4F5E2F0A25260AF4008FD644 /* CustomLocationTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5E2F0925260AF4008FD644 /* CustomLocationTool.swift */; };
+		4F5E2F1425260C04008FD644 /* CustomLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5E2F1325260C04008FD644 /* CustomLocationViewController.swift */; };
+		4F5E2F2125260D06008FD644 /* CustomLocation.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = 4F5E2F0E25260BE2008FD644 /* CustomLocation.storyboard */; };
 		53A369E24F7324E96F715DA9F491E0DA /* UserDefaults.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = 724BD5E23C7D62EF469662C512F65580 /* UserDefaults.storyboard */; };
 		54F97646F358D299A377C408195217D8 /* CustomInfoTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C91AD76EEC56F4D396FD49D466CC1C /* CustomInfoTool.swift */; };
 		5A8A1919E835DB1B0649734662B7A566 /* ToolBoxInternal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1CE3A4355A67B28CE21360EBFB4BB7 /* ToolBoxInternal.swift */; };
@@ -85,9 +85,9 @@
 		4F0C7BCF25237F4300A1B6BB /* ToolTableSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ToolTableSection.swift; path = ToolBox/Classes/Core/ToolTableSection.swift; sourceTree = "<group>"; };
 		4F0C7BD725237F7A00A1B6BB /* ToolTableItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ToolTableItem.swift; path = ToolBox/Classes/Core/ToolTableItem.swift; sourceTree = "<group>"; };
 		4F52ACE5390461680D23AA1CFD99D3A2 /* ToolBox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ToolBox.swift; path = ToolBox/Classes/Core/ToolBox.swift; sourceTree = "<group>"; };
-		4F5E2F0925260AF4008FD644 /* LocationMockTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocationMockTool.swift; path = ToolBox/Classes/LocationMock/LocationMockTool.swift; sourceTree = "<group>"; };
-		4F5E2F0E25260BE2008FD644 /* LocationMock.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = LocationMock.storyboard; path = ToolBox/Classes/LocationMock/LocationMock.storyboard; sourceTree = "<group>"; };
-		4F5E2F1325260C04008FD644 /* LocationMockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocationMockViewController.swift; path = ToolBox/Classes/LocationMock/LocationMockViewController.swift; sourceTree = "<group>"; };
+		4F5E2F0925260AF4008FD644 /* CustomLocationTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomLocationTool.swift; path = ToolBox/Classes/LocationMock/CustomLocationTool.swift; sourceTree = "<group>"; };
+		4F5E2F0E25260BE2008FD644 /* CustomLocation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = CustomLocation.storyboard; path = ToolBox/Classes/LocationMock/CustomLocation.storyboard; sourceTree = "<group>"; };
+		4F5E2F1325260C04008FD644 /* CustomLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomLocationViewController.swift; path = ToolBox/Classes/LocationMock/CustomLocationViewController.swift; sourceTree = "<group>"; };
 		5241378F0DAED9C5E88115FD241EAFC8 /* ToolBox-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ToolBox-umbrella.h"; sourceTree = "<group>"; };
 		581D45E15A6C5CD7A28911546AE2BF1D /* Pods-ToolBox_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ToolBox_Tests-Info.plist"; sourceTree = "<group>"; };
 		666E89F3A50D89E6C3145C8F86AE5931 /* DetailToolTableCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = DetailToolTableCell.xib; sourceTree = "<group>"; };
@@ -201,20 +201,20 @@
 		4F5E2F0725260A59008FD644 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				4F5E2F0825260A81008FD644 /* LocationMock */,
+				4F5E2F0825260A81008FD644 /* CustomLocation */,
 			);
 			name = Tools;
 			sourceTree = "<group>";
 		};
-		4F5E2F0825260A81008FD644 /* LocationMock */ = {
+		4F5E2F0825260A81008FD644 /* CustomLocation */ = {
 			isa = PBXGroup;
 			children = (
 				4F5E2F2825261013008FD644 /* Internal */,
-				4F5E2F0E25260BE2008FD644 /* LocationMock.storyboard */,
-				4F5E2F0925260AF4008FD644 /* LocationMockTool.swift */,
-				4F5E2F1325260C04008FD644 /* LocationMockViewController.swift */,
+				4F5E2F0E25260BE2008FD644 /* CustomLocation.storyboard */,
+				4F5E2F0925260AF4008FD644 /* CustomLocationTool.swift */,
+				4F5E2F1325260C04008FD644 /* CustomLocationViewController.swift */,
 			);
-			name = LocationMock;
+			name = CustomLocation;
 			sourceTree = "<group>";
 		};
 		4F5E2F2825261013008FD644 /* Internal */ = {
@@ -528,7 +528,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F5E2F2125260D06008FD644 /* LocationMock.storyboard in Sources */,
+				4F5E2F2125260D06008FD644 /* CustomLocation.storyboard in Sources */,
 				54F97646F358D299A377C408195217D8 /* CustomInfoTool.swift in Sources */,
 				DC6B2B03076D160AFA5197EE867B4215 /* DetailToolTableCell.swift in Sources */,
 				2F13FB994986A77CEE84AC63A33A9857 /* DetailToolTableCell.xib in Sources */,
@@ -540,10 +540,10 @@
 				B350311B77F61DB20D2F3C77F41106EF /* TextEditingTool.swift in Sources */,
 				06DD9A3BA4C448B934AE212720F89F74 /* TextEditingViewController.swift in Sources */,
 				72BEFC9E6FFB9E98104A79A173978FC5 /* Tool.swift in Sources */,
-				4F5E2F0A25260AF4008FD644 /* LocationMockTool.swift in Sources */,
+				4F5E2F0A25260AF4008FD644 /* CustomLocationTool.swift in Sources */,
 				CC70FEC5DE63D139CD543701B936DE2B /* ToolBox-dummy.m in Sources */,
 				F6E8E1C5C07363098FBC493BEA65EDF5 /* ToolBox.storyboard in Sources */,
-				4F5E2F1425260C04008FD644 /* LocationMockViewController.swift in Sources */,
+				4F5E2F1425260C04008FD644 /* CustomLocationViewController.swift in Sources */,
 				1D9ED3439D590E6046DCEE431D15D419 /* ToolBox.swift in Sources */,
 				5A8A1919E835DB1B0649734662B7A566 /* ToolBoxInternal.swift in Sources */,
 				D78E1FAA20D8789E71B2C6AB19626E0B /* ToolboxTableViewController.swift in Sources */,
