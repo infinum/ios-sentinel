@@ -19,7 +19,7 @@ public class CustomLocationTool: Tool {
     
     // MARK: - Lifecycle
     
-    public init(name: String = "Location Mock") {
+    public init(name: String = "Custom Location") {
         self.name = name
         self.locationProvider.initializeCustomLocation()
     }
