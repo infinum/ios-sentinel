@@ -209,11 +209,19 @@
 		4F5E2F0825260A81008FD644 /* LocationMock */ = {
 			isa = PBXGroup;
 			children = (
+				4F5E2F2825261013008FD644 /* Internal */,
 				4F5E2F0E25260BE2008FD644 /* LocationMock.storyboard */,
 				4F5E2F0925260AF4008FD644 /* LocationMockTool.swift */,
 				4F5E2F1325260C04008FD644 /* LocationMockViewController.swift */,
 			);
 			name = LocationMock;
+			sourceTree = "<group>";
+		};
+		4F5E2F2825261013008FD644 /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Internal;
 			sourceTree = "<group>";
 		};
 		5E0ACD01D51A19C96BAC44B3EBF028E5 /* Pods-ToolBox_Example */ = {

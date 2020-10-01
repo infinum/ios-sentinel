@@ -15,13 +15,14 @@ public class LocationMockTool: Tool {
     
     // MARK: - Private properties
     
-    private let userDefaults: UserDefaults
+    private let mocker: LocationMocker
     
     // MARK: - Lifecycle
     
-    public init(name: String = "Location Mock", userDefaults: UserDefaults = .standard) {
+    public init(name: String = "Location Mock") {
         self.name = name
-        self.userDefaults = userDefaults
+        self.mocker = LocationMocker()
+        self.mocker.initializeMock()
     }
     
     // MARK: - Public methods
