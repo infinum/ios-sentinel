@@ -34,6 +34,10 @@ class CustomLocationProvider {
         guard userDefaults.bool(forKey: Constants.locationMockEnabledKey) else { return }
         swizzleCustomLocationMethods()
     }
+    
+    func isCustomLocationUsageEnabled(userDefault: UserDefaults = .standard) -> Bool {
+        return userDefault.bool(forKey: Constants.locationMockEnabledKey)
+    }
 
     func setCustomLocationUsageEnabled(_ enabled: Bool, userDefaults: UserDefaults = .standard) {
         userDefaults.setValue(enabled, forKey: Constants.locationMockEnabledKey)

@@ -15,6 +15,11 @@ extension UIStoryboard {
 
 class CustomLocationViewController: UIViewController {
     
+    fileprivate enum AlertDelay: Double {
+        case normal = 0.33
+        case long   = 0.67
+    }
+    
     // MARK: - IBOutlets
     
     @IBOutlet private weak var mapView: MKMapView!
@@ -32,6 +37,7 @@ class CustomLocationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureView()
         configureMapView()
         configureLocationManager()
     }
@@ -48,13 +54,29 @@ class CustomLocationViewController: UIViewController {
     
     @IBAction func locationMockSwitchHandler(_ sender: UISwitch) {
         locationProvider?.setCustomLocationUsageEnabled(sender.isOn)
+        let isEnabled = self.locationProvider?.isCustomLocationUsageEnabled() ?? false
+        configureButton(for: isEnabled, animated: true)
+        showAlert(
+            title: isEnabled ? "Custom location enabled" : "Custom location disabled",
+            message: "To apply changes, please restart the application.",
+            actionTitle: "OK",
+            delay: .long
+        )
     }
     
     @IBAction func updateLocationButtonActionHandler(_ sender: UIButton) {
         guard
             let latitude = coordinate(from: latitudeTextField.text),
             let longitude = coordinate(from: longitudeTextField.text)
-        else { return }
+        else {
+            showAlert(
+                title: "Incorrect location",
+                message: "Please review entered latitude and longitude.",
+                actionTitle: "OK",
+                delay: .normal
+            )
+            return
+        }
         locationProvider?.setCustomLocation(latitude: latitude, longitude: longitude)
     }
 }
@@ -81,13 +103,42 @@ extension CustomLocationViewController: MKMapViewDelegate { }
 
 private extension CustomLocationViewController {
     
+    func configureView() {
+        let customLocationEnabled = locationProvider?.isCustomLocationUsageEnabled() ?? false
+        configureSwitch(for: customLocationEnabled)
+        configureFields(for: customLocationEnabled)
+        configureButton(for: customLocationEnabled, animated: false)
+    }
+    
+    func configureSwitch(for customLocationEnabled: Bool) {
+        locationMockSwitch.setOn(customLocationEnabled, animated: false)
+    }
+    
+    func configureFields(for customLocationEnabled: Bool) {
+        if customLocationEnabled, let coordinate = locationProvider?.customLocation()?.coordinate {
+            latitudeTextField.text = "\(coordinate.latitude)"
+            longitudeTextField.text = "\(coordinate.longitude)"
+        } else {
+            latitudeTextField.text = "-"
+            longitudeTextField.text = "-"
+        }
+    }
+    
+    func configureButton(for customLocationEnabled: Bool, animated: Bool) {
+        let duration: Double = animated ? 0.33 : 0.0
+        UIView.animate(withDuration: duration) {
+            self.updateLocationButton.isHidden = !customLocationEnabled
+            self.updateLocationButton.alpha = !customLocationEnabled ? 0 : 1
+        }
+    }
+    
     func configureMapView() {
         mapView.delegate = self
         mapView.showsUserLocation = true
         mapView.showsCompass = false
     }
     
-    private func configureLocationManager() {
+    func configureLocationManager() {
         locationManager = CLLocationManager()
         locationManager?.requestWhenInUseAuthorization()
         locationManager?.startUpdatingLocation()
@@ -97,5 +148,18 @@ private extension CustomLocationViewController {
     func coordinate(from text: String?) -> Double? {
         guard let string = text, !string.isEmpty, let value = Double(string) else { return nil }
         return value
+    }
+    
+    func showAlert(title: String, message: String, actionTitle: String, delay: AlertDelay) {
+        let alertAction = UIAlertAction(title: actionTitle, style: .default, handler: nil)
+        let alertController = UIAlertController(
+            title: title,
+            message: message,
+            preferredStyle: .alert
+        )
+        alertController.addAction(alertAction)
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay.rawValue) {
+            self.present(alertController, animated: true, completion: nil)
+        }
     }
 }
