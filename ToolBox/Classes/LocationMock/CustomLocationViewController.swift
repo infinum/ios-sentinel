@@ -27,6 +27,7 @@ class CustomLocationViewController: UIViewController {
     @IBOutlet private weak var latitudeTextField: UITextField!
     @IBOutlet private weak var longitudeTextField: UITextField!
     @IBOutlet private weak var updateLocationButton: UIButton!
+    @IBOutlet private weak var bottomOffset: NSLayoutConstraint!
     
     // MARK: - Private properties
     
@@ -78,6 +79,7 @@ class CustomLocationViewController: UIViewController {
             return
         }
         locationProvider?.setCustomLocation(latitude: latitude, longitude: longitude)
+        view.endEditing(true)
     }
 }
 
@@ -99,6 +101,19 @@ extension CustomLocationViewController: CLLocationManagerDelegate {
 
 extension CustomLocationViewController: MKMapViewDelegate { }
 
+extension CustomLocationViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == latitudeTextField {
+            latitudeTextField.resignFirstResponder()
+            longitudeTextField.becomeFirstResponder()
+        } else if (textField == longitudeTextField) {
+            longitudeTextField.resignFirstResponder()
+        }
+        return false
+    }
+}
+
 // MARK: - Private methods
 
 private extension CustomLocationViewController {
@@ -108,6 +123,7 @@ private extension CustomLocationViewController {
         configureSwitch(for: customLocationEnabled)
         configureFields(for: customLocationEnabled)
         configureButton(for: customLocationEnabled, animated: false)
+        configureKeyboard()
     }
     
     func configureSwitch(for customLocationEnabled: Bool) {
@@ -115,6 +131,9 @@ private extension CustomLocationViewController {
     }
     
     func configureFields(for customLocationEnabled: Bool) {
+        latitudeTextField.delegate = self
+        longitudeTextField.delegate = self
+        
         if customLocationEnabled, let coordinate = locationProvider?.customLocation()?.coordinate {
             latitudeTextField.text = "\(coordinate.latitude)"
             longitudeTextField.text = "\(coordinate.longitude)"
@@ -130,6 +149,21 @@ private extension CustomLocationViewController {
             self.updateLocationButton.isHidden = !customLocationEnabled
             self.updateLocationButton.alpha = !customLocationEnabled ? 0 : 1
         }
+    }
+    
+    func configureKeyboard() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillShow),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillHide),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil
+        )
     }
     
     func configureMapView() {
@@ -160,6 +194,26 @@ private extension CustomLocationViewController {
         alertController.addAction(alertAction)
         DispatchQueue.main.asyncAfter(deadline: .now() + delay.rawValue) {
             self.present(alertController, animated: true, completion: nil)
+        }
+    }
+    
+    @objc
+    func keyboardWillShow(_ notification: Notification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            updateBottomConstraint(with: keyboardSize.height, notification: notification)
+        }
+    }
+    
+    @objc
+    func keyboardWillHide(_ notification: Notification) {
+        updateBottomConstraint(with: 0, notification: notification)
+    }
+
+    func updateBottomConstraint(with offset: CGFloat, notification: Notification) {
+        bottomOffset.constant = offset
+        let animationDuration = (notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0.0
+        UIView.animate(withDuration: animationDuration) {
+            self.view.layoutIfNeeded()
         }
     }
 }

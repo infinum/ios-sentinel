@@ -56,10 +56,10 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xAv-tf-3mM">
-                                <rect key="frame" x="0.0" y="599" width="414" height="297"/>
+                                <rect key="frame" x="0.0" y="615" width="414" height="247"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="Ux1-cU-PNi">
-                                        <rect key="frame" x="16" y="24" width="382" height="215"/>
+                                        <rect key="frame" x="16" y="16" width="382" height="215"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="abk-a9-PHV">
                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="61.5"/>
@@ -74,7 +74,7 @@
                                                         <rect key="frame" x="0.0" y="27.5" width="382" height="34"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="next"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -91,7 +91,7 @@
                                                         <rect key="frame" x="0.0" y="27.5" width="382" height="34"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -120,9 +120,14 @@
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="Ux1-cU-PNi" secondAttribute="trailing" constant="16" id="2Gi-iU-St2"/>
-                                    <constraint firstItem="Ux1-cU-PNi" firstAttribute="top" secondItem="xAv-tf-3mM" secondAttribute="top" constant="24" id="ErM-ZJ-SGa"/>
+                                    <constraint firstItem="Ux1-cU-PNi" firstAttribute="top" secondItem="xAv-tf-3mM" secondAttribute="top" constant="16" id="ErM-ZJ-SGa"/>
+                                    <constraint firstAttribute="bottom" secondItem="uff-s9-epD" secondAttribute="bottom" constant="16" id="EyX-Bn-mJS"/>
                                     <constraint firstItem="Ux1-cU-PNi" firstAttribute="leading" secondItem="xAv-tf-3mM" secondAttribute="leading" constant="16" id="pgZ-Hn-vgc"/>
                                 </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BWw-LZ-v2D">
+                                <rect key="frame" x="0.0" y="862" width="414" height="34"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ZLW-Dm-gDM"/>
@@ -130,19 +135,23 @@
                         <constraints>
                             <constraint firstItem="xAv-tf-3mM" firstAttribute="leading" secondItem="ZLW-Dm-gDM" secondAttribute="leading" id="4h5-IF-CiA"/>
                             <constraint firstItem="EIf-lb-vdx" firstAttribute="leading" secondItem="ZLW-Dm-gDM" secondAttribute="leading" id="6e4-0r-Lyr"/>
-                            <constraint firstItem="ZLW-Dm-gDM" firstAttribute="bottom" secondItem="Ux1-cU-PNi" secondAttribute="bottom" constant="24" id="7n8-CS-4OL"/>
+                            <constraint firstItem="BWw-LZ-v2D" firstAttribute="leading" secondItem="hiU-de-m92" secondAttribute="leading" id="7Qp-pS-cu3"/>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="xAv-tf-3mM" secondAttribute="bottom" id="98L-SM-DGm"/>
                             <constraint firstItem="EIf-lb-vdx" firstAttribute="height" secondItem="hiU-de-m92" secondAttribute="height" multiplier="0.75" id="BMo-cE-IOw"/>
-                            <constraint firstAttribute="bottom" secondItem="xAv-tf-3mM" secondAttribute="bottom" priority="999" id="Dpv-17-Y5J"/>
+                            <constraint firstItem="ZLW-Dm-gDM" firstAttribute="bottom" secondItem="xAv-tf-3mM" secondAttribute="bottom" priority="999" id="Dpv-17-Y5J"/>
                             <constraint firstItem="WKs-P2-BMa" firstAttribute="top" secondItem="ZLW-Dm-gDM" secondAttribute="top" constant="16" id="EgD-Ht-Nzh"/>
                             <constraint firstItem="EIf-lb-vdx" firstAttribute="trailing" secondItem="ZLW-Dm-gDM" secondAttribute="trailing" id="RBr-9c-O3a"/>
+                            <constraint firstAttribute="bottom" secondItem="BWw-LZ-v2D" secondAttribute="bottom" id="SaX-Yt-nyd"/>
                             <constraint firstItem="ZLW-Dm-gDM" firstAttribute="trailing" secondItem="xAv-tf-3mM" secondAttribute="trailing" id="Tib-hk-SA9"/>
+                            <constraint firstItem="BWw-LZ-v2D" firstAttribute="top" secondItem="xAv-tf-3mM" secondAttribute="bottom" id="ZZc-dI-kv2"/>
+                            <constraint firstAttribute="trailing" secondItem="BWw-LZ-v2D" secondAttribute="trailing" id="pc6-zz-NqL"/>
                             <constraint firstItem="EIf-lb-vdx" firstAttribute="top" secondItem="hiU-de-m92" secondAttribute="top" id="s0g-GX-eVX"/>
                             <constraint firstItem="WKs-P2-BMa" firstAttribute="leading" secondItem="ZLW-Dm-gDM" secondAttribute="leading" constant="16" id="sdZ-lj-MFD"/>
                             <constraint firstItem="ZLW-Dm-gDM" firstAttribute="trailing" secondItem="WKs-P2-BMa" secondAttribute="trailing" constant="16" id="z6R-GA-aqw"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bottomOffset" destination="Dpv-17-Y5J" id="plr-71-jyT"/>
                         <outlet property="latitudeTextField" destination="m1f-of-DaG" id="bb1-yd-H2N"/>
                         <outlet property="locationMockSwitch" destination="5mx-aU-GEX" id="2mM-gZ-2Nr"/>
                         <outlet property="longitudeTextField" destination="jGQ-2e-9FP" id="Ls0-ym-83H"/>
