@@ -22,6 +22,8 @@
 		4F5E2F0A25260AF4008FD644 /* CustomLocationTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5E2F0925260AF4008FD644 /* CustomLocationTool.swift */; };
 		4F5E2F1425260C04008FD644 /* CustomLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5E2F1325260C04008FD644 /* CustomLocationViewController.swift */; };
 		4F5E2F2125260D06008FD644 /* CustomLocation.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = 4F5E2F0E25260BE2008FD644 /* CustomLocation.storyboard */; };
+		4F61A12025263817005E1E1D /* CLLocationManager+CustomLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F61A11F25263817005E1E1D /* CLLocationManager+CustomLocation.swift */; };
+		4F61A125252638CB005E1E1D /* CustomLocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F61A124252638CB005E1E1D /* CustomLocationProvider.swift */; };
 		53A369E24F7324E96F715DA9F491E0DA /* UserDefaults.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = 724BD5E23C7D62EF469662C512F65580 /* UserDefaults.storyboard */; };
 		54F97646F358D299A377C408195217D8 /* CustomInfoTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C91AD76EEC56F4D396FD49D466CC1C /* CustomInfoTool.swift */; };
 		5A8A1919E835DB1B0649734662B7A566 /* ToolBoxInternal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1CE3A4355A67B28CE21360EBFB4BB7 /* ToolBoxInternal.swift */; };
@@ -88,6 +90,8 @@
 		4F5E2F0925260AF4008FD644 /* CustomLocationTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomLocationTool.swift; path = ToolBox/Classes/LocationMock/CustomLocationTool.swift; sourceTree = "<group>"; };
 		4F5E2F0E25260BE2008FD644 /* CustomLocation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = CustomLocation.storyboard; path = ToolBox/Classes/LocationMock/CustomLocation.storyboard; sourceTree = "<group>"; };
 		4F5E2F1325260C04008FD644 /* CustomLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomLocationViewController.swift; path = ToolBox/Classes/LocationMock/CustomLocationViewController.swift; sourceTree = "<group>"; };
+		4F61A11F25263817005E1E1D /* CLLocationManager+CustomLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationManager+CustomLocation.swift"; sourceTree = "<group>"; };
+		4F61A124252638CB005E1E1D /* CustomLocationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomLocationProvider.swift; path = ToolBox/Classes/LocationMock/Internal/CustomLocationProvider.swift; sourceTree = "<group>"; };
 		5241378F0DAED9C5E88115FD241EAFC8 /* ToolBox-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ToolBox-umbrella.h"; sourceTree = "<group>"; };
 		581D45E15A6C5CD7A28911546AE2BF1D /* Pods-ToolBox_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ToolBox_Tests-Info.plist"; sourceTree = "<group>"; };
 		666E89F3A50D89E6C3145C8F86AE5931 /* DetailToolTableCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = DetailToolTableCell.xib; sourceTree = "<group>"; };
@@ -220,6 +224,8 @@
 		4F5E2F2825261013008FD644 /* Internal */ = {
 			isa = PBXGroup;
 			children = (
+				4F61A11F25263817005E1E1D /* CLLocationManager+CustomLocation.swift */,
+				4F61A124252638CB005E1E1D /* CustomLocationProvider.swift */,
 			);
 			name = Internal;
 			sourceTree = "<group>";
@@ -535,6 +541,7 @@
 				7BAA96BCE1E5698AED2D5F32DD950760 /* GeneralInfoTool.swift in Sources */,
 				01CCEB4BDF52E423E169D34B43E4A99A /* NavigationToolTableCell.xib in Sources */,
 				D2A12BA07A5FCD5FB26D9B57F02207D1 /* NavigationToolTableCell.swift in Sources */,
+				4F61A12025263817005E1E1D /* CLLocationManager+CustomLocation.swift in Sources */,
 				31693D38144A148E70FD979B48C38969 /* SourceScreenProvider.swift in Sources */,
 				67647ADCA466DC2ED405DC0EBA63948E /* TextEditing.storyboard in Sources */,
 				B350311B77F61DB20D2F3C77F41106EF /* TextEditingTool.swift in Sources */,
@@ -544,6 +551,7 @@
 				CC70FEC5DE63D139CD543701B936DE2B /* ToolBox-dummy.m in Sources */,
 				F6E8E1C5C07363098FBC493BEA65EDF5 /* ToolBox.storyboard in Sources */,
 				4F5E2F1425260C04008FD644 /* CustomLocationViewController.swift in Sources */,
+				4F61A125252638CB005E1E1D /* CustomLocationProvider.swift in Sources */,
 				1D9ED3439D590E6046DCEE431D15D419 /* ToolBox.swift in Sources */,
 				5A8A1919E835DB1B0649734662B7A566 /* ToolBoxInternal.swift in Sources */,
 				D78E1FAA20D8789E71B2C6AB19626E0B /* ToolboxTableViewController.swift in Sources */,

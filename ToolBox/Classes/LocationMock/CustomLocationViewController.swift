@@ -1,5 +1,5 @@
 //
-//  LocationMockViewController.swift
+//  CustomLocationViewController.swift
 //  ToolBox
 //
 //  Created by Nikola Majcen on 01/10/2020.
@@ -26,54 +26,36 @@ class CustomLocationViewController: UIViewController {
     // MARK: - Private properties
     
     private var locationManager: CLLocationManager?
-    private var locationMockUtility: LocationMockUtility?
+    private var locationProvider: CustomLocationProvider?
     
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        mapView.delegate = self
-        mapView.showsUserLocation = true
-        
-        getCurrentLocation()
-    }
-    
-    // MARK: - IBActions
-    
-    
-    @IBAction func locationMockSwitchHandler(_ sender: UISwitch) {
-        locationMockUtility?.setCustomLocationUsageEnabled(sender.isOn)
-    }
-    
-    @IBAction func updateLocationButtonActionHandler(_ sender: UIButton) {
-        if let latitude = coordinate(from: latitudeTextField.text),
-           let longitude = coordinate(from: longitudeTextField.text) {
-            locationMockUtility?.setCustomLocation(latitude: latitude, longitude: longitude)
-        }
+        configureMapView()
+        configureLocationManager()
     }
     
     // MARK: - Public methods
     
-    static func create(customLocationUtility: LocationMockUtility) -> CustomLocationViewController {
+    static func create(locationProvider: CustomLocationProvider) -> CustomLocationViewController {
         let viewController = UIStoryboard.customLocation.instantiateViewController(ofType: CustomLocationViewController.self)
-        viewController.locationMockUtility = customLocationUtility
+        viewController.locationProvider = locationProvider
         return viewController
     }
     
-    // MARK: - Private methods
+    // MARK: - IBActions
     
-    private var manager: CLLocationManager?
-    
-    func getCurrentLocation() {
-        manager = CLLocationManager()
-        manager?.requestWhenInUseAuthorization()
-        manager?.startUpdatingLocation()
-        manager?.delegate = self
+    @IBAction func locationMockSwitchHandler(_ sender: UISwitch) {
+        locationProvider?.setCustomLocationUsageEnabled(sender.isOn)
     }
     
-    func coordinate(from text: String?) -> Double? {
-        guard let string = text, !string.isEmpty, let value = Double(string) else { return nil }
-        return value
+    @IBAction func updateLocationButtonActionHandler(_ sender: UIButton) {
+        guard
+            let latitude = coordinate(from: latitudeTextField.text),
+            let longitude = coordinate(from: longitudeTextField.text)
+        else { return }
+        locationProvider?.setCustomLocation(latitude: latitude, longitude: longitude)
     }
 }
 
@@ -95,73 +77,80 @@ extension CustomLocationViewController: CLLocationManagerDelegate {
 
 extension CustomLocationViewController: MKMapViewDelegate { }
 
-class LocationMockUtility {
-    
-    // MARK: - Constants
-    
-    static let locationMockEnabledKey = "com.infinum.toolbox.locationMock.enabled"
-    static let locationMockLatitudeKey = "com.infinum.toolbox.locationMock.latitude"
-    static let locationMockLongitudeKey = "com.infinum.toolbox.locationMock.longitude"
-    
-    // MARK: - Private properties
-    
-    private let userDefaults: UserDefaults
-    
-    // MARK: - Lifecycle
-    
-    init(userDefaults: UserDefaults = .standard) {
-        self.userDefaults = userDefaults
-        initialize()
-    }
-    
-    // MARK: - Public methods
-    
-    func setCustomLocationUsageEnabled(_ enabled: Bool) {
-        userDefaults.setValue(enabled, forKey: LocationMockUtility.locationMockEnabledKey)
-    }
-    
-    func setCustomLocation(latitude: Double, longitude: Double) {
-        userDefaults.setValue(latitude, forKey: LocationMockUtility.locationMockLatitudeKey)
-        userDefaults.setValue(longitude, forKey: LocationMockUtility.locationMockLongitudeKey)
-    }
-    
-    static func customLocation() -> CLLocation? {
-        guard
-            let latitude = UserDefaults.standard.object(forKey: LocationMockUtility.locationMockLatitudeKey) as? Double,
-            let longitude = UserDefaults.standard.object(forKey: LocationMockUtility.locationMockLongitudeKey) as? Double
-        else { return nil }
+// MARK: - Private methods
 
-        return CLLocation(latitude: latitude, longitude: longitude)
+private extension CustomLocationViewController {
+    
+    func configureMapView() {
+        mapView.delegate = self
+        mapView.showsUserLocation = true
+        mapView.showsCompass = false
     }
     
-    // MARK: - Private methods
-    
-    private func initialize() {
-        guard userDefaults.bool(forKey: LocationMockUtility.locationMockEnabledKey) else { return }
-        swizzleLocationMethods()
+    private func configureLocationManager() {
+        locationManager = CLLocationManager()
+        locationManager?.requestWhenInUseAuthorization()
+        locationManager?.startUpdatingLocation()
+        locationManager?.delegate = self
     }
     
-    private func swizzleLocationMethods() {
-        guard
-            let originalMethod = class_getInstanceMethod(CLLocationManager.self, #selector(CLLocationManager.startUpdatingLocation)),
-            let swizzledMethod = class_getInstanceMethod(CLLocationManager.self, #selector(CLLocationManager.startUpdatingCustomLocation))
-        else { return }
-        method_exchangeImplementations(originalMethod, swizzledMethod)
+    func coordinate(from text: String?) -> Double? {
+        guard let string = text, !string.isEmpty, let value = Double(string) else { return nil }
+        return value
     }
 }
 
-extension CLLocationManager {
-    
-    @objc
-    internal func startUpdatingCustomLocation() {
-//        let locationMockUtility = LocationMockUtility()
-        guard let location = LocationMockUtility.customLocation() else {
-//            self.startUpdatingLocation()
-            return
-        }
-
-        DispatchQueue.main.async {
-            self.delegate?.locationManager?(self, didUpdateLocations: [location])
-        }
-    }
-}
+//class LocationMockUtility {
+//
+//    // MARK: - Constants
+//
+//    static let locationMockEnabledKey = "com.infinum.toolbox.locationMock.enabled"
+//    static let locationMockLatitudeKey = "com.infinum.toolbox.locationMock.latitude"
+//    static let locationMockLongitudeKey = "com.infinum.toolbox.locationMock.longitude"
+//
+//    // MARK: - Private properties
+//
+//    private let userDefaults: UserDefaults
+//
+//    // MARK: - Lifecycle
+//
+//    init(userDefaults: UserDefaults = .standard) {
+//        self.userDefaults = userDefaults
+//        initialize()
+//    }
+//
+//    // MARK: - Public methods
+//
+//    func setCustomLocationUsageEnabled(_ enabled: Bool) {
+//        userDefaults.setValue(enabled, forKey: LocationMockUtility.locationMockEnabledKey)
+//    }
+//
+//    func setCustomLocation(latitude: Double, longitude: Double) {
+//        userDefaults.setValue(latitude, forKey: LocationMockUtility.locationMockLatitudeKey)
+//        userDefaults.setValue(longitude, forKey: LocationMockUtility.locationMockLongitudeKey)
+//    }
+//
+//    static func customLocation() -> CLLocation? {
+//        guard
+//            let latitude = UserDefaults.standard.object(forKey: LocationMockUtility.locationMockLatitudeKey) as? Double,
+//            let longitude = UserDefaults.standard.object(forKey: LocationMockUtility.locationMockLongitudeKey) as? Double
+//        else { return nil }
+//
+//        return CLLocation(latitude: latitude, longitude: longitude)
+//    }
+//
+//    // MARK: - Private methods
+//
+//    private func initialize() {
+//        guard userDefaults.bool(forKey: LocationMockUtility.locationMockEnabledKey) else { return }
+//        swizzleLocationMethods()
+//    }
+//
+//    private func swizzleLocationMethods() {
+//        guard
+//            let originalMethod = class_getInstanceMethod(CLLocationManager.self, #selector(CLLocationManager.startUpdatingLocation)),
+//            let swizzledMethod = class_getInstanceMethod(CLLocationManager.self, #selector(CLLocationManager.startUpdatingCustomLocation))
+//        else { return }
+//        method_exchangeImplementations(originalMethod, swizzledMethod)
+//    }
+//}

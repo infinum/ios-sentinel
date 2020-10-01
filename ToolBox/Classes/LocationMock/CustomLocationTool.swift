@@ -1,5 +1,5 @@
 //
-//  LocationMockTool.swift
+//  CustomLocationTool.swift
 //  ToolBox
 //
 //  Created by Nikola Majcen on 01/10/2020.
@@ -14,20 +14,21 @@ public class CustomLocationTool: Tool {
     public let name: String
     
     // MARK: - Private properties
-    
-    private let mocker = LocationMockUtility()
+
+    private let locationProvider = CustomLocationProvider.instance
     
     // MARK: - Lifecycle
     
     public init(name: String = "Location Mock") {
         self.name = name
+        self.locationProvider.initializeCustomLocation()
     }
     
     // MARK: - Public methods
     
     public func presentPreview(from viewController: UIViewController) {
         let customLocationViewController = CustomLocationViewController.create(
-            customLocationUtility: mocker
+            locationProvider: locationProvider
         )
         viewController.navigationController?.pushViewController(customLocationViewController, animated: true)
     }
