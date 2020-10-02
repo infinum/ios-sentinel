@@ -84,6 +84,12 @@ class CustomLocationViewController: UIViewController {
         }
         locationProvider?.setCustomLocation(latitude: latitude, longitude: longitude)
         view.endEditing(true)
+        showAlert(
+            title: "Custom location changed",
+            message: "To apply changes, please restart the application.",
+            actionTitle: "OK",
+            delay: .long
+        )
     }
 }
 
