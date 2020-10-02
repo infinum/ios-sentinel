@@ -6,17 +6,35 @@
 //
 
 import UIKit
+import QuartzCore
 
 extension UIStoryboard {
     static var performance: UIStoryboard { UIStoryboard(name: "PerformanceInfo", bundle: .toolBox) }
 }
 
+enum PerformanceInfoSection: Int, CaseIterable {
+    case cpu = 0
+    case memory = 1
+}
+
 class PerformanceInfoViewController: UIViewController {
+
+    // MARK: - IBOutlets
+    
+    @IBOutlet private weak var tableView: UITableView!
+    
+    
+    // MARK: - Private properties
+    
+    private let cpuInfo = CPUInfoProvider()
+    private let memoryInfo = MemoryInfoProvider()
+    private var timer: Timer?
 
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureTimer()
     }
     
     // MARK: - Public methods
@@ -25,19 +43,68 @@ class PerformanceInfoViewController: UIViewController {
         let viewController = UIStoryboard.performance.instantiateViewController(ofType: PerformanceInfoViewController.self)
         return viewController
     }
+    
+    func configureTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updatePerformanceInfo), userInfo: nil, repeats: true)
+        if let timer = timer {
+            RunLoop.current.add(timer, forMode: .common)
+        }
+    }
+    
+    @objc func updatePerformanceInfo() {
+        tableView.reloadData()
+    }
 }
 
 extension PerformanceInfoViewController: UITableViewDelegate { }
 
 extension PerformanceInfoViewController: UITableViewDataSource {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return PerformanceInfoSection.allCases.count
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        guard let infoSection = PerformanceInfoSection(rawValue: section) else { return nil }
+        switch infoSection {
+        case .cpu: return "CPU"
+        case .memory: return "Memory"
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        guard let infoSection = PerformanceInfoSection(rawValue: section) else { return 0 }
+        switch infoSection {
+        case .cpu: return 1
+        case .memory: return 1
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let infoSection = PerformanceInfoSection(rawValue: indexPath.section) else { return UITableViewCell() }
+        
+        switch infoSection {
+        case .cpu:
+            return configureCPUTableCell(for: indexPath, tableView: tableView)
+        case .memory:
+            return configureMemoryTableCell(for: indexPath, tableView: tableView)
+        }
+    }
+}
+
+private extension PerformanceInfoViewController {
+    
+    func configureCPUTableCell(for indexPath: IndexPath, tableView: UITableView) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(ofType: PerformanceInfoTableViewCell.self, for: indexPath)
-        cell.configure(title: "CPU Usage", value: "15%")
+        cell.configure(title: "Current usage", value: String(format: "%.2f%%", cpuInfo.currentUsage()))
+        return cell
+    }
+    
+    func configureMemoryTableCell(for indexPath: IndexPath, tableView: UITableView) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(ofType: PerformanceInfoTableViewCell.self, for: indexPath)
+        let used = ByteCountFormatter.string(fromByteCount: Int64(memoryInfo.currentUsage().0), countStyle: .file)
+        let total = ByteCountFormatter.string(fromByteCount: Int64(memoryInfo.currentUsage().1), countStyle: .file)
+        cell.configure(title: "Current usage", value: "\(used) / \(total)")
         return cell
     }
 }
