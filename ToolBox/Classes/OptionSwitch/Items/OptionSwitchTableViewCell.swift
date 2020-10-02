@@ -39,7 +39,7 @@ class OptionSwitchTableViewCell: UITableViewCell {
     
     func configure(with item: OptionSwitchItem) {
         titleLabel.text = item.name
-        optionSwitch.isOn = item.option
+        optionSwitch.isOn = item.getter()
     }
     
     // MARK: - IBActions

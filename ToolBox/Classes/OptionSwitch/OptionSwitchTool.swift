@@ -13,16 +13,21 @@ public class OptionSwitchTool: Tool {
     
     public let name: String
     
+    // MARK: - Private properties
+    
+    private let items: [OptionSwitchItem]
+    
     // MARK: - Lifecycle
     
-    public init(name: String = "Option Switch Tool") {
+    public init(name: String = "Option Switch Tool", items: [OptionSwitchItem]) {
         self.name = name
+        self.items = items
     }
     
     // MARK: - Public methods
     
     public func presentPreview(from viewController: UIViewController) {
-        let optionSwitchViewController = OptionSwitchViewController.create()
+        let optionSwitchViewController = OptionSwitchViewController.create(items: items)
         viewController.navigationController?.pushViewController(optionSwitchViewController, animated: true)
     }
 }

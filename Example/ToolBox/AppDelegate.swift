@@ -25,6 +25,12 @@ enum AppUrl {
     static var baseURL = "http://google.com"
 }
 
+enum AppSwitches {
+    static var analyticsEnabled = true
+    static var crashlyticsEnabled = true
+    static var loggingEnabled = false
+}
+
 private extension AppDelegate {
     
     func setupToolBox() {
@@ -37,7 +43,7 @@ private extension AppDelegate {
 //                BugsnatchTool(triggerActionConfig: EmailConfig()),
 //                LoggieTool(),
 //                AnalyticsCollectorTool(),
-                OptionSwitchTool(),
+                optionSwitchTool,
             ]
         )
         
@@ -51,6 +57,34 @@ private extension AppDelegate {
             getter: { AppUrl.baseURL },
             userDefaults: .standard,
             userDefaultsKey: "base_url_user_defaults_key"
+        )
+    }
+    
+    var optionSwitchTool: Tool {
+        OptionSwitchTool(
+            items: [
+                OptionSwitchItem(
+                    name: "Analytics",
+                    setter: { AppSwitches.analyticsEnabled = $0 },
+                    getter: { AppSwitches.analyticsEnabled },
+                    userDefaults: .standard,
+                    userDefaultsKey: "com.infinum.toolbox.optionSwitch.analytics"
+                ),
+                OptionSwitchItem(
+                    name: "Crashlytics",
+                    setter: { AppSwitches.crashlyticsEnabled = $0 },
+                    getter: { AppSwitches.crashlyticsEnabled },
+                    userDefaults: .standard,
+                    userDefaultsKey: "com.infinum.toolbox.optionSwitch.crashlytics"
+                ),
+                OptionSwitchItem(
+                    name: "Logging",
+                    setter: { AppSwitches.loggingEnabled = $0 },
+                    getter: { AppSwitches.loggingEnabled },
+                    userDefaults: .standard,
+                    userDefaultsKey: "com.infinum.toolbox.optionSwitch.logging"
+                ),
+            ]
         )
     }
     

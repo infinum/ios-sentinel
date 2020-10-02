@@ -17,14 +17,15 @@ class OptionSwitchViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView!
     
-    private var items: [OptionSwitchItem] = [
-        .init(name: "Analytics", option: false),
-        .init(name: "Crashlytics", option: false),
-        .init(name: "Logging", option: false),
-    ]
+    // MARK: - Private properties
     
-    static func create() -> OptionSwitchViewController {
+    private var items: [OptionSwitchItem] = []
+    
+    // MARK: - Public methods
+    
+    static func create(items: [OptionSwitchItem]) -> OptionSwitchViewController {
         let viewController = UIStoryboard.optionSwitch.instantiateViewController(ofType: OptionSwitchViewController.self)
+        viewController.items = items
         return viewController
     }
 }
@@ -50,7 +51,6 @@ extension OptionSwitchViewController: OptionSwitchCellDelegate {
     
     func optionSwitch(_ cell: OptionSwitchTableViewCell, didChangeOptionSwitch option: Bool) {
         guard let indexPath = tableView.indexPath(for: cell) else { return }
-        let item = items[indexPath.row]
-        print("TOOL: \(item.name) - \(option)")
+        items[indexPath.row].change(to: option)
     }
 }
