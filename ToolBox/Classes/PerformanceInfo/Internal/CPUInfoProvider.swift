@@ -9,6 +9,10 @@ import Foundation
 
 class CPUInfoProvider {
     
+    func numberOfCores() -> UInt {
+        return UInt(ProcessInfo().processorCount)
+    }
+    
     func currentUsage() -> Double {
         var totalUsageOfCPU: Double = 0.0
         var threadsList: thread_act_array_t?
