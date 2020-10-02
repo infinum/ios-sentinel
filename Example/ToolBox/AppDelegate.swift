@@ -37,6 +37,7 @@ private extension AppDelegate {
 //                BugsnatchTool(triggerActionConfig: EmailConfig()),
 //                LoggieTool(),
 //                AnalyticsCollectorTool(),
+                OptionSwitchTool(),
             ]
         )
         
