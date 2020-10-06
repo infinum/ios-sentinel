@@ -83,7 +83,7 @@ private extension AppDelegate {
                     getter: { AppSwitches.loggingEnabled },
                     userDefaults: .standard,
                     userDefaultsKey: "com.infinum.toolbox.optionSwitch.logging"
-                ),
+                )
             ]
         )
     }

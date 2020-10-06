@@ -56,9 +56,8 @@ private extension OptionSwitchItem {
     }
     
     func loadStoredValue() {
-        guard
-            let key = userDefaultsKey,
-            let value = userDefaults.object(forKey: key) as? Bool
+        guard let key = userDefaultsKey,
+              let value = userDefaults.object(forKey: key) as? Bool
         else { return }
         setter(value)
     }

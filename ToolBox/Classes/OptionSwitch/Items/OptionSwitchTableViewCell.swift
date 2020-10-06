@@ -23,18 +23,6 @@ class OptionSwitchTableViewCell: UITableViewCell {
     
     weak var delegate: OptionSwitchCellDelegate?
     
-    // MARK: - Lifecycle
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        resetCell()
-    }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        resetCell()
-    }
-    
     // MARK: - Public methods
     
     func configure(with item: OptionSwitchItem) {
@@ -46,13 +34,5 @@ class OptionSwitchTableViewCell: UITableViewCell {
     
     @IBAction func optionSwitchHandler(_ sender: UISwitch) {
         delegate?.optionSwitch(self, didChangeOptionSwitch: sender.isOn)
-    }
-}
-
-private extension OptionSwitchTableViewCell {
-    
-    func resetCell() {
-        titleLabel.text = nil
-        optionSwitch.isOn = false
     }
 }
