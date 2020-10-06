@@ -41,10 +41,13 @@ extension DetailToolTableItem: ToolTableItem {
 
 class DetailToolTableCell: UITableViewCell {
     
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var valueLabel: UILabel!
+    
     // MARK: - Public methods
     
     func configure(with item: DetailToolTableItem) {
-        textLabel?.text = item.title
-        detailTextLabel?.text = item.detail
+        titleLabel?.text = item.title
+        valueLabel?.text = item.detail
     }
 }
