@@ -7,6 +7,9 @@
 
 import Foundation
 
+/// Provides functionality which gives the user ability
+/// to change environment variables in the application.
+@objcMembers
 public class OptionSwitchTool: Tool {
     
     // MARK: - Public properties

@@ -7,13 +7,21 @@
 
 import Foundation
 
+/// Provides option to change enabled state of the feature.
 @objcMembers
 public class OptionSwitchItem: NSObject {
     
     // MARK: - Public properties
     
+    /// Name of the item
     let name: String
+    /// This function is called when value is changed.
+    ///
+    /// It should be used to change the current variable value.
     let setter: (Bool) -> ()
+    /// This function is called when value needs to be read.
+    ///
+    /// It should be used to provide the current variable value.
     let getter: () -> (Bool)
     
     // MARK: - Private properties
@@ -41,6 +49,10 @@ public class OptionSwitchItem: NSObject {
     
     // MARK: - Public methods
     
+    /// Changes current enabled state of the feature.
+    ///
+    /// This is mostly used inside option switch module
+    /// but it is also exposed for external change.
     @objc(changeToValue:)
     func change(to value: Bool) {
         store(newValue: value)
