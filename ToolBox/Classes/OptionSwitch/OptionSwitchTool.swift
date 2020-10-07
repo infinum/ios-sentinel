@@ -27,7 +27,11 @@ public class OptionSwitchTool: Tool {
     // MARK: - Public methods
     
     public func presentPreview(from viewController: UIViewController) {
-        let optionSwitchViewController = OptionSwitchViewController.create(items: items)
-        viewController.navigationController?.pushViewController(optionSwitchViewController, animated: true)
+        let section = ToolTableSection(
+            title: nil,
+            items: items
+        )
+        let toolTable = ToolTable(name: name, sections: [section])
+        toolTable.presentPreview(from: viewController)
     }
 }

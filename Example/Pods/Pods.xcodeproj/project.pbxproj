@@ -19,10 +19,9 @@
 		3B1FFA5EF3EA69769B5E1669F2EEB60F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
 		4F0C7BD025237F4300A1B6BB /* ToolTableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0C7BCF25237F4300A1B6BB /* ToolTableSection.swift */; };
 		4F0C7BD825237F7A00A1B6BB /* ToolTableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0C7BD725237F7A00A1B6BB /* ToolTableItem.swift */; };
+		4F6D88D6252DE0C6000CD008 /* OptionSwitchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F6D88D5252DE0C6000CD008 /* OptionSwitchTableViewCell.xib */; };
 		4F7978E525274B230098735F /* OptionSwitchTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7978E425274B230098735F /* OptionSwitchTool.swift */; };
-		4F7978ED25274B3E0098735F /* OptionSwitchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7978EC25274B3E0098735F /* OptionSwitchViewController.swift */; };
 		4F79790125274D360098735F /* OptionSwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F79790025274D360098735F /* OptionSwitchTableViewCell.swift */; };
-		4F797912252751D20098735F /* OptionSwitch.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = 4F7978F125274B520098735F /* OptionSwitch.storyboard */; };
 		4F79791D252752530098735F /* OptionSwitchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F79791C252752530098735F /* OptionSwitchItem.swift */; };
 		53A369E24F7324E96F715DA9F491E0DA /* UserDefaults.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = 724BD5E23C7D62EF469662C512F65580 /* UserDefaults.storyboard */; };
 		54F97646F358D299A377C408195217D8 /* CustomInfoTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C91AD76EEC56F4D396FD49D466CC1C /* CustomInfoTool.swift */; };
@@ -87,9 +86,8 @@
 		4F0C7BCF25237F4300A1B6BB /* ToolTableSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ToolTableSection.swift; path = ToolBox/Classes/Core/ToolTableSection.swift; sourceTree = "<group>"; };
 		4F0C7BD725237F7A00A1B6BB /* ToolTableItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ToolTableItem.swift; path = ToolBox/Classes/Core/ToolTableItem.swift; sourceTree = "<group>"; };
 		4F52ACE5390461680D23AA1CFD99D3A2 /* ToolBox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ToolBox.swift; path = ToolBox/Classes/Core/ToolBox.swift; sourceTree = "<group>"; };
+		4F6D88D5252DE0C6000CD008 /* OptionSwitchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = OptionSwitchTableViewCell.xib; path = ToolBox/Classes/OptionSwitch/Items/OptionSwitchTableViewCell.xib; sourceTree = "<group>"; };
 		4F7978E425274B230098735F /* OptionSwitchTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OptionSwitchTool.swift; path = ToolBox/Classes/OptionSwitch/OptionSwitchTool.swift; sourceTree = "<group>"; };
-		4F7978EC25274B3E0098735F /* OptionSwitchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OptionSwitchViewController.swift; path = ToolBox/Classes/OptionSwitch/OptionSwitchViewController.swift; sourceTree = "<group>"; };
-		4F7978F125274B520098735F /* OptionSwitch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = OptionSwitch.storyboard; path = ToolBox/Classes/OptionSwitch/OptionSwitch.storyboard; sourceTree = "<group>"; };
 		4F79790025274D360098735F /* OptionSwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OptionSwitchTableViewCell.swift; path = ToolBox/Classes/OptionSwitch/Items/OptionSwitchTableViewCell.swift; sourceTree = "<group>"; };
 		4F79791C252752530098735F /* OptionSwitchItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OptionSwitchItem.swift; path = ToolBox/Classes/OptionSwitch/Items/OptionSwitchItem.swift; sourceTree = "<group>"; };
 		5241378F0DAED9C5E88115FD241EAFC8 /* ToolBox-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ToolBox-umbrella.h"; sourceTree = "<group>"; };
@@ -206,9 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				4F7978FF25274D010098735F /* Items */,
-				4F7978F125274B520098735F /* OptionSwitch.storyboard */,
 				4F7978E425274B230098735F /* OptionSwitchTool.swift */,
-				4F7978EC25274B3E0098735F /* OptionSwitchViewController.swift */,
 			);
 			name = OptionSwitch;
 			sourceTree = "<group>";
@@ -218,6 +214,7 @@
 			children = (
 				4F79791C252752530098735F /* OptionSwitchItem.swift */,
 				4F79790025274D360098735F /* OptionSwitchTableViewCell.swift */,
+				4F6D88D5252DE0C6000CD008 /* OptionSwitchTableViewCell.xib */,
 			);
 			name = Items;
 			sourceTree = "<group>";
@@ -516,6 +513,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F6D88D6252DE0C6000CD008 /* OptionSwitchTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -546,12 +544,10 @@
 				D78E1FAA20D8789E71B2C6AB19626E0B /* ToolboxTableViewController.swift in Sources */,
 				A05EE56C2017A74CD5489C050A4BFF7D /* ToolBoxUIKitExtensions.swift in Sources */,
 				881C2679961855BE7C56AFF5A6AB2DEF /* ToolTable.swift in Sources */,
-				4F7978ED25274B3E0098735F /* OptionSwitchViewController.swift in Sources */,
 				4F0C7BD825237F7A00A1B6BB /* ToolTableItem.swift in Sources */,
 				4F0C7BD025237F4300A1B6BB /* ToolTableSection.swift in Sources */,
 				F2360E386271B9140DD8C290B7BBBC3E /* Trigger.swift in Sources */,
 				4F7978E525274B230098735F /* OptionSwitchTool.swift in Sources */,
-				4F797912252751D20098735F /* OptionSwitch.storyboard in Sources */,
 				53A369E24F7324E96F715DA9F491E0DA /* UserDefaults.storyboard in Sources */,
 				237C03AA5DF62B01DB5FDA5AADCD6274 /* UserDefaultsTool.swift in Sources */,
 				1898FD62741D9F8C81FA6E65DBB1CBE3 /* UserDefaultsViewController.swift in Sources */,

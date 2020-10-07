@@ -7,11 +7,6 @@
 
 import UIKit
 
-protocol OptionSwitchCellDelegate: class {
-    
-    func optionSwitch(_ cell: OptionSwitchTableViewCell, didChangeOptionSwitch option: Bool)
-}
-
 class OptionSwitchTableViewCell: UITableViewCell {
 
     // MARK: - IBOutlets
@@ -19,20 +14,21 @@ class OptionSwitchTableViewCell: UITableViewCell {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var optionSwitch: UISwitch!
     
-    // MARK: - Public properties
+    // MARK: - Private properties
     
-    weak var delegate: OptionSwitchCellDelegate?
+    private var optionSwitchActionHandler: ((Bool) -> Void)?
     
     // MARK: - Public methods
     
     func configure(with item: OptionSwitchItem) {
         titleLabel.text = item.name
         optionSwitch.isOn = item.getter()
+        optionSwitchActionHandler = { item.change(to: $0) }
     }
     
     // MARK: - IBActions
     
     @IBAction func optionSwitchHandler(_ sender: UISwitch) {
-        delegate?.optionSwitch(self, didChangeOptionSwitch: sender.isOn)
+        optionSwitchActionHandler?(sender.isOn)
     }
 }

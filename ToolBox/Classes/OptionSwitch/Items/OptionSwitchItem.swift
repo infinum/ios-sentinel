@@ -7,7 +7,8 @@
 
 import Foundation
 
-public class OptionSwitchItem {
+@objcMembers
+public class OptionSwitchItem: NSObject {
     
     // MARK: - Public properties
     
@@ -34,13 +35,28 @@ public class OptionSwitchItem {
         self.getter = getter
         self.userDefaults = userDefaults
         self.userDefaultsKey = userDefaultsKey
+        super.init()
         loadStoredValue()
     }
     
     // MARK: - Public methods
     
+    @objc(changeToValue:)
     func change(to value: Bool) {
         store(newValue: value)
+    }
+}
+
+extension OptionSwitchItem: ToolTableItem {
+    
+    public func cell(from tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(ofType: OptionSwitchTableViewCell.self, for: indexPath)
+        cell.configure(with: self)
+        return cell
+    }
+    
+    public func register(at tableView: UITableView) {
+        tableView.registerNib(cellOfType: OptionSwitchTableViewCell.self)
     }
 }
 
