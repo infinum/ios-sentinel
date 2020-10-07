@@ -7,6 +7,12 @@
 
 import Foundation
 
+/// Tool which gives the ability to change current user location.
+///
+/// When changing the user location, keep in mind that
+/// every location change will be applied after
+/// the application is restarted.
+@objcMembers
 public class CustomLocationTool: Tool {
     
     // MARK: - Public properties
