@@ -19,9 +19,9 @@ public class CustomLocationTool: Tool {
     
     // MARK: - Lifecycle
     
-    public init(name: String = "Custom Location") {
+    public init(name: String = "Custom Location", userDefaults: UserDefaults = .standard) {
         self.name = name
-        self.locationProvider.initializeCustomLocation()
+        self.locationProvider.initializeCustomLocation(userDefaults: userDefaults)
     }
     
     // MARK: - Public methods

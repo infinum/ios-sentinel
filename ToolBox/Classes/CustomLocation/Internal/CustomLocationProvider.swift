@@ -24,34 +24,40 @@ class CustomLocationProvider {
     
     static let instance = CustomLocationProvider()
     
+    // MARK: - Private properties
+    
+    private var userDefaults: UserDefaults?
+    
     // MARK: - Lifecycle
     
     private init() { }
     
     // MARK: - Public methods
-    
-    func initializeCustomLocation(userDefaults: UserDefaults = .standard) {
-        guard userDefaults.bool(forKey: Constants.locationMockEnabledKey) else { return }
-        swizzleCustomLocationMethods()
+
+    func initializeCustomLocation(userDefaults: UserDefaults) {
+        self.userDefaults = userDefaults
+        if userDefaults.bool(forKey: Constants.locationMockEnabledKey) {
+            swizzleCustomLocationMethods()
+        }
     }
     
-    func isCustomLocationUsageEnabled(userDefault: UserDefaults = .standard) -> Bool {
-        return userDefault.bool(forKey: Constants.locationMockEnabledKey)
+    func isCustomLocationUsageEnabled() -> Bool {
+        return userDefaults?.bool(forKey: Constants.locationMockEnabledKey) ?? false
     }
 
-    func setCustomLocationUsageEnabled(_ enabled: Bool, userDefaults: UserDefaults = .standard) {
-        userDefaults.setValue(enabled, forKey: Constants.locationMockEnabledKey)
+    func setCustomLocationUsageEnabled(_ enabled: Bool) {
+        userDefaults?.setValue(enabled, forKey: Constants.locationMockEnabledKey)
     }
     
-    func setCustomLocation(latitude: Double, longitude: Double, userDefaults: UserDefaults = .standard) {
-        userDefaults.setValue(latitude, forKey: Constants.locationMockLatitudeKey)
-        userDefaults.setValue(longitude, forKey: Constants.locationMockLongitudeKey)
+    func setCustomLocation(latitude: Double, longitude: Double) {
+        userDefaults?.setValue(latitude, forKey: Constants.locationMockLatitudeKey)
+        userDefaults?.setValue(longitude, forKey: Constants.locationMockLongitudeKey)
     }
     
-    func customLocation(userDefaults: UserDefaults = .standard) -> CLLocation? {
+    func customLocation() -> CLLocation? {
         guard
-            let latitude = userDefaults.object(forKey: Constants.locationMockLatitudeKey) as? Double,
-            let longitude = userDefaults.object(forKey: Constants.locationMockLongitudeKey) as? Double
+            let latitude = userDefaults?.object(forKey: Constants.locationMockLatitudeKey) as? Double,
+            let longitude = userDefaults?.object(forKey: Constants.locationMockLongitudeKey) as? Double
         else { return nil }
 
         return CLLocation(latitude: latitude, longitude: longitude)

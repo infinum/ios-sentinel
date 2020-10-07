@@ -17,7 +17,7 @@ class CustomLocationViewController: UIViewController {
     
     fileprivate enum AlertDelay: Double {
         case normal = 0.33
-        case long   = 0.67
+        case long = 0.67
     }
     
     // MARK: - IBOutlets
@@ -39,7 +39,6 @@ class CustomLocationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
-        configureMapView()
         configureLocationManager()
     }
     
@@ -59,7 +58,7 @@ class CustomLocationViewController: UIViewController {
     
     @IBAction func locationMockSwitchHandler(_ sender: UISwitch) {
         locationProvider?.setCustomLocationUsageEnabled(sender.isOn)
-        let isEnabled = self.locationProvider?.isCustomLocationUsageEnabled() ?? false
+        let isEnabled = locationProvider?.isCustomLocationUsageEnabled() ?? false
         configureButton(for: isEnabled, animated: true)
         showAlert(
             title: isEnabled ? "Custom location enabled" : "Custom location disabled",
@@ -69,7 +68,7 @@ class CustomLocationViewController: UIViewController {
         )
     }
     
-    @IBAction func updateLocationButtonActionHandler(_ sender: UIButton) {
+    @IBAction func updateLocationButtonActionHandler() {
         guard
             let latitude = coordinate(from: latitudeTextField.text),
             let longitude = coordinate(from: longitudeTextField.text)
@@ -148,8 +147,8 @@ private extension CustomLocationViewController {
             latitudeTextField.text = "\(coordinate.latitude)"
             longitudeTextField.text = "\(coordinate.longitude)"
         } else {
-            latitudeTextField.text = "-"
-            longitudeTextField.text = "-"
+            latitudeTextField.text = nil
+            longitudeTextField.text = nil
         }
     }
     
@@ -174,12 +173,6 @@ private extension CustomLocationViewController {
             name: UIResponder.keyboardWillHideNotification,
             object: nil
         )
-    }
-    
-    func configureMapView() {
-        mapView.delegate = self
-        mapView.showsUserLocation = true
-        mapView.showsCompass = false
     }
     
     func configureLocationManager() {
