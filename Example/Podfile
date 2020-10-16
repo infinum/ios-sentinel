@@ -1,12 +1,10 @@
 use_frameworks!
+platform :ios, '10.0'
 
 target 'ToolBox_Example' do
   pod 'ToolBox', :path => '../'
 
   target 'ToolBox_Tests' do
     inherit! :search_paths
-
-    pod 'Quick', '~> 1.2.0'
-    pod 'Nimble', '~> 7.0'
   end
 end

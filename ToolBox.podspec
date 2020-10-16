@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'ToolBox'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of ToolBox.'
+  s.summary          = 'Developer\'s toolbox for debugging applications'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -21,22 +21,68 @@ Pod::Spec.new do |s|
 TODO: Add long description of the pod here.
                        DESC
 
-  s.homepage         = 'https://github.com/vlaho.poluta@infinum.hr/ToolBox'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+  s.homepage         = 'https://github.com/infinum/ios-toolbox'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'vlaho.poluta@infinum.hr' => 'vlaho.poluta@infinum.hr' }
-  s.source           = { :git => 'https://github.com/vlaho.poluta@infinum.hr/ToolBox.git', :tag => s.version.to_s }
+  s.author           = { 'Infinum' => 'ios@infinum.hr', 'Vlaho Poluta' => 'vlaho.poluta@infinum.hr' }
+  s.source           = { :git => 'https://github.com/infinum/ios-toolbox.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '8.0'
+  s.requires_arc = true
+  s.platform = :ios
+  s.ios.deployment_target = '10.0'
 
-  s.source_files = 'ToolBox/Classes/**/*'
+
+  s.default_subspec = 'Default'
   
-  # s.resource_bundles = {
-  #   'ToolBox' => ['ToolBox/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.subspec 'Core' do |sp|
+    sp.source_files = 'ToolBox/Classes/Core/**/*'
+    sp.frameworks = 'UIKit'
+  end
+  
+  s.subspec 'UserDefaults' do |sp|
+    sp.source_files = 'ToolBox/Classes/UserDefaults/**/*'
+    sp.dependency 'ToolBox/Core'
+  end
+  
+  s.subspec 'CustomInfo' do |sp|
+    sp.source_files = 'ToolBox/Classes/CustomInfo/**/*'
+    sp.dependency 'ToolBox/Core'
+  end
+  
+  s.subspec 'GeneralInfo' do |sp|
+    sp.source_files = 'ToolBox/Classes/GeneralInfo/**/*'
+    sp.dependency 'ToolBox/CustomInfo'
+  end
+  
+  s.subspec 'TextEditing' do |sp|
+    sp.source_files = 'ToolBox/Classes/TextEditing/**/*'
+    sp.dependency 'ToolBox/Core'
+  end
+  
+  s.subspec 'Loggie' do |sp|
+    sp.source_files = 'ToolBox/Classes/Loggie/**/*'
+    sp.dependency 'ToolBox/Core'
+    sp.dependency 'Loggie', '~> 2.2'
+  end
+  
+  s.subspec 'Bugsnatch' do |sp|
+    sp.source_files = 'ToolBox/Classes/Bugsnatch/**/*'
+    sp.dependency 'ToolBox/Core'
+    sp.dependency 'Bugsnatch/Core', '~> 1.0'
+  end
+  
+#  This won't work untill AnalyticsCollector is added to main cocapods repo
+  s.subspec 'AnalyticsCollector' do |sp|
+    sp.source_files = 'ToolBox/Classes/AnalyticsCollector/**/*'
+    sp.dependency 'ToolBox/Core'
+#    pod 'AnalyticsCollector', :git => 'https://github.com/infinum/ios-analytics-collector'
+  end
+  
+  s.subspec 'Default' do |sp|
+    sp.dependency 'ToolBox/Core'
+    sp.dependency 'ToolBox/UserDefaults'
+    sp.dependency 'ToolBox/GeneralInfo'
+    sp.dependency 'ToolBox/TextEditing'
+  end
+  
 end
