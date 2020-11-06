@@ -58,7 +58,7 @@ class CustomLocationViewController: UIViewController {
     
     @IBAction func locationMockSwitchHandler(_ sender: UISwitch) {
         locationProvider?.setCustomLocationUsageEnabled(sender.isOn)
-        let isEnabled = locationProvider?.isCustomLocationUsageEnabled() ?? false
+        let isEnabled = locationProvider?.isCustomLocationUsageEnabled ?? false
         configureButton(for: isEnabled, animated: true)
         showAlert(
             title: isEnabled ? "Custom location enabled" : "Custom location disabled",
@@ -128,7 +128,7 @@ extension CustomLocationViewController: UITextFieldDelegate {
 private extension CustomLocationViewController {
     
     func configureView() {
-        let customLocationEnabled = locationProvider?.isCustomLocationUsageEnabled() ?? false
+        let customLocationEnabled = locationProvider?.isCustomLocationUsageEnabled ?? false
         configureSwitch(for: customLocationEnabled)
         configureFields(for: customLocationEnabled)
         configureButton(for: customLocationEnabled, animated: false)
@@ -143,7 +143,7 @@ private extension CustomLocationViewController {
         latitudeTextField.delegate = self
         longitudeTextField.delegate = self
         
-        if customLocationEnabled, let coordinate = locationProvider?.customLocation()?.coordinate {
+        if customLocationEnabled, let coordinate = locationProvider?.customLocation?.coordinate {
             latitudeTextField.text = "\(coordinate.latitude)"
             longitudeTextField.text = "\(coordinate.longitude)"
         } else {

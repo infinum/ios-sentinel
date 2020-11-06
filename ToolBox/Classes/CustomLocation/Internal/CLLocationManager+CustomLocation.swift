@@ -11,9 +11,8 @@ extension CLLocationManager {
     
     @objc
     internal func startUpdatingCustomLocation() {
-        guard let location = CustomLocationProvider.instance.customLocation() else { return }
-        DispatchQueue.main.async {
-            self.delegate?.locationManager?(self, didUpdateLocations: [location])
-        }
+        guard let tools = ToolBox.shared.configuration?.tools.compactMap({ $0 as? CustomLocationTool }) else { return }
+        let locations = tools.compactMap({ $0.locationProvider.customLocation })
+        delegate?.locationManager?(self, didUpdateLocations: locations)
     }
 }

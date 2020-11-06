@@ -21,13 +21,13 @@ public class CustomLocationTool: Tool {
     
     // MARK: - Private properties
 
-    private let locationProvider = CustomLocationProvider.instance
+    internal let locationProvider: CustomLocationProvider
     
     // MARK: - Lifecycle
     
     public init(name: String = "Custom Location", userDefaults: UserDefaults = .standard) {
         self.name = name
-        self.locationProvider.initializeCustomLocation(userDefaults: userDefaults)
+        self.locationProvider = CustomLocationProvider(userDefaults: userDefaults)
     }
     
     // MARK: - Public methods
