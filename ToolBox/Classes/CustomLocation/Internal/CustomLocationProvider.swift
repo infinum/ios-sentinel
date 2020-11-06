@@ -16,8 +16,7 @@ class CustomLocationProvider {
         private init() { }
         
         static let locationMockEnabledKey = "com.infinum.toolbox.locationMock.enabled"
-        static let locationMockLatitudeKey = "com.infinum.toolbox.locationMock.latitude"
-        static let locationMockLongitudeKey = "com.infinum.toolbox.locationMock.longitude"
+        static let locationMockLocationKey = "com.infinum.toolbox.locationMock.location"
     }
 
     // MARK: - Private properties
@@ -38,20 +37,19 @@ class CustomLocationProvider {
 
     var customLocation: CLLocation? {
         guard
-            let latitude = userDefaults.object(forKey: Constants.locationMockLatitudeKey) as? Double,
-            let longitude = userDefaults.object(forKey: Constants.locationMockLongitudeKey) as? Double
+            let data = userDefaults.object(forKey: Constants.locationMockLocationKey) as? Data,
+            let location = NSKeyedUnarchiver.unarchiveObject(with: data) as? CLLocation
         else { return nil }
-
-        return CLLocation(latitude: latitude, longitude: longitude)
+        return location
     }
 
     func setCustomLocationUsageEnabled(_ enabled: Bool) {
         userDefaults.setValue(enabled, forKey: Constants.locationMockEnabledKey)
     }
     
-    func setCustomLocation(latitude: Double, longitude: Double) {
-        userDefaults.setValue(latitude, forKey: Constants.locationMockLatitudeKey)
-        userDefaults.setValue(longitude, forKey: Constants.locationMockLongitudeKey)
+    func setCustomLocation(location: CLLocation) {
+        let data = NSKeyedArchiver.archivedData(withRootObject: location)
+        userDefaults.setValue(data, forKey: Constants.locationMockLocationKey)
     }
 }
 

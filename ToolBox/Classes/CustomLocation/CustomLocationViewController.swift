@@ -81,7 +81,7 @@ class CustomLocationViewController: UIViewController {
             )
             return
         }
-        locationProvider?.setCustomLocation(latitude: latitude, longitude: longitude)
+        locationProvider?.setCustomLocation(location: CLLocation(latitude: latitude, longitude: longitude))
         view.endEditing(true)
         showAlert(
             title: "Custom location changed",
