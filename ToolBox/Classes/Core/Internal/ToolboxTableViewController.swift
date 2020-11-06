@@ -20,7 +20,7 @@ class ToolboxTableViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad()   
         title = toolTable.name
         toolTable.sections
             .flatMap { $0.items }

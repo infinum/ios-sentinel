@@ -72,16 +72,17 @@ public class NotificationTrigger: NSObject, Trigger {
         guard let token = observerToken else { return }
         NotificationCenter.default.removeObserver(token)
     }
+
     // MARK: - Public methods
     
     public func subscribe(on events: @escaping () -> ()) {
-        self.observer = events
+        observer = events
     }
     
     // MARK: - Private methods
 
     private func setup() {
-        self.observerToken = NotificationCenter.default.addObserver(
+        observerToken = NotificationCenter.default.addObserver(
             forName: notificationName,
             object: nil,
             queue: queue,
@@ -150,7 +151,7 @@ extension UIApplication {
     
     static let classInit: Void = {
         guard let originalMethod = class_getInstanceMethod(UIApplication.self, #selector(UIApplication.motionEnded(_:with:))),
-            let swizzledMethod = class_getInstanceMethod(UIApplication.self, #selector(UIApplication.swizzled_motionEnded(_:with:)))
+              let swizzledMethod = class_getInstanceMethod(UIApplication.self, #selector(UIApplication.swizzled_motionEnded(_:with:)))
         else { return }
        method_exchangeImplementations(originalMethod, swizzledMethod)
     }()
