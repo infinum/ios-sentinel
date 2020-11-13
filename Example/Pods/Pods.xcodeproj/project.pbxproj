@@ -19,6 +19,11 @@
 		3B1FFA5EF3EA69769B5E1669F2EEB60F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
 		4F0C7BD025237F4300A1B6BB /* ToolTableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0C7BCF25237F4300A1B6BB /* ToolTableSection.swift */; };
 		4F0C7BD825237F7A00A1B6BB /* ToolTableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0C7BD725237F7A00A1B6BB /* ToolTableItem.swift */; };
+		4F5E2F0A25260AF4008FD644 /* CustomLocationTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5E2F0925260AF4008FD644 /* CustomLocationTool.swift */; };
+		4F5E2F1425260C04008FD644 /* CustomLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5E2F1325260C04008FD644 /* CustomLocationViewController.swift */; };
+		4F5E2F2125260D06008FD644 /* CustomLocation.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = 4F5E2F0E25260BE2008FD644 /* CustomLocation.storyboard */; };
+		4F61A12025263817005E1E1D /* CLLocationManager+CustomLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F61A11F25263817005E1E1D /* CLLocationManager+CustomLocation.swift */; };
+		4F61A125252638CB005E1E1D /* CustomLocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F61A124252638CB005E1E1D /* CustomLocationProvider.swift */; };
 		4F6D88D6252DE0C6000CD008 /* OptionSwitchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F6D88D5252DE0C6000CD008 /* OptionSwitchTableViewCell.xib */; };
 		4F7978E525274B230098735F /* OptionSwitchTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7978E425274B230098735F /* OptionSwitchTool.swift */; };
 		4F79790125274D360098735F /* OptionSwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F79790025274D360098735F /* OptionSwitchTableViewCell.swift */; };
@@ -86,6 +91,11 @@
 		4F0C7BCF25237F4300A1B6BB /* ToolTableSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ToolTableSection.swift; path = ToolBox/Classes/Core/ToolTableSection.swift; sourceTree = "<group>"; };
 		4F0C7BD725237F7A00A1B6BB /* ToolTableItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ToolTableItem.swift; path = ToolBox/Classes/Core/ToolTableItem.swift; sourceTree = "<group>"; };
 		4F52ACE5390461680D23AA1CFD99D3A2 /* ToolBox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ToolBox.swift; path = ToolBox/Classes/Core/ToolBox.swift; sourceTree = "<group>"; };
+		4F5E2F0925260AF4008FD644 /* CustomLocationTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLocationTool.swift; sourceTree = "<group>"; };
+		4F5E2F0E25260BE2008FD644 /* CustomLocation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CustomLocation.storyboard; sourceTree = "<group>"; };
+		4F5E2F1325260C04008FD644 /* CustomLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLocationViewController.swift; sourceTree = "<group>"; };
+		4F61A11F25263817005E1E1D /* CLLocationManager+CustomLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationManager+CustomLocation.swift"; sourceTree = "<group>"; };
+		4F61A124252638CB005E1E1D /* CustomLocationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLocationProvider.swift; sourceTree = "<group>"; };
 		4F6D88D5252DE0C6000CD008 /* OptionSwitchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = OptionSwitchTableViewCell.xib; path = ToolBox/Classes/OptionSwitch/Items/OptionSwitchTableViewCell.xib; sourceTree = "<group>"; };
 		4F7978E425274B230098735F /* OptionSwitchTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OptionSwitchTool.swift; path = ToolBox/Classes/OptionSwitch/OptionSwitchTool.swift; sourceTree = "<group>"; };
 		4F79790025274D360098735F /* OptionSwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OptionSwitchTableViewCell.swift; path = ToolBox/Classes/OptionSwitch/Items/OptionSwitchTableViewCell.swift; sourceTree = "<group>"; };
@@ -200,6 +210,35 @@
 			path = ToolBox/Classes/Core/Internal;
 			sourceTree = "<group>";
 		};
+		4F5E2F0725260A59008FD644 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				4F5E2F0825260A81008FD644 /* CustomLocation */,
+			);
+			name = Tools;
+			sourceTree = "<group>";
+		};
+		4F5E2F0825260A81008FD644 /* CustomLocation */ = {
+			isa = PBXGroup;
+			children = (
+				4F5E2F2825261013008FD644 /* Internal */,
+				4F5E2F0E25260BE2008FD644 /* CustomLocation.storyboard */,
+				4F5E2F0925260AF4008FD644 /* CustomLocationTool.swift */,
+				4F5E2F1325260C04008FD644 /* CustomLocationViewController.swift */,
+			);
+			name = CustomLocation;
+			path = ToolBox/Classes/CustomLocation;
+			sourceTree = "<group>";
+		};
+		4F5E2F2825261013008FD644 /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				4F61A11F25263817005E1E1D /* CLLocationManager+CustomLocation.swift */,
+				4F61A124252638CB005E1E1D /* CustomLocationProvider.swift */,
+			);
+			path = Internal;
+			sourceTree = "<group>";
+		};
 		4F7978E3252749830098735F /* OptionSwitch */ = {
 			isa = PBXGroup;
 			children = (
@@ -265,6 +304,7 @@
 		6BC48C0ACFAA6009622DB89AE26C7606 /* ToolBox */ = {
 			isa = PBXGroup;
 			children = (
+				4F5E2F0725260A59008FD644 /* Tools */,
 				C44C4C38B28CF56BBAF234C34A800F30 /* Core */,
 				D7A342608221DA0F425340D7693787A6 /* CustomInfo */,
 				8B2AFB99368E13782501999F563910C0 /* GeneralInfo */,
@@ -524,6 +564,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F5E2F2125260D06008FD644 /* CustomLocation.storyboard in Sources */,
 				54F97646F358D299A377C408195217D8 /* CustomInfoTool.swift in Sources */,
 				4F79791D252752530098735F /* OptionSwitchItem.swift in Sources */,
 				DC6B2B03076D160AFA5197EE867B4215 /* DetailToolTableCell.swift in Sources */,
@@ -531,14 +572,18 @@
 				7BAA96BCE1E5698AED2D5F32DD950760 /* GeneralInfoTool.swift in Sources */,
 				01CCEB4BDF52E423E169D34B43E4A99A /* NavigationToolTableCell.xib in Sources */,
 				D2A12BA07A5FCD5FB26D9B57F02207D1 /* NavigationToolTableCell.swift in Sources */,
+				4F61A12025263817005E1E1D /* CLLocationManager+CustomLocation.swift in Sources */,
 				31693D38144A148E70FD979B48C38969 /* SourceScreenProvider.swift in Sources */,
 				67647ADCA466DC2ED405DC0EBA63948E /* TextEditing.storyboard in Sources */,
 				B350311B77F61DB20D2F3C77F41106EF /* TextEditingTool.swift in Sources */,
 				06DD9A3BA4C448B934AE212720F89F74 /* TextEditingViewController.swift in Sources */,
 				72BEFC9E6FFB9E98104A79A173978FC5 /* Tool.swift in Sources */,
+				4F5E2F0A25260AF4008FD644 /* CustomLocationTool.swift in Sources */,
 				CC70FEC5DE63D139CD543701B936DE2B /* ToolBox-dummy.m in Sources */,
 				4F79790125274D360098735F /* OptionSwitchTableViewCell.swift in Sources */,
 				F6E8E1C5C07363098FBC493BEA65EDF5 /* ToolBox.storyboard in Sources */,
+				4F5E2F1425260C04008FD644 /* CustomLocationViewController.swift in Sources */,
+				4F61A125252638CB005E1E1D /* CustomLocationProvider.swift in Sources */,
 				1D9ED3439D590E6046DCEE431D15D419 /* ToolBox.swift in Sources */,
 				5A8A1919E835DB1B0649734662B7A566 /* ToolBoxInternal.swift in Sources */,
 				D78E1FAA20D8789E71B2C6AB19626E0B /* ToolboxTableViewController.swift in Sources */,

@@ -16,7 +16,7 @@ public class ToolBox: NSObject {
     
     // MARK: - Private properties
     
-    private var configuration: Configuration?
+    internal var configuration: Configuration?
 
     // MARK: - Public properties
     

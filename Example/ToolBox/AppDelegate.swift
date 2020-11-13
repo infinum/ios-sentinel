@@ -40,6 +40,7 @@ private extension AppDelegate {
                 GeneralInfoTool(),
                 UserDefaultsTool(),
                 baseUrlTool,
+                CustomLocationTool(),
 //                BugsnatchTool(triggerActionConfig: EmailConfig()),
 //                LoggieTool(),
 //                AnalyticsCollectorTool(),
