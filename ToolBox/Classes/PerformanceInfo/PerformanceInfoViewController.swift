@@ -103,9 +103,9 @@ private extension PerformanceInfoViewController {
     func configureCPUTableCell(for indexPath: IndexPath, tableView: UITableView) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(ofType: PerformanceInfoTableViewCell.self, for: indexPath)
         if indexPath.row == 0 {
-            cell.configure(title: "Current usage", value: String(format: "%.2f%%", cpuInfo.currentUsage))
+            cell.configure(with: PerformanceInfoItem(title: "Current usage", value: String(format: "%.2f%%", cpuInfo.currentUsage)))
         } else if indexPath.row == 1 {
-            cell.configure(title: "Number of cores", value: String(format: "%d", cpuInfo.numberOfCores))
+            cell.configure(with: PerformanceInfoItem(title: "Number of cores", value: String(format: "%d", cpuInfo.numberOfCores)))
         }
         return cell
     }
@@ -114,13 +114,13 @@ private extension PerformanceInfoViewController {
         let cell = tableView.dequeueReusableCell(ofType: PerformanceInfoTableViewCell.self, for: indexPath)
         let used = ByteCountFormatter.string(fromByteCount: memoryInfo.currentUsage.used, countStyle: .file)
         let total = ByteCountFormatter.string(fromByteCount: memoryInfo.currentUsage.total, countStyle: .file)
-        cell.configure(title: "Current usage", value: "\(used) / \(total)")
+        cell.configure(with: PerformanceInfoItem(title: "Current usage", value: "\(used) / \(total)"))
         return cell
     }
     
     func configureSystemTableCell(for indexPath: IndexPath, tableView: UITableView) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(ofType: PerformanceInfoTableViewCell.self, for: indexPath)
-        cell.configure(title: "Uptime", value: systemInfo.uptime)
+        cell.configure(with: PerformanceInfoItem(title: "Uptime", value: systemInfo.uptime))
         return cell
     }
     

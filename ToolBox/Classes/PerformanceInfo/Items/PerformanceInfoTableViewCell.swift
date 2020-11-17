@@ -16,8 +16,8 @@ class PerformanceInfoTableViewCell: UITableViewCell {
 
     // MARK: - Public methods
     
-    func configure(title: String, value: String) {
-        titleLabel.text = title
-        valueLabel.text = value
+    func configure(with item: PerformanceInfoItem) {
+        titleLabel.text = item.title
+        valueLabel.text = item.value
     }
 }
