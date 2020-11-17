@@ -14,10 +14,18 @@ class PerformanceInfoTableViewCell: UITableViewCell {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var valueLabel: UILabel!
 
+    var item: PerformanceInfoItem?
+
     // MARK: - Public methods
     
     func configure(with item: PerformanceInfoItem) {
+        self.item = item
         titleLabel.text = item.title
+        valueLabel.text = item.value
+    }
+
+    @objc func update() {
+        guard let item = item else { return }
         valueLabel.text = item.value
     }
 }

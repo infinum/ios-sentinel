@@ -12,7 +12,7 @@ class PerformanceInfoItem: NSObject {
     // MARK: - Properties
 
     let title: String
-    let value: String
+    var value: String
 
     // MARK: - Lifecycle
 
