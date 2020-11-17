@@ -29,6 +29,7 @@ class PerformanceInfoViewController: UIViewController {
     
     private let cpuInfo = CPUInfoProvider()
     private let memoryInfo = MemoryInfoProvider()
+    private let systemInfo = SystemInfoProvider()
     private var timer: Timer?
 
     // MARK: - Lifecycle
@@ -119,16 +120,8 @@ private extension PerformanceInfoViewController {
     
     func configureSystemTableCell(for indexPath: IndexPath, tableView: UITableView) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(ofType: PerformanceInfoTableViewCell.self, for: indexPath)
-        let time = secondsToHoursMinutesSeconds(interval: ProcessInfo().systemUptime)
-        cell.configure(title: "Uptime", value: time)
+        cell.configure(title: "Uptime", value: systemInfo.uptime)
         return cell
     }
     
-    func secondsToHoursMinutesSeconds (interval: TimeInterval) -> String {
-        let ti = NSInteger(interval)
-        let s = ti % 60
-        let m = (ti / 60) % 60
-        let h = (ti / 3600)
-        return "\(h):\(m):\(s)"
-    }
 }
