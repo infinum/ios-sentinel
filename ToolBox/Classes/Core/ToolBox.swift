@@ -16,7 +16,7 @@ public class ToolBox: NSObject {
     
     // MARK: - Private properties
     
-    private var configuration: Configuration?
+    internal var configuration: Configuration?
 
     // MARK: - Public properties
     
@@ -41,7 +41,6 @@ public class ToolBox: NSObject {
         configuration.trigger.subscribe { [weak self] in
             guard let viewController = configuration.sourceScreenProvider.viewControllerForShowingTools else { return }
             self?.present(tools: configuration.tools, on: viewController)
-            
         }
     }
     
