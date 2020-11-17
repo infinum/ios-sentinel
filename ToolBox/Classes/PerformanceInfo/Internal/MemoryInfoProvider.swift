@@ -7,9 +7,14 @@
 
 import Foundation
 
+struct MemoryUsage {
+    let used: Int64
+    let total: Int64
+}
+
 class MemoryInfoProvider {
     
-    func currentUsage() -> (UInt64, UInt64) {
+    var currentUsage: MemoryUsage {
         var taskInfo = task_vm_info_data_t()
         var count = mach_msg_type_number_t(MemoryLayout<task_vm_info>.size) / 4
         let result: kern_return_t = withUnsafeMutablePointer(to: &taskInfo) {
@@ -18,12 +23,8 @@ class MemoryInfoProvider {
             }
         }
         
-        var used: UInt64 = 0
-        if result == KERN_SUCCESS {
-            used = UInt64(taskInfo.phys_footprint)
-        }
-        
-        let total = ProcessInfo.processInfo.physicalMemory
-        return (used, total)
+        let used = result == KERN_SUCCESS ? Int64(taskInfo.phys_footprint) : 0
+        let total = Int64(ProcessInfo.processInfo.physicalMemory)
+        return MemoryUsage(used: used, total: total)
     }
 }

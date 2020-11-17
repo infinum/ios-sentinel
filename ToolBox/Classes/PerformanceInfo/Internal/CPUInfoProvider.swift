@@ -9,11 +9,11 @@ import Foundation
 
 class CPUInfoProvider {
     
-    func numberOfCores() -> UInt {
-        return UInt(ProcessInfo().processorCount)
+    var numberOfCores: Int {
+        return ProcessInfo().processorCount
     }
     
-    func currentUsage() -> Double {
+    var currentUsage: Double {
         var totalUsageOfCPU: Double = 0.0
         var threadsList: thread_act_array_t?
         var threadsCount = mach_msg_type_number_t(0)
