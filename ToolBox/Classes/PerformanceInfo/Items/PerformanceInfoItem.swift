@@ -12,13 +12,13 @@ class PerformanceInfoItem: NSObject {
     // MARK: - Properties
 
     let title: String
-    var value: String
+    let valueDidChange: () -> String
 
     // MARK: - Lifecycle
 
-    init(title: String, value: String) {
+    init(title: String, valueDidChange: @escaping () -> String) {
         self.title = title
-        self.value = value
+        self.valueDidChange = valueDidChange
     }
 }
 

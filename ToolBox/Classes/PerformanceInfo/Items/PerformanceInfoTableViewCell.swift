@@ -14,18 +14,52 @@ class PerformanceInfoTableViewCell: UITableViewCell {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var valueLabel: UILabel!
 
-    var item: PerformanceInfoItem?
+    // MARK: - Private properties
+
+    private var valueDidChange: (() -> String)?
+    private var timer: Timer?
+
+    // MARK - Lifecycle
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        initializeTimer()
+    }
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        invalidateTimer()
+        initializeTimer()
+    }
 
     // MARK: - Public methods
     
     func configure(with item: PerformanceInfoItem) {
-        self.item = item
+        self.valueDidChange = item.valueDidChange
         titleLabel.text = item.title
-        valueLabel.text = item.value
+        valueLabel.text = item.valueDidChange()
+    }
+}
+
+// MARK: - Private methods
+
+private extension PerformanceInfoTableViewCell {
+
+    func initializeTimer() {
+        timer = Timer.scheduledTimer(
+            timeInterval: 1.0,
+            target: self,
+            selector: #selector(updatePerformanceInfo),
+            userInfo: nil,
+            repeats: true
+        )
     }
 
-    @objc func update() {
-        guard let item = item else { return }
-        valueLabel.text = item.value
+    func invalidateTimer() {
+        timer?.invalidate()
+    }
+
+    @objc func updatePerformanceInfo() {
+        valueLabel.text = valueDidChange?() ?? "--"
     }
 }
