@@ -28,6 +28,14 @@
 		4F7978E525274B230098735F /* OptionSwitchTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7978E425274B230098735F /* OptionSwitchTool.swift */; };
 		4F79790125274D360098735F /* OptionSwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F79790025274D360098735F /* OptionSwitchTableViewCell.swift */; };
 		4F79791D252752530098735F /* OptionSwitchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F79791C252752530098735F /* OptionSwitchItem.swift */; };
+		4F797932252770960098735F /* PerformanceInfo.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = 4F797931252770960098735F /* PerformanceInfo.storyboard */; };
+		4F797937252770B30098735F /* PerformanceInfoTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F797936252770B30098735F /* PerformanceInfoTool.swift */; };
+		4F797945252773D60098735F /* PerformanceInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F797944252773D60098735F /* PerformanceInfoTableViewCell.swift */; };
+		4F79794D25277CD60098735F /* CPUInfoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F79794C25277CD60098735F /* CPUInfoProvider.swift */; };
+		4F79795225277CEC0098735F /* MemoryInfoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F79795125277CEC0098735F /* MemoryInfoProvider.swift */; };
+		4FFF34A525640F7700BA5271 /* SystemInfoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFF34A425640F7700BA5271 /* SystemInfoProvider.swift */; };
+		4FFF34C22564F11800BA5271 /* PerformanceInfoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FFF34C12564F11800BA5271 /* PerformanceInfoItem.swift */; };
+		4FFF34CF2564F1A500BA5271 /* PerformanceInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FFF34CE2564F1A500BA5271 /* PerformanceInfoTableViewCell.xib */; };
 		53A369E24F7324E96F715DA9F491E0DA /* UserDefaults.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = 724BD5E23C7D62EF469662C512F65580 /* UserDefaults.storyboard */; };
 		54F97646F358D299A377C408195217D8 /* CustomInfoTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3C91AD76EEC56F4D396FD49D466CC1C /* CustomInfoTool.swift */; };
 		5A8A1919E835DB1B0649734662B7A566 /* ToolBoxInternal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1CE3A4355A67B28CE21360EBFB4BB7 /* ToolBoxInternal.swift */; };
@@ -100,6 +108,14 @@
 		4F7978E425274B230098735F /* OptionSwitchTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OptionSwitchTool.swift; path = ToolBox/Classes/OptionSwitch/OptionSwitchTool.swift; sourceTree = "<group>"; };
 		4F79790025274D360098735F /* OptionSwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OptionSwitchTableViewCell.swift; path = ToolBox/Classes/OptionSwitch/Items/OptionSwitchTableViewCell.swift; sourceTree = "<group>"; };
 		4F79791C252752530098735F /* OptionSwitchItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OptionSwitchItem.swift; path = ToolBox/Classes/OptionSwitch/Items/OptionSwitchItem.swift; sourceTree = "<group>"; };
+		4F797931252770960098735F /* PerformanceInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = PerformanceInfo.storyboard; path = ToolBox/Classes/PerformanceInfo/PerformanceInfo.storyboard; sourceTree = "<group>"; };
+		4F797936252770B30098735F /* PerformanceInfoTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PerformanceInfoTool.swift; path = ToolBox/Classes/PerformanceInfo/PerformanceInfoTool.swift; sourceTree = "<group>"; };
+		4F797944252773D60098735F /* PerformanceInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PerformanceInfoTableViewCell.swift; path = ToolBox/Classes/PerformanceInfo/Items/PerformanceInfoTableViewCell.swift; sourceTree = "<group>"; };
+		4F79794C25277CD60098735F /* CPUInfoProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CPUInfoProvider.swift; path = ToolBox/Classes/PerformanceInfo/Internal/CPUInfoProvider.swift; sourceTree = "<group>"; };
+		4F79795125277CEC0098735F /* MemoryInfoProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MemoryInfoProvider.swift; path = ToolBox/Classes/PerformanceInfo/Internal/MemoryInfoProvider.swift; sourceTree = "<group>"; };
+		4FFF34A425640F7700BA5271 /* SystemInfoProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemInfoProvider.swift; sourceTree = "<group>"; };
+		4FFF34C12564F11800BA5271 /* PerformanceInfoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PerformanceInfoItem.swift; path = ToolBox/Classes/PerformanceInfo/Items/PerformanceInfoItem.swift; sourceTree = "<group>"; };
+		4FFF34CE2564F1A500BA5271 /* PerformanceInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PerformanceInfoTableViewCell.xib; path = ToolBox/Classes/PerformanceInfo/Items/PerformanceInfoTableViewCell.xib; sourceTree = "<group>"; };
 		5241378F0DAED9C5E88115FD241EAFC8 /* ToolBox-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ToolBox-umbrella.h"; sourceTree = "<group>"; };
 		581D45E15A6C5CD7A28911546AE2BF1D /* Pods-ToolBox_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ToolBox_Tests-Info.plist"; sourceTree = "<group>"; };
 		666E89F3A50D89E6C3145C8F86AE5931 /* DetailToolTableCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = DetailToolTableCell.xib; sourceTree = "<group>"; };
@@ -258,6 +274,37 @@
 			name = Items;
 			sourceTree = "<group>";
 		};
+		4F79792725275A4F0098735F /* PerformanceInfo */ = {
+			isa = PBXGroup;
+			children = (
+				4F797942252773BC0098735F /* Items */,
+				4F79792825275A4F0098735F /* Internal */,
+				4F797931252770960098735F /* PerformanceInfo.storyboard */,
+				4F797936252770B30098735F /* PerformanceInfoTool.swift */,
+			);
+			name = PerformanceInfo;
+			sourceTree = "<group>";
+		};
+		4F79792825275A4F0098735F /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				4F79794C25277CD60098735F /* CPUInfoProvider.swift */,
+				4F79795125277CEC0098735F /* MemoryInfoProvider.swift */,
+				4FFF34A425640F7700BA5271 /* SystemInfoProvider.swift */,
+			);
+			name = Internal;
+			sourceTree = "<group>";
+		};
+		4F797942252773BC0098735F /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				4FFF34C12564F11800BA5271 /* PerformanceInfoItem.swift */,
+				4F797944252773D60098735F /* PerformanceInfoTableViewCell.swift */,
+				4FFF34CE2564F1A500BA5271 /* PerformanceInfoTableViewCell.xib */,
+			);
+			name = Items;
+			sourceTree = "<group>";
+		};
 		5E0ACD01D51A19C96BAC44B3EBF028E5 /* Pods-ToolBox_Example */ = {
 			isa = PBXGroup;
 			children = (
@@ -312,6 +359,7 @@
 				1B525E56939D41F3B4B98E929EB60242 /* Support Files */,
 				5F19777E1E50BD8C962E1170AC9A4E96 /* TextEditing */,
 				75EF012F82D1E60F9B1EF1A588EE5ACC /* UserDefaults */,
+				4F79792725275A4F0098735F /* PerformanceInfo */,
 				4F7978E3252749830098735F /* OptionSwitch */,
 			);
 			name = ToolBox;
@@ -553,6 +601,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FFF34CF2564F1A500BA5271 /* PerformanceInfoTableViewCell.xib in Resources */,
 				4F6D88D6252DE0C6000CD008 /* OptionSwitchTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -572,7 +621,10 @@
 				7BAA96BCE1E5698AED2D5F32DD950760 /* GeneralInfoTool.swift in Sources */,
 				01CCEB4BDF52E423E169D34B43E4A99A /* NavigationToolTableCell.xib in Sources */,
 				D2A12BA07A5FCD5FB26D9B57F02207D1 /* NavigationToolTableCell.swift in Sources */,
+				4F797945252773D60098735F /* PerformanceInfoTableViewCell.swift in Sources */,
+				4F797937252770B30098735F /* PerformanceInfoTool.swift in Sources */,
 				4F61A12025263817005E1E1D /* CLLocationManager+CustomLocation.swift in Sources */,
+				4FFF34A525640F7700BA5271 /* SystemInfoProvider.swift in Sources */,
 				31693D38144A148E70FD979B48C38969 /* SourceScreenProvider.swift in Sources */,
 				67647ADCA466DC2ED405DC0EBA63948E /* TextEditing.storyboard in Sources */,
 				B350311B77F61DB20D2F3C77F41106EF /* TextEditingTool.swift in Sources */,
@@ -585,16 +637,20 @@
 				4F5E2F1425260C04008FD644 /* CustomLocationViewController.swift in Sources */,
 				4F61A125252638CB005E1E1D /* CustomLocationProvider.swift in Sources */,
 				1D9ED3439D590E6046DCEE431D15D419 /* ToolBox.swift in Sources */,
+				4F79795225277CEC0098735F /* MemoryInfoProvider.swift in Sources */,
 				5A8A1919E835DB1B0649734662B7A566 /* ToolBoxInternal.swift in Sources */,
+				4F79794D25277CD60098735F /* CPUInfoProvider.swift in Sources */,
 				D78E1FAA20D8789E71B2C6AB19626E0B /* ToolboxTableViewController.swift in Sources */,
 				A05EE56C2017A74CD5489C050A4BFF7D /* ToolBoxUIKitExtensions.swift in Sources */,
 				881C2679961855BE7C56AFF5A6AB2DEF /* ToolTable.swift in Sources */,
 				4F0C7BD825237F7A00A1B6BB /* ToolTableItem.swift in Sources */,
 				4F0C7BD025237F4300A1B6BB /* ToolTableSection.swift in Sources */,
+				4FFF34C22564F11800BA5271 /* PerformanceInfoItem.swift in Sources */,
 				F2360E386271B9140DD8C290B7BBBC3E /* Trigger.swift in Sources */,
 				4F7978E525274B230098735F /* OptionSwitchTool.swift in Sources */,
 				53A369E24F7324E96F715DA9F491E0DA /* UserDefaults.storyboard in Sources */,
 				237C03AA5DF62B01DB5FDA5AADCD6274 /* UserDefaultsTool.swift in Sources */,
+				4F797932252770960098735F /* PerformanceInfo.storyboard in Sources */,
 				1898FD62741D9F8C81FA6E65DBB1CBE3 /* UserDefaultsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

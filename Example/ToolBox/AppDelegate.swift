@@ -45,6 +45,7 @@ private extension AppDelegate {
 //                LoggieTool(),
 //                AnalyticsCollectorTool(),
                 optionSwitchTool,
+                PerformanceInfoTool(),
             ]
         )
         
