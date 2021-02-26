@@ -45,7 +45,7 @@
 		9533AA5071F8B3C320CB0EAF /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		A5CD9E5D6B215DE1B7DAD54D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		A68E15F6D0CBDCA184B0687E /* Pods_ToolBox_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToolBox_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CBB6C51C3843F1DB480D9EE0 /* ToolBox.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = ToolBox.podspec; path = ../ToolBox.podspec; sourceTree = "<group>"; };
+		CBB6C51C3843F1DB480D9EE0 /* ToolBox.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = ToolBox.podspec; path = ../ToolBox.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		DC95EF3E2589739242B177B8 /* Pods-ToolBox_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToolBox_Tests.debug.xcconfig"; path = "Target Support Files/Pods-ToolBox_Tests/Pods-ToolBox_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		FB5DE691687D5F5430E34C38 /* Pods-ToolBox_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToolBox_Tests.release.xcconfig"; path = "Target Support Files/Pods-ToolBox_Tests/Pods-ToolBox_Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */

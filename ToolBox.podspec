@@ -43,6 +43,11 @@ TODO: Add long description of the pod here.
     sp.source_files = 'ToolBox/Classes/UserDefaults/**/*'
     sp.dependency 'ToolBox/Core'
   end
+
+  s.subspec 'CustomLocation' do |sp|
+    sp.source_files = 'ToolBox/Classes/CustomLocation/**/*'
+    sp.dependency 'ToolBox/Core'
+  end
   
   s.subspec 'CustomInfo' do |sp|
     sp.source_files = 'ToolBox/Classes/CustomInfo/**/*'
@@ -56,6 +61,16 @@ TODO: Add long description of the pod here.
   
   s.subspec 'TextEditing' do |sp|
     sp.source_files = 'ToolBox/Classes/TextEditing/**/*'
+    sp.dependency 'ToolBox/Core'
+  end
+
+  s.subspec 'OptionSwitch' do |sp|
+    sp.source_files = 'ToolBox/Classes/OptionSwitch/**/*'
+    sp.dependency 'ToolBox/Core'
+  end
+
+  s.subspec 'PerformanceInfo' do |sp|
+    sp.source_files = 'ToolBox/Classes/PerformanceInfo/**/*'
     sp.dependency 'ToolBox/Core'
   end
   
@@ -81,8 +96,12 @@ TODO: Add long description of the pod here.
   s.subspec 'Default' do |sp|
     sp.dependency 'ToolBox/Core'
     sp.dependency 'ToolBox/UserDefaults'
+    sp.dependency 'ToolBox/CustomLocation'
+    sp.dependency 'ToolBox/CustomInfo'
     sp.dependency 'ToolBox/GeneralInfo'
     sp.dependency 'ToolBox/TextEditing'
+    sp.dependency 'ToolBox/OptionSwitch'
+    sp.dependency 'ToolBox/PerformanceInfo'
   end
   
 end

@@ -4,13 +4,23 @@ PODS:
   - ToolBox/Core (0.1.0)
   - ToolBox/CustomInfo (0.1.0):
     - ToolBox/Core
+  - ToolBox/CustomLocation (0.1.0):
+    - ToolBox/Core
   - ToolBox/Default (0.1.0):
     - ToolBox/Core
+    - ToolBox/CustomInfo
+    - ToolBox/CustomLocation
     - ToolBox/GeneralInfo
+    - ToolBox/OptionSwitch
+    - ToolBox/PerformanceInfo
     - ToolBox/TextEditing
     - ToolBox/UserDefaults
   - ToolBox/GeneralInfo (0.1.0):
     - ToolBox/CustomInfo
+  - ToolBox/OptionSwitch (0.1.0):
+    - ToolBox/Core
+  - ToolBox/PerformanceInfo (0.1.0):
+    - ToolBox/Core
   - ToolBox/TextEditing (0.1.0):
     - ToolBox/Core
   - ToolBox/UserDefaults (0.1.0):
@@ -24,8 +34,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  ToolBox: e8c8293dd3784eabf4be41306f89df7fdba4d49a
+  ToolBox: 244261ce5b87d23be568b6ba5e997bdfa010108f
 
 PODFILE CHECKSUM: 9b72e3f79370eb248d8d9886c14fbef37beef631
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.10.1
