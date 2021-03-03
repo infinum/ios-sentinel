@@ -37,6 +37,15 @@
       }
     },
     {
+      "name": "CustomLocation",
+      "source_files": "ToolBox/Classes/CustomLocation/**/*",
+      "dependencies": {
+        "ToolBox/Core": [
+
+        ]
+      }
+    },
+    {
       "name": "CustomInfo",
       "source_files": "ToolBox/Classes/CustomInfo/**/*",
       "dependencies": {
@@ -57,6 +66,24 @@
     {
       "name": "TextEditing",
       "source_files": "ToolBox/Classes/TextEditing/**/*",
+      "dependencies": {
+        "ToolBox/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "OptionSwitch",
+      "source_files": "ToolBox/Classes/OptionSwitch/**/*",
+      "dependencies": {
+        "ToolBox/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "PerformanceInfo",
+      "source_files": "ToolBox/Classes/PerformanceInfo/**/*",
       "dependencies": {
         "ToolBox/Core": [
 
@@ -105,10 +132,22 @@
         "ToolBox/UserDefaults": [
 
         ],
+        "ToolBox/CustomLocation": [
+
+        ],
+        "ToolBox/CustomInfo": [
+
+        ],
         "ToolBox/GeneralInfo": [
 
         ],
         "ToolBox/TextEditing": [
+
+        ],
+        "ToolBox/OptionSwitch": [
+
+        ],
+        "ToolBox/PerformanceInfo": [
 
         ]
       }
