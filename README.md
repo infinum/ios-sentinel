@@ -1,6 +1,5 @@
 # ToolBox
 
-[![CI Status](https://img.shields.io/travis/vlaho.poluta@infinum.hr/ToolBox.svg?style=flat)](https://travis-ci.org/vlaho.poluta@infinum.hr/ToolBox)
 [![Version](https://img.shields.io/cocoapods/v/ToolBox.svg?style=flat)](https://cocoapods.org/pods/ToolBox)
 [![License](https://img.shields.io/cocoapods/l/ToolBox.svg?style=flat)](https://cocoapods.org/pods/ToolBox)
 [![Platform](https://img.shields.io/cocoapods/p/ToolBox.svg?style=flat)](https://cocoapods.org/pods/ToolBox)
