@@ -10,6 +10,8 @@
 
 This library supports both **Swift** and **Objective-C**.
 
+*Note*: Current release is an **alpha** release.
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
@@ -18,7 +20,6 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 * iOS 10 and above
 * Xcode 10 and above
-
 
 ## Installation
 
