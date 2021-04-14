@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  ToolBox
+//  Sentinel
 //
 //  Created by vlaho.poluta@infinum.hr on 07/30/2020.
 //  Copyright (c) 2020 vlaho.poluta@infinum.hr. All rights reserved.

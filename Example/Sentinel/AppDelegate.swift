@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  ToolBox
+//  Sentinel
 //
 //  Created by vlaho.poluta@infinum.hr on 07/30/2020.
 //  Copyright (c) 2020 vlaho.poluta@infinum.hr. All rights reserved.
@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        setupToolBox()
+        setupSentinel()
         return true
     }
 }
@@ -33,7 +33,7 @@ enum AppSwitches {
 
 private extension AppDelegate {
     
-    func setupToolBox() {
+    func setupSentinel() {
         let configuration = ToolBox.Configuration(
             trigger: Triggers.shake,
             tools: [
@@ -70,21 +70,21 @@ private extension AppDelegate {
                     setter: { AppSwitches.analyticsEnabled = $0 },
                     getter: { AppSwitches.analyticsEnabled },
                     userDefaults: .standard,
-                    userDefaultsKey: "com.infinum.toolbox.optionSwitch.analytics"
+                    userDefaultsKey: "com.infinum.sentinel.optionSwitch.analytics"
                 ),
                 OptionSwitchItem(
                     name: "Crashlytics",
                     setter: { AppSwitches.crashlyticsEnabled = $0 },
                     getter: { AppSwitches.crashlyticsEnabled },
                     userDefaults: .standard,
-                    userDefaultsKey: "com.infinum.toolbox.optionSwitch.crashlytics"
+                    userDefaultsKey: "com.infinum.sentinel.optionSwitch.crashlytics"
                 ),
                 OptionSwitchItem(
                     name: "Logging",
                     setter: { AppSwitches.loggingEnabled = $0 },
                     getter: { AppSwitches.loggingEnabled },
                     userDefaults: .standard,
-                    userDefaultsKey: "com.infinum.toolbox.optionSwitch.logging"
+                    userDefaultsKey: "com.infinum.sentinel.optionSwitch.logging"
                 )
             ]
         )
