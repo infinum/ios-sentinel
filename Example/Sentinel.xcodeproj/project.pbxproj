@@ -13,8 +13,8 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
-		608CD7CA9234221F84130578 /* Pods_ToolBox_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A68E15F6D0CBDCA184B0687E /* Pods_ToolBox_Tests.framework */; };
-		92D6CC480844EE403DC7986B /* Pods_ToolBox_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C6976DAA36E336F049C581F /* Pods_ToolBox_Example.framework */; };
+		9D87804789D66BA70C9C4F43 /* Pods_Sentinel_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F775540544BA139861CD140 /* Pods_Sentinel_Tests.framework */; };
+		D1A8A560B5831998B485B594 /* Pods_Sentinel_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2C1D64A9718815D18692DDC /* Pods_Sentinel_Example.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,8 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		26C9E6C0DDB50C6DE7262B79 /* Pods-ToolBox_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToolBox_Example.debug.xcconfig"; path = "Target Support Files/Pods-ToolBox_Example/Pods-ToolBox_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		4C6976DAA36E336F049C581F /* Pods_ToolBox_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToolBox_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3C363353A1501F3E01D685E8 /* Pods-Sentinel_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sentinel_Example.debug.xcconfig"; path = "Target Support Files/Pods-Sentinel_Example/Pods-Sentinel_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		3F775540544BA139861CD140 /* Pods_Sentinel_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sentinel_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FC51A772513952F00E98846 /* Sentinel_Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sentinel_Example-Bridging-Header.h"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* Sentinel_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sentinel_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -41,13 +41,13 @@
 		607FACE51AFB9204008FA782 /* Sentinel_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Sentinel_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		77F3FE39B6E68F88973A5BFF /* Pods-ToolBox_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToolBox_Example.release.xcconfig"; path = "Target Support Files/Pods-ToolBox_Example/Pods-ToolBox_Example.release.xcconfig"; sourceTree = "<group>"; };
+		866AEA02F6686B675A6D38DE /* Pods-Sentinel_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sentinel_Tests.debug.xcconfig"; path = "Target Support Files/Pods-Sentinel_Tests/Pods-Sentinel_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		9533AA5071F8B3C320CB0EAF /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		A5CD9E5D6B215DE1B7DAD54D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		A68E15F6D0CBDCA184B0687E /* Pods_ToolBox_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToolBox_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFBA6CDA1B7F76EA913AB1C2 /* Pods-Sentinel_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sentinel_Tests.release.xcconfig"; path = "Target Support Files/Pods-Sentinel_Tests/Pods-Sentinel_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		CBB6C51C3843F1DB480D9EE0 /* Sentinel.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Sentinel.podspec; path = ../Sentinel.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		DC95EF3E2589739242B177B8 /* Pods-ToolBox_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToolBox_Tests.debug.xcconfig"; path = "Target Support Files/Pods-ToolBox_Tests/Pods-ToolBox_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		FB5DE691687D5F5430E34C38 /* Pods-ToolBox_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToolBox_Tests.release.xcconfig"; path = "Target Support Files/Pods-ToolBox_Tests/Pods-ToolBox_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		E2C1D64A9718815D18692DDC /* Pods_Sentinel_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sentinel_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E87B34E6B2DDAAB6C7A6229B /* Pods-Sentinel_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sentinel_Example.release.xcconfig"; path = "Target Support Files/Pods-Sentinel_Example/Pods-Sentinel_Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92D6CC480844EE403DC7986B /* Pods_ToolBox_Example.framework in Frameworks */,
+				D1A8A560B5831998B485B594 /* Pods_Sentinel_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,7 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				608CD7CA9234221F84130578 /* Pods_ToolBox_Tests.framework in Frameworks */,
+				9D87804789D66BA70C9C4F43 /* Pods_Sentinel_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,10 +144,10 @@
 		9A6135EB77CB7CB35CD695C9 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				26C9E6C0DDB50C6DE7262B79 /* Pods-ToolBox_Example.debug.xcconfig */,
-				77F3FE39B6E68F88973A5BFF /* Pods-ToolBox_Example.release.xcconfig */,
-				DC95EF3E2589739242B177B8 /* Pods-ToolBox_Tests.debug.xcconfig */,
-				FB5DE691687D5F5430E34C38 /* Pods-ToolBox_Tests.release.xcconfig */,
+				3C363353A1501F3E01D685E8 /* Pods-Sentinel_Example.debug.xcconfig */,
+				E87B34E6B2DDAAB6C7A6229B /* Pods-Sentinel_Example.release.xcconfig */,
+				866AEA02F6686B675A6D38DE /* Pods-Sentinel_Tests.debug.xcconfig */,
+				BFBA6CDA1B7F76EA913AB1C2 /* Pods-Sentinel_Tests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -155,8 +155,8 @@
 		9E3C05CA8F15A153C88790B9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4C6976DAA36E336F049C581F /* Pods_ToolBox_Example.framework */,
-				A68E15F6D0CBDCA184B0687E /* Pods_ToolBox_Tests.framework */,
+				E2C1D64A9718815D18692DDC /* Pods_Sentinel_Example.framework */,
+				3F775540544BA139861CD140 /* Pods_Sentinel_Tests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -281,7 +281,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ToolBox_Tests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Sentinel_Tests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -303,7 +303,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ToolBox_Example-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Sentinel_Example-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -316,16 +316,16 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ToolBox_Example/Pods-ToolBox_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/ToolBox/ToolBox.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-Sentinel_Example/Pods-Sentinel_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Sentinel/Sentinel.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ToolBox.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sentinel.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ToolBox_Example/Pods-ToolBox_Example-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Sentinel_Example/Pods-Sentinel_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -485,7 +485,7 @@
 		};
 		607FACF01AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 26C9E6C0DDB50C6DE7262B79 /* Pods-ToolBox_Example.debug.xcconfig */;
+			baseConfigurationReference = 3C363353A1501F3E01D685E8 /* Pods-Sentinel_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -505,7 +505,7 @@
 		};
 		607FACF11AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 77F3FE39B6E68F88973A5BFF /* Pods-ToolBox_Example.release.xcconfig */;
+			baseConfigurationReference = E87B34E6B2DDAAB6C7A6229B /* Pods-Sentinel_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -524,7 +524,7 @@
 		};
 		607FACF31AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DC95EF3E2589739242B177B8 /* Pods-ToolBox_Tests.debug.xcconfig */;
+			baseConfigurationReference = 866AEA02F6686B675A6D38DE /* Pods-Sentinel_Tests.debug.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 5F5M64F878;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -546,7 +546,7 @@
 		};
 		607FACF41AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FB5DE691687D5F5430E34C38 /* Pods-ToolBox_Tests.release.xcconfig */;
+			baseConfigurationReference = BFBA6CDA1B7F76EA913AB1C2 /* Pods-Sentinel_Tests.release.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 5F5M64F878;
 				FRAMEWORK_SEARCH_PATHS = (

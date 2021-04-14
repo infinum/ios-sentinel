@@ -8,7 +8,7 @@
 import UIKit
 
 extension Bundle {
-    static var toolBox: Bundle { Bundle(for: ToolBox.self) }
+    static var toolBox: Bundle { Bundle(for: Sentinel.self) }
 }
 
 extension UIStoryboard {

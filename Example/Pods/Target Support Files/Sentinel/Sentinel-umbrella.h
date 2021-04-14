@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double ToolBoxVersionNumber;
-FOUNDATION_EXPORT const unsigned char ToolBoxVersionString[];
+FOUNDATION_EXPORT double SentinelVersionNumber;
+FOUNDATION_EXPORT const unsigned char SentinelVersionString[];
 

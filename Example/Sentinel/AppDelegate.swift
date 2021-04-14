@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import ToolBox
+import Sentinel
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -34,7 +34,7 @@ enum AppSwitches {
 private extension AppDelegate {
     
     func setupSentinel() {
-        let configuration = ToolBox.Configuration(
+        let configuration = Sentinel.Configuration(
             trigger: Triggers.shake,
             tools: [
                 GeneralInfoTool(),
@@ -49,7 +49,7 @@ private extension AppDelegate {
             ]
         )
         
-        ToolBox.shared.setup(with: configuration)
+        Sentinel.shared.setup(with: configuration)
     }
     
     var baseUrlTool: Tool {

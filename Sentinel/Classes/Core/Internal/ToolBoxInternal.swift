@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension ToolBox {
+extension Sentinel {
     
     /// Presents the toolbox with tools from provided view controller.
     ///

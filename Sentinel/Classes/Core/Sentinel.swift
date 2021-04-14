@@ -1,6 +1,6 @@
 //
-//  ToolBox.swift
-//  ToolBox
+//  Sentinel.swift
+//  Sentinel
 //
 //  Created by Vlaho Poluta on 30/07/2020.
 //
@@ -12,7 +12,7 @@ import Foundation
 /// The toolbox can be configured with different configurations and based on
 /// the configuration used will be triggered from different events and show different tools.
 @objcMembers
-public class ToolBox: NSObject {
+public class Sentinel: NSObject {
     
     // MARK: - Private properties
     
@@ -22,7 +22,7 @@ public class ToolBox: NSObject {
     
     /// Singleton instance of the toolbox.
     @objc(sharedInstance)
-    public static let shared = ToolBox()
+    public static let shared = Sentinel()
     
     // MARK: - Lifecycle
     

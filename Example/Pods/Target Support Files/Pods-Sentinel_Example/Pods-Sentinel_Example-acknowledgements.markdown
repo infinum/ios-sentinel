@@ -1,7 +1,7 @@
 # Acknowledgements
 This application makes use of the following third party libraries:
 
-## ToolBox
+## Sentinel
 
 Copyright (c) 2020 vlaho.poluta@infinum.hr <vlaho.poluta@infinum.hr>
 
