@@ -12,7 +12,7 @@
         <!--Custom Location View Controller-->
         <scene sceneID="kgo-Uy-tXx">
             <objects>
-                <viewController storyboardIdentifier="CustomLocationViewController" id="BNr-KQ-Atv" customClass="CustomLocationViewController" customModule="ToolBox" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CustomLocationViewController" id="BNr-KQ-Atv" customClass="CustomLocationViewController" customModule="Sentinel" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hiU-de-m92">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

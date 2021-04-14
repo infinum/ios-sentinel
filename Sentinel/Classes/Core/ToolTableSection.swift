@@ -1,6 +1,6 @@
 //
 //  ToolTableSection.swift
-//  ToolBox
+//  Sentinel
 //
 //  Created by Nikola Majcen on 29/09/2020.
 //

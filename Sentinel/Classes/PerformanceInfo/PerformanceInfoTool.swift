@@ -1,6 +1,6 @@
 //
 //  PerformanceInfoTool.swift
-//  ToolBox
+//  Sentinel
 //
 //  Created by Nikola Majcen on 02/10/2020.
 //

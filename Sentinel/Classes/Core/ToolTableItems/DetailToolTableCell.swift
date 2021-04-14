@@ -1,6 +1,6 @@
 //
 //  DetailToolTableCell.swift
-//  ToolBox
+//  Sentinel
 //
 //  Created by Vlaho Poluta on 30/07/2020.
 //

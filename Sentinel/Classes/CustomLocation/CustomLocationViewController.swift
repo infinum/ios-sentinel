@@ -1,6 +1,6 @@
 //
 //  CustomLocationViewController.swift
-//  ToolBox
+//  Sentinel
 //
 //  Created by Nikola Majcen on 01/10/2020.
 //
@@ -10,7 +10,7 @@ import MapKit
 import UIKit
 
 extension UIStoryboard {
-    static var customLocation: UIStoryboard { UIStoryboard(name: "CustomLocation", bundle: .toolBox) }
+    static var customLocation: UIStoryboard { UIStoryboard(name: "CustomLocation", bundle: .sentinel) }
 }
 
 class CustomLocationViewController: UIViewController {

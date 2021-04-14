@@ -1,6 +1,6 @@
 //
 //  TextEditingViewController.swift
-//  ToolBox
+//  Sentinel
 //
 //  Created by Vlaho Poluta on 31/07/2020.
 //
@@ -8,7 +8,7 @@
 import UIKit
 
 extension UIStoryboard {
-    static var textEditing: UIStoryboard { UIStoryboard(name: "TextEditing", bundle: .toolBox) }
+    static var textEditing: UIStoryboard { UIStoryboard(name: "TextEditing", bundle: .sentinel) }
 }
 
 class TextEditingViewController: UIViewController {

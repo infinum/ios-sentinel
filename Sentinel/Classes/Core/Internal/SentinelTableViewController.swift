@@ -1,20 +1,20 @@
 //
-//  ToolboxTableViewController.swift
-//  ToolBox
+//  SentinelTableViewController.swift
+//  Sentinel
 //
 //  Created by Vlaho Poluta on 30/07/2020.
 //
 
 import UIKit
 
-class ToolboxTableViewController: UIViewController {
+class SentinelTableViewController: UIViewController {
 
     @IBOutlet private var tableView: UITableView!
     @IBOutlet private var closeButton: UIBarButtonItem!
     private var toolTable: ToolTable!
     
-    static func create(with toolTable: ToolTable) -> ToolboxTableViewController {
-        let viewController = UIStoryboard.toolBox.instantiateViewController(ofType: Self.self)
+    static func create(with toolTable: ToolTable) -> SentinelTableViewController {
+        let viewController = UIStoryboard.sentinel.instantiateViewController(ofType: Self.self)
         viewController.toolTable = toolTable
         return viewController
     }
@@ -48,7 +48,7 @@ class ToolboxTableViewController: UIViewController {
 
 }
 
-extension ToolboxTableViewController: UITableViewDelegate {
+extension SentinelTableViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return toolTable[indexPath].height ?? UITableView.automaticDimension
@@ -63,7 +63,7 @@ extension ToolboxTableViewController: UITableViewDelegate {
     }
 }
 
-extension ToolboxTableViewController: UITableViewDataSource {
+extension SentinelTableViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         toolTable.sections.count

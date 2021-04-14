@@ -1,6 +1,6 @@
 //
-//  ToolBox.swift
-//  ToolBox
+//  SentinelInternal.swift
+//  Sentinel
 //
 //  Created by Vlaho Poluta on 30/07/2020.
 //

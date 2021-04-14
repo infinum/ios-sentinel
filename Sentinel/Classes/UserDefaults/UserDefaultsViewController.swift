@@ -1,6 +1,6 @@
 //
 //  UserDefaultsViewController.swift
-//  ToolBox
+//  Sentinel
 //
 //  Created by Vlaho Poluta on 30/07/2020.
 //
@@ -8,7 +8,7 @@
 import Foundation
 
 extension UIStoryboard {
-    static var userDefaults: UIStoryboard { UIStoryboard(name: "UserDefaults", bundle: .toolBox) }
+    static var userDefaults: UIStoryboard { UIStoryboard(name: "UserDefaults", bundle: .sentinel) }
 }
 
 class UserDefaultsViewController: UIViewController {

@@ -1,6 +1,6 @@
 //
 //  TextEditingTool.swift
-//  ToolBox
+//  Sentinel
 //
 //  Created by Vlaho Poluta on 31/07/2020.
 //

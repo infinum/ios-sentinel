@@ -1,6 +1,6 @@
 //
 //  SystemInfoProvider.swift
-//  ToolBox
+//  Sentinel
 //
 //  Created by Nikola Majcen on 17/11/2020.
 //

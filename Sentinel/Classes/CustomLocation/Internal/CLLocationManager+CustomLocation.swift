@@ -1,6 +1,6 @@
 //
 //  CLLocationManager+CustomLocation.swift
-//  ToolBox
+//  Sentinel
 //
 //  Created by Nikola Majcen on 01/10/2020.
 //
