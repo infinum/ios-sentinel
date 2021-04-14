@@ -16,10 +16,10 @@ Pod::Spec.new do |s|
   The idea of Sentinel is to give ability to developers to configure screen with multiple debug tools which are available via some event (e.g. shake, notification).
                        DESC
 
-  s.homepage         = 'https://github.com/infinum/ios-toolbox'
+  s.homepage         = 'https://github.com/infinum/ios-sentinel'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Infinum' => 'ios@infinum.com', 'Vlaho Poluta' => 'vlaho.poluta@infinum.com', 'Nikola Majcen' => 'nikola.majcen@infinum.com' }
-  s.source           = { :git => 'https://github.com/infinum/ios-toolbox.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/infinum/ios-sentinel.git', :tag => s.version.to_s }
 
   s.requires_arc = true
   s.platform = :ios
