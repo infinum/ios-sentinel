@@ -15,8 +15,8 @@ class CustomLocationProvider {
     private class Constants {
         private init() { }
         
-        static let locationMockEnabledKey = "com.infinum.toolbox.locationMock.enabled"
-        static let locationMockLocationKey = "com.infinum.toolbox.locationMock.location"
+        static let locationMockEnabledKey = "com.infinum.sentinel.locationMock.enabled"
+        static let locationMockLocationKey = "com.infinum.sentinel.locationMock.location"
     }
 
     // MARK: - Private properties

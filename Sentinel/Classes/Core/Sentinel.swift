@@ -7,9 +7,9 @@
 
 import Foundation
 
-/// Defines singleton instance of the toolbox.
+/// Defines singleton instance of the Sentinel.
 ///
-/// The toolbox can be configured with different configurations and based on
+/// The Sentinel can be configured with different configurations and based on
 /// the configuration used will be triggered from different events and show different tools.
 @objcMembers
 public class Sentinel: NSObject {
@@ -20,7 +20,7 @@ public class Sentinel: NSObject {
 
     // MARK: - Public properties
     
-    /// Singleton instance of the toolbox.
+    /// Singleton instance of the Sentinel.
     @objc(sharedInstance)
     public static let shared = Sentinel()
     
@@ -32,9 +32,9 @@ public class Sentinel: NSObject {
     
     // MARK: - Public methods
     
-    /// Setups the toolbox with provided configuration.
+    /// Setups the Sentinel with provided configuration.
     ///
-    /// - Parameter configuration: The configuration used to setup current instance of the toolbox.
+    /// - Parameter configuration: The configuration used to setup current instance of the Sentinel.
     @objc(setupWithConfiguration:)
     public func setup(with configuration: Configuration) {
         self.configuration = configuration
@@ -46,22 +46,22 @@ public class Sentinel: NSObject {
     
     // MARK: - Inner classes
     
-    /// Defines configuration used to define toolbox.
+    /// Defines configuration used to define Sentinel.
     ///
-    /// Based on the provided properties, toolbox will be shown based on different event
+    /// Based on the provided properties, Sentinel will be shown based on different event
     /// and it will show different tools.
     @objcMembers
     public class Configuration: NSObject {
         
         // MARK: - Public properties
         
-        /// The trigger event which starts the toolbox.
+        /// The trigger event which starts the Sentinel.
         public let trigger: Trigger
         
-        /// The screen used for presenting the toolbox.
+        /// The screen used for presenting the Sentinel.
         public let sourceScreenProvider: SourceScreenProvider
         
-        /// Tools which are available from the toolbox.
+        /// Tools which are available from the Sentinel.
         public let tools: [Tool]
         
         // MARK: - Lifecycle
@@ -69,9 +69,9 @@ public class Sentinel: NSObject {
         /// Creates a new configuration.
         ///
         /// - Parameters:
-        ///     - trigger: The trigger event which opens the toolbox.
-        ///     - sourceScreenProvider: The screen from which toolbox can be presented.
-        ///     - tools: Tools available from the toolbox.
+        ///     - trigger: The trigger event which opens the Sentinel.
+        ///     - sourceScreenProvider: The screen from which Sentinel can be presented.
+        ///     - tools: Tools available from the Sentinel.
         public init(
             trigger: Trigger,
             sourceScreenProvider: SourceScreenProvider = SourceScreenProviders.default,

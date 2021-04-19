@@ -81,11 +81,11 @@ Pod::Spec.new do |s|
   end
   
 #  This won't work untill AnalyticsCollector is added to main cocapods repo
-  s.subspec 'AnalyticsCollector' do |sp|
-    sp.source_files = 'Sentinel/Classes/AnalyticsCollector/**/*'
-    sp.dependency 'Sentinel/Core'
+#  s.subspec 'AnalyticsCollector' do |sp|
+#    sp.source_files = 'Sentinel/Classes/AnalyticsCollector/**/*'
+#    sp.dependency 'Sentinel/Core'
 #    pod 'AnalyticsCollector', :git => 'https://github.com/infinum/ios-analytics-collector'
-  end
+#  end
   
   s.subspec 'Default' do |sp|
     sp.dependency 'Sentinel/Core'

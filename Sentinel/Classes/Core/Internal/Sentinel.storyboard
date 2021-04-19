@@ -25,7 +25,7 @@
             </objects>
             <point key="canvasLocation" x="-1288" y="27"/>
         </scene>
-        <!--ToolBox-->
+        <!--Sentinel-->
         <scene sceneID="FDi-AI-Vt5">
             <objects>
                 <viewController storyboardIdentifier="SentinelTableViewController" id="rmC-9c-kFK" customClass="SentinelTableViewController" customModule="Sentinel" customModuleProvider="target" sceneMemberID="viewController">
@@ -51,7 +51,7 @@
                             <constraint firstItem="d68-eL-XL5" firstAttribute="leading" secondItem="qcj-k8-ef2" secondAttribute="leading" id="jRr-U8-JY1"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="ToolBox" largeTitleDisplayMode="always" id="EmW-G5-ecH">
+                    <navigationItem key="navigationItem" title="Sentinel" largeTitleDisplayMode="always" id="EmW-G5-ecH">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="wZW-Q8-6xS">
                             <connections>
                                 <action selector="closeSelected" destination="rmC-9c-kFK" id="F61-mK-75t"/>

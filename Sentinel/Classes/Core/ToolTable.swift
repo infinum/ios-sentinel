@@ -35,11 +35,11 @@ public class ToolTable: NSObject, Tool {
     
     @objc(presentPreviewFromViewController:push:)
     func presentPreview(from viewController: UIViewController, push: Bool) {
-        let toolBoxController = SentinelTableViewController.create(with: self)
+        let sentinelController = SentinelTableViewController.create(with: self)
         if let navController = viewController.navigationController, push {
-            navController.pushViewController(toolBoxController, animated: true)
+            navController.pushViewController(sentinelController, animated: true)
         } else {
-            let navContoller = UINavigationController(rootViewController: toolBoxController)
+            let navContoller = UINavigationController(rootViewController: sentinelController)
             viewController.present(navContoller, animated: true)
         }
     }

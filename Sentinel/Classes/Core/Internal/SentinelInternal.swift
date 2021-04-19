@@ -9,15 +9,15 @@ import Foundation
 
 extension Sentinel {
     
-    /// Presents the toolbox with tools from provided view controller.
+    /// Presents the Sentinel with tools from provided view controller.
     ///
     /// - Parameters:
-    ///     - tools: Tools which will be available in the toolbox.
-    ///     - viewController: The view controller from where will the toolbox be presented.
+    ///     - tools: Tools which will be available in the Sentinel.
+    ///     - viewController: The view controller from where will the Sentinel be presented.
     func present(tools: [Tool], on viewController: UIViewController) {
         let items = tools.map { NavigationToolTableItem(title: $0.name, navigate: $0.presentPreview(from:)) }
         let section = ToolTableSection(title: "Tools", items: items)
-        let toolTable = ToolTable(name: "ToolBox", sections: [section])
+        let toolTable = ToolTable(name: "Sentinel", sections: [section])
         toolTable.presentPreview(from: viewController, push: false)
     }
 }

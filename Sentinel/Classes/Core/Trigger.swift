@@ -144,7 +144,7 @@ public class ShakeTrigger: NSObject, Trigger {
 extension Notification.Name {
 
     /// The notification name for shake event.
-    static var shakeMotionDetected: Notification.Name { .init("toolbox_shake_motion_detected") }
+    static var shakeMotionDetected: Notification.Name { .init("sentinel_shake_motion_detected") }
 }
 
 extension UIApplication {

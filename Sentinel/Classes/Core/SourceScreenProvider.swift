@@ -7,15 +7,15 @@
 
 import Foundation
 
-/// Defines source screen which will be used to present toolbox when triggered.
+/// Defines source screen which will be used to present Sentinel when triggered.
 @objc
 public protocol SourceScreenProvider: NSObjectProtocol {
 
-    /// The view controller used for presenting the toolbox.
+    /// The view controller used for presenting the Sentinel.
     var viewControllerForShowingTools: UIViewController? { get }
 }
 
-/// Provides possible source screens used for presenting the toolbox.
+/// Provides possible source screens used for presenting the Sentinel.
 @objcMembers
 public class SourceScreenProviders: NSObject {
     
@@ -32,7 +32,7 @@ public class SourceScreenProviders: NSObject {
     }
 }
 
-/// Defines detauls source screen provider used for presenting the toolbox.
+/// Defines detauls source screen provider used for presenting the Sentinel.
 @objcMembers
 public class DefaultSourceScreenProvider: NSObject, SourceScreenProvider {
     
