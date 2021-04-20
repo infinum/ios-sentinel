@@ -7,189 +7,202 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		016CBF3537F990E1E10E66E99F00E1D8 /* OptionSwitchTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F1E57558B63F403C971F0F70996CED /* OptionSwitchTool.swift */; };
-		08C1289834739755BAE72D82931F68C4 /* OptionSwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A59BDFEF31C02DD72FCCAF238F0FC8 /* OptionSwitchTableViewCell.swift */; };
-		09C89DC26D056BA1EB41FD5FCAD18AC0 /* UserDefaultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A48E8344C7B6ADE9FFA68F7AC0FF99 /* UserDefaultsViewController.swift */; };
-		0A2213386F4BC60110EBD3548A57DF43 /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB60FAB68962484CA4EE74A59C1CCFFB /* Tool.swift */; };
-		13AFDD8F0A6DDEB6F4C721EE521FBAC7 /* NavigationToolTableCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = 53007AF98855031F86A9107006D585AE /* NavigationToolTableCell.xib */; };
-		199AF44D1835D1DBBC6294BB11AD9DAB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
-		23C237FDB7075DBA9AA37AB19DDCDC10 /* CustomLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9C306B61BE9A651C94E228C5C0C459 /* CustomLocationViewController.swift */; };
-		24E16E88B75238A2E55A176012BB1C6E /* ToolBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E759F85E28A2BDD7B5437ED7D864FC /* ToolBox.swift */; };
-		3305407CC6ACCA5E9EA1B78F7123DD20 /* OptionSwitchTableViewCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = 9CD3BFD665BE5F82E2E546DA3ED1D3AB /* OptionSwitchTableViewCell.xib */; };
-		390202ECE88ED6BA64CCB554D250BC5A /* UserDefaults.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = 0B65E91B3D34A3CCB94CC99EA00B85A1 /* UserDefaults.storyboard */; };
-		3943F33445C3E5D45205875E72293AF8 /* UserDefaultsTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45992576559AB5B3A14243C3E2DEBE9 /* UserDefaultsTool.swift */; };
-		404FBEE4A991277CFEE362049E41567B /* PerformanceInfoTableViewCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = 1EE7729195DF4BB7DE2549C54ADC5134 /* PerformanceInfoTableViewCell.xib */; };
-		43BE9E813890AA055176B2228A5CE3CB /* CLLocationManager+CustomLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F82939AD697CCAA638295B2A18DBD7 /* CLLocationManager+CustomLocation.swift */; };
-		4AF06ADD6C98FE352C8C4AF30E891ABF /* CustomLocation.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = 602E064315AE5248D5A51FE9D589FEA6 /* CustomLocation.storyboard */; };
-		4FCC078F25F0D00400DCBD50 /* SystemInfoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCC078E25F0D00400DCBD50 /* SystemInfoProvider.swift */; };
-		56129F18DCBFD0FC99B32C36B861CF1B /* MemoryInfoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A69D1A855BFD0967753167307D7DA3 /* MemoryInfoProvider.swift */; };
-		56A9F8789AF5451913E83736B55AD4B5 /* ToolTableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5714A3DBECE42D7047BEC41F83F0291 /* ToolTableItem.swift */; };
-		60E68ADFBEFFD6720F423390BA7A01FF /* TextEditing.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = A999A6112F38E3C3BF6B133B980A01EF /* TextEditing.storyboard */; };
-		63A566CB8F2B26B60A2C3660BF820945 /* ToolboxTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6217E94F1364DA584454EBCAB14311E7 /* ToolboxTableViewController.swift */; };
-		655DF1EBEF4745ABABA523598D33090F /* CustomLocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897A6D4582020AB5D73D5083F95E0C6E /* CustomLocationProvider.swift */; };
-		658120C19E777B1F3875083EF80A32CB /* CustomLocationTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50608CF514ECEA0F494CDD0A3B202D03 /* CustomLocationTool.swift */; };
-		6D97C457E13EA70A706480EEC9F7C03A /* ToolBoxInternal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D95B83E3D7C731AA35222D4F226E62 /* ToolBoxInternal.swift */; };
-		6EBFC4336234A26DE398BDC486A0B1AC /* GeneralInfoTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = D959D4217F20AC1048D860F38F4FCD2B /* GeneralInfoTool.swift */; };
-		74193A86078FE822CACB33F23690EE5C /* NavigationToolTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A57F5F131F3D43004A6244FB53C04DA /* NavigationToolTableCell.swift */; };
-		7BDE0149F2E33155AD9AE3D4EF383597 /* PerformanceInfo.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = FD2F1357458A35B94848CE8032362828 /* PerformanceInfo.storyboard */; };
-		84521D62378D9725215EC8E359B2ED4F /* ToolTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F664BDD903525D8803BF49C43189D7 /* ToolTable.swift */; };
-		87AD1D0EF619249AB82DA8A70A518667 /* ToolBox.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = 65FF1860849347A806E6D3474456368D /* ToolBox.storyboard */; };
-		8DE6451CCCD0862F7DDBB0C30A5F1B57 /* SourceScreenProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAB0654D1B34C538F67C895107FE893 /* SourceScreenProvider.swift */; };
-		A1D6B0B431EAC0C9D2A6F5196F96AEFF /* Pods-ToolBox_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DEBF6CC690A33C278E814F9AE1D9C690 /* Pods-ToolBox_Tests-dummy.m */; };
-		A909A9391C40557D6C19F17CED49B7C8 /* ToolBox-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 87F5430934F02D11F4410D878C01508B /* ToolBox-dummy.m */; };
-		AA68D6E9915C6A1E30B791E1A18105D8 /* ToolTableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94C6C966574F81BD9618DE485EC06D6 /* ToolTableSection.swift */; };
-		B1E47A51135ACE0BC8A100012F97EB47 /* CustomInfoTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80F06E7606C92BBDDB68574FA84D6A0 /* CustomInfoTool.swift */; };
-		B2AF935E69A3B90CBFA64A89E187DD0F /* PerformanceInfoTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14325D548613AA7E4F589B5E698A20C9 /* PerformanceInfoTool.swift */; };
-		B88797304C3B5DD6BD6A22DD9CF09162 /* PerformanceInfoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1612389283A55EE209483E4A068B932 /* PerformanceInfoItem.swift */; };
-		C38DF13B00DCC575C63C724D23EC3829 /* TextEditingTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0F30AAB0A15C70E3249C23F5F90D3B /* TextEditingTool.swift */; };
-		C6B23186A9A0B059D63EF2758C335499 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
-		C9D3EEB871612BF3C071EA08CB003A6B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
-		CB1A22CE82AC2183AC2B70F72C38F40F /* Trigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF5F8E541FA443F32BE702AC4929925 /* Trigger.swift */; };
-		CE37FA9D4E74718BC29B034B9749AAC5 /* Pods-ToolBox_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 72A95F1A707B85D222526D05A93F5F85 /* Pods-ToolBox_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CF0B841E827C5C5EE94DDC617758499C /* OptionSwitchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C927FE9E22635D010F97657D7CD1EC /* OptionSwitchItem.swift */; };
-		D1885D3DADBCD584F8A570DA25DA9A36 /* ToolBox-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C43D4F174C483BE2702476FCB264C8A /* ToolBox-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D66211A62CBEA72C3D2B8351E7C6646F /* DetailToolTableCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = 7856EEA49375E0A6CC9AB4EC2BE33CEB /* DetailToolTableCell.xib */; };
-		D892421A8F144D67E854A235B2E7EECC /* TextEditingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B406C004D07D04A1176978C9FA7F52 /* TextEditingViewController.swift */; };
-		D8ED1FF2A4C066D480C5B158EC5AE7F6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D245E0514AAC1A2B9A6D5EA2F383E90F /* UIKit.framework */; };
-		DA1D4740D3CF24AA50089466945E192C /* DetailToolTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF1056A3EDF69DF7842DFD8A3AFB098 /* DetailToolTableCell.swift */; };
-		E780149399C8112B99572112F8AFDC1D /* Pods-ToolBox_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 050C90104B34A4CAE887329AF8EABB85 /* Pods-ToolBox_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EF3F2DB87F6C4E37FBB66AC833125B06 /* PerformanceInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32AB16A0FC5608CC82394D16E3FFF72 /* PerformanceInfoTableViewCell.swift */; };
-		F33A9A1DE14999229986E2529FAF183A /* Pods-ToolBox_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8331B93E60F67A164D0C79991AC110DC /* Pods-ToolBox_Example-dummy.m */; };
-		F5427F05BFD873687FEAD9C83DB96F25 /* ToolBoxUIKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08B3E4452704516E0DE2628559EE7887 /* ToolBoxUIKitExtensions.swift */; };
-		FFF7E57B6A73FB7B1E68AB9469B83715 /* CPUInfoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79F3341F8A8626688461FF9971ADD43 /* CPUInfoProvider.swift */; };
+		055F29FFE4A09604385DB65DC50C4FC0 /* ToolTableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D4DA510D59245E62D329CCC4EBC5CB /* ToolTableItem.swift */; };
+		0B76DEBBB8F9EDEE88E8CEA01845A37B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
+		10D5C1F292E3041A08D55DD47AE3AB18 /* OptionSwitchTableViewCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = B3C98212651E92D017277ABD75B4B579 /* OptionSwitchTableViewCell.xib */; };
+		17B6562027989B2F6073F13676DEFF01 /* CLLocationManager+CustomLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4C2656C379879F07C9C0E28848BECF /* CLLocationManager+CustomLocation.swift */; };
+		1B638C86E40904DD488569AE39AE6FB9 /* ToolTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BE42473F05E6399B3EDC9F3B1859C9 /* ToolTable.swift */; };
+		258E5BBCE4FF82B5001D102397E59857 /* CustomLocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11315814FF905E8C1CD967BFA8FCDAD8 /* CustomLocationProvider.swift */; };
+		2C62AF6675E94A9C9CD330D8AC432946 /* NavigationToolTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09DFD777E3BA9745AC1A2102E96B373 /* NavigationToolTableCell.swift */; };
+		2E4E5144558E979AD14DCE6ED2887BD7 /* UserDefaultsTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F29EC6D04B671910FA914216382157 /* UserDefaultsTool.swift */; };
+		2E81C360B6639BD7C6714B49DAC91355 /* SentinelUIKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF6396094385945F6BF336E3F5FAC93 /* SentinelUIKitExtensions.swift */; };
+		2FDE0ECC9459E4BD800914542581365E /* MemoryInfoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D364422650E36C9CCF8117A92EE24AA3 /* MemoryInfoProvider.swift */; };
+		30A5B5EC9D36FCAAFC6964003F31E321 /* TextEditing.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = 64442341A7E9370170D203C10FFEB151 /* TextEditing.storyboard */; };
+		31F7F7F60A7F9F7F97CFBBEC9675BA3D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D245E0514AAC1A2B9A6D5EA2F383E90F /* UIKit.framework */; };
+		3689FABCF25D189FFB952726E80CE7CF /* UserDefaults.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = C0052669424702B19A58C4C41CBA717C /* UserDefaults.storyboard */; };
+		43DEAB0CC02165608DFF8A8B484BD365 /* CPUInfoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109874CDAB1885BAB71C5ABCBB9B24D1 /* CPUInfoProvider.swift */; };
+		445BC3DA99C0D4E492325038811F11D6 /* Sentinel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1798190E3F9B3070607FDE53B4341AC /* Sentinel.swift */; };
+		453C69B18384D1FD4749C62BE8185896 /* Pods-Sentinel_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CC63C249594FFB7BA2A29447E90165F /* Pods-Sentinel_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5162A6D204BFD8448D586C63B648D32F /* ToolTableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5BEFEC9F8877CC09987941786189103 /* ToolTableSection.swift */; };
+		5BC2C8E60F49C240F555CB4383ABDC86 /* PerformanceInfoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD07A762A7D9A45FD2AE924F79E1908 /* PerformanceInfoItem.swift */; };
+		5DF8D6472EC24F103FD4E5E8D6B06E15 /* DetailToolTableCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = 66257AB99BFB97A7175694B0318219B9 /* DetailToolTableCell.xib */; };
+		6B23CEE13784B4671A16023145651B81 /* Sentinel.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = C6C8ABDCEBEF42DA4B89F1CE02572D5B /* Sentinel.storyboard */; };
+		72AE478DCAC49054D3A8FAF003DB9F40 /* SentinelInternal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478B1E8C24818F9EF85F8881B92252B /* SentinelInternal.swift */; };
+		77C12C8C5B3CF688808055546CE9233D /* Pods-Sentinel_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C6FAA08483FA46AF62E0083A4A1ECE /* Pods-Sentinel_Example-dummy.m */; };
+		782F6C65FE8C32B94BA11C25393F73D3 /* Sentinel-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = ABCA0BE9A8D5AE19A0FF6D7F6EA71F31 /* Sentinel-dummy.m */; };
+		7E4BB6F555BE518B00860D94CB5E7692 /* PerformanceInfoTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A71D9434333ABF8A48B52D9B569AABB /* PerformanceInfoTool.swift */; };
+		811F3F921077070C23AA5FD542DD4EBD /* SentinelTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C29F4D3F53382DA8A0AE8562BA0246 /* SentinelTableViewController.swift */; };
+		837CB27FA0A7CF74EA47633CE797DA1A /* OptionSwitchTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = A779FA318D31A92BCB4935373EB959FD /* OptionSwitchTool.swift */; };
+		8BAD10621214A84E321415B8489C8D3F /* DetailToolTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73D1F4DDB5FF4D7454BB82EE7922216 /* DetailToolTableCell.swift */; };
+		8BFDA1B37E1731C4C6A026E2D3145951 /* NavigationToolTableCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = D02D3760817E75AA5CACC9AEAA4A1637 /* NavigationToolTableCell.xib */; };
+		960018D0E71BE7A89EBF52633FBDEB5C /* GeneralInfoTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4D95B24611928DEB2809DCD6C7A65E /* GeneralInfoTool.swift */; };
+		972DF9BBC874D5003A33BC24EFCC665B /* PerformanceInfo.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = D4D31D0ADD988E9F73A98960720A9AD8 /* PerformanceInfo.storyboard */; };
+		A5BEEA9485999AD6DC7AAD1263B73A04 /* CustomLocationTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFC4E246EF8B766433A2D6827983019 /* CustomLocationTool.swift */; };
+		A9A283357528BA5214C8C416BB715E86 /* OptionSwitchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B16BFCFAA23A6B32D113275DA3891FE /* OptionSwitchItem.swift */; };
+		AA1EB183A487C608F307D59CDC8CF62C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
+		ACBB2D36F4AA38CC9FBC2060D24AFF3D /* Pods-Sentinel_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3737F3A9AFF9607DB0AEDEEEBAB55101 /* Pods-Sentinel_Tests-dummy.m */; };
+		B7196500922E8805BD9D1DF21E66653B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
+		BFF73ABAF4F5C239FAD801AC7D7112E7 /* CustomLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC3F5227EF9208DF8DD64E11B734C31 /* CustomLocationViewController.swift */; };
+		C08C01A9ED38630D55A2DD21D4FD4F9A /* TextEditingTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5A4FEBD0D7379DC32EC081240FB354 /* TextEditingTool.swift */; };
+		C4F51FC2EBDC16868E83D1449614BD09 /* PerformanceInfoTableViewCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = 09BA84116F6D6D4C6C03B2ECA1C85C5E /* PerformanceInfoTableViewCell.xib */; };
+		CB19C9BCCEC59C92FC0AA10992CEA644 /* SystemInfoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7D1163B3C6CB33253565CDD48B02BA /* SystemInfoProvider.swift */; };
+		CCB4A5062B1860D651B947C588054554 /* UserDefaultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4185532AC9601D568EDC2AED4BC963 /* UserDefaultsViewController.swift */; };
+		CEC9C3F8B9E32E8618D0D81416E426FE /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7844DC91CAF7100B5CF6EA49CADCF9B7 /* Tool.swift */; };
+		D0BF0D63B845BC00E5A8B4E8A684F0AE /* Pods-Sentinel_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D3908B2A61F0DD8BEE4E68CA7C472C70 /* Pods-Sentinel_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DA86A9DB641093861B74BDD084E1A722 /* TextEditingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC4F02A3BB946569A4A53595A1B2065 /* TextEditingViewController.swift */; };
+		DC4EF9FD4BBFF8E8BF072B26B590AB9E /* OptionSwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA3EFBE620BB521963B4CC4F1C1F96D /* OptionSwitchTableViewCell.swift */; };
+		E632399CC240CBDA518BC15304EF400B /* SourceScreenProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D68E09B53EBF4BF2CC6C994FE948A4 /* SourceScreenProvider.swift */; };
+		E7C5F6C19A95A212C06F852DBF11EB86 /* Trigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460EABEAE5E3AE6EF071BAD74E8595A3 /* Trigger.swift */; };
+		E8E6D4660B6D8CD2007F10ADF92228E3 /* CustomInfoTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629DB4B62FA95FED8FB6337DD602540D /* CustomInfoTool.swift */; };
+		F6D90AFA186B21D231E5723DD86AF442 /* Sentinel-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 196588FDB3155CB7A95618ECF17AEAD3 /* Sentinel-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FB320894038652D3859ED5E758F96986 /* CustomLocation.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = 4AAD242513970EE40C40BA3E6999E731 /* CustomLocation.storyboard */; };
+		FBE2AF072AF2AD7F4CE2F369AC2A7DAB /* PerformanceInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ACD16744845C8397B93B2F6E4398E7F /* PerformanceInfoTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		11945C223F3099DFCE53748758D360A0 /* PBXContainerItemProxy */ = {
+		4234959383EBF4959CDABC16D973B727 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 1410455F8AFC484AF913E42E0676C8D5;
-			remoteInfo = "Pods-ToolBox_Example";
+			remoteGlobalIDString = 254C1FBF05728FD8BE3AFCBC3F313646;
+			remoteInfo = "Pods-Sentinel_Example";
 		};
-		4BDB8E8A41FAF8A6B16DA898E38F0059 /* PBXContainerItemProxy */ = {
+		5850551AB252289B541B6826DC709A91 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 4ECC9C8777E88F14127C5046A07DBCD8;
-			remoteInfo = ToolBox;
+			remoteGlobalIDString = F402433F0FA4E4D3D7AF80AFBDD40215;
+			remoteInfo = Sentinel;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		000FABAFDFBE8A49B01E0A73365A0814 /* Pods-ToolBox_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ToolBox_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		050C90104B34A4CAE887329AF8EABB85 /* Pods-ToolBox_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ToolBox_Example-umbrella.h"; sourceTree = "<group>"; };
-		08B3E4452704516E0DE2628559EE7887 /* ToolBoxUIKitExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ToolBoxUIKitExtensions.swift; sourceTree = "<group>"; };
-		0B65E91B3D34A3CCB94CC99EA00B85A1 /* UserDefaults.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; name = UserDefaults.storyboard; path = ToolBox/Classes/UserDefaults/UserDefaults.storyboard; sourceTree = "<group>"; };
-		0F09B4B353BEC3840FF3C28DA3090D2B /* Pods-ToolBox_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-ToolBox_Tests.modulemap"; sourceTree = "<group>"; };
-		14325D548613AA7E4F589B5E698A20C9 /* PerformanceInfoTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PerformanceInfoTool.swift; path = ToolBox/Classes/PerformanceInfo/PerformanceInfoTool.swift; sourceTree = "<group>"; };
-		18E98AC47BAE14F5D02C680DE510C64D /* Pods-ToolBox_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ToolBox_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		1ACC6C1EE20504328C2F54CA5E879894 /* ToolBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ToolBox.debug.xcconfig; sourceTree = "<group>"; };
-		1D499DD7C97F5E861DAE5073451205F8 /* Pods-ToolBox_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ToolBox_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		1DF1056A3EDF69DF7842DFD8A3AFB098 /* DetailToolTableCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DetailToolTableCell.swift; sourceTree = "<group>"; };
-		1ECA7928E31E0FCD5DFD4934A391E865 /* Pods-ToolBox_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ToolBox_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		1EE7729195DF4BB7DE2549C54ADC5134 /* PerformanceInfoTableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = PerformanceInfoTableViewCell.xib; sourceTree = "<group>"; };
-		30CEDBEA89D9E57B6673EAD587C09C03 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		30D95B83E3D7C731AA35222D4F226E62 /* ToolBoxInternal.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ToolBoxInternal.swift; sourceTree = "<group>"; };
-		38ACA643ABFA8C463493AB9A058C032D /* Pods-ToolBox_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ToolBox_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		41B406C004D07D04A1176978C9FA7F52 /* TextEditingViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextEditingViewController.swift; path = ToolBox/Classes/TextEditing/TextEditingViewController.swift; sourceTree = "<group>"; };
-		4D747DE4E3AFC0C074833206802E33C9 /* Pods_ToolBox_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToolBox_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4FCC078E25F0D00400DCBD50 /* SystemInfoProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemInfoProvider.swift; sourceTree = "<group>"; };
-		50608CF514ECEA0F494CDD0A3B202D03 /* CustomLocationTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CustomLocationTool.swift; path = ToolBox/Classes/CustomLocation/CustomLocationTool.swift; sourceTree = "<group>"; };
-		53007AF98855031F86A9107006D585AE /* NavigationToolTableCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = NavigationToolTableCell.xib; sourceTree = "<group>"; };
-		581D45E15A6C5CD7A28911546AE2BF1D /* Pods-ToolBox_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ToolBox_Tests-Info.plist"; sourceTree = "<group>"; };
-		5A0F30AAB0A15C70E3249C23F5F90D3B /* TextEditingTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextEditingTool.swift; path = ToolBox/Classes/TextEditing/TextEditingTool.swift; sourceTree = "<group>"; };
-		602E064315AE5248D5A51FE9D589FEA6 /* CustomLocation.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; name = CustomLocation.storyboard; path = ToolBox/Classes/CustomLocation/CustomLocation.storyboard; sourceTree = "<group>"; };
-		6217E94F1364DA584454EBCAB14311E7 /* ToolboxTableViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ToolboxTableViewController.swift; sourceTree = "<group>"; };
-		65FF1860849347A806E6D3474456368D /* ToolBox.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; path = ToolBox.storyboard; sourceTree = "<group>"; };
-		67A69D1A855BFD0967753167307D7DA3 /* MemoryInfoProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MemoryInfoProvider.swift; sourceTree = "<group>"; };
-		69A48E8344C7B6ADE9FFA68F7AC0FF99 /* UserDefaultsViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UserDefaultsViewController.swift; path = ToolBox/Classes/UserDefaults/UserDefaultsViewController.swift; sourceTree = "<group>"; };
-		6ADD1E8FB7C72CA0531223D70F756206 /* ToolBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ToolBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		72A95F1A707B85D222526D05A93F5F85 /* Pods-ToolBox_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ToolBox_Tests-umbrella.h"; sourceTree = "<group>"; };
-		7856EEA49375E0A6CC9AB4EC2BE33CEB /* DetailToolTableCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = DetailToolTableCell.xib; sourceTree = "<group>"; };
-		7C43D4F174C483BE2702476FCB264C8A /* ToolBox-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ToolBox-umbrella.h"; sourceTree = "<group>"; };
-		7EA8A24DF2F852587880B7B1BC1038B0 /* Pods_ToolBox_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToolBox_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8331B93E60F67A164D0C79991AC110DC /* Pods-ToolBox_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ToolBox_Example-dummy.m"; sourceTree = "<group>"; };
-		87F5430934F02D11F4410D878C01508B /* ToolBox-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ToolBox-dummy.m"; sourceTree = "<group>"; };
-		8859D52B323BA8E09360F378DF335D4D /* Pods-ToolBox_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-ToolBox_Example.modulemap"; sourceTree = "<group>"; };
-		897A6D4582020AB5D73D5083F95E0C6E /* CustomLocationProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CustomLocationProvider.swift; sourceTree = "<group>"; };
-		9419784FDF9FA8D035D1F8DA9EF5BCD8 /* Pods-ToolBox_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ToolBox_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		94A8D4E6F6A53992E8926270AC5E2259 /* ToolBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ToolBox.release.xcconfig; sourceTree = "<group>"; };
-		96E759F85E28A2BDD7B5437ED7D864FC /* ToolBox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ToolBox.swift; path = ToolBox/Classes/Core/ToolBox.swift; sourceTree = "<group>"; };
-		99F1E57558B63F403C971F0F70996CED /* OptionSwitchTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OptionSwitchTool.swift; path = ToolBox/Classes/OptionSwitch/OptionSwitchTool.swift; sourceTree = "<group>"; };
-		9A57F5F131F3D43004A6244FB53C04DA /* NavigationToolTableCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NavigationToolTableCell.swift; sourceTree = "<group>"; };
-		9CD3BFD665BE5F82E2E546DA3ED1D3AB /* OptionSwitchTableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = OptionSwitchTableViewCell.xib; sourceTree = "<group>"; };
+		0478B1E8C24818F9EF85F8881B92252B /* SentinelInternal.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SentinelInternal.swift; sourceTree = "<group>"; };
+		09BA84116F6D6D4C6C03B2ECA1C85C5E /* PerformanceInfoTableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = PerformanceInfoTableViewCell.xib; sourceTree = "<group>"; };
+		0B16BFCFAA23A6B32D113275DA3891FE /* OptionSwitchItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OptionSwitchItem.swift; sourceTree = "<group>"; };
+		0D4185532AC9601D568EDC2AED4BC963 /* UserDefaultsViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UserDefaultsViewController.swift; path = Sentinel/Classes/UserDefaults/UserDefaultsViewController.swift; sourceTree = "<group>"; };
+		109874CDAB1885BAB71C5ABCBB9B24D1 /* CPUInfoProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPUInfoProvider.swift; sourceTree = "<group>"; };
+		11315814FF905E8C1CD967BFA8FCDAD8 /* CustomLocationProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CustomLocationProvider.swift; sourceTree = "<group>"; };
+		196588FDB3155CB7A95618ECF17AEAD3 /* Sentinel-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Sentinel-umbrella.h"; sourceTree = "<group>"; };
+		1CA3EFBE620BB521963B4CC4F1C1F96D /* OptionSwitchTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OptionSwitchTableViewCell.swift; sourceTree = "<group>"; };
+		27D4DA510D59245E62D329CCC4EBC5CB /* ToolTableItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ToolTableItem.swift; path = Sentinel/Classes/Core/ToolTableItem.swift; sourceTree = "<group>"; };
+		2DC3F5227EF9208DF8DD64E11B734C31 /* CustomLocationViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CustomLocationViewController.swift; path = Sentinel/Classes/CustomLocation/CustomLocationViewController.swift; sourceTree = "<group>"; };
+		32D68E09B53EBF4BF2CC6C994FE948A4 /* SourceScreenProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SourceScreenProvider.swift; path = Sentinel/Classes/Core/SourceScreenProvider.swift; sourceTree = "<group>"; };
+		3737F3A9AFF9607DB0AEDEEEBAB55101 /* Pods-Sentinel_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Sentinel_Tests-dummy.m"; sourceTree = "<group>"; };
+		45E1A9A14D5BCA28BD98037B5373DDF2 /* Sentinel.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = Sentinel.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		460EABEAE5E3AE6EF071BAD74E8595A3 /* Trigger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Trigger.swift; path = Sentinel/Classes/Core/Trigger.swift; sourceTree = "<group>"; };
+		4AAD242513970EE40C40BA3E6999E731 /* CustomLocation.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; name = CustomLocation.storyboard; path = Sentinel/Classes/CustomLocation/CustomLocation.storyboard; sourceTree = "<group>"; };
+		4B4C2656C379879F07C9C0E28848BECF /* CLLocationManager+CustomLocation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "CLLocationManager+CustomLocation.swift"; sourceTree = "<group>"; };
+		55CD7B5D6B41371E48802E60F2D85413 /* Pods-Sentinel_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Sentinel_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		59BE42473F05E6399B3EDC9F3B1859C9 /* ToolTable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ToolTable.swift; path = Sentinel/Classes/Core/ToolTable.swift; sourceTree = "<group>"; };
+		5CC4F02A3BB946569A4A53595A1B2065 /* TextEditingViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextEditingViewController.swift; path = Sentinel/Classes/TextEditing/TextEditingViewController.swift; sourceTree = "<group>"; };
+		629DB4B62FA95FED8FB6337DD602540D /* CustomInfoTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CustomInfoTool.swift; path = Sentinel/Classes/CustomInfo/CustomInfoTool.swift; sourceTree = "<group>"; };
+		64442341A7E9370170D203C10FFEB151 /* TextEditing.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; name = TextEditing.storyboard; path = Sentinel/Classes/TextEditing/TextEditing.storyboard; sourceTree = "<group>"; };
+		65C9954C4CF9EB181467C37DE9785CCF /* Pods_Sentinel_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sentinel_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		66257AB99BFB97A7175694B0318219B9 /* DetailToolTableCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = DetailToolTableCell.xib; sourceTree = "<group>"; };
+		6A2FAB1C2CA0327702BEBE0ED264FD12 /* Pods-Sentinel_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Sentinel_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		6CC63C249594FFB7BA2A29447E90165F /* Pods-Sentinel_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Sentinel_Example-umbrella.h"; sourceTree = "<group>"; };
+		6E4D95B24611928DEB2809DCD6C7A65E /* GeneralInfoTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GeneralInfoTool.swift; path = Sentinel/Classes/GeneralInfo/GeneralInfoTool.swift; sourceTree = "<group>"; };
+		7675A55F4DB9663570209AC976AF3A10 /* Sentinel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Sentinel.release.xcconfig; sourceTree = "<group>"; };
+		7844DC91CAF7100B5CF6EA49CADCF9B7 /* Tool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Tool.swift; path = Sentinel/Classes/Core/Tool.swift; sourceTree = "<group>"; };
+		7A71D9434333ABF8A48B52D9B569AABB /* PerformanceInfoTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PerformanceInfoTool.swift; path = Sentinel/Classes/PerformanceInfo/PerformanceInfoTool.swift; sourceTree = "<group>"; };
+		864FD1113191E342DD07576BB12E6833 /* Sentinel-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Sentinel-prefix.pch"; sourceTree = "<group>"; };
+		89C6FAA08483FA46AF62E0083A4A1ECE /* Pods-Sentinel_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Sentinel_Example-dummy.m"; sourceTree = "<group>"; };
+		8C131C23A2981681C44E4F97E273B562 /* Pods-Sentinel_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Sentinel_Tests.modulemap"; sourceTree = "<group>"; };
+		9127529398114DBEE725B2F92658F523 /* Pods-Sentinel_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Sentinel_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		91C29F4D3F53382DA8A0AE8562BA0246 /* SentinelTableViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SentinelTableViewController.swift; sourceTree = "<group>"; };
+		9569796757499011EED7D03B408B6F1A /* Pods-Sentinel_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Sentinel_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		9A5A4FEBD0D7379DC32EC081240FB354 /* TextEditingTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextEditingTool.swift; path = Sentinel/Classes/TextEditing/TextEditingTool.swift; sourceTree = "<group>"; };
+		9ACD16744845C8397B93B2F6E4398E7F /* PerformanceInfoTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PerformanceInfoTableViewCell.swift; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9DF2761E6A62CA000D891AC08C2C4AAD /* ToolBox-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ToolBox-Info.plist"; sourceTree = "<group>"; };
-		A2A59BDFEF31C02DD72FCCAF238F0FC8 /* OptionSwitchTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OptionSwitchTableViewCell.swift; sourceTree = "<group>"; };
-		A84CA8EF487EEE1EE304769C015EF825 /* ToolBox-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ToolBox-prefix.pch"; sourceTree = "<group>"; };
-		A999A6112F38E3C3BF6B133B980A01EF /* TextEditing.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; name = TextEditing.storyboard; path = ToolBox/Classes/TextEditing/TextEditing.storyboard; sourceTree = "<group>"; };
-		AB14BBA54E81EBA1543C6B7E4AFDFA46 /* Pods-ToolBox_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ToolBox_Example-Info.plist"; sourceTree = "<group>"; };
-		B245FFC29829F0B9BFBBE1E195753999 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		B32AB16A0FC5608CC82394D16E3FFF72 /* PerformanceInfoTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PerformanceInfoTableViewCell.swift; sourceTree = "<group>"; };
-		BB2363B294747E2C119FDC3766D15D04 /* Pods-ToolBox_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ToolBox_Example-frameworks.sh"; sourceTree = "<group>"; };
+		A66CE977C2A4DD6409F650637CBD401F /* Pods-Sentinel_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Sentinel_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		A779FA318D31A92BCB4935373EB959FD /* OptionSwitchTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OptionSwitchTool.swift; path = Sentinel/Classes/OptionSwitch/OptionSwitchTool.swift; sourceTree = "<group>"; };
+		A8F29EC6D04B671910FA914216382157 /* UserDefaultsTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UserDefaultsTool.swift; path = Sentinel/Classes/UserDefaults/UserDefaultsTool.swift; sourceTree = "<group>"; };
+		AA7D1163B3C6CB33253565CDD48B02BA /* SystemInfoProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SystemInfoProvider.swift; sourceTree = "<group>"; };
+		ABCA0BE9A8D5AE19A0FF6D7F6EA71F31 /* Sentinel-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Sentinel-dummy.m"; sourceTree = "<group>"; };
+		B09DFD777E3BA9745AC1A2102E96B373 /* NavigationToolTableCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NavigationToolTableCell.swift; sourceTree = "<group>"; };
+		B14684E93C90965E041B3092E4D0C959 /* Pods-Sentinel_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Sentinel_Example-frameworks.sh"; sourceTree = "<group>"; };
+		B1798190E3F9B3070607FDE53B4341AC /* Sentinel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Sentinel.swift; path = Sentinel/Classes/Core/Sentinel.swift; sourceTree = "<group>"; };
+		B27D12816652F5CE8F68FECC2498878C /* Pods-Sentinel_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Sentinel_Example.modulemap"; sourceTree = "<group>"; };
+		B2808675AB91D13F4925FC9B58988A4A /* Sentinel-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Sentinel-Info.plist"; sourceTree = "<group>"; };
+		B3C98212651E92D017277ABD75B4B579 /* OptionSwitchTableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = OptionSwitchTableViewCell.xib; sourceTree = "<group>"; };
+		B6E84629736A699BD1CF483B3B400384 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		BAFC4E246EF8B766433A2D6827983019 /* CustomLocationTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CustomLocationTool.swift; path = Sentinel/Classes/CustomLocation/CustomLocationTool.swift; sourceTree = "<group>"; };
+		BDD07A762A7D9A45FD2AE924F79E1908 /* PerformanceInfoItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PerformanceInfoItem.swift; sourceTree = "<group>"; };
+		C0052669424702B19A58C4C41CBA717C /* UserDefaults.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; name = UserDefaults.storyboard; path = Sentinel/Classes/UserDefaults/UserDefaults.storyboard; sourceTree = "<group>"; };
+		C0F5D78F1C67966A7FC449B67275BA99 /* Sentinel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Sentinel.debug.xcconfig; sourceTree = "<group>"; };
+		C0F64F1B2DF5473AE11CADF61CD35707 /* Sentinel.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Sentinel.modulemap; sourceTree = "<group>"; };
+		C3831A0EE07DA0231A8F1CB9F738F429 /* Pods-Sentinel_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Sentinel_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		C3969767F71788948A392AAED1152725 /* Pods-Sentinel_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Sentinel_Tests-Info.plist"; sourceTree = "<group>"; };
+		C5BEFEC9F8877CC09987941786189103 /* ToolTableSection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ToolTableSection.swift; path = Sentinel/Classes/Core/ToolTableSection.swift; sourceTree = "<group>"; };
+		C6C8ABDCEBEF42DA4B89F1CE02572D5B /* Sentinel.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; path = Sentinel.storyboard; sourceTree = "<group>"; };
+		D02D3760817E75AA5CACC9AEAA4A1637 /* NavigationToolTableCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = NavigationToolTableCell.xib; sourceTree = "<group>"; };
 		D245E0514AAC1A2B9A6D5EA2F383E90F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		D40EEFA2EA40F02CAC3E84952682D761 /* Pods-ToolBox_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ToolBox_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		D45992576559AB5B3A14243C3E2DEBE9 /* UserDefaultsTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UserDefaultsTool.swift; path = ToolBox/Classes/UserDefaults/UserDefaultsTool.swift; sourceTree = "<group>"; };
-		D94C6C966574F81BD9618DE485EC06D6 /* ToolTableSection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ToolTableSection.swift; path = ToolBox/Classes/Core/ToolTableSection.swift; sourceTree = "<group>"; };
-		D959D4217F20AC1048D860F38F4FCD2B /* GeneralInfoTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GeneralInfoTool.swift; path = ToolBox/Classes/GeneralInfo/GeneralInfoTool.swift; sourceTree = "<group>"; };
-		DA9C306B61BE9A651C94E228C5C0C459 /* CustomLocationViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CustomLocationViewController.swift; path = ToolBox/Classes/CustomLocation/CustomLocationViewController.swift; sourceTree = "<group>"; };
-		DB60FAB68962484CA4EE74A59C1CCFFB /* Tool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Tool.swift; path = ToolBox/Classes/Core/Tool.swift; sourceTree = "<group>"; };
-		DEBF6CC690A33C278E814F9AE1D9C690 /* Pods-ToolBox_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ToolBox_Tests-dummy.m"; sourceTree = "<group>"; };
-		E1612389283A55EE209483E4A068B932 /* PerformanceInfoItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PerformanceInfoItem.swift; sourceTree = "<group>"; };
-		E5714A3DBECE42D7047BEC41F83F0291 /* ToolTableItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ToolTableItem.swift; path = ToolBox/Classes/Core/ToolTableItem.swift; sourceTree = "<group>"; };
-		E5A88CC7715944934968230405F05A93 /* ToolBox.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = ToolBox.modulemap; sourceTree = "<group>"; };
-		E6F82939AD697CCAA638295B2A18DBD7 /* CLLocationManager+CustomLocation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "CLLocationManager+CustomLocation.swift"; sourceTree = "<group>"; };
-		E79F3341F8A8626688461FF9971ADD43 /* CPUInfoProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPUInfoProvider.swift; sourceTree = "<group>"; };
-		E7C927FE9E22635D010F97657D7CD1EC /* OptionSwitchItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OptionSwitchItem.swift; sourceTree = "<group>"; };
-		E80F06E7606C92BBDDB68574FA84D6A0 /* CustomInfoTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CustomInfoTool.swift; path = ToolBox/Classes/CustomInfo/CustomInfoTool.swift; sourceTree = "<group>"; };
+		D364422650E36C9CCF8117A92EE24AA3 /* MemoryInfoProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MemoryInfoProvider.swift; sourceTree = "<group>"; };
+		D3908B2A61F0DD8BEE4E68CA7C472C70 /* Pods-Sentinel_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Sentinel_Tests-umbrella.h"; sourceTree = "<group>"; };
+		D4D31D0ADD988E9F73A98960720A9AD8 /* PerformanceInfo.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; name = PerformanceInfo.storyboard; path = Sentinel/Classes/PerformanceInfo/PerformanceInfo.storyboard; sourceTree = "<group>"; };
+		DA6F656ACB4F354E2B0B0D8829821734 /* Sentinel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Sentinel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDF6396094385945F6BF336E3F5FAC93 /* SentinelUIKitExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SentinelUIKitExtensions.swift; sourceTree = "<group>"; };
+		E73D1F4DDB5FF4D7454BB82EE7922216 /* DetailToolTableCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DetailToolTableCell.swift; sourceTree = "<group>"; };
 		EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		EBF5F8E541FA443F32BE702AC4929925 /* Trigger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Trigger.swift; path = ToolBox/Classes/Core/Trigger.swift; sourceTree = "<group>"; };
-		F7C45CFF7079FB00B05A206A43B8F3FF /* ToolBox.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = ToolBox.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		F8F664BDD903525D8803BF49C43189D7 /* ToolTable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ToolTable.swift; path = ToolBox/Classes/Core/ToolTable.swift; sourceTree = "<group>"; };
-		FD2F1357458A35B94848CE8032362828 /* PerformanceInfo.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; name = PerformanceInfo.storyboard; path = ToolBox/Classes/PerformanceInfo/PerformanceInfo.storyboard; sourceTree = "<group>"; };
-		FDAB0654D1B34C538F67C895107FE893 /* SourceScreenProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SourceScreenProvider.swift; path = ToolBox/Classes/Core/SourceScreenProvider.swift; sourceTree = "<group>"; };
-		FEE97CF797C2255A115ACCD56B9853C9 /* Pods-ToolBox_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ToolBox_Example.release.xcconfig"; sourceTree = "<group>"; };
+		EE306C9DD4ED21D2A2A9B86EEA3410CE /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		F0C518BCD254C6BED6EDFAA897D668F7 /* Pods-Sentinel_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Sentinel_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		F4A9B14258CE10FBC253BB5B34DAAE75 /* Pods_Sentinel_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sentinel_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6D219D153A366859D6A80F165E2D93E /* Pods-Sentinel_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Sentinel_Example-Info.plist"; sourceTree = "<group>"; };
+		FCD5716A347A57C5EB37EDE8EE5438D4 /* Pods-Sentinel_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Sentinel_Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		944CFC12CA986D2515ADFD8B53C945C4 /* Frameworks */ = {
+		C05854686678D99BF72CDBC0C9461775 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C6B23186A9A0B059D63EF2758C335499 /* Foundation.framework in Frameworks */,
+				AA1EB183A487C608F307D59CDC8CF62C /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D5C0EE8955DD9B8F4E7CC8E8392013E0 /* Frameworks */ = {
+		C9FD69F9B710AA7835E9D10969AA7307 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9D3EEB871612BF3C071EA08CB003A6B /* Foundation.framework in Frameworks */,
+				0B76DEBBB8F9EDEE88E8CEA01845A37B /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F140F773AEF6CEBB6E62CF57B5EB6BD3 /* Frameworks */ = {
+		FC780F7602BED3A7CF7E75AB92559D61 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				199AF44D1835D1DBBC6294BB11AD9DAB /* Foundation.framework in Frameworks */,
-				D8ED1FF2A4C066D480C5B158EC5AE7F6 /* UIKit.framework in Frameworks */,
+				B7196500922E8805BD9D1DF21E66653B /* Foundation.framework in Frameworks */,
+				31F7F7F60A7F9F7F97CFBBEC9675BA3D /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0E40378FB819017FEF7683EF45E46C85 /* Internal */ = {
+		053036BFEE8D66B6CDBECD24E5744268 /* Pods-Sentinel_Tests */ = {
 			isa = PBXGroup;
 			children = (
-				E79F3341F8A8626688461FF9971ADD43 /* CPUInfoProvider.swift */,
-				67A69D1A855BFD0967753167307D7DA3 /* MemoryInfoProvider.swift */,
-				4FCC078E25F0D00400DCBD50 /* SystemInfoProvider.swift */,
+				8C131C23A2981681C44E4F97E273B562 /* Pods-Sentinel_Tests.modulemap */,
+				6A2FAB1C2CA0327702BEBE0ED264FD12 /* Pods-Sentinel_Tests-acknowledgements.markdown */,
+				9127529398114DBEE725B2F92658F523 /* Pods-Sentinel_Tests-acknowledgements.plist */,
+				3737F3A9AFF9607DB0AEDEEEBAB55101 /* Pods-Sentinel_Tests-dummy.m */,
+				C3969767F71788948A392AAED1152725 /* Pods-Sentinel_Tests-Info.plist */,
+				D3908B2A61F0DD8BEE4E68CA7C472C70 /* Pods-Sentinel_Tests-umbrella.h */,
+				C3831A0EE07DA0231A8F1CB9F738F429 /* Pods-Sentinel_Tests.debug.xcconfig */,
+				9569796757499011EED7D03B408B6F1A /* Pods-Sentinel_Tests.release.xcconfig */,
 			);
-			name = Internal;
-			path = ToolBox/Classes/PerformanceInfo/Internal;
+			name = "Pods-Sentinel_Tests";
+			path = "Target Support Files/Pods-Sentinel_Tests";
+			sourceTree = "<group>";
+		};
+		146D215BC6C5C1F5878BD2F7FF60F73C /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3B17F18A152B9936620FFEA856824809 /* Sentinel */,
+			);
+			name = "Development Pods";
 			sourceTree = "<group>";
 		};
 		1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */ = {
@@ -200,36 +213,62 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		23B689E0684339B7589FC88D81EFEFAD /* Internal */ = {
+		27999F75D9B4FC10806D4864588D2D3F /* Items */ = {
 			isa = PBXGroup;
 			children = (
-				65FF1860849347A806E6D3474456368D /* ToolBox.storyboard */,
-				30D95B83E3D7C731AA35222D4F226E62 /* ToolBoxInternal.swift */,
-				6217E94F1364DA584454EBCAB14311E7 /* ToolboxTableViewController.swift */,
-				08B3E4452704516E0DE2628559EE7887 /* ToolBoxUIKitExtensions.swift */,
+				0B16BFCFAA23A6B32D113275DA3891FE /* OptionSwitchItem.swift */,
+				1CA3EFBE620BB521963B4CC4F1C1F96D /* OptionSwitchTableViewCell.swift */,
+				B3C98212651E92D017277ABD75B4B579 /* OptionSwitchTableViewCell.xib */,
 			);
-			name = Internal;
-			path = ToolBox/Classes/Core/Internal;
+			name = Items;
+			path = Sentinel/Classes/OptionSwitch/Items;
 			sourceTree = "<group>";
 		};
-		23EFA404D606A054BB8EA45B439AB198 /* CustomInfo */ = {
+		2AB3191F2F28007643597A44DC84E80E /* TextEditing */ = {
 			isa = PBXGroup;
 			children = (
-				E80F06E7606C92BBDDB68574FA84D6A0 /* CustomInfoTool.swift */,
+				64442341A7E9370170D203C10FFEB151 /* TextEditing.storyboard */,
+				9A5A4FEBD0D7379DC32EC081240FB354 /* TextEditingTool.swift */,
+				5CC4F02A3BB946569A4A53595A1B2065 /* TextEditingViewController.swift */,
 			);
-			name = CustomInfo;
+			name = TextEditing;
 			sourceTree = "<group>";
 		};
-		3670A5183DFF0295C3A32CD017380ADA /* ToolTableItems */ = {
+		2E726A7246F4512148FE35051B58C553 /* CustomLocation */ = {
 			isa = PBXGroup;
 			children = (
-				1DF1056A3EDF69DF7842DFD8A3AFB098 /* DetailToolTableCell.swift */,
-				7856EEA49375E0A6CC9AB4EC2BE33CEB /* DetailToolTableCell.xib */,
-				9A57F5F131F3D43004A6244FB53C04DA /* NavigationToolTableCell.swift */,
-				53007AF98855031F86A9107006D585AE /* NavigationToolTableCell.xib */,
+				4AAD242513970EE40C40BA3E6999E731 /* CustomLocation.storyboard */,
+				BAFC4E246EF8B766433A2D6827983019 /* CustomLocationTool.swift */,
+				2DC3F5227EF9208DF8DD64E11B734C31 /* CustomLocationViewController.swift */,
+				F2B4132FED9094F6DADBD261F5CA9E99 /* Internal */,
 			);
-			name = ToolTableItems;
-			path = ToolBox/Classes/Core/ToolTableItems;
+			name = CustomLocation;
+			sourceTree = "<group>";
+		};
+		3B17F18A152B9936620FFEA856824809 /* Sentinel */ = {
+			isa = PBXGroup;
+			children = (
+				7D0B6BE15D8A22A1635D764C0FC46658 /* Core */,
+				7A08DA2F2E0F9EC7E1F4DEEFBDB3A727 /* CustomInfo */,
+				2E726A7246F4512148FE35051B58C553 /* CustomLocation */,
+				4871177614DA1BB76813133175161C2F /* GeneralInfo */,
+				F30F1EDFFAFEE76A0443AF329F178B41 /* OptionSwitch */,
+				D04729E16C09AE38A2D0192EFC40B640 /* PerformanceInfo */,
+				82EA03F646A85366C1FAA5E9FD638FCF /* Pod */,
+				94083E97DB2F8711DD97015934CE5454 /* Support Files */,
+				2AB3191F2F28007643597A44DC84E80E /* TextEditing */,
+				82121843B7686698945B4C1A873796EF /* UserDefaults */,
+			);
+			name = Sentinel;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		4871177614DA1BB76813133175161C2F /* GeneralInfo */ = {
+			isa = PBXGroup;
+			children = (
+				6E4D95B24611928DEB2809DCD6C7A65E /* GeneralInfoTool.swift */,
+			);
+			name = GeneralInfo;
 			sourceTree = "<group>";
 		};
 		59DA5C1F72E1D5BABC43EACBA672C3BA /* iOS */ = {
@@ -241,311 +280,272 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		5E0ACD01D51A19C96BAC44B3EBF028E5 /* Pods-ToolBox_Example */ = {
+		79C5115D60BFFCB110E7369F57281D12 /* Internal */ = {
 			isa = PBXGroup;
 			children = (
-				8859D52B323BA8E09360F378DF335D4D /* Pods-ToolBox_Example.modulemap */,
-				000FABAFDFBE8A49B01E0A73365A0814 /* Pods-ToolBox_Example-acknowledgements.markdown */,
-				1ECA7928E31E0FCD5DFD4934A391E865 /* Pods-ToolBox_Example-acknowledgements.plist */,
-				8331B93E60F67A164D0C79991AC110DC /* Pods-ToolBox_Example-dummy.m */,
-				BB2363B294747E2C119FDC3766D15D04 /* Pods-ToolBox_Example-frameworks.sh */,
-				AB14BBA54E81EBA1543C6B7E4AFDFA46 /* Pods-ToolBox_Example-Info.plist */,
-				050C90104B34A4CAE887329AF8EABB85 /* Pods-ToolBox_Example-umbrella.h */,
-				38ACA643ABFA8C463493AB9A058C032D /* Pods-ToolBox_Example.debug.xcconfig */,
-				FEE97CF797C2255A115ACCD56B9853C9 /* Pods-ToolBox_Example.release.xcconfig */,
-			);
-			name = "Pods-ToolBox_Example";
-			path = "Target Support Files/Pods-ToolBox_Example";
-			sourceTree = "<group>";
-		};
-		5EE626EF4125CFEE2CE1486896124857 /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				8F26C5ED6F36C3934B6BDB55085509E7 /* ToolBox */,
-			);
-			name = "Development Pods";
-			sourceTree = "<group>";
-		};
-		637887B97B90EA8FEF87984DFF71A277 /* OptionSwitch */ = {
-			isa = PBXGroup;
-			children = (
-				99F1E57558B63F403C971F0F70996CED /* OptionSwitchTool.swift */,
-				E8B494FF954D88F0B42B261605D17E28 /* Items */,
-			);
-			name = OptionSwitch;
-			sourceTree = "<group>";
-		};
-		64C617B3A19486F2DDD4C32AE3C39008 /* Pods-ToolBox_Tests */ = {
-			isa = PBXGroup;
-			children = (
-				0F09B4B353BEC3840FF3C28DA3090D2B /* Pods-ToolBox_Tests.modulemap */,
-				1D499DD7C97F5E861DAE5073451205F8 /* Pods-ToolBox_Tests-acknowledgements.markdown */,
-				D40EEFA2EA40F02CAC3E84952682D761 /* Pods-ToolBox_Tests-acknowledgements.plist */,
-				DEBF6CC690A33C278E814F9AE1D9C690 /* Pods-ToolBox_Tests-dummy.m */,
-				581D45E15A6C5CD7A28911546AE2BF1D /* Pods-ToolBox_Tests-Info.plist */,
-				72A95F1A707B85D222526D05A93F5F85 /* Pods-ToolBox_Tests-umbrella.h */,
-				18E98AC47BAE14F5D02C680DE510C64D /* Pods-ToolBox_Tests.debug.xcconfig */,
-				9419784FDF9FA8D035D1F8DA9EF5BCD8 /* Pods-ToolBox_Tests.release.xcconfig */,
-			);
-			name = "Pods-ToolBox_Tests";
-			path = "Target Support Files/Pods-ToolBox_Tests";
-			sourceTree = "<group>";
-		};
-		6FE32BECA7B8860F7109F1AA08B1C1AF /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				E5A88CC7715944934968230405F05A93 /* ToolBox.modulemap */,
-				87F5430934F02D11F4410D878C01508B /* ToolBox-dummy.m */,
-				9DF2761E6A62CA000D891AC08C2C4AAD /* ToolBox-Info.plist */,
-				A84CA8EF487EEE1EE304769C015EF825 /* ToolBox-prefix.pch */,
-				7C43D4F174C483BE2702476FCB264C8A /* ToolBox-umbrella.h */,
-				1ACC6C1EE20504328C2F54CA5E879894 /* ToolBox.debug.xcconfig */,
-				94A8D4E6F6A53992E8926270AC5E2259 /* ToolBox.release.xcconfig */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/ToolBox";
-			sourceTree = "<group>";
-		};
-		76BB77F563AA6BC28CA5BE3C2060E3B0 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				4D747DE4E3AFC0C074833206802E33C9 /* Pods_ToolBox_Example.framework */,
-				7EA8A24DF2F852587880B7B1BC1038B0 /* Pods_ToolBox_Tests.framework */,
-				6ADD1E8FB7C72CA0531223D70F756206 /* ToolBox.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		8F26C5ED6F36C3934B6BDB55085509E7 /* ToolBox */ = {
-			isa = PBXGroup;
-			children = (
-				D4AA0E9D28B6747C9CA54B0A18DF4D7D /* Core */,
-				23EFA404D606A054BB8EA45B439AB198 /* CustomInfo */,
-				EAF66A1EB5A14BFBFA76D2585198E36C /* CustomLocation */,
-				9368E354610BFD45F3C82773995CB0D2 /* GeneralInfo */,
-				637887B97B90EA8FEF87984DFF71A277 /* OptionSwitch */,
-				F1C0BA8D0F4E7E477767EE955AB48DD5 /* PerformanceInfo */,
-				D386F235A9A13D6CE29D7E70DEF1E86E /* Pod */,
-				6FE32BECA7B8860F7109F1AA08B1C1AF /* Support Files */,
-				D85110D5F0E3EF21CC69592029AA4B47 /* TextEditing */,
-				C9C50FFC51E611AB51D912DB836D886A /* UserDefaults */,
-			);
-			name = ToolBox;
-			path = ../..;
-			sourceTree = "<group>";
-		};
-		9368E354610BFD45F3C82773995CB0D2 /* GeneralInfo */ = {
-			isa = PBXGroup;
-			children = (
-				D959D4217F20AC1048D860F38F4FCD2B /* GeneralInfoTool.swift */,
-			);
-			name = GeneralInfo;
-			sourceTree = "<group>";
-		};
-		AC64820CB8F1A54F04B2FC5452F64130 /* Items */ = {
-			isa = PBXGroup;
-			children = (
-				E1612389283A55EE209483E4A068B932 /* PerformanceInfoItem.swift */,
-				B32AB16A0FC5608CC82394D16E3FFF72 /* PerformanceInfoTableViewCell.swift */,
-				1EE7729195DF4BB7DE2549C54ADC5134 /* PerformanceInfoTableViewCell.xib */,
-			);
-			name = Items;
-			path = ToolBox/Classes/PerformanceInfo/Items;
-			sourceTree = "<group>";
-		};
-		AE23F9127A56C4D18DFE0BD7AB44A17C /* Internal */ = {
-			isa = PBXGroup;
-			children = (
-				E6F82939AD697CCAA638295B2A18DBD7 /* CLLocationManager+CustomLocation.swift */,
-				897A6D4582020AB5D73D5083F95E0C6E /* CustomLocationProvider.swift */,
+				109874CDAB1885BAB71C5ABCBB9B24D1 /* CPUInfoProvider.swift */,
+				D364422650E36C9CCF8117A92EE24AA3 /* MemoryInfoProvider.swift */,
+				AA7D1163B3C6CB33253565CDD48B02BA /* SystemInfoProvider.swift */,
 			);
 			name = Internal;
-			path = ToolBox/Classes/CustomLocation/Internal;
+			path = Sentinel/Classes/PerformanceInfo/Internal;
 			sourceTree = "<group>";
 		};
-		C9C50FFC51E611AB51D912DB836D886A /* UserDefaults */ = {
+		7A08DA2F2E0F9EC7E1F4DEEFBDB3A727 /* CustomInfo */ = {
 			isa = PBXGroup;
 			children = (
-				0B65E91B3D34A3CCB94CC99EA00B85A1 /* UserDefaults.storyboard */,
-				D45992576559AB5B3A14243C3E2DEBE9 /* UserDefaultsTool.swift */,
-				69A48E8344C7B6ADE9FFA68F7AC0FF99 /* UserDefaultsViewController.swift */,
+				629DB4B62FA95FED8FB6337DD602540D /* CustomInfoTool.swift */,
+			);
+			name = CustomInfo;
+			sourceTree = "<group>";
+		};
+		7D0B6BE15D8A22A1635D764C0FC46658 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				32D68E09B53EBF4BF2CC6C994FE948A4 /* SourceScreenProvider.swift */,
+				B1798190E3F9B3070607FDE53B4341AC /* Sentinel.swift */,
+				7844DC91CAF7100B5CF6EA49CADCF9B7 /* Tool.swift */,
+				59BE42473F05E6399B3EDC9F3B1859C9 /* ToolTable.swift */,
+				27D4DA510D59245E62D329CCC4EBC5CB /* ToolTableItem.swift */,
+				C5BEFEC9F8877CC09987941786189103 /* ToolTableSection.swift */,
+				460EABEAE5E3AE6EF071BAD74E8595A3 /* Trigger.swift */,
+				FA048FC1C93F83F94E8D5CCE09401B92 /* Internal */,
+				9DB2CED0B5468E7535E8761D2FA6C6DB /* ToolTableItems */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		82121843B7686698945B4C1A873796EF /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				C0052669424702B19A58C4C41CBA717C /* UserDefaults.storyboard */,
+				A8F29EC6D04B671910FA914216382157 /* UserDefaultsTool.swift */,
+				0D4185532AC9601D568EDC2AED4BC963 /* UserDefaultsViewController.swift */,
 			);
 			name = UserDefaults;
+			sourceTree = "<group>";
+		};
+		82EA03F646A85366C1FAA5E9FD638FCF /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				B6E84629736A699BD1CF483B3B400384 /* LICENSE */,
+				EE306C9DD4ED21D2A2A9B86EEA3410CE /* README.md */,
+				45E1A9A14D5BCA28BD98037B5373DDF2 /* Sentinel.podspec */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		8F691C6054F4434031502E1A992CC026 /* Pods-Sentinel_Example */ = {
+			isa = PBXGroup;
+			children = (
+				B27D12816652F5CE8F68FECC2498878C /* Pods-Sentinel_Example.modulemap */,
+				55CD7B5D6B41371E48802E60F2D85413 /* Pods-Sentinel_Example-acknowledgements.markdown */,
+				F0C518BCD254C6BED6EDFAA897D668F7 /* Pods-Sentinel_Example-acknowledgements.plist */,
+				89C6FAA08483FA46AF62E0083A4A1ECE /* Pods-Sentinel_Example-dummy.m */,
+				B14684E93C90965E041B3092E4D0C959 /* Pods-Sentinel_Example-frameworks.sh */,
+				F6D219D153A366859D6A80F165E2D93E /* Pods-Sentinel_Example-Info.plist */,
+				6CC63C249594FFB7BA2A29447E90165F /* Pods-Sentinel_Example-umbrella.h */,
+				A66CE977C2A4DD6409F650637CBD401F /* Pods-Sentinel_Example.debug.xcconfig */,
+				FCD5716A347A57C5EB37EDE8EE5438D4 /* Pods-Sentinel_Example.release.xcconfig */,
+			);
+			name = "Pods-Sentinel_Example";
+			path = "Target Support Files/Pods-Sentinel_Example";
+			sourceTree = "<group>";
+		};
+		94083E97DB2F8711DD97015934CE5454 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				C0F64F1B2DF5473AE11CADF61CD35707 /* Sentinel.modulemap */,
+				ABCA0BE9A8D5AE19A0FF6D7F6EA71F31 /* Sentinel-dummy.m */,
+				B2808675AB91D13F4925FC9B58988A4A /* Sentinel-Info.plist */,
+				864FD1113191E342DD07576BB12E6833 /* Sentinel-prefix.pch */,
+				196588FDB3155CB7A95618ECF17AEAD3 /* Sentinel-umbrella.h */,
+				C0F5D78F1C67966A7FC449B67275BA99 /* Sentinel.debug.xcconfig */,
+				7675A55F4DB9663570209AC976AF3A10 /* Sentinel.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/Sentinel";
+			sourceTree = "<group>";
+		};
+		9DB2CED0B5468E7535E8761D2FA6C6DB /* ToolTableItems */ = {
+			isa = PBXGroup;
+			children = (
+				E73D1F4DDB5FF4D7454BB82EE7922216 /* DetailToolTableCell.swift */,
+				66257AB99BFB97A7175694B0318219B9 /* DetailToolTableCell.xib */,
+				B09DFD777E3BA9745AC1A2102E96B373 /* NavigationToolTableCell.swift */,
+				D02D3760817E75AA5CACC9AEAA4A1637 /* NavigationToolTableCell.xib */,
+			);
+			name = ToolTableItems;
+			path = Sentinel/Classes/Core/ToolTableItems;
+			sourceTree = "<group>";
+		};
+		A3C170216A4ED2D288108EEF562D16B4 /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				BDD07A762A7D9A45FD2AE924F79E1908 /* PerformanceInfoItem.swift */,
+				9ACD16744845C8397B93B2F6E4398E7F /* PerformanceInfoTableViewCell.swift */,
+				09BA84116F6D6D4C6C03B2ECA1C85C5E /* PerformanceInfoTableViewCell.xib */,
+			);
+			name = Items;
+			path = Sentinel/Classes/PerformanceInfo/Items;
+			sourceTree = "<group>";
+		};
+		ADEF06986999BBC80E0FD346F48AFFAF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F4A9B14258CE10FBC253BB5B34DAAE75 /* Pods_Sentinel_Example.framework */,
+				65C9954C4CF9EB181467C37DE9785CCF /* Pods_Sentinel_Tests.framework */,
+				DA6F656ACB4F354E2B0B0D8829821734 /* Sentinel.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				5EE626EF4125CFEE2CE1486896124857 /* Development Pods */,
+				146D215BC6C5C1F5878BD2F7FF60F73C /* Development Pods */,
 				1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */,
-				76BB77F563AA6BC28CA5BE3C2060E3B0 /* Products */,
-				DA0B80B3AA19A8A711BCC88EFD0770D6 /* Targets Support Files */,
+				ADEF06986999BBC80E0FD346F48AFFAF /* Products */,
+				E1BF3393363293FA2C5AF0C96D0A5677 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		D386F235A9A13D6CE29D7E70DEF1E86E /* Pod */ = {
+		D04729E16C09AE38A2D0192EFC40B640 /* PerformanceInfo */ = {
 			isa = PBXGroup;
 			children = (
-				B245FFC29829F0B9BFBBE1E195753999 /* LICENSE */,
-				30CEDBEA89D9E57B6673EAD587C09C03 /* README.md */,
-				F7C45CFF7079FB00B05A206A43B8F3FF /* ToolBox.podspec */,
+				D4D31D0ADD988E9F73A98960720A9AD8 /* PerformanceInfo.storyboard */,
+				7A71D9434333ABF8A48B52D9B569AABB /* PerformanceInfoTool.swift */,
+				79C5115D60BFFCB110E7369F57281D12 /* Internal */,
+				A3C170216A4ED2D288108EEF562D16B4 /* Items */,
 			);
-			name = Pod;
+			name = PerformanceInfo;
 			sourceTree = "<group>";
 		};
-		D4AA0E9D28B6747C9CA54B0A18DF4D7D /* Core */ = {
+		E1BF3393363293FA2C5AF0C96D0A5677 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				FDAB0654D1B34C538F67C895107FE893 /* SourceScreenProvider.swift */,
-				DB60FAB68962484CA4EE74A59C1CCFFB /* Tool.swift */,
-				96E759F85E28A2BDD7B5437ED7D864FC /* ToolBox.swift */,
-				F8F664BDD903525D8803BF49C43189D7 /* ToolTable.swift */,
-				E5714A3DBECE42D7047BEC41F83F0291 /* ToolTableItem.swift */,
-				D94C6C966574F81BD9618DE485EC06D6 /* ToolTableSection.swift */,
-				EBF5F8E541FA443F32BE702AC4929925 /* Trigger.swift */,
-				23B689E0684339B7589FC88D81EFEFAD /* Internal */,
-				3670A5183DFF0295C3A32CD017380ADA /* ToolTableItems */,
-			);
-			name = Core;
-			sourceTree = "<group>";
-		};
-		D85110D5F0E3EF21CC69592029AA4B47 /* TextEditing */ = {
-			isa = PBXGroup;
-			children = (
-				A999A6112F38E3C3BF6B133B980A01EF /* TextEditing.storyboard */,
-				5A0F30AAB0A15C70E3249C23F5F90D3B /* TextEditingTool.swift */,
-				41B406C004D07D04A1176978C9FA7F52 /* TextEditingViewController.swift */,
-			);
-			name = TextEditing;
-			sourceTree = "<group>";
-		};
-		DA0B80B3AA19A8A711BCC88EFD0770D6 /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				5E0ACD01D51A19C96BAC44B3EBF028E5 /* Pods-ToolBox_Example */,
-				64C617B3A19486F2DDD4C32AE3C39008 /* Pods-ToolBox_Tests */,
+				8F691C6054F4434031502E1A992CC026 /* Pods-Sentinel_Example */,
+				053036BFEE8D66B6CDBECD24E5744268 /* Pods-Sentinel_Tests */,
 			);
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		E8B494FF954D88F0B42B261605D17E28 /* Items */ = {
+		F2B4132FED9094F6DADBD261F5CA9E99 /* Internal */ = {
 			isa = PBXGroup;
 			children = (
-				E7C927FE9E22635D010F97657D7CD1EC /* OptionSwitchItem.swift */,
-				A2A59BDFEF31C02DD72FCCAF238F0FC8 /* OptionSwitchTableViewCell.swift */,
-				9CD3BFD665BE5F82E2E546DA3ED1D3AB /* OptionSwitchTableViewCell.xib */,
+				4B4C2656C379879F07C9C0E28848BECF /* CLLocationManager+CustomLocation.swift */,
+				11315814FF905E8C1CD967BFA8FCDAD8 /* CustomLocationProvider.swift */,
 			);
-			name = Items;
-			path = ToolBox/Classes/OptionSwitch/Items;
+			name = Internal;
+			path = Sentinel/Classes/CustomLocation/Internal;
 			sourceTree = "<group>";
 		};
-		EAF66A1EB5A14BFBFA76D2585198E36C /* CustomLocation */ = {
+		F30F1EDFFAFEE76A0443AF329F178B41 /* OptionSwitch */ = {
 			isa = PBXGroup;
 			children = (
-				602E064315AE5248D5A51FE9D589FEA6 /* CustomLocation.storyboard */,
-				50608CF514ECEA0F494CDD0A3B202D03 /* CustomLocationTool.swift */,
-				DA9C306B61BE9A651C94E228C5C0C459 /* CustomLocationViewController.swift */,
-				AE23F9127A56C4D18DFE0BD7AB44A17C /* Internal */,
+				A779FA318D31A92BCB4935373EB959FD /* OptionSwitchTool.swift */,
+				27999F75D9B4FC10806D4864588D2D3F /* Items */,
 			);
-			name = CustomLocation;
+			name = OptionSwitch;
 			sourceTree = "<group>";
 		};
-		F1C0BA8D0F4E7E477767EE955AB48DD5 /* PerformanceInfo */ = {
+		FA048FC1C93F83F94E8D5CCE09401B92 /* Internal */ = {
 			isa = PBXGroup;
 			children = (
-				FD2F1357458A35B94848CE8032362828 /* PerformanceInfo.storyboard */,
-				14325D548613AA7E4F589B5E698A20C9 /* PerformanceInfoTool.swift */,
-				0E40378FB819017FEF7683EF45E46C85 /* Internal */,
-				AC64820CB8F1A54F04B2FC5452F64130 /* Items */,
+				C6C8ABDCEBEF42DA4B89F1CE02572D5B /* Sentinel.storyboard */,
+				0478B1E8C24818F9EF85F8881B92252B /* SentinelInternal.swift */,
+				91C29F4D3F53382DA8A0AE8562BA0246 /* SentinelTableViewController.swift */,
+				DDF6396094385945F6BF336E3F5FAC93 /* SentinelUIKitExtensions.swift */,
 			);
-			name = PerformanceInfo;
+			name = Internal;
+			path = Sentinel/Classes/Core/Internal;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		6C6AA6BBBA4956B76ED99B101703BA11 /* Headers */ = {
+		5218112CC5B9FACCF3866616CAFCFBC5 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1885D3DADBCD584F8A570DA25DA9A36 /* ToolBox-umbrella.h in Headers */,
+				F6D90AFA186B21D231E5723DD86AF442 /* Sentinel-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7DD34A37D7CF6ADD23A7F8F202A37E9F /* Headers */ = {
+		70B96992A105A8E14D3196B406BDBBEE /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E780149399C8112B99572112F8AFDC1D /* Pods-ToolBox_Example-umbrella.h in Headers */,
+				453C69B18384D1FD4749C62BE8185896 /* Pods-Sentinel_Example-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F2BF4A7B1D2ED30D75BE0AF9726F843C /* Headers */ = {
+		E2F1D4F1A2DF986C212A3F2CE219D591 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE37FA9D4E74718BC29B034B9749AAC5 /* Pods-ToolBox_Tests-umbrella.h in Headers */,
+				D0BF0D63B845BC00E5A8B4E8A684F0AE /* Pods-Sentinel_Tests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		1410455F8AFC484AF913E42E0676C8D5 /* Pods-ToolBox_Example */ = {
+		254C1FBF05728FD8BE3AFCBC3F313646 /* Pods-Sentinel_Example */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D3EE0D8F47B1D487B901DE648AC6E66 /* Build configuration list for PBXNativeTarget "Pods-ToolBox_Example" */;
+			buildConfigurationList = 961DAF57A18D83EAACB071B8519E2400 /* Build configuration list for PBXNativeTarget "Pods-Sentinel_Example" */;
 			buildPhases = (
-				7DD34A37D7CF6ADD23A7F8F202A37E9F /* Headers */,
-				95CB7A15B5DFC48B55CD2137A66D061D /* Sources */,
-				944CFC12CA986D2515ADFD8B53C945C4 /* Frameworks */,
-				898DC7E9236D406564B075D11F7149AD /* Resources */,
+				70B96992A105A8E14D3196B406BDBBEE /* Headers */,
+				1B115E6234DE0D69D49DB337D5A0E066 /* Sources */,
+				C05854686678D99BF72CDBC0C9461775 /* Frameworks */,
+				C7E7034D74EECE65F32EC3B97F51C85E /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				9BC269073C1380689AB347967E977812 /* PBXTargetDependency */,
+				C09A5C38A0DA046A1C5FD984BE2F1930 /* PBXTargetDependency */,
 			);
-			name = "Pods-ToolBox_Example";
-			productName = "Pods-ToolBox_Example";
-			productReference = 4D747DE4E3AFC0C074833206802E33C9 /* Pods_ToolBox_Example.framework */;
+			name = "Pods-Sentinel_Example";
+			productName = "Pods-Sentinel_Example";
+			productReference = F4A9B14258CE10FBC253BB5B34DAAE75 /* Pods_Sentinel_Example.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		183D0D3B081154080F92DCEDB52464D4 /* Pods-ToolBox_Tests */ = {
+		456B9E0EFF5B252F2D01BD09BEE7094C /* Pods-Sentinel_Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5E9E82449A86AABFA1D033726EEC9499 /* Build configuration list for PBXNativeTarget "Pods-ToolBox_Tests" */;
+			buildConfigurationList = 3912FF649245EB2DE78FDC17F888A593 /* Build configuration list for PBXNativeTarget "Pods-Sentinel_Tests" */;
 			buildPhases = (
-				F2BF4A7B1D2ED30D75BE0AF9726F843C /* Headers */,
-				31855868AD6EF01CC5FB9F97C0E5BF0A /* Sources */,
-				D5C0EE8955DD9B8F4E7CC8E8392013E0 /* Frameworks */,
-				1ECFEA69714545A3AC749B8F694D7107 /* Resources */,
+				E2F1D4F1A2DF986C212A3F2CE219D591 /* Headers */,
+				D00B8D2797DCAD177126F366CCA3EB03 /* Sources */,
+				C9FD69F9B710AA7835E9D10969AA7307 /* Frameworks */,
+				FC5A5DB4B3C6ED19CC8B421757AFCFFA /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				12F499B523786A259E840A82506F7E74 /* PBXTargetDependency */,
+				955DEE2F2EE1F51D4782883DE7BFE509 /* PBXTargetDependency */,
 			);
-			name = "Pods-ToolBox_Tests";
-			productName = "Pods-ToolBox_Tests";
-			productReference = 7EA8A24DF2F852587880B7B1BC1038B0 /* Pods_ToolBox_Tests.framework */;
+			name = "Pods-Sentinel_Tests";
+			productName = "Pods-Sentinel_Tests";
+			productReference = 65C9954C4CF9EB181467C37DE9785CCF /* Pods_Sentinel_Tests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		4ECC9C8777E88F14127C5046A07DBCD8 /* ToolBox */ = {
+		F402433F0FA4E4D3D7AF80AFBDD40215 /* Sentinel */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 198B0ABEC8690C3F9DB60FA0FF8FBD24 /* Build configuration list for PBXNativeTarget "ToolBox" */;
+			buildConfigurationList = EAA6D1E22B28710272566EF5677E8221 /* Build configuration list for PBXNativeTarget "Sentinel" */;
 			buildPhases = (
-				6C6AA6BBBA4956B76ED99B101703BA11 /* Headers */,
-				9DD4086290DF540131217F8A6BFDF46F /* Sources */,
-				F140F773AEF6CEBB6E62CF57B5EB6BD3 /* Frameworks */,
-				ED5D837A87A6B53AE336E99F5943389B /* Resources */,
+				5218112CC5B9FACCF3866616CAFCFBC5 /* Headers */,
+				B44C37269EF4386D791A6F5D6E3AB0C4 /* Sources */,
+				FC780F7602BED3A7CF7E75AB92559D61 /* Frameworks */,
+				C5916E52703F4D9BBA19DBB50B333DB5 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = ToolBox;
-			productName = ToolBox;
-			productReference = 6ADD1E8FB7C72CA0531223D70F756206 /* ToolBox.framework */;
+			name = Sentinel;
+			productName = Sentinel;
+			productReference = DA6F656ACB4F354E2B0B0D8829821734 /* Sentinel.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -566,33 +566,33 @@
 				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = 76BB77F563AA6BC28CA5BE3C2060E3B0 /* Products */;
+			productRefGroup = ADEF06986999BBC80E0FD346F48AFFAF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1410455F8AFC484AF913E42E0676C8D5 /* Pods-ToolBox_Example */,
-				183D0D3B081154080F92DCEDB52464D4 /* Pods-ToolBox_Tests */,
-				4ECC9C8777E88F14127C5046A07DBCD8 /* ToolBox */,
+				254C1FBF05728FD8BE3AFCBC3F313646 /* Pods-Sentinel_Example */,
+				456B9E0EFF5B252F2D01BD09BEE7094C /* Pods-Sentinel_Tests */,
+				F402433F0FA4E4D3D7AF80AFBDD40215 /* Sentinel */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		1ECFEA69714545A3AC749B8F694D7107 /* Resources */ = {
+		C5916E52703F4D9BBA19DBB50B333DB5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		898DC7E9236D406564B075D11F7149AD /* Resources */ = {
+		C7E7034D74EECE65F32EC3B97F51C85E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		ED5D837A87A6B53AE336E99F5943389B /* Resources */ = {
+		FC5A5DB4B3C6ED19CC8B421757AFCFFA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -602,91 +602,91 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		31855868AD6EF01CC5FB9F97C0E5BF0A /* Sources */ = {
+		1B115E6234DE0D69D49DB337D5A0E066 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1D6B0B431EAC0C9D2A6F5196F96AEFF /* Pods-ToolBox_Tests-dummy.m in Sources */,
+				77C12C8C5B3CF688808055546CE9233D /* Pods-Sentinel_Example-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		95CB7A15B5DFC48B55CD2137A66D061D /* Sources */ = {
+		B44C37269EF4386D791A6F5D6E3AB0C4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F33A9A1DE14999229986E2529FAF183A /* Pods-ToolBox_Example-dummy.m in Sources */,
+				17B6562027989B2F6073F13676DEFF01 /* CLLocationManager+CustomLocation.swift in Sources */,
+				43DEAB0CC02165608DFF8A8B484BD365 /* CPUInfoProvider.swift in Sources */,
+				E8E6D4660B6D8CD2007F10ADF92228E3 /* CustomInfoTool.swift in Sources */,
+				FB320894038652D3859ED5E758F96986 /* CustomLocation.storyboard in Sources */,
+				258E5BBCE4FF82B5001D102397E59857 /* CustomLocationProvider.swift in Sources */,
+				A5BEEA9485999AD6DC7AAD1263B73A04 /* CustomLocationTool.swift in Sources */,
+				BFF73ABAF4F5C239FAD801AC7D7112E7 /* CustomLocationViewController.swift in Sources */,
+				8BAD10621214A84E321415B8489C8D3F /* DetailToolTableCell.swift in Sources */,
+				5DF8D6472EC24F103FD4E5E8D6B06E15 /* DetailToolTableCell.xib in Sources */,
+				960018D0E71BE7A89EBF52633FBDEB5C /* GeneralInfoTool.swift in Sources */,
+				2FDE0ECC9459E4BD800914542581365E /* MemoryInfoProvider.swift in Sources */,
+				2C62AF6675E94A9C9CD330D8AC432946 /* NavigationToolTableCell.swift in Sources */,
+				8BFDA1B37E1731C4C6A026E2D3145951 /* NavigationToolTableCell.xib in Sources */,
+				A9A283357528BA5214C8C416BB715E86 /* OptionSwitchItem.swift in Sources */,
+				DC4EF9FD4BBFF8E8BF072B26B590AB9E /* OptionSwitchTableViewCell.swift in Sources */,
+				10D5C1F292E3041A08D55DD47AE3AB18 /* OptionSwitchTableViewCell.xib in Sources */,
+				837CB27FA0A7CF74EA47633CE797DA1A /* OptionSwitchTool.swift in Sources */,
+				972DF9BBC874D5003A33BC24EFCC665B /* PerformanceInfo.storyboard in Sources */,
+				5BC2C8E60F49C240F555CB4383ABDC86 /* PerformanceInfoItem.swift in Sources */,
+				FBE2AF072AF2AD7F4CE2F369AC2A7DAB /* PerformanceInfoTableViewCell.swift in Sources */,
+				C4F51FC2EBDC16868E83D1449614BD09 /* PerformanceInfoTableViewCell.xib in Sources */,
+				7E4BB6F555BE518B00860D94CB5E7692 /* PerformanceInfoTool.swift in Sources */,
+				782F6C65FE8C32B94BA11C25393F73D3 /* Sentinel-dummy.m in Sources */,
+				E632399CC240CBDA518BC15304EF400B /* SourceScreenProvider.swift in Sources */,
+				CB19C9BCCEC59C92FC0AA10992CEA644 /* SystemInfoProvider.swift in Sources */,
+				30A5B5EC9D36FCAAFC6964003F31E321 /* TextEditing.storyboard in Sources */,
+				C08C01A9ED38630D55A2DD21D4FD4F9A /* TextEditingTool.swift in Sources */,
+				DA86A9DB641093861B74BDD084E1A722 /* TextEditingViewController.swift in Sources */,
+				CEC9C3F8B9E32E8618D0D81416E426FE /* Tool.swift in Sources */,
+				6B23CEE13784B4671A16023145651B81 /* Sentinel.storyboard in Sources */,
+				445BC3DA99C0D4E492325038811F11D6 /* Sentinel.swift in Sources */,
+				72AE478DCAC49054D3A8FAF003DB9F40 /* SentinelInternal.swift in Sources */,
+				811F3F921077070C23AA5FD542DD4EBD /* SentinelTableViewController.swift in Sources */,
+				2E81C360B6639BD7C6714B49DAC91355 /* SentinelUIKitExtensions.swift in Sources */,
+				1B638C86E40904DD488569AE39AE6FB9 /* ToolTable.swift in Sources */,
+				055F29FFE4A09604385DB65DC50C4FC0 /* ToolTableItem.swift in Sources */,
+				5162A6D204BFD8448D586C63B648D32F /* ToolTableSection.swift in Sources */,
+				E7C5F6C19A95A212C06F852DBF11EB86 /* Trigger.swift in Sources */,
+				3689FABCF25D189FFB952726E80CE7CF /* UserDefaults.storyboard in Sources */,
+				2E4E5144558E979AD14DCE6ED2887BD7 /* UserDefaultsTool.swift in Sources */,
+				CCB4A5062B1860D651B947C588054554 /* UserDefaultsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9DD4086290DF540131217F8A6BFDF46F /* Sources */ = {
+		D00B8D2797DCAD177126F366CCA3EB03 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43BE9E813890AA055176B2228A5CE3CB /* CLLocationManager+CustomLocation.swift in Sources */,
-				FFF7E57B6A73FB7B1E68AB9469B83715 /* CPUInfoProvider.swift in Sources */,
-				B1E47A51135ACE0BC8A100012F97EB47 /* CustomInfoTool.swift in Sources */,
-				4AF06ADD6C98FE352C8C4AF30E891ABF /* CustomLocation.storyboard in Sources */,
-				655DF1EBEF4745ABABA523598D33090F /* CustomLocationProvider.swift in Sources */,
-				658120C19E777B1F3875083EF80A32CB /* CustomLocationTool.swift in Sources */,
-				23C237FDB7075DBA9AA37AB19DDCDC10 /* CustomLocationViewController.swift in Sources */,
-				DA1D4740D3CF24AA50089466945E192C /* DetailToolTableCell.swift in Sources */,
-				D66211A62CBEA72C3D2B8351E7C6646F /* DetailToolTableCell.xib in Sources */,
-				6EBFC4336234A26DE398BDC486A0B1AC /* GeneralInfoTool.swift in Sources */,
-				56129F18DCBFD0FC99B32C36B861CF1B /* MemoryInfoProvider.swift in Sources */,
-				74193A86078FE822CACB33F23690EE5C /* NavigationToolTableCell.swift in Sources */,
-				13AFDD8F0A6DDEB6F4C721EE521FBAC7 /* NavigationToolTableCell.xib in Sources */,
-				CF0B841E827C5C5EE94DDC617758499C /* OptionSwitchItem.swift in Sources */,
-				08C1289834739755BAE72D82931F68C4 /* OptionSwitchTableViewCell.swift in Sources */,
-				3305407CC6ACCA5E9EA1B78F7123DD20 /* OptionSwitchTableViewCell.xib in Sources */,
-				016CBF3537F990E1E10E66E99F00E1D8 /* OptionSwitchTool.swift in Sources */,
-				7BDE0149F2E33155AD9AE3D4EF383597 /* PerformanceInfo.storyboard in Sources */,
-				B88797304C3B5DD6BD6A22DD9CF09162 /* PerformanceInfoItem.swift in Sources */,
-				EF3F2DB87F6C4E37FBB66AC833125B06 /* PerformanceInfoTableViewCell.swift in Sources */,
-				404FBEE4A991277CFEE362049E41567B /* PerformanceInfoTableViewCell.xib in Sources */,
-				B2AF935E69A3B90CBFA64A89E187DD0F /* PerformanceInfoTool.swift in Sources */,
-				4FCC078F25F0D00400DCBD50 /* SystemInfoProvider.swift in Sources */,
-				8DE6451CCCD0862F7DDBB0C30A5F1B57 /* SourceScreenProvider.swift in Sources */,
-				60E68ADFBEFFD6720F423390BA7A01FF /* TextEditing.storyboard in Sources */,
-				C38DF13B00DCC575C63C724D23EC3829 /* TextEditingTool.swift in Sources */,
-				D892421A8F144D67E854A235B2E7EECC /* TextEditingViewController.swift in Sources */,
-				0A2213386F4BC60110EBD3548A57DF43 /* Tool.swift in Sources */,
-				A909A9391C40557D6C19F17CED49B7C8 /* ToolBox-dummy.m in Sources */,
-				87AD1D0EF619249AB82DA8A70A518667 /* ToolBox.storyboard in Sources */,
-				24E16E88B75238A2E55A176012BB1C6E /* ToolBox.swift in Sources */,
-				6D97C457E13EA70A706480EEC9F7C03A /* ToolBoxInternal.swift in Sources */,
-				63A566CB8F2B26B60A2C3660BF820945 /* ToolboxTableViewController.swift in Sources */,
-				F5427F05BFD873687FEAD9C83DB96F25 /* ToolBoxUIKitExtensions.swift in Sources */,
-				84521D62378D9725215EC8E359B2ED4F /* ToolTable.swift in Sources */,
-				56A9F8789AF5451913E83736B55AD4B5 /* ToolTableItem.swift in Sources */,
-				AA68D6E9915C6A1E30B791E1A18105D8 /* ToolTableSection.swift in Sources */,
-				CB1A22CE82AC2183AC2B70F72C38F40F /* Trigger.swift in Sources */,
-				390202ECE88ED6BA64CCB554D250BC5A /* UserDefaults.storyboard in Sources */,
-				3943F33445C3E5D45205875E72293AF8 /* UserDefaultsTool.swift in Sources */,
-				09C89DC26D056BA1EB41FD5FCAD18AC0 /* UserDefaultsViewController.swift in Sources */,
+				ACBB2D36F4AA38CC9FBC2060D24AFF3D /* Pods-Sentinel_Tests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		12F499B523786A259E840A82506F7E74 /* PBXTargetDependency */ = {
+		955DEE2F2EE1F51D4782883DE7BFE509 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "Pods-ToolBox_Example";
-			target = 1410455F8AFC484AF913E42E0676C8D5 /* Pods-ToolBox_Example */;
-			targetProxy = 11945C223F3099DFCE53748758D360A0 /* PBXContainerItemProxy */;
+			name = "Pods-Sentinel_Example";
+			target = 254C1FBF05728FD8BE3AFCBC3F313646 /* Pods-Sentinel_Example */;
+			targetProxy = 4234959383EBF4959CDABC16D973B727 /* PBXContainerItemProxy */;
 		};
-		9BC269073C1380689AB347967E977812 /* PBXTargetDependency */ = {
+		C09A5C38A0DA046A1C5FD984BE2F1930 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = ToolBox;
-			target = 4ECC9C8777E88F14127C5046A07DBCD8 /* ToolBox */;
-			targetProxy = 4BDB8E8A41FAF8A6B16DA898E38F0059 /* PBXContainerItemProxy */;
+			name = Sentinel;
+			target = F402433F0FA4E4D3D7AF80AFBDD40215 /* Sentinel */;
+			targetProxy = 5850551AB252289B541B6826DC709A91 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		2078711D9B9F4681F3391A91C23ACB03 /* Debug */ = {
+		44F9C24FEE9C82DD1B8B0987024F7487 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 38ACA643ABFA8C463493AB9A058C032D /* Pods-ToolBox_Example.debug.xcconfig */;
+			baseConfigurationReference = 9569796757499011EED7D03B408B6F1A /* Pods-Sentinel_Tests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -698,12 +698,77 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-ToolBox_Example/Pods-ToolBox_Example-Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-Sentinel_Tests/Pods-Sentinel_Tests-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-ToolBox_Example/Pods-ToolBox_Example.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-Sentinel_Tests/Pods-Sentinel_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		63E75A9A3B02AEB9904EBAF24B12CD68 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C0F5D78F1C67966A7FC449B67275BA99 /* Sentinel.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Sentinel/Sentinel-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Sentinel/Sentinel-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Sentinel/Sentinel.modulemap";
+				PRODUCT_MODULE_NAME = Sentinel;
+				PRODUCT_NAME = Sentinel;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		78755B31D06972299190DB2EE4DCB8D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C3831A0EE07DA0231A8F1CB9F738F429 /* Pods-Sentinel_Tests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Sentinel_Tests/Pods-Sentinel_Tests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Sentinel_Tests/Pods-Sentinel_Tests.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -716,72 +781,6 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
-		};
-		2B0F96D5C474F5D14E9A520952CEC104 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = FEE97CF797C2255A115ACCD56B9853C9 /* Pods-ToolBox_Example.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-ToolBox_Example/Pods-ToolBox_Example-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-ToolBox_Example/Pods-ToolBox_Example.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		78B23246A0C9DACBAD194BA2547D1E18 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 94A8D4E6F6A53992E8926270AC5E2259 /* ToolBox.release.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/ToolBox/ToolBox-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/ToolBox/ToolBox-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/ToolBox/ToolBox.modulemap";
-				PRODUCT_MODULE_NAME = ToolBox;
-				PRODUCT_NAME = ToolBox;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
 		};
 		7EE7A78859F657F6BEFC651185B43192 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -844,9 +843,41 @@
 			};
 			name = Release;
 		};
-		864042314DB66609AC041D249745D4F5 /* Debug */ = {
+		80BFCB01F4E096F0EBA43F66ADF861F7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 18E98AC47BAE14F5D02C680DE510C64D /* Pods-ToolBox_Tests.debug.xcconfig */;
+			baseConfigurationReference = 7675A55F4DB9663570209AC976AF3A10 /* Sentinel.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Sentinel/Sentinel-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Sentinel/Sentinel-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Sentinel/Sentinel.modulemap";
+				PRODUCT_MODULE_NAME = Sentinel;
+				PRODUCT_NAME = Sentinel;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		89D809064FF8B3EDAE3330B6CB627EF0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A66CE977C2A4DD6409F650637CBD401F /* Pods-Sentinel_Example.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -858,12 +889,12 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-ToolBox_Tests/Pods-ToolBox_Tests-Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-Sentinel_Example/Pods-Sentinel_Example-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-ToolBox_Tests/Pods-ToolBox_Tests.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-Sentinel_Example/Pods-Sentinel_Example.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -871,37 +902,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		BD68060E8D11BD25FE0DA7D185475FF8 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1ACC6C1EE20504328C2F54CA5E879894 /* ToolBox.debug.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/ToolBox/ToolBox-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/ToolBox/ToolBox-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/ToolBox/ToolBox.modulemap";
-				PRODUCT_MODULE_NAME = ToolBox;
-				PRODUCT_NAME = ToolBox;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -974,9 +974,9 @@
 			};
 			name = Debug;
 		};
-		F899EE75207AD02355652A10D58149B0 /* Release */ = {
+		EBA57558CC9A1BFE4B9EE81E462E2D32 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9419784FDF9FA8D035D1F8DA9EF5BCD8 /* Pods-ToolBox_Tests.release.xcconfig */;
+			baseConfigurationReference = FCD5716A347A57C5EB37EDE8EE5438D4 /* Pods-Sentinel_Example.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -988,12 +988,12 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-ToolBox_Tests/Pods-ToolBox_Tests-Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-Sentinel_Example/Pods-Sentinel_Example-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-ToolBox_Tests/Pods-ToolBox_Tests.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-Sentinel_Example/Pods-Sentinel_Example.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -1011,20 +1011,11 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		198B0ABEC8690C3F9DB60FA0FF8FBD24 /* Build configuration list for PBXNativeTarget "ToolBox" */ = {
+		3912FF649245EB2DE78FDC17F888A593 /* Build configuration list for PBXNativeTarget "Pods-Sentinel_Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BD68060E8D11BD25FE0DA7D185475FF8 /* Debug */,
-				78B23246A0C9DACBAD194BA2547D1E18 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2D3EE0D8F47B1D487B901DE648AC6E66 /* Build configuration list for PBXNativeTarget "Pods-ToolBox_Example" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2078711D9B9F4681F3391A91C23ACB03 /* Debug */,
-				2B0F96D5C474F5D14E9A520952CEC104 /* Release */,
+				78755B31D06972299190DB2EE4DCB8D7 /* Debug */,
+				44F9C24FEE9C82DD1B8B0987024F7487 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1038,11 +1029,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5E9E82449A86AABFA1D033726EEC9499 /* Build configuration list for PBXNativeTarget "Pods-ToolBox_Tests" */ = {
+		961DAF57A18D83EAACB071B8519E2400 /* Build configuration list for PBXNativeTarget "Pods-Sentinel_Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				864042314DB66609AC041D249745D4F5 /* Debug */,
-				F899EE75207AD02355652A10D58149B0 /* Release */,
+				89D809064FF8B3EDAE3330B6CB627EF0 /* Debug */,
+				EBA57558CC9A1BFE4B9EE81E462E2D32 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EAA6D1E22B28710272566EF5677E8221 /* Build configuration list for PBXNativeTarget "Sentinel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				63E75A9A3B02AEB9904EBAF24B12CD68 /* Debug */,
+				80BFCB01F4E096F0EBA43F66ADF861F7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

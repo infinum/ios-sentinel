@@ -1,41 +1,41 @@
 PODS:
-  - ToolBox (0.1.0):
-    - ToolBox/Default (= 0.1.0)
-  - ToolBox/Core (0.1.0)
-  - ToolBox/CustomInfo (0.1.0):
-    - ToolBox/Core
-  - ToolBox/CustomLocation (0.1.0):
-    - ToolBox/Core
-  - ToolBox/Default (0.1.0):
-    - ToolBox/Core
-    - ToolBox/CustomInfo
-    - ToolBox/CustomLocation
-    - ToolBox/GeneralInfo
-    - ToolBox/OptionSwitch
-    - ToolBox/PerformanceInfo
-    - ToolBox/TextEditing
-    - ToolBox/UserDefaults
-  - ToolBox/GeneralInfo (0.1.0):
-    - ToolBox/CustomInfo
-  - ToolBox/OptionSwitch (0.1.0):
-    - ToolBox/Core
-  - ToolBox/PerformanceInfo (0.1.0):
-    - ToolBox/Core
-  - ToolBox/TextEditing (0.1.0):
-    - ToolBox/Core
-  - ToolBox/UserDefaults (0.1.0):
-    - ToolBox/Core
+  - Sentinel (0.9.0):
+    - Sentinel/Default (= 0.9.0)
+  - Sentinel/Core (0.9.0)
+  - Sentinel/CustomInfo (0.9.0):
+    - Sentinel/Core
+  - Sentinel/CustomLocation (0.9.0):
+    - Sentinel/Core
+  - Sentinel/Default (0.9.0):
+    - Sentinel/Core
+    - Sentinel/CustomInfo
+    - Sentinel/CustomLocation
+    - Sentinel/GeneralInfo
+    - Sentinel/OptionSwitch
+    - Sentinel/PerformanceInfo
+    - Sentinel/TextEditing
+    - Sentinel/UserDefaults
+  - Sentinel/GeneralInfo (0.9.0):
+    - Sentinel/CustomInfo
+  - Sentinel/OptionSwitch (0.9.0):
+    - Sentinel/Core
+  - Sentinel/PerformanceInfo (0.9.0):
+    - Sentinel/Core
+  - Sentinel/TextEditing (0.9.0):
+    - Sentinel/Core
+  - Sentinel/UserDefaults (0.9.0):
+    - Sentinel/Core
 
 DEPENDENCIES:
-  - ToolBox (from `../`)
+  - Sentinel (from `../`)
 
 EXTERNAL SOURCES:
-  ToolBox:
+  Sentinel:
     :path: "../"
 
 SPEC CHECKSUMS:
-  ToolBox: 244261ce5b87d23be568b6ba5e997bdfa010108f
+  Sentinel: af74edfd482fda424c0a5e5736240658431dda0b
 
-PODFILE CHECKSUM: 9b72e3f79370eb248d8d9886c14fbef37beef631
+PODFILE CHECKSUM: e10a3a2088aa5a9d18babe53feee8f6ae6fbb221
 
 COCOAPODS: 1.10.1
