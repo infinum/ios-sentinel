@@ -4,6 +4,10 @@
 [![License](https://img.shields.io/cocoapods/l/Sentinel.svg?style=flat)](https://cocoapods.org/pods/Sentinel)
 [![Platform](https://img.shields.io/cocoapods/p/Sentinel.svg?style=flat)](https://cocoapods.org/pods/Sentinel)
 
+<p align="center">
+    <img src="ic-sentinel.svg" width="300" max-width="50%" alt="Sentinel"/>
+</p>
+
 ## About
 
 *Sentinel* is a simple library which gives developers a possibility to configure one entry point for every debug tool. The idea of *Sentinel* is to give ability to developers to configure screen with multiple debug tools which are available via some event (e.g. shake, notification).
