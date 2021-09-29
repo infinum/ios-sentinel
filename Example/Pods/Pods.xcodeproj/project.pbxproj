@@ -20,6 +20,7 @@
 		30A5B5EC9D36FCAAFC6964003F31E321 /* TextEditing.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = 64442341A7E9370170D203C10FFEB151 /* TextEditing.storyboard */; };
 		31F7F7F60A7F9F7F97CFBBEC9675BA3D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D245E0514AAC1A2B9A6D5EA2F383E90F /* UIKit.framework */; };
 		3689FABCF25D189FFB952726E80CE7CF /* UserDefaults.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = C0052669424702B19A58C4C41CBA717C /* UserDefaults.storyboard */; };
+		3784D1C62703433000C7C827 /* SentinelTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3784D1C52703433000C7C827 /* SentinelTabBarController.swift */; };
 		43DEAB0CC02165608DFF8A8B484BD365 /* CPUInfoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109874CDAB1885BAB71C5ABCBB9B24D1 /* CPUInfoProvider.swift */; };
 		445BC3DA99C0D4E492325038811F11D6 /* Sentinel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1798190E3F9B3070607FDE53B4341AC /* Sentinel.swift */; };
 		453C69B18384D1FD4749C62BE8185896 /* Pods-Sentinel_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CC63C249594FFB7BA2A29447E90165F /* Pods-Sentinel_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -89,6 +90,7 @@
 		2DC3F5227EF9208DF8DD64E11B734C31 /* CustomLocationViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CustomLocationViewController.swift; path = Sentinel/Classes/CustomLocation/CustomLocationViewController.swift; sourceTree = "<group>"; };
 		32D68E09B53EBF4BF2CC6C994FE948A4 /* SourceScreenProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SourceScreenProvider.swift; path = Sentinel/Classes/Core/SourceScreenProvider.swift; sourceTree = "<group>"; };
 		3737F3A9AFF9607DB0AEDEEEBAB55101 /* Pods-Sentinel_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Sentinel_Tests-dummy.m"; sourceTree = "<group>"; };
+		3784D1C52703433000C7C827 /* SentinelTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentinelTabBarController.swift; sourceTree = "<group>"; };
 		45E1A9A14D5BCA28BD98037B5373DDF2 /* Sentinel.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = Sentinel.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		460EABEAE5E3AE6EF071BAD74E8595A3 /* Trigger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Trigger.swift; path = Sentinel/Classes/Core/Trigger.swift; sourceTree = "<group>"; };
 		4AAD242513970EE40C40BA3E6999E731 /* CustomLocation.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; name = CustomLocation.storyboard; path = Sentinel/Classes/CustomLocation/CustomLocation.storyboard; sourceTree = "<group>"; };
@@ -457,6 +459,7 @@
 				0478B1E8C24818F9EF85F8881B92252B /* SentinelInternal.swift */,
 				91C29F4D3F53382DA8A0AE8562BA0246 /* SentinelTableViewController.swift */,
 				DDF6396094385945F6BF336E3F5FAC93 /* SentinelUIKitExtensions.swift */,
+				3784D1C52703433000C7C827 /* SentinelTabBarController.swift */,
 			);
 			name = Internal;
 			path = Sentinel/Classes/Core/Internal;
@@ -639,6 +642,7 @@
 				782F6C65FE8C32B94BA11C25393F73D3 /* Sentinel-dummy.m in Sources */,
 				E632399CC240CBDA518BC15304EF400B /* SourceScreenProvider.swift in Sources */,
 				CB19C9BCCEC59C92FC0AA10992CEA644 /* SystemInfoProvider.swift in Sources */,
+				3784D1C62703433000C7C827 /* SentinelTabBarController.swift in Sources */,
 				30A5B5EC9D36FCAAFC6964003F31E321 /* TextEditing.storyboard in Sources */,
 				C08C01A9ED38630D55A2DD21D4FD4F9A /* TextEditingTool.swift in Sources */,
 				DA86A9DB641093861B74BDD084E1A722 /* TextEditingViewController.swift in Sources */,
