@@ -15,14 +15,31 @@ public class PerformanceInfoTool: Tool {
 
     // MARK: - Lifecycle
     
-    public init(name: String = "Performance Info") {
+    public init(name: String = "Performance") {
         self.name = name
     }
 
     // MARK: - Public methods
     
     public func presentPreview(from viewController: UIViewController) {
-        let toolTable = ToolTable(
+        let toolTable = createToolTable()
+        toolTable.presentPreview(from: viewController)
+    }
+
+    public func createViewController(on viewController: UIViewController?) -> UIViewController {
+        let toolTable = createToolTable()
+        let controller = toolTable.createViewController()
+        controller.tabBarItem = UITabBarItem(title: "Performance", image: nil, tag: 1)
+        return controller
+    }
+}
+
+// MARK: - Private methods
+
+private extension PerformanceInfoTool {
+
+    func createToolTable() -> ToolTable {
+        return ToolTable(
             name: name,
             sections: [
                 ToolTableSection(title: "CPU", items: cpuInfoItems()),
@@ -30,13 +47,7 @@ public class PerformanceInfoTool: Tool {
                 ToolTableSection(title: "System", items: systemInfoItems())
             ]
         )
-        toolTable.presentPreview(from: viewController)
     }
-}
-
-// MARK: - Private methods
-
-private extension PerformanceInfoTool {
 
     func cpuInfoItems() -> [ToolTableItem] {
         let cpuInfo = CPUInfoProvider()

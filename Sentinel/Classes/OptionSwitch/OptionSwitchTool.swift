@@ -22,7 +22,7 @@ public class OptionSwitchTool: Tool {
     
     // MARK: - Lifecycle
     
-    public init(name: String = "Option Switch Tool", items: [OptionSwitchItem]) {
+    public init(name: String = "Permissions", items: [OptionSwitchItem]) {
         self.name = name
         self.items = items
     }
@@ -30,11 +30,24 @@ public class OptionSwitchTool: Tool {
     // MARK: - Public methods
     
     public func presentPreview(from viewController: UIViewController) {
+        let toolTable = createToolTable(with: items)
+        toolTable.presentPreview(from: viewController)
+    }
+
+    public func createViewController(on viewController: UIViewController?) -> UIViewController {
+        let toolTable = createToolTable(with: items)
+        let controller = toolTable.createViewController(on: nil)
+        controller.tabBarItem = UITabBarItem(title: "Permissions", image: nil, tag: 2)
+        return controller
+    }
+}
+
+private extension OptionSwitchTool {
+    func createToolTable(with items: [OptionSwitchItem]) -> ToolTable {
         let section = ToolTableSection(
             title: nil,
             items: items
         )
-        let toolTable = ToolTable(name: name, sections: [section])
-        toolTable.presentPreview(from: viewController)
+        return ToolTable(name: name, sections: [section])
     }
 }

@@ -27,14 +27,25 @@ public class CustomInfoTool: Tool {
     // MARK: - Public properties
     
     public func presentPreview(from viewController: UIViewController) {
+        let toolTable = createToolTable(with: info)
+        toolTable.presentPreview(from: viewController)
+    }
+
+    public func createViewController(on viewController: UIViewController? = nil) -> UIViewController {
+        let toolTable = createToolTable(with: info)
+        return toolTable.createViewController()
+    }
+
+    // MARK: - Private properties
+
+    private func createToolTable(with info: [Section]) -> ToolTable {
         let sections = info.map { (section) in
             ToolTableSection(
                 title: section.title,
                 items: section.items.map { DetailToolTableItem(title: $0.title, detail: $0.value) }
             )
         }
-        let toolTable = ToolTable(name: name, sections: sections)
-        toolTable.presentPreview(from: viewController)
+        return ToolTable(name: name, sections: sections)
     }
 }
 

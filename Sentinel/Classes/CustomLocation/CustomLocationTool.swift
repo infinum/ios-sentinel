@@ -38,4 +38,8 @@ public class CustomLocationTool: Tool {
         )
         viewController.navigationController?.pushViewController(customLocationViewController, animated: true)
     }
+
+    public func createViewController(on viewController: UIViewController? = nil) -> UIViewController {
+        return CustomLocationViewController.create(locationProvider: locationProvider)
+    }
 }

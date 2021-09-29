@@ -43,4 +43,8 @@ public class ToolTable: NSObject, Tool {
             viewController.present(navContoller, animated: true)
         }
     }
+
+    public func createViewController(on viewController: UIViewController? = nil) -> UIViewController {
+        SentinelTableViewController.create(with: self)
+    }
 }

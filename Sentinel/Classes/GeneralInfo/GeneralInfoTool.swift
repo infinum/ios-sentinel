@@ -16,7 +16,7 @@ public class GeneralInfoTool: Tool {
     // MARK: - Private properties
     
     private(set) lazy var tool = CustomInfoTool(
-        name: "General Info",
+        name: "General",
         info: [
             CustomInfoTool.Section(
                 title: "Standard Plist Info",
@@ -46,6 +46,12 @@ public class GeneralInfoTool: Tool {
     
     public func presentPreview(from viewController: UIViewController) {
         tool.presentPreview(from: viewController)
+    }
+
+    public func createViewController(on viewController: UIViewController? = nil) -> UIViewController {
+        let controller = tool.createViewController()
+        controller.tabBarItem = UITabBarItem(title: "General", image: nil, tag: 0)
+        return controller
     }
 }
 

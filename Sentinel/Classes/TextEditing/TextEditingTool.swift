@@ -47,6 +47,14 @@ public class TextEditingTool: Tool {
         )
         viewController.navigationController?.pushViewController(textEditing, animated: true)
     }
+
+    public func createViewController(on viewController: UIViewController?) -> UIViewController {
+        return TextEditingViewController.create(
+            withTitle: name,
+            setter: store(newValue:),
+            getter: getter
+        )
+    }
 }
 
 extension TextEditingTool {

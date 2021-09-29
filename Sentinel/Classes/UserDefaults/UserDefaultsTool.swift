@@ -27,6 +27,22 @@ public class UserDefaultsTool: Tool {
     // MARK: - Public methods
     
     public func presentPreview(from viewController: UIViewController) {
+        let toolTable = createToolTable(with: userDefaults, viewController: viewController)
+        toolTable.presentPreview(from: viewController)
+    }
+
+    public func createViewController(on viewController: UIViewController?) -> UIViewController {
+        guard let viewController = viewController else {
+            return UIViewController()
+        }
+
+        let toolTable = createToolTable(with: userDefaults, viewController: viewController)
+        return toolTable.createViewController()
+    }
+}
+
+private extension UserDefaultsTool {
+    func createToolTable(with userDefaults: UserDefaults, viewController: UIViewController) -> ToolTable {
         let items = userDefaults.dictionaryRepresentation().map { (key, value) in
             NavigationToolTableItem(title: key) { (viewControoler) in
                 let userDefaultsViewController = UserDefaultsViewController.create(
@@ -37,7 +53,6 @@ public class UserDefaultsTool: Tool {
             }
         }
         let section = ToolTableSection(items: items)
-        let toolTable = ToolTable(name: name, sections: [section])
-        toolTable.presentPreview(from: viewController)
+        return ToolTable(name: name, sections: [section])
     }
 }
