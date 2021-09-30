@@ -67,7 +67,7 @@
                     <navigationItem key="navigationItem" id="HPj-di-FwW">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="aCt-BR-H3G">
                             <connections>
-                                <action selector="closeSelected" destination="rmC-9c-kFK" id="XSD-MJ-np6"/>
+                                <action selector="close:" destination="n1S-5p-dpw" id="jOB-7S-RB5"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
