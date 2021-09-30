@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 public class GeneralInfoTool: Tool {
     
@@ -16,7 +17,7 @@ public class GeneralInfoTool: Tool {
     // MARK: - Private properties
     
     private(set) lazy var tool = CustomInfoTool(
-        name: "General",
+        name: "Application",
         info: [
             CustomInfoTool.Section(
                 title: "Standard Plist Info",
@@ -50,7 +51,7 @@ public class GeneralInfoTool: Tool {
 
     public func createViewController(on viewController: UIViewController? = nil) -> UIViewController {
         let controller = tool.createViewController()
-        controller.tabBarItem = UITabBarItem(title: "General", image: nil, tag: 0)
+        controller.tabBarItem = UITabBarItem(title: "Application", image: nil, tag: 1)
         return controller
     }
 }
