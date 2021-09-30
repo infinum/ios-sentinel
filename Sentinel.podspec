@@ -25,6 +25,9 @@ Pod::Spec.new do |s|
   s.platform = :ios
   s.swift_version = '5.0'
   s.ios.deployment_target = '10.0'
+  s.resource_bundles = {
+      'Images' => ['Sentinel/Assets/*.pdf'],
+    }
 
   s.default_subspec = 'Default'
   
