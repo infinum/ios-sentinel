@@ -29,7 +29,7 @@ public class PerformanceInfoTool: Tool {
     public func createViewController(on viewController: UIViewController?) -> UIViewController {
         let toolTable = createToolTable()
         let controller = toolTable.createViewController()
-        controller.tabBarItem = UITabBarItem(title: "Performance", image: nil, tag: 1)
+        controller.tabBarItem = UITabBarItem(title: "Performance", image: UIImage.resize(UIImage.loadFromBundle(name: "performance")), tag: 1)
         return controller
     }
 }

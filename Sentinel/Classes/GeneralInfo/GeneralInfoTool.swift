@@ -40,7 +40,7 @@ public class GeneralInfoTool: Tool {
     )
     
     // MARK: - Public properties
-    
+
     public var name: String { tool.name }
     
     // MARK: - Public methods
@@ -51,7 +51,7 @@ public class GeneralInfoTool: Tool {
 
     public func createViewController(on viewController: UIViewController? = nil) -> UIViewController {
         let controller = tool.createViewController()
-        controller.tabBarItem = UITabBarItem(title: "Application", image: nil, tag: 1)
+        controller.tabBarItem = UITabBarItem(title: "Application", image: UIImage.resize(UIImage.loadFromBundle(name: "application")), tag: 1)
         return controller
     }
 }
