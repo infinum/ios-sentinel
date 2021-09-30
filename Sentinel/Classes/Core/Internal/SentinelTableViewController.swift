@@ -10,7 +10,6 @@ import UIKit
 class SentinelTableViewController: UIViewController {
 
     @IBOutlet private var tableView: UITableView!
-    @IBOutlet private var closeButton: UIBarButtonItem!
     private var toolTable: ToolTable!
     
     static func create(with toolTable: ToolTable) -> SentinelTableViewController {
@@ -37,15 +36,6 @@ class SentinelTableViewController: UIViewController {
             tableView.deselectRow(at: selectedIndexPath, animated: true)
         }
     }
-    
-    @IBAction private func closeSelected() {
-        if (navigationController?.viewControllers.count ?? 0) > 1 {
-            navigationController?.popViewController(animated: true)
-        } else {
-            dismiss(animated: true)
-        }
-    }
-
 }
 
 extension SentinelTableViewController: UITableViewDelegate {
