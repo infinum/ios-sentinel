@@ -21,7 +21,7 @@
 		31F7F7F60A7F9F7F97CFBBEC9675BA3D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D245E0514AAC1A2B9A6D5EA2F383E90F /* UIKit.framework */; };
 		3689FABCF25D189FFB952726E80CE7CF /* UserDefaults.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = C0052669424702B19A58C4C41CBA717C /* UserDefaults.storyboard */; };
 		3712896F2705E91400E19209 /* assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3712896E2705E91400E19209 /* assets.xcassets */; };
-		371289712705F39500E19209 /* UIImage+Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371289702705F39500E19209 /* UIImage+Bundle.swift */; };
+		371289732705FC5A00E19209 /* UIImage+Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371289722705FC5A00E19209 /* UIImage+Bundle.swift */; };
 		377FD4842705CA590006AD3F /* DeviceInfoTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377FD4832705CA590006AD3F /* DeviceInfoTool.swift */; };
 		3784D1C62703433000C7C827 /* SentinelTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3784D1C52703433000C7C827 /* SentinelTabBarController.swift */; };
 		43DEAB0CC02165608DFF8A8B484BD365 /* CPUInfoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109874CDAB1885BAB71C5ABCBB9B24D1 /* CPUInfoProvider.swift */; };
@@ -93,7 +93,7 @@
 		2DC3F5227EF9208DF8DD64E11B734C31 /* CustomLocationViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CustomLocationViewController.swift; path = Sentinel/Classes/CustomLocation/CustomLocationViewController.swift; sourceTree = "<group>"; };
 		32D68E09B53EBF4BF2CC6C994FE948A4 /* SourceScreenProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SourceScreenProvider.swift; path = Sentinel/Classes/Core/SourceScreenProvider.swift; sourceTree = "<group>"; };
 		3712896E2705E91400E19209 /* assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = assets.xcassets; sourceTree = "<group>"; };
-		371289702705F39500E19209 /* UIImage+Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Bundle.swift"; sourceTree = "<group>"; };
+		371289722705FC5A00E19209 /* UIImage+Bundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImage+Bundle.swift"; path = "Sentinel/Classes/Core/UIImage+Bundle.swift"; sourceTree = "<group>"; };
 		3737F3A9AFF9607DB0AEDEEEBAB55101 /* Pods-Sentinel_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Sentinel_Tests-dummy.m"; sourceTree = "<group>"; };
 		377FD4832705CA590006AD3F /* DeviceInfoTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DeviceInfoTool.swift; path = Sentinel/Classes/DeviceTool/DeviceInfoTool.swift; sourceTree = "<group>"; };
 		3784D1C52703433000C7C827 /* SentinelTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentinelTabBarController.swift; sourceTree = "<group>"; };
@@ -320,7 +320,7 @@
 		7D0B6BE15D8A22A1635D764C0FC46658 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				371289702705F39500E19209 /* UIImage+Bundle.swift */,
+				371289722705FC5A00E19209 /* UIImage+Bundle.swift */,
 				32D68E09B53EBF4BF2CC6C994FE948A4 /* SourceScreenProvider.swift */,
 				B1798190E3F9B3070607FDE53B4341AC /* Sentinel.swift */,
 				7844DC91CAF7100B5CF6EA49CADCF9B7 /* Tool.swift */,
@@ -644,6 +644,7 @@
 				A5BEEA9485999AD6DC7AAD1263B73A04 /* CustomLocationTool.swift in Sources */,
 				BFF73ABAF4F5C239FAD801AC7D7112E7 /* CustomLocationViewController.swift in Sources */,
 				8BAD10621214A84E321415B8489C8D3F /* DetailToolTableCell.swift in Sources */,
+				371289732705FC5A00E19209 /* UIImage+Bundle.swift in Sources */,
 				5DF8D6472EC24F103FD4E5E8D6B06E15 /* DetailToolTableCell.xib in Sources */,
 				960018D0E71BE7A89EBF52633FBDEB5C /* GeneralInfoTool.swift in Sources */,
 				2FDE0ECC9459E4BD800914542581365E /* MemoryInfoProvider.swift in Sources */,
@@ -672,7 +673,6 @@
 				811F3F921077070C23AA5FD542DD4EBD /* SentinelTableViewController.swift in Sources */,
 				2E81C360B6639BD7C6714B49DAC91355 /* SentinelUIKitExtensions.swift in Sources */,
 				1B638C86E40904DD488569AE39AE6FB9 /* ToolTable.swift in Sources */,
-				371289712705F39500E19209 /* UIImage+Bundle.swift in Sources */,
 				055F29FFE4A09604385DB65DC50C4FC0 /* ToolTableItem.swift in Sources */,
 				5162A6D204BFD8448D586C63B648D32F /* ToolTableSection.swift in Sources */,
 				E7C5F6C19A95A212C06F852DBF11EB86 /* Trigger.swift in Sources */,
