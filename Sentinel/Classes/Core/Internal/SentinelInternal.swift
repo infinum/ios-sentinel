@@ -32,7 +32,14 @@ private extension Sentinel {
             tool.type == .permissions ||
             tool.type == .performance
         }.map { $0.createViewController(on: viewController) }
-        let toolsViewController = createToolsController(with: tools, viewController: viewController)
+
+        let toolItems = tools.filter { tool in
+            return tool.type != .application &&
+            tool.type != .permissions &&
+            tool.type != .performance
+        }
+
+        let toolsViewController = createToolsController(with: toolItems, viewController: viewController)
         let deviceViewController = createDeviceViewController()
 
         tabBarControllers.insert(deviceViewController, at: 0)
@@ -41,12 +48,7 @@ private extension Sentinel {
     }
 
     func createToolsController(with tools: [Tool], viewController: UIViewController) -> UIViewController {
-        let navigationItems = tools.filter { tool in
-            return tool.type != .application &&
-            tool.type != .permissions &&
-            tool.type != .performance
-        }.map { NavigationToolTableItem(title: $0.name, navigate: $0.presentPreview(from:)) }
-
+        let navigationItems = tools.map { NavigationToolTableItem(title: $0.name, navigate: $0.presentPreview(from:)) }
         let section = ToolTableSection(title: "Tools", items: navigationItems)
         let toolsViewController = ToolTable(name: "Tools", sections: [section]).createViewController(on: viewController)
         toolsViewController.tabBarItem = UITabBarItem(title: "Tools", image: UIImage.resize(UIImage.loadFromBundle(name: "tools")), tag: 2)
