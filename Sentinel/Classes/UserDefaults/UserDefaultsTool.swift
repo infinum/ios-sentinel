@@ -7,12 +7,14 @@
 
 import Foundation
 
+@objcMembers
 public class UserDefaultsTool: Tool {
     
     // MARK: - Public properties
     
     public let name: String
-    
+    public var type: ViewControllerType = .userDefaults
+
     // MARK: - Private properties
     
     private let userDefaults: UserDefaults

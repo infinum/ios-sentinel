@@ -42,6 +42,8 @@ public class GeneralInfoTool: Tool {
     // MARK: - Public properties
 
     public var name: String { tool.name }
+
+    public let type: ViewControllerType = .application
     
     // MARK: - Public methods
     

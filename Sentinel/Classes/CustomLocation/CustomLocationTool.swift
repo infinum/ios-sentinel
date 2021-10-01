@@ -18,6 +18,7 @@ public class CustomLocationTool: Tool {
     // MARK: - Public properties
     
     public let name: String
+    public var type: ViewControllerType = .location
     
     // MARK: - Private properties
 

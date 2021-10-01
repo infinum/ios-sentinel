@@ -12,6 +12,7 @@ public class PerformanceInfoTool: Tool {
     // MARK: - Public properties
     
     public let name: String
+    public var type: ViewControllerType = .performance
 
     // MARK: - Lifecycle
     

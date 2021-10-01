@@ -12,6 +12,7 @@ public class CustomInfoTool: Tool {
     // MARK: - Public properties
     
     public let name: String
+    public var type: ViewControllerType = .customInfo
     
     // MARK: - Private properties
     

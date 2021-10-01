@@ -7,11 +7,13 @@
 
 import Foundation
 
+@objcMembers
 public class TextEditingTool: Tool {
     
     // MARK: - Public properties
     
     public let name: String
+    public var type: ViewControllerType = .textEditing
     
     // MARK: - Private properties
     

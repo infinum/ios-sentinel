@@ -10,10 +10,11 @@ import Foundation
 /// Defines tool datasouce which can present different tool sections.
 @objcMembers
 public class ToolTable: NSObject, Tool {
-    
+
     // MARK: - Public properties
     
     public let name: String
+    public var type: ViewControllerType = .tools
     
     /// Tool sections in the table view.
     let sections: [ToolTableSection]

@@ -15,7 +15,8 @@ public class OptionSwitchTool: Tool {
     // MARK: - Public properties
     
     public let name: String
-    
+    public var type: ViewControllerType = .permissions
+
     // MARK: - Private properties
     
     private let items: [OptionSwitchItem]

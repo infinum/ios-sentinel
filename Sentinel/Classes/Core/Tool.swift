@@ -13,7 +13,7 @@ public protocol Tool {
     
     /// The name of the tool.
     var name: String { get }
-    
+    var type: ViewControllerType { get }
     /// Presents the tool view controller from provided view controller.
     ///
     /// - Parameter viewController: The view controller used for presenting tool view controller.

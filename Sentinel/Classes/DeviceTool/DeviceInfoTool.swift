@@ -36,6 +36,7 @@ public class DeviceInfoTool: Tool {
     // MARK: - Public properties
 
     public var name: String { tool.name }
+    public var type: ViewControllerType = .device
 
     // MARK: - Public methods
 
