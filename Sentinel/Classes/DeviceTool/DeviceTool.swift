@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-public class DeviceInfoTool: Tool {
+public class DeviceTool: Tool {
 
     // MARK: -Lifecycle
 
@@ -53,7 +53,7 @@ public class DeviceInfoTool: Tool {
 
 // MARK: - Private methods
 
-private extension DeviceInfoTool {
+private extension DeviceTool {
 
     var batteryState: String {
         switch UIDevice.current.batteryState {

@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class PerformanceInfoTool: Tool {
+public class PerformanceTool: Tool {
     
     // MARK: - Public properties
     
@@ -37,7 +37,7 @@ public class PerformanceInfoTool: Tool {
 
 // MARK: - Private methods
 
-private extension PerformanceInfoTool {
+private extension PerformanceTool {
 
     func createToolTable() -> ToolTable {
         return ToolTable(

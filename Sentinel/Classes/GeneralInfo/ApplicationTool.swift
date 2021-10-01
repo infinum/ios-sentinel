@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-public class GeneralInfoTool: Tool {
+public class ApplicationTool: Tool {
     
     // MARK: - Lifecycle
     
@@ -58,7 +58,7 @@ public class GeneralInfoTool: Tool {
     }
 }
 
-extension GeneralInfoTool {
+extension ApplicationTool {
     
     func stringFromPlist(for key: CFString) -> String {
         stringFromPlist(for: key as String)

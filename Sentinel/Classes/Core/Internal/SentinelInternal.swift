@@ -54,7 +54,7 @@ private extension Sentinel {
     }
 
     func createDeviceViewController() -> UIViewController {
-        let deviceInfoItem = DeviceInfoTool()
+        let deviceInfoItem = DeviceTool()
         return deviceInfoItem.createViewController()
     }
 }

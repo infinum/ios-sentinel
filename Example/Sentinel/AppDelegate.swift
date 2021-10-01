@@ -37,7 +37,7 @@ private extension AppDelegate {
         let configuration = Sentinel.Configuration(
             trigger: Triggers.shake,
             tools: [
-                GeneralInfoTool(),
+                ApplicationTool(),
                 UserDefaultsTool(),
                 baseUrlTool,
                 CustomLocationTool(),
@@ -45,7 +45,7 @@ private extension AppDelegate {
 //                LoggieTool(),
 //                AnalyticsCollectorTool(),
                 optionSwitchTool,
-                PerformanceInfoTool(),
+                PerformanceTool(),
             ]
         )
         
@@ -63,7 +63,7 @@ private extension AppDelegate {
     }
     
     var optionSwitchTool: Tool {
-        OptionSwitchTool(
+        PermissionsTool(
             items: [
                 OptionSwitchItem(
                     name: "Analytics",

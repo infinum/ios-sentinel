@@ -10,7 +10,7 @@ import Foundation
 /// Provides functionality which gives the user ability
 /// to change environment variables in the application.
 @objcMembers
-public class OptionSwitchTool: Tool {
+public class PermissionsTool: Tool {
     
     // MARK: - Public properties
     
@@ -43,7 +43,7 @@ public class OptionSwitchTool: Tool {
     }
 }
 
-private extension OptionSwitchTool {
+private extension PermissionsTool {
     func createToolTable(with items: [OptionSwitchItem]) -> ToolTable {
         let section = ToolTableSection(
             title: nil,
