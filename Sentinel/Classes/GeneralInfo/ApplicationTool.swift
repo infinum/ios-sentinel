@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import UIKit
 
-public class GeneralInfoTool: Tool {
+public class ApplicationTool: Tool {
     
     // MARK: - Lifecycle
     
@@ -16,7 +17,7 @@ public class GeneralInfoTool: Tool {
     // MARK: - Private properties
     
     private(set) lazy var tool = CustomInfoTool(
-        name: "General Info",
+        name: "Application",
         info: [
             CustomInfoTool.Section(
                 title: "Standard Plist Info",
@@ -39,17 +40,25 @@ public class GeneralInfoTool: Tool {
     )
     
     // MARK: - Public properties
-    
+
     public var name: String { tool.name }
+
+    public let type: ViewControllerType = .application
     
     // MARK: - Public methods
     
     public func presentPreview(from viewController: UIViewController) {
         tool.presentPreview(from: viewController)
     }
+
+    public func createViewController(on viewController: UIViewController? = nil) -> UIViewController {
+        let controller = tool.createViewController()
+        controller.tabBarItem = UITabBarItem(title: "Application", image: UIImage.Sentinel.application.resize(), tag: 1)
+        return controller
+    }
 }
 
-extension GeneralInfoTool {
+extension ApplicationTool {
     
     func stringFromPlist(for key: CFString) -> String {
         stringFromPlist(for: key as String)

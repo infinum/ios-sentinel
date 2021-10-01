@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Sdy-Ei-cBG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Sdy-Ei-cBG">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment version="4096" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,14 +18,14 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="rmC-9c-kFK" kind="relationship" relationship="rootViewController" id="piL-SK-1cY"/>
+                        <segue destination="n1S-5p-dpw" kind="relationship" relationship="rootViewController" id="eYn-NZ-bIu"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9l2-ab-D5J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1288" y="27"/>
         </scene>
-        <!--Sentinel-->
+        <!--Sentinel Table View Controller-->
         <scene sceneID="FDi-AI-Vt5">
             <objects>
                 <viewController storyboardIdentifier="SentinelTableViewController" id="rmC-9c-kFK" customClass="SentinelTableViewController" customModule="Sentinel" customModuleProvider="target" sceneMemberID="viewController">
@@ -51,22 +51,35 @@
                             <constraint firstItem="d68-eL-XL5" firstAttribute="leading" secondItem="qcj-k8-ef2" secondAttribute="leading" id="jRr-U8-JY1"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Sentinel" largeTitleDisplayMode="always" id="EmW-G5-ecH">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="wZW-Q8-6xS">
-                            <connections>
-                                <action selector="closeSelected" destination="rmC-9c-kFK" id="F61-mK-75t"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
-                        <outlet property="closeButton" destination="wZW-Q8-6xS" id="54s-12-CZ6"/>
                         <outlet property="tableView" destination="d68-eL-XL5" id="9Bn-HV-Xfb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3CB-Iz-8ag" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-278" y="27"/>
+            <point key="canvasLocation" x="503" y="27"/>
+        </scene>
+        <!--Sentinel Tab Bar Controller-->
+        <scene sceneID="B2D-lr-0y9">
+            <objects>
+                <tabBarController storyboardIdentifier="SentinelTabBarController" id="n1S-5p-dpw" customClass="SentinelTabBarController" customModule="Sentinel" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="HPj-di-FwW">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="aCt-BR-H3G">
+                            <connections>
+                                <action selector="close:" destination="n1S-5p-dpw" id="jOB-7S-RB5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="T56-7z-DIX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Usu-Eu-JXi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-503" y="27"/>
         </scene>
     </scenes>
     <resources>

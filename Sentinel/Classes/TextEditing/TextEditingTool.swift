@@ -7,11 +7,13 @@
 
 import Foundation
 
+@objcMembers
 public class TextEditingTool: Tool {
     
     // MARK: - Public properties
     
     public let name: String
+    public var type: ViewControllerType = .textEditing
     
     // MARK: - Private properties
     
@@ -46,6 +48,14 @@ public class TextEditingTool: Tool {
             getter: getter
         )
         viewController.navigationController?.pushViewController(textEditing, animated: true)
+    }
+
+    public func createViewController(on viewController: UIViewController?) -> UIViewController {
+        return TextEditingViewController.create(
+            withTitle: name,
+            setter: store(newValue:),
+            getter: getter
+        )
     }
 }
 

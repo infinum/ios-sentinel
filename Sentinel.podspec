@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Sentinel'
-  s.version          = '0.9.0'
+  s.version          = '1.0.0'
   s.summary          = 'Developer\'s toolbox for debugging applications'
 
   s.description      = <<-DESC
@@ -25,6 +25,9 @@ Pod::Spec.new do |s|
   s.platform = :ios
   s.swift_version = '5.0'
   s.ios.deployment_target = '10.0'
+  s.resource_bundles = {
+      'Images' => ['Sentinel/Assets/*.pdf'],
+    }
 
   s.default_subspec = 'Default'
   
