@@ -51,7 +51,7 @@ private extension Sentinel {
         let navigationItems = tools.map { NavigationToolTableItem(title: $0.name, navigate: $0.presentPreview(from:)) }
         let section = ToolTableSection(title: "Tools", items: navigationItems)
         let toolsViewController = ToolTable(name: "Tools", sections: [section]).createViewController(on: viewController)
-        toolsViewController.tabBarItem = UITabBarItem(title: "Tools", image: UIImage.resize(UIImage.loadFromBundle(name: "tools")), tag: 2)
+        toolsViewController.tabBarItem = UITabBarItem(title: "Tools", image: UIImage.Sentinel.tools.resize(), tag: 2)
         return toolsViewController
     }
 

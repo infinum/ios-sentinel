@@ -38,7 +38,7 @@ public class PermissionsTool: Tool {
     public func createViewController(on viewController: UIViewController?) -> UIViewController {
         let toolTable = createToolTable(with: items)
         let controller = toolTable.createViewController(on: nil)
-        controller.tabBarItem = UITabBarItem(title: "Permissions", image: UIImage.resize(UIImage.loadFromBundle(name: "permissions")), tag: 2)
+        controller.tabBarItem = UITabBarItem(title: "Permissions", image: UIImage.Sentinel.permissions.resize(), tag: 2)
         return controller
     }
 }

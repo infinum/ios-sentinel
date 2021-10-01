@@ -1,0 +1,8 @@
+---
+:language: swift
+:bundles:
+- :name: Sentinel
+  :reference: ".sentinel"
+  :assetsSearchPath: "*.xcassets"
+  :outputSourcePathImages: "Sentinel/Classes/Core/UIImageExtension.swift"
+:app_name: Sentinel

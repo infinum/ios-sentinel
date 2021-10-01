@@ -53,7 +53,7 @@ public class ApplicationTool: Tool {
 
     public func createViewController(on viewController: UIViewController? = nil) -> UIViewController {
         let controller = tool.createViewController()
-        controller.tabBarItem = UITabBarItem(title: "Application", image: UIImage.resize(UIImage.loadFromBundle(name: "application")), tag: 1)
+        controller.tabBarItem = UITabBarItem(title: "Application", image: UIImage.Sentinel.application.resize(), tag: 1)
         return controller
     }
 }

@@ -46,7 +46,7 @@ public class DeviceTool: Tool {
 
     public func createViewController(on viewController: UIViewController? = nil) -> UIViewController {
         let controller = tool.createViewController()
-        controller.tabBarItem = UITabBarItem(title: "Device", image: UIImage.resize(UIImage.loadFromBundle(name: "device")), tag: 0)
+        controller.tabBarItem = UITabBarItem(title: "Device", image: UIImage.Sentinel.device.resize(), tag: 0)
         return controller
     }
 }
