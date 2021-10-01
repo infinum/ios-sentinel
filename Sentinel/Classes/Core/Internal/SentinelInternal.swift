@@ -20,8 +20,8 @@ extension Sentinel {
         tabBarController.setupViewControllers(with: tabBarControllers)
         tabBarController.title = "Sentinel"
 
-        let navContoller = UINavigationController(rootViewController: tabBarController)
-        viewController.present(navContoller, animated: true)
+        let navController = UINavigationController(rootViewController: tabBarController)
+        viewController.present(navController, animated: true)
     }
 }
 
