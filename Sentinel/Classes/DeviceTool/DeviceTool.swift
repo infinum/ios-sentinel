@@ -36,18 +36,11 @@ public class DeviceTool: Tool {
     // MARK: - Public properties
 
     public var name: String { tool.name }
-    public var type: ViewControllerType = .device
 
     // MARK: - Public methods
 
     public func presentPreview(from viewController: UIViewController) {
         tool.presentPreview(from: viewController)
-    }
-
-    public func createViewController(on viewController: UIViewController? = nil) -> UIViewController {
-        let controller = tool.createViewController()
-        controller.tabBarItem = UITabBarItem(title: "Device", image: UIImage.Sentinel.device.resize(), tag: 0)
-        return controller
     }
 }
 

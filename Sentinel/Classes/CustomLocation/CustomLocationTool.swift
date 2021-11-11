@@ -18,7 +18,6 @@ public class CustomLocationTool: Tool {
     // MARK: - Public properties
     
     public let name: String
-    public var type: ViewControllerType = .location
     
     // MARK: - Private properties
 
@@ -38,9 +37,5 @@ public class CustomLocationTool: Tool {
             locationProvider: locationProvider
         )
         viewController.navigationController?.pushViewController(customLocationViewController, animated: true)
-    }
-
-    public func createViewController(on viewController: UIViewController? = nil) -> UIViewController {
-        return CustomLocationViewController.create(locationProvider: locationProvider)
     }
 }

@@ -37,16 +37,14 @@ private extension AppDelegate {
         let configuration = Sentinel.Configuration(
             trigger: Triggers.shake,
             tools: [
-                ApplicationTool(),
                 UserDefaultsTool(),
                 baseUrlTool,
                 CustomLocationTool(),
 //                BugsnatchTool(triggerActionConfig: EmailConfig()),
 //                LoggieTool(),
 //                AnalyticsCollectorTool(),
-                optionSwitchTool,
-                PerformanceTool(),
-            ]
+            ],
+            optionSwitchItems: optionSwitchItems
         )
         
         Sentinel.shared.setup(with: configuration)
@@ -62,32 +60,31 @@ private extension AppDelegate {
         )
     }
     
-    var optionSwitchTool: Tool {
-        PermissionsTool(
-            items: [
-                OptionSwitchItem(
-                    name: "Analytics",
-                    setter: { AppSwitches.analyticsEnabled = $0 },
-                    getter: { AppSwitches.analyticsEnabled },
-                    userDefaults: .standard,
-                    userDefaultsKey: "com.infinum.sentinel.optionSwitch.analytics"
-                ),
-                OptionSwitchItem(
-                    name: "Crashlytics",
-                    setter: { AppSwitches.crashlyticsEnabled = $0 },
-                    getter: { AppSwitches.crashlyticsEnabled },
-                    userDefaults: .standard,
-                    userDefaultsKey: "com.infinum.sentinel.optionSwitch.crashlytics"
-                ),
-                OptionSwitchItem(
-                    name: "Logging",
-                    setter: { AppSwitches.loggingEnabled = $0 },
-                    getter: { AppSwitches.loggingEnabled },
-                    userDefaults: .standard,
-                    userDefaultsKey: "com.infinum.sentinel.optionSwitch.logging"
-                )
-            ]
+    var optionSwitchItems: [OptionSwitchItem] {
+       [
+        OptionSwitchItem(
+            name: "Analytics",
+            setter: { AppSwitches.analyticsEnabled = $0 },
+            getter: { AppSwitches.analyticsEnabled },
+            userDefaults: .standard,
+            userDefaultsKey: "com.infinum.sentinel.optionSwitch.analytics"
+        ),
+        OptionSwitchItem(
+            name: "Crashlytics",
+            setter: { AppSwitches.crashlyticsEnabled = $0 },
+            getter: { AppSwitches.crashlyticsEnabled },
+            userDefaults: .standard,
+            userDefaultsKey: "com.infinum.sentinel.optionSwitch.crashlytics"
+        ),
+        OptionSwitchItem(
+            name: "Logging",
+            setter: { AppSwitches.loggingEnabled = $0 },
+            getter: { AppSwitches.loggingEnabled },
+            userDefaults: .standard,
+            userDefaultsKey: "com.infinum.sentinel.optionSwitch.logging"
         )
+       ]
+
     }
     
 }

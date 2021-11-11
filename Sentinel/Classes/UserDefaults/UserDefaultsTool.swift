@@ -13,7 +13,6 @@ public class UserDefaultsTool: Tool {
     // MARK: - Public properties
     
     public let name: String
-    public var type: ViewControllerType = .userDefaults
 
     // MARK: - Private properties
     
@@ -31,15 +30,6 @@ public class UserDefaultsTool: Tool {
     public func presentPreview(from viewController: UIViewController) {
         let toolTable = createToolTable(with: userDefaults, viewController: viewController)
         toolTable.presentPreview(from: viewController)
-    }
-
-    public func createViewController(on viewController: UIViewController?) -> UIViewController {
-        guard let viewController = viewController else {
-            return UIViewController()
-        }
-
-        let toolTable = createToolTable(with: userDefaults, viewController: viewController)
-        return toolTable.createViewController()
     }
 }
 

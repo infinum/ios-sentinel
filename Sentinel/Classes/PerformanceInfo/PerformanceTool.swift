@@ -12,7 +12,6 @@ public class PerformanceTool: Tool {
     // MARK: - Public properties
     
     public let name: String
-    public var type: ViewControllerType = .performance
 
     // MARK: - Lifecycle
     
@@ -26,18 +25,11 @@ public class PerformanceTool: Tool {
         let toolTable = createToolTable()
         toolTable.presentPreview(from: viewController)
     }
-
-    public func createViewController(on viewController: UIViewController?) -> UIViewController {
-        let toolTable = createToolTable()
-        let controller = toolTable.createViewController()
-        controller.tabBarItem = UITabBarItem(title: "Performance", image: UIImage.Sentinel.performance.resize(), tag: 1)
-        return controller
-    }
 }
 
-// MARK: - Private methods
+// MARK: - Internal methods
 
-private extension PerformanceTool {
+internal extension PerformanceTool {
 
     func createToolTable() -> ToolTable {
         return ToolTable(

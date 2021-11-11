@@ -40,7 +40,7 @@ public class Sentinel: NSObject {
         self.configuration = configuration
         configuration.trigger.subscribe { [weak self] in
             guard let viewController = configuration.sourceScreenProvider.viewControllerForShowingTools else { return }
-            self?.present(tools: configuration.tools, on: viewController)
+            self?.present(tools: configuration.tools, optionSwitchItems: configuration.optionSwitchItems, on: viewController)
         }
     }
     
@@ -63,7 +63,9 @@ public class Sentinel: NSObject {
         
         /// Tools which are available from the Sentinel.
         public let tools: [Tool]
-        
+
+        /// Items which are shown on preferences screen
+        public let optionSwitchItems: [OptionSwitchItem]
         // MARK: - Lifecycle
 
         /// Creates a new configuration.
@@ -75,11 +77,13 @@ public class Sentinel: NSObject {
         public init(
             trigger: Trigger,
             sourceScreenProvider: SourceScreenProvider = SourceScreenProviders.default,
-            tools: [Tool]
+            tools: [Tool],
+            optionSwitchItems: [OptionSwitchItem] = []
         ) {
             self.trigger = trigger
             self.sourceScreenProvider = sourceScreenProvider
             self.tools = tools
+            self.optionSwitchItems = optionSwitchItems
             super.init()
         }
     }

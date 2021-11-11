@@ -42,19 +42,11 @@ public class ApplicationTool: Tool {
     // MARK: - Public properties
 
     public var name: String { tool.name }
-
-    public let type: ViewControllerType = .application
     
     // MARK: - Public methods
     
     public func presentPreview(from viewController: UIViewController) {
         tool.presentPreview(from: viewController)
-    }
-
-    public func createViewController(on viewController: UIViewController? = nil) -> UIViewController {
-        let controller = tool.createViewController()
-        controller.tabBarItem = UITabBarItem(title: "Application", image: UIImage.Sentinel.application.resize(), tag: 1)
-        return controller
     }
 }
 

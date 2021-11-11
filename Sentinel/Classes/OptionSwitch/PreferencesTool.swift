@@ -10,12 +10,11 @@ import Foundation
 /// Provides functionality which gives the user ability
 /// to change environment variables in the application.
 @objcMembers
-public class PermissionsTool: Tool {
+public class PreferencesTool: Tool {
     
     // MARK: - Public properties
     
     public let name: String
-    public var type: ViewControllerType = .permissions
 
     // MARK: - Private properties
     
@@ -23,7 +22,7 @@ public class PermissionsTool: Tool {
     
     // MARK: - Lifecycle
     
-    public init(name: String = "Permissions", items: [OptionSwitchItem]) {
+    public init(name: String = "Preferences", items: [OptionSwitchItem]) {
         self.name = name
         self.items = items
     }
@@ -34,16 +33,9 @@ public class PermissionsTool: Tool {
         let toolTable = createToolTable(with: items)
         toolTable.presentPreview(from: viewController)
     }
-
-    public func createViewController(on viewController: UIViewController?) -> UIViewController {
-        let toolTable = createToolTable(with: items)
-        let controller = toolTable.createViewController(on: nil)
-        controller.tabBarItem = UITabBarItem(title: "Permissions", image: UIImage.Sentinel.permissions.resize(), tag: 2)
-        return controller
-    }
 }
 
-private extension PermissionsTool {
+internal extension PreferencesTool {
     func createToolTable(with items: [OptionSwitchItem]) -> ToolTable {
         let section = ToolTableSection(
             title: nil,

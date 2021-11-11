@@ -12,11 +12,10 @@ public class CustomInfoTool: Tool {
     // MARK: - Public properties
     
     public let name: String
-    public var type: ViewControllerType = .customInfo
     
     // MARK: - Private properties
     
-    private let info: [Section]
+    internal let info: [Section]
 
     // MARK: - Lifecycle
     
@@ -32,14 +31,9 @@ public class CustomInfoTool: Tool {
         toolTable.presentPreview(from: viewController)
     }
 
-    public func createViewController(on viewController: UIViewController? = nil) -> UIViewController {
-        let toolTable = createToolTable(with: info)
-        return toolTable.createViewController()
-    }
+    // MARK: - Internal properties
 
-    // MARK: - Private properties
-
-    private func createToolTable(with info: [Section]) -> ToolTable {
+    internal func createToolTable(with info: [Section]) -> ToolTable {
         let sections = info.map { (section) in
             ToolTableSection(
                 title: section.title,
