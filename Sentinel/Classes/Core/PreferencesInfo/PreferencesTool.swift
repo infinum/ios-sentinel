@@ -9,8 +9,7 @@ import Foundation
 
 /// Provides functionality which gives the user ability
 /// to change environment variables in the application.
-@objcMembers
-public class PreferencesTool: Tool {
+class PreferencesTool: Tool {
     
     // MARK: - Public properties
     

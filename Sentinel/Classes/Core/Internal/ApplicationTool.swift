@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-public class ApplicationTool: Tool {
+class ApplicationTool: Tool {
     
     // MARK: - Lifecycle
     

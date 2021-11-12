@@ -82,7 +82,7 @@ private extension AppDelegate {
             getter: { AppSwitches.loggingEnabled },
             userDefaults: .standard,
             userDefaultsKey: "com.infinum.sentinel.optionSwitch.logging"
-        )
+        ),
        ]
 
     }

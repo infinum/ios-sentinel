@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-public class DeviceTool: Tool {
+class DeviceTool: Tool {
 
     // MARK: -Lifecycle
 

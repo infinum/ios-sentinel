@@ -23,10 +23,11 @@
   },
   "swift_versions": "5.0",
   "resource_bundles": {
-    "Images": [
-      "Sentinel/Assets/*.pdf"
+    "Sentinel": [
+      "Sentinel/Assets/**/*"
     ]
   },
+  "resources": "Sentinel/Assets/**/*.{pdf}",
   "default_subspecs": "Default",
   "subspecs": [
     {
@@ -53,53 +54,8 @@
       }
     },
     {
-      "name": "CustomInfo",
-      "source_files": "Sentinel/Classes/CustomInfo/**/*",
-      "dependencies": {
-        "Sentinel/Core": [
-
-        ]
-      }
-    },
-    {
-      "name": "DeviceTool",
-      "source_files": "Sentinel/Classes/DeviceTool/**/*",
-      "dependencies": {
-        "Sentinel/CustomInfo": [
-
-        ]
-      }
-    },
-    {
-      "name": "ApplicationInfo",
-      "source_files": "Sentinel/Classes/ApplicationInfo/**/*",
-      "dependencies": {
-        "Sentinel/CustomInfo": [
-
-        ]
-      }
-    },
-    {
       "name": "TextEditing",
       "source_files": "Sentinel/Classes/TextEditing/**/*",
-      "dependencies": {
-        "Sentinel/Core": [
-
-        ]
-      }
-    },
-    {
-      "name": "OptionSwitch",
-      "source_files": "Sentinel/Classes/OptionSwitch/**/*",
-      "dependencies": {
-        "Sentinel/Core": [
-
-        ]
-      }
-    },
-    {
-      "name": "PerformanceInfo",
-      "source_files": "Sentinel/Classes/PerformanceInfo/**/*",
       "dependencies": {
         "Sentinel/Core": [
 
@@ -142,22 +98,7 @@
         "Sentinel/CustomLocation": [
 
         ],
-        "Sentinel/CustomInfo": [
-
-        ],
-        "Sentinel/ApplicationInfo": [
-
-        ],
         "Sentinel/TextEditing": [
-
-        ],
-        "Sentinel/OptionSwitch": [
-
-        ],
-        "Sentinel/PerformanceInfo": [
-
-        ],
-        "Sentinel/DeviceTool": [
 
         ]
       }

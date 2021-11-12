@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class PerformanceTool: Tool {
+class PerformanceTool: Tool {
     
     // MARK: - Public properties
     

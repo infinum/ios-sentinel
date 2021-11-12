@@ -46,7 +46,7 @@ private extension Sentinel {
         let toolsViewController = SentinelTableViewController.create(with: toolTable)
         toolsViewController.tabBarItem = UITabBarItem(
             title: "Tools",
-            image: UIImage.Sentinel.tools.resize(),
+            image: UIImage.resize(UIImage.loadImageFromBundle(name: "tools")),
             tag: 2
         )
         return toolsViewController
@@ -58,7 +58,7 @@ private extension Sentinel {
         let viewController = SentinelTableViewController.create(with: toolTable)
         viewController.tabBarItem = UITabBarItem(
             title: "Device",
-            image: UIImage.Sentinel.device.resize(),
+            image: UIImage.resize(UIImage.loadImageFromBundle(name: "device")),
             tag: 0
         )
         return viewController
@@ -70,7 +70,7 @@ private extension Sentinel {
         let viewController = SentinelTableViewController.create(with: toolTable)
         viewController.tabBarItem = UITabBarItem(
             title: "Application",
-            image: UIImage.Sentinel.application.resize(),
+            image: UIImage.resize(UIImage.loadImageFromBundle(name: "application")),
             tag: 1
         )
         return viewController
@@ -82,7 +82,7 @@ private extension Sentinel {
         let viewController = SentinelTableViewController.create(with: toolTable)
         viewController.tabBarItem = UITabBarItem(
             title: "Preferences",
-            image: UIImage.Sentinel.permissions.resize(),
+            image: UIImage.resize(UIImage.loadImageFromBundle(name: "preferences")),
             tag: 3
         )
         return viewController
@@ -94,7 +94,7 @@ private extension Sentinel {
         let viewController = SentinelTableViewController.create(with: toolTable)
         viewController.tabBarItem = UITabBarItem(
             title: "Performance",
-            image: UIImage.Sentinel.performance.resize(),
+            image: UIImage.resize(UIImage.loadImageFromBundle(name: "performance")),
             tag: 4
         )
         return viewController
