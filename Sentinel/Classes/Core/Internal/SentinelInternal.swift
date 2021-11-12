@@ -14,6 +14,7 @@ extension Sentinel {
     ///
     /// - Parameters:
     ///     - tools: Tools which will be available in the Sentinel.
+    ///     - optionSwitchItems: items which can allow or deny an activity inside the app
     ///     - viewController: The view controller from where will the Sentinel be presented.
     func present(tools: [Tool], optionSwitchItems: [OptionSwitchItem], on viewController: UIViewController) {
         let tabBarControllers = createTabBarControllers(with: tools, optionSwitchItems: optionSwitchItems, viewController: viewController)

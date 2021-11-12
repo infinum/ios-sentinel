@@ -66,6 +66,7 @@ public class Sentinel: NSObject {
 
         /// Items which are shown on preferences screen
         public let optionSwitchItems: [OptionSwitchItem]
+        
         // MARK: - Lifecycle
 
         /// Creates a new configuration.
@@ -74,6 +75,7 @@ public class Sentinel: NSObject {
         ///     - trigger: The trigger event which opens the Sentinel.
         ///     - sourceScreenProvider: The screen from which Sentinel can be presented.
         ///     - tools: Tools available from the Sentinel.
+        ///     - optionSwitchItems: items which can allow or deny an activity inside the app
         public init(
             trigger: Trigger,
             sourceScreenProvider: SourceScreenProvider = SourceScreenProviders.default,
