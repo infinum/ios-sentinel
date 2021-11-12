@@ -51,8 +51,13 @@ Pod::Spec.new do |s|
     sp.dependency 'Sentinel/Core'
   end
   
-  s.subspec 'GeneralInfo' do |sp|
-    sp.source_files = 'Sentinel/Classes/GeneralInfo/**/*'
+  s.subspec 'DeviceTool' do |sp|
+    sp.source_files = 'Sentinel/Classes/DeviceTool/**/*'
+    sp.dependency 'Sentinel/CustomInfo'
+  end
+
+  s.subspec 'ApplicationInfo' do |sp|
+    sp.source_files = 'Sentinel/Classes/ApplicationInfo/**/*'
     sp.dependency 'Sentinel/CustomInfo'
   end
   
@@ -95,10 +100,11 @@ Pod::Spec.new do |s|
     sp.dependency 'Sentinel/UserDefaults'
     sp.dependency 'Sentinel/CustomLocation'
     sp.dependency 'Sentinel/CustomInfo'
-    sp.dependency 'Sentinel/GeneralInfo'
+    sp.dependency 'Sentinel/ApplicationInfo'
     sp.dependency 'Sentinel/TextEditing'
     sp.dependency 'Sentinel/OptionSwitch'
     sp.dependency 'Sentinel/PerformanceInfo'
+    sp.dependency 'Sentinel/DeviceTool'
   end
   
 end
