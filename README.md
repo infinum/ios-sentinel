@@ -10,9 +10,9 @@
 
 ## About
 
-*Sentinel* is a simple library which gives developers a possibility to configure one entry point for every debug tool. The idea of *Sentinel* is to give ability to developers to configure a screen with multiple debug tools which are available via some event (e.g. shake, notification).
+**Sentinel** is a simple library which gives developers a possibility to configure one entry point for every debug tool. The idea of *Sentinel* is to give ability to developers to configure a screen with multiple debug tools which are available via some event (e.g. shake, notification).
 
-*Sentinel* has a tab bar which contains five screens. Three of those aren't configurable, and two of them are. First screen is the *Device* screen which allows the user to look into some of the device specific information. Second screen is the *Application* screen which allows the user to look into some of the application specific information from the <i>info.plist</i>. The third, the first configurable screen, is the *Tools* screen. *Tools* screen allows you to add as much `Tool` object as your heart desires which can be used by the user to find out some specific information. The fourth, last configurable screen, is the *Preferences* screen. *Preferences* screen allows you to add options which allow or deny some activity inside the app. The last, but not the least, is the *Performance* screen which contains performance specific information. Later on, we'll explain how you can configure those screens.
+*Sentinel* has a tab bar which contains five screens. Three of those aren't configurable, and two of them are. First screen is the **Device** screen which allows the user to look into some of the device specific information. Second screen is the **Application** screen which allows the user to look into some of the application specific information from the <i>info.plist</i>. The third, the first configurable screen, is the **Tools** screen. **Tools** screen allows you to add as much `Tool` object as your heart desires which can be used by the user to find out some specific information. The fourth, last configurable screen, is the **Preferences** screen. **Preferences** screen allows you to add options which allow or deny some activity inside the app. The last, but not the least, is the **Performance** screen which contains performance specific information. Later on, we'll explain how you can configure those screens.
 
 This library supports both **Swift** and **Objective-C**.
 
@@ -54,7 +54,7 @@ The `sourceScreenProvider` object is a type of `SourceScreenProvider` which shou
 
 The `tools` object is an array of `Tool` objects. `Tool` objects represent tools which will be available from *Sentinel*. There are multiple tools already supported by the library, but custom tools can be created and added to the *Sentinel*.
 
-The last, but not the least, is the `optionSwitchItems` object which is an array of `OptionSwitchItem` objects. `OptionSwitchItem' is used to allow the user to switch of some of the preferences which are contained in the app. e.g. The app supports Analitycs and you can add an `OptionSwitchTool` which will be shown on the `Preferences` screen and the user can turn it off if he doesn't want it.
+The last, but not the least, is the `optionSwitchItems` object which is an array of `OptionSwitchItem` objects. `OptionSwitchItem` is used to allow the user to switch of some of the preferences which are contained in the app. e.g. The app supports Analitycs and you can add an `OptionSwitchTool` which will be shown on the `Preferences` screen and the user can turn it off if he doesn't want it.
 
 #### Custom tools
 
