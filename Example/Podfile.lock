@@ -1,29 +1,32 @@
 PODS:
-  - Sentinel (0.9.0):
-    - Sentinel/Default (= 0.9.0)
-  - Sentinel/Core (0.9.0)
-  - Sentinel/CustomInfo (0.9.0):
+  - Sentinel (1.0.0):
+    - Sentinel/Default (= 1.0.0)
+  - Sentinel/ApplicationInfo (1.0.0):
+    - Sentinel/CustomInfo
+  - Sentinel/Core (1.0.0)
+  - Sentinel/CustomInfo (1.0.0):
     - Sentinel/Core
-  - Sentinel/CustomLocation (0.9.0):
+  - Sentinel/CustomLocation (1.0.0):
     - Sentinel/Core
-  - Sentinel/Default (0.9.0):
+  - Sentinel/Default (1.0.0):
+    - Sentinel/ApplicationInfo
     - Sentinel/Core
     - Sentinel/CustomInfo
     - Sentinel/CustomLocation
-    - Sentinel/GeneralInfo
+    - Sentinel/DeviceTool
     - Sentinel/OptionSwitch
     - Sentinel/PerformanceInfo
     - Sentinel/TextEditing
     - Sentinel/UserDefaults
-  - Sentinel/GeneralInfo (0.9.0):
+  - Sentinel/DeviceTool (1.0.0):
     - Sentinel/CustomInfo
-  - Sentinel/OptionSwitch (0.9.0):
+  - Sentinel/OptionSwitch (1.0.0):
     - Sentinel/Core
-  - Sentinel/PerformanceInfo (0.9.0):
+  - Sentinel/PerformanceInfo (1.0.0):
     - Sentinel/Core
-  - Sentinel/TextEditing (0.9.0):
+  - Sentinel/TextEditing (1.0.0):
     - Sentinel/Core
-  - Sentinel/UserDefaults (0.9.0):
+  - Sentinel/UserDefaults (1.0.0):
     - Sentinel/Core
 
 DEPENDENCIES:
@@ -34,8 +37,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Sentinel: af74edfd482fda424c0a5e5736240658431dda0b
+  Sentinel: b279b49d9a6d95aed18ff04923bdfce935dfda19
 
 PODFILE CHECKSUM: e10a3a2088aa5a9d18babe53feee8f6ae6fbb221
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.11.0

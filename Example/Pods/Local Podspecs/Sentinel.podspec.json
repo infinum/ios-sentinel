@@ -1,9 +1,9 @@
 {
   "name": "Sentinel",
-  "version": "0.9.0",
+  "version": "1.0.0",
   "summary": "Developer's toolbox for debugging applications",
   "description": "Sentinel is a simple library which gives developers a possibility to configure one entry point for every debug tool.\nThe idea of Sentinel is to give ability to developers to configure screen with multiple debug tools which are available via some event (e.g. shake, notification).",
-  "homepage": "https://github.com/infinum/ios-toolbox",
+  "homepage": "https://github.com/infinum/ios-sentinel",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -14,14 +14,19 @@
     "Nikola Majcen": "nikola.majcen@infinum.com"
   },
   "source": {
-    "git": "https://github.com/infinum/ios-toolbox.git",
-    "tag": "0.9.0"
+    "git": "https://github.com/infinum/ios-sentinel.git",
+    "tag": "1.0.0"
   },
   "requires_arc": true,
   "platforms": {
     "ios": "10.0"
   },
   "swift_versions": "5.0",
+  "resource_bundles": {
+    "Images": [
+      "Sentinel/Assets/*.pdf"
+    ]
+  },
   "default_subspecs": "Default",
   "subspecs": [
     {
@@ -57,8 +62,17 @@
       }
     },
     {
-      "name": "GeneralInfo",
-      "source_files": "Sentinel/Classes/GeneralInfo/**/*",
+      "name": "DeviceTool",
+      "source_files": "Sentinel/Classes/DeviceTool/**/*",
+      "dependencies": {
+        "Sentinel/CustomInfo": [
+
+        ]
+      }
+    },
+    {
+      "name": "ApplicationInfo",
+      "source_files": "Sentinel/Classes/ApplicationInfo/**/*",
       "dependencies": {
         "Sentinel/CustomInfo": [
 
@@ -117,15 +131,6 @@
       }
     },
     {
-      "name": "AnalyticsCollector",
-      "source_files": "Sentinel/Classes/AnalyticsCollector/**/*",
-      "dependencies": {
-        "Sentinel/Core": [
-
-        ]
-      }
-    },
-    {
       "name": "Default",
       "dependencies": {
         "Sentinel/Core": [
@@ -140,7 +145,7 @@
         "Sentinel/CustomInfo": [
 
         ],
-        "Sentinel/GeneralInfo": [
+        "Sentinel/ApplicationInfo": [
 
         ],
         "Sentinel/TextEditing": [
@@ -150,6 +155,9 @@
 
         ],
         "Sentinel/PerformanceInfo": [
+
+        ],
+        "Sentinel/DeviceTool": [
 
         ]
       }
