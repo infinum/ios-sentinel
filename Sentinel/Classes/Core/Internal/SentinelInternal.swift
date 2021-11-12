@@ -38,7 +38,8 @@ private extension Sentinel {
     }
 
     func createToolsController(with tools: [Tool], viewController: UIViewController) -> UIViewController {
-        let navigationItems = tools.map { NavigationToolTableItem(title: $0.name, navigate: $0.presentPreview(from:)) }
+        let navigationItems = tools
+            .map { NavigationToolTableItem(title: $0.name, navigate: $0.presentPreview(from:)) }
         let section = ToolTableSection(title: "Tools", items: navigationItems)
         let toolTable = ToolTable(name: "Tools", sections: [section])
         let toolsViewController = SentinelTableViewController.create(with: toolTable)
