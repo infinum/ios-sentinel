@@ -10,13 +10,13 @@ import UIKit
 
 class DeviceTool: Tool {
 
-    // MARK: -Lifecycle
+    // MARK: - Lifecycle
 
     public init() {}
 
     // MARK: - Private properties
 
-    private(set) lazy var tool = CustomInfoTool(
+    private lazy var tool = CustomInfoTool(
         name: "Device",
         info: [
             CustomInfoTool.Section(title: "Device", items: [
@@ -28,6 +28,14 @@ class DeviceTool: Tool {
                 .init(title: "Proximity state", value: UIDevice.current.proximityState ? "Close" : "Far")
             ])
         ])
+
+    // MARK: - Internal properties
+
+    var toolTable: ToolTable {
+        return tool.createToolTable(with: tool.info)
+    }
+
+    // MARK: - Private properties
 
     private var systemVersion: String {
         "\(UIDevice.current.systemName) \(UIDevice.current.systemVersion)"
@@ -44,7 +52,7 @@ class DeviceTool: Tool {
     }
 }
 
-// MARK: - Private methods
+// MARK: - Private extension
 
 private extension DeviceTool {
 

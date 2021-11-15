@@ -24,7 +24,7 @@ class TextEditingViewController: UIViewController {
     @IBOutlet private var titleLabel: UILabel!
     @IBOutlet private var valueTextView: UITextView!
     
-    // MARK: - Public methods
+    // MARK: - Internal methods
     
     static func create(
         withTitle name: String,

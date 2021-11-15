@@ -10,7 +10,7 @@ import Foundation
 @objcMembers
 public class NavigationToolTableItem: NSObject {
     
-    // MARK: - Public properties
+    // MARK: - Internal properties
     
     let title: String
     let navigate: (UIViewController) -> ()
@@ -44,7 +44,7 @@ extension NavigationToolTableItem: ToolTableItem {
 
 class NavigationToolTableCell: UITableViewCell {
     
-    // MARK: - Public methods
+    // MARK: - Internal methods
     
     func configure(with item: NavigationToolTableItem) {
         textLabel?.text = item.title

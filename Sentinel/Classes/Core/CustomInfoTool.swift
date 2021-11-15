@@ -14,9 +14,9 @@ public class CustomInfoTool: NSObject, Tool {
     
     public let name: String
     
-    // MARK: - Private properties
+    // MARK: - Internal properties
     
-    internal let info: [Section]
+    let info: [Section]
 
     // MARK: - Lifecycle
     
@@ -32,9 +32,9 @@ public class CustomInfoTool: NSObject, Tool {
         toolTable.presentPreview(from: viewController)
     }
 
-    // MARK: - Internal properties
+    // MARK: - Internal methods
 
-    internal func createToolTable(with info: [Section]) -> ToolTable {
+    func createToolTable(with info: [Section]) -> ToolTable {
         let sections = info.map { (section) in
             ToolTableSection(
                 title: section.title,
@@ -49,7 +49,7 @@ extension CustomInfoTool {
     
     public class Section {
         
-        // MARK: - Public properties
+        // MARK: - Internal properties
         
         let title: String?
         let items: [Item]
@@ -64,7 +64,7 @@ extension CustomInfoTool {
     
     public class Item {
         
-        // MARK: - Public properties
+        // MARK: - Internal properties
 
         let title: String
         let value: String

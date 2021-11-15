@@ -11,7 +11,7 @@ import Foundation
 @objcMembers
 public class OptionSwitchItem: NSObject {
     
-    // MARK: - Public properties
+    // MARK: - Internal properties
     
     /// Name of the item
     let name: String
@@ -47,7 +47,7 @@ public class OptionSwitchItem: NSObject {
         loadStoredValue()
     }
     
-    // MARK: - Public methods
+    // MARK: - Internal methods
     
     /// Changes current enabled state of the feature.
     ///

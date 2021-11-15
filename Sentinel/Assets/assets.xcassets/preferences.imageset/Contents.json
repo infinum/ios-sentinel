@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "permissions-1.pdf",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "permissions.pdf",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "permissions-2.pdf",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "preferences.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

@@ -9,7 +9,7 @@ import Foundation
 
 class PerformanceInfoItem: NSObject {
 
-    // MARK: - Properties
+    // MARK: - Internal properties
 
     let title: String
     let valueDidChange: () -> String

@@ -46,7 +46,7 @@ In this chapter, some of the most important pieces of the library will be introd
 
 #### Configuration
 
-To be able to configure `Sentinel` object, the `Configuration` object is introduced. This object contains multiple objects which defines general *Sentinel* behaviour. The inputs which this object needs are; `trigger`, `sourceScreenProvider`, `tools` and `optionSwitchItems`. 
+To be able to configure `Sentinel` object, the `Configuration` object is introduced. This object contains multiple objects which defines general *Sentinel* behaviour. The inputs which this object needs are; `trigger`, `sourceScreenProvider`, `tools` and `preferences`. 
 
 The `trigger` object is a type of `Trigger` which defines on which event the *Sentinel* will be triggered. Currently, three types of are supported; `ShakeTrigger`, `ScreenshotTrigger`, `NotificationTrigger`. New triggers can be added as well, just by conforming the `Trigger` protocol.
 
@@ -54,7 +54,7 @@ The `sourceScreenProvider` object is a type of `SourceScreenProvider` which shou
 
 The `tools` object is an array of `Tool` objects. `Tool` objects represent tools which will be available from *Sentinel*. There are multiple tools already supported by the library, but custom tools can be created and added to the *Sentinel*.
 
-The last, but not the least, is the `optionSwitchItems` object which is an array of `OptionSwitchItem` objects. `OptionSwitchItem` is used to allow the user to switch of some of the preferences which are contained in the app. e.g. The app supports Analitycs and you can add an `OptionSwitchTool` which will be shown on the `Preferences` screen and the user can turn it off if he doesn't want it.
+The last, but not the least, is the `preferences` object which is an array of `OptionSwitchItem` objects. `OptionSwitchItem` is used to allow the user to switch of some of the preferences which are contained in the app. e.g. The app supports Analitycs and you can add an `OptionSwitchTool` which will be shown on the `Preferences` screen and the user can turn it off if he doesn't want it.
 
 #### Custom tools
 
@@ -83,7 +83,7 @@ let configuration = Sentinel.Configuration(
         UserDefaultsTool(),
         LoggieTool(),
     ],
-    optionSwitchItems: [
+    preferences: [
         OptionSwitchItem(
             name: "Analytics",
             setter: { AppSwitches.analyticsEnabled = $0 },

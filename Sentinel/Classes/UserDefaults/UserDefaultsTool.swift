@@ -33,6 +33,8 @@ public class UserDefaultsTool: NSObject, Tool {
     }
 }
 
+// MARK: - Internal methods
+
 private extension UserDefaultsTool {
     func createToolTable(with userDefaults: UserDefaults, viewController: UIViewController) -> ToolTable {
         let items = userDefaults.dictionaryRepresentation().map { (key, value) in

@@ -19,9 +19,9 @@ public class CustomLocationTool: NSObject, Tool {
     
     public let name: String
     
-    // MARK: - Private properties
+    // MARK: - Internal properties
 
-    internal let locationProvider: CustomLocationProvider
+    let locationProvider: CustomLocationProvider
     
     // MARK: - Lifecycle
     

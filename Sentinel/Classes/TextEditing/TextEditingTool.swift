@@ -51,6 +51,8 @@ public class TextEditingTool: NSObject, Tool {
     }
 }
 
+// MARK: - Internal methods
+
 extension TextEditingTool {
     
     func store(newValue: String) {

@@ -10,7 +10,7 @@ import Foundation
 @objcMembers
 public class DetailToolTableItem: NSObject {
     
-    // MARK: - Public properties
+    // MARK: - Internal properties
     
     let title: String
     let detail: String
@@ -44,7 +44,7 @@ class DetailToolTableCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var valueLabel: UILabel!
     
-    // MARK: - Public methods
+    // MARK: - Internal methods
     
     func configure(with item: DetailToolTableItem) {
         titleLabel?.text = item.title

@@ -96,7 +96,7 @@ public class NotificationTrigger: NSObject, Trigger {
 @objcMembers
 public class ScreenshotTrigger: NSObject, Trigger {
     
-    // MARK: - Public properties
+    // MARK: - Internal properties
     
     let notificationTrigger: NotificationTrigger
     
@@ -119,7 +119,7 @@ public class ScreenshotTrigger: NSObject, Trigger {
 @objcMembers
 public class ShakeTrigger: NSObject, Trigger {
     
-    // MARK: - Public properties
+    // MARK: - Internal properties
     
     let notificationTrigger: NotificationTrigger
     

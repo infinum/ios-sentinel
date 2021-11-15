@@ -13,10 +13,10 @@ class ApplicationTool: Tool {
     // MARK: - Lifecycle
     
     public init() {}
-    
+
     // MARK: - Private properties
     
-    private(set) lazy var tool = CustomInfoTool(
+    private lazy var tool = CustomInfoTool(
         name: "Application",
         info: [
             CustomInfoTool.Section(
@@ -39,6 +39,12 @@ class ApplicationTool: Tool {
         ]
     )
     
+    // MARK: - Internal properties
+
+    var toolTable: ToolTable {
+        return tool.createToolTable(with: tool.info)
+    }
+    
     // MARK: - Public properties
 
     public var name: String { tool.name }
@@ -50,8 +56,10 @@ class ApplicationTool: Tool {
     }
 }
 
+// MARK: - Internal extension
+
 extension ApplicationTool {
-    
+
     func stringFromPlist(for key: CFString) -> String {
         stringFromPlist(for: key as String)
     }

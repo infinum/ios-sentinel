@@ -11,7 +11,7 @@ import Foundation
 @objcMembers
 public class ToolTableSection: NSObject {
     
-    // MARK: - Public properties
+    // MARK: - Internal properties
     
     /// The title of the section.
     let title: String?

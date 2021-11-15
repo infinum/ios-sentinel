@@ -14,9 +14,9 @@ import Foundation
 @objcMembers
 public class Sentinel: NSObject {
     
-    // MARK: - Private properties
+    // MARK: - Internal properties
     
-    internal var configuration: Configuration?
+    var configuration: Configuration?
 
     // MARK: - Public properties
     
@@ -40,7 +40,7 @@ public class Sentinel: NSObject {
         self.configuration = configuration
         configuration.trigger.subscribe { [weak self] in
             guard let viewController = configuration.sourceScreenProvider.viewControllerForShowingTools else { return }
-            self?.present(tools: configuration.tools, optionSwitchItems: configuration.optionSwitchItems, on: viewController)
+            self?.present(tools: configuration.tools, preferences: configuration.preferences, on: viewController)
         }
     }
     
@@ -66,7 +66,7 @@ public class Sentinel: NSObject {
         public let tools: [Tool]
 
         /// Items which are shown on preferences screen
-        public let optionSwitchItems: [OptionSwitchItem]
+        public let preferences: [OptionSwitchItem]
         
         // MARK: - Lifecycle
 
@@ -76,17 +76,17 @@ public class Sentinel: NSObject {
         ///     - trigger: The trigger event which opens the Sentinel.
         ///     - sourceScreenProvider: The screen from which Sentinel can be presented.
         ///     - tools: Tools available from the Sentinel.
-        ///     - optionSwitchItems: items which can allow or deny an activity inside the app
+        ///     - preferences: items which can allow or deny an activity inside the app
         public init(
             trigger: Trigger,
             sourceScreenProvider: SourceScreenProvider = SourceScreenProviders.default,
             tools: [Tool],
-            optionSwitchItems: [OptionSwitchItem] = []
+            preferences: [OptionSwitchItem] = []
         ) {
             self.trigger = trigger
             self.sourceScreenProvider = sourceScreenProvider
             self.tools = tools
-            self.optionSwitchItems = optionSwitchItems
+            self.preferences = preferences
             super.init()
         }
     }

@@ -19,6 +19,12 @@ class PerformanceTool: Tool {
         self.name = name
     }
 
+    // MARK: - Internal properties
+
+    var toolTable: ToolTable {
+        return createToolTable()
+    }
+
     // MARK: - Public methods
     
     public func presentPreview(from viewController: UIViewController) {
@@ -27,9 +33,9 @@ class PerformanceTool: Tool {
     }
 }
 
-// MARK: - Internal methods
+// MARK: - Private methods
 
-internal extension PerformanceTool {
+private extension PerformanceTool {
 
     func createToolTable() -> ToolTable {
         return ToolTable(

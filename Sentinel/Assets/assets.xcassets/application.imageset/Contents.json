@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "sentinel_ic_application-1.pdf",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "application.pdf",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "sentinel_ic_application-2.pdf",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "application-1.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

@@ -19,7 +19,7 @@ class PerformanceInfoTableViewCell: UITableViewCell {
     private var valueDidChange: (() -> String)?
     private var timer: Timer?
 
-    // MARK - Lifecycle
+    // MARK: - Lifecycle
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,7 +32,7 @@ class PerformanceInfoTableViewCell: UITableViewCell {
         initializeTimer()
     }
 
-    // MARK: - Public methods
+    // MARK: - Internal methods
     
     func configure(with item: PerformanceInfoItem) {
         self.valueDidChange = item.valueDidChange

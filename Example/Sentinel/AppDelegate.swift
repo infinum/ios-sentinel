@@ -44,7 +44,7 @@ private extension AppDelegate {
 //                LoggieTool(),
 //                AnalyticsCollectorTool(),
             ],
-            optionSwitchItems: optionSwitchItems
+            preferences: optionSwitchItems
         )
         
         Sentinel.shared.setup(with: configuration)
