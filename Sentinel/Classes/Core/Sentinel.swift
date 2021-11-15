@@ -51,6 +51,7 @@ public class Sentinel: NSObject {
     /// Based on the provided properties, Sentinel will be shown based on different event
     /// and it will show different tools.
     @objcMembers
+    @objc(Configuration)
     public class Configuration: NSObject {
         
         // MARK: - Public properties

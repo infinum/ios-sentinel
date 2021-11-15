@@ -8,7 +8,7 @@
 import Foundation
 
 @objcMembers
-public class TextEditingTool: Tool {
+public class TextEditingTool: NSObject, Tool {
     
     // MARK: - Public properties
     
@@ -35,6 +35,7 @@ public class TextEditingTool: Tool {
         self.getter = getter
         self.userDefaults = userDefaults
         self.userDefaultsKey = userDefaultsKey
+        super.init()
         loadStoredValue()
     }
     

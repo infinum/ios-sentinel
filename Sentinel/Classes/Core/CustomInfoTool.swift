@@ -7,7 +7,8 @@
 
 import Foundation
 
-public class CustomInfoTool: Tool {
+@objcMembers
+public class CustomInfoTool: NSObject, Tool {
     
     // MARK: - Public properties
     

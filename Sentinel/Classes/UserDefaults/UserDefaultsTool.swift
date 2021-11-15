@@ -8,7 +8,7 @@
 import Foundation
 
 @objcMembers
-public class UserDefaultsTool: Tool {
+public class UserDefaultsTool: NSObject, Tool {
     
     // MARK: - Public properties
     

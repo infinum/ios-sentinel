@@ -13,7 +13,7 @@ import Foundation
 /// every location change will be applied after
 /// the application is restarted.
 @objcMembers
-public class CustomLocationTool: Tool {
+public class CustomLocationTool: NSObject, Tool {
     
     // MARK: - Public properties
     
