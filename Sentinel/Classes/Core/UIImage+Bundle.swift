@@ -8,7 +8,7 @@
 import Foundation
 extension UIImage {
 
-    static func loadImageFromBundle(name: String) -> UIImage? {
+    static func load(fromBundleNamed name: String) -> UIImage? {
         let frameworkBundle = Bundle(for: Sentinel.self)
         guard let frameworkURL = frameworkBundle.resourceURL else { return nil }
         let bundleURL = frameworkURL.appendingPathComponent("Sentinel.bundle")
