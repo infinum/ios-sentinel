@@ -46,7 +46,7 @@ class CustomLocationViewController: UIViewController {
         NotificationCenter.default.removeObserver(self)
     }
     
-    // MARK: - Public methods
+    // MARK: - Internal methods
     
     static func create(locationProvider: CustomLocationProvider) -> CustomLocationViewController {
         let viewController = UIStoryboard.customLocation.instantiateViewController(ofType: CustomLocationViewController.self)

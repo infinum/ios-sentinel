@@ -13,16 +13,15 @@ import Foundation
 /// every location change will be applied after
 /// the application is restarted.
 @objcMembers
-public class CustomLocationTool: Tool {
+public class CustomLocationTool: NSObject, Tool {
     
     // MARK: - Public properties
     
     public let name: String
-    public var type: ViewControllerType = .location
     
-    // MARK: - Private properties
+    // MARK: - Internal properties
 
-    internal let locationProvider: CustomLocationProvider
+    let locationProvider: CustomLocationProvider
     
     // MARK: - Lifecycle
     
@@ -38,9 +37,5 @@ public class CustomLocationTool: Tool {
             locationProvider: locationProvider
         )
         viewController.navigationController?.pushViewController(customLocationViewController, animated: true)
-    }
-
-    public func createViewController(on viewController: UIViewController? = nil) -> UIViewController {
-        return CustomLocationViewController.create(locationProvider: locationProvider)
     }
 }

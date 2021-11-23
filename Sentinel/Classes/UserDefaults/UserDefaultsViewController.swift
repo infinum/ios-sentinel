@@ -23,7 +23,7 @@ class UserDefaultsViewController: UIViewController {
     @IBOutlet private var titleLabel: UILabel!
     @IBOutlet private var detailsTextView: UITextView!
     
-    // MARK: - Public methods
+    // MARK: - Internal methods
     
     static func create(withTitle title: String, details: String) -> UserDefaultsViewController {
         let viewController = UIStoryboard.userDefaults.instantiateViewController(ofType: UserDefaultsViewController.self)

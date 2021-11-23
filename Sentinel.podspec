@@ -26,9 +26,9 @@ Pod::Spec.new do |s|
   s.swift_version = '5.0'
   s.ios.deployment_target = '10.0'
   s.resource_bundles = {
-      'Images' => ['Sentinel/Assets/*.pdf'],
+      'Sentinel' => ['Sentinel/Assets/**/*'],
     }
-
+  s.resources = 'Sentinel/Assets/**/*.{pdf}'
   s.default_subspec = 'Default'
   
   s.subspec 'Core' do |sp|
@@ -46,28 +46,8 @@ Pod::Spec.new do |s|
     sp.dependency 'Sentinel/Core'
   end
   
-  s.subspec 'CustomInfo' do |sp|
-    sp.source_files = 'Sentinel/Classes/CustomInfo/**/*'
-    sp.dependency 'Sentinel/Core'
-  end
-  
-  s.subspec 'GeneralInfo' do |sp|
-    sp.source_files = 'Sentinel/Classes/GeneralInfo/**/*'
-    sp.dependency 'Sentinel/CustomInfo'
-  end
-  
   s.subspec 'TextEditing' do |sp|
     sp.source_files = 'Sentinel/Classes/TextEditing/**/*'
-    sp.dependency 'Sentinel/Core'
-  end
-
-  s.subspec 'OptionSwitch' do |sp|
-    sp.source_files = 'Sentinel/Classes/OptionSwitch/**/*'
-    sp.dependency 'Sentinel/Core'
-  end
-
-  s.subspec 'PerformanceInfo' do |sp|
-    sp.source_files = 'Sentinel/Classes/PerformanceInfo/**/*'
     sp.dependency 'Sentinel/Core'
   end
   
@@ -94,11 +74,7 @@ Pod::Spec.new do |s|
     sp.dependency 'Sentinel/Core'
     sp.dependency 'Sentinel/UserDefaults'
     sp.dependency 'Sentinel/CustomLocation'
-    sp.dependency 'Sentinel/CustomInfo'
-    sp.dependency 'Sentinel/GeneralInfo'
     sp.dependency 'Sentinel/TextEditing'
-    sp.dependency 'Sentinel/OptionSwitch'
-    sp.dependency 'Sentinel/PerformanceInfo'
   end
   
 end

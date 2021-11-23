@@ -14,8 +14,9 @@ public class ToolTable: NSObject, Tool {
     // MARK: - Public properties
     
     public let name: String
-    public var type: ViewControllerType = .tools
-    
+
+    // MARK: - Internal properties
+
     /// Tool sections in the table view.
     let sections: [ToolTableSection]
     
@@ -35,7 +36,7 @@ public class ToolTable: NSObject, Tool {
     }
     
     @objc(presentPreviewFromViewController:push:)
-    func presentPreview(from viewController: UIViewController, push: Bool) {
+    public func presentPreview(from viewController: UIViewController, push: Bool) {
         let sentinelController = SentinelTableViewController.create(with: self)
         if let navController = viewController.navigationController, push {
             navController.pushViewController(sentinelController, animated: true)
@@ -43,9 +44,5 @@ public class ToolTable: NSObject, Tool {
             let navContoller = UINavigationController(rootViewController: sentinelController)
             viewController.present(navContoller, animated: true)
         }
-    }
-
-    public func createViewController(on viewController: UIViewController? = nil) -> UIViewController {
-        SentinelTableViewController.create(with: self)
     }
 }

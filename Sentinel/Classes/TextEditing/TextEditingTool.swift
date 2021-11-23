@@ -8,12 +8,11 @@
 import Foundation
 
 @objcMembers
-public class TextEditingTool: Tool {
+public class TextEditingTool: NSObject, Tool {
     
     // MARK: - Public properties
     
     public let name: String
-    public var type: ViewControllerType = .textEditing
     
     // MARK: - Private properties
     
@@ -36,6 +35,7 @@ public class TextEditingTool: Tool {
         self.getter = getter
         self.userDefaults = userDefaults
         self.userDefaultsKey = userDefaultsKey
+        super.init()
         loadStoredValue()
     }
     
@@ -49,15 +49,9 @@ public class TextEditingTool: Tool {
         )
         viewController.navigationController?.pushViewController(textEditing, animated: true)
     }
-
-    public func createViewController(on viewController: UIViewController?) -> UIViewController {
-        return TextEditingViewController.create(
-            withTitle: name,
-            setter: store(newValue:),
-            getter: getter
-        )
-    }
 }
+
+// MARK: - Internal methods
 
 extension TextEditingTool {
     
