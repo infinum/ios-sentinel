@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.platform = :ios
   s.swift_version = '5.0'
-  s.ios.deployment_target = '10.0'
+  s.ios.deployment_target = '11.0'
   s.resource_bundles = {
       'Sentinel' => ['Sentinel/Assets/**/*'],
     }
@@ -54,21 +54,14 @@ Pod::Spec.new do |s|
   s.subspec 'Loggie' do |sp|
     sp.source_files = 'Sentinel/Classes/Loggie/**/*'
     sp.dependency 'Sentinel/Core'
-    sp.dependency 'Loggie', '~> 2.2'
+    sp.dependency 'Loggie'
   end
   
-  s.subspec 'Bugsnatch' do |sp|
-    sp.source_files = 'Sentinel/Classes/Bugsnatch/**/*'
+  s.subspec 'Collar' do |sp|
+    sp.source_files = 'Sentinel/Classes/Collar/**/*'
     sp.dependency 'Sentinel/Core'
-    sp.dependency 'Bugsnatch/Core', '~> 1.0'
+    sp.dependency 'Collar'
   end
-  
-#  This won't work untill AnalyticsCollector is added to main cocapods repo
-#  s.subspec 'AnalyticsCollector' do |sp|
-#    sp.source_files = 'Sentinel/Classes/AnalyticsCollector/**/*'
-#    sp.dependency 'Sentinel/Core'
-#    pod 'AnalyticsCollector', :git => 'https://github.com/infinum/ios-analytics-collector'
-#  end
   
   s.subspec 'Default' do |sp|
     sp.dependency 'Sentinel/Core'
