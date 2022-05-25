@@ -9,15 +9,24 @@ import UIKit
 import Loggie
 
 public class LoggieTool: Tool {
-    
+
+    // MARK: - Public properties
+
+    public let name: String
+
+    // MARK: - Internal properties
+
     private let filter: ((Log) -> Bool)?
 
-    public init(filter: ((Log) -> Bool)? = nil) {
+    // MARK: - Init
+
+    public init(name: String = "Loggie", filter: ((Log) -> Bool)? = nil) {
+        self.name = name
         self.filter = filter
     }
-    
-    public var name: String { "Loggie" }
-    
+
+    // MARK: - Tool
+
     public func presentPreview(from viewController: UIViewController) {
         LoggieManager.shared.showLogs(from: viewController, filter: filter)
     }
