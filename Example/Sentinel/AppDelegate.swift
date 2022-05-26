@@ -39,10 +39,9 @@ private extension AppDelegate {
             tools: [
                 UserDefaultsTool(),
                 baseUrlTool,
-                CustomLocationTool(),
-//                BugsnatchTool(triggerActionConfig: EmailConfig()),
-//                LoggieTool(),
-//                AnalyticsCollectorTool(),
+                CustomLocationTool()
+//                CollarTool(),
+//                LoggieTool()
             ],
             preferences: optionSwitchItems
         )

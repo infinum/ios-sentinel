@@ -28,14 +28,6 @@ class SentinelTableViewController: UIViewController {
             navigationItem.rightBarButtonItems = nil
         }
     }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-        if let selectedIndexPath = tableView.indexPathForSelectedRow {
-            tableView.deselectRow(at: selectedIndexPath, animated: true)
-        }
-    }
 }
 
 extension SentinelTableViewController: UITableViewDelegate {
@@ -49,6 +41,7 @@ extension SentinelTableViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         toolTable[indexPath].didSelect?(from: self)
     }
 }

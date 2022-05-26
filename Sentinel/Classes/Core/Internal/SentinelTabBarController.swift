@@ -9,8 +9,16 @@ import Foundation
 
 final class SentinelTabBarController: UITabBarController {
 
+    // MARK: - Internal properties
+
+    var didPreselectAction = false
+
+    // MARK: - Lifecycle
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
+       setPreselectedActionIfNeeded()
     }
 
     @IBAction func close(_ sender: Any) {
@@ -26,5 +34,17 @@ extension SentinelTabBarController {
 
     func setupViewControllers(with viewControllers: [UIViewController]) {
         self.viewControllers = viewControllers
+    }
+}
+
+// MARK: - Private methods -
+
+private extension SentinelTabBarController {
+
+    func setPreselectedActionIfNeeded() {
+        defer { didPreselectAction = true }
+        guard !didPreselectAction else { return }
+        // Preselect Tools tab
+        selectedIndex = 2
     }
 }
