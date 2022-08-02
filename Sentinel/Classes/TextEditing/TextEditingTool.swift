@@ -5,7 +5,7 @@
 //  Created by Vlaho Poluta on 31/07/2020.
 //
 
-import Foundation
+import UIKit
 
 @objcMembers
 public class TextEditingTool: NSObject, Tool {

@@ -5,7 +5,7 @@
 //  Created by Nikola Majcen on 29/09/2020.
 //
 
-import Foundation
+import UIKit
 
 /// Defines tool item behaviour and appearance.
 @objc

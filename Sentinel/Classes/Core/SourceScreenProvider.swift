@@ -5,7 +5,7 @@
 //  Created by Vlaho Poluta on 30/07/2020.
 //
 
-import Foundation
+import UIKit
 
 /// Defines source screen which will be used to present Sentinel when triggered.
 @objc

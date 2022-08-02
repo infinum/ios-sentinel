@@ -5,7 +5,8 @@
 //  Created by Zvonimir Medak on 30.09.2021..
 //
 
-import Foundation
+import UIKit
+
 extension UIImage {
 
     static func load(fromBundleNamed name: String) -> UIImage? {
