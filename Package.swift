@@ -11,7 +11,16 @@ let package = Package(
     products: [
         .library(
             name: "Sentinel",
-            targets: ["Sentinel"])
+            targets: ["Sentinel"]
+        ),
+        .library(
+            name: "SentinelLoggie",
+            targets: ["SentinelLoggie"]
+        ),
+        .library(
+            name: "SentinelCollar",
+            targets: ["SentinelCollar"]
+        )
     ],
     dependencies: [
         .package(name: "Loggie", url: "https://github.com/infinum/iOS-Loggie.git", .upToNextMajor(from: "2.3.3")),
@@ -20,11 +29,25 @@ let package = Package(
     targets: [
         .target(
             name: "Sentinel",
-            dependencies: ["Loggie", "Collar"],
+            dependencies: [],
             path: "Sentinel",
+            exclude: [
+                "Classes/Loggie/LoggieTool.swift",
+                "Classes/Collar/CollarTool.swift"
+            ],
             resources: [
                 .process("Assets")
             ]
+        ),
+        .target(
+            name: "SentinelLoggie",
+            dependencies: ["Sentinel", "Loggie"],
+            path: "Sentinel/Classes/Loggie"
+        ),
+        .target(
+            name: "SentinelCollar",
+            dependencies: ["Sentinel", "Collar"],
+            path: "Sentinel/Classes/Collar"
         )
     ]
 )
