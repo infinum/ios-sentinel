@@ -5,7 +5,7 @@
 //  Created by Vlaho Poluta on 30/07/2020.
 //
 
-import Foundation
+import UIKit
 
 extension UIStoryboard {
     static var userDefaults: UIStoryboard { UIStoryboard(name: "UserDefaults", bundle: .sentinel) }

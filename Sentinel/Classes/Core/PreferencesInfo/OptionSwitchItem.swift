@@ -5,7 +5,7 @@
 //  Created by Nikola Majcen on 02/10/2020.
 //
 
-import Foundation
+import UIKit
 
 /// Provides option to change enabled state of the feature.
 @objcMembers

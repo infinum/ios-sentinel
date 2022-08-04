@@ -5,7 +5,7 @@
 //  Created by Zvonimir Medak on 28.09.2021..
 //
 
-import Foundation
+import UIKit
 
 final class SentinelTabBarController: UITabBarController {
 

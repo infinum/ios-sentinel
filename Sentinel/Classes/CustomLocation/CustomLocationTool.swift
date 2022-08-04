@@ -5,7 +5,7 @@
 //  Created by Nikola Majcen on 01/10/2020.
 //
 
-import Foundation
+import UIKit
 
 /// Tool which gives the ability to change current user location.
 ///

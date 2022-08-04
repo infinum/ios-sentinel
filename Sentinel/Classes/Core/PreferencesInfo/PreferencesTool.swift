@@ -5,7 +5,7 @@
 //  Created by Nikola Majcen on 02/10/2020.
 //
 
-import Foundation
+import UIKit
 
 /// Provides functionality which gives the user ability
 /// to change environment variables in the application.

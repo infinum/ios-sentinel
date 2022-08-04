@@ -5,7 +5,7 @@
 //  Created by Vlaho Poluta on 30/07/2020.
 //
 
-import Foundation
+import UIKit
 
 @objcMembers
 public class UserDefaultsTool: NSObject, Tool {

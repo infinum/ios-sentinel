@@ -6,6 +6,9 @@
 //
 
 import UIKit
+#if SWIFT_PACKAGE
+import Sentinel
+#endif
 import Collar
 
 public class CollarTool: Tool {

@@ -5,7 +5,6 @@
 //  Created by Vlaho Poluta on 30/07/2020.
 //
 
-import Foundation
 import UIKit
 
 extension Sentinel {

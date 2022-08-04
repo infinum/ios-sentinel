@@ -27,11 +27,23 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Installation
 
+### CocoaPods
+
 Sentinel is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
 pod 'Sentinel'
+```
+
+### Swift Package Manager
+
+If you are using SPM for your dependency manager, add this to the dependencies in your `Package.swift` file:
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/infinum/ios-sentinel.git")
+]
 ```
 
 ## Usage

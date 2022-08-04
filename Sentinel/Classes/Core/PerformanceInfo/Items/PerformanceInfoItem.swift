@@ -5,7 +5,7 @@
 //  Created by Nikola Majcen on 18/11/2020.
 //
 
-import Foundation
+import UIKit
 
 class PerformanceInfoItem: NSObject {
 
