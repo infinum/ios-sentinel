@@ -14,14 +14,17 @@ let package = Package(
             targets: ["Sentinel"])
     ],
     dependencies: [
-        .package(name: "Loggie", url: "https://github.com/infinum/iOS-Loggie.git", .upToNextMajor(from: "2.3.2")),
-        .package(name: "Collar", url: "https://github.com/infinum/ios-collar.git", .upToNextMajor(from: "1.0.2"))
+        .package(name: "Loggie", url: "https://github.com/infinum/iOS-Loggie.git", .upToNextMajor(from: "2.3.3")),
+        .package(name: "Collar", url: "https://github.com/infinum/ios-collar.git", .upToNextMajor(from: "1.0.3"))
     ],
     targets: [
         .target(
             name: "Sentinel",
             dependencies: ["Loggie", "Collar"],
-            path: "Sentinel/Classes"
+            path: "Sentinel",
+            resources: [
+                .process("Assets")
+            ]
         )
     ]
 )

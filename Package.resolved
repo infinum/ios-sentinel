@@ -6,8 +6,8 @@
         "repositoryURL": "https://github.com/infinum/ios-collar.git",
         "state": {
           "branch": null,
-          "revision": "7495356c5df25b878d6a28b3106edc869de18f0b",
-          "version": "1.0.2"
+          "revision": "f3c483ee7721146e4f846eb8d494542e5337c624",
+          "version": "1.0.3"
         }
       },
       {
@@ -15,8 +15,8 @@
         "repositoryURL": "https://github.com/infinum/iOS-Loggie.git",
         "state": {
           "branch": null,
-          "revision": "6a526554fb857bd713463702503d538bf2d1ba52",
-          "version": "2.3.2"
+          "revision": "52180de1deabc66fda6e974dcf335e10e0f86036",
+          "version": "2.3.3"
         }
       }
     ]

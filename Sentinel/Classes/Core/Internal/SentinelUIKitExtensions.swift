@@ -8,7 +8,13 @@
 import UIKit
 
 extension Bundle {
-    static var sentinel: Bundle { Bundle(for: Sentinel.self) }
+    static var sentinel: Bundle {
+        #if SWIFT_PACKAGE
+        .module
+        #else
+        Bundle(for: Sentinel.self)
+        #endif
+    }
 }
 
 extension UIStoryboard {

@@ -28,7 +28,7 @@
         <!--Sentinel Table View Controller-->
         <scene sceneID="FDi-AI-Vt5">
             <objects>
-                <viewController storyboardIdentifier="SentinelTableViewController" id="rmC-9c-kFK" customClass="SentinelTableViewController" customModule="Sentinel" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SentinelTableViewController" id="rmC-9c-kFK" customClass="SentinelTableViewController" customModule="Sentinel" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aU9-Yk-LHE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -63,7 +63,7 @@
         <!--Sentinel Tab Bar Controller-->
         <scene sceneID="B2D-lr-0y9">
             <objects>
-                <tabBarController storyboardIdentifier="SentinelTabBarController" id="n1S-5p-dpw" customClass="SentinelTabBarController" customModule="Sentinel" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="SentinelTabBarController" id="n1S-5p-dpw" customClass="SentinelTabBarController" customModule="Sentinel" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="HPj-di-FwW">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="aCt-BR-H3G">
                             <connections>
