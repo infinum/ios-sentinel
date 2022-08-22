@@ -22,6 +22,7 @@ class CustomLocationViewController: UIViewController {
     
     // MARK: - IBOutlets
     
+    @IBOutlet private weak var gestureInfoLabel: UILabel!
     @IBOutlet private weak var mapView: MKMapView!
     @IBOutlet private weak var locationMockSwitch: UISwitch!
     @IBOutlet private weak var latitudeTextField: UITextField!
@@ -59,6 +60,7 @@ class CustomLocationViewController: UIViewController {
     @IBAction func locationMockSwitchHandler(_ sender: UISwitch) {
         locationProvider?.setCustomLocationUsageEnabled(sender.isOn)
         let isEnabled = locationProvider?.isCustomLocationUsageEnabled ?? false
+        handleInfoLabelVisibility()
         configureButton(for: isEnabled, animated: true)
         showAlert(
             title: isEnabled ? "Custom location enabled" : "Custom location disabled",
@@ -115,6 +117,8 @@ private extension CustomLocationViewController {
         configureButton(for: customLocationEnabled, animated: false)
         configureKeyboard()
         addGesture()
+        handleInfoLabelVisibility()
+        checkForExistingCoordinates()
     }
 
     func addGesture() {
@@ -216,6 +220,7 @@ private extension CustomLocationViewController {
         latitudeTextField.text = "\(newCoordinates.latitude)"
         longitudeTextField.text = "\(newCoordinates.longitude)"
         if locationProvider?.isCustomLocationUsageEnabled ?? false {
+            addPinToLocation(using: newCoordinates)
             setLocation()
         }
     }
@@ -233,6 +238,10 @@ private extension CustomLocationViewController {
             )
             return
         }
+
+        let coordinates = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        addPinToLocation(using: coordinates)
+
         locationProvider?.setCustomLocation(location: CLLocation(latitude: latitude, longitude: longitude))
         view.endEditing(true)
         showAlert(
@@ -242,4 +251,33 @@ private extension CustomLocationViewController {
             delay: .long
         )
     }
+
+    func handleInfoLabelVisibility() {
+        let isEnabled = locationProvider?.isCustomLocationUsageEnabled ?? false
+        if isEnabled {
+            gestureInfoLabel.isHidden = false
+        } else {
+            gestureInfoLabel.isHidden = true
+        }
+    }
+
+    func checkForExistingCoordinates() {
+        guard
+            let latitude = coordinate(from: latitudeTextField.text),
+            let longitude = coordinate(from: longitudeTextField.text)
+        else {
+            return
+        }
+        let coordinates = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        addPinToLocation(using: coordinates)
+    }
+
+    func addPinToLocation(using coordinates: CLLocationCoordinate2D) {
+        let allAnnotations = self.mapView.annotations
+        self.mapView.removeAnnotations(allAnnotations)
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = coordinates
+        mapView.addAnnotation(annotation)
+    }
+
 }
