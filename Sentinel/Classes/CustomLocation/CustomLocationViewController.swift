@@ -67,28 +67,9 @@ class CustomLocationViewController: UIViewController {
             delay: .long
         )
     }
-    
+
     @IBAction func updateLocationButtonActionHandler() {
-        guard
-            let latitude = coordinate(from: latitudeTextField.text),
-            let longitude = coordinate(from: longitudeTextField.text)
-        else {
-            showAlert(
-                title: "Incorrect location",
-                message: "Please review entered latitude and longitude.",
-                actionTitle: "OK",
-                delay: .normal
-            )
-            return
-        }
-        locationProvider?.setCustomLocation(location: CLLocation(latitude: latitude, longitude: longitude))
-        view.endEditing(true)
-        showAlert(
-            title: "Custom location changed",
-            message: "To apply changes, please restart the application.",
-            actionTitle: "OK",
-            delay: .long
-        )
+        setLocation()
     }
 }
 
@@ -133,6 +114,15 @@ private extension CustomLocationViewController {
         configureFields(for: customLocationEnabled)
         configureButton(for: customLocationEnabled, animated: false)
         configureKeyboard()
+        addGesture()
+    }
+
+    func addGesture() {
+        let longGesture = UILongPressGestureRecognizer(
+            target: self,
+            action: #selector(addCustomLocation(longGesture:))
+        )
+        mapView.addGestureRecognizer(longGesture)
     }
     
     func configureSwitch(for customLocationEnabled: Bool) {
@@ -218,5 +208,38 @@ private extension CustomLocationViewController {
         UIView.animate(withDuration: animationDuration) {
             self.view.layoutIfNeeded()
         }
+    }
+    
+    @objc func addCustomLocation(longGesture: UIGestureRecognizer) {
+        let touchPoint = longGesture.location(in: mapView)
+        let newCoordinates = mapView.convert(touchPoint, toCoordinateFrom: mapView)
+        latitudeTextField.text = "\(newCoordinates.latitude)"
+        longitudeTextField.text = "\(newCoordinates.longitude)"
+        if locationProvider?.isCustomLocationUsageEnabled ?? false {
+            setLocation()
+        }
+    }
+
+    func setLocation() {
+        guard
+            let latitude = coordinate(from: latitudeTextField.text),
+            let longitude = coordinate(from: longitudeTextField.text)
+        else {
+            showAlert(
+                title: "Incorrect location",
+                message: "Please review entered latitude and longitude.",
+                actionTitle: "OK",
+                delay: .normal
+            )
+            return
+        }
+        locationProvider?.setCustomLocation(location: CLLocation(latitude: latitude, longitude: longitude))
+        view.endEditing(true)
+        showAlert(
+            title: "Custom location changed",
+            message: "To apply changes, please restart the application.",
+            actionTitle: "OK",
+            delay: .long
+        )
     }
 }
