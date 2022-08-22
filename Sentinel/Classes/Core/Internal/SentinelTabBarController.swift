@@ -45,6 +45,6 @@ private extension SentinelTabBarController {
         defer { didPreselectAction = true }
         guard !didPreselectAction else { return }
         // Preselect Tools tab
-        selectedIndex = 2
+        selectedIndex = Tabs.tools(items: []).index
     }
 }

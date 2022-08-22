@@ -35,6 +35,124 @@ extension Sentinel {
     }
 }
 
+enum Tabs {
+    case device
+    case application
+    case tools(items: [Tool])
+    case preferences(items: [OptionSwitchItem])
+    case performance
+
+    var index: Int {
+        switch self {
+        case .device:
+            return 0
+        case .application:
+            return 1
+        case .tools:
+            return 2
+        case .preferences:
+            return 3
+        case .performance:
+            return 4
+        }
+    }
+
+    var vc: UIViewController {
+        switch self {
+        case .device:
+            let deviceVC = SentinelTableViewController.create(with: toolTable)
+            deviceVC.tabBarItem = tabBarItem
+            return deviceVC
+        case .application:
+            let applicationVC = SentinelTableViewController.create(with: toolTable)
+            applicationVC.tabBarItem = tabBarItem
+            return applicationVC
+        case .tools:
+            let toolsVC = SentinelTableViewController.create(with: toolTable)
+            toolsVC.tabBarItem = tabBarItem
+            return toolsVC
+        case .preferences:
+            let preferencesVC = SentinelTableViewController.create(with: toolTable)
+            preferencesVC.tabBarItem = tabBarItem
+            return preferencesVC
+        case .performance:
+            let performanceVC = SentinelTableViewController.create(with: toolTable)
+            performanceVC.tabBarItem = tabBarItem
+            return performanceVC
+        }
+    }
+
+    var barItemTitle: String {
+        switch self {
+        case .device:
+            return "Device"
+        case .application:
+            return "Application"
+        case .tools:
+            return "Tools"
+        case .preferences:
+            return "Preferences"
+        case .performance:
+            return "Performance"
+        }
+    }
+
+    var barItemImage: UIImage {
+        switch self {
+        case .device:
+            guard let image = UIImage.SentinelImages.device else { return UIImage() }
+            return image
+        case .application:
+            guard let image = UIImage.SentinelImages.application else { return UIImage() }
+            return image
+        case .tools:
+            guard let image = UIImage.SentinelImages.tools else { return UIImage() }
+            return image
+        case .preferences:
+            guard let image = UIImage.SentinelImages.preferences else { return UIImage() }
+            return image
+        case .performance:
+            guard let image = UIImage.SentinelImages.performance else { return UIImage() }
+            return image
+        }
+    }
+
+    var tabBarItem: UITabBarItem {
+        return UITabBarItem(
+            title: barItemTitle,
+            image: barItemImage,
+            selectedImage: barItemImage
+        )
+    }
+
+    var toolTable: ToolTable {
+        switch self {
+        case .device:
+            let deviceInfoItem = DeviceTool()
+            let toolTable = deviceInfoItem.toolTable
+            return toolTable
+        case .application:
+            let applicationInfoTool = ApplicationTool()
+            let toolTable = applicationInfoTool.toolTable
+            return toolTable
+        case .tools(let items):
+            let navigationItems = items
+                .map { NavigationToolTableItem(title: $0.name, navigate: $0.presentPreview(from:)) }
+            let section = ToolTableSection(title: barItemTitle, items: navigationItems)
+            let toolTable = ToolTable(name: barItemTitle, sections: [section])
+            return toolTable
+        case .preferences(let items):
+            let preferencesTool = PreferencesTool(items: items)
+            let toolTable = preferencesTool.toolTable
+            return toolTable
+        case .performance:
+            let performanceInfoTool = PerformanceTool()
+            let toolTable = performanceInfoTool.toolTable
+            return toolTable
+        }
+    }
+}
+
 // MARK: - Private extension
 
 private extension Sentinel {
@@ -44,73 +162,12 @@ private extension Sentinel {
         viewController: UIViewController
     ) -> [UIViewController] {
         return [
-            createDeviceViewController(),
-            createApplicationViewController(),
-            createToolsController(with: tools),
-            createPreferencesViewController(preferences),
-            createPerformanceViewController()
+            Tabs.device,
+            Tabs.application,
+            Tabs.tools(items: tools),
+            Tabs.preferences(items: preferences),
+            Tabs.performance
         ]
-    }
-
-    func createToolsController(with tools: [Tool]) -> UIViewController {
-        let navigationItems = tools
-            .map { NavigationToolTableItem(title: $0.name, navigate: $0.presentPreview(from:)) }
-        let section = ToolTableSection(title: "Tools", items: navigationItems)
-        let toolTable = ToolTable(name: "Tools", sections: [section])
-        let toolsViewController = SentinelTableViewController.create(with: toolTable)
-        toolsViewController.tabBarItem = UITabBarItem(
-            title: "Tools",
-            image: UIImage.SentinelImages.tools,
-            selectedImage: UIImage.SentinelImages.tools
-        )
-        return toolsViewController
-    }
-
-    func createDeviceViewController() -> UIViewController {
-        let deviceInfoItem = DeviceTool()
-        let toolTable = deviceInfoItem.toolTable
-        let viewController = SentinelTableViewController.create(with: toolTable)
-        viewController.tabBarItem = UITabBarItem(
-            title: "Device",
-            image: UIImage.SentinelImages.device,
-            selectedImage: UIImage.SentinelImages.device
-        )
-        return viewController
-}
-
-    func createApplicationViewController() -> UIViewController {
-        let applicationInfoTool = ApplicationTool()
-        let toolTable = applicationInfoTool.toolTable
-        let viewController = SentinelTableViewController.create(with: toolTable)
-        viewController.tabBarItem = UITabBarItem(
-            title: "Application",
-            image: UIImage.SentinelImages.application,
-            selectedImage: UIImage.SentinelImages.application
-        )
-        return viewController
-    }
-
-    func createPreferencesViewController(_ items: [OptionSwitchItem]) -> UIViewController {
-        let preferencesTool = PreferencesTool(items: items)
-        let toolTable = preferencesTool.toolTable
-        let viewController = SentinelTableViewController.create(with: toolTable)
-        viewController.tabBarItem = UITabBarItem(
-            title: "Preferences",
-            image: UIImage.SentinelImages.preferences,
-            selectedImage: UIImage.SentinelImages.preferences
-        )
-        return viewController
-    }
-
-    func createPerformanceViewController() -> UIViewController {
-        let performanceInfoTool = PerformanceTool()
-        let toolTable = performanceInfoTool.toolTable
-        let viewController = SentinelTableViewController.create(with: toolTable)
-        viewController.tabBarItem = UITabBarItem(
-            title: "Performance",
-            image: UIImage.SentinelImages.performance,
-            selectedImage: UIImage.SentinelImages.performance
-        )
-        return viewController
+            .map { $0.vc }
     }
 }
