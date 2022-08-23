@@ -215,14 +215,13 @@ private extension CustomLocationViewController {
     }
     
     @objc func addCustomLocation(longGesture: UIGestureRecognizer) {
+        let isEnabled = locationProvider?.isCustomLocationUsageEnabled ?? false
+        if !isEnabled { return }
         let touchPoint = longGesture.location(in: mapView)
         let newCoordinates = mapView.convert(touchPoint, toCoordinateFrom: mapView)
         latitudeTextField.text = "\(newCoordinates.latitude)"
         longitudeTextField.text = "\(newCoordinates.longitude)"
-        if locationProvider?.isCustomLocationUsageEnabled ?? false {
-            addPinToLocation(using: newCoordinates)
-            setLocation()
-        }
+        addPinToLocation(using: newCoordinates)
     }
 
     func setLocation() {
