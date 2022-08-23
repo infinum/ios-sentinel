@@ -20,14 +20,21 @@ extension Sentinel {
         preferences: [OptionSwitchItem],
         on viewController: UIViewController
     ) {
-        let tabBarControllers = createTabBarControllers(
+        let tabItems = createTabItems(
             with: tools,
             preferences: preferences,
             viewController: viewController
         )
         let tabBarController = UIStoryboard.sentinel
             .instantiateViewController(ofType: SentinelTabBarController.self)
-        tabBarController.setupViewControllers(with: tabBarControllers)
+        let preselectedTabIndex = preselectedTabIndex(
+            for: .tools(items: []),
+            tabItems: tabItems
+        )
+        tabBarController.setupViewControllers(
+            with: tabItems.map { $0.viewController },
+            preselectedIndex: preselectedTabIndex
+        )
         tabBarController.title = "Sentinel"
 
         let navController = UINavigationController(rootViewController: tabBarController)
@@ -35,30 +42,24 @@ extension Sentinel {
     }
 }
 
-enum Tabs {
+enum Tab {
     case device
     case application
     case tools(items: [Tool])
     case preferences(items: [OptionSwitchItem])
     case performance
+}
 
-    var index: Int {
-        switch self {
-        case .device:
-            return 0
-        case .application:
-            return 1
-        case .tools:
-            return 2
-        case .preferences:
-            return 3
-        case .performance:
-            return 4
-        }
+struct TabItem {
+
+    let tab: Tab
+
+    init(tab: Tab) {
+        self.tab = tab
     }
 
-    var vc: UIViewController {
-        switch self {
+    var viewController: UIViewController {
+        switch tab {
         case .device:
             let deviceVC = SentinelTableViewController.create(with: toolTable)
             deviceVC.tabBarItem = tabBarItem
@@ -81,9 +82,12 @@ enum Tabs {
             return performanceVC
         }
     }
+}
+
+private extension TabItem {
 
     var barItemTitle: String {
-        switch self {
+        switch tab {
         case .device:
             return "Device"
         case .application:
@@ -98,7 +102,7 @@ enum Tabs {
     }
 
     var barItemImage: UIImage {
-        switch self {
+        switch tab {
         case .device:
             guard let image = UIImage.SentinelImages.device else { return UIImage() }
             return image
@@ -117,6 +121,7 @@ enum Tabs {
         }
     }
 
+
     var tabBarItem: UITabBarItem {
         return UITabBarItem(
             title: barItemTitle,
@@ -126,7 +131,7 @@ enum Tabs {
     }
 
     var toolTable: ToolTable {
-        switch self {
+        switch tab {
         case .device:
             let deviceInfoItem = DeviceTool()
             let toolTable = deviceInfoItem.toolTable
@@ -156,18 +161,27 @@ enum Tabs {
 // MARK: - Private extension
 
 private extension Sentinel {
-    func createTabBarControllers(
+    func createTabItems(
         with tools: [Tool],
         preferences: [OptionSwitchItem],
         viewController: UIViewController
-    ) -> [UIViewController] {
+    ) -> [TabItem] {
         return [
-            Tabs.device,
-            Tabs.application,
-            Tabs.tools(items: tools),
-            Tabs.preferences(items: preferences),
-            Tabs.performance
+            TabItem(tab: .device),
+            TabItem(tab: .application),
+            TabItem(tab: .tools(items: tools)),
+            TabItem(tab: .preferences(items: preferences)),
+            TabItem(tab: .performance)
         ]
-            .map { $0.vc }
+    }
+
+    func preselectedTabIndex(for tab: Tab, tabItems: [TabItem]) -> Int {
+        return tabItems
+            .enumerated()
+            .first(where: {
+                guard case .tools = $0.element.tab else { return false }
+                return true
+            })
+            .map(\.offset) ?? 0
     }
 }
