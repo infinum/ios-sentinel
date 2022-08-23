@@ -123,5 +123,5 @@ Sentinel is available under the MIT license. See the [license](LICENSE) file for
 Maintained and sponsored by [Infinum](http://www.infinum.com).
 
 <a href='https://infinum.co'>
-  <img src='https://infinum.co/infinum.png' href='https://infinum.com' width='264'>
+   <img src='https://cloud.githubusercontent.com/assets/1422973/24369980/9c36b0a6-12da-11e7-898a-b711ed7ca52f.png' href='https://infinum.com' width='264'>
 </a>
