@@ -59,13 +59,18 @@ private extension DeviceTool {
     var batteryState: String {
         switch UIDevice.current.batteryState {
         case .charging:
-            return "Charging at: \(UIDevice.current.batteryLevel.description)%"
+            return "Charging at: \(calculateBatteryPercentage(with: UIDevice.current.batteryLevel.description))%"
         case .full:
             return "Full"
         case .unplugged:
-            return "\(UIDevice.current.batteryLevel.description)%"
+            return "\(calculateBatteryPercentage(with: UIDevice.current.batteryLevel.description))%"
         default:
             return "Unknown"
         }
+    }
+
+    func calculateBatteryPercentage(with amount: String) -> String {
+        guard let batteryLevel = Double(amount) else { return "Unknown" }
+        return "\(batteryLevel * 100.0)"
     }
 }
