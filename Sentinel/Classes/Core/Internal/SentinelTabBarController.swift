@@ -9,9 +9,10 @@ import UIKit
 
 final class SentinelTabBarController: UITabBarController {
 
-    // MARK: - Internal properties
+    // MARK: - Private properties
 
-    var didPreselectAction = false
+    private var didPreselectAction = false
+    private var preselectedIndex: Int?
 
     // MARK: - Lifecycle
 
@@ -32,8 +33,9 @@ final class SentinelTabBarController: UITabBarController {
 
 extension SentinelTabBarController {
 
-    func setupViewControllers(with viewControllers: [UIViewController]) {
+    func setupViewControllers(with viewControllers: [UIViewController], preselectedIndex: Int) {
         self.viewControllers = viewControllers
+        self.preselectedIndex = preselectedIndex
     }
 }
 
@@ -45,6 +47,6 @@ private extension SentinelTabBarController {
         defer { didPreselectAction = true }
         guard !didPreselectAction else { return }
         // Preselect Tools tab
-        selectedIndex = 2
+        selectedIndex = preselectedIndex ?? 0
     }
 }

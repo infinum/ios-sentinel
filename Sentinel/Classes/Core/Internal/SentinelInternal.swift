@@ -20,14 +20,21 @@ extension Sentinel {
         preferences: [OptionSwitchItem],
         on viewController: UIViewController
     ) {
-        let tabBarControllers = createTabBarControllers(
+        let tabItems = createTabItems(
             with: tools,
             preferences: preferences,
             viewController: viewController
         )
         let tabBarController = UIStoryboard.sentinel
             .instantiateViewController(ofType: SentinelTabBarController.self)
-        tabBarController.setupViewControllers(with: tabBarControllers)
+        let preselectedTabIndex = preselectedTabIndex(
+            for: .tools(items: []),
+            tabItems: tabItems
+        )
+        tabBarController.setupViewControllers(
+            with: tabItems.map { $0.viewController },
+            preselectedIndex: preselectedTabIndex
+        )
         tabBarController.title = "Sentinel"
 
         let navController = UINavigationController(rootViewController: tabBarController)
@@ -38,79 +45,27 @@ extension Sentinel {
 // MARK: - Private extension
 
 private extension Sentinel {
-    func createTabBarControllers(
+    func createTabItems(
         with tools: [Tool],
         preferences: [OptionSwitchItem],
         viewController: UIViewController
-    ) -> [UIViewController] {
+    ) -> [TabItem] {
         return [
-            createDeviceViewController(),
-            createApplicationViewController(),
-            createToolsController(with: tools),
-            createPreferencesViewController(preferences),
-            createPerformanceViewController()
+            TabItem(tab: .device),
+            TabItem(tab: .application),
+            TabItem(tab: .tools(items: tools)),
+            TabItem(tab: .preferences(items: preferences)),
+            TabItem(tab: .performance)
         ]
     }
 
-    func createToolsController(with tools: [Tool]) -> UIViewController {
-        let navigationItems = tools
-            .map { NavigationToolTableItem(title: $0.name, navigate: $0.presentPreview(from:)) }
-        let section = ToolTableSection(title: "Tools", items: navigationItems)
-        let toolTable = ToolTable(name: "Tools", sections: [section])
-        let toolsViewController = SentinelTableViewController.create(with: toolTable)
-        toolsViewController.tabBarItem = UITabBarItem(
-            title: "Tools",
-            image: UIImage.SentinelImages.tools,
-            selectedImage: UIImage.SentinelImages.tools
-        )
-        return toolsViewController
-    }
-
-    func createDeviceViewController() -> UIViewController {
-        let deviceInfoItem = DeviceTool()
-        let toolTable = deviceInfoItem.toolTable
-        let viewController = SentinelTableViewController.create(with: toolTable)
-        viewController.tabBarItem = UITabBarItem(
-            title: "Device",
-            image: UIImage.SentinelImages.device,
-            selectedImage: UIImage.SentinelImages.device
-        )
-        return viewController
-}
-
-    func createApplicationViewController() -> UIViewController {
-        let applicationInfoTool = ApplicationTool()
-        let toolTable = applicationInfoTool.toolTable
-        let viewController = SentinelTableViewController.create(with: toolTable)
-        viewController.tabBarItem = UITabBarItem(
-            title: "Application",
-            image: UIImage.SentinelImages.application,
-            selectedImage: UIImage.SentinelImages.application
-        )
-        return viewController
-    }
-
-    func createPreferencesViewController(_ items: [OptionSwitchItem]) -> UIViewController {
-        let preferencesTool = PreferencesTool(items: items)
-        let toolTable = preferencesTool.toolTable
-        let viewController = SentinelTableViewController.create(with: toolTable)
-        viewController.tabBarItem = UITabBarItem(
-            title: "Preferences",
-            image: UIImage.SentinelImages.preferences,
-            selectedImage: UIImage.SentinelImages.preferences
-        )
-        return viewController
-    }
-
-    func createPerformanceViewController() -> UIViewController {
-        let performanceInfoTool = PerformanceTool()
-        let toolTable = performanceInfoTool.toolTable
-        let viewController = SentinelTableViewController.create(with: toolTable)
-        viewController.tabBarItem = UITabBarItem(
-            title: "Performance",
-            image: UIImage.SentinelImages.performance,
-            selectedImage: UIImage.SentinelImages.performance
-        )
-        return viewController
+    func preselectedTabIndex(for tab: Tab, tabItems: [TabItem]) -> Int {
+        return tabItems
+            .enumerated()
+            .first(where: {
+                guard case .tools = $0.element.tab else { return false }
+                return true
+            })
+            .map(\.offset) ?? 0
     }
 }
