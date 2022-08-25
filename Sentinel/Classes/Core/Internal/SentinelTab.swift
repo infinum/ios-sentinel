@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Tab {
+enum SentinelTab {
     case device
     case application
     case tools(items: [Tool])

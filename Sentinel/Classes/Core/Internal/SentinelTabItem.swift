@@ -7,11 +7,11 @@
 
 import UIKit
 
-struct TabItem {
+struct SentinelTabItem {
 
-    let tab: Tab
+    let tab: SentinelTab
 
-    init(tab: Tab) {
+    init(tab: SentinelTab) {
         self.tab = tab
     }
 
@@ -41,7 +41,7 @@ struct TabItem {
     }
 }
 
-private extension TabItem {
+private extension SentinelTabItem {
 
     var barItemTitle: String {
         switch tab {

@@ -49,17 +49,17 @@ private extension Sentinel {
         with tools: [Tool],
         preferences: [OptionSwitchItem],
         viewController: UIViewController
-    ) -> [TabItem] {
+    ) -> [SentinelTabItem] {
         return [
-            TabItem(tab: .device),
-            TabItem(tab: .application),
-            TabItem(tab: .tools(items: tools)),
-            TabItem(tab: .preferences(items: preferences)),
-            TabItem(tab: .performance)
+            SentinelTabItem(tab: .device),
+            SentinelTabItem(tab: .application),
+            SentinelTabItem(tab: .tools(items: tools)),
+            SentinelTabItem(tab: .preferences(items: preferences)),
+            SentinelTabItem(tab: .performance)
         ]
     }
 
-    func preselectedTabIndex(for tab: Tab, tabItems: [TabItem]) -> Int {
+    func preselectedTabIndex(for tab: SentinelTab, tabItems: [SentinelTabItem]) -> Int {
         return tabItems
             .enumerated()
             .first(where: {
