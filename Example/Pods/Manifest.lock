@@ -1,17 +1,20 @@
 PODS:
-  - Sentinel (1.1.1):
-    - Sentinel/Default (= 1.1.1)
-  - Sentinel/Core (1.1.1)
-  - Sentinel/CustomLocation (1.1.1):
+  - Sentinel (1.1.2):
+    - Sentinel/Default (= 1.1.2)
+  - Sentinel/Core (1.1.2)
+  - Sentinel/CustomLocation (1.1.2):
     - Sentinel/Core
-  - Sentinel/Default (1.1.1):
+  - Sentinel/Default (1.1.2):
     - Sentinel/Core
     - Sentinel/CustomLocation
+    - Sentinel/JSONMock
     - Sentinel/TextEditing
     - Sentinel/UserDefaults
-  - Sentinel/TextEditing (1.1.1):
+  - Sentinel/JSONMock (1.1.2):
     - Sentinel/Core
-  - Sentinel/UserDefaults (1.1.1):
+  - Sentinel/TextEditing (1.1.2):
+    - Sentinel/Core
+  - Sentinel/UserDefaults (1.1.2):
     - Sentinel/Core
 
 DEPENDENCIES:
@@ -22,7 +25,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Sentinel: 620185762371cdd6615c4f5e21519dfa3a9ad3fd
+  Sentinel: 867d09e6a7b4b71ca48b9238b7dfed2d450ccbee
 
 PODFILE CHECKSUM: b1ea13fb80f56c4238650f0da0299d23734a6421
 

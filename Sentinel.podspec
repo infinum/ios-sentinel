@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Sentinel'
-  s.version          = '1.1.1'
+  s.version          = '1.1.2'
   s.summary          = 'Developer\'s toolbox for debugging applications'
 
   s.description      = <<-DESC
@@ -63,11 +63,17 @@ Pod::Spec.new do |s|
     sp.dependency 'Collar'
   end
   
+  s.subspec 'JSONMock' do |sp|
+      sp.source_files = 'Sentinel/Classes/JSONMock/**/*'
+      sp.dependency 'Sentinel/Core'
+  end
+  
   s.subspec 'Default' do |sp|
     sp.dependency 'Sentinel/Core'
     sp.dependency 'Sentinel/UserDefaults'
     sp.dependency 'Sentinel/CustomLocation'
     sp.dependency 'Sentinel/TextEditing'
+    sp.dependency 'Sentinel/JSONMock'
   end
   
 end
