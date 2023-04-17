@@ -32,7 +32,7 @@ public class SourceScreenProviders: NSObject {
     }
 }
 
-/// Defines detauls source screen provider used for presenting the Sentinel.
+/// Defines default source screen provider used for presenting the Sentinel.
 @objcMembers
 public class DefaultSourceScreenProvider: NSObject, SourceScreenProvider {
     
@@ -51,6 +51,13 @@ public class DefaultSourceScreenProvider: NSObject, SourceScreenProvider {
 
         while let newTopController = topController.presentedViewController {
             topController = newTopController
+        }
+
+        if
+            let navController = topController as? UINavigationController,
+            navController.visibleViewController is SentinelTabBarController
+        {
+            return nil
         }
 
         return topController
