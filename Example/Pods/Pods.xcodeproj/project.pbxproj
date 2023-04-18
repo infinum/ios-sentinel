@@ -883,6 +883,23 @@
 			};
 			name = Release;
 		};
+		6B10DD345AD62C0761B79AAA77CF9535 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 506DA1B239F0027DEF29621F8BC500DC /* Sentinel.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGNING_ALLOWED = NO;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Sentinel";
+				IBSC_MODULE = Sentinel;
+				INFOPLIST_FILE = "Target Support Files/Sentinel/ResourceBundle-Sentinel-Sentinel-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_NAME = Sentinel;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
 		6E0E0ACED00A7B13F1FEDF53FD89CEE7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A66CE977C2A4DD6409F650637CBD401F /* Pods-Sentinel_Example.debug.xcconfig */;
@@ -1013,22 +1030,6 @@
 			};
 			name = Release;
 		};
-		A174B7348EBA8DE79ADD090466573D12 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = FACA734A3CEA1EF4CBCFAC48E0AAED93 /* Sentinel.release.xcconfig */;
-			buildSettings = {
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Sentinel";
-				IBSC_MODULE = Sentinel;
-				INFOPLIST_FILE = "Target Support Files/Sentinel/ResourceBundle-Sentinel-Sentinel-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				PRODUCT_NAME = Sentinel;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Release;
-		};
 		B4EFE046ACF8F37157F6E322C7FCFC28 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1095,10 +1096,11 @@
 			};
 			name = Debug;
 		};
-		CD68AC03133DA7B834CA2ADD98B18BA0 /* Debug */ = {
+		BF711EED6CC336F8820B775E4C6FE702 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 506DA1B239F0027DEF29621F8BC500DC /* Sentinel.debug.xcconfig */;
+			baseConfigurationReference = FACA734A3CEA1EF4CBCFAC48E0AAED93 /* Sentinel.release.xcconfig */;
 			buildSettings = {
+				CODE_SIGNING_ALLOWED = NO;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Sentinel";
 				IBSC_MODULE = Sentinel;
 				INFOPLIST_FILE = "Target Support Files/Sentinel/ResourceBundle-Sentinel-Sentinel-Info.plist";
@@ -1109,7 +1111,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = bundle;
 			};
-			name = Debug;
+			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
@@ -1135,8 +1137,8 @@
 		5DEE358BEA83BEF41ABF7D95AD490513 /* Build configuration list for PBXNativeTarget "Sentinel-Sentinel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CD68AC03133DA7B834CA2ADD98B18BA0 /* Debug */,
-				A174B7348EBA8DE79ADD090466573D12 /* Release */,
+				6B10DD345AD62C0761B79AAA77CF9535 /* Debug */,
+				BF711EED6CC336F8820B775E4C6FE702 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
