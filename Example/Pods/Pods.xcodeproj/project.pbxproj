@@ -42,6 +42,7 @@
 		9013E1EAC4E0E617A420FC29DF4D5180 /* DetailToolTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFF03A72EFA905D39373D84AFDB34C0 /* DetailToolTableCell.swift */; };
 		907CB1DCF4723A718AA9F51BC8A60BC3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
 		93634F95B99992FC592B77E77EA49D40 /* UIImage+Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDD1BA814FB3C1DD3C4D5C63E8CD5B3 /* UIImage+Assets.swift */; };
+		941BC8862A20DC1900B6E875 /* JSONMockModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941BC8852A20DC1900B6E875 /* JSONMockModel.swift */; };
 		9D7E5B23F2C206E74A4681D8F5831AFF /* PerformanceInfoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EE454F5CFF5345B2F9BA8CDE992493 /* PerformanceInfoItem.swift */; };
 		9F0D1E12BB9ADFD5D1637B06C6734B03 /* TextEditingTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF669865CA07B78146742F9A021E289 /* TextEditingTool.swift */; };
 		A27DB739A0593C588BDDA1BF75F641DA /* Sentinel-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 107FC87C238E3B01B562FC6BC24B6CC5 /* Sentinel-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -111,7 +112,7 @@
 		3EA9122259CA459F6402CD11632B6491 /* PerformanceInfoTableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = PerformanceInfoTableViewCell.xib; sourceTree = "<group>"; };
 		42D30AFFDECF8207800DB1704FBCA606 /* CPUInfoProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPUInfoProvider.swift; sourceTree = "<group>"; };
 		442713AD408B158D46AC96D2BCCE50FD /* JSONMockViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONMockViewController.swift; path = Sentinel/Classes/JSONMock/JSONMockViewController.swift; sourceTree = "<group>"; };
-		470DE35A21ADCE42128E0724F520D85A /* Sentinel.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = Sentinel.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		470DE35A21ADCE42128E0724F520D85A /* Sentinel.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = Sentinel.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		4939631772B450D4BA9EE7A3FEDF2C02 /* Tool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Tool.swift; path = Sentinel/Classes/Core/Tool.swift; sourceTree = "<group>"; };
 		4A50DEDE9264D2EB696F35D5D604F2C3 /* SystemInfoProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SystemInfoProvider.swift; sourceTree = "<group>"; };
 		4BDD1BA814FB3C1DD3C4D5C63E8CD5B3 /* UIImage+Assets.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIImage+Assets.swift"; sourceTree = "<group>"; };
@@ -130,7 +131,7 @@
 		6C51460383308718B9207142632B5799 /* ToolTable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ToolTable.swift; path = Sentinel/Classes/Core/ToolTable.swift; sourceTree = "<group>"; };
 		6CC63C249594FFB7BA2A29447E90165F /* Pods-Sentinel_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Sentinel_Example-umbrella.h"; sourceTree = "<group>"; };
 		751421AB417547893367DE685F20AAD2 /* NavigationToolTableCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = NavigationToolTableCell.xib; sourceTree = "<group>"; };
-		7E9E1F80C007328357C325DEA15753B7 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		7E9E1F80C007328357C325DEA15753B7 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		89C6FAA08483FA46AF62E0083A4A1ECE /* Pods-Sentinel_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Sentinel_Example-dummy.m"; sourceTree = "<group>"; };
 		8A06ABEFA9740CDF8FCAA5D15A2BE077 /* JSONMockTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONMockTool.swift; path = Sentinel/Classes/JSONMock/JSONMockTool.swift; sourceTree = "<group>"; };
 		8C131C23A2981681C44E4F97E273B562 /* Pods-Sentinel_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Sentinel_Tests.modulemap"; sourceTree = "<group>"; };
@@ -139,9 +140,10 @@
 		8EF70689E97A01CAD8FAA99FD7D4F593 /* PerformanceTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PerformanceTool.swift; sourceTree = "<group>"; };
 		8F653ED7E6147E3F59FAF3BC8A22DF2C /* PerformanceInfo.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; path = PerformanceInfo.storyboard; sourceTree = "<group>"; };
 		9127529398114DBEE725B2F92658F523 /* Pods-Sentinel_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Sentinel_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		94867B82973F9AB95593062FBCB5894F /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		941BC8852A20DC1900B6E875 /* JSONMockModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONMockModel.swift; sourceTree = "<group>"; };
+		94867B82973F9AB95593062FBCB5894F /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		9569796757499011EED7D03B408B6F1A /* Pods-Sentinel_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Sentinel_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9FBB9B1158E8109D9190C46E985281F4 /* Sentinel-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Sentinel-prefix.pch"; sourceTree = "<group>"; };
 		A01B09BF81DF137B86150DC4C400353E /* SentinelTab.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SentinelTab.swift; sourceTree = "<group>"; };
 		A2EE454F5CFF5345B2F9BA8CDE992493 /* PerformanceInfoItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PerformanceInfoItem.swift; sourceTree = "<group>"; };
@@ -362,6 +364,7 @@
 				CAC160EFDFC16A6EA257B497A3E4C533 /* JSONMock.storyboard */,
 				8A06ABEFA9740CDF8FCAA5D15A2BE077 /* JSONMockTool.swift */,
 				442713AD408B158D46AC96D2BCCE50FD /* JSONMockViewController.swift */,
+				941BC8852A20DC1900B6E875 /* JSONMockModel.swift */,
 			);
 			name = JSONMock;
 			sourceTree = "<group>";
@@ -373,7 +376,6 @@
 				4DB2BB79AB16E8D858704A1FA6929905 /* PerformanceInfoTableViewCell.swift */,
 				3EA9122259CA459F6402CD11632B6491 /* PerformanceInfoTableViewCell.xib */,
 			);
-			name = Items;
 			path = Items;
 			sourceTree = "<group>";
 		};
@@ -483,7 +485,6 @@
 				8E86F1ADF008AE8029134D3C66BF6E54 /* MemoryInfoProvider.swift */,
 				4A50DEDE9264D2EB696F35D5D604F2C3 /* SystemInfoProvider.swift */,
 			);
-			name = Internal;
 			path = Internal;
 			sourceTree = "<group>";
 		};
@@ -674,6 +675,7 @@
 				DE4C48EC02A0153229003C2020455401 /* CustomInfoTool.swift in Sources */,
 				5BAB1FC6E719FD5ABA4AD386B7F1C0E8 /* CustomLocation.storyboard in Sources */,
 				2164021EC1A28F9166BC2EAF9BB57CA1 /* CustomLocationProvider.swift in Sources */,
+				941BC8862A20DC1900B6E875 /* JSONMockModel.swift in Sources */,
 				8AEA3221D39499812AC996832C0F6B20 /* CustomLocationTool.swift in Sources */,
 				1599BFA22E52EB236438F31AAD8A4131 /* CustomLocationViewController.swift in Sources */,
 				9013E1EAC4E0E617A420FC29DF4D5180 /* DetailToolTableCell.swift in Sources */,
@@ -1011,8 +1013,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};

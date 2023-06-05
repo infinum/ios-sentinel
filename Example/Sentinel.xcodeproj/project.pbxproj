@@ -13,6 +13,10 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		947D4A6329D72B72000BC6A5 /* first.json in Resources */ = {isa = PBXBuildFile; fileRef = 947D4A6229D72B72000BC6A5 /* first.json */; };
+		94E1224E2A2E2CE100D3B8BE /* second.json in Resources */ = {isa = PBXBuildFile; fileRef = 94E1224D2A2E2CE100D3B8BE /* second.json */; };
+		94E122502A2E2D0A00D3B8BE /* third.json in Resources */ = {isa = PBXBuildFile; fileRef = 94E1224F2A2E2D0A00D3B8BE /* third.json */; };
+		94E122532A2E2D2400D3B8BE /* AA.json in Resources */ = {isa = PBXBuildFile; fileRef = 94E122522A2E2D2400D3B8BE /* AA.json */; };
 		9D87804789D66BA70C9C4F43 /* Pods_Sentinel_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F775540544BA139861CD140 /* Pods_Sentinel_Tests.framework */; };
 		D1A8A560B5831998B485B594 /* Pods_Sentinel_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2C1D64A9718815D18692DDC /* Pods_Sentinel_Example.framework */; };
 /* End PBXBuildFile section */
@@ -42,6 +46,10 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		866AEA02F6686B675A6D38DE /* Pods-Sentinel_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sentinel_Tests.debug.xcconfig"; path = "Target Support Files/Pods-Sentinel_Tests/Pods-Sentinel_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		947D4A6229D72B72000BC6A5 /* first.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = first.json; sourceTree = "<group>"; };
+		94E1224D2A2E2CE100D3B8BE /* second.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = second.json; sourceTree = "<group>"; };
+		94E1224F2A2E2D0A00D3B8BE /* third.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = third.json; sourceTree = "<group>"; };
+		94E122522A2E2D2400D3B8BE /* AA.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AA.json; sourceTree = "<group>"; };
 		9533AA5071F8B3C320CB0EAF /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		A5CD9E5D6B215DE1B7DAD54D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		BFBA6CDA1B7F76EA913AB1C2 /* Pods-Sentinel_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sentinel_Tests.release.xcconfig"; path = "Target Support Files/Pods-Sentinel_Tests/Pods-Sentinel_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -73,6 +81,7 @@
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
+				947D4A6129D72B5E000BC6A5 /* Resources */,
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for Sentinel */,
 				607FACE81AFB9204008FA782 /* Tests */,
@@ -139,6 +148,25 @@
 				A5CD9E5D6B215DE1B7DAD54D /* LICENSE */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		947D4A6129D72B5E000BC6A5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				94E122512A2E2D1100D3B8BE /* Folder A */,
+				947D4A6229D72B72000BC6A5 /* first.json */,
+				94E1224D2A2E2CE100D3B8BE /* second.json */,
+				94E1224F2A2E2D0A00D3B8BE /* third.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		94E122512A2E2D1100D3B8BE /* Folder A */ = {
+			isa = PBXGroup;
+			children = (
+				94E122522A2E2D2400D3B8BE /* AA.json */,
+			);
+			path = "Folder A";
 			sourceTree = "<group>";
 		};
 		9A6135EB77CB7CB35CD695C9 /* Pods */ = {
@@ -250,9 +278,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94E1224E2A2E2CE100D3B8BE /* second.json in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
+				947D4A6329D72B72000BC6A5 /* first.json in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
+				94E122532A2E2D2400D3B8BE /* AA.json in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
+				94E122502A2E2D0A00D3B8BE /* third.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

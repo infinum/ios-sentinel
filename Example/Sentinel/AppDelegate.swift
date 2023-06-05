@@ -39,7 +39,8 @@ private extension AppDelegate {
             tools: [
                 UserDefaultsTool(),
                 baseUrlTool,
-                CustomLocationTool()
+                CustomLocationTool(),
+                createJSONMockTool(),
 //                CollarTool(),
 //                LoggieTool()
             ],
@@ -84,6 +85,25 @@ private extension AppDelegate {
         ),
        ]
 
+    }
+    
+    func createJSONMockTool() -> JSONMockTool {
+        let rootFiles = ["first", "second", "third"]
+        let folderAFiles = ["AA", "AB", "AC"]
+        let folderBFiles = ["BA", "BB", "BC"]
+
+        let folders = [
+            JSONMockModel(jsonNames: folderAFiles, folderName: "Folder A"),
+            JSONMockModel(
+                jsonNames: folderBFiles,
+                folders: [JSONMockModel(jsonNames: ["Nested jos jednom"], folderName: "Nested in Folder B")],
+                folderName: "Folder B"
+            )
+        ]
+        
+        let mockModel = JSONMockModel(jsonNames: rootFiles, folders: folders, folderName: "Root")
+        
+        return JSONMockTool(mockModel: mockModel)
     }
     
 }
