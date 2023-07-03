@@ -24,17 +24,21 @@ class JSONMockViewController: UIViewController {
     
     // MARK: - IBActions
 
-    @objc func handleSaveAction() {
+    @objc
+    func handleSaveAction() {
         guard let string = detailsTextView.text else { return }
         let path = URL(fileURLWithPath: Bundle.main.path(forResource: title, ofType: "json")!)
-
-//        let filename = getDocumentsDirectory().appendingPathComponent("output.txt")
 
         do {
             try string.write(to: path, atomically: true, encoding: String.Encoding.utf8)
         } catch {
             // failed to write file – bad permissions, bad filename, missing permissions, or more likely it can't be converted to the encoding
         }
+    }
+    
+    @objc
+    func handleUseAction() {
+        print("Use pressed")
     }
     
     // MARK: - Internal methods
@@ -59,11 +63,17 @@ class JSONMockViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = text
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(
+        let saveButton = UIBarButtonItem(
             title: "Save", style: .plain,
             target: self,
             action: #selector(self.handleSaveAction)
         )
+        let useButton = UIBarButtonItem(
+            title: "Use", style: .plain,
+            target: self,
+            action: #selector(self.handleUseAction)
+        )
+        self.navigationItem.rightBarButtonItems = [useButton, saveButton]
         detailsTextView.text = details
     }
 
