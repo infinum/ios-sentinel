@@ -88,21 +88,24 @@ private extension AppDelegate {
     }
     
     func createJSONMockTool() -> JSONMockTool {
-        let rootFiles = ["first", "second", "third"]
         let folderAFiles = ["AA", "AB", "AC"]
         let folderBFiles = ["BA", "BB", "BC"]
 
         let folders = [
-            JSONMockModel(jsonNames: folderAFiles, folderName: "Folder A"),
-            JSONMockModel(
+            JSONMockFolder(jsonNames: folderAFiles, folderName: "Folder A"),
+            JSONMockFolder(
                 jsonNames: folderBFiles,
-                folders: [JSONMockModel(jsonNames: ["Nested jos jednom"], folderName: "Nested in Folder B")],
+                folders: [JSONMockFolder(jsonNames: ["Nested jos jednom"], folderName: "Nested in Folder B")],
                 folderName: "Folder B"
             )
         ]
         
-        let mockModel = JSONMockModel(jsonNames: rootFiles, folders: folders, folderName: "Root")
-        
+        let mockModel = JSONMockModel(folders: folders) { jsons in
+            print("sfdgds")
+            print(jsons.values)
+        }
+//        let usedJSONS = mockModel.usedJSONs()
+//        print("111!!!\n\(usedJSONS.joined(separator: ", "))")
         return JSONMockTool(mockModel: mockModel)
     }
     

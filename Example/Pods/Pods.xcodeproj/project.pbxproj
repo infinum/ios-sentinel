@@ -363,8 +363,8 @@
 			children = (
 				CAC160EFDFC16A6EA257B497A3E4C533 /* JSONMock.storyboard */,
 				8A06ABEFA9740CDF8FCAA5D15A2BE077 /* JSONMockTool.swift */,
-				947E34C32A52F9B80068D056 /* JSONMockModel.swift */,
 				442713AD408B158D46AC96D2BCCE50FD /* JSONMockViewController.swift */,
+				947E34C32A52F9B80068D056 /* JSONMockModel.swift */,
 			);
 			name = JSONMock;
 			sourceTree = "<group>";

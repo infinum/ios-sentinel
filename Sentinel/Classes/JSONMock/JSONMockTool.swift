@@ -18,9 +18,14 @@ public class JSONMockTool: NSObject, Tool {
     
     private let mockModel: JSONMockModel
 
+//    private var inUseJSONList: Set<String>
+    
     // MARK: - Lifecycle
     
-    public init(name: String = "JSON Mock", mockModel: JSONMockModel) {
+    public init(
+        name: String = "JSON Mock",
+        mockModel: JSONMockModel
+    ) {
         self.name = name
         self.mockModel = mockModel
     }
@@ -38,22 +43,34 @@ public class JSONMockTool: NSObject, Tool {
 private extension JSONMockTool {
     
     func createToolTable(with mockModel: JSONMockModel, viewController: UIViewController) -> ToolTable {
-        let items = createItems(from: mockModel, viewController: viewController)
+        let items = mockModel.folders
+            .map { folder in
+                NavigationToolTableItem(title: folder.folderName) { [unowned self] viewController in
+                    let toolTable = createToolTable(with: folder, viewController: viewController)
+                    toolTable.presentPreview(from: viewController, push: true)
+                }
+            }
         
         let section = ToolTableSection(items: items)
-        return ToolTable(name: mockModel.folderName, sections: [section])
+        return ToolTable(name: "Root", sections: [section])
     }
     
-    func createItems(from mockModel: JSONMockModel, viewController: UIViewController) -> [NavigationToolTableItem] {
+    func createToolTable(with mockFolder: JSONMockFolder, viewController: UIViewController) -> ToolTable {
+        let items = createItems(from: mockFolder, viewController: viewController)
+        
+        let section = ToolTableSection(items: items)
+        return ToolTable(name: mockFolder.folderName, sections: [section])
+    }
+    
+    func createItems(from mockModel: JSONMockFolder, viewController: UIViewController) -> [NavigationToolTableItem] {
         let onlyJSONItems = mockModel.jsonNames
             .map { json in
-                NavigationToolTableItem(title: json) { (viewControoler) in
-                    // Ode ide VC s json textom
-                    let vc = JSONMockViewController.create(
+                NavigationToolTableItem(title: json, isSelected: mockModel.isSelected(json: json)) { (viewController) in
+                    let mockViewController = JSONMockViewController.create(
                         withTitle: json,
-                        details: json
+                        selectAction: { mockModel.updateSelectedJSONMock(json: json) }
                     )
-                    viewController.navigationController?.pushViewController(vc, animated: true)
+                    viewController.navigationController?.pushViewController(mockViewController, animated: true)
                 }
                 
             }

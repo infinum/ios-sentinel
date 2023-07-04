@@ -18,6 +18,7 @@ class JSONMockViewController: UIViewController {
     private var text: String!
     private var details: String!
     
+    private var selectAction: (() -> Void)!
     // MARK: - IBOutlets
     
     @IBOutlet private var detailsTextView: UITextView!
@@ -32,26 +33,32 @@ class JSONMockViewController: UIViewController {
         do {
             try string.write(to: path, atomically: true, encoding: String.Encoding.utf8)
         } catch {
+//            ????
             // failed to write file – bad permissions, bad filename, missing permissions, or more likely it can't be converted to the encoding
         }
     }
     
     @objc
     func handleUseAction() {
-        print("Use pressed")
+        selectAction()
     }
     
     // MARK: - Internal methods
     
-    static func create(withTitle title: String, details: String) -> JSONMockViewController {
+    static func create(
+        withTitle title: String,
+        selectAction: @escaping () -> Void
+    ) -> JSONMockViewController {
         let viewController = UIStoryboard.jsonMock.instantiateViewController(ofType: JSONMockViewController.self)
         viewController.text = title
+        viewController.selectAction = selectAction
         var text: String
-        if let path = Bundle.main.path(forResource: details, ofType: "json") {
+        if let path = Bundle.main.path(forResource: title, ofType: "json") {
             do {
                 text = try String(contentsOfFile: path)
                 viewController.details = text
               } catch {
+//                  ???
                    // handle error
               }
         }

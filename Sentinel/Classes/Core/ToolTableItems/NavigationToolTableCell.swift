@@ -13,12 +13,18 @@ public class NavigationToolTableItem: NSObject {
     // MARK: - Internal properties
     
     let title: String
+    let isSelected: Bool
     let navigate: (UIViewController) -> ()
 
     // MARK: - Lifecycle
     
-    public init(title: String, navigate: @escaping (UIViewController) -> ()) {
+    public init(
+        title: String,
+        isSelected: Bool = false,
+        navigate: @escaping (UIViewController) -> ()
+    ) {
         self.title = title
+        self.isSelected = isSelected
         self.navigate = navigate
     }
 }
@@ -44,10 +50,14 @@ extension NavigationToolTableItem: ToolTableItem {
 
 class NavigationToolTableCell: UITableViewCell {
     
+    @IBOutlet private weak var checkmarkView: UIView!
+    @IBOutlet private weak var titleLabel: UILabel!
+    
     // MARK: - Internal methods
     
     func configure(with item: NavigationToolTableItem) {
-        textLabel?.text = item.title
+        titleLabel.text = item.title
+        checkmarkView.isHidden = !item.isSelected
     }
     
 }
