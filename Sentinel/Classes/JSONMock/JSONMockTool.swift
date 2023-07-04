@@ -42,11 +42,14 @@ public class JSONMockTool: NSObject, Tool {
 
 private extension JSONMockTool {
     
-    func createToolTable(with mockModel: JSONMockModel, viewController: UIViewController) -> ToolTable {
+    func createToolTable(
+        with mockModel: JSONMockModel,
+        viewController: UIViewController
+    ) -> ToolTable {
         let items = mockModel.folders
             .map { folder in
                 NavigationToolTableItem(title: folder.folderName) { [unowned self] viewController in
-                    let toolTable = createToolTable(with: folder, viewController: viewController)
+                    let toolTable = createToolTable(with: folder, model: mockModel, viewController: viewController)
                     toolTable.presentPreview(from: viewController, push: true)
                 }
             }
@@ -55,30 +58,43 @@ private extension JSONMockTool {
         return ToolTable(name: "Root", sections: [section])
     }
     
-    func createToolTable(with mockFolder: JSONMockFolder, viewController: UIViewController) -> ToolTable {
-        let items = createItems(from: mockFolder, viewController: viewController)
+    func createToolTable(
+        with mockFolder: JSONMockFolder,
+        model: JSONMockModel,
+        viewController: UIViewController
+    ) -> ToolTable {
+        let items = createItems(from: mockFolder, model: model, viewController: viewController)
         
         let section = ToolTableSection(items: items)
         return ToolTable(name: mockFolder.folderName, sections: [section])
     }
     
-    func createItems(from mockModel: JSONMockFolder, viewController: UIViewController) -> [NavigationToolTableItem] {
-        let onlyJSONItems = mockModel.jsonNames
+    func createItems(
+        from mockFolder: JSONMockFolder,
+        model: JSONMockModel,
+        viewController: UIViewController
+    ) -> [NavigationToolTableItem] {
+        let onlyJSONItems = mockFolder.jsonNames
             .map { json in
-                NavigationToolTableItem(title: json, isSelected: mockModel.isSelected(json: json)) { (viewController) in
+                NavigationToolTableItem(
+                    title: json,
+                    isSelected: mockFolder.isSelected(json: json)) { (viewController) in
                     let mockViewController = JSONMockViewController.create(
                         withTitle: json,
-                        selectAction: { mockModel.updateSelectedJSONMock(json: json) }
+                        selectAction: {
+                            mockFolder.updateSelectedJSONMock(json: json)
+                            model.triggerJSONUpdates()
+                            (viewController as! SentinelTableViewController).c()
+                        }
                     )
                     viewController.navigationController?.pushViewController(mockViewController, animated: true)
                 }
-                
             }
         
-        let folderItems = mockModel.folders
+        let folderItems = mockFolder.folders
             .map { folder in
                 NavigationToolTableItem(title: folder.folderName) { [unowned self] viewController in
-                    let toolTable = createToolTable(with: folder, viewController: viewController)
+                    let toolTable = createToolTable(with: folder, model: mockModel, viewController: viewController)
                     toolTable.presentPreview(from: viewController, push: true)
                 }
             }

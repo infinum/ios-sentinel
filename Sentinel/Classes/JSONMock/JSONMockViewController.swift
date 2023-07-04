@@ -19,6 +19,7 @@ class JSONMockViewController: UIViewController {
     private var details: String!
     
     private var selectAction: (() -> Void)!
+    
     // MARK: - IBOutlets
     
     @IBOutlet private var detailsTextView: UITextView!
@@ -28,7 +29,7 @@ class JSONMockViewController: UIViewController {
     @objc
     func handleSaveAction() {
         guard let string = detailsTextView.text else { return }
-        let path = URL(fileURLWithPath: Bundle.main.path(forResource: title, ofType: "json")!)
+        let path = URL(fileURLWithPath: Bundle.main.path(forResource: text, ofType: "json")!)
 
         do {
             try string.write(to: path, atomically: true, encoding: String.Encoding.utf8)

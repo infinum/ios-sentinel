@@ -8,32 +8,54 @@
 import Foundation
 
 public class JSONMockModel {
+    
     let folders: [JSONMockFolder]
+    var usedJSONs: [String: String]
     let jsonsUpdated: ([String: String]) -> Void
-    private var usedJSONs: [String: String] = [:]
     
     public init(
         folders: [JSONMockFolder],
+        usedJSONs: [String: String] = [:],
         jsonsUpdated: @escaping ([String: String]) -> Void
     ) {
         self.folders = folders
+        self.usedJSONs = usedJSONs
         self.jsonsUpdated = jsonsUpdated
      
-        folders.forEach { folder in
-            aa(folder: folder)
+        self.usedJSONs = loadFromUserDefaults()
+        if usedJSONs.isEmpty {
+            updateJSONs()
         }
-        
-        jsonsUpdated(usedJSONs)
     }
     
-    private func aa(folder: JSONMockFolder) {
+    private func updateJSONs() {
+        folders.forEach { folder in
+            getUsedJSONns(for: folder)
+        }
+        jsonsUpdated(usedJSONs)
+        saveToUserDefaults()
+    }
+    
+    private func getUsedJSONns(for folder: JSONMockFolder) {
         usedJSONs[folder.folderName] = folder.selectedJSONMock
         
         folder.folders.forEach { folder in
-            aa(folder: folder)
+            getUsedJSONns(for: folder)
         }
     }
     
+    func triggerJSONUpdates() {
+        updateJSONs()
+    }
+    
+    func loadFromUserDefaults() -> [String: String] {
+     
+        return [:]
+    }
+    
+    func saveToUserDefaults() {
+        
+    }
 }
 
 public class JSONMockFolder {

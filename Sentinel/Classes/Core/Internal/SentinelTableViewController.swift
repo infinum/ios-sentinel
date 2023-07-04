@@ -73,3 +73,10 @@ extension ToolTable {
         sections[indexPath.section].items[indexPath.row]
     }
 }
+
+extension SentinelTableViewController {
+    
+    func reloadData() {
+        tableView.reloadData()
+    }
+}
