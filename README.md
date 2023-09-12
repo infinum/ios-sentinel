@@ -66,7 +66,7 @@ The `sourceScreenProvider` object is a type of `SourceScreenProvider` which shou
 
 The `tools` object is an array of `Tool` objects. `Tool` objects represent tools which will be available from *Sentinel*. There are multiple tools already supported by the library, but custom tools can be created and added to the *Sentinel*.
 
-The last, but not the least, is the `preferences` object which is an array of `OptionSwitchItem` objects. `OptionSwitchItem` is used to allow the user to switch of some of the preferences which are contained in the app. e.g. The app supports Analitycs and you can add an `OptionSwitchTool` which will be shown on the `Preferences` screen and the user can turn it off if he doesn't want it.
+The last, but not the least, is the `preferences` object which is an array of `PreferenceItem` objects. `PreferenceItem` is used to allow the user to switch of some of the preferences which are contained in the app. e.g. The app supports Analitycs and you can add an `OptionSwitchTool` which will be shown on the `Preferences` screen and the user can turn it off if he doesn't want it.
 
 #### Custom tools
 
@@ -96,7 +96,7 @@ let configuration = Sentinel.Configuration(
         LoggieTool(),
     ],
     preferences: [
-        OptionSwitchItem(
+        PreferenceItem(
             name: "Analytics",
             setter: { AppSwitches.analyticsEnabled = $0 },
             getter: { AppSwitches.analyticsEnabled },

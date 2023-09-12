@@ -23,6 +23,8 @@ public class Sentinel: NSObject {
     /// Singleton instance of the Sentinel.
     @objc(sharedInstance)
     public static let shared = Sentinel()
+
+    weak var tabBarController: SentinelTabBarController?
     
     // MARK: - Lifecycle
     
@@ -66,8 +68,8 @@ public class Sentinel: NSObject {
         public let tools: [Tool]
 
         /// Items which are shown on preferences screen
-        public let preferences: [OptionSwitchItem]
-        
+        public let preferences: [PreferenceItem]
+
         // MARK: - Lifecycle
 
         /// Creates a new configuration.
@@ -81,7 +83,7 @@ public class Sentinel: NSObject {
             trigger: Trigger,
             sourceScreenProvider: SourceScreenProvider = SourceScreenProviders.default,
             tools: [Tool],
-            preferences: [OptionSwitchItem] = []
+            preferences: [PreferenceItem] = []
         ) {
             self.trigger = trigger
             self.sourceScreenProvider = sourceScreenProvider

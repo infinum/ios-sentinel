@@ -43,7 +43,7 @@ private extension AppDelegate {
 //                CollarTool(),
 //                LoggieTool()
             ],
-            preferences: optionSwitchItems
+            preferences: preferences
         )
         
         Sentinel.shared.setup(with: configuration)
@@ -58,33 +58,117 @@ private extension AppDelegate {
             userDefaultsKey: "base_url_user_defaults_key"
         )
     }
-    
-    var optionSwitchItems: [OptionSwitchItem] {
-       [
-        OptionSwitchItem(
-            name: "Analytics",
-            setter: { AppSwitches.analyticsEnabled = $0 },
-            getter: { AppSwitches.analyticsEnabled },
-            userDefaults: .standard,
-            userDefaultsKey: "com.infinum.sentinel.optionSwitch.analytics"
-        ),
-        OptionSwitchItem(
-            name: "Crashlytics",
-            setter: { AppSwitches.crashlyticsEnabled = $0 },
-            getter: { AppSwitches.crashlyticsEnabled },
-            userDefaults: .standard,
-            userDefaultsKey: "com.infinum.sentinel.optionSwitch.crashlytics"
-        ),
-        OptionSwitchItem(
-            name: "Logging",
-            setter: { AppSwitches.loggingEnabled = $0 },
-            getter: { AppSwitches.loggingEnabled },
-            userDefaults: .standard,
-            userDefaultsKey: "com.infinum.sentinel.optionSwitch.logging"
-        ),
-       ]
 
+    /// Simple switch items that can be toggled on or off.
+    var preferences: [PreferenceItem] {
+        return [
+            // Old API values:
+            .init(
+                name: "Analytics",
+                setter: { AppSwitches.analyticsEnabled = $0 },
+                getter: { AppSwitches.analyticsEnabled },
+                userDefaults: .standard,
+                userDefaultsKey: "com.infinum.sentinel.optionSwitch.analytics"
+            ),
+            .init(
+                name: "Crashlytics",
+                setter: { AppSwitches.crashlyticsEnabled = $0 },
+                getter: { AppSwitches.crashlyticsEnabled },
+                userDefaults: .standard,
+                userDefaultsKey: "com.infinum.sentinel.optionSwitch.crashlytics"
+            ),
+            .init(
+                name: "Logging",
+                setter: { AppSwitches.loggingEnabled = $0 },
+                getter: { AppSwitches.loggingEnabled },
+                userDefaults: .standard,
+                userDefaultsKey: "com.infinum.sentinel.optionSwitch.logging"
+            ),
+            // New API values:
+            .init(
+                textName: "Name",
+                info: "From 1 to 5",
+                userDefaultsKey: "com.infinum.sentinel.optionSwitch.name",
+                onDidSet: nil
+            ),
+            .init(
+                integerName: "Star Rating",
+                info: "From 1 to 5",
+                min: 1,
+                max: 5,
+                userDefaultsKey: "com.infinum.sentinel.optionSwitch.starRating",
+                onDidSet: nil
+            ),
+            .init(
+                doubleName: "Temperature",
+                info: "Decimal number",
+                min: -50,
+                max: 50,
+                userDefaultsKey: "com.infinum.sentinel.optionSwitch.temperature",
+                onDidSet: { [weak self] in self?.didChange(temperature: $0) }
+            ),
+            .init(
+                enumName: "Weekday",
+                enumType: Weekday.self,
+                userDefaultsKey: "com.infinum.sentinel.optionSwitch.weekdays",
+                onDidSet: { [weak self] in self?.didChange(weekday: $0) }
+            ),
+            .init(
+                enumName: "Direction",
+                enumType: Direction.self,
+                userDefaultsKey: "com.infinum.sentinel.optionSwitch.direction",
+                onDidSet: { [weak self] in self?.didChange(direction: $0) }
+            ),
+            .init(
+                boolName: "Placeholder Mode",
+                info: "Hides images when turned on",
+                userDefaultsKey: "com.infinum.sentinel.optionSwitch.placeholderMode",
+                onDidSet: { [weak self] in self?.didChange(isPlaceholderModeOn: $0) }
+            )
+        ]
     }
-    
+
+    func didChange(temperature: Double?) {
+        guard let temperature else {
+            print("Temperature deleted")
+            return
+        }
+        print("Temperature Set:", temperature > 0 ? "💧" : "🧊")
+    }
+
+    func didChange(weekday: Weekday?) {
+        guard let weekday else {
+            print("Weekday deleted")
+            return
+        }
+        print("Weekday Set:", weekday == .saturday || weekday == .sunday ? "🎉" : "💼")
+    }
+
+    func didChange(direction: Direction?) {
+        print("Direction Set:", direction ?? "nil")
+    }
+
+    func didChange(isPlaceholderModeOn: Bool) {
+        print("Placeholder mode:", isPlaceholderModeOn ? "✅" : "❌")
+    }
+
 }
 
+// MARK: - Helper Enums
+
+enum Weekday: String, CaseIterable {
+    case monday = "MON"
+    case tuesday = "TUE"
+    case wednesday = "WED"
+    case thursday = "THU"
+    case friday = "FRI"
+    case saturday = "SAT"
+    case sunday = "SUN"
+}
+
+enum Direction: Int, CaseIterable {
+    case north = 1
+    case west = 2
+    case east = 3
+    case south = 4
+}
