@@ -153,22 +153,3 @@ private extension AppDelegate {
     }
 
 }
-
-// MARK: - Helper Enums
-
-enum Weekday: String, CaseIterable {
-    case monday = "MON"
-    case tuesday = "TUE"
-    case wednesday = "WED"
-    case thursday = "THU"
-    case friday = "FRI"
-    case saturday = "SAT"
-    case sunday = "SUN"
-}
-
-enum Direction: Int, CaseIterable {
-    case north = 1
-    case west = 2
-    case east = 3
-    case south = 4
-}

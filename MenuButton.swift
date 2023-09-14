@@ -10,15 +10,15 @@ import UIKit
 /// A button that opens a context menu with enum cases (raw representables) as options.
 class MenuButton: UIButton {
 
-    private var _enumCases: [any RawRepresentable] = []
-    private var _handler: ((any RawRepresentable) -> Void)?
+    private var enumCases: [any RawRepresentable] = []
+    private var handler: ((any RawRepresentable) -> Void)?
 
     func configure(
         enumCases allCases: [any RawRepresentable],
         handler: ((any RawRepresentable) -> Void)?
     ) {
-        self._enumCases = allCases
-        self._handler = handler
+        self.enumCases = allCases
+        self.handler = handler
         configure()
     }
 
@@ -27,11 +27,11 @@ class MenuButton: UIButton {
             addTarget(self, action: #selector(configureAlertAsFallbackiOS13AndEarlier), for: .touchUpInside)
             return
         }
-        let actions = _enumCases.map { enumCase in
+        let actions = enumCases.map { enumCase in
             return UIAction(
                 title: enumCase.titleAndRawValue,
                 image: nil,
-                handler: { [weak self] _ in self?._handler?(enumCase) }
+                handler: { [weak self] _ in self?.handler?(enumCase) }
             )
         }
         menu = UIMenu(title: "Select Enum Case", options: [], children: actions)
@@ -39,7 +39,7 @@ class MenuButton: UIButton {
     }
 
     func refreshEnumButton(rawValue: String?) {
-        if let rawValue, let enumCase = _enumCases.first(where: { String(describing: $0.rawValue) == rawValue }) {
+        if let rawValue, let enumCase = enumCases.first(where: { String(describing: $0.rawValue) == rawValue }) {
             setTitle(enumCase.titleAndRawValue, for: .normal)
         } else if let rawValue {
             setTitle("Unknown (" + rawValue + ")", for: .normal)
@@ -52,9 +52,9 @@ class MenuButton: UIButton {
 
     @objc private func configureAlertAsFallbackiOS13AndEarlier() {
         let alert = UIAlertController(title: "Select Enum Case", message: nil, preferredStyle: .alert)
-        for enumCase in _enumCases {
+        for enumCase in enumCases {
             let title = enumCase.rawValue as? String ?? String(describing: enumCase)
-            alert.addAction(UIAlertAction(title: title, style: .default, handler: { [weak self] _ in self?._handler?(enumCase) }))
+            alert.addAction(UIAlertAction(title: title, style: .default, handler: { [weak self] _ in self?.handler?(enumCase) }))
         }
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         Sentinel.shared.tabBarController?.present(alert, animated: true)

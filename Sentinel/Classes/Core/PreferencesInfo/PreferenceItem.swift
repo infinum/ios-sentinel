@@ -41,14 +41,19 @@ public class PreferenceItem: NSObject {
 
     /// Value, saved as string.
     var value: String? {
-        get { userDefaults.string(forKey: userDefaultsKey) }
-        set { userDefaults.set(newValue, forKey: userDefaultsKey) }
+        get {
+            guard let userDefaultsKey else { return nil }
+            return userDefaults.string(forKey: userDefaultsKey) }
+        set {
+            guard let userDefaultsKey else { return }
+            userDefaults.set(newValue, forKey: userDefaultsKey)
+        }
     }
 
     // MARK: - Private Properties
 
     private let userDefaults: UserDefaults
-    private let userDefaultsKey: String
+    private let userDefaultsKey: String?
     private let onDidSet: ((String?) -> Void)?
 
     // MARK: - Methods
@@ -72,7 +77,7 @@ public class PreferenceItem: NSObject {
         self.name = name
         self.info = info
         self.type = type
-        self.userDefaultsKey = userDefaultsKey ?? ""
+        self.userDefaultsKey = userDefaultsKey
         self.userDefaults = userDefaults
         self.onDidSet = onDidSet
     }
@@ -89,7 +94,7 @@ public class PreferenceItem: NSObject {
 
     func store(newValue: String?) throws {
         guard var newValue else {
-            userDefaults.set(nil, forKey: userDefaultsKey)
+            value = nil
             return
         }
         switch type {
