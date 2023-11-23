@@ -7,7 +7,6 @@
 
 import Foundation
 
-@objcMembers
 public struct MailData {
     
     struct Attachment {
