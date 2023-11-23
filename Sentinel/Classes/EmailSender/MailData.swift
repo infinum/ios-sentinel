@@ -9,12 +9,12 @@ import Foundation
 
 public struct Attachment {
     
-    let data: Data?
+    let data: Data
     let mimeType: String
     let fileName: String
     
     public init(
-        data: Data?,
+        data: Data,
         mimeType: String,
         fileName: String
     ) {
@@ -24,30 +24,31 @@ public struct Attachment {
     }
 }
 
+/// Data structure that holds all the information needed to send an email.
 public struct MailData {
     
     let subject: String
     let message: String
     let isHTML: Bool
     let attachments: [Attachment]
-    let toRecipients: [String]
+    let recipients: [String]
     let ccRecipients: [String]
     let bccRecipients: [String]
     
     public init(
-        subject: String,
-        message: String,
+        subject: String?,
+        message: String?,
         isHTML: Bool = false,
         attachments: [Attachment] = [],
-        toRecipients: [String],
+        recipients: [String],
         ccRecipients: [String] = [],
         bccRecipients: [String] = []
     ) {
-        self.subject = subject
-        self.message = message
+        self.subject = subject ?? ""
+        self.message = message ?? ""
         self.isHTML = isHTML
         self.attachments = attachments
-        self.toRecipients = toRecipients
+        self.recipients = recipients
         self.ccRecipients = ccRecipients
         self.bccRecipients = bccRecipients
     }
