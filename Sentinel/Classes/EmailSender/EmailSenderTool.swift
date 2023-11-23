@@ -84,10 +84,10 @@ private extension EmailSenderTool {
             showEmailAlert(from: viewController)
             return
         }
-        showSendEmail(from: viewController, mailData: getter())
+        showSendEmail(from: viewController)
     }
             
-    func sendEmail(from viewController: UIViewController) {
+    func showSendEmail(from viewController: UIViewController) {
         
         let mailData = getter()
         
@@ -99,14 +99,14 @@ private extension EmailSenderTool {
         mail.setSubject(mailData.subject)
         mail.setMessageBody(mailData.message, isHTML: mailData.isHTML)
 
-        mailData.attachments.map {
+        _ = mailData.attachments.map {
             mail.addAttachmentData($0.data, mimeType: $0.mimeType, fileName: $0.fileName)
         }
             
         viewController.present(mail, animated: true)
     }
     
-    func showEmailAlert(viewController: UIViewController) {
+    func showEmailAlert(from viewController: UIViewController) {
         let alert = UIAlertController(
             title: alertTitle,
             message: alertMessage,
