@@ -10,6 +10,7 @@ import Sentinel
 import MessageUI
 import Compression
 
+@objcMembers
 public final class EmailSenderTool: NSObject, Tool {
 
     struct MailData {
