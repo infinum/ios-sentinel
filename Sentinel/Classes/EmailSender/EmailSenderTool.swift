@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Sentinel
 import MessageUI
 import Compression
 
