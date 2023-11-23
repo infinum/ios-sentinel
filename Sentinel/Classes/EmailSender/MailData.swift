@@ -9,7 +9,7 @@ import Foundation
 
 public struct MailData {
     
-    struct Attachment {
+    public struct Attachment {
         let data: Data?
         let mimeType: String
         let fileName: String
