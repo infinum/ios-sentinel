@@ -73,6 +73,7 @@ Pod::Spec.new do |s|
     sp.dependency 'Sentinel/UserDefaults'
     sp.dependency 'Sentinel/CustomLocation'
     sp.dependency 'Sentinel/TextEditing'
+    sp.dependency 'Sentinel/EmailSender'
   end
   
 end
