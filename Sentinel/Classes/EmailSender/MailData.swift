@@ -7,13 +7,24 @@
 
 import Foundation
 
-public struct MailData {
+public struct Attachment {
     
-    public struct Attachment {
-        let data: Data?
-        let mimeType: String
-        let fileName: String
+    let data: Data?
+    let mimeType: String
+    let fileName: String
+    
+    public init(
+        data: Data?,
+        mimeType: String,
+        fileName: String
+    ) {
+        self.data = data
+        self.mimeType = mimeType
+        self.fileName = fileName
     }
+}
+
+public struct MailData {
     
     let subject: String
     let message: String
