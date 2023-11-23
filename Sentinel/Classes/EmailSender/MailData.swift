@@ -23,7 +23,7 @@ public struct MailData {
     let ccRecipients: [String]
     let bccRecipients: [String]
     
-    init(
+    public init(
         subject: String,
         message: String,
         isHTML: Bool = false,

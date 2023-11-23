@@ -24,7 +24,7 @@ public final class EmailSenderTool: NSObject, Tool {
 
     // MARK: - Lifecycle -
 
-    init(
+    public init(
         getter: @escaping () -> (MailData),
         alertTitle: String = "Email Not Available",
         alertMessage: String = "Your device is not configured to send emails. Please set up an email account in Mail app or use another device."
