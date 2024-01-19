@@ -8,6 +8,11 @@
 import Foundation
 import MessageUI
 
+public enum EmailSenderUnavailableError: Error {
+    case unavailable
+    case custom(title: String, message: String)
+}
+
 @objcMembers
 public final class EmailSenderTool: NSObject, Tool {
 
@@ -22,34 +27,49 @@ public final class EmailSenderTool: NSObject, Tool {
     private var alertTitle: String
     private var alertMessage: String
 
-    // MARK: - Lifecycle -
-    /// email data  (subject, body, attachnebt...) is provided by 'getter' callback which should be implemented during Sentiel initialization step, for example:
+    /// Initializes an instance of EmailSender with the provided configurations.
+    ///
+    /// The email data (subject, body, attachment, etc.) is provided by a 'getter' callback. This callback should be implemented during the Sentinel initialization step. For example, you can set up the Sentinel with an EmailSenderTool in the Sentinel's configuration:
+    ///
+    /// ```
     /// class SentinelInitializer {
-    /// let configuration = Sentinel.Configuration(
-    ///    trigger: Triggers.shake,
-    ///    sourceScreenProvider: SourceScreenProviders.default,
-    ///    tools: [
-    ///     ...,
-    ///        EmailSenderTool {
-    ///            return DomeProvider.composeMail()
-    ///        },
-    ///     ....,
-    ///     ]
+    ///     let configuration = Sentinel.Configuration(
+    ///         trigger: Triggers.shake,
+    ///         sourceScreenProvider: SourceScreenProviders.default,
+    ///         tools: [
+    ///             // other tools...
+    ///             EmailSenderTool {
+    ///                 return DomeProvider.composeMail()
+    ///             },
+    ///             // other tools...
+    ///         ]
+    ///     )
     /// }
-    /// name that will appear in Sentiel
+    /// ```
     ///
-    /// alertTitle && alertMessage describe alert content that will appear if device is not configured to send email's
+    /// - Parameters:
+    ///   - getter: A callback function that returns `MailData` for the email to be sent.
+    ///   - name: The name for the Email Sender tool. Defaults to "Email Sender".
+    ///   - alertTitle: The title of the alert that appears if the device is not configured to send emails. Defaults to "Email Not Available".
+    ///   - alertMessage: The message of the alert that appears if the device is not configured to send emails. Defaults to "Your device is not configured to send emails. Please set up an email account in Mail app or use another device."
     ///
+    /// - Note: Ensure that the device is configured to send emails, or the user will be prompted with the specified alert.
     public init(
         getter: @escaping () -> (MailData),
         name: String = "Email Sender",
-        alertTitle: String = "Email Not Available",
-        alertMessage: String = "Your device is not configured to send emails. Please set up an email account in Mail app or use another device."
+        alertText: EmailSenderUnavailableError = .unavailable
     ) {
         self.getter = getter
         self.name = name
-        self.alertTitle = alertTitle
-        self.alertMessage = alertMessage
+        
+        switch alertText {
+        case .unavailable:
+            self.alertTitle = "Email Not Available"
+            self.alertMessage = "Your device is not configured to send emails. Please set up an email account in Mail app or use another device."
+        case .custom(let title, let message):
+            self.alertTitle = title
+            self.alertMessage = message
+        }
 
         super.init()
     }
@@ -99,10 +119,16 @@ private extension EmailSenderTool {
         mail.setSubject(mailData.subject)
         mail.setMessageBody(mailData.message, isHTML: mailData.isHTML)
 
-        _ = mailData.attachments.map {
-            mail.addAttachmentData($0.data, mimeType: $0.mimeType, fileName: $0.fileName)
-        }
-            
+        mailData
+            .attachments
+            .forEach {
+                mail.addAttachmentData(
+                    $0.data,
+                    mimeType: $0.mimeType,
+                    fileName: $0.fileName
+                )
+            }
+        
         viewController.present(mail, animated: true)
     }
     
