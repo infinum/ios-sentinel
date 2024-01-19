@@ -3,6 +3,8 @@ platform :ios, '11.0'
 
 target 'Sentinel_Example' do
   pod 'Sentinel', :path => '../'
+  pod 'Sentinel/EmailSender', :path => '../'
+
 
   target 'Sentinel_Tests' do
     inherit! :search_paths

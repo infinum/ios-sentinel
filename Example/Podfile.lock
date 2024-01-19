@@ -1,29 +1,33 @@
 PODS:
-  - Sentinel (1.1.2):
-    - Sentinel/Default (= 1.1.2)
-  - Sentinel/Core (1.1.2)
-  - Sentinel/CustomLocation (1.1.2):
+  - Sentinel (1.1.4):
+    - Sentinel/Default (= 1.1.4)
+  - Sentinel/Core (1.1.4)
+  - Sentinel/CustomLocation (1.1.4):
     - Sentinel/Core
-  - Sentinel/Default (1.1.2):
+  - Sentinel/Default (1.1.4):
     - Sentinel/Core
     - Sentinel/CustomLocation
+    - Sentinel/EmailSender
     - Sentinel/TextEditing
     - Sentinel/UserDefaults
-  - Sentinel/TextEditing (1.1.2):
+  - Sentinel/EmailSender (1.1.4):
     - Sentinel/Core
-  - Sentinel/UserDefaults (1.1.2):
+  - Sentinel/TextEditing (1.1.4):
+    - Sentinel/Core
+  - Sentinel/UserDefaults (1.1.4):
     - Sentinel/Core
 
 DEPENDENCIES:
   - Sentinel (from `../`)
+  - Sentinel/EmailSender (from `../`)
 
 EXTERNAL SOURCES:
   Sentinel:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Sentinel: 35a8bf4cf907cc64866f816447ff2387e09a2a6a
+  Sentinel: d31d3fec6ef972cdc4c0330278b68582a25424cf
 
-PODFILE CHECKSUM: b1ea13fb80f56c4238650f0da0299d23734a6421
+PODFILE CHECKSUM: 9c832ffe95f37b33da45d44c34055fef22efd343
 
-COCOAPODS: 1.12.0
+COCOAPODS: 1.14.2
