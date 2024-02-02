@@ -22,10 +22,10 @@ public class PreferenceItem: NSObject {
         case text
         /// Boolean input: "true" or "false"
         case bool
-        /// Integer input with minimum and maximum values
-        case integer(min: Int?, max: Int?)
-        /// Double input with minimum and maximum values
-        case double(min: Double?, max: Double?)
+        /// Integer input
+        case integer
+        /// Double input
+        case double
         /// Enum input, as a RawRepresentable with either String or Int as type.
         case enumeration(allCases: [any RawRepresentable])
     }
@@ -55,6 +55,7 @@ public class PreferenceItem: NSObject {
     private let userDefaults: UserDefaults
     private let userDefaultsKey: String?
     private let onDidSet: ((String?) -> Void)?
+    private let validator: ((String) -> Bool)? = nil
 
     // MARK: - Methods
 
@@ -70,6 +71,7 @@ public class PreferenceItem: NSObject {
         name: String,
         info: String? = "",
         type: InputType,
+        validator: (String) -> Bool = { !$0.isEmpty },
         userDefaultsKey: String?,
         userDefaults: UserDefaults = .standard,
         onDidSet: ((String?) -> Void)?
@@ -102,21 +104,15 @@ public class PreferenceItem: NSObject {
             value = String(newValue.boolValue)
         case .text:
             value = newValue
-        case .integer(let minimum, let maximum):
+        case .integer:
             guard let number = Int(newValue) else {
                 throw InputError.formatError
             }
-            if let minimum, let maximum, number > maximum || number < minimum {
-                throw InputError.outOfRange
-            }
             value = String(number)
-        case .double(let minimum, let maximum):
+        case .double:
             newValue = newValue.replacingOccurrences(of: ",", with: ".") // Swift only recognizes dot as decimal separator.
             guard let number = Double(newValue) else {
                 throw InputError.formatError
-            }
-            if let minimum, let maximum, number > maximum || number < minimum {
-                throw InputError.outOfRange
             }
             value = String(number)
         case .enumeration(let allCases):
@@ -129,22 +125,7 @@ public class PreferenceItem: NSObject {
 
     /// Additional description for this preference
     var rangeDescription: String? {
-        switch type {
-        case .integer(let minimum, let maximum):
-            if let minimum, let maximum {
-                return " (\(minimum) ⋯ \(maximum))"
-            } else {
-                return nil
-            }
-        case .double(let minimum, let maximum):
-            if let minimum, let maximum {
-                return " (\(minimum) ⋯ \(maximum))"
-            } else {
-                return nil
-            }
-        default:
-            return nil
-        }
+        nil // TODO: Fix --------------------------------------------------------------------------------------------------------------------------------------------------------------------
     }
 }
 
