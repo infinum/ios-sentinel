@@ -7,6 +7,11 @@
 
 import UIKit
 
+struct PreferenceItemStoredValue: Codable {
+    var type: PreferenceItem.InputType
+    var encodedJson: String?
+}
+
 @objcMembers
 public class PreferenceItem: NSObject {
 
@@ -17,7 +22,7 @@ public class PreferenceItem: NSObject {
     }
 
     /// Input type of preference. Defines what UI control to display.
-    enum InputType {
+    enum InputType: Codable {
         /// String input
         case text
         /// Boolean input: "true" or "false"
@@ -27,7 +32,7 @@ public class PreferenceItem: NSObject {
         /// Double input
         case double
         /// Enum input, as a RawRepresentable with either String or Int as type.
-        case enumeration(allCases: [any RawRepresentable])
+        case enumeration(allCases: [String])
     }
 
     /// Name of the item
@@ -39,24 +44,33 @@ public class PreferenceItem: NSObject {
     /// The type of this preference
     let type: InputType
 
-    /// Value, saved as string.
-    var value: String? {
-        get {
-            guard let userDefaultsKey else { return nil }
-            return userDefaults.string(forKey: userDefaultsKey) }
-        set {
-            guard let userDefaultsKey else { return }
-            userDefaults.set(newValue, forKey: userDefaultsKey)
+    func loadStoredValue<T: Decodable>(type: T.Type) -> T? {
+        guard let userDefaultsKey, let data = userDefaults.data(forKey: userDefaultsKey) else { return nil }
+        return try? JSONDecoder().decode(T.self, from: data)
+    }
+
+    func loadStoredValue<T: Decodable>() -> T? {
+        guard let userDefaultsKey, let data = userDefaults.data(forKey: userDefaultsKey) else { return nil }
+        return try? JSONDecoder().decode(T.self, from: data)
+    }
+
+    func saveStoredValue<T: Encodable>(_ newValue: T?) {
+        guard let userDefaultsKey else { return }
+        guard let newValue else {
+            userDefaults.set(nil, forKey: userDefaultsKey)
+            return
         }
+        guard let data = try? JSONEncoder().encode(newValue) else { return }
+        userDefaults.set(data, forKey: userDefaultsKey)
     }
 
     // MARK: - Private Properties
 
     private let userDefaults: UserDefaults
     private let userDefaultsKey: String?
-    private let onDidSet: ((String?) -> Void)?
-    private let validator: ((String) -> Bool)? = nil
-
+    private let onDidSet: ((Data?) -> Void)?
+    private let validator: ((Data) -> Bool)? = nil
+    
     // MARK: - Methods
 
     /// Initializes and returns a new Preference.
@@ -68,20 +82,20 @@ public class PreferenceItem: NSObject {
     /// - Parameter userDefaults: Optionally define a different suite of UserDefaults (standard by default).
     /// - Parameter onDidSet: Optional execution block once the value is changed.
     init(
+        inputType: InputType,
         name: String,
         info: String? = "",
-        type: InputType,
-        validator: (String) -> Bool = { !$0.isEmpty },
+        validator: (Data) -> Bool = { !$0.isEmpty },
         userDefaultsKey: String?,
         userDefaults: UserDefaults = .standard,
-        onDidSet: ((String?) -> Void)?
+        onDidSet: ((Data?) -> Void)?
     ) {
         self.name = name
         self.info = info
-        self.type = type
+        self.type = inputType
         self.userDefaultsKey = userDefaultsKey
         self.userDefaults = userDefaults
-        self.onDidSet = onDidSet
+        self.onDidSet = nil
     }
 
     // MARK: - Public Initializers
@@ -96,30 +110,34 @@ public class PreferenceItem: NSObject {
 
     func store(newValue: String?) throws {
         guard var newValue else {
-            value = nil
+            saveStoredValue(String?.none)
             return
         }
         switch type {
         case .bool:
-            value = String(newValue.boolValue)
+            saveStoredValue(newValue.boolValue)
         case .text:
-            value = newValue
+            saveStoredValue(newValue)
         case .integer:
             guard let number = Int(newValue) else {
                 throw InputError.formatError
             }
-            value = String(number)
+            saveStoredValue(number)
         case .double:
             newValue = newValue.replacingOccurrences(of: ",", with: ".") // Swift only recognizes dot as decimal separator.
-            guard let number = Double(newValue) else {
+            guard let value = Double(newValue) else {
                 throw InputError.formatError
             }
-            value = String(number)
+            saveStoredValue(value)
         case .enumeration(let allCases):
+            print(allCases)
+            break // TODO: ?????
+            /*
             guard allCases.contains(where: { $0.partiallyMatches(string: newValue) }) else {
                 throw InputError.enumCaseNotFound
             }
             value = newValue
+            */
         }
     }
 
@@ -137,7 +155,7 @@ public typealias OptionSwitchItem = PreferenceItem
 
 extension PreferenceItem {
 
-    @available(*, deprecated, message: "Please use the default init method using 'bool' as the input type")
+    @available(*, deprecated, message: "Please use .init(type:name:) method")
     public convenience init(
         name: String,
         setter: ((Bool) -> ())?,
@@ -146,15 +164,18 @@ extension PreferenceItem {
         userDefaultsKey: String?
     ) {
         self.init(
+            type: Bool.self,
             name: name,
             info: "",
-            type: .bool,
+            validator: { _ in return true },
             userDefaultsKey: userDefaultsKey,
-            userDefaults: userDefaults) { newValue in
-                if let setter, let newValue {
-                    setter(newValue.boolValue)
+            userDefaults: userDefaults,
+            onDidSet: { value in
+                if let value {
+                    setter?(value)
                 }
             }
+        )
     }
 }
 
@@ -164,6 +185,14 @@ extension String {
     var boolValue: Bool {
         return (self as NSString).boolValue
     }
+}
+
+extension Double {
+    var asString: String { .init(self) }
+}
+
+extension Int {
+    var asString: String { .init(self) }
 }
 
 private extension RawRepresentable {

@@ -62,7 +62,7 @@ private extension AppDelegate {
     /// Simple switch items that can be toggled on or off.
     var preferences: [PreferenceItem] {
         return [
-            // Old API values:
+            // MARK: Old API values:
             .init(
                 name: "Analytics",
                 setter: { AppSwitches.analyticsEnabled = $0 },
@@ -84,46 +84,46 @@ private extension AppDelegate {
                 userDefaults: .standard,
                 userDefaultsKey: "com.infinum.sentinel.optionSwitch.logging"
             ),
-            // New API values:
-            .init(
-                textName: "Name",
-                info: "From 1 to 5",
+            // MARK: New API values:
+             .init(
+                type: String.self, name: "Name",
+                info: "Up to 50 chars",
+                validator: { $0.count < 50 },
                 userDefaultsKey: "com.infinum.sentinel.optionSwitch.name",
-                onDidSet: nil
+                onDidSet: {
+                    print("Did set:", $0?.uppercased() ?? "<nil>")
+                }
             ),
             .init(
-                integerName: "Star Rating",
+                type: Int.self,
+                name: "Star Rating",
                 info: "From 1 to 5",
-                min: 1,
-                max: 5,
+                validator: { $0 >= 1 && $0 <= 5 },
                 userDefaultsKey: "com.infinum.sentinel.optionSwitch.starRating",
-                onDidSet: nil
+                onDidSet: {
+                    print("Did set integer. isEven=", $0?.isMultiple(of: 2) ?? false)
+                }
             ),
             .init(
-                doubleName: "Temperature",
-                info: "Decimal number",
-                min: -50,
-                max: 50,
+                type: Double.self,
+                name: "Temperature",
+                info: "Decimal number, between -50 and +50.",
+                validator: { abs($0) <= 50 },
                 userDefaultsKey: "com.infinum.sentinel.optionSwitch.temperature",
                 onDidSet: { [weak self] in self?.didChange(temperature: $0) }
             ),
             .init(
-                enumName: "Weekday",
                 enumType: Weekday.self,
+                name: "Weekday",
                 userDefaultsKey: "com.infinum.sentinel.optionSwitch.weekdays",
                 onDidSet: { [weak self] in self?.didChange(weekday: $0) }
             ),
             .init(
-                enumName: "Direction",
-                enumType: Direction.self,
-                userDefaultsKey: "com.infinum.sentinel.optionSwitch.direction",
-                onDidSet: { [weak self] in self?.didChange(direction: $0) }
-            ),
-            .init(
-                boolName: "Placeholder Mode",
+                type: Bool.self,
+                name: "Placeholder Mode",
                 info: "Hides images when turned on",
                 userDefaultsKey: "com.infinum.sentinel.optionSwitch.placeholderMode",
-                onDidSet: { [weak self] in self?.didChange(isPlaceholderModeOn: $0) }
+                onDidSet: { [weak self] in self?.didChange(isPlaceholderModeOn: $0 ?? false) }
             )
         ]
     }

@@ -36,26 +36,25 @@ class PreferenceTableCell: UITableViewCell, UITextFieldDelegate {
         // Hide all the input views initially:
         [_switch, _numberField, _textField, _enumButton].forEach { $0?.isHidden = true }
 
-        let value = item.value ?? ""
         switch item.type {
         case .bool:
-            _switch.isOn = (value as NSString).boolValue
+            _switch.isOn = item.loadStoredValue() ?? false
             _switch.isHidden = false
             _switch.addTarget(self, action: #selector(switchDidEndEditing), for: .valueChanged)
         case .integer:
-            _numberField.text = value
+            _numberField.text = item.loadStoredValue(type: Int.self)?.asString ?? ""
             _numberField.placeholder = item.rangeDescription
             _numberField.isHidden = false
         case .double:
-            _numberField.text = value
+            _numberField.text =  item.loadStoredValue(type: Double.self)?.asString ?? ""
             _numberField.placeholder = item.rangeDescription
             _numberField.isHidden = false
         case .text:
-            _textField.text = value
+            _textField.text =  item.loadStoredValue(type: String.self) ?? ""
             _textField.isHidden = false
         case .enumeration(let allCases):
             _enumButton.configure(enumCases: allCases) { [weak self] in self?.menuButtonDidEndEditing($0) }
-            _enumButton.refreshEnumButton(rawValue: value)
+            _enumButton.refreshEnumButton(rawValue: item.loadStoredValue(type: String.self))
             _enumButton.isHidden = false
         }
     }
@@ -78,8 +77,8 @@ class PreferenceTableCell: UITableViewCell, UITextFieldDelegate {
         handle(newValue: textField.text)
     }
 
-    func menuButtonDidEndEditing(_ newValue: any RawRepresentable) {
-        handle(newValue: newValue.rawValueAsString)
+    func menuButtonDidEndEditing(_ newValue: String) {
+        handle(newValue: newValue)
     }
 
     @objc

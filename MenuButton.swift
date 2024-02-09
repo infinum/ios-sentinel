@@ -10,12 +10,12 @@ import UIKit
 /// A button that opens a context menu with enum cases (raw representables) as options.
 class MenuButton: UIButton {
 
-    private var enumCases: [any RawRepresentable] = []
-    private var handler: ((any RawRepresentable) -> Void)?
+    private var enumCases: [String] = []
+    private var handler: ((String) -> Void)?
 
     func configure(
-        enumCases allCases: [any RawRepresentable],
-        handler: ((any RawRepresentable) -> Void)?
+        enumCases allCases: [String],
+        handler: ((String) -> Void)?
     ) {
         self.enumCases = allCases
         self.handler = handler
@@ -29,7 +29,7 @@ class MenuButton: UIButton {
         }
         let actions = enumCases.map { enumCase in
             return UIAction(
-                title: enumCase.titleAndRawValue,
+                title: enumCase,
                 image: nil,
                 handler: { [weak self] _ in self?.handler?(enumCase) }
             )
@@ -39,8 +39,8 @@ class MenuButton: UIButton {
     }
 
     func refreshEnumButton(rawValue: String?) {
-        if let rawValue, let enumCase = enumCases.first(where: { String(describing: $0.rawValue) == rawValue }) {
-            setTitle(enumCase.titleAndRawValue, for: .normal)
+        if let rawValue, let enumCase = enumCases.first(where: { $0 == rawValue }) {
+            setTitle(enumCase, for: .normal)
         } else if let rawValue {
             setTitle("Unknown (" + rawValue + ")", for: .normal)
         } else {
@@ -53,25 +53,10 @@ class MenuButton: UIButton {
     @objc private func configureAlertAsFallbackiOS13AndEarlier() {
         let alert = UIAlertController(title: "Select Enum Case", message: nil, preferredStyle: .alert)
         for enumCase in enumCases {
-            let title = enumCase.rawValue as? String ?? String(describing: enumCase)
+            let title = enumCase
             alert.addAction(UIAlertAction(title: title, style: .default, handler: { [weak self] _ in self?.handler?(enumCase) }))
         }
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         Sentinel.shared.tabBarController?.present(alert, animated: true)
-    }
-}
-
-extension RawRepresentable {
-
-    var titleAndRawValue: String {
-        return String(describing: self) + " (" + rawValueAsString + ")"
-    }
-
-    var rawValueAsString: String {
-        switch rawValue {
-        case let value as Int: return String(value)
-        case let value as String: return value
-        default: return String(describing: rawValue)
-        }
     }
 }
