@@ -32,6 +32,7 @@ extension PreferenceItem {
         case is String.Type: inputType = .text
         case is Int.Type: inputType = .integer
         case is Double.Type: inputType = .double
+        case is Bool.Type: inputType = .bool
         default:
             inputType = .text
             assertionFailure("Unsupported type: \(T.self))! Choose String, Int, Double.")
