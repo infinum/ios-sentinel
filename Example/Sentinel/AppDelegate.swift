@@ -25,10 +25,11 @@ enum AppUrl {
     static var baseURL = "http://google.com"
 }
 
-enum AppSwitches {
+enum AppPreferences {
     static var analyticsEnabled = true
     static var crashlyticsEnabled = true
     static var loggingEnabled = false
+    static var textInput = "text"
 }
 
 private extension AppDelegate {
@@ -59,29 +60,38 @@ private extension AppDelegate {
         )
     }
     
-    var optionSwitchItems: [OptionSwitchItem] {
+    var optionSwitchItems: [any PreferenceItem] {
        [
+        // This class is used here to check if the code is backward compatible.
         OptionSwitchItem(
             name: "Analytics",
-            setter: { AppSwitches.analyticsEnabled = $0 },
-            getter: { AppSwitches.analyticsEnabled },
+            setter: { AppPreferences.analyticsEnabled = $0 },
+            getter: { AppPreferences.analyticsEnabled },
             userDefaults: .standard,
-            userDefaultsKey: "com.infinum.sentinel.optionSwitch.analytics"
+            userDefaultsKey: "com.infinum.sentinel.switch.analytics"
         ),
-        OptionSwitchItem(
+        PreferenceSwitchItem(
             name: "Crashlytics",
-            setter: { AppSwitches.crashlyticsEnabled = $0 },
-            getter: { AppSwitches.crashlyticsEnabled },
+            setter: { AppPreferences.crashlyticsEnabled = $0 },
+            getter: { AppPreferences.crashlyticsEnabled },
             userDefaults: .standard,
-            userDefaultsKey: "com.infinum.sentinel.optionSwitch.crashlytics"
+            userDefaultsKey: "com.infinum.sentinel.switch.crashlytics"
         ),
-        OptionSwitchItem(
+        PreferenceSwitchItem(
             name: "Logging",
-            setter: { AppSwitches.loggingEnabled = $0 },
-            getter: { AppSwitches.loggingEnabled },
+            setter: { AppPreferences.loggingEnabled = $0 },
+            getter: { AppPreferences.loggingEnabled },
             userDefaults: .standard,
-            userDefaultsKey: "com.infinum.sentinel.optionSwitch.logging"
+            userDefaultsKey: "com.infinum.sentinel.switch.logging"
         ),
+        PreferenceTextItem(
+            name: "Text input",
+            setter: { AppPreferences.textInput = $0 },
+            getter: { AppPreferences.textInput },
+            validator: { $0.count <= 5 },
+            userDefaults: .standard,
+            userDefaultsKey: "com.infinum.sentinel.text.inputText"
+        )
        ]
 
     }
