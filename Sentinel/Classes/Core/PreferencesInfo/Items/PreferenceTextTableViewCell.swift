@@ -9,6 +9,7 @@ class PreferenceTextTableViewCell: UITableViewCell {
     
     // MARK: - Private properties
 
+    private var inputValidator: ((String) -> Bool)?
     private var inputValueActionHandler: ((String?) -> Void)?
     
     // MARK: - Lifecycle
@@ -23,11 +24,21 @@ class PreferenceTextTableViewCell: UITableViewCell {
     func configure(with item: PreferenceTextItem) {
         titleLabel.text = item.name
         inputField.text = item.getter()
+        inputValidator = item.validator
         inputValueActionHandler = { item.change(to: $0 ?? "") }
     }
 }
 
 extension PreferenceTextTableViewCell: UITextFieldDelegate {
+    
+    func textField(
+        _ textField: UITextField,
+        shouldChangeCharactersIn range: NSRange,
+        replacementString string: String
+    ) -> Bool {
+        let proposedString = (textField.text ?? "") + string
+        return inputValidator?(proposedString) ?? true
+    }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         inputValueActionHandler?(textField.text)
