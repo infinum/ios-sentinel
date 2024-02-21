@@ -66,7 +66,7 @@ public class Sentinel: NSObject {
         public let tools: [Tool]
 
         /// Items which are shown on preferences screen
-        public let preferences: [PreferenceItem]
+        public let preferences: [any PreferenceItem]
         
         // MARK: - Lifecycle
 
@@ -81,7 +81,7 @@ public class Sentinel: NSObject {
             trigger: Trigger,
             sourceScreenProvider: SourceScreenProvider = SourceScreenProviders.default,
             tools: [Tool],
-            preferences: [PreferenceItem] = []
+            preferences: [any PreferenceItem] = []
         ) {
             self.trigger = trigger
             self.sourceScreenProvider = sourceScreenProvider
