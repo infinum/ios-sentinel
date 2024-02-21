@@ -7,7 +7,7 @@
 
 import UIKit
 
-class OptionSwitchTableViewCell: UITableViewCell {
+class PreferenceSwitchTableViewCell: UITableViewCell {
 
     // MARK: - IBOutlets
     
@@ -20,7 +20,7 @@ class OptionSwitchTableViewCell: UITableViewCell {
     
     // MARK: - Public methods
     
-    func configure(with item: OptionSwitchItem) {
+    func configure(with item: PreferenceSwitchItem) {
         titleLabel.text = item.name
         optionSwitch.isOn = item.getter()
         optionSwitchActionHandler = { item.change(to: $0) }

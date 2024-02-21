@@ -7,9 +7,13 @@
 
 import UIKit
 
+/// Deprecated. Previously named `OptionSwitchItem` and only supported switch/boolean.
+@available(*, deprecated, renamed: "PreferenceSwitchItem")
+public typealias OptionSwitchItem = PreferenceSwitchItem
+
 /// Provides option to change enabled state of the feature.
 @objcMembers
-public class OptionSwitchItem: NSObject {
+public class PreferenceSwitchItem: NSObject {
     
     // MARK: - Internal properties
     
@@ -59,22 +63,22 @@ public class OptionSwitchItem: NSObject {
     }
 }
 
-extension OptionSwitchItem: ToolTableItem {
+extension PreferenceSwitchItem: PreferenceItem {
     
     public func cell(from tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(ofType: OptionSwitchTableViewCell.self, for: indexPath)
+        let cell = tableView.dequeueReusableCell(ofType: PreferenceSwitchTableViewCell.self, for: indexPath)
         cell.configure(with: self)
         return cell
     }
     
     public func register(at tableView: UITableView) {
-        tableView.registerNib(cellOfType: OptionSwitchTableViewCell.self)
+        tableView.registerNib(cellOfType: PreferenceSwitchTableViewCell.self)
     }
 }
 
 // MARK: - Private methods
 
-private extension OptionSwitchItem {
+private extension PreferenceSwitchItem {
     
     func store(newValue: Bool) {
         if let key = userDefaultsKey {
