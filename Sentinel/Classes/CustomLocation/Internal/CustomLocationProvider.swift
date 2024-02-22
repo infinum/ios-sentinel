@@ -38,7 +38,7 @@ class CustomLocationProvider {
     var customLocation: CLLocation? {
         guard
             let data = userDefaults.object(forKey: Constants.locationMockLocationKey) as? Data,
-            let location = NSKeyedUnarchiver.unarchiveObject(with: data) as? CLLocation
+            let location = try? NSKeyedUnarchiver.unarchivedObject(ofClass: CLLocation.self, from: data)
         else { return nil }
         return location
     }
@@ -48,7 +48,7 @@ class CustomLocationProvider {
     }
     
     func setCustomLocation(location: CLLocation) {
-        let data = NSKeyedArchiver.archivedData(withRootObject: location)
+        let data = try? NSKeyedArchiver.archivedData(withRootObject: location, requiringSecureCoding: true)
         userDefaults.setValue(data, forKey: Constants.locationMockLocationKey)
     }
 }
