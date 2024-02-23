@@ -8,7 +8,7 @@ public class PreferenceTextItem: NSObject {
     public let name: String
     public let setter: (String) -> ()
     public let getter: () -> String
-    public let validator: ((String) -> Bool)?
+    public let validators: [AnyPreferenceValidator<String>]
     public let userDefaults: UserDefaults
     public let userDefaultsKey: String?
     
@@ -18,14 +18,14 @@ public class PreferenceTextItem: NSObject {
         name: String,
         setter: @escaping (String) -> Void,
         getter: @escaping () -> String,
-        validator: ((String) -> Bool)? = nil,
+        validators: [AnyPreferenceValidator<String>] = [],
         userDefaults: UserDefaults = .standard,
         userDefaultsKey: String?
     ) {
         self.name = name
         self.setter = setter
         self.getter = getter
-        self.validator = validator
+        self.validators = validators
         self.userDefaults = userDefaults
         self.userDefaultsKey = userDefaultsKey
         super.init()

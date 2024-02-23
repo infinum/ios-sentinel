@@ -88,7 +88,9 @@ private extension AppDelegate {
             name: "Text input",
             setter: { AppPreferences.textInput = $0 },
             getter: { AppPreferences.textInput },
-            validator: { $0.count <= 5 },
+            validators: [
+                AnyPreferenceValidator(validator: PreferenceCountValidator(min: 0, max: 10))
+            ],
             userDefaults: .standard,
             userDefaultsKey: "com.infinum.sentinel.text.inputText"
         )

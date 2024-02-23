@@ -24,7 +24,11 @@ class PreferenceTextTableViewCell: UITableViewCell {
     func configure(with item: PreferenceTextItem) {
         titleLabel.text = item.name
         inputField.text = item.getter()
-        inputValidator = item.validator
+        inputValidator = { value in
+            item.validators.reduce(true) { partialResult, validator in
+                partialResult && validator.validate(value: value)
+            }
+        }
         inputValueActionHandler = { item.change(to: $0 ?? "") }
     }
 }

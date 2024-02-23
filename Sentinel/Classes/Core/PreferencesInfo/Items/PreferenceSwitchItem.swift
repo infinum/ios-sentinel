@@ -20,7 +20,7 @@ public class PreferenceSwitchItem: NSObject {
     public let name: String
     public let setter: (Bool) -> ()
     public let getter: () -> (Bool)
-    public let validator: ((Bool) -> Bool)?
+    public let validators: [AnyPreferenceValidator<Bool>]
     public let userDefaults: UserDefaults
     public let userDefaultsKey: String?
 
@@ -30,14 +30,14 @@ public class PreferenceSwitchItem: NSObject {
         name: String,
         setter: @escaping (Bool) -> (),
         getter: @escaping () -> (Bool),
-        validator: ((Bool) -> Bool)? = nil,
+        validators: [AnyPreferenceValidator<Bool>] = [],
         userDefaults: UserDefaults = .standard,
         userDefaultsKey: String?
     ) {
         self.name = name
         self.setter = setter
         self.getter = getter
-        self.validator = validator
+        self.validators = validators
         self.userDefaults = userDefaults
         self.userDefaultsKey = userDefaultsKey
         super.init()

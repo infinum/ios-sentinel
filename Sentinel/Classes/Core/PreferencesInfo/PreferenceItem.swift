@@ -16,8 +16,8 @@ public protocol PreferenceItem: ToolTableItem {
     /// It should be used to provide the current variable value.
     var getter: () -> T { get }
     
-    /// Uses to define validation rules.
-    var validator: ((T) -> Bool)? { get }
+    /// Array of validators used to define validation rules..
+    var validators: [AnyPreferenceValidator<T>] { get }
 
     /// Default storage used for storing information if the key is provided.
     var userDefaults: UserDefaults { get }
