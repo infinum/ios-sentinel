@@ -109,6 +109,11 @@ let configuration = Sentinel.Configuration(
 Sentinel.shared.setup(with: configuration)
 ```
 
+## Privacy
+
+Sentinel does not collect any user data. We have provided a [privacy manifest](https://github.com/infinum/ios-sentinel/blob/master/Sentinel/SupportingFiles/PrivacyInfo.xcprivacy) file that can be included in your app.
+
+
 ## Authors
 
 * Vlaho Poluta, vlaho.poluta@infinum.com
