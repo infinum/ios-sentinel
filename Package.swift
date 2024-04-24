@@ -36,7 +36,8 @@ let package = Package(
                 "Classes/Collar/CollarTool.swift"
             ],
             resources: [
-                .process("Assets")
+                .process("Assets"),
+                .copy("SupportingFiles/PrivacyInfo.xcprivacy")
             ]
         ),
         .target(
