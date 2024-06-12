@@ -82,6 +82,22 @@ public protocol Tool {
 
 Based on this, only `name` should be provided as well as `presentPreview:` method which will present the tool view controller from the `sourceScreenProvider` view controller defined in the Sentinel configuration.
 
+A common custom tool that might be needed is `Pulse` network logger. It can be defined in the following way:
+
+```swift
+
+class PulseTool: Tool {
+    var name: String { "Pulse" }
+
+    func presentPreview(from viewController: UIViewController) {
+        let pulse = UIHostingController(rootView: ConsoleView())
+        let pulseNavigation = UINavigationController(rootViewController: pulse)
+        viewController.present(pulseNavigation, animated: true)
+    }
+}
+
+```
+
 ### Getting started
 
 To add the *Sentinel* to your project, install the library via CocoaPods as instructed above. After that, define *Sentinel* configuration with mandatory parameters and call `Sentinel.shared.setup:` in the `AppDelegate` method `application(_:didFinishLaunchingWithOptions:)`.
@@ -93,7 +109,7 @@ let configuration = Sentinel.Configuration(
     tools: [
         GeneralInfoTool(),
         UserDefaultsTool(),
-        LoggieTool(),
+        PulseTool(),
     ],
     preferences: [
         OptionSwitchItem(

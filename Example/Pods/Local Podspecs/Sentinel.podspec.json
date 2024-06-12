@@ -72,30 +72,6 @@
       }
     },
     {
-      "name": "Loggie",
-      "source_files": "Sentinel/Classes/Loggie/**/*",
-      "dependencies": {
-        "Sentinel/Core": [
-
-        ],
-        "Loggie": [
-
-        ]
-      }
-    },
-    {
-      "name": "Collar",
-      "source_files": "Sentinel/Classes/Collar/**/*",
-      "dependencies": {
-        "Sentinel/Core": [
-
-        ],
-        "Collar": [
-
-        ]
-      }
-    },
-    {
       "name": "Default",
       "dependencies": {
         "Sentinel/Core": [
