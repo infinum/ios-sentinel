@@ -56,18 +56,6 @@ Pod::Spec.new do |s|
     sp.dependency 'Sentinel/Core'
   end
   
-  s.subspec 'Loggie' do |sp|
-    sp.source_files = 'Sentinel/Classes/Loggie/**/*'
-    sp.dependency 'Sentinel/Core'
-    sp.dependency 'Loggie'
-  end
-  
-  s.subspec 'Collar' do |sp|
-    sp.source_files = 'Sentinel/Classes/Collar/**/*'
-    sp.dependency 'Sentinel/Core'
-    sp.dependency 'Collar'
-  end
-  
   s.subspec 'Default' do |sp|
     sp.dependency 'Sentinel/Core'
     sp.dependency 'Sentinel/UserDefaults'
