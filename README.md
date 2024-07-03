@@ -111,6 +111,22 @@ public protocol Tool {
 
 Based on this, only `name` should be provided as well as `presentPreview:` method which will present the tool view controller from the `sourceScreenProvider` view controller defined in the Sentinel configuration.
 
+A common custom tool that might be needed is `Pulse` network logger. It can be defined in the following way:
+
+```swift
+
+class PulseTool: Tool {
+    var name: String { "Pulse" }
+
+    func presentPreview(from viewController: UIViewController) {
+        let pulse = UIHostingController(rootView: ConsoleView())
+        let pulseNavigation = UINavigationController(rootViewController: pulse)
+        viewController.present(pulseNavigation, animated: true)
+    }
+}
+
+```
+
 ## Contributing
 
 We believe that the community can help us improve and build better a product.
