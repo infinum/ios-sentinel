@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Sentinel'
-  s.version          = '1.2.1'
+  s.version          = '1.2.2'
   s.summary          = 'Developer\'s toolbox for debugging applications'
 
   s.description      = <<-DESC
