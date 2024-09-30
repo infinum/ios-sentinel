@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Sentinel'
-  s.version          = '1.2.2'
+  s.version          = '2.0.0'
   s.summary          = 'Developer\'s toolbox for debugging applications'
 
   s.description      = <<-DESC
@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
                        DESC
 
   s.homepage         = 'https://github.com/infinum/ios-sentinel'
-  s.license          = { :type => 'MIT', :file => 'LICENSE' }
+  s.license          = { :type => 'Apache 2.0', :file => 'LICENSE' }
   s.author           = { 'Infinum' => 'ios@infinum.com', 'Vlaho Poluta' => 'vlaho.poluta@infinum.com', 'Nikola Majcen' => 'nikola.majcen@infinum.com' }
   s.source           = { :git => 'https://github.com/infinum/ios-sentinel.git', :tag => s.version.to_s }
 
@@ -54,18 +54,6 @@ Pod::Spec.new do |s|
   s.subspec 'TextEditing' do |sp|
     sp.source_files = 'Sentinel/Classes/TextEditing/**/*'
     sp.dependency 'Sentinel/Core'
-  end
-  
-  s.subspec 'Loggie' do |sp|
-    sp.source_files = 'Sentinel/Classes/Loggie/**/*'
-    sp.dependency 'Sentinel/Core'
-    sp.dependency 'Loggie'
-  end
-  
-  s.subspec 'Collar' do |sp|
-    sp.source_files = 'Sentinel/Classes/Collar/**/*'
-    sp.dependency 'Sentinel/Core'
-    sp.dependency 'Collar'
   end
   
   s.subspec 'Default' do |sp|
