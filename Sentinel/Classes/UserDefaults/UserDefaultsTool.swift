@@ -46,6 +46,8 @@ private extension UserDefaultsTool {
                 viewController.navigationController?.pushViewController(userDefaultsViewController, animated: true)
             }
         }
+        .sorted { $0.title < $1.title }
+
         let section = ToolTableSection(items: items)
         return ToolTable(name: name, sections: [section])
     }

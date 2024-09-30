@@ -39,4 +39,12 @@ class UserDefaultsViewController: UIViewController {
         titleLabel.text = text
         detailsTextView.text = details
     }
+
+    // MARK: - Actions
+
+    @IBAction func didSelectDelete(_ sender: Any) {
+        guard let key = titleLabel.text else { return }
+        UserDefaults.standard.removeObject(forKey: key)
+        navigationController?.popViewController(animated: true)
+    }
 }
