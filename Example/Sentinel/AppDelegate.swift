@@ -40,8 +40,6 @@ private extension AppDelegate {
                 UserDefaultsTool(),
                 baseUrlTool,
                 CustomLocationTool()
-//                CollarTool(),
-//                LoggieTool()
             ],
             preferences: optionSwitchItems
         )

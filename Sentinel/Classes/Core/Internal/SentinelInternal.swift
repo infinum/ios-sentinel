@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 extension Sentinel {
     
@@ -25,17 +26,18 @@ extension Sentinel {
             preferences: preferences,
             viewController: viewController
         )
-        let tabBarController = UIStoryboard.sentinel
-            .instantiateViewController(ofType: SentinelTabBarController.self)
-        let preselectedTabIndex = preselectedTabIndex(
-            for: .tools(items: []),
-            tabItems: tabItems
-        )
-        tabBarController.setupViewControllers(
-            with: tabItems.map { $0.viewController },
-            preselectedIndex: preselectedTabIndex
-        )
-        tabBarController.title = "Sentinel"
+//        let tabBarController = UIStoryboard.sentinel
+//            .instantiateViewController(ofType: SentinelTabBarController.self)
+//        let preselectedTabIndex = preselectedTabIndex(
+//            for: .tools(items: []),
+//            tabItems: tabItems
+//        )
+//        tabBarController.setupViewControllers(
+//            with: tabItems.map { $0.viewController },
+//            preselectedIndex: preselectedTabIndex
+//        )
+//        tabBarController.title = "Sentinel"
+        let tabBarController = UIHostingController(rootView: SentinelTabBarView())
 
         let navController = UINavigationController(rootViewController: tabBarController)
         viewController.present(navController, animated: true)
