@@ -6,14 +6,16 @@
 
 [![Build Status](https://app.bitrise.io/app/56dc4082e9c3bb9e/status.svg?token=aHG6rIR2XDrJ3xNOIO2hXw&branch=master)](https://app.bitrise.io/app/56dc4082e9c3bb9e)
 [![Version](https://img.shields.io/cocoapods/v/Sentinel.svg?style=flat)](https://cocoapods.org/pods/Sentinel)
-[![License](https://img.shields.io/cocoapods/l/Sentinel.svg?style=flat)](https://cocoapods.org/pods/Sentinel)
+[![License](https://img.shields.io/cocoapods/l/Sentinel.svg?style=flat)](https://cocoapods.org/pods/Sentinel#license)
 [![Platform](https://img.shields.io/cocoapods/p/Sentinel.svg?style=flat)](https://cocoapods.org/pods/Sentinel)
 
 ## Description
 
 **Sentinel** is a simple library that gives developers the possibility to configure one entry point for every debug tool. The idea of **Sentinel** is to give the ability to developers to configure a screen with multiple debug tools which are available via some event (e.g. shake, notification).
 
-**Sentinel** has a tab bar that contains five screens. Three of those aren't configurable, and two of them are. The first screen is the **Device** screen which allows the user to look into some of the device-specific information. The second screen is the **Application** screen which allows the user to look into some of the application-specific information from the <i>info.plist</i>. The third, the first configurable screen, is the **Tools** screen. **Tools** screen allows you to add as much `Tool` object as your heart desires which can be used by the user to find out some specific information. The fourth, last configurable screen, is the **Preferences** screen. **Preferences** screen allows you to add options that allow or deny some activity inside the app. The last, but not the least, is the **Performance** screen which contains performance-specific information. Later on, we'll explain how you can configure those screens.
+**Sentinel** has a tab bar that contains five screens. Three of those aren't configurable, and two of them are. The first screen is the **Device** screen which allows the user to look into some of the device-specific information. The second screen is the **Application** screen which allows the user to look into some of the application-specific information from the <i>info.plist</i>. The third, the first configurable screen, is the **Tools** screen. **Tools** screen allows you to add as much `Tool` object as your heart desires which can be used by the user to find out some specific information. The fourth, last configurable screen, is the **Preferences** screen. **Preferences** screen allows you to add options that allow or deny some activity inside the app. **Preferences** tab can also be used as a feature control entry point, the user will be able to enable or disable the features by pressing on the option button. The last, but not the least, is the **Performance** screen which contains performance-specific information. Later on, we'll explain how you can configure those screens.
+
+**Sentinel** contains a few custom tools which can be used. You can find out more in the [Usage](#usage) part.
 
 This library supports both **Swift** and **Objective-C**.
 
@@ -28,7 +30,7 @@ This library supports both **Swift** and **Objective-C**.
 
 ## Requirements
 
-* iOS 10 and above
+* iOS 11 and above
 * Xcode 10 and above
 
 ## Getting started
@@ -37,12 +39,22 @@ This library supports both **Swift** and **Objective-C**.
 
 #### CocoaPods
 
-Sentinel is available through [CocoaPods](https://cocoapods.org). To install
+*Sentinel* is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
 pod 'Sentinel'
 ```
+
+*Sentinel* is made of multiple subspects:
+- `Core` which will install only the core features for the *Sentinel* to be usable
+- `UserDefaults` which will add the `UserDefaultsTool`
+- `EmailSendel` which will add the `EmailSenderTool`
+- `CustomLocation` which will add the `CustomLocationTool`
+- `TextEditing` which will add the `TextEditingTool`
+- `Default` - which will install `UserDefaults`, `Core`, `CustomLocation`, and `TextEditing`
+
+*NOTE: All of the subspecs add `Core` as a dependency*
 
 #### Swift Package Manager
 
@@ -50,72 +62,94 @@ If you are using SPM for your dependency manager, add this to the dependencies i
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/infinum/ios-sentinel.git")
+.package(url: "https://github.com/infinum/ios-sentinel.git")
 ]
-```
-
-To add the *Sentinel* to your project, install the library as instructed above. After that, define *Sentinel* configuration with mandatory parameters and call `Sentinel.shared.setup:` in the `AppDelegate` method `application(_:didFinishLaunchingWithOptions:)`.
-
-```swift
-let configuration = Sentinel.Configuration(
-    sourceScreenProvider: SourceScreenProviders.default,
-    trigger: Triggers.shake,
-    tools: [
-        GeneralInfoTool(),
-        UserDefaultsTool(),
-        LoggieTool(),
-    ],
-    preferences: [
-        OptionSwitchItem(
-            name: "Analytics",
-            setter: { AppSwitches.analyticsEnabled = $0 },
-            getter: { AppSwitches.analyticsEnabled },
-            userDefaults: .standard,
-            userDefaultsKey: "com.infinum.sentinel.optionSwitch.analytics"
-        )
-    ]
-)
-
-Sentinel.shared.setup(with: configuration)
 ```
 
 ## Usage
 
 ### Basics
 
-`Sentinel` is the main class used to setup the *Sentinel* which will be used in the application. The `Sentinel` object can configured via `setup:` method by `Configuration` object.
+`Sentinel` is the main class used to setup the *Sentinel* which will be used in the application. The `Sentinel` object can configured via `setup:` method by `Configuration` object. The `setup:` can be called in the `AppDelegate` method `application(_:didFinishLaunchingWithOptions:)`.
+
+```swift
+    let configuration = Sentinel.Configuration(
+        trigger: Triggers.shake,
+        tools: [
+            UserDefaultsTool(),
+            CustomLocationTool()
+        ],
+        preferences: optionSwitchItems
+    )
+
+    Sentinel.shared.setup(with: configuration)
+```
 
 ### Configuration
 
 To be able to configure the `Sentinel` object, the `Configuration` object is introduced. This object contains multiple objects which define general *Sentinel* behaviour. The inputs which this object needs are; `trigger`, `sourceScreenProvider`, `tools`, and `preferences`.  
 
-The `trigger` object is a type of `Trigger` which defines on which event the *Sentinel* will be triggered. Currently, three types of are supported; `ShakeTrigger`, `ScreenshotTrigger`, `NotificationTrigger`. New triggers can be added as well, just by conforming the `Trigger` protocol.
+The `trigger` object is a type of `Trigger` which defines on which event the *Sentinel* will be triggered. Currently, three types of are supported; `ShakeTrigger`, `ScreenshotTrigger`, `NotificationTrigger`. New triggers can be added as well, just by conforming the `Trigger` protocol. Currently available triggers can be accessed from the `Triggers` class by using its designated static properties like `shake`, `screenshot` or `notification(forName:)`.
 
-The `sourceScreenProvider` object is a type of `SourceScreenProvider` which should provide a view controller from where will *Sentinel* be presented. Currently, one type is supported; `default`.
+In any case that there's a need for another `Trigger`, take a look at the currently implemented ones to gain some information on how it should be done.
+
+```swift
+/// Defines interaction with trigger.
+@objc
+public protocol Trigger: NSObjectProtocol {
+
+    /// Subscribes to the triggering event.
+    ///
+    /// - Parameter events: The block which will be called when notification arrives.
+    @objc(subscribeOnEvents:)
+    func subscribe(on events: @escaping () -> ())
+}
+```
+
+The `sourceScreenProvider` object is a type of `SourceScreenProvider` which should provide a view controller from where will *Sentinel* be presented. Currently, one type is supported; `default`, and the initializer will default to it. The `SourceScreenProvider.default` uses the the current top ViewController to be the one providing the *Sentinel* screens. 
 
 The `tools` object is an array of `Tool` objects. `Tool` objects represent tools which will be available from *Sentinel*. There are multiple tools already supported by the library, but custom tools can be created and added to the *Sentinel*.
 
-The last, but not the least, is the `preferences` object which is an array of `OptionSwitchItem` objects. `OptionSwitchItem` is used to allow the user to switch of some of the preferences which are contained in the app. e.g. The app supports Analitycs and you can add an `OptionSwitchTool` which will be shown on the `Preferences` screen and the user can turn it off if he doesn't want it.
+The last, but not the least, is the `preferences` object which is an array of `OptionSwitchItem` objects. `OptionSwitchItem` is used to allow the user to switch of some of the preferences which are contained in the `UserDefaults`. To allow the user the interaction, you will have to add a `getter`, and a `setter` for the property from the `UserDefaults` object.
+
+e.g. The app supports Analitycs and you can add an `OptionSwitchTool` which will be shown on the `Preferences` screen and the user can turn it off if he doesn't want it.
+
+```swift
+    OptionSwitchItem(
+        name: "Analytics",
+        setter: { AppSwitches.analyticsEnabled = $0 },
+        getter: { AppSwitches.analyticsEnabled },
+        userDefaults: .standard,
+        userDefaultsKey: "com.infinum.sentinel.optionSwitch.analytics"
+    )
+```
 
 ### Custom tools
 
 To be able to create a custom tool that will be available through the *Sentinel*, a new class should be created which conforms the `Tool` protocol. This protocol is defined as:
 
 ```swift
+/// Defines tool behaviour.
+@objc
 public protocol Tool {
+    
+    /// The name of the tool.
     var name: String { get }
+    /// Presents the tool view controller from provided view controller.
+    ///
+    /// - Parameter viewController: The view controller used for presenting tool view controller.
+    @objc(presentPreviewFromViewController:)
     func presentPreview(from viewController: UIViewController)
 }
-
 ```
 
-Based on this, only `name` should be provided as well as `presentPreview:` method which will present the tool view controller from the `sourceScreenProvider` view controller defined in the Sentinel configuration.
+The `name` property will be available in the `Tools` tab as one of the cells. The `presentPreview` method needs to instantiate the screen you want to show, and it will use the view controller from the `sourceScreenProvider` to show your custom tool.
 
-A common custom tool that might be needed is `Pulse` network logger. It can be defined in the following way:
+At Infinum, we're using `Pulse` network logger. We only use it for internal builds, and it helps a lot if we can somehow access the logs from `Pulse`, as well as other debug tools. That's why we have a need to create the `PulseTool` which will be an example on how to create your own tool.
 
 ```swift
 
-class PulseTool: Tool {
+final class PulseTool: Tool {
     var name: String { "Pulse" }
 
     func presentPreview(from viewController: UIViewController) {
@@ -124,8 +158,19 @@ class PulseTool: Tool {
         viewController.present(pulseNavigation, animated: true)
     }
 }
-
 ```
+
+### Available custom tools
+
+*CustomInfoTool* is used on the `Device`, and `Application` tabs. It's primary use is to list out properties and their values.
+
+*CustomLocationTool* is used to give the ability to change the current user location. After changing the location, the application will have to be restarted.
+
+*TextEditingTool* is used to give the ability to edit a value. Where you have to provide a `getter`, and a `setter` for the property you want to change dynamically.
+
+*UserDefaultsTool* is used to give an overview of all the `UserDefaults` properties, their values, and the ability to delete properties.
+
+*EmailSenderTool* is used to let the user send emails with attachments from the app with ease.
 
 ## Contributing
 
@@ -159,10 +204,10 @@ limitations under the License.
 Maintained and sponsored by [Infinum](https://infinum.com).
 
 <div align="center">
-    <a href='https://infinum.com'>
-    <picture>
-        <source srcset="https://assets.infinum.com/brand/logo/static/white.svg" media="(prefers-color-scheme: dark)">
-        <img src="https://assets.infinum.com/brand/logo/static/default.svg">
-    </picture>
-    </a>
+<a href='https://infinum.com'>
+<picture>
+<source srcset="https://assets.infinum.com/brand/logo/static/white.svg" media="(prefers-color-scheme: dark)">
+<img src="https://assets.infinum.com/brand/logo/static/default.svg">
+</picture>
+</a>
 </div>
