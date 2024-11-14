@@ -13,9 +13,9 @@
 
 **Sentinel** is a simple library that gives developers the possibility to configure one entry point for every debug tool. The idea of **Sentinel** is to give the ability to developers to configure a screen with multiple debug tools which are available via some event (e.g. shake, notification).
 
-**Sentinel** has a tab bar that contains five screens. Three of those aren't configurable, and two of them are. The first screen is the **Device** screen which allows the user to look into some of the device-specific information. The second screen is the **Application** screen which allows the user to look into some of the application-specific information from the <i>info.plist</i>. The third, the first configurable screen, is the **Tools** screen. **Tools** screen allows you to add as much `Tool` object as your heart desires which can be used by the user to find out some specific information. The fourth, last configurable screen, is the **Preferences** screen. **Preferences** screen allows you to add options that allow or deny some activity inside the app. **Preferences** tab can also be used as a feature control entry point, the user will be able to enable or disable the features by pressing on the option button. The last, but not the least, is the **Performance** screen which contains performance-specific information. Later on, we'll explain how you can configure those screens.
+**Sentinel** has a tab bar that contains five screens. Three of those aren't configurable, and two of them are. The first screen is the **Device** screen which allows the user to look into some of the device-specific information. The second screen is the **Application** screen which allows the user to look into some of the application-specific information from the <i>info.plist</i>. The third, the first configurable screen, is the **Tools** screen. **Tools** screen allows you to add as many `Tool` objects as your heart desires which can be used by the user to find out some specific information. The fourth, last configurable screen, is the **Preferences** screen. **Preferences** screen allows you to add options that allow or deny some activity inside the app. **Preferences** tab can also be used as a feature control entry point, the user will be able to enable or disable the features by pressing the option button. Last, but not the least, is the **Performance** screen which contains performance-specific information. Later on, we'll explain how you can configure those screens.
 
-**Sentinel** contains a few custom tools which can be used. You can find out more in the [Usage](#usage) part.
+**Sentinel** contains a few custom tools which can be used, some of which are in their own subspecs. You can find out more about it in the [Usage](#usage) section.
 
 This library supports both **Swift** and **Objective-C**.
 
@@ -46,7 +46,7 @@ it, simply add the following line to your Podfile:
 pod 'Sentinel'
 ```
 
-*Sentinel* is made of multiple subspects:
+*Sentinel* is made of multiple subspecs:
 - `Core` which will install only the core features for the *Sentinel* to be usable
 - `UserDefaults` which will add the `UserDefaultsTool`
 - `EmailSendel` which will add the `EmailSenderTool`
@@ -68,9 +68,7 @@ dependencies: [
 
 ## Usage
 
-### Basics
-
-`Sentinel` is the main class used to setup the *Sentinel* which will be used in the application. The `Sentinel` object can configured via `setup:` method by `Configuration` object. The `setup:` can be called in the `AppDelegate` method `application(_:didFinishLaunchingWithOptions:)`.
+`Sentinel` is the main class used to set up the *Sentinel* which will be used in the application. The `Sentinel` object can configured via `setup:` method by `Configuration` object. The `setup:` can be called in the `AppDelegate` method `application(_:didFinishLaunchingWithOptions:)`.
 
 ```swift
     let configuration = Sentinel.Configuration(
@@ -87,11 +85,11 @@ dependencies: [
 
 ### Configuration
 
-To be able to configure the `Sentinel` object, the `Configuration` object is introduced. This object contains multiple objects which define general *Sentinel* behaviour. The inputs which this object needs are; `trigger`, `sourceScreenProvider`, `tools`, and `preferences`.  
+To configure the `Sentinel` object, the `Configuration` object is introduced. `Configuration` contains multiple objects which define general *Sentinel* behaviour. The inputs which this object needs are; `trigger`, `sourceScreenProvider`, `tools`, and `preferences`.  
 
-The `trigger` object is a type of `Trigger` which defines on which event the *Sentinel* will be triggered. Currently, three types of are supported; `ShakeTrigger`, `ScreenshotTrigger`, `NotificationTrigger`. New triggers can be added as well, just by conforming the `Trigger` protocol. Currently available triggers can be accessed from the `Triggers` class by using its designated static properties like `shake`, `screenshot` or `notification(forName:)`.
+The `trigger` object is a type of `Trigger` which defines on which event the *Sentinel* will be triggered. Currently, three types are supported; `ShakeTrigger`, `ScreenshotTrigger`, `NotificationTrigger`. New triggers can be added as well, just by conforming to the `Trigger` protocol. Currently, available triggers can be accessed from the `Triggers` class by using its designated static properties like `shake`, `screenshot` or `notification(forName:)`.
 
-In any case that there's a need for another `Trigger`, take a look at the currently implemented ones to gain some information on how it should be done.
+In case there's a need for another `Trigger`, take a look at the currently implemented ones to gain some information on how it should be done.
 
 ```swift
 /// Defines interaction with trigger.
@@ -106,11 +104,11 @@ public protocol Trigger: NSObjectProtocol {
 }
 ```
 
-The `sourceScreenProvider` object is a type of `SourceScreenProvider` which should provide a view controller from where will *Sentinel* be presented. Currently, one type is supported; `default`, and the initializer will default to it. The `SourceScreenProvider.default` uses the the current top ViewController to be the one providing the *Sentinel* screens. 
+The `sourceScreenProvider` object is a type of `SourceScreenProvider` which should provide a view controller from where will *Sentinel* be presented. Currently, one type is supported; `default`, and the initializer will default to it. The `SourceScreenProvider.default` uses the current top ViewController to be the one providing the *Sentinel* screens. 
 
 The `tools` object is an array of `Tool` objects. `Tool` objects represent tools which will be available from *Sentinel*. There are multiple tools already supported by the library, but custom tools can be created and added to the *Sentinel*.
 
-The last, but not the least, is the `preferences` object which is an array of `OptionSwitchItem` objects. `OptionSwitchItem` is used to allow the user to switch of some of the preferences which are contained in the `UserDefaults`. To allow the user the interaction, you will have to add a `getter`, and a `setter` for the property from the `UserDefaults` object.
+Last, but not the least, is the `preferences` object which is an array of `OptionSwitchItem` objects. `OptionSwitchItem` is used to allow the user to switch of some of the preferences which are contained in the `UserDefaults`. To allow the user the interaction, you will have to add a `getter`, and a `setter` for the property from the `UserDefaults` object.
 
 e.g. The app supports Analitycs and you can add an `OptionSwitchTool` which will be shown on the `Preferences` screen and the user can turn it off if he doesn't want it.
 
@@ -126,7 +124,7 @@ e.g. The app supports Analitycs and you can add an `OptionSwitchTool` which will
 
 ### Custom tools
 
-To be able to create a custom tool that will be available through the *Sentinel*, a new class should be created which conforms the `Tool` protocol. This protocol is defined as:
+To be able to create a custom tool that will be available through the *Sentinel*, a new class should be created which conforms to the `Tool` protocol. This protocol is defined as:
 
 ```swift
 /// Defines tool behaviour.
@@ -145,7 +143,7 @@ public protocol Tool {
 
 The `name` property will be available in the `Tools` tab as one of the cells. The `presentPreview` method needs to instantiate the screen you want to show, and it will use the view controller from the `sourceScreenProvider` to show your custom tool.
 
-At Infinum, we're using `Pulse` network logger. We only use it for internal builds, and it helps a lot if we can somehow access the logs from `Pulse`, as well as other debug tools. That's why we have a need to create the `PulseTool` which will be an example on how to create your own tool.
+At Infinum, we're using `Pulse` as our network logger. We only use it for internal builds, and it helps a lot if we can somehow access the logs from `Pulse`, as well as other debug tools. That's why we have a need to create the `PulseTool` which will be an example on how to create your own tool.
 
 ```swift
 
@@ -162,9 +160,9 @@ final class PulseTool: Tool {
 
 ### Available custom tools
 
-*CustomInfoTool* is used on the `Device`, and `Application` tabs. It's primary use is to list out properties and their values.
+*CustomInfoTool* is used on the `Device`, and `Application` tabs. Its primary use is to list out properties and their values.
 
-*CustomLocationTool* is used to give the ability to change the current user location. After changing the location, the application will have to be restarted.
+*CustomLocationTool* is used to change the current user's location. After changing the location, the application will have to be restarted.
 
 *TextEditingTool* is used to give the ability to edit a value. Where you have to provide a `getter`, and a `setter` for the property you want to change dynamically.
 
