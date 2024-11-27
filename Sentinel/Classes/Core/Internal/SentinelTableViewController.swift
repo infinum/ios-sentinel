@@ -21,9 +21,9 @@ class SentinelTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()   
         title = toolTable.name
-        toolTable.sections
-            .flatMap { $0.items }
-            .forEach { $0.register?(at: tableView) }
+//        toolTable.sections
+//            .flatMap { $0.items }
+//            .forEach { $0.register?(at: tableView) }
         if (navigationController?.viewControllers.count ?? 0) > 1 {
             navigationItem.rightBarButtonItems = nil
         }
@@ -70,6 +70,7 @@ extension ToolTable {
         sections[index]
     }
     subscript(indexPath: IndexPath) -> ToolTableItem {
-        sections[indexPath.section].items[indexPath.row]
+//        sections[indexPath.section].items[indexPath.row]
+        PerformanceInfoItem(title: "", valueDidChange: { return "" })
     }
 }

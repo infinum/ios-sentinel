@@ -26,7 +26,7 @@ struct SentinelTabBarView: View {
                 .tabItem { TabBarView(tab: .device) }
             Text("2")
                 .tabItem { TabBarView(tab: .application) }
-            Text("3")
+            SentinelListView()
                 .tabItem { TabBarView(tab: .tools) }
             Text("4")
                 .tabItem { TabBarView(tab: .preferences) }

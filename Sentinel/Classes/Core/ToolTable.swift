@@ -34,7 +34,8 @@ public class ToolTable: NSObject, Tool {
     public func presentPreview(from viewController: UIViewController) {
         presentPreview(from: viewController, push: true)
     }
-    
+
+    // Ovo bi se moglo skloniti tako da se samo vraca ViewController
     @objc(presentPreviewFromViewController:push:)
     public func presentPreview(from viewController: UIViewController, push: Bool) {
         let sentinelController = SentinelTableViewController.create(with: self)

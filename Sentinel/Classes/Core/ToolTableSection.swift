@@ -17,12 +17,18 @@ public class ToolTableSection: NSObject {
     let title: String?
     
     /// Tool items available in the section.
-    let items: [ToolTableItem]
+    let items: [ToolTableItem2]
 
     // MARK: - Lifecycle
     
     /// Creates an instance of the section.
     public init(title: String? = nil, items: [ToolTableItem]) {
+        self.title = title
+        self.items = []
+        super.init()
+    }
+
+    public init(title: String? = nil, items: [ToolTableItem2]) {
         self.title = title
         self.items = items
         super.init()

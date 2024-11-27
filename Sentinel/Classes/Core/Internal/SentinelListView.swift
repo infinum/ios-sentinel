@@ -9,13 +9,20 @@ import SwiftUI
 
 struct SentinelListView: View {
 
-    let toolTable: ToolTable
+    let items: [ToolTableSection]
 
     var body: some View {
-        LazyVStack {
-            ForEach(toolTable.sections, id: \.title) { section in
-                Section(section.title ?? "") {
-                    section.
+        List(items, id: \.title) { section in
+            Section {
+                if let title = section.title {
+                    Text(title)
+                }
+
+                ForEach(section.items) { item in
+                    switch item {
+                    case .navigation(let item):
+                        NavigationToolTableView(item: item)
+                    }
                 }
             }
         }
@@ -23,5 +30,16 @@ struct SentinelListView: View {
 }
 
 #Preview {
-    SentinelListView()
+    SentinelListView(
+        items: [
+            .init(
+                title: "something",
+                items: [
+                    .navigation(.init(title: "title1", didSelect: { print("111") })),
+                    .navigation(.init(title: "title2", didSelect: { print("111") })),
+                    .navigation(.init(title: "title3", didSelect: { print("111") }))
+                ]
+            )
+        ]
+    )
 }

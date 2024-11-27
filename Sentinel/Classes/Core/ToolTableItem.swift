@@ -43,3 +43,28 @@ public protocol ToolTableItem: NSObjectProtocol {
     @objc(didSelectFromViewController:)
     optional func didSelect(from viewController: UIViewController)
 }
+
+public enum ToolTableItem2: Equatable, Identifiable {
+    public var id: String {
+        switch self {
+        case .navigation(let item): item.id
+        }
+    }
+
+    case navigation(NavigationToolItem)
+}
+
+public struct NavigationToolItem: Equatable, Identifiable {
+    public var id: String {
+        title
+    }
+
+    public static func == (lhs: NavigationToolItem, rhs: NavigationToolItem) -> Bool {
+        lhs.title == rhs.title
+    }
+    
+    let title: String
+    let didSelect: () -> Void
+
+
+}

@@ -21,6 +21,7 @@
 		35ADBD0F7DC1BA38137F39F04F5188EF /* assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04D293A77C27B984E3568BA4A74C9371 /* assets.xcassets */; };
 		37029FC3F79CE2F9A6DE72238FDBC812 /* NavigationToolTableCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = 2C909F5B83D080B5BC7EA6FB69AAB794 /* NavigationToolTableCell.xib */; };
 		37700ADE2CDE1A3E008AC821 /* SentinelListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37700ADD2CDE1A3E008AC821 /* SentinelListView.swift */; };
+		3775AE0A2CF7572B00D4C974 /* NavigationToolTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3775AE092CF7572B00D4C974 /* NavigationToolTableView.swift */; };
 		3CA9B0CEC19941BA4BE509C533FCB4A9 /* UIImage+Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C11C46B7E8DD64B03A3E28C6709003 /* UIImage+Bundle.swift */; };
 		3EE3C93E1442762DF98ED300756FA4F9 /* SystemInfoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED039F03AD2BBC18FF44C3EFEF64AF6 /* SystemInfoProvider.swift */; };
 		4069AED7DF5AC013C74F0749B7D76368 /* SentinelInternal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB27576296566CC19D63C76B70E432F /* SentinelInternal.swift */; };
@@ -114,6 +115,7 @@
 		31E53FF3946AC110356658B821F3ECA0 /* Trigger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Trigger.swift; path = Sentinel/Classes/Core/Trigger.swift; sourceTree = "<group>"; };
 		3737F3A9AFF9607DB0AEDEEEBAB55101 /* Pods-Sentinel_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Sentinel_Tests-dummy.m"; sourceTree = "<group>"; };
 		37700ADD2CDE1A3E008AC821 /* SentinelListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentinelListView.swift; sourceTree = "<group>"; };
+		3775AE092CF7572B00D4C974 /* NavigationToolTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationToolTableView.swift; sourceTree = "<group>"; };
 		3A27581CB2B9CCD210289976D6CC70A3 /* SentinelTab.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SentinelTab.swift; sourceTree = "<group>"; };
 		418F81F9372721938AFA1EF3CF963146 /* UserDefaults.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; name = UserDefaults.storyboard; path = Sentinel/Classes/UserDefaults/UserDefaults.storyboard; sourceTree = "<group>"; };
 		4452D60511129A8FAEA7813B6E7385A1 /* Sentinel-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Sentinel-umbrella.h"; sourceTree = "<group>"; };
@@ -342,6 +344,7 @@
 		92DD857227A2738960BD616A07FB6252 /* Internal */ = {
 			isa = PBXGroup;
 			children = (
+				37700ADD2CDE1A3E008AC821 /* SentinelListView.swift */,
 				44796B7C5E92E7D04E5623DA7EB8B0FD /* ApplicationTool.swift */,
 				721084C47FF5FD71F0B1226DFFCEC509 /* DeviceTool.swift */,
 				D503804C68A8FCBF1DD7BEC1ABBDAF59 /* Sentinel.storyboard */,
@@ -353,7 +356,6 @@
 				7048F6F329E9C12C2F32B7D2ACCF3EA7 /* SentinelTableViewController.swift */,
 				B3CC0FB131C50C3A41D155D3571ECDE1 /* SentinelUIKitExtensions.swift */,
 				8CFBF1B8492DAC65F4B3811BA1610F83 /* UIImage+Assets.swift */,
-				37700ADD2CDE1A3E008AC821 /* SentinelListView.swift */,
 			);
 			name = Internal;
 			path = Sentinel/Classes/Core/Internal;
@@ -501,6 +503,7 @@
 				7FCCCBF6749B156B0F13407F87E86482 /* DetailToolTableCell.xib */,
 				C4FBCD23FC96411713BD3F09DB18E4B1 /* NavigationToolTableCell.swift */,
 				2C909F5B83D080B5BC7EA6FB69AAB794 /* NavigationToolTableCell.xib */,
+				3775AE092CF7572B00D4C974 /* NavigationToolTableView.swift */,
 			);
 			name = ToolTableItems;
 			path = Sentinel/Classes/Core/ToolTableItems;
@@ -723,6 +726,7 @@
 				FF58A9086C379EDC79BFB36C2B936300 /* CustomLocationTool.swift in Sources */,
 				0A1B547F390474249D50AEE398433DB2 /* CustomLocationViewController.swift in Sources */,
 				DB6A3AD3D289838CEE1AECAF146BDED1 /* DetailToolTableCell.swift in Sources */,
+				3775AE0A2CF7572B00D4C974 /* NavigationToolTableView.swift in Sources */,
 				5AA5B6F636666F401C0BB5D21D990CA8 /* DetailToolTableCell.xib in Sources */,
 				F908C6D8DB3FFC091065FAD7B492AFE2 /* DeviceTool.swift in Sources */,
 				FE637B2476DA7328FD6EBC5B34F60A8F /* EmailSenderTool.swift in Sources */,
