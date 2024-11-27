@@ -48,10 +48,14 @@ public enum ToolTableItem2: Equatable, Identifiable {
     public var id: String {
         switch self {
         case .navigation(let item): item.id
+        case .toggle(let item): item.id
+        case .titleValue(let item): item.id
         }
     }
 
     case navigation(NavigationToolItem)
+    case toggle(ToggleToolItem)
+    case titleValue(TitleValueItem)
 }
 
 public struct NavigationToolItem: Equatable, Identifiable {
@@ -65,6 +69,18 @@ public struct NavigationToolItem: Equatable, Identifiable {
     
     let title: String
     let didSelect: () -> Void
+}
 
+public struct TitleValueItem: Equatable, Identifiable {
+    let title: String
+    let value: String
+
+    public var id: String {
+        title
+    }
+
+    public static func == (lhs: TitleValueItem, rhs: TitleValueItem) -> Bool {
+        lhs.title == rhs.title
+    }
 
 }

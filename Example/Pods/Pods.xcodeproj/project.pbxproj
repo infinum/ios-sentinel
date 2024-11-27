@@ -22,6 +22,8 @@
 		37029FC3F79CE2F9A6DE72238FDBC812 /* NavigationToolTableCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = 2C909F5B83D080B5BC7EA6FB69AAB794 /* NavigationToolTableCell.xib */; };
 		37700ADE2CDE1A3E008AC821 /* SentinelListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37700ADD2CDE1A3E008AC821 /* SentinelListView.swift */; };
 		3775AE0A2CF7572B00D4C974 /* NavigationToolTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3775AE092CF7572B00D4C974 /* NavigationToolTableView.swift */; };
+		3775AE0C2CF75E2200D4C974 /* OptionSwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3775AE0B2CF75E2200D4C974 /* OptionSwitchView.swift */; };
+		3775AE0E2CF7622F00D4C974 /* TitleValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3775AE0D2CF7622F00D4C974 /* TitleValueView.swift */; };
 		3CA9B0CEC19941BA4BE509C533FCB4A9 /* UIImage+Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C11C46B7E8DD64B03A3E28C6709003 /* UIImage+Bundle.swift */; };
 		3EE3C93E1442762DF98ED300756FA4F9 /* SystemInfoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED039F03AD2BBC18FF44C3EFEF64AF6 /* SystemInfoProvider.swift */; };
 		4069AED7DF5AC013C74F0749B7D76368 /* SentinelInternal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB27576296566CC19D63C76B70E432F /* SentinelInternal.swift */; };
@@ -116,6 +118,8 @@
 		3737F3A9AFF9607DB0AEDEEEBAB55101 /* Pods-Sentinel_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Sentinel_Tests-dummy.m"; sourceTree = "<group>"; };
 		37700ADD2CDE1A3E008AC821 /* SentinelListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentinelListView.swift; sourceTree = "<group>"; };
 		3775AE092CF7572B00D4C974 /* NavigationToolTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationToolTableView.swift; sourceTree = "<group>"; };
+		3775AE0B2CF75E2200D4C974 /* OptionSwitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionSwitchView.swift; sourceTree = "<group>"; };
+		3775AE0D2CF7622F00D4C974 /* TitleValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleValueView.swift; sourceTree = "<group>"; };
 		3A27581CB2B9CCD210289976D6CC70A3 /* SentinelTab.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SentinelTab.swift; sourceTree = "<group>"; };
 		418F81F9372721938AFA1EF3CF963146 /* UserDefaults.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; name = UserDefaults.storyboard; path = Sentinel/Classes/UserDefaults/UserDefaults.storyboard; sourceTree = "<group>"; };
 		4452D60511129A8FAEA7813B6E7385A1 /* Sentinel-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Sentinel-umbrella.h"; sourceTree = "<group>"; };
@@ -472,6 +476,7 @@
 				8EBC5607222FD8200E386A4D4CE6ABEC /* OptionSwitchTableViewCell.swift */,
 				B5DB8AA26DAE72F16D4D22F97456307F /* OptionSwitchTableViewCell.xib */,
 				CDEFD78779FAF3E290A617E64CFF55A1 /* PreferencesTool.swift */,
+				3775AE0B2CF75E2200D4C974 /* OptionSwitchView.swift */,
 			);
 			name = PreferencesInfo;
 			path = Sentinel/Classes/Core/PreferencesInfo;
@@ -504,6 +509,7 @@
 				C4FBCD23FC96411713BD3F09DB18E4B1 /* NavigationToolTableCell.swift */,
 				2C909F5B83D080B5BC7EA6FB69AAB794 /* NavigationToolTableCell.xib */,
 				3775AE092CF7572B00D4C974 /* NavigationToolTableView.swift */,
+				3775AE0D2CF7622F00D4C974 /* TitleValueView.swift */,
 			);
 			name = ToolTableItems;
 			path = Sentinel/Classes/Core/ToolTableItems;
@@ -728,6 +734,7 @@
 				DB6A3AD3D289838CEE1AECAF146BDED1 /* DetailToolTableCell.swift in Sources */,
 				3775AE0A2CF7572B00D4C974 /* NavigationToolTableView.swift in Sources */,
 				5AA5B6F636666F401C0BB5D21D990CA8 /* DetailToolTableCell.xib in Sources */,
+				3775AE0E2CF7622F00D4C974 /* TitleValueView.swift in Sources */,
 				F908C6D8DB3FFC091065FAD7B492AFE2 /* DeviceTool.swift in Sources */,
 				FE637B2476DA7328FD6EBC5B34F60A8F /* EmailSenderTool.swift in Sources */,
 				CEA4FD328153F052E8FCEE11AA75ED91 /* MailData.swift in Sources */,
@@ -759,6 +766,7 @@
 				1B92BB5E1599344452ED958EF999D862 /* TextEditing.storyboard in Sources */,
 				DB7C9A8AC350E6D4DA4D6D85C55F2BAF /* TextEditingTool.swift in Sources */,
 				54208B218AA2E1C805F1C8315326E881 /* TextEditingViewController.swift in Sources */,
+				3775AE0C2CF75E2200D4C974 /* OptionSwitchView.swift in Sources */,
 				2B72BBF9769DADC81BF1D28A1A9C0514 /* Tool.swift in Sources */,
 				DF3360A54143928D5292BD961FC1B4B4 /* ToolTable.swift in Sources */,
 				EEFAA3CDFE1C15F5450BB9B6B372CB8B /* ToolTableItem.swift in Sources */,

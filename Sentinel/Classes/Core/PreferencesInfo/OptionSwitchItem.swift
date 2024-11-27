@@ -90,3 +90,38 @@ private extension OptionSwitchItem {
         setter(value)
     }
 }
+
+
+public struct ToggleToolItem: Equatable, Identifiable {
+    public var id: String {
+        title
+    }
+
+    let title: String
+    let userDefaults: UserDefaults
+    let userDefaultsKey: String?
+
+    public init(
+        title: String,
+        userDefaults: UserDefaults = .standard,
+        userDefaultsKey: String?
+    ) {
+        self.title = title
+        self.userDefaults = userDefaults
+        self.userDefaultsKey = userDefaultsKey
+    }
+
+    func change(to value: Bool) {
+        if let userDefaultsKey {
+            userDefaults.set(value, forKey: userDefaultsKey)
+        }
+    }
+
+    func loadStoredValue() -> Bool {
+        guard let key = userDefaultsKey,
+              let value = userDefaults.object(forKey: key) as? Bool
+        else { return false }
+        return value
+    }
+
+}
