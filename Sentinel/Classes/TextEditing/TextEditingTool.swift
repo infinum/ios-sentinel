@@ -17,8 +17,8 @@ public final class TextEditingTool: NSObject, Tool {
     
     // MARK: - Private properties
     
-    private let setter: (String) -> ()
-    private let getter: () -> (String)
+    private let setter: (String) -> Void
+    private let getter: () -> String
     private let userDefaults: UserDefaults
     private let userDefaultsKey: String?
 
@@ -38,17 +38,6 @@ public final class TextEditingTool: NSObject, Tool {
         self.userDefaultsKey = userDefaultsKey
         super.init()
         loadStoredValue()
-    }
-    
-    // MARK: - Public methods
-    
-    public func presentPreview(from viewController: UIViewController) {
-        let textEditing = TextEditingViewController.create(
-            withTitle: name,
-            setter: store(newValue:),
-            getter: getter
-        )
-        viewController.navigationController?.pushViewController(textEditing, animated: true)
     }
 
     public var content: any View {

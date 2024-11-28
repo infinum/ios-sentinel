@@ -15,7 +15,6 @@
 		0CE465531B466F91512675B58B158A71 /* SentinelTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F3A2C72480EAB2B2B4A42FC28D6442 /* SentinelTabBarController.swift */; };
 		11E4987199D56053C1A7B222478E0C56 /* ToolTableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276CF519210468F6A3A1406964FEDCE5 /* ToolTableSection.swift */; };
 		1AC2D449037FA7861C5C6B8A81EAF5DB /* Sentinel-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0123519EBBADBDD3CA020E20D74CC504 /* Sentinel-dummy.m */; };
-		1B92BB5E1599344452ED958EF999D862 /* TextEditing.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = B7552DF7B596D3A829EAABC526A54227 /* TextEditing.storyboard */; };
 		2B72BBF9769DADC81BF1D28A1A9C0514 /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F7553511390B88E4E1C3768C80AA2F /* Tool.swift */; };
 		3394EFC84104236637CD40B0A0092D83 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
 		35ADBD0F7DC1BA38137F39F04F5188EF /* assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04D293A77C27B984E3568BA4A74C9371 /* assets.xcassets */; };
@@ -36,7 +35,6 @@
 		41274F2A6EDEA4FF391A320299DCA337 /* PerformanceInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775C6A6DD6970BA3B569D972E3BD3F72 /* PerformanceInfoTableViewCell.swift */; };
 		46B86E290AEED299FD5577116F78BB3E /* Pods-Sentinel_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C6FAA08483FA46AF62E0083A4A1ECE /* Pods-Sentinel_Example-dummy.m */; };
 		4CE9C93DED07D970938CBE152A2F37F3 /* NavigationToolTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FBCD23FC96411713BD3F09DB18E4B1 /* NavigationToolTableCell.swift */; };
-		54208B218AA2E1C805F1C8315326E881 /* TextEditingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76E11D51FF8E682DBB040B410108B37 /* TextEditingViewController.swift */; };
 		59A26628B91C10D7E9427B26AE9D068B /* OptionSwitchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF891D1CB5955ADCA3BF99BEE4715BDC /* OptionSwitchItem.swift */; };
 		5A3D76150331AA1378E52A7AD4469FE8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
 		5AA5B6F636666F401C0BB5D21D990CA8 /* DetailToolTableCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = 7FCCCBF6749B156B0F13407F87E86482 /* DetailToolTableCell.xib */; };
@@ -172,7 +170,6 @@
 		B27D12816652F5CE8F68FECC2498878C /* Pods-Sentinel_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Sentinel_Example.modulemap"; sourceTree = "<group>"; };
 		B3CC0FB131C50C3A41D155D3571ECDE1 /* SentinelUIKitExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SentinelUIKitExtensions.swift; sourceTree = "<group>"; };
 		B5DB8AA26DAE72F16D4D22F97456307F /* OptionSwitchTableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = OptionSwitchTableViewCell.xib; sourceTree = "<group>"; };
-		B7552DF7B596D3A829EAABC526A54227 /* TextEditing.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; name = TextEditing.storyboard; path = Sentinel/Classes/TextEditing/TextEditing.storyboard; sourceTree = "<group>"; };
 		BB705774774B32DD7D277EBF7A196E6B /* CustomLocationProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CustomLocationProvider.swift; sourceTree = "<group>"; };
 		C02ED93EF7B452D6E46BDD732A0600BB /* DetailToolTableCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DetailToolTableCell.swift; sourceTree = "<group>"; };
 		C3831A0EE07DA0231A8F1CB9F738F429 /* Pods-Sentinel_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Sentinel_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -193,7 +190,6 @@
 		F0C518BCD254C6BED6EDFAA897D668F7 /* Pods-Sentinel_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Sentinel_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		F4A9B14258CE10FBC253BB5B34DAAE75 /* Pods_Sentinel_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sentinel_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6D219D153A366859D6A80F165E2D93E /* Pods-Sentinel_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Sentinel_Example-Info.plist"; sourceTree = "<group>"; };
-		F76E11D51FF8E682DBB040B410108B37 /* TextEditingViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextEditingViewController.swift; path = Sentinel/Classes/TextEditing/TextEditingViewController.swift; sourceTree = "<group>"; };
 		FCD5716A347A57C5EB37EDE8EE5438D4 /* Pods-Sentinel_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Sentinel_Example.release.xcconfig"; sourceTree = "<group>"; };
 		FDF5902098718AF762920A0440A13C16 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -302,9 +298,7 @@
 		523F538C95490357FD0D47BF6DE15EF5 /* TextEditing */ = {
 			isa = PBXGroup;
 			children = (
-				B7552DF7B596D3A829EAABC526A54227 /* TextEditing.storyboard */,
 				8E2C86790AF40AD69290F571F8770B26 /* TextEditingTool.swift */,
-				F76E11D51FF8E682DBB040B410108B37 /* TextEditingViewController.swift */,
 				377AB53E2CF8916E0060FC6C /* TextEditingToolViewModel.swift */,
 				377AB5402CF891840060FC6C /* TextEditingToolView.swift */,
 			);
@@ -777,9 +771,7 @@
 				79911AFF1D6262EF201E3B7B73A251DA /* SentinelUIKitExtensions.swift in Sources */,
 				095B51EEA49EE85E5B2CF269546EF3FE /* SourceScreenProvider.swift in Sources */,
 				3EE3C93E1442762DF98ED300756FA4F9 /* SystemInfoProvider.swift in Sources */,
-				1B92BB5E1599344452ED958EF999D862 /* TextEditing.storyboard in Sources */,
 				DB7C9A8AC350E6D4DA4D6D85C55F2BAF /* TextEditingTool.swift in Sources */,
-				54208B218AA2E1C805F1C8315326E881 /* TextEditingViewController.swift in Sources */,
 				3775AE0C2CF75E2200D4C974 /* OptionSwitchView.swift in Sources */,
 				2B72BBF9769DADC81BF1D28A1A9C0514 /* Tool.swift in Sources */,
 				DF3360A54143928D5292BD961FC1B4B4 /* ToolTable.swift in Sources */,
