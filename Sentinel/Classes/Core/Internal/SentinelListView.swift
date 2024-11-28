@@ -40,19 +40,3 @@ struct SentinelListView: View {
         .navigationTitle(title)
     }
 }
-
-#Preview {
-    SentinelListView(
-        title: "Title",
-        items: [
-            .init(
-                title: "something",
-                items: [
-                    //                    .navigation(.init(title: "title1", didSelect: { print("111") })),
-                    //                    .navigation(.init(title: "title2", didSelect: { print("111") })),
-                    //                    .navigation(.init(title: "title3", didSelect: { print("111") }))
-                ]
-            )
-        ]
-    )
-}

@@ -42,7 +42,7 @@ private extension Sentinel {
         preferences: [ToolTableSection],
         viewController: UIViewController
     ) -> [SentinelTabItem] {
-        return [
+        [
             SentinelTabItem(tab: .device),
             SentinelTabItem(tab: .application),
             SentinelTabItem(tab: .tools(items: tools)),
@@ -52,7 +52,7 @@ private extension Sentinel {
     }
 
     func preselectedTabIndex(for tab: SentinelTab, tabItems: [SentinelTabItem]) -> Int {
-        return tabItems
+        tabItems
             .enumerated()
             .first(where: {
                 guard case .tools = $0.element.tab else { return false }
