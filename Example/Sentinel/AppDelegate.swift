@@ -38,7 +38,7 @@ private extension AppDelegate {
             trigger: Triggers.shake,
             tools: [
                 UserDefaultsTool(),
-//                baseUrlTool
+                baseUrlTool
 //                CustomLocationTool()
             ],
             preferences: optionSwitchItems
@@ -47,15 +47,15 @@ private extension AppDelegate {
         Sentinel.shared.setup(with: configuration)
     }
 
-//    var baseUrlTool: Tool {
-//        TextEditingTool(
-//            name: "Base URL",
-//            setter: { AppUrl.baseURL = $0 },
-//            getter: { AppUrl.baseURL },
-//            userDefaults: .standard,
-//            userDefaultsKey: "base_url_user_defaults_key"
-//        )
-//    }
+    var baseUrlTool: Tool {
+        TextEditingTool(
+            name: "Base URL",
+            setter: { AppUrl.baseURL = $0 },
+            getter: { AppUrl.baseURL },
+            userDefaults: .standard,
+            userDefaultsKey: "base_url_user_defaults_key"
+        )
+    }
 
     var optionSwitchItems: [ToolTableSection] {
         [
