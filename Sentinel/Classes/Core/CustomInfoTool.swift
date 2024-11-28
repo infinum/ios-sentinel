@@ -25,13 +25,6 @@ public class CustomInfoTool: NSObject, Tool {
         self.name = name
         self.info = info
     }
-    
-    // MARK: - Public properties
-    
-    public func presentPreview(from viewController: UIViewController) {
-        let toolTable = createToolTable(with: info)
-        toolTable.presentPreview(from: viewController)
-    }
 
     @ViewBuilder
     public var content: any View {

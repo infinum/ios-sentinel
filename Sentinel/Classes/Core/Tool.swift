@@ -18,7 +18,7 @@ public protocol Tool {
     ///
     /// - Parameter viewController: The view controller used for presenting tool view controller.
 //    @objc(presentPreviewFromViewController:)
-    func presentPreview(from viewController: UIViewController)
+//    func presentPreview(from viewController: UIViewController)
 
     @ViewBuilder var content: any View { get }
 }

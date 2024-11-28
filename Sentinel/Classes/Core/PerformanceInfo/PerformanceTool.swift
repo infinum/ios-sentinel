@@ -30,12 +30,6 @@ final class PerformanceTool: Tool {
         SentinelListView(title: name, items: toolTable.sections)
     }
 
-    // MARK: - Public methods
-    
-    public func presentPreview(from viewController: UIViewController) {
-        let toolTable = createToolTable()
-        toolTable.presentPreview(from: viewController)
-    }
 }
 
 // MARK: - Private methods

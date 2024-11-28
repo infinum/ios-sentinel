@@ -29,26 +29,9 @@ public class ToolTable: NSObject, Tool {
         self.sections = sections
         super.init()
     }
-    
-    // MARK: - Public methods
-    
-    public func presentPreview(from viewController: UIViewController) {
-        presentPreview(from: viewController, push: true)
-    }
 
     public var content: any View {
         SentinelListView(title: name, items: sections)
     }
 
-    // Ovo bi se moglo skloniti tako da se samo vraca ViewController
-    @objc(presentPreviewFromViewController:push:)
-    public func presentPreview(from viewController: UIViewController, push: Bool) {
-        let sentinelController = SentinelTableViewController.create(with: self)
-        if let navController = viewController.navigationController, push {
-            navController.pushViewController(sentinelController, animated: true)
-        } else {
-            let navContoller = UINavigationController(rootViewController: sentinelController)
-            viewController.present(navContoller, animated: true)
-        }
-    }
 }

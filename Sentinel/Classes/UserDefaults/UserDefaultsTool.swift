@@ -25,17 +25,11 @@ public class UserDefaultsTool: NSObject, Tool {
         self.name = name
         self.userDefaults = userDefaults
     }
-    
-    // MARK: - Public methods
-    
-    public func presentPreview(from viewController: UIViewController) {
-        let toolTable = createToolTable(with: userDefaults)
-        toolTable.presentPreview(from: viewController)
-    }
 
     public var content: any View {
         SentinelListView(title: name, items: createToolTable(with: userDefaults).sections)
     }
+
 }
 
 // MARK: - Internal methods

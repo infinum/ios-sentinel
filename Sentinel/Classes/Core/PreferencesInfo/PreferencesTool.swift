@@ -37,12 +37,6 @@ class PreferencesTool: Tool {
         SentinelListView(title: name, items: toolTable.sections)
     }
 
-    // MARK: - Public methods
-    
-    public func presentPreview(from viewController: UIViewController) {
-        let toolTable = createToolTable(with: items)
-        toolTable.presentPreview(from: viewController)
-    }
 }
 
 // MARK: - Private extension

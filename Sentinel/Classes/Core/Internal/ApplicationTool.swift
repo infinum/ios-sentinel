@@ -47,18 +47,13 @@ final class ApplicationTool: Tool {
     // MARK: - Internal properties -
 
     var toolTable: ToolTable {
-        return tool.createToolTable(with: tool.info)
+        tool.createToolTable(with: tool.info)
     }
 
     var content: any View {
         SentinelListView(title: name, items: toolTable.sections)
     }
 
-    // MARK: - Public methods -
-
-    public func presentPreview(from viewController: UIViewController) {
-        tool.presentPreview(from: viewController)
-    }
 }
 
 // MARK: - Internal extension

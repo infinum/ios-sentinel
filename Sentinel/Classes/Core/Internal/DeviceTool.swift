@@ -19,6 +19,16 @@ final class DeviceTool: Tool {
 
     public init() {}
 
+    // MARK: - Internal properties
+
+    var toolTable: ToolTable {
+        tool.createToolTable(with: tool.info)
+    }
+
+    var content: any View {
+        SentinelListView(title: name, items: toolTable.sections)
+    }
+
     // MARK: - Private properties -
 
     private lazy var tool = CustomInfoTool(
@@ -34,28 +44,6 @@ final class DeviceTool: Tool {
             ])
         ])
 
-    // MARK: - Internal properties
-
-    var toolTable: ToolTable {
-        tool.createToolTable(with: tool.info)
-    }
-
-    var content: any View {
-        SentinelListView(title: name, items: toolTable.sections)
-    }
-
-    // MARK: - Private properties
-
-    private var systemVersion: String {
-        "\(UIDevice.current.systemName) \(UIDevice.current.systemVersion)"
-    }
-
-    // MARK: - Public methods
-
-    public func presentPreview(from viewController: UIViewController) {
-        tool.presentPreview(from: viewController)
-    }
-
 }
 
 // MARK: - Extensions -
@@ -63,6 +51,10 @@ final class DeviceTool: Tool {
 // MARK: - Helpers
 
 private extension DeviceTool {
+
+    var systemVersion: String {
+        "\(UIDevice.current.systemName) \(UIDevice.current.systemVersion)"
+    }
 
     var batteryState: String {
         switch UIDevice.current.batteryState {

@@ -45,11 +45,6 @@ private struct TabBarView: View {
     }
 }
 
-//#Preview {
-//    SentinelTabBarView()
-//}
-
-
 extension Tab {
     var barItemTitle: String {
         switch self {
