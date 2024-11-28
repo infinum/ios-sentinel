@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 /// Defines tool item behaviour and appearance.
 @objc
@@ -62,7 +63,7 @@ public enum ToolTableItem2: Equatable, Identifiable {
 
 public struct NavigationToolItem: Equatable, Identifiable {
     let title: String
-    let didSelect: () -> Void
+    let didSelect: () -> any View
 
     public var id: String {
         title

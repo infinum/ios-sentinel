@@ -10,7 +10,7 @@ import SwiftUI
 struct NavigationToolTableView: View {
 
     let title: String
-    let didSelect: () -> Void
+    let didSelect: () -> any View
 
     var body: some View {
         HStack(spacing: 10) {
@@ -20,7 +20,6 @@ struct NavigationToolTableView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .onTapGesture { didSelect() }
     }
 
 }

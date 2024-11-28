@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 /// Defines tool datasouce which can present different tool sections.
 @objcMembers
@@ -33,6 +34,10 @@ public class ToolTable: NSObject, Tool {
     
     public func presentPreview(from viewController: UIViewController) {
         presentPreview(from: viewController, push: true)
+    }
+
+    public var content: any View {
+        SentinelListView(items: sections)
     }
 
     // Ovo bi se moglo skloniti tako da se samo vraca ViewController

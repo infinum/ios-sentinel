@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 @objcMembers
 public class CustomInfoTool: NSObject, Tool {
@@ -30,6 +31,11 @@ public class CustomInfoTool: NSObject, Tool {
     public func presentPreview(from viewController: UIViewController) {
         let toolTable = createToolTable(with: info)
         toolTable.presentPreview(from: viewController)
+    }
+
+    @ViewBuilder
+    public var content: any View {
+        SentinelListView(items: createToolTable(with: info).sections)
     }
 
     // MARK: - Internal methods

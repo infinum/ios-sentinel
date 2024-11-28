@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
 final class DeviceTool: Tool {
 
@@ -37,6 +38,10 @@ final class DeviceTool: Tool {
 
     var toolTable: ToolTable {
         tool.createToolTable(with: tool.info)
+    }
+
+    var content: any View {
+        SentinelListView(items: toolTable.sections)
     }
 
     // MARK: - Private properties

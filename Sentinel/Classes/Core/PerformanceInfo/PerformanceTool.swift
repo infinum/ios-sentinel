@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 final class PerformanceTool: Tool {
 
@@ -23,6 +24,10 @@ final class PerformanceTool: Tool {
 
     var toolTable: ToolTable {
         return createToolTable()
+    }
+
+    var content: any View {
+        SentinelListView(items: toolTable.sections)
     }
 
     // MARK: - Public methods

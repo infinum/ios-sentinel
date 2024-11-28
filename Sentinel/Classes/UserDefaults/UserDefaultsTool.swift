@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 @objcMembers
 public class UserDefaultsTool: NSObject, Tool {
@@ -28,27 +29,25 @@ public class UserDefaultsTool: NSObject, Tool {
     // MARK: - Public methods
     
     public func presentPreview(from viewController: UIViewController) {
-        let toolTable = createToolTable(with: userDefaults, viewController: viewController)
+        let toolTable = createToolTable(with: userDefaults)
         toolTable.presentPreview(from: viewController)
+    }
+
+    public var content: any View {
+        SentinelListView(items: createToolTable(with: userDefaults).sections)
     }
 }
 
 // MARK: - Internal methods
 
 private extension UserDefaultsTool {
-    func createToolTable(with userDefaults: UserDefaults, viewController: UIViewController) -> ToolTable {
-//        let items = userDefaults.dictionaryRepresentation().map { (key, value) in
-//            NavigationToolTableItem(title: key) { (viewControoler) in
-//                let userDefaultsViewController = UserDefaultsViewController.create(
-//                    withTitle: key,
-//                    details: String(describing: value)
-//                )
-//                viewController.navigationController?.pushViewController(userDefaultsViewController, animated: true)
-//            }
-//        }
-//        .sorted { $0.title < $1.title }
-//
-//        let section = ToolTableSection(items: items)
-        return ToolTable(name: name, sections: [])
+    func createToolTable(with userDefaults: UserDefaults) -> ToolTable {
+        let items = userDefaults.dictionaryRepresentation().map { (key, value) in
+            ToolTableItem2.navigation(NavigationToolItem(title: "title23", didSelect: { TitleValueView(item: .init(title: "titleee", value: "value"))}))
+        }
+        .sorted { $0.id < $1.id }
+
+        let section = ToolTableSection(items: items)
+        return ToolTable(name: name, sections: [section])
     }
 }

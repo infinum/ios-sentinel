@@ -6,9 +6,10 @@
 //
 
 import UIKit
+import SwiftUI
 
 /// Defines tool behaviour.
-@objc
+//@objc
 public protocol Tool {
     
     /// The name of the tool.
@@ -16,6 +17,8 @@ public protocol Tool {
     /// Presents the tool view controller from provided view controller.
     ///
     /// - Parameter viewController: The view controller used for presenting tool view controller.
-    @objc(presentPreviewFromViewController:)
+//    @objc(presentPreviewFromViewController:)
     func presentPreview(from viewController: UIViewController)
+
+    @ViewBuilder var content: any View { get }
 }

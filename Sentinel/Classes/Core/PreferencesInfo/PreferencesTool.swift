@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 /// Provides functionality which gives the user ability
 /// to change environment variables in the application.
@@ -31,7 +32,11 @@ class PreferencesTool: Tool {
         self.name = name
         self.items = items
     }
-    
+
+    var content: any View {
+        SentinelListView(items: toolTable.sections)
+    }
+
     // MARK: - Public methods
     
     public func presentPreview(from viewController: UIViewController) {

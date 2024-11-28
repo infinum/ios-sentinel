@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
 final class ApplicationTool: Tool {
 
@@ -48,7 +49,11 @@ final class ApplicationTool: Tool {
     var toolTable: ToolTable {
         return tool.createToolTable(with: tool.info)
     }
-    
+
+    var content: any View {
+        SentinelListView(items: toolTable.sections)
+    }
+
     // MARK: - Public methods -
 
     public func presentPreview(from viewController: UIViewController) {
