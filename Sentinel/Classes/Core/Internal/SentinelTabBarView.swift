@@ -18,24 +18,14 @@ enum Tab {
 struct SentinelTabBarView: View {
 
     @State var selectedTab: Tab = .tools
+    let tabs: [SentinelTabItem]
 
     var body: some View {
         TabView(selection: $selectedTab) {
-
-            SentinelListView(items: DeviceTool().toolTable.sections)
-                .tabItem { TabBarView(tab: .device) }
-
-            SentinelListView(items: ApplicationTool().toolTable.sections)
-                .tabItem { TabBarView(tab: .application) }
-
-            SentinelListView(items: [])
-                .tabItem { TabBarView(tab: .tools) }
-
-            SentinelListView(items: [.init(title: "title", items: [.toggle(.init(title: "title2", userDefaults: .standard, userDefaultsKey: "aaa"))])])
-                .tabItem { TabBarView(tab: .preferences) }
-
-            SentinelListView(items: PerformanceTool().toolTable.sections)
-                .tabItem { TabBarView(tab: .performance) }
+            ForEach(tabs, id: \.barItemTitle) { tab in
+                SentinelListView(items: tab.sections)
+                    .tabItem { TabBarView(tab: tab) }
+            }
         }
         .navigationTitle("Sentinel")
     }
@@ -43,7 +33,7 @@ struct SentinelTabBarView: View {
 
 private struct TabBarView: View {
 
-    var tab: Tab
+    var tab: SentinelTabItem
 
     var body: some View {
         VStack(spacing: 5) {
@@ -53,9 +43,9 @@ private struct TabBarView: View {
     }
 }
 
-#Preview {
-    SentinelTabBarView()
-}
+//#Preview {
+//    SentinelTabBarView()
+//}
 
 
 extension Tab {

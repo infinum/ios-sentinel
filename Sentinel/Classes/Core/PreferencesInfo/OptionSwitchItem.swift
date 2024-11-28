@@ -93,34 +93,55 @@ private extension OptionSwitchItem {
 
 
 public struct ToggleToolItem: Equatable, Identifiable {
+    public static func == (lhs: ToggleToolItem, rhs: ToggleToolItem) -> Bool {
+        lhs.title == rhs.title
+    }
+    
     public var id: String {
         title
     }
 
     let title: String
+    let setter: ((Bool) -> ())?
+    let getter: (() -> Bool)?
     let userDefaults: UserDefaults
     let userDefaultsKey: String?
 
     public init(
         title: String,
         userDefaults: UserDefaults = .standard,
-        userDefaultsKey: String?
+        userDefaultsKey: String
     ) {
         self.title = title
         self.userDefaults = userDefaults
         self.userDefaultsKey = userDefaultsKey
+        setter = nil
+        getter = nil
+    }
+
+    public init(
+        title: String,
+        setter: @escaping (Bool) -> (),
+        getter: @escaping () -> Bool
+    ) {
+        self.title = title
+        self.getter = getter
+        self.setter = setter
+        userDefaults = .standard
+        userDefaultsKey = nil
     }
 
     func change(to value: Bool) {
         if let userDefaultsKey {
             userDefaults.set(value, forKey: userDefaultsKey)
         }
+        setter?(value)
     }
 
     func loadStoredValue() -> Bool {
         guard let key = userDefaultsKey,
               let value = userDefaults.object(forKey: key) as? Bool
-        else { return false }
+        else { return getter?() ?? false }
         return value
     }
 

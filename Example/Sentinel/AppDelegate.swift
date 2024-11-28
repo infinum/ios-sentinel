@@ -32,7 +32,7 @@ enum AppSwitches {
 }
 
 private extension AppDelegate {
-    
+
     func setupSentinel() {
         let configuration = Sentinel.Configuration(
             trigger: Triggers.shake,
@@ -43,10 +43,10 @@ private extension AppDelegate {
             ],
             preferences: optionSwitchItems
         )
-        
+
         Sentinel.shared.setup(with: configuration)
     }
-    
+
     var baseUrlTool: Tool {
         TextEditingTool(
             name: "Base URL",
@@ -56,33 +56,33 @@ private extension AppDelegate {
             userDefaultsKey: "base_url_user_defaults_key"
         )
     }
-    
-    var optionSwitchItems: [OptionSwitchItem] {
-       [
-        OptionSwitchItem(
-            name: "Analytics",
-            setter: { AppSwitches.analyticsEnabled = $0 },
-            getter: { AppSwitches.analyticsEnabled },
-            userDefaults: .standard,
-            userDefaultsKey: "com.infinum.sentinel.optionSwitch.analytics"
-        ),
-        OptionSwitchItem(
-            name: "Crashlytics",
-            setter: { AppSwitches.crashlyticsEnabled = $0 },
-            getter: { AppSwitches.crashlyticsEnabled },
-            userDefaults: .standard,
-            userDefaultsKey: "com.infinum.sentinel.optionSwitch.crashlytics"
-        ),
-        OptionSwitchItem(
-            name: "Logging",
-            setter: { AppSwitches.loggingEnabled = $0 },
-            getter: { AppSwitches.loggingEnabled },
-            userDefaults: .standard,
-            userDefaultsKey: "com.infinum.sentinel.optionSwitch.logging"
-        ),
-       ]
+
+    var optionSwitchItems: [ToolTableSection] {
+        [
+            .init(
+                title: "title",
+                items: [
+                    .toggle(ToggleToolItem(
+                        title: "Analytics",
+                        userDefaults: .standard,
+                        userDefaultsKey: "com.infinum.sentinel.optionSwitch.analytics"
+                    )),
+                    .toggle(ToggleToolItem(
+                        title: "Crashlytics",
+                        setter: { AppSwitches.crashlyticsEnabled = $0 },
+                        getter: { AppSwitches.crashlyticsEnabled }
+                    )),
+                    .toggle(ToggleToolItem(
+                        title: "Logging",
+                        userDefaults: .standard,
+                        userDefaultsKey: "com.infinum.sentinel.optionSwitch.logging"
+                    ))
+                ]
+            )
+
+        ]
 
     }
-    
+
 }
 

@@ -17,7 +17,7 @@ class PreferencesTool: Tool {
 
     // MARK: - Private properties
     
-    private let items: [OptionSwitchItem]
+    private let items: [ToolTableSection]
 
     // MARK: - Internal properties
 
@@ -27,7 +27,7 @@ class PreferencesTool: Tool {
     
     // MARK: - Lifecycle
     
-    public init(name: String = "Preferences", items: [OptionSwitchItem]) {
+    public init(name: String = "Preferences", items: [ToolTableSection]) {
         self.name = name
         self.items = items
     }
@@ -43,11 +43,7 @@ class PreferencesTool: Tool {
 // MARK: - Private extension
 
 private extension PreferencesTool {
-    func createToolTable(with items: [OptionSwitchItem]) -> ToolTable {
-        let section = ToolTableSection(
-            title: nil,
-            items: items
-        )
-        return ToolTable(name: name, sections: [section])
+    func createToolTable(with items: [ToolTableSection]) -> ToolTable {
+        return ToolTable(name: name, sections: items)
     }
 }

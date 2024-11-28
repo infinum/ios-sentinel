@@ -15,34 +15,6 @@ struct SentinelTabItem {
         self.tab = tab
     }
 
-    var viewController: UIViewController {
-        switch tab {
-        case .device:
-            let deviceVC = SentinelTableViewController.create(with: toolTable)
-            deviceVC.tabBarItem = tabBarItem
-            return deviceVC
-        case .application:
-            let applicationVC = SentinelTableViewController.create(with: toolTable)
-            applicationVC.tabBarItem = tabBarItem
-            return applicationVC
-        case .tools:
-            let toolsVC = SentinelTableViewController.create(with: toolTable)
-            toolsVC.tabBarItem = tabBarItem
-            return toolsVC
-        case .preferences:
-            let preferencesVC = SentinelTableViewController.create(with: toolTable)
-            preferencesVC.tabBarItem = tabBarItem
-            return preferencesVC
-        case .performance:
-            let performanceVC = SentinelTableViewController.create(with: toolTable)
-            performanceVC.tabBarItem = tabBarItem
-            return performanceVC
-        }
-    }
-}
-
-private extension SentinelTabItem {
-
     var barItemTitle: String {
         switch tab {
         case .device:
@@ -78,13 +50,12 @@ private extension SentinelTabItem {
         }
     }
 
-    var tabBarItem: UITabBarItem {
-        return UITabBarItem(
-            title: barItemTitle,
-            image: barItemImage,
-            selectedImage: barItemImage
-        )
+    var sections: [ToolTableSection] {
+        toolTable.sections
     }
+}
+
+private extension SentinelTabItem {
 
     var toolTable: ToolTable {
         switch tab {
@@ -98,7 +69,7 @@ private extension SentinelTabItem {
             return toolTable
         case .tools(let items):
             let navigationItems = items
-                .map { NavigationToolTableItem(title: $0.name, navigate: $0.presentPreview(from:)) }
+                .map { ToolTableItem2.navigation(.init(title: $0.name, didSelect: { })) }
             let section = ToolTableSection(title: barItemTitle, items: navigationItems)
             let toolTable = ToolTable(name: barItemTitle, sections: [section])
             return toolTable

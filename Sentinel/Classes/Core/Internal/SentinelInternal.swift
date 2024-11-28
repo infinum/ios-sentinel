@@ -18,7 +18,7 @@ extension Sentinel {
     ///     - viewController: The view controller from where will the Sentinel be presented.
     func present(
         tools: [Tool],
-        preferences: [OptionSwitchItem],
+        preferences: [ToolTableSection],
         on viewController: UIViewController
     ) {
         let tabItems = createTabItems(
@@ -37,7 +37,7 @@ extension Sentinel {
 //            preselectedIndex: preselectedTabIndex
 //        )
 //        tabBarController.title = "Sentinel"
-        let tabBarController = UIHostingController(rootView: SentinelTabBarView())
+        let tabBarController = UIHostingController(rootView: SentinelTabBarView(tabs: tabItems))
 
         let navController = UINavigationController(rootViewController: tabBarController)
         viewController.present(navController, animated: true)
@@ -49,7 +49,7 @@ extension Sentinel {
 private extension Sentinel {
     func createTabItems(
         with tools: [Tool],
-        preferences: [OptionSwitchItem],
+        preferences: [ToolTableSection],
         viewController: UIViewController
     ) -> [SentinelTabItem] {
         return [

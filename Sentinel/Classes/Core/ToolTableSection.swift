@@ -21,12 +21,12 @@ public class ToolTableSection: NSObject {
 
     // MARK: - Lifecycle
     
-    /// Creates an instance of the section.
-    public init(title: String? = nil, items: [ToolTableItem]) {
-        self.title = title
-        self.items = []
-        super.init()
-    }
+//    /// Creates an instance of the section.
+//    public init(title: String? = nil, items: [ToolTableItem]) {
+//        self.title = title
+//        self.items = []
+//        super.init()
+//    }
 
     public init(title: String? = nil, items: [ToolTableItem2]) {
         self.title = title

@@ -37,18 +37,18 @@ public class UserDefaultsTool: NSObject, Tool {
 
 private extension UserDefaultsTool {
     func createToolTable(with userDefaults: UserDefaults, viewController: UIViewController) -> ToolTable {
-        let items = userDefaults.dictionaryRepresentation().map { (key, value) in
-            NavigationToolTableItem(title: key) { (viewControoler) in
-                let userDefaultsViewController = UserDefaultsViewController.create(
-                    withTitle: key,
-                    details: String(describing: value)
-                )
-                viewController.navigationController?.pushViewController(userDefaultsViewController, animated: true)
-            }
-        }
-        .sorted { $0.title < $1.title }
-
-        let section = ToolTableSection(items: items)
-        return ToolTable(name: name, sections: [section])
+//        let items = userDefaults.dictionaryRepresentation().map { (key, value) in
+//            NavigationToolTableItem(title: key) { (viewControoler) in
+//                let userDefaultsViewController = UserDefaultsViewController.create(
+//                    withTitle: key,
+//                    details: String(describing: value)
+//                )
+//                viewController.navigationController?.pushViewController(userDefaultsViewController, animated: true)
+//            }
+//        }
+//        .sorted { $0.title < $1.title }
+//
+//        let section = ToolTableSection(items: items)
+        return ToolTable(name: name, sections: [])
     }
 }
