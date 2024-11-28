@@ -37,7 +37,7 @@ public class ToolTable: NSObject, Tool {
     }
 
     public var content: any View {
-        SentinelListView(items: sections)
+        SentinelListView(title: name, items: sections)
     }
 
     // Ovo bi se moglo skloniti tako da se samo vraca ViewController

@@ -35,7 +35,7 @@ public class CustomInfoTool: NSObject, Tool {
 
     @ViewBuilder
     public var content: any View {
-        SentinelListView(items: createToolTable(with: info).sections)
+        SentinelListView(title: name, items: createToolTable(with: info).sections)
     }
 
     // MARK: - Internal methods

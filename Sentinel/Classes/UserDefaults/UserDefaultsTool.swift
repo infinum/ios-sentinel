@@ -34,7 +34,7 @@ public class UserDefaultsTool: NSObject, Tool {
     }
 
     public var content: any View {
-        SentinelListView(items: createToolTable(with: userDefaults).sections)
+        SentinelListView(title: name, items: createToolTable(with: userDefaults).sections)
     }
 }
 
@@ -42,10 +42,11 @@ public class UserDefaultsTool: NSObject, Tool {
 
 private extension UserDefaultsTool {
     func createToolTable(with userDefaults: UserDefaults) -> ToolTable {
-        let items = userDefaults.dictionaryRepresentation().map { (key, value) in
-            ToolTableItem2.navigation(NavigationToolItem(title: "title23", didSelect: { TitleValueView(item: .init(title: "titleee", value: "value"))}))
-        }
-        .sorted { $0.id < $1.id }
+        let items = userDefaults.dictionaryRepresentation()
+            .sorted { $0.key < $1.key }
+            .map { (key, value) in
+                return ToolTableItem2.navigation(NavigationToolItem(title: key, didSelect: { UserDefaultsToolView(viewModel: .init(value: String(describing: value), title: key, userDefaults: userDefaults)) }))
+            }
 
         let section = ToolTableSection(items: items)
         return ToolTable(name: name, sections: [section])

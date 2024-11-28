@@ -9,47 +9,48 @@ import SwiftUI
 
 struct SentinelListView: View {
 
+    let title: String
     let items: [ToolTableSection]
 
     var body: some View {
-        NavigationView {
-            List(items, id: \.title) { section in
-                Section {
-                    if let title = section.title {
-                        Text(title)
-                    }
+        List(items, id: \.title) { section in
+            Section {
+                if let title = section.title {
+                    Text(title)
+                }
 
-                    ForEach(section.items) { item in
-                        switch item {
-                        case .navigation(let item):
-                            NavigationLink {
-                                AnyView(item.didSelect())
-                            } label: {
-                                NavigationToolTableView(item: item)
-                            }
-                        case .toggle(let item):
-                            OptionSwitchView(item: item)
-                        case .customInfo(let item):
-                            TitleValueView(item: item)
-                        case .performance(let item):
-                            PerformanceToolView(viewModel: .init(item: item))
+                ForEach(section.items) { item in
+                    switch item {
+                    case .navigation(let item):
+                        NavigationLink {
+                            AnyView(item.didSelect())
+                        } label: {
+                            NavigationToolTableView(item: item)
                         }
+                    case .toggle(let item):
+                        OptionSwitchView(item: item)
+                    case .customInfo(let item):
+                        TitleValueView(item: item)
+                    case .performance(let item):
+                        PerformanceToolView(viewModel: .init(item: item))
                     }
                 }
             }
         }
+        .navigationTitle(title)
     }
 }
 
 #Preview {
     SentinelListView(
+        title: "Title",
         items: [
             .init(
                 title: "something",
                 items: [
-//                    .navigation(.init(title: "title1", didSelect: { print("111") })),
-//                    .navigation(.init(title: "title2", didSelect: { print("111") })),
-//                    .navigation(.init(title: "title3", didSelect: { print("111") }))
+                    //                    .navigation(.init(title: "title1", didSelect: { print("111") })),
+                    //                    .navigation(.init(title: "title2", didSelect: { print("111") })),
+                    //                    .navigation(.init(title: "title3", didSelect: { print("111") }))
                 ]
             )
         ]

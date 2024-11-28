@@ -34,7 +34,7 @@ class PreferencesTool: Tool {
     }
 
     var content: any View {
-        SentinelListView(items: toolTable.sections)
+        SentinelListView(title: name, items: toolTable.sections)
     }
 
     // MARK: - Public methods
