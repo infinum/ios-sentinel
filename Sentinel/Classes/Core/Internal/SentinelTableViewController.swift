@@ -71,6 +71,7 @@ extension ToolTable {
     }
     subscript(indexPath: IndexPath) -> ToolTableItem {
 //        sections[indexPath.section].items[indexPath.row]
-        PerformanceInfoItem(title: "", valueDidChange: { return "" })
+//        PerformanceInfoItem(title: "", valueDidChange: { return "" })
+        DetailToolTableItem(title: "", detail: "")
     }
 }

@@ -50,12 +50,14 @@ public enum ToolTableItem2: Equatable, Identifiable {
         case .navigation(let item): item.id
         case .toggle(let item): item.id
         case .customInfo(let item): item.id
+        case .performance(let item): item.id
         }
     }
 
     case navigation(NavigationToolItem)
     case toggle(ToggleToolItem)
     case customInfo(CustomInfoTool.Item)
+    case performance(PerformanceInfoItem)
 }
 
 public struct NavigationToolItem: Equatable, Identifiable {

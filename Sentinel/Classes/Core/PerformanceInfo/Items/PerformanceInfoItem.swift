@@ -7,7 +7,15 @@
 
 import UIKit
 
-class PerformanceInfoItem: NSObject {
+public struct PerformanceInfoItem: Equatable, Identifiable {
+    public static func == (lhs: PerformanceInfoItem, rhs: PerformanceInfoItem) -> Bool {
+        lhs.title == rhs.title
+    }
+    
+    public var id: String {
+        title
+    }
+
 
     // MARK: - Internal properties
 
@@ -24,15 +32,15 @@ class PerformanceInfoItem: NSObject {
 
 // MARK: - ToolTableItem
 
-extension PerformanceInfoItem: ToolTableItem {
-
-    public func cell(from tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(ofType: PerformanceInfoTableViewCell.self, for: indexPath)
-        cell.configure(with: self)
-        return cell
-    }
-
-    public func register(at tableView: UITableView) {
-        tableView.registerNib(cellOfType: PerformanceInfoTableViewCell.self)
-    }
-}
+//extension PerformanceInfoItem: ToolTableItem {
+//
+//    public func cell(from tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(ofType: PerformanceInfoTableViewCell.self, for: indexPath)
+//        cell.configure(with: self)
+//        return cell
+//    }
+//
+//    public func register(at tableView: UITableView) {
+//        tableView.registerNib(cellOfType: PerformanceInfoTableViewCell.self)
+//    }
+//}

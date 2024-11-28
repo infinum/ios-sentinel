@@ -24,13 +24,17 @@ struct SentinelTabBarView: View {
 
             SentinelListView(items: DeviceTool().toolTable.sections)
                 .tabItem { TabBarView(tab: .device) }
-            Text("2")
+
+            SentinelListView(items: ApplicationTool().toolTable.sections)
                 .tabItem { TabBarView(tab: .application) }
+
             SentinelListView(items: [])
                 .tabItem { TabBarView(tab: .tools) }
-            SentinelListView(items: [.init(title: "title", items: [.toggle(.init(title: "title", userDefaults: .standard, userDefaultsKey: "aaa"))])])
+
+            SentinelListView(items: [.init(title: "title", items: [.toggle(.init(title: "title2", userDefaults: .standard, userDefaultsKey: "aaa"))])])
                 .tabItem { TabBarView(tab: .preferences) }
-            Text("5")
+
+            SentinelListView(items: PerformanceTool().toolTable.sections)
                 .tabItem { TabBarView(tab: .performance) }
         }
         .navigationTitle("Sentinel")

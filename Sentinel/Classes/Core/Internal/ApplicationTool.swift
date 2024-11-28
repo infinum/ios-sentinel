@@ -8,14 +8,18 @@
 import Foundation
 import UIKit
 
-class ApplicationTool: Tool {
-    
-    // MARK: - Lifecycle
-    
+final class ApplicationTool: Tool {
+
+    // MARK: - Public properties -
+
+    public var name: String { tool.name }
+
+    // MARK: - Lifecycle -
+
     public init() {}
 
-    // MARK: - Private properties
-    
+    // MARK: - Private properties -
+
     private lazy var tool = CustomInfoTool(
         name: "Application",
         info: [
@@ -39,18 +43,14 @@ class ApplicationTool: Tool {
         ]
     )
     
-    // MARK: - Internal properties
+    // MARK: - Internal properties -
 
     var toolTable: ToolTable {
         return tool.createToolTable(with: tool.info)
     }
     
-    // MARK: - Public properties
+    // MARK: - Public methods -
 
-    public var name: String { tool.name }
-    
-    // MARK: - Public methods
-    
     public func presentPreview(from viewController: UIViewController) {
         tool.presentPreview(from: viewController)
     }

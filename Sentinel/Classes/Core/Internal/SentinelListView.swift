@@ -26,6 +26,8 @@ struct SentinelListView: View {
                         OptionSwitchView(item: item)
                     case .customInfo(let item):
                         TitleValueView(item: item)
+                    case .performance(let item):
+                        PerformanceToolView(viewModel: .init(item: item))
                     }
                 }
             }

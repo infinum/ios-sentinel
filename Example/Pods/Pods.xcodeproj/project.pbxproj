@@ -24,6 +24,8 @@
 		3775AE0A2CF7572B00D4C974 /* NavigationToolTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3775AE092CF7572B00D4C974 /* NavigationToolTableView.swift */; };
 		3775AE0C2CF75E2200D4C974 /* OptionSwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3775AE0B2CF75E2200D4C974 /* OptionSwitchView.swift */; };
 		3775AE0E2CF7622F00D4C974 /* TitleValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3775AE0D2CF7622F00D4C974 /* TitleValueView.swift */; };
+		377AB5372CF85C420060FC6C /* PerformanceInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377AB5362CF85C420060FC6C /* PerformanceInfoViewModel.swift */; };
+		377AB5392CF85DA80060FC6C /* PerformanceToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377AB5382CF85DA80060FC6C /* PerformanceToolView.swift */; };
 		3CA9B0CEC19941BA4BE509C533FCB4A9 /* UIImage+Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C11C46B7E8DD64B03A3E28C6709003 /* UIImage+Bundle.swift */; };
 		3EE3C93E1442762DF98ED300756FA4F9 /* SystemInfoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED039F03AD2BBC18FF44C3EFEF64AF6 /* SystemInfoProvider.swift */; };
 		4069AED7DF5AC013C74F0749B7D76368 /* SentinelInternal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB27576296566CC19D63C76B70E432F /* SentinelInternal.swift */; };
@@ -120,6 +122,8 @@
 		3775AE092CF7572B00D4C974 /* NavigationToolTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationToolTableView.swift; sourceTree = "<group>"; };
 		3775AE0B2CF75E2200D4C974 /* OptionSwitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionSwitchView.swift; sourceTree = "<group>"; };
 		3775AE0D2CF7622F00D4C974 /* TitleValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleValueView.swift; sourceTree = "<group>"; };
+		377AB5362CF85C420060FC6C /* PerformanceInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceInfoViewModel.swift; sourceTree = "<group>"; };
+		377AB5382CF85DA80060FC6C /* PerformanceToolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceToolView.swift; sourceTree = "<group>"; };
 		3A27581CB2B9CCD210289976D6CC70A3 /* SentinelTab.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SentinelTab.swift; sourceTree = "<group>"; };
 		418F81F9372721938AFA1EF3CF963146 /* UserDefaults.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; name = UserDefaults.storyboard; path = Sentinel/Classes/UserDefaults/UserDefaults.storyboard; sourceTree = "<group>"; };
 		4452D60511129A8FAEA7813B6E7385A1 /* Sentinel-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Sentinel-umbrella.h"; sourceTree = "<group>"; };
@@ -437,6 +441,8 @@
 				055321034982530D406A5A7817A399D6 /* PerformanceInfoItem.swift */,
 				775C6A6DD6970BA3B569D972E3BD3F72 /* PerformanceInfoTableViewCell.swift */,
 				8C2308E63E7D43FB635C01B30252DF5A /* PerformanceInfoTableViewCell.xib */,
+				377AB5362CF85C420060FC6C /* PerformanceInfoViewModel.swift */,
+				377AB5382CF85DA80060FC6C /* PerformanceToolView.swift */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -735,6 +741,7 @@
 				3775AE0A2CF7572B00D4C974 /* NavigationToolTableView.swift in Sources */,
 				5AA5B6F636666F401C0BB5D21D990CA8 /* DetailToolTableCell.xib in Sources */,
 				3775AE0E2CF7622F00D4C974 /* TitleValueView.swift in Sources */,
+				377AB5372CF85C420060FC6C /* PerformanceInfoViewModel.swift in Sources */,
 				F908C6D8DB3FFC091065FAD7B492AFE2 /* DeviceTool.swift in Sources */,
 				FE637B2476DA7328FD6EBC5B34F60A8F /* EmailSenderTool.swift in Sources */,
 				CEA4FD328153F052E8FCEE11AA75ED91 /* MailData.swift in Sources */,
@@ -745,6 +752,7 @@
 				02D1D95B3DDAB0A394AD942BFFC5BA45 /* OptionSwitchTableViewCell.swift in Sources */,
 				C971480A1A41F7A0DB4871B070F3628F /* OptionSwitchTableViewCell.xib in Sources */,
 				9137346D12FB37429AE2A10BB323F923 /* PerformanceInfo.storyboard in Sources */,
+				377AB5392CF85DA80060FC6C /* PerformanceToolView.swift in Sources */,
 				F213363ED9696E0418ECEE979ED8ED1A /* PerformanceInfoItem.swift in Sources */,
 				41274F2A6EDEA4FF391A320299DCA337 /* PerformanceInfoTableViewCell.swift in Sources */,
 				D996353A455BF77E0C90A45BE34FBEC8 /* PerformanceInfoTableViewCell.xib in Sources */,

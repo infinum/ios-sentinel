@@ -7,8 +7,8 @@
 
 import UIKit
 
-class PerformanceTool: Tool {
-    
+final class PerformanceTool: Tool {
+
     // MARK: - Public properties
     
     public let name: String
@@ -48,27 +48,27 @@ private extension PerformanceTool {
         )
     }
 
-    func cpuInfoItems() -> [ToolTableItem] {
+    func cpuInfoItems() -> [ToolTableItem2] {
         let cpuInfo = CPUInfoProvider()
         return [
-            PerformanceInfoItem(title: "CPU Usage", valueDidChange: { String(format: "%.2f%%", cpuInfo.currentUsage) }),
-            PerformanceInfoItem(title: "Number of cores", valueDidChange: { String(format: "%d", cpuInfo.numberOfCores) })
+            .performance(.init(title: "CPU Usage", valueDidChange: { String(format: "%.2f%%", cpuInfo.currentUsage) })),
+            .performance(PerformanceInfoItem(title: "Number of cores", valueDidChange: { String(format: "%d", cpuInfo.numberOfCores) }))
         ]
     }
 
-    func memoryInfoItems() -> [ToolTableItem] {
+    func memoryInfoItems() -> [ToolTableItem2] {
         let memoryInfo = MemoryInfoProvider()
         let used = ByteCountFormatter.string(fromByteCount: memoryInfo.currentUsage.used, countStyle: .file)
         let total = ByteCountFormatter.string(fromByteCount: memoryInfo.currentUsage.total, countStyle: .file)
         return [
-            PerformanceInfoItem(title: "Memory usage", valueDidChange: { "\(used) / \(total)" })
+            .performance(PerformanceInfoItem(title: "Memory usage", valueDidChange: { "\(used) / \(total)" }))
         ]
     }
 
-    func systemInfoItems() -> [ToolTableItem] {
+    func systemInfoItems() -> [ToolTableItem2] {
         let systemInfo = SystemInfoProvider()
         return [
-            PerformanceInfoItem(title: "Uptime", valueDidChange: { systemInfo.uptime })
+            .performance(PerformanceInfoItem(title: "Uptime", valueDidChange: { systemInfo.uptime }))
         ]
     }
 
