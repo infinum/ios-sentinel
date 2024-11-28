@@ -38,7 +38,7 @@ public class CustomInfoTool: NSObject, Tool {
         let sections = info.map { (section) in
             ToolTableSection(
                 title: section.title,
-                items: section.items.map { DetailToolTableItem(title: $0.title, detail: $0.value) }
+                items: section.items.map { .customInfo($0) }
             )
         }
         return ToolTable(name: name, sections: sections)
@@ -62,8 +62,8 @@ extension CustomInfoTool {
         }
     }
     
-    public class Item {
-        
+    public class Item: Equatable, Identifiable {
+
         // MARK: - Internal properties
 
         let title: String
@@ -74,6 +74,14 @@ extension CustomInfoTool {
         public init(title: String, value: String) {
             self.title = title
             self.value = value
+        }
+
+        public var id: String {
+            title
+        }
+
+        public static func == (lhs: CustomInfoTool.Item, rhs: CustomInfoTool.Item) -> Bool {
+            lhs.title == rhs.title
         }
     }
     

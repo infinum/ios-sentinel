@@ -22,19 +22,7 @@ struct SentinelTabBarView: View {
     var body: some View {
         TabView(selection: $selectedTab) {
 
-            SentinelListView(
-                items: [.init(
-                    title: "device",
-                    items: [
-                        .titleValue(.init(title: "Model", value: UIDevice.current.model)),
-                        .titleValue(.init(title: "Name", value: UIDevice.current.name)),
-                        .titleValue(.init(title: "System version", value: "systemVersion")),
-                        .titleValue(.init(title: "UUID", value: UIDevice.current.identifierForVendor?.uuidString ?? "???")),
-                        .titleValue(.init(title: "Battery state", value: "batteryState")),
-                        .titleValue(.init(title: "Proximity state", value: UIDevice.current.proximityState ? "Close" : "Far"))
-                    ]
-                )]
-            )
+            SentinelListView(items: DeviceTool().toolTable.sections)
                 .tabItem { TabBarView(tab: .device) }
             Text("2")
                 .tabItem { TabBarView(tab: .application) }

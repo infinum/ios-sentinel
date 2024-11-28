@@ -26,7 +26,7 @@ struct TitleValueView: View {
 
 extension TitleValueView {
 
-    init(item: TitleValueItem) {
+    init(item: CustomInfoTool.Item) {
         title = item.title
         value = item.value
     }

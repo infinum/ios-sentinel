@@ -24,7 +24,7 @@ struct SentinelListView: View {
                         NavigationToolTableView(item: item)
                     case .toggle(let item):
                         OptionSwitchView(item: item)
-                    case .titleValue(let item):
+                    case .customInfo(let item):
                         TitleValueView(item: item)
                     }
                 }
