@@ -31,14 +31,13 @@ struct SentinelTabItem {
     }
 
     var barItemImage: Image {
-        Image(uiImage: .actions)
-//        switch tab {
-//        case .device: .init(.device)
-//        case .application: .init(.application)
-//        case .tools: .init(.tools)
-//        case .preferences: .init(.preferences)
-//        case .performance: .init(.performance)
-//        }
+        switch tab {
+        case .device: .SentinelImages.device
+        case .application: .SentinelImages.application
+        case .tools: .SentinelImages.tools
+        case .preferences: .SentinelImages.preferences
+        case .performance: .SentinelImages.performance
+        }
     }
 
     var sections: [ToolTableSection] {

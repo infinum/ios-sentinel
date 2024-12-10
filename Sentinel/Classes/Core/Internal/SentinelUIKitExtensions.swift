@@ -6,6 +6,7 @@
 //
 
 #if canImport(UIKit)
+import UIKit
 
 extension Bundle {
     static var sentinel: Bundle {
