@@ -29,6 +29,7 @@
 		3786D06D2D084D9C00C0A848 /* CustomLocation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3786D06C2D084D9C00C0A848 /* CustomLocation.storyboard */; };
 		3786D06F2D084DEF00C0A848 /* SentinelUIKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3786D06E2D084DEF00C0A848 /* SentinelUIKitExtensions.swift */; };
 		3786D0712D084E1B00C0A848 /* CustomLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3786D0702D084E1B00C0A848 /* CustomLocationView.swift */; };
+		3786D0732D0851EE00C0A848 /* EmailSenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3786D0722D0851EE00C0A848 /* EmailSenderView.swift */; };
 		3EE3C93E1442762DF98ED300756FA4F9 /* SystemInfoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED039F03AD2BBC18FF44C3EFEF64AF6 /* SystemInfoProvider.swift */; };
 		4069AED7DF5AC013C74F0749B7D76368 /* SentinelInternal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB27576296566CC19D63C76B70E432F /* SentinelInternal.swift */; };
 		46B86E290AEED299FD5577116F78BB3E /* Pods-Sentinel_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C6FAA08483FA46AF62E0083A4A1ECE /* Pods-Sentinel_Example-dummy.m */; };
@@ -116,6 +117,7 @@
 		3786D06C2D084D9C00C0A848 /* CustomLocation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CustomLocation.storyboard; sourceTree = "<group>"; };
 		3786D06E2D084DEF00C0A848 /* SentinelUIKitExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentinelUIKitExtensions.swift; sourceTree = "<group>"; };
 		3786D0702D084E1B00C0A848 /* CustomLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLocationView.swift; sourceTree = "<group>"; };
+		3786D0722D0851EE00C0A848 /* EmailSenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSenderView.swift; sourceTree = "<group>"; };
 		3A27581CB2B9CCD210289976D6CC70A3 /* SentinelTab.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SentinelTab.swift; sourceTree = "<group>"; };
 		4452D60511129A8FAEA7813B6E7385A1 /* Sentinel-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Sentinel-umbrella.h"; sourceTree = "<group>"; };
 		44796B7C5E92E7D04E5623DA7EB8B0FD /* ApplicationTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ApplicationTool.swift; sourceTree = "<group>"; };
@@ -383,6 +385,7 @@
 			children = (
 				75F4AA20F4520ABF3CABE32553A07230 /* EmailSenderTool.swift */,
 				A7B50E56512DF4FE3C282876E7C50698 /* MailData.swift */,
+				3786D0722D0851EE00C0A848 /* EmailSenderView.swift */,
 			);
 			name = EmailSender;
 			sourceTree = "<group>";
@@ -700,6 +703,7 @@
 				5F2B03F223C1454B7A3226CB4E720946 /* CPUInfoProvider.swift in Sources */,
 				77E676308FDD78C9512EFB3FCF0688AB /* CustomInfoTool.swift in Sources */,
 				EEFEFBE87FAD353E2DD2D035832D2FF1 /* CustomLocationProvider.swift in Sources */,
+				3786D0732D0851EE00C0A848 /* EmailSenderView.swift in Sources */,
 				FF58A9086C379EDC79BFB36C2B936300 /* CustomLocationTool.swift in Sources */,
 				0A1B547F390474249D50AEE398433DB2 /* CustomLocationViewController.swift in Sources */,
 				3775AE0A2CF7572B00D4C974 /* NavigationToolTableView.swift in Sources */,
