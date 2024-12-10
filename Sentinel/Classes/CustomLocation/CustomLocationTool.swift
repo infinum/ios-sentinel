@@ -31,17 +31,6 @@ public class CustomLocationTool: NSObject, Tool {
     }
 
     public var content: any View {
-        CustomLocationView(viewModel: .init(locationProvider: locationProvider))
+        CustomLocationView(locationProvider: locationProvider)
     }
-
-
-
-    // MARK: - Public methods
-    
-//    public func presentPreview(from viewController: UIViewController) {
-//        let customLocationViewController = CustomLocationViewController.create(
-//            locationProvider: locationProvider
-//        )
-//        viewController.navigationController?.pushViewController(customLocationViewController, animated: true)
-//    }
 }

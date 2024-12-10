@@ -6,51 +6,16 @@
 //
 
 import SwiftUI
-import MapKit
 
-struct CustomLocationView: View {
+struct CustomLocationView: UIViewControllerRepresentable {
 
-    @ObservedObject var viewModel: CustomLocationViewModel
+    let locationProvider: CustomLocationProvider
 
-    var body: some View {
-        ZStack {
-            VStack(spacing: 0) {
-                if let marker = viewModel.marker {
-                    Map(coordinateRegion: $viewModel.coordinateRegion, annotationItems: [marker], annotationContent: {
-                        MapMarker(coordinate: $0.coordinate)
-                    })
-                } else {
-                    Map(coordinateRegion: $viewModel.coordinateRegion)
-                }
-                if viewModel.enableCustomLocation {
-                    VStack(spacing: 10) {
-                        VStack(alignment: .leading, spacing: 5) {
-                            Text("Latitude")
-                            TextField("Enter latitude", text: $viewModel.latitude)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                        }
+    func makeUIViewController(context: Context) -> some UIViewController {
+        CustomLocationViewController.create(locationProvider: locationProvider)
+    }
 
-
-                        VStack(alignment: .leading, spacing: 5) {
-                            Text("Longitude")
-                            TextField("Enter longitude", text: $viewModel.longitude)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                        }
-
-                        Button("Update location", action: viewModel.updateLocation)
-                    }
-                    .padding(16)
-                }
-            }
-            .ignoresSafeArea(edges: .top)
-
-            VStack(spacing: 0) {
-                Toggle(isOn: $viewModel.enableCustomLocation) {
-                    Text("Enable custom location")
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                }
-                Spacer()
-            }
-        }
+    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
+        // Nothing to do here
     }
 }
