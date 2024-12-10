@@ -5,7 +5,6 @@
 //  Created by Nikola Majcen on 02/10/2020.
 //
 
-import UIKit
 import SwiftUI
 
 /// Provides functionality which gives the user ability

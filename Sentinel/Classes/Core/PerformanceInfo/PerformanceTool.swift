@@ -5,7 +5,6 @@
 //  Created by Nikola Majcen on 02/10/2020.
 //
 
-import UIKit
 import SwiftUI
 
 final class PerformanceTool: Tool {
@@ -47,7 +46,7 @@ private extension PerformanceTool {
         )
     }
 
-    func cpuInfoItems() -> [ToolTableItem2] {
+    func cpuInfoItems() -> [ToolTableItem] {
         let cpuInfo = CPUInfoProvider()
         return [
             .performance(.init(title: "CPU Usage", valueDidChange: { String(format: "%.2f%%", cpuInfo.currentUsage) })),
@@ -55,7 +54,7 @@ private extension PerformanceTool {
         ]
     }
 
-    func memoryInfoItems() -> [ToolTableItem2] {
+    func memoryInfoItems() -> [ToolTableItem] {
         let memoryInfo = MemoryInfoProvider()
         let used = ByteCountFormatter.string(fromByteCount: memoryInfo.currentUsage.used, countStyle: .file)
         let total = ByteCountFormatter.string(fromByteCount: memoryInfo.currentUsage.total, countStyle: .file)
@@ -64,7 +63,7 @@ private extension PerformanceTool {
         ]
     }
 
-    func systemInfoItems() -> [ToolTableItem2] {
+    func systemInfoItems() -> [ToolTableItem] {
         let systemInfo = SystemInfoProvider()
         return [
             .performance(PerformanceInfoItem(title: "Uptime", valueDidChange: { systemInfo.uptime }))

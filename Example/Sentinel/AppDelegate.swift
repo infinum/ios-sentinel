@@ -38,8 +38,8 @@ private extension AppDelegate {
             trigger: Triggers.shake,
             tools: [
                 UserDefaultsTool(),
-                baseUrlTool
-//                CustomLocationTool()
+                baseUrlTool,
+                CustomLocationTool()
             ],
             preferences: optionSwitchItems
         )

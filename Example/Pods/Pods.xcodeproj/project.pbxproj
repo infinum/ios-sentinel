@@ -11,7 +11,6 @@
 		095B51EEA49EE85E5B2CF269546EF3FE /* SourceScreenProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2AF939006BA75550964F9030F42FD4 /* SourceScreenProvider.swift */; };
 		095BD895F7C4C63E726031305BCF3E13 /* ApplicationTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44796B7C5E92E7D04E5623DA7EB8B0FD /* ApplicationTool.swift */; };
 		0A1B547F390474249D50AEE398433DB2 /* CustomLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D924EFA9A100F58C6EEC617AFA50215 /* CustomLocationViewController.swift */; };
-		0CE465531B466F91512675B58B158A71 /* SentinelTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F3A2C72480EAB2B2B4A42FC28D6442 /* SentinelTabBarController.swift */; };
 		11E4987199D56053C1A7B222478E0C56 /* ToolTableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276CF519210468F6A3A1406964FEDCE5 /* ToolTableSection.swift */; };
 		1AC2D449037FA7861C5C6B8A81EAF5DB /* Sentinel-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0123519EBBADBDD3CA020E20D74CC504 /* Sentinel-dummy.m */; };
 		2B72BBF9769DADC81BF1D28A1A9C0514 /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F7553511390B88E4E1C3768C80AA2F /* Tool.swift */; };
@@ -23,21 +22,20 @@
 		3775AE0E2CF7622F00D4C974 /* TitleValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3775AE0D2CF7622F00D4C974 /* TitleValueView.swift */; };
 		377AB5372CF85C420060FC6C /* PerformanceInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377AB5362CF85C420060FC6C /* PerformanceInfoViewModel.swift */; };
 		377AB5392CF85DA80060FC6C /* PerformanceToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377AB5382CF85DA80060FC6C /* PerformanceToolView.swift */; };
-		377AB53B2CF87D6D0060FC6C /* UserDefaultsToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377AB53A2CF87D6D0060FC6C /* UserDefaultsToolView.swift */; };
-		377AB53D2CF87E420060FC6C /* UserDefaultsToolViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377AB53C2CF87E420060FC6C /* UserDefaultsToolViewModel.swift */; };
-		377AB53F2CF8916E0060FC6C /* TextEditingToolViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377AB53E2CF8916E0060FC6C /* TextEditingToolViewModel.swift */; };
-		377AB5412CF891840060FC6C /* TextEditingToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377AB5402CF891840060FC6C /* TextEditingToolView.swift */; };
-		3CA9B0CEC19941BA4BE509C533FCB4A9 /* UIImage+Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C11C46B7E8DD64B03A3E28C6709003 /* UIImage+Bundle.swift */; };
+		377AB5622CF8C0BB0060FC6C /* TextEditingToolViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377AB5612CF8C0BB0060FC6C /* TextEditingToolViewModel.swift */; };
+		377AB5632CF8C0BB0060FC6C /* TextEditingToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377AB5602CF8C0BB0060FC6C /* TextEditingToolView.swift */; };
+		377AB5662CF8C0DF0060FC6C /* UserDefaultsToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377AB5642CF8C0DF0060FC6C /* UserDefaultsToolView.swift */; };
+		377AB5672CF8C0DF0060FC6C /* UserDefaultsToolViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377AB5652CF8C0DF0060FC6C /* UserDefaultsToolViewModel.swift */; };
+		3786D02C2D08246C00C0A848 /* CustomLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3786D02B2D08246C00C0A848 /* CustomLocationView.swift */; };
+		3786D02E2D08248E00C0A848 /* CustomLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3786D02D2D08248E00C0A848 /* CustomLocationViewModel.swift */; };
 		3EE3C93E1442762DF98ED300756FA4F9 /* SystemInfoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED039F03AD2BBC18FF44C3EFEF64AF6 /* SystemInfoProvider.swift */; };
 		4069AED7DF5AC013C74F0749B7D76368 /* SentinelInternal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB27576296566CC19D63C76B70E432F /* SentinelInternal.swift */; };
-		41274F2A6EDEA4FF391A320299DCA337 /* PerformanceInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775C6A6DD6970BA3B569D972E3BD3F72 /* PerformanceInfoTableViewCell.swift */; };
 		46B86E290AEED299FD5577116F78BB3E /* Pods-Sentinel_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C6FAA08483FA46AF62E0083A4A1ECE /* Pods-Sentinel_Example-dummy.m */; };
 		59A26628B91C10D7E9427B26AE9D068B /* OptionSwitchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF891D1CB5955ADCA3BF99BEE4715BDC /* OptionSwitchItem.swift */; };
 		5A3D76150331AA1378E52A7AD4469FE8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
 		5F2B03F223C1454B7A3226CB4E720946 /* CPUInfoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E917C582525129752339E050730BB23 /* CPUInfoProvider.swift */; };
 		65974CECA298281B0A90A95EF660A7A7 /* Sentinel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB5B669CC7EF7B918E68B10CCE39A41 /* Sentinel.swift */; };
 		77E676308FDD78C9512EFB3FCF0688AB /* CustomInfoTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4137C7F94FB19F0218DDF7179213C4 /* CustomInfoTool.swift */; };
-		79911AFF1D6262EF201E3B7B73A251DA /* SentinelUIKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CC0FB131C50C3A41D155D3571ECDE1 /* SentinelUIKitExtensions.swift */; };
 		88761192B17AF2873F12993CFEFB1ECE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D245E0514AAC1A2B9A6D5EA2F383E90F /* UIKit.framework */; };
 		8AB506A89E6F5C885BBD39F6C71F666B /* Trigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E53FF3946AC110356658B821F3ECA0 /* Trigger.swift */; };
 		8B2FBBAFCDFE1B091662EFDD97CF654A /* SentinelTabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F8C06E68E2AC1917854617981FE6FE /* SentinelTabItem.swift */; };
@@ -51,15 +49,12 @@
 		C5FB8575B065B7F93385CB494218F365 /* CLLocationManager+CustomLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C36A135F7052FD39FCA12F876C31BA /* CLLocationManager+CustomLocation.swift */; };
 		CEA4FD328153F052E8FCEE11AA75ED91 /* MailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B50E56512DF4FE3C282876E7C50698 /* MailData.swift */; };
 		D45E6493FD41DD7AFDA785993EBDDA4C /* Pods-Sentinel_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D3908B2A61F0DD8BEE4E68CA7C472C70 /* Pods-Sentinel_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D996353A455BF77E0C90A45BE34FBEC8 /* PerformanceInfoTableViewCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = 8C2308E63E7D43FB635C01B30252DF5A /* PerformanceInfoTableViewCell.xib */; };
 		DB7C9A8AC350E6D4DA4D6D85C55F2BAF /* TextEditingTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2C86790AF40AD69290F571F8770B26 /* TextEditingTool.swift */; };
 		DB97A344C0531FCC727ADE686F4E656A /* SentinelTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A27581CB2B9CCD210289976D6CC70A3 /* SentinelTab.swift */; };
 		DC3C36D389D6E34CC41F6876BEFDC3DF /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 105731A6C88AA834631D0ACC8DB9ECB5 /* PrivacyInfo.xcprivacy */; };
 		DF3360A54143928D5292BD961FC1B4B4 /* ToolTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4672E4876EC185DBA5F98B23D55F1E4A /* ToolTable.swift */; };
-		E3B096E8413BC5111C8BC3DB95BEC79F /* CustomLocation.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = CC354FAD6744714772330A3CD30282B9 /* CustomLocation.storyboard */; };
 		E41C2AEA9D35E209F44A562B5E5BFE5E /* PerformanceTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFFC5EA993CE8E2A50C16A6A50E54C5 /* PerformanceTool.swift */; };
 		E54D014B52D0C1F4C20EE9F91A441C2A /* MemoryInfoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9213B5D56D6F3C9D7FCE50254C4291 /* MemoryInfoProvider.swift */; };
-		E5E5C5180D3C2179B11C915E8F12061D /* UIImage+Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CFBF1B8492DAC65F4B3811BA1610F83 /* UIImage+Assets.swift */; };
 		EEFAA3CDFE1C15F5450BB9B6B372CB8B /* ToolTableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9395B39ED55D657747AB4EDC98AF4037 /* ToolTableItem.swift */; };
 		EEFEFBE87FAD353E2DD2D035832D2FF1 /* CustomLocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB705774774B32DD7D277EBF7A196E6B /* CustomLocationProvider.swift */; };
 		F213363ED9696E0418ECEE979ED8ED1A /* PerformanceInfoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055321034982530D406A5A7817A399D6 /* PerformanceInfoItem.swift */; };
@@ -98,7 +93,6 @@
 		04D293A77C27B984E3568BA4A74C9371 /* assets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = assets.xcassets; sourceTree = "<group>"; };
 		055321034982530D406A5A7817A399D6 /* PerformanceInfoItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PerformanceInfoItem.swift; sourceTree = "<group>"; };
 		105731A6C88AA834631D0ACC8DB9ECB5 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		19C11C46B7E8DD64B03A3E28C6709003 /* UIImage+Bundle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIImage+Bundle.swift"; path = "Sentinel/Classes/Core/UIImage+Bundle.swift"; sourceTree = "<group>"; };
 		1B9213B5D56D6F3C9D7FCE50254C4291 /* MemoryInfoProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MemoryInfoProvider.swift; sourceTree = "<group>"; };
 		1F4137C7F94FB19F0218DDF7179213C4 /* CustomInfoTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CustomInfoTool.swift; path = Sentinel/Classes/Core/CustomInfoTool.swift; sourceTree = "<group>"; };
 		276CF519210468F6A3A1406964FEDCE5 /* ToolTableSection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ToolTableSection.swift; path = Sentinel/Classes/Core/ToolTableSection.swift; sourceTree = "<group>"; };
@@ -114,10 +108,12 @@
 		3775AE0D2CF7622F00D4C974 /* TitleValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleValueView.swift; sourceTree = "<group>"; };
 		377AB5362CF85C420060FC6C /* PerformanceInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceInfoViewModel.swift; sourceTree = "<group>"; };
 		377AB5382CF85DA80060FC6C /* PerformanceToolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceToolView.swift; sourceTree = "<group>"; };
-		377AB53A2CF87D6D0060FC6C /* UserDefaultsToolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsToolView.swift; sourceTree = "<group>"; };
-		377AB53C2CF87E420060FC6C /* UserDefaultsToolViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsToolViewModel.swift; sourceTree = "<group>"; };
-		377AB53E2CF8916E0060FC6C /* TextEditingToolViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditingToolViewModel.swift; sourceTree = "<group>"; };
-		377AB5402CF891840060FC6C /* TextEditingToolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditingToolView.swift; sourceTree = "<group>"; };
+		377AB5602CF8C0BB0060FC6C /* TextEditingToolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditingToolView.swift; sourceTree = "<group>"; };
+		377AB5612CF8C0BB0060FC6C /* TextEditingToolViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditingToolViewModel.swift; sourceTree = "<group>"; };
+		377AB5642CF8C0DF0060FC6C /* UserDefaultsToolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsToolView.swift; sourceTree = "<group>"; };
+		377AB5652CF8C0DF0060FC6C /* UserDefaultsToolViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsToolViewModel.swift; sourceTree = "<group>"; };
+		3786D02B2D08246C00C0A848 /* CustomLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLocationView.swift; sourceTree = "<group>"; };
+		3786D02D2D08248E00C0A848 /* CustomLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLocationViewModel.swift; sourceTree = "<group>"; };
 		3A27581CB2B9CCD210289976D6CC70A3 /* SentinelTab.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SentinelTab.swift; sourceTree = "<group>"; };
 		4452D60511129A8FAEA7813B6E7385A1 /* Sentinel-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Sentinel-umbrella.h"; sourceTree = "<group>"; };
 		44796B7C5E92E7D04E5623DA7EB8B0FD /* ApplicationTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ApplicationTool.swift; sourceTree = "<group>"; };
@@ -132,15 +128,12 @@
 		72216E79692E18558D345C8D92606137 /* Sentinel.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Sentinel.modulemap; sourceTree = "<group>"; };
 		74FF88B4F7AF82EB7C6152CF78BAF6E0 /* ResourceBundle-Sentinel-Sentinel-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-Sentinel-Sentinel-Info.plist"; sourceTree = "<group>"; };
 		75F4AA20F4520ABF3CABE32553A07230 /* EmailSenderTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EmailSenderTool.swift; path = Sentinel/Classes/EmailSender/EmailSenderTool.swift; sourceTree = "<group>"; };
-		775C6A6DD6970BA3B569D972E3BD3F72 /* PerformanceInfoTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PerformanceInfoTableViewCell.swift; sourceTree = "<group>"; };
 		788EE74F754CE9BCC6905FF3EF4D4D5E /* Sentinel-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Sentinel-prefix.pch"; sourceTree = "<group>"; };
 		7D924EFA9A100F58C6EEC617AFA50215 /* CustomLocationViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CustomLocationViewController.swift; path = Sentinel/Classes/CustomLocation/CustomLocationViewController.swift; sourceTree = "<group>"; };
 		84B7ED3A06CE15CCA34FBC84F3157D3C /* Sentinel.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = Sentinel.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		85BC350766D86BCFF06AFDCA2F596D1A /* Sentinel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Sentinel.debug.xcconfig; sourceTree = "<group>"; };
 		89C6FAA08483FA46AF62E0083A4A1ECE /* Pods-Sentinel_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Sentinel_Example-dummy.m"; sourceTree = "<group>"; };
 		8C131C23A2981681C44E4F97E273B562 /* Pods-Sentinel_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Sentinel_Tests.modulemap"; sourceTree = "<group>"; };
-		8C2308E63E7D43FB635C01B30252DF5A /* PerformanceInfoTableViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = PerformanceInfoTableViewCell.xib; sourceTree = "<group>"; };
-		8CFBF1B8492DAC65F4B3811BA1610F83 /* UIImage+Assets.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIImage+Assets.swift"; sourceTree = "<group>"; };
 		8E2C86790AF40AD69290F571F8770B26 /* TextEditingTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextEditingTool.swift; path = Sentinel/Classes/TextEditing/TextEditingTool.swift; sourceTree = "<group>"; };
 		9127529398114DBEE725B2F92658F523 /* Pods-Sentinel_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Sentinel_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		9395B39ED55D657747AB4EDC98AF4037 /* ToolTableItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ToolTableItem.swift; path = Sentinel/Classes/Core/ToolTableItem.swift; sourceTree = "<group>"; };
@@ -153,15 +146,12 @@
 		A7B50E56512DF4FE3C282876E7C50698 /* MailData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MailData.swift; path = Sentinel/Classes/EmailSender/MailData.swift; sourceTree = "<group>"; };
 		AF891D1CB5955ADCA3BF99BEE4715BDC /* OptionSwitchItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OptionSwitchItem.swift; sourceTree = "<group>"; };
 		B14684E93C90965E041B3092E4D0C959 /* Pods-Sentinel_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Sentinel_Example-frameworks.sh"; sourceTree = "<group>"; };
-		B1F3A2C72480EAB2B2B4A42FC28D6442 /* SentinelTabBarController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SentinelTabBarController.swift; sourceTree = "<group>"; };
 		B1F7553511390B88E4E1C3768C80AA2F /* Tool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Tool.swift; path = Sentinel/Classes/Core/Tool.swift; sourceTree = "<group>"; };
 		B27D12816652F5CE8F68FECC2498878C /* Pods-Sentinel_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Sentinel_Example.modulemap"; sourceTree = "<group>"; };
-		B3CC0FB131C50C3A41D155D3571ECDE1 /* SentinelUIKitExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SentinelUIKitExtensions.swift; sourceTree = "<group>"; };
 		BB705774774B32DD7D277EBF7A196E6B /* CustomLocationProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CustomLocationProvider.swift; sourceTree = "<group>"; };
 		C3831A0EE07DA0231A8F1CB9F738F429 /* Pods-Sentinel_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Sentinel_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		C3969767F71788948A392AAED1152725 /* Pods-Sentinel_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Sentinel_Tests-Info.plist"; sourceTree = "<group>"; };
 		C5F8C06E68E2AC1917854617981FE6FE /* SentinelTabItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SentinelTabItem.swift; sourceTree = "<group>"; };
-		CC354FAD6744714772330A3CD30282B9 /* CustomLocation.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; name = CustomLocation.storyboard; path = Sentinel/Classes/CustomLocation/CustomLocation.storyboard; sourceTree = "<group>"; };
 		CDEFD78779FAF3E290A617E64CFF55A1 /* PreferencesTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PreferencesTool.swift; sourceTree = "<group>"; };
 		D1C36A135F7052FD39FCA12F876C31BA /* CLLocationManager+CustomLocation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "CLLocationManager+CustomLocation.swift"; sourceTree = "<group>"; };
 		D245E0514AAC1A2B9A6D5EA2F383E90F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -241,9 +231,10 @@
 		2256A00E7C65D53C0CB5C9A9ECF1FA03 /* CustomLocation */ = {
 			isa = PBXGroup;
 			children = (
-				CC354FAD6744714772330A3CD30282B9 /* CustomLocation.storyboard */,
 				2E4F99AD4F34FD69C5724E16746B4F8C /* CustomLocationTool.swift */,
 				7D924EFA9A100F58C6EEC617AFA50215 /* CustomLocationViewController.swift */,
+				3786D02B2D08246C00C0A848 /* CustomLocationView.swift */,
+				3786D02D2D08248E00C0A848 /* CustomLocationViewModel.swift */,
 				9A0CB3C6C079750C02C11D7A526D1532 /* Internal */,
 			);
 			name = CustomLocation;
@@ -282,9 +273,9 @@
 		523F538C95490357FD0D47BF6DE15EF5 /* TextEditing */ = {
 			isa = PBXGroup;
 			children = (
+				377AB5602CF8C0BB0060FC6C /* TextEditingToolView.swift */,
+				377AB5612CF8C0BB0060FC6C /* TextEditingToolViewModel.swift */,
 				8E2C86790AF40AD69290F571F8770B26 /* TextEditingTool.swift */,
-				377AB53E2CF8916E0060FC6C /* TextEditingToolViewModel.swift */,
-				377AB5402CF891840060FC6C /* TextEditingToolView.swift */,
 			);
 			name = TextEditing;
 			sourceTree = "<group>";
@@ -339,11 +330,8 @@
 				721084C47FF5FD71F0B1226DFFCEC509 /* DeviceTool.swift */,
 				9DB27576296566CC19D63C76B70E432F /* SentinelInternal.swift */,
 				3A27581CB2B9CCD210289976D6CC70A3 /* SentinelTab.swift */,
-				B1F3A2C72480EAB2B2B4A42FC28D6442 /* SentinelTabBarController.swift */,
 				02E98C5FA7EAA312CBCB03450574018F /* SentinelTabBarView.swift */,
 				C5F8C06E68E2AC1917854617981FE6FE /* SentinelTabItem.swift */,
-				B3CC0FB131C50C3A41D155D3571ECDE1 /* SentinelUIKitExtensions.swift */,
-				8CFBF1B8492DAC65F4B3811BA1610F83 /* UIImage+Assets.swift */,
 			);
 			name = Internal;
 			path = Sentinel/Classes/Core/Internal;
@@ -369,7 +357,6 @@
 				9395B39ED55D657747AB4EDC98AF4037 /* ToolTableItem.swift */,
 				276CF519210468F6A3A1406964FEDCE5 /* ToolTableSection.swift */,
 				31E53FF3946AC110356658B821F3ECA0 /* Trigger.swift */,
-				19C11C46B7E8DD64B03A3E28C6709003 /* UIImage+Bundle.swift */,
 				92DD857227A2738960BD616A07FB6252 /* Internal */,
 				F50BA0FFCEAAB23D0D99111D9353E102 /* PerformanceInfo */,
 				DC9BE4D45F838DFD531EAEFA7EA56B50 /* PreferencesInfo */,
@@ -400,9 +387,9 @@
 		B92553240CB6C7A3CCDB6DE90D05FC38 /* UserDefaults */ = {
 			isa = PBXGroup;
 			children = (
+				377AB5642CF8C0DF0060FC6C /* UserDefaultsToolView.swift */,
+				377AB5652CF8C0DF0060FC6C /* UserDefaultsToolViewModel.swift */,
 				EB2EB2A430971FEF597833432027A012 /* UserDefaultsTool.swift */,
-				377AB53A2CF87D6D0060FC6C /* UserDefaultsToolView.swift */,
-				377AB53C2CF87E420060FC6C /* UserDefaultsToolViewModel.swift */,
 			);
 			name = UserDefaults;
 			sourceTree = "<group>";
@@ -419,8 +406,6 @@
 			isa = PBXGroup;
 			children = (
 				055321034982530D406A5A7817A399D6 /* PerformanceInfoItem.swift */,
-				775C6A6DD6970BA3B569D972E3BD3F72 /* PerformanceInfoTableViewCell.swift */,
-				8C2308E63E7D43FB635C01B30252DF5A /* PerformanceInfoTableViewCell.xib */,
 				377AB5362CF85C420060FC6C /* PerformanceInfoViewModel.swift */,
 				377AB5382CF85DA80060FC6C /* PerformanceToolView.swift */,
 			);
@@ -702,16 +687,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3786D02E2D08248E00C0A848 /* CustomLocationViewModel.swift in Sources */,
 				095BD895F7C4C63E726031305BCF3E13 /* ApplicationTool.swift in Sources */,
 				C5FB8575B065B7F93385CB494218F365 /* CLLocationManager+CustomLocation.swift in Sources */,
+				377AB5622CF8C0BB0060FC6C /* TextEditingToolViewModel.swift in Sources */,
+				377AB5632CF8C0BB0060FC6C /* TextEditingToolView.swift in Sources */,
+				377AB5662CF8C0DF0060FC6C /* UserDefaultsToolView.swift in Sources */,
+				377AB5672CF8C0DF0060FC6C /* UserDefaultsToolViewModel.swift in Sources */,
 				5F2B03F223C1454B7A3226CB4E720946 /* CPUInfoProvider.swift in Sources */,
-				377AB53B2CF87D6D0060FC6C /* UserDefaultsToolView.swift in Sources */,
 				77E676308FDD78C9512EFB3FCF0688AB /* CustomInfoTool.swift in Sources */,
-				E3B096E8413BC5111C8BC3DB95BEC79F /* CustomLocation.storyboard in Sources */,
 				EEFEFBE87FAD353E2DD2D035832D2FF1 /* CustomLocationProvider.swift in Sources */,
 				FF58A9086C379EDC79BFB36C2B936300 /* CustomLocationTool.swift in Sources */,
 				0A1B547F390474249D50AEE398433DB2 /* CustomLocationViewController.swift in Sources */,
-				377AB53D2CF87E420060FC6C /* UserDefaultsToolViewModel.swift in Sources */,
 				3775AE0A2CF7572B00D4C974 /* NavigationToolTableView.swift in Sources */,
 				3775AE0E2CF7622F00D4C974 /* TitleValueView.swift in Sources */,
 				377AB5372CF85C420060FC6C /* PerformanceInfoViewModel.swift in Sources */,
@@ -722,10 +709,6 @@
 				59A26628B91C10D7E9427B26AE9D068B /* OptionSwitchItem.swift in Sources */,
 				377AB5392CF85DA80060FC6C /* PerformanceToolView.swift in Sources */,
 				F213363ED9696E0418ECEE979ED8ED1A /* PerformanceInfoItem.swift in Sources */,
-				41274F2A6EDEA4FF391A320299DCA337 /* PerformanceInfoTableViewCell.swift in Sources */,
-				377AB53F2CF8916E0060FC6C /* TextEditingToolViewModel.swift in Sources */,
-				D996353A455BF77E0C90A45BE34FBEC8 /* PerformanceInfoTableViewCell.xib in Sources */,
-				377AB5412CF891840060FC6C /* TextEditingToolView.swift in Sources */,
 				E41C2AEA9D35E209F44A562B5E5BFE5E /* PerformanceTool.swift in Sources */,
 				A46ACD417A4974D0C7E79E34D7D8B744 /* PreferencesTool.swift in Sources */,
 				65974CECA298281B0A90A95EF660A7A7 /* Sentinel.swift in Sources */,
@@ -733,10 +716,8 @@
 				1AC2D449037FA7861C5C6B8A81EAF5DB /* Sentinel-dummy.m in Sources */,
 				4069AED7DF5AC013C74F0749B7D76368 /* SentinelInternal.swift in Sources */,
 				DB97A344C0531FCC727ADE686F4E656A /* SentinelTab.swift in Sources */,
-				0CE465531B466F91512675B58B158A71 /* SentinelTabBarController.swift in Sources */,
 				C289BB9BAF97EDDDECA75D93CDE4A92A /* SentinelTabBarView.swift in Sources */,
 				8B2FBBAFCDFE1B091662EFDD97CF654A /* SentinelTabItem.swift in Sources */,
-				79911AFF1D6262EF201E3B7B73A251DA /* SentinelUIKitExtensions.swift in Sources */,
 				095B51EEA49EE85E5B2CF269546EF3FE /* SourceScreenProvider.swift in Sources */,
 				3EE3C93E1442762DF98ED300756FA4F9 /* SystemInfoProvider.swift in Sources */,
 				DB7C9A8AC350E6D4DA4D6D85C55F2BAF /* TextEditingTool.swift in Sources */,
@@ -744,10 +725,9 @@
 				2B72BBF9769DADC81BF1D28A1A9C0514 /* Tool.swift in Sources */,
 				DF3360A54143928D5292BD961FC1B4B4 /* ToolTable.swift in Sources */,
 				EEFAA3CDFE1C15F5450BB9B6B372CB8B /* ToolTableItem.swift in Sources */,
+				3786D02C2D08246C00C0A848 /* CustomLocationView.swift in Sources */,
 				11E4987199D56053C1A7B222478E0C56 /* ToolTableSection.swift in Sources */,
 				8AB506A89E6F5C885BBD39F6C71F666B /* Trigger.swift in Sources */,
-				E5E5C5180D3C2179B11C915E8F12061D /* UIImage+Assets.swift in Sources */,
-				3CA9B0CEC19941BA4BE509C533FCB4A9 /* UIImage+Bundle.swift in Sources */,
 				06C6C800D5DB5F8036C99C6B33CD8377 /* UserDefaultsTool.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

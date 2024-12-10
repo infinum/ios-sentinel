@@ -5,7 +5,7 @@
 //  Created by Nikola Majcen on 18/11/2020.
 //
 
-import UIKit
+import Foundation
 
 public struct PerformanceInfoItem {
 

@@ -5,7 +5,7 @@
 //  Created by Milos on 24.8.22..
 //
 
-import UIKit
+import SwiftUI
 
 struct SentinelTabItem {
 
@@ -30,24 +30,15 @@ struct SentinelTabItem {
         }
     }
 
-    var barItemImage: UIImage {
-        switch tab {
-        case .device:
-            guard let image = UIImage.SentinelImages.device else { return UIImage() }
-            return image
-        case .application:
-            guard let image = UIImage.SentinelImages.application else { return UIImage() }
-            return image
-        case .tools:
-            guard let image = UIImage.SentinelImages.tools else { return UIImage() }
-            return image
-        case .preferences:
-            guard let image = UIImage.SentinelImages.preferences else { return UIImage() }
-            return image
-        case .performance:
-            guard let image = UIImage.SentinelImages.performance else { return UIImage() }
-            return image
-        }
+    var barItemImage: Image {
+        Image(uiImage: .actions)
+//        switch tab {
+//        case .device: .init(.device)
+//        case .application: .init(.application)
+//        case .tools: .init(.tools)
+//        case .preferences: .init(.preferences)
+//        case .performance: .init(.performance)
+//        }
     }
 
     var sections: [ToolTableSection] {
@@ -69,7 +60,7 @@ private extension SentinelTabItem {
             return toolTable
         case .tools(let items):
             let navigationItems = items
-                .map { tool in ToolTableItem2.navigation(.init(title: tool.name, didSelect: { tool.content })) }
+                .map { tool in ToolTableItem.navigation(.init(title: tool.name, didSelect: { tool.content })) }
             let section = ToolTableSection(title: barItemTitle, items: navigationItems)
             let toolTable = ToolTable(name: barItemTitle, sections: [section])
             return toolTable

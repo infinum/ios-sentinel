@@ -39,45 +39,10 @@ private struct TabBarView: View {
 
     var body: some View {
         VStack(spacing: 5) {
-            Image(uiImage: tab.barItemImage)
+            tab.barItemImage
+                .renderingMode(.template)
+
             Text(tab.barItemTitle)
-        }
-    }
-}
-
-extension Tab {
-    var barItemTitle: String {
-        switch self {
-        case .device:
-            return "Device"
-        case .application:
-            return "Application"
-        case .tools:
-            return "Tools"
-        case .preferences:
-            return "Preferences"
-        case .performance:
-            return "Performance"
-        }
-    }
-
-    var barItemImage: UIImage {
-        switch self {
-        case .device:
-            guard let image = UIImage.SentinelImages.device else { return UIImage() }
-            return image
-        case .application:
-            guard let image = UIImage.SentinelImages.application else { return UIImage() }
-            return image
-        case .tools:
-            guard let image = UIImage.SentinelImages.tools else { return UIImage() }
-            return image
-        case .preferences:
-            guard let image = UIImage.SentinelImages.preferences else { return UIImage() }
-            return image
-        case .performance:
-            guard let image = UIImage.SentinelImages.performance else { return UIImage() }
-            return image
         }
     }
 }

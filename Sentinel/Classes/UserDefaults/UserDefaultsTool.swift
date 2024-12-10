@@ -5,7 +5,6 @@
 //  Created by Vlaho Poluta on 30/07/2020.
 //
 
-import UIKit
 import SwiftUI
 
 @objcMembers
@@ -39,7 +38,7 @@ private extension UserDefaultsTool {
         let items = userDefaults.dictionaryRepresentation()
             .sorted { $0.key < $1.key }
             .map { (key, value) in
-                return ToolTableItem2.navigation(NavigationToolItem(title: key, didSelect: { UserDefaultsToolView(viewModel: .init(value: String(describing: value), title: key, userDefaults: userDefaults)) }))
+                return ToolTableItem.navigation(NavigationToolItem(title: key, didSelect: { UserDefaultsToolView(viewModel: .init(value: String(describing: value), title: key, userDefaults: userDefaults)) }))
             }
 
         let section = ToolTableSection(items: items)

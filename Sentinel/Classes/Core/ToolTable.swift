@@ -5,7 +5,6 @@
 //  Created by Vlaho Poluta on 30/07/2020.
 //
 
-import UIKit
 import SwiftUI
 
 /// Defines tool datasouce which can present different tool sections.
