@@ -24,6 +24,10 @@ struct NavigationToolTableView: View {
 
 }
 
+// MARK: - Extensions -
+
+// MARK: - Helpers
+
 extension NavigationToolTableView {
 
     init(item: NavigationToolItem) {

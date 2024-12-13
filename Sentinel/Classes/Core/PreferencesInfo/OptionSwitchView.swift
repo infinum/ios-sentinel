@@ -23,6 +23,10 @@ struct OptionSwitchView: View {
     }
 }
 
+// MARK: - Extensions -
+
+// MARK: - Helpers
+
 extension OptionSwitchView {
 
     init(item: ToggleToolItem) {

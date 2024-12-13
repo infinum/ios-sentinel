@@ -24,16 +24,3 @@ public enum ToolTableItem: Identifiable {
     case performance(PerformanceInfoItem)
     case custom(any CustomToolTableItem)
 }
-
-public struct NavigationToolItem: Equatable, Identifiable {
-    let title: String
-    let didSelect: () -> any View
-
-    public var id: String {
-        title
-    }
-
-    public static func == (lhs: NavigationToolItem, rhs: NavigationToolItem) -> Bool {
-        lhs.title == rhs.title
-    }
-}

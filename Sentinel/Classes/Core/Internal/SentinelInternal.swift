@@ -34,6 +34,7 @@ extension Sentinel {
 // MARK: - Private extension
 
 private extension Sentinel {
+    
     func createTabItems(
         with tools: [Tool],
         preferences: [ToolTableSection],

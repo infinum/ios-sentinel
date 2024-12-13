@@ -70,7 +70,7 @@ private extension AppDelegate {
     var optionSwitchItems: [ToolTableSection] {
         [
             .init(
-                title: "title",
+                title: "UserDefaults flags",
                 items: [
                     .toggle(ToggleToolItem(
                         title: "Analytics",

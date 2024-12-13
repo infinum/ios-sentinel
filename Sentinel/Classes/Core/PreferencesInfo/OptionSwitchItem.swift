@@ -7,15 +7,7 @@
 
 import Foundation
 
-public struct ToggleToolItem: Equatable, Identifiable {
-    public static func == (lhs: ToggleToolItem, rhs: ToggleToolItem) -> Bool {
-        lhs.title == rhs.title
-    }
-    
-    public var id: String {
-        title
-    }
-
+public struct ToggleToolItem {
     let title: String
     let setter: ((Bool) -> ())?
     let getter: (() -> Bool)?
@@ -45,6 +37,24 @@ public struct ToggleToolItem: Equatable, Identifiable {
         userDefaults = .standard
         userDefaultsKey = nil
     }
+}
+
+// MARK: - Extensions -
+
+// MARK: - Equatable and Identifiable conformance
+
+extension ToggleToolItem: Equatable, Identifiable {
+
+    public var id: String { title }
+
+    public static func == (lhs: ToggleToolItem, rhs: ToggleToolItem) -> Bool {
+        lhs.title == rhs.title
+    }
+}
+
+// MARK: - Helpres
+
+extension ToggleToolItem {
 
     func change(to value: Bool) {
         if let userDefaultsKey {
@@ -59,5 +69,4 @@ public struct ToggleToolItem: Equatable, Identifiable {
         else { return getter?() ?? false }
         return value
     }
-
 }

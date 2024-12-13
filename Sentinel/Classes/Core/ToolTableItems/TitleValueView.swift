@@ -24,6 +24,10 @@ struct TitleValueView: View {
     }
 }
 
+// MARK: - Extensions -
+
+// MARK: - Helpers
+
 extension TitleValueView {
 
     init(item: CustomInfoTool.Item) {

@@ -19,6 +19,7 @@
 		26B4165840BA2504302F6E829526D8E9 /* ToolTableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A18E514E31BAEBF174C468E0AA91004 /* ToolTableItem.swift */; };
 		36DB7E612FE48DF6C1D1E00100EAF535 /* SentinelListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C471353DF68C1B62B9C43D01FB9C78D /* SentinelListView.swift */; };
 		377E92742D0C4BAA0075DFB8 /* CustomToolTableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377E92732D0C4BAA0075DFB8 /* CustomToolTableItem.swift */; };
+		377E927A2D0C60EE0075DFB8 /* NavigationToolTableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377E92792D0C60EE0075DFB8 /* NavigationToolTableItem.swift */; };
 		3786D0812D08638000C0A848 /* Image+Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3786D0802D08638000C0A848 /* Image+Assets.swift */; };
 		37FCA464F2D57322A30C6753FA3FE4A2 /* PerformanceTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EACECD85BA1700835B1C00558A6BEE /* PerformanceTool.swift */; };
 		45F5250C8221BFEBAFD17A0CC6F8374D /* OptionSwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D0F56F70B06C31F18D2A2876DE49C9 /* OptionSwitchView.swift */; };
@@ -109,6 +110,7 @@
 		32768FDBDF624D591D5F4EBB8CDB05A9 /* SentinelInternal.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SentinelInternal.swift; sourceTree = "<group>"; };
 		3737F3A9AFF9607DB0AEDEEEBAB55101 /* Pods-Sentinel_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Sentinel_Tests-dummy.m"; sourceTree = "<group>"; };
 		377E92732D0C4BAA0075DFB8 /* CustomToolTableItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomToolTableItem.swift; sourceTree = "<group>"; };
+		377E92792D0C60EE0075DFB8 /* NavigationToolTableItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationToolTableItem.swift; sourceTree = "<group>"; };
 		3786D0802D08638000C0A848 /* Image+Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Assets.swift"; sourceTree = "<group>"; };
 		40576A889CE487878C1DE3A90A8818A3 /* SentinelUIKitExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SentinelUIKitExtensions.swift; sourceTree = "<group>"; };
 		455AAE79DD456E9A25608821BF49146C /* TextEditingToolView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextEditingToolView.swift; path = Sentinel/Classes/TextEditing/TextEditingToolView.swift; sourceTree = "<group>"; };
@@ -281,6 +283,7 @@
 				ECEF0F4DAE38D5905805F16E6EF1BA87 /* ToolTable.swift */,
 				4A18E514E31BAEBF174C468E0AA91004 /* ToolTableItem.swift */,
 				377E92732D0C4BAA0075DFB8 /* CustomToolTableItem.swift */,
+				377E92792D0C60EE0075DFB8 /* NavigationToolTableItem.swift */,
 				63A2911C40660BBBE8F885A7773E9995 /* ToolTableSection.swift */,
 				1875967D26573884C8C6ABB0874F57F1 /* Trigger.swift */,
 				0FD612EBDDE7F061810766A10E7FEEAB /* Internal */,
@@ -734,6 +737,7 @@
 				26B4165840BA2504302F6E829526D8E9 /* ToolTableItem.swift in Sources */,
 				C2F9FE8F7C9258515FA79F2375294BBA /* ToolTableSection.swift in Sources */,
 				0F5D8212649817AC02B3D1E4ADAAE3A6 /* Trigger.swift in Sources */,
+				377E927A2D0C60EE0075DFB8 /* NavigationToolTableItem.swift in Sources */,
 				A055B212CF5164EEC7048645DC40DF38 /* UserDefaultsTool.swift in Sources */,
 				6AAF7885CC99A5EB6713C9F2DABCE556 /* UserDefaultsToolView.swift in Sources */,
 				941F7CF8423C8D097B28176175E81EB0 /* UserDefaultsToolViewModel.swift in Sources */,

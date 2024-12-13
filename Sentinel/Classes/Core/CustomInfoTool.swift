@@ -13,7 +13,12 @@ public class CustomInfoTool: NSObject, Tool {
     // MARK: - Public properties
     
     public let name: String
-    
+
+    @ViewBuilder
+    public var content: any View {
+        SentinelListView(title: name, items: createToolTable(with: info).sections)
+    }
+
     // MARK: - Internal properties
     
     let info: [Section]
@@ -24,13 +29,13 @@ public class CustomInfoTool: NSObject, Tool {
         self.name = name
         self.info = info
     }
+}
 
-    @ViewBuilder
-    public var content: any View {
-        SentinelListView(title: name, items: createToolTable(with: info).sections)
-    }
+// MARK: - Extensions -
 
-    // MARK: - Internal methods
+// MARK: - Helpers
+
+extension CustomInfoTool {
 
     func createToolTable(with info: [Section]) -> ToolTable {
         let sections = info.map { (section) in
@@ -41,6 +46,7 @@ public class CustomInfoTool: NSObject, Tool {
         }
         return ToolTable(name: name, sections: sections)
     }
+
 }
 
 extension CustomInfoTool {
@@ -60,7 +66,7 @@ extension CustomInfoTool {
         }
     }
     
-    public class Item: Equatable, Identifiable {
+    public class Item {
 
         // MARK: - Internal properties
 
@@ -73,14 +79,19 @@ extension CustomInfoTool {
             self.title = title
             self.value = value
         }
-
-        public var id: String {
-            title
-        }
-
-        public static func == (lhs: CustomInfoTool.Item, rhs: CustomInfoTool.Item) -> Bool {
-            lhs.title == rhs.title
-        }
     }
     
+}
+
+// MARK: - Equatable and Identifiable conformance
+
+extension CustomInfoTool.Item: Equatable, Identifiable {
+
+    public var id: String {
+        title
+    }
+
+    public static func == (lhs: CustomInfoTool.Item, rhs: CustomInfoTool.Item) -> Bool {
+        lhs.title == rhs.title
+    }
 }

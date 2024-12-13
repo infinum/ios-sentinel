@@ -35,7 +35,7 @@ struct SentinelTabBarView: View {
 
 private struct TabBarView: View {
 
-    var tab: SentinelTabItem
+    let tab: SentinelTabItem
 
     var body: some View {
         VStack(spacing: 5) {

@@ -33,7 +33,5 @@ extension PerformanceInfoItem: Equatable {
 // MARK: - Identifiable conformance
 
 extension PerformanceInfoItem: Identifiable {
-    public var id: String {
-        title
-    }
+    public var id: String { title }
 }

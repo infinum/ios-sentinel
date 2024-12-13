@@ -13,7 +13,11 @@ public final class TextEditingTool: NSObject, Tool {
     // MARK: - Public properties
     
     public let name: String
-    
+
+    public var content: any View {
+        TextEditingToolView(viewModel: .init(value: getter(), title: name, didPressSave: store(newValue:)))
+    }
+
     // MARK: - Private properties
     
     private let setter: (String) -> Void
@@ -37,10 +41,6 @@ public final class TextEditingTool: NSObject, Tool {
         self.userDefaultsKey = userDefaultsKey
         super.init()
         loadStoredValue()
-    }
-
-    public var content: any View {
-        TextEditingToolView(viewModel: .init(value: getter(), title: name, didPressSave: store(newValue:)))
     }
 }
 

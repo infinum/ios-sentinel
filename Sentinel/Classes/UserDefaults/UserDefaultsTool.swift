@@ -14,6 +14,10 @@ public class UserDefaultsTool: NSObject, Tool {
     
     public let name: String
 
+    public var content: any View {
+        SentinelListView(title: name, items: createToolTable(with: userDefaults).sections)
+    }
+
     // MARK: - Private properties
     
     private let userDefaults: UserDefaults
@@ -25,20 +29,24 @@ public class UserDefaultsTool: NSObject, Tool {
         self.userDefaults = userDefaults
     }
 
-    public var content: any View {
-        SentinelListView(title: name, items: createToolTable(with: userDefaults).sections)
-    }
-
 }
 
 // MARK: - Internal methods
 
 private extension UserDefaultsTool {
+
     func createToolTable(with userDefaults: UserDefaults) -> ToolTable {
         let items = userDefaults.dictionaryRepresentation()
             .sorted { $0.key < $1.key }
             .map { (key, value) in
-                return ToolTableItem.navigation(NavigationToolItem(title: key, didSelect: { UserDefaultsToolView(viewModel: .init(value: String(describing: value), title: key, userDefaults: userDefaults)) }))
+                return ToolTableItem.navigation(
+                    NavigationToolItem(
+                        title: key,
+                        didSelect: {
+                            UserDefaultsToolView(viewModel: .init(value: String(describing: value), title: key, userDefaults: userDefaults))
+                        }
+                    )
+                )
             }
 
         let section = ToolTableSection(items: items)
