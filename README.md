@@ -31,7 +31,7 @@ This library supports both **Swift** and **Objective-C**.
 ## Requirements
 
 * iOS 11 and above
-* Xcode 10 and above
+* Xcode 15 and above
 
 ## Getting started
 
@@ -62,7 +62,7 @@ If you are using SPM for your dependency manager, add this to the dependencies i
 
 ```swift
 dependencies: [
-.package(url: "https://github.com/infinum/ios-sentinel.git")
+    .package(url: "https://github.com/infinum/ios-sentinel.git")
 ]
 ```
 
@@ -71,16 +71,33 @@ dependencies: [
 `Sentinel` is the main class used to set up the *Sentinel* which will be used in the application. The `Sentinel` object can configured via `setup:` method by `Configuration` object. The `setup:` can be called in the `AppDelegate` method `application(_:didFinishLaunchingWithOptions:)`.
 
 ```swift
-    let configuration = Sentinel.Configuration(
-        trigger: Triggers.shake,
-        tools: [
-            UserDefaultsTool(),
-            CustomLocationTool()
-        ],
-        preferences: optionSwitchItems
+let optionSwitchItems: [OptionSwitchItem] = [
+    OptionSwitchItem(
+        name: "Analytics",
+        setter: { AppSwitches.analyticsEnabled = $0 },
+        getter: { AppSwitches.analyticsEnabled },
+        userDefaults: .standard,
+        userDefaultsKey: "com.infinum.sentinel.optionSwitch.analytics"
+    ),
+    OptionSwitchItem(
+        name: "Crashlytics",
+        setter: { AppSwitches.crashlyticsEnabled = $0 },
+        getter: { AppSwitches.crashlyticsEnabled },
+        userDefaults: .standard,
+        userDefaultsKey: "com.infinum.sentinel.optionSwitch.crashlytics"
     )
+]
 
-    Sentinel.shared.setup(with: configuration)
+let configuration = Sentinel.Configuration(
+    trigger: Triggers.shake,
+    tools: [
+        UserDefaultsTool(),
+        CustomLocationTool()
+    ],
+    preferences: optionSwitchItems
+)
+
+Sentinel.shared.setup(with: configuration)
 ```
 
 ### Configuration
@@ -113,13 +130,13 @@ Last, but not the least, is the `preferences` object which is an array of `Optio
 e.g. The app supports Analitycs and you can add an `OptionSwitchTool` which will be shown on the `Preferences` screen and the user can turn it off if he doesn't want it.
 
 ```swift
-    OptionSwitchItem(
-        name: "Analytics",
-        setter: { AppSwitches.analyticsEnabled = $0 },
-        getter: { AppSwitches.analyticsEnabled },
-        userDefaults: .standard,
-        userDefaultsKey: "com.infinum.sentinel.optionSwitch.analytics"
-    )
+OptionSwitchItem(
+    name: "Analytics",
+    setter: { AppSwitches.analyticsEnabled = $0 },
+    getter: { AppSwitches.analyticsEnabled },
+    userDefaults: .standard,
+    userDefaultsKey: "com.infinum.sentinel.optionSwitch.analytics"
+)
 ```
 
 ### Custom tools
