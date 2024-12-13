@@ -33,6 +33,8 @@ struct SentinelListView: View {
                         TitleValueView(item: item)
                     case .performance(let item):
                         PerformanceToolView(viewModel: .init(item: item))
+                    case .custom(let item):
+                        AnyView(item.content)
                     }
                 }
             }

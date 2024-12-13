@@ -18,6 +18,7 @@
 		24F6FE7875CC475211B856A0A1D8D5B0 /* Pods-Sentinel_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C6FAA08483FA46AF62E0083A4A1ECE /* Pods-Sentinel_Example-dummy.m */; };
 		26B4165840BA2504302F6E829526D8E9 /* ToolTableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A18E514E31BAEBF174C468E0AA91004 /* ToolTableItem.swift */; };
 		36DB7E612FE48DF6C1D1E00100EAF535 /* SentinelListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C471353DF68C1B62B9C43D01FB9C78D /* SentinelListView.swift */; };
+		377E92742D0C4BAA0075DFB8 /* CustomToolTableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377E92732D0C4BAA0075DFB8 /* CustomToolTableItem.swift */; };
 		3786D0812D08638000C0A848 /* Image+Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3786D0802D08638000C0A848 /* Image+Assets.swift */; };
 		37FCA464F2D57322A30C6753FA3FE4A2 /* PerformanceTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EACECD85BA1700835B1C00558A6BEE /* PerformanceTool.swift */; };
 		45F5250C8221BFEBAFD17A0CC6F8374D /* OptionSwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D0F56F70B06C31F18D2A2876DE49C9 /* OptionSwitchView.swift */; };
@@ -107,6 +108,7 @@
 		308193FBC1492B5F449AAC9C5C92B4B0 /* ResourceBundle-Sentinel-Sentinel-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-Sentinel-Sentinel-Info.plist"; sourceTree = "<group>"; };
 		32768FDBDF624D591D5F4EBB8CDB05A9 /* SentinelInternal.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SentinelInternal.swift; sourceTree = "<group>"; };
 		3737F3A9AFF9607DB0AEDEEEBAB55101 /* Pods-Sentinel_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Sentinel_Tests-dummy.m"; sourceTree = "<group>"; };
+		377E92732D0C4BAA0075DFB8 /* CustomToolTableItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomToolTableItem.swift; sourceTree = "<group>"; };
 		3786D0802D08638000C0A848 /* Image+Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Assets.swift"; sourceTree = "<group>"; };
 		40576A889CE487878C1DE3A90A8818A3 /* SentinelUIKitExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SentinelUIKitExtensions.swift; sourceTree = "<group>"; };
 		455AAE79DD456E9A25608821BF49146C /* TextEditingToolView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextEditingToolView.swift; path = Sentinel/Classes/TextEditing/TextEditingToolView.swift; sourceTree = "<group>"; };
@@ -278,6 +280,7 @@
 				769D807B18D3B05353BB9092F0F91A45 /* Tool.swift */,
 				ECEF0F4DAE38D5905805F16E6EF1BA87 /* ToolTable.swift */,
 				4A18E514E31BAEBF174C468E0AA91004 /* ToolTableItem.swift */,
+				377E92732D0C4BAA0075DFB8 /* CustomToolTableItem.swift */,
 				63A2911C40660BBBE8F885A7773E9995 /* ToolTableSection.swift */,
 				1875967D26573884C8C6ABB0874F57F1 /* Trigger.swift */,
 				0FD612EBDDE7F061810766A10E7FEEAB /* Internal */,
@@ -702,6 +705,7 @@
 				A4E83C88751E51D62DADA3F2C9897091 /* EmailSenderView.swift in Sources */,
 				888215FC0DCDFDB1041AD4A6EC403146 /* MailData.swift in Sources */,
 				15F07A2534AB957B400BA800C24A4E88 /* MemoryInfoProvider.swift in Sources */,
+				377E92742D0C4BAA0075DFB8 /* CustomToolTableItem.swift in Sources */,
 				248E5A6149EB1E0696857C1C17CF683B /* NavigationToolTableView.swift in Sources */,
 				8B089850A180DB29A00E9DF492A4D0BC /* OptionSwitchItem.swift in Sources */,
 				3786D0812D08638000C0A848 /* Image+Assets.swift in Sources */,

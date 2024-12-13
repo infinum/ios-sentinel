@@ -27,9 +27,7 @@ extension Sentinel {
         )
 
         let tabBarController = UIHostingController(rootView: SentinelTabBarView(tabs: tabItems))
-
-        let navController = UINavigationController(rootViewController: tabBarController)
-        viewController.present(navController, animated: true)
+        viewController.present(tabBarController, animated: true)
     }
 }
 

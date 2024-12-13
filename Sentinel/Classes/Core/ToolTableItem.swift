@@ -7,13 +7,14 @@
 
 import SwiftUI
 
-public enum ToolTableItem: Equatable, Identifiable {
+public enum ToolTableItem: Identifiable {
     public var id: String {
         switch self {
         case .navigation(let item): item.id
         case .toggle(let item): item.id
         case .customInfo(let item): item.id
         case .performance(let item): item.id
+        case .custom(let item): item.id
         }
     }
 
@@ -21,6 +22,7 @@ public enum ToolTableItem: Equatable, Identifiable {
     case toggle(ToggleToolItem)
     case customInfo(CustomInfoTool.Item)
     case performance(PerformanceInfoItem)
+    case custom(any CustomToolTableItem)
 }
 
 public struct NavigationToolItem: Equatable, Identifiable {

@@ -39,12 +39,22 @@ private extension AppDelegate {
             tools: [
                 UserDefaultsTool(),
                 baseUrlTool,
-                CustomLocationTool()
+                CustomLocationTool(),
+                colorChangeTool
             ],
             preferences: optionSwitchItems
         )
 
         Sentinel.shared.setup(with: configuration)
+    }
+
+    var colorChangeTool: Tool {
+        ToolTable(
+            name: "Color Change Tool",
+            sections: [
+                .init(title: "Color change", items: [.custom(ColorChangeToolTableItem())])
+            ]
+        )
     }
 
     var baseUrlTool: Tool {

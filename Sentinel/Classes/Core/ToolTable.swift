@@ -23,7 +23,7 @@ public class ToolTable: NSObject, Tool {
     // MARK: - Lifecycle
     
     /// Creates an instance of the tool table.
-    init(name: String, sections: [ToolTableSection]) {
+    public init(name: String, sections: [ToolTableSection]) {
         self.name = name
         self.sections = sections
         super.init()
