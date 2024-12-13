@@ -66,8 +66,8 @@ public class Sentinel: NSObject {
         public let tools: [Tool]
 
         /// Items which are shown on preferences screen
-        public let preferences: [OptionSwitchItem]
-        
+        public let preferences: [ToolTableSection]
+
         // MARK: - Lifecycle
 
         /// Creates a new configuration.
@@ -81,7 +81,7 @@ public class Sentinel: NSObject {
             trigger: Trigger,
             sourceScreenProvider: SourceScreenProvider = SourceScreenProviders.default,
             tools: [Tool],
-            preferences: [OptionSwitchItem] = []
+            preferences: [ToolTableSection] = []
         ) {
             self.trigger = trigger
             self.sourceScreenProvider = sourceScreenProvider

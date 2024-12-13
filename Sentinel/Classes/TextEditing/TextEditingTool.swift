@@ -5,19 +5,23 @@
 //  Created by Vlaho Poluta on 31/07/2020.
 //
 
-import UIKit
+import SwiftUI
 
 @objcMembers
-public class TextEditingTool: NSObject, Tool {
-    
+public final class TextEditingTool: NSObject, Tool {
+
     // MARK: - Public properties
     
     public let name: String
-    
+
+    public var content: any View {
+        TextEditingToolView(viewModel: .init(value: getter(), title: name, didPressSave: store(newValue:)))
+    }
+
     // MARK: - Private properties
     
-    private let setter: (String) -> ()
-    private let getter: () -> (String)
+    private let setter: (String) -> Void
+    private let getter: () -> String
     private let userDefaults: UserDefaults
     private let userDefaultsKey: String?
 
@@ -37,17 +41,6 @@ public class TextEditingTool: NSObject, Tool {
         self.userDefaultsKey = userDefaultsKey
         super.init()
         loadStoredValue()
-    }
-    
-    // MARK: - Public methods
-    
-    public func presentPreview(from viewController: UIViewController) {
-        let textEditing = TextEditingViewController.create(
-            withTitle: name,
-            setter: store(newValue:),
-            getter: getter
-        )
-        viewController.navigationController?.pushViewController(textEditing, animated: true)
     }
 }
 

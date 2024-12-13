@@ -5,7 +5,7 @@
 //  Created by Antonijo Bezmalinovic on 22.11.2023..
 //
 
-import Foundation
+import SwiftUI
 import MessageUI
 
 public enum EmailSenderUnavailableError: Error {
@@ -14,7 +14,7 @@ public enum EmailSenderUnavailableError: Error {
 }
 
 @objcMembers
-public final class EmailSenderTool: NSObject, Tool {
+public final class EmailSenderTool: Tool {
 
     // MARK: - Public properties -
     
@@ -70,78 +70,26 @@ public final class EmailSenderTool: NSObject, Tool {
             self.alertTitle = title
             self.alertMessage = message
         }
-
-        super.init()
     }
-}
 
-// MARK: - Private extension -
+    public var content: any View {
+        if EmailSenderView.canSendEmail() {
+            EmailSenderView(mailData: getter())
+        } else {
+            VStack(spacing: 10) {
+                Text(alertTitle)
+                    .font(.system(size: 17, weight: .bold))
+                    .multilineTextAlignment(.center)
 
-public extension EmailSenderTool {
-    
-    func presentPreview(from viewController: UIViewController) {
-        presentEmailSender(viewController: viewController)
-    }
-}
-
-extension EmailSenderTool: MFMailComposeViewControllerDelegate {
-    
-    public func mailComposeController(
-        _ controller: MFMailComposeViewController,
-        didFinishWith result: MFMailComposeResult,
-        error: Error?
-    ) {
-        controller.dismiss(animated: true)
-    }
-}
-
-// MARK: - Private extension -
-
-private extension EmailSenderTool {
-    
-    func presentEmailSender(viewController: UIViewController) {
-        guard MFMailComposeViewController.canSendMail() else {
-            showEmailAlert(from: viewController)
-            return
-        }
-        showSendEmail(from: viewController)
-    }
-            
-    func showSendEmail(from viewController: UIViewController) {
-        
-        let mailData = getter()
-        
-        let mail = MFMailComposeViewController()
-        mail.mailComposeDelegate = self
-        mail.setToRecipients(mailData.recipients)
-        mail.setCcRecipients(mailData.ccRecipients)
-        mail.setBccRecipients(mailData.bccRecipients)
-        mail.setSubject(mailData.subject)
-        mail.setMessageBody(mailData.message, isHTML: mailData.isHTML)
-
-        mailData
-            .attachments
-            .forEach {
-                mail.addAttachmentData(
-                    $0.data,
-                    mimeType: $0.mimeType,
-                    fileName: $0.fileName
-                )
+                Text(alertMessage)
+                    .font(.system(size: 14, weight: .regular))
+                    .multilineTextAlignment(.center)
             }
-        
-        viewController.present(mail, animated: true)
-    }
-    
-    func showEmailAlert(from viewController: UIViewController) {
-        let alert = UIAlertController(
-            title: alertTitle,
-            message: alertMessage,
-            preferredStyle: .alert
-        )
+            .frame(maxHeight: .infinity, alignment: .top)
+            .padding()
+        }
 
-        let okAction = UIAlertAction(title: "OK", style: .default)
-        alert.addAction(okAction)
-
-        viewController.present(alert, animated: true)
     }
+
+
 }

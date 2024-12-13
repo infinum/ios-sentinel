@@ -5,7 +5,7 @@
 //  Created by Nikola Majcen on 01/10/2020.
 //
 
-import UIKit
+import SwiftUI
 
 /// Tool which gives the ability to change current user location.
 ///
@@ -29,13 +29,8 @@ public class CustomLocationTool: NSObject, Tool {
         self.name = name
         self.locationProvider = CustomLocationProvider(userDefaults: userDefaults)
     }
-    
-    // MARK: - Public methods
-    
-    public func presentPreview(from viewController: UIViewController) {
-        let customLocationViewController = CustomLocationViewController.create(
-            locationProvider: locationProvider
-        )
-        viewController.navigationController?.pushViewController(customLocationViewController, animated: true)
+
+    public var content: any View {
+        CustomLocationView(locationProvider: locationProvider)
     }
 }

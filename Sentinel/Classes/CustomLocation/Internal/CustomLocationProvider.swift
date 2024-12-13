@@ -57,7 +57,7 @@ class CustomLocationProvider {
 
 private extension CustomLocationProvider {
 
-    private func swizzleCustomLocationMethods() {
+    func swizzleCustomLocationMethods() {
         guard
             let originalMethod = class_getInstanceMethod(CLLocationManager.self, #selector(CLLocationManager.startUpdatingLocation)),
             let swizzledMethod = class_getInstanceMethod(CLLocationManager.self, #selector(CLLocationManager.startUpdatingCustomLocation))

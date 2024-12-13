@@ -6,15 +6,29 @@
 //
 
 import Foundation
-import UIKit
+import SwiftUI
 
-class DeviceTool: Tool {
+final class DeviceTool: Tool {
 
-    // MARK: - Lifecycle
+    // MARK: - Public properties
+
+    public var name: String { tool.name }
+
+    // MARK: - Lifecycle -
 
     public init() {}
 
-    // MARK: - Private properties
+    // MARK: - Internal properties
+
+    var toolTable: ToolTable {
+        tool.createToolTable(with: tool.info)
+    }
+
+    var content: any View {
+        SentinelListView(title: name, items: toolTable.sections)
+    }
+
+    // MARK: - Private properties -
 
     private lazy var tool = CustomInfoTool(
         name: "Device",
@@ -29,43 +43,28 @@ class DeviceTool: Tool {
             ])
         ])
 
-    // MARK: - Internal properties
-
-    var toolTable: ToolTable {
-        return tool.createToolTable(with: tool.info)
-    }
-
-    // MARK: - Private properties
-
-    private var systemVersion: String {
-        "\(UIDevice.current.systemName) \(UIDevice.current.systemVersion)"
-    }
-
-    // MARK: - Public properties
-
-    public var name: String { tool.name }
-
-    // MARK: - Public methods
-
-    public func presentPreview(from viewController: UIViewController) {
-        tool.presentPreview(from: viewController)
-    }
 }
 
-// MARK: - Private extension
+// MARK: - Extensions -
+
+// MARK: - Helpers
 
 private extension DeviceTool {
+
+    var systemVersion: String {
+        "\(UIDevice.current.systemName) \(UIDevice.current.systemVersion)"
+    }
 
     var batteryState: String {
         switch UIDevice.current.batteryState {
         case .charging:
-            return "Charging at: \(calculateBatteryPercentage(with: UIDevice.current.batteryLevel.description))%"
+            "Charging at: \(calculateBatteryPercentage(with: UIDevice.current.batteryLevel.description))%"
         case .full:
-            return "Full"
+            "Full"
         case .unplugged:
-            return "\(calculateBatteryPercentage(with: UIDevice.current.batteryLevel.description))%"
+            "\(calculateBatteryPercentage(with: UIDevice.current.batteryLevel.description))%"
         default:
-            return "Unknown"
+            "Unknown"
         }
     }
 

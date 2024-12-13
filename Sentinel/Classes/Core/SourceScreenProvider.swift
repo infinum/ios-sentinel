@@ -53,13 +53,6 @@ public class DefaultSourceScreenProvider: NSObject, SourceScreenProvider {
             topController = newTopController
         }
 
-        if
-            let navController = topController as? UINavigationController,
-            navController.visibleViewController is SentinelTabBarController
-        {
-            return nil
-        }
-
         return topController
     }
 }

@@ -20,8 +20,7 @@ public class ToolTableSection: NSObject {
     let items: [ToolTableItem]
 
     // MARK: - Lifecycle
-    
-    /// Creates an instance of the section.
+
     public init(title: String? = nil, items: [ToolTableItem]) {
         self.title = title
         self.items = items

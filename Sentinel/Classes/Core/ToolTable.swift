@@ -5,7 +5,7 @@
 //  Created by Vlaho Poluta on 30/07/2020.
 //
 
-import UIKit
+import SwiftUI
 
 /// Defines tool datasouce which can present different tool sections.
 @objcMembers
@@ -23,26 +23,14 @@ public class ToolTable: NSObject, Tool {
     // MARK: - Lifecycle
     
     /// Creates an instance of the tool table.
-    init(name: String, sections: [ToolTableSection]) {
+    public init(name: String, sections: [ToolTableSection]) {
         self.name = name
         self.sections = sections
         super.init()
     }
-    
-    // MARK: - Public methods
-    
-    public func presentPreview(from viewController: UIViewController) {
-        presentPreview(from: viewController, push: true)
+
+    public var content: any View {
+        SentinelListView(title: name, items: sections)
     }
-    
-    @objc(presentPreviewFromViewController:push:)
-    public func presentPreview(from viewController: UIViewController, push: Bool) {
-        let sentinelController = SentinelTableViewController.create(with: self)
-        if let navController = viewController.navigationController, push {
-            navController.pushViewController(sentinelController, animated: true)
-        } else {
-            let navContoller = UINavigationController(rootViewController: sentinelController)
-            viewController.present(navContoller, animated: true)
-        }
-    }
+
 }
