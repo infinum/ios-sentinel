@@ -9,8 +9,8 @@ import SwiftUI
 
 /// Provides functionality which gives the user ability
 /// to change environment variables in the application.
-class PreferencesTool: Tool {
-    
+struct PreferencesTool: Tool {
+
     // MARK: - Public properties
     
     public let name: String
@@ -19,29 +19,34 @@ class PreferencesTool: Tool {
     
     private let items: [ToolTableSection]
 
-    // MARK: - Internal properties
-
-    var toolTable: ToolTable {
-        return createToolTable(with: items)
-    }
-    
     // MARK: - Lifecycle
     
     public init(name: String = "Preferences", items: [ToolTableSection]) {
         self.name = name
         self.items = items
     }
+}
+
+// MARK: - Extensions -
+
+// MARK: - UI
+
+extension PreferencesTool {
+
+    var toolTable: ToolTable {
+        createToolTable(with: items)
+    }
 
     var content: any View {
         SentinelListView(title: name, items: toolTable.sections)
     }
-
 }
 
 // MARK: - Private extension
 
 private extension PreferencesTool {
+
     func createToolTable(with items: [ToolTableSection]) -> ToolTable {
-        return ToolTable(name: name, sections: items)
+        ToolTable(name: name, sections: items)
     }
 }

@@ -12,7 +12,7 @@ struct MemoryUsage {
     let total: Int64
 }
 
-class MemoryInfoProvider {
+struct MemoryInfoProvider {
     
     var currentUsage: MemoryUsage {
         var taskInfo = task_vm_info_data_t()

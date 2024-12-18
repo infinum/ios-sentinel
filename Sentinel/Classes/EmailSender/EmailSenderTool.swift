@@ -13,8 +13,7 @@ public enum EmailSenderUnavailableError: Error {
     case custom(title: String, message: String)
 }
 
-@objcMembers
-public final class EmailSenderTool: Tool {
+public struct EmailSenderTool: Tool {
 
     // MARK: - Public properties -
     
@@ -71,8 +70,11 @@ public final class EmailSenderTool: Tool {
             self.alertMessage = message
         }
     }
+}
 
-    public var content: any View {
+public extension EmailSenderTool {
+
+    var content: any View {
         if EmailSenderView.canSendEmail() {
             EmailSenderView(mailData: getter())
         } else {
@@ -88,8 +90,5 @@ public final class EmailSenderTool: Tool {
             .frame(maxHeight: .infinity, alignment: .top)
             .padding()
         }
-
     }
-
-
 }

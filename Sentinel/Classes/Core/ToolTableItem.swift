@@ -7,7 +7,20 @@
 
 import SwiftUI
 
-public enum ToolTableItem: Identifiable {
+public enum ToolTableItem {
+    case navigation(NavigationToolItem)
+    case toggle(ToggleToolItem)
+    case customInfo(CustomInfoTool.Item)
+    case performance(PerformanceInfoItem)
+    case custom(any CustomToolTableItem)
+}
+
+// MARK: - Extensions -
+
+// MARK: - Identifiable conformance
+
+extension ToolTableItem: Identifiable {
+
     public var id: String {
         switch self {
         case .navigation(let item): item.id
@@ -17,10 +30,4 @@ public enum ToolTableItem: Identifiable {
         case .custom(let item): item.id
         }
     }
-
-    case navigation(NavigationToolItem)
-    case toggle(ToggleToolItem)
-    case customInfo(CustomInfoTool.Item)
-    case performance(PerformanceInfoItem)
-    case custom(any CustomToolTableItem)
 }

@@ -11,9 +11,8 @@ import Foundation
 ///
 /// The Sentinel can be configured with different configurations and based on
 /// the configuration used will be triggered from different events and show different tools.
-@objcMembers
-public class Sentinel: NSObject {
-    
+public final class Sentinel {
+
     // MARK: - Internal properties
     
     var configuration: Configuration?
@@ -21,21 +20,13 @@ public class Sentinel: NSObject {
     // MARK: - Public properties
     
     /// Singleton instance of the Sentinel.
-    @objc(sharedInstance)
     public static let shared = Sentinel()
-    
-    // MARK: - Lifecycle
-    
-    private override init() {
-        super.init()
-    }
     
     // MARK: - Public methods
     
     /// Setups the Sentinel with provided configuration.
     ///
     /// - Parameter configuration: The configuration used to setup current instance of the Sentinel.
-    @objc(setupWithConfiguration:)
     public func setup(with configuration: Configuration) {
         self.configuration = configuration
         configuration.trigger.subscribe { [weak self] in
@@ -43,25 +34,26 @@ public class Sentinel: NSObject {
             self?.present(tools: configuration.tools, preferences: configuration.preferences, on: viewController)
         }
     }
-    
-    // MARK: - Inner classes
-    
+}
+
+// MARK: - Configuration
+
+public extension Sentinel {
+
     /// Defines configuration used to define Sentinel.
     ///
     /// Based on the provided properties, Sentinel will be shown based on different event
     /// and it will show different tools.
-    @objcMembers
-    @objc(Configuration)
-    public class Configuration: NSObject {
-        
+    struct Configuration {
+
         // MARK: - Public properties
-        
+
         /// The trigger event which starts the Sentinel.
         public let trigger: Trigger
-        
+
         /// The screen used for presenting the Sentinel.
         public let sourceScreenProvider: SourceScreenProvider
-        
+
         /// Tools which are available from the Sentinel.
         public let tools: [Tool]
 
@@ -87,7 +79,6 @@ public class Sentinel: NSObject {
             self.sourceScreenProvider = sourceScreenProvider
             self.tools = tools
             self.preferences = preferences
-            super.init()
         }
     }
 }

@@ -8,44 +8,30 @@
 import UIKit
 
 /// Defines interaction with trigger.
-@objc
-public protocol Trigger: NSObjectProtocol {
+public protocol Trigger {
 
     /// Subscribes to the triggering event.
     ///
     /// - Parameter events: The block which will be called when notification arrives.
-    @objc(subscribeOnEvents:)
     func subscribe(on events: @escaping () -> ())
 }
 
 /// Provides different trigger types based on the event which makes the trigger.
-@objcMembers
-public class Triggers: NSObject {
-    
-    // MARK: - Public triggers
-    
+public enum Triggers {
     /// The trigger type which is triggered on the shake event.
     public static var shake: Trigger { ShakeTrigger() }
-    
+
     /// The trigger type which is triggered on the screenshot event.
     public static var screenshot: Trigger { ScreenshotTrigger() }
-    
+
     /// The trigger type which is triggered on the specified notification name.
-    @objc(notificationForName:)
     public static func notification(forName name: Notification.Name) -> Trigger {
         NotificationTrigger(notificationName: name)
-    }
-    
-    // MARK: - Lifecycle
-    
-    private override init() {
-        super.init()
     }
 }
 
 /// Defines trigger which is triggered when on the notification event.
-@objcMembers
-public class NotificationTrigger: NSObject, Trigger {
+public final class NotificationTrigger: Trigger {
 
     // MARK: - Private properties
     
@@ -64,7 +50,6 @@ public class NotificationTrigger: NSObject, Trigger {
     public init(notificationName: Notification.Name, queue: OperationQueue = .main) {
         self.notificationName = notificationName
         self.queue = queue
-        super.init()
         setup()
     }
     
@@ -93,9 +78,8 @@ public class NotificationTrigger: NSObject, Trigger {
 }
 
 /// Defines trigger which is triggered when on the screenshot event.
-@objcMembers
-public class ScreenshotTrigger: NSObject, Trigger {
-    
+public final class ScreenshotTrigger: Trigger {
+
     // MARK: - Internal properties
     
     let notificationTrigger: NotificationTrigger
@@ -103,9 +87,8 @@ public class ScreenshotTrigger: NSObject, Trigger {
     // MARK: - Lifecycle
     
     /// Creates an instance of the screenshot trigger.
-    public override init() {
+    public init() {
         notificationTrigger = NotificationTrigger(notificationName: UIApplication.userDidTakeScreenshotNotification)
-        super.init()
     }
     
     // MARK: - Public methods
@@ -116,9 +99,8 @@ public class ScreenshotTrigger: NSObject, Trigger {
 }
 
 /// Defines trigger which is triggered when on the shake event.
-@objcMembers
-public class ShakeTrigger: NSObject, Trigger {
-    
+public final class ShakeTrigger: Trigger {
+
     // MARK: - Internal properties
     
     let notificationTrigger: NotificationTrigger
@@ -126,10 +108,9 @@ public class ShakeTrigger: NSObject, Trigger {
     // MARK: - Lifecycle
     
     /// Creates an instance of the shake trigger.
-    public override init() {
+    public init() {
         UIApplication.classInit
         notificationTrigger = NotificationTrigger(notificationName: .shakeMotionDetected)
-        super.init()
     }
     
     // MARK: - Public methods

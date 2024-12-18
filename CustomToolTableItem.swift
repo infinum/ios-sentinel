@@ -12,6 +12,10 @@ public protocol CustomToolTableItem: Identifiable, Equatable {
     @ViewBuilder var content: any View { get }
 }
 
+// MARK: - Extensions -
+
+// MARK: - Identifiable helper
+
 public extension CustomToolTableItem {
     var id: String { title }
 }

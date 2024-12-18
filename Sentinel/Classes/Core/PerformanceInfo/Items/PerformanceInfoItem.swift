@@ -25,6 +25,7 @@ public struct PerformanceInfoItem {
 // MARK: - Equatable conformance
 
 extension PerformanceInfoItem: Equatable {
+
     public static func == (lhs: PerformanceInfoItem, rhs: PerformanceInfoItem) -> Bool {
         lhs.title == rhs.title
     }
@@ -33,5 +34,8 @@ extension PerformanceInfoItem: Equatable {
 // MARK: - Identifiable conformance
 
 extension PerformanceInfoItem: Identifiable {
-    public var id: String { title }
+
+    public var id: String {
+        title
+    }
 }

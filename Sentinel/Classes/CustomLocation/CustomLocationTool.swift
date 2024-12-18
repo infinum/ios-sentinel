@@ -12,9 +12,8 @@ import SwiftUI
 /// When changing the user location, keep in mind that
 /// every location change will be applied after
 /// the application is restarted.
-@objcMembers
-public class CustomLocationTool: NSObject, Tool {
-    
+public struct CustomLocationTool: Tool {
+
     // MARK: - Public properties
     
     public let name: String
@@ -22,15 +21,22 @@ public class CustomLocationTool: NSObject, Tool {
     // MARK: - Internal properties
 
     let locationProvider: CustomLocationProvider
-    
+
     // MARK: - Lifecycle
     
     public init(name: String = "Custom Location", userDefaults: UserDefaults = .standard) {
         self.name = name
         self.locationProvider = CustomLocationProvider(userDefaults: userDefaults)
     }
+}
 
-    public var content: any View {
+// MARK: - Extensions -
+
+// MARK: - UI
+
+public extension CustomLocationTool {
+
+    var content: any View {
         CustomLocationView(locationProvider: locationProvider)
     }
 }

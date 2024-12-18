@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-final class DeviceTool: Tool {
+struct DeviceTool: Tool {
 
     // MARK: - Public properties
 
@@ -18,19 +18,9 @@ final class DeviceTool: Tool {
 
     public init() {}
 
-    // MARK: - Internal properties
-
-    var toolTable: ToolTable {
-        tool.createToolTable(with: tool.info)
-    }
-
-    var content: any View {
-        SentinelListView(title: name, items: toolTable.sections)
-    }
-
     // MARK: - Private properties -
 
-    private lazy var tool = CustomInfoTool(
+    private let tool = CustomInfoTool(
         name: "Device",
         info: [
             CustomInfoTool.Section(title: "Device", items: [
@@ -47,15 +37,28 @@ final class DeviceTool: Tool {
 
 // MARK: - Extensions -
 
-// MARK: - Helpers
+// MARK: - UI
+
+extension DeviceTool {
+
+    var toolTable: ToolTable {
+        tool.createToolTable(with: tool.info)
+    }
+
+    var content: any View {
+        SentinelListView(title: name, items: toolTable.sections)
+    }
+}
+
+// MARK: - Info helpers
 
 private extension DeviceTool {
 
-    var systemVersion: String {
+    static var systemVersion: String {
         "\(UIDevice.current.systemName) \(UIDevice.current.systemVersion)"
     }
 
-    var batteryState: String {
+    static var batteryState: String {
         switch UIDevice.current.batteryState {
         case .charging:
             "Charging at: \(calculateBatteryPercentage(with: UIDevice.current.batteryLevel.description))%"
@@ -68,7 +71,7 @@ private extension DeviceTool {
         }
     }
 
-    func calculateBatteryPercentage(with amount: String) -> String {
+    static func calculateBatteryPercentage(with amount: String) -> String {
         guard let batteryLevel = Double(amount) else { return "Unknown" }
         return "\(batteryLevel * 100.0)"
     }

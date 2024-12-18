@@ -14,14 +14,20 @@ public struct NavigationToolItem {
 
 // MARK: - Extensions -
 
-// MARK: - Equatable and Identifiable conformance
+// MARK: - Equatable conformance
 
-extension NavigationToolItem: Equatable, Identifiable {
-
-    public var id: String { title }
+extension NavigationToolItem: Equatable {
 
     public static func == (lhs: NavigationToolItem, rhs: NavigationToolItem) -> Bool {
         lhs.title == rhs.title
     }
+}
 
+// MARK: - Identifiable conformance
+
+extension NavigationToolItem: Identifiable {
+
+    public var id: String {
+        title
+    }
 }

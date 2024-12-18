@@ -7,16 +7,11 @@
 
 import SwiftUI
 
-@objcMembers
-public final class TextEditingTool: NSObject, Tool {
+public struct TextEditingTool: Tool {
 
     // MARK: - Public properties
     
     public let name: String
-
-    public var content: any View {
-        TextEditingToolView(viewModel: .init(value: getter(), title: name, didPressSave: store(newValue:)))
-    }
 
     // MARK: - Private properties
     
@@ -39,8 +34,18 @@ public final class TextEditingTool: NSObject, Tool {
         self.getter = getter
         self.userDefaults = userDefaults
         self.userDefaultsKey = userDefaultsKey
-        super.init()
         loadStoredValue()
+    }
+}
+
+// MARK: - Extensions -
+
+// MARK: - UI
+
+public extension TextEditingTool {
+
+    var content: any View {
+        TextEditingToolView(viewModel: .init(value: getter(), title: name, didPressSave: store(newValue:)))
     }
 }
 

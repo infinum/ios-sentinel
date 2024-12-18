@@ -34,5 +34,4 @@ extension TitleValueView {
         title = item.title
         value = item.value
     }
-
 }
