@@ -9,8 +9,8 @@ import Foundation
 
 /// Defines singleton instance of the Sentinel.
 ///
-/// The Sentinel can be configured with different configurations and based on
-/// the configuration used will be triggered from different events and show different tools.
+/// The Sentinel can be configured with different configurations. Based on
+/// the provided configuration, Sentinel will be triggered from different events and show different tools.
 public final class Sentinel {
 
     // MARK: - Internal properties
@@ -68,7 +68,7 @@ public extension Sentinel {
         ///     - trigger: The trigger event which opens the Sentinel.
         ///     - sourceScreenProvider: The screen from which Sentinel can be presented.
         ///     - tools: Tools available from the Sentinel.
-        ///     - preferences: items which can allow or deny an activity inside the app
+        ///     - preferences: Section items which can allow or deny an activity inside the app
         public init(
             trigger: Trigger,
             sourceScreenProvider: SourceScreenProvider = SourceScreenProviders.default,

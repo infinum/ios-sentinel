@@ -7,6 +7,9 @@
 
 import SwiftUI
 
+/// Enum with predefined Views which can be used with the ToolTable.
+/// Navigation, Toggle, CustomInfo, and Performance have predefined Views.
+/// In case a custom view is needed use the Custom case with a custom Item which conforms to CustomToolTableItem.
 public enum ToolTableItem {
     case navigation(NavigationToolItem)
     case toggle(ToggleToolItem)

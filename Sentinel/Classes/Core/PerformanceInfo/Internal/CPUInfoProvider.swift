@@ -9,10 +9,12 @@ import Foundation
 
 struct CPUInfoProvider {
 
+    /// Fetches the number of cores the devices has
     var numberOfCores: Int {
         ProcessInfo().processorCount
     }
-    
+
+    /// Fetches the percentage of the CPU currently being used by the App
     var currentUsage: Double {
         var totalUsageOfCPU: Double = 0.0
         var threadsList: thread_act_array_t?

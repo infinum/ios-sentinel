@@ -9,6 +9,7 @@ import Foundation
 
 struct SystemInfoProvider {
 
+    /// Fetches the active time of the app
     var uptime: String {
         secondsToHoursMinutesSeconds(interval: ProcessInfo().systemUptime)
     }

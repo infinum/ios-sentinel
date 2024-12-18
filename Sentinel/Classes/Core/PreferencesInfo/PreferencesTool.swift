@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-/// Provides functionality which gives the user ability
-/// to change environment variables in the application.
+/// Tool which gives the user ability to change environment variables in the application.
+/// Options are grouped into sections for a better overview of different types of preferences.
 struct PreferencesTool: Tool {
 
     // MARK: - Public properties

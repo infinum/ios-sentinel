@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Tool which gives the ability to show info + value pairs
 public struct CustomInfoTool: Tool {
 
     // MARK: - Public properties

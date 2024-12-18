@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+/// Tool which shows current device information
 struct DeviceTool: Tool {
 
     // MARK: - Public properties

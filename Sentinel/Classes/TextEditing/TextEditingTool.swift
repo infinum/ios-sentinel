@@ -7,6 +7,9 @@
 
 import SwiftUI
 
+/// Tool which gives you the ability to edit a property on the fly
+///
+/// The property can be edited in the UserDefaults or by setting a custom setter/getter
 public struct TextEditingTool: Tool {
 
     // MARK: - Public properties

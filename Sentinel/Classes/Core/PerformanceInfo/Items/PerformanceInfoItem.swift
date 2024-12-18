@@ -7,6 +7,8 @@
 
 import Foundation
 
+/// Item for the PerformanceTool
+/// Contains a title and a valueDidChange closure which updates the value every time the timer sends an event
 public struct PerformanceInfoItem {
 
     // MARK: - Internal properties

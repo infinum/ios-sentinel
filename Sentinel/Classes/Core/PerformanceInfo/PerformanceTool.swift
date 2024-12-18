@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Tool which shows the current state of the CPU, memory, system and App duration
 struct PerformanceTool: Tool {
 
     // MARK: - Public properties

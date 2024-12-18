@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Tool which gives the ability to list out all of the UserDefaults properties and delete them
 public struct UserDefaultsTool: Tool {
 
     // MARK: - Public properties

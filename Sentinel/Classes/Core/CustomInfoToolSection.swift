@@ -9,6 +9,7 @@ import Foundation
 
 public extension CustomInfoTool {
 
+    /// Section Item for the CustomInfoTool which expects CustomInfoTool.Item for its items
     struct Section {
 
         // MARK: - Internal properties
@@ -24,6 +25,7 @@ public extension CustomInfoTool {
         }
     }
 
+    /// Row Item for the CustomInfoTool which will show a title + value pair
     struct Item {
 
         // MARK: - Internal properties

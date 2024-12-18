@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+/// Tool which shows Plist information about the App
 struct ApplicationTool: Tool {
 
     // MARK: - Public properties -

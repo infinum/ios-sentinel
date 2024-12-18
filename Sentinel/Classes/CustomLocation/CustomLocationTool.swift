@@ -9,9 +9,7 @@ import SwiftUI
 
 /// Tool which gives the ability to change current user location.
 ///
-/// When changing the user location, keep in mind that
-/// every location change will be applied after
-/// the application is restarted.
+/// Chaniging the user location will be applied after the application has been restarted.
 public struct CustomLocationTool: Tool {
 
     // MARK: - Public properties

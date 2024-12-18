@@ -7,6 +7,8 @@
 
 import Foundation
 
+/// Item which will be shown in the PreferencesTool
+/// Provides a switch which can save/fetch values from the UserDefaults or some other setter/getter which can be specified.
 public struct ToggleToolItem {
     let title: String
     let setter: ((Bool) -> ())?
