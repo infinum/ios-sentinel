@@ -12,8 +12,9 @@ struct MemoryUsage {
     let total: Int64
 }
 
-class MemoryInfoProvider {
-    
+struct MemoryInfoProvider {
+
+    /// Fetches the current memory usage of the App
     var currentUsage: MemoryUsage {
         var taskInfo = task_vm_info_data_t()
         var count = mach_msg_type_number_t(MemoryLayout<task_vm_info>.size) / 4

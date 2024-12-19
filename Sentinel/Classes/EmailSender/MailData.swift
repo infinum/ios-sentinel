@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Item which represents the mail attachment
 public struct Attachment {
     
     let data: Data

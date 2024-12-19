@@ -20,7 +20,9 @@ struct TextEditingToolView: View {
             Button(action: {
                 viewModel.didPressSave(viewModel.value)
                 presentationMode.wrappedValue.dismiss()
-            }, label: { Text("Save") })
+            }) {
+                Text("Save")
+            }
         }
         .padding(.horizontal, 16)
         .navigationTitle(viewModel.title)

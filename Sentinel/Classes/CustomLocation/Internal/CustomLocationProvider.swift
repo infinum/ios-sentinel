@@ -8,16 +8,12 @@
 import Foundation
 import CoreLocation
 
-class CustomLocationProvider {
-    
-    // MARK: - Constants
-    
-    private class Constants {
-        private init() { }
-        
-        static let locationMockEnabledKey = "com.infinum.sentinel.locationMock.enabled"
-        static let locationMockLocationKey = "com.infinum.sentinel.locationMock.location"
-    }
+private enum Constants {
+    static let locationMockEnabledKey = "com.infinum.sentinel.locationMock.enabled"
+    static let locationMockLocationKey = "com.infinum.sentinel.locationMock.location"
+}
+
+struct CustomLocationProvider {
 
     // MARK: - Private properties
     
@@ -29,10 +25,10 @@ class CustomLocationProvider {
         self.userDefaults = userDefaults
     }
     
-    // MARK: - Public methods
+    // MARK: - Internal methods
     
     var isCustomLocationUsageEnabled: Bool {
-        return userDefaults.bool(forKey: Constants.locationMockEnabledKey)
+        userDefaults.bool(forKey: Constants.locationMockEnabledKey)
     }
 
     var customLocation: CLLocation? {

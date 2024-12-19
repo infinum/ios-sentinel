@@ -13,8 +13,8 @@ extension UIStoryboard {
     static var customLocation: UIStoryboard { UIStoryboard(name: "CustomLocation", bundle: .sentinel) }
 }
 
-class CustomLocationViewController: UIViewController {
-    
+final class CustomLocationViewController: UIViewController {
+
     fileprivate enum AlertDelay: Double {
         case normal = 0.33
         case long = 0.67
@@ -75,6 +75,10 @@ class CustomLocationViewController: UIViewController {
     }
 }
 
+// MARK: - Extensions -
+
+// MARK: - CLLocationManagerDelegate conformance
+
 extension CustomLocationViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -91,7 +95,11 @@ extension CustomLocationViewController: CLLocationManagerDelegate {
     }
 }
 
+// MARK: - MKMapViewDelegate conformance
+
 extension CustomLocationViewController: MKMapViewDelegate { }
+
+// MARK: - UITextFieldDelegate conformance
 
 extension CustomLocationViewController: UITextFieldDelegate {
     
@@ -177,8 +185,8 @@ private extension CustomLocationViewController {
     }
     
     func coordinate(from text: String?) -> Double? {
-        guard let string = text, !string.isEmpty, let value = Double(string) else { return nil }
-        return value
+        guard let string = text, !string.isEmpty else { return nil }
+        return Double(string)
     }
     
     func showAlert(title: String, message: String, actionTitle: String, delay: AlertDelay) {
@@ -216,7 +224,7 @@ private extension CustomLocationViewController {
     
     @objc func addCustomLocation(longGesture: UIGestureRecognizer) {
         let isEnabled = locationProvider?.isCustomLocationUsageEnabled ?? false
-        if !isEnabled { return }
+        guard isEnabled else { return }
         let touchPoint = longGesture.location(in: mapView)
         let newCoordinates = mapView.convert(touchPoint, toCoordinateFrom: mapView)
         latitudeTextField.text = "\(newCoordinates.latitude)"
@@ -253,20 +261,14 @@ private extension CustomLocationViewController {
 
     func handleInfoLabelVisibility() {
         let isEnabled = locationProvider?.isCustomLocationUsageEnabled ?? false
-        if isEnabled {
-            gestureInfoLabel.isHidden = false
-        } else {
-            gestureInfoLabel.isHidden = true
-        }
+        gestureInfoLabel.isHidden = !isEnabled
     }
 
     func checkForExistingCoordinates() {
         guard
             let latitude = coordinate(from: latitudeTextField.text),
             let longitude = coordinate(from: longitudeTextField.text)
-        else {
-            return
-        }
+        else { return }
         let coordinates = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         addPinToLocation(using: coordinates)
     }

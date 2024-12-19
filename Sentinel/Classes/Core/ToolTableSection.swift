@@ -8,9 +8,8 @@
 import Foundation
 
 /// Represents tool section in the tool table view.
-@objcMembers
-public class ToolTableSection: NSObject {
-    
+public struct ToolTableSection {
+
     // MARK: - Internal properties
     
     /// The title of the section.
@@ -24,6 +23,5 @@ public class ToolTableSection: NSObject {
     public init(title: String? = nil, items: [ToolTableItem]) {
         self.title = title
         self.items = items
-        super.init()
     }
 }

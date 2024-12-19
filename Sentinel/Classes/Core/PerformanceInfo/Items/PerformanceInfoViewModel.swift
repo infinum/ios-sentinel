@@ -56,7 +56,8 @@ private extension PerformanceInfoViewModel {
         timer?.invalidate()
     }
 
-    @objc func updatePerformanceInfo() {
+    @objc
+    func updatePerformanceInfo() {
         value = item.valueDidChange()
     }
 
