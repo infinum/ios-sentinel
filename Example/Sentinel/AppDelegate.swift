@@ -52,7 +52,7 @@ private extension AppDelegate {
         ToolTable(
             name: "Color Change Tool",
             sections: [
-                .init(title: "Color change", items: [.custom(ColorChangeToolTableItem())])
+                ToolTableSection(title: "Color change", items: [.custom(ColorChangeToolTableItem())])
             ]
         )
     }
@@ -72,21 +72,27 @@ private extension AppDelegate {
             .init(
                 title: "UserDefaults flags",
                 items: [
-                    .toggle(ToggleToolItem(
-                        title: "Analytics",
-                        userDefaults: .standard,
-                        userDefaultsKey: "com.infinum.sentinel.optionSwitch.analytics"
-                    )),
-                    .toggle(ToggleToolItem(
-                        title: "Crashlytics",
-                        setter: { AppSwitches.crashlyticsEnabled = $0 },
-                        getter: { AppSwitches.crashlyticsEnabled }
-                    )),
-                    .toggle(ToggleToolItem(
-                        title: "Logging",
-                        userDefaults: .standard,
-                        userDefaultsKey: "com.infinum.sentinel.optionSwitch.logging"
-                    ))
+                    .toggle(
+                        ToggleToolItem(
+                            title: "Analytics",
+                            userDefaults: .standard,
+                            userDefaultsKey: "com.infinum.sentinel.optionSwitch.analytics"
+                        )
+                    ),
+                    .toggle(
+                        ToggleToolItem(
+                            title: "Crashlytics",
+                            setter: { AppSwitches.crashlyticsEnabled = $0 },
+                            getter: { AppSwitches.crashlyticsEnabled }
+                        )
+                    ),
+                    .toggle(
+                        ToggleToolItem(
+                            title: "Logging",
+                            userDefaults: .standard,
+                            userDefaultsKey: "com.infinum.sentinel.optionSwitch.logging"
+                        )
+                    )
                 ]
             )
 

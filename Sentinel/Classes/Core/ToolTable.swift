@@ -29,6 +29,12 @@ public class ToolTable: NSObject, Tool {
         super.init()
     }
 
+    public init(name: String, items: [ToolTableItem]) {
+        self.name = name
+        self.sections = [ToolTableSection(items: items)]
+        super.init()
+    }
+
     public var content: any View {
         SentinelListView(title: name, items: sections)
     }

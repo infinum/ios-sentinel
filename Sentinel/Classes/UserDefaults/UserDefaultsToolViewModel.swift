@@ -9,13 +9,13 @@ import Foundation
 
 final class UserDefaultsToolViewModel: ObservableObject {
 
-    // MARK: - Internal properties -
+    // MARK: - Internal properties
 
     let value: String
     let title: String
     let userDefaults: UserDefaults
 
-    // MARK: - Init -
+    // MARK: - Init
 
     init(value: String, title: String, userDefaults: UserDefaults = .standard) {
         self.value = value
@@ -25,7 +25,7 @@ final class UserDefaultsToolViewModel: ObservableObject {
 
 }
 
-// MARK: - Extensions -
+// MARK: - Extensions
 
 // MARK: - Internal methods
 

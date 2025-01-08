@@ -5,7 +5,6 @@
 //  Created by Zvonimir Medak on 10.12.2024..
 //
 
-import UIKit
 import SwiftUI
 
 // There's an issue with the generated assets, and local cocoapods which should be resolved in Xcode 16.1

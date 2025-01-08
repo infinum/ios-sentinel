@@ -39,7 +39,7 @@ public struct ToggleToolItem {
     }
 }
 
-// MARK: - Extensions -
+// MARK: - Extensions
 
 // MARK: - Equatable and Identifiable conformance
 

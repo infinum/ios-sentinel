@@ -5,7 +5,6 @@
 //  Created by Zvonimir Medak on 30.09.2021..
 //
 
-import Foundation
 import SwiftUI
 
 final class DeviceTool: Tool {
@@ -14,7 +13,7 @@ final class DeviceTool: Tool {
 
     public var name: String { tool.name }
 
-    // MARK: - Lifecycle -
+    // MARK: - Lifecycle
 
     public init() {}
 
@@ -28,7 +27,7 @@ final class DeviceTool: Tool {
         SentinelListView(title: name, items: toolTable.sections)
     }
 
-    // MARK: - Private properties -
+    // MARK: - Private properties
 
     private lazy var tool = CustomInfoTool(
         name: "Device",
@@ -45,7 +44,7 @@ final class DeviceTool: Tool {
 
 }
 
-// MARK: - Extensions -
+// MARK: - Extensions
 
 // MARK: - Helpers
 

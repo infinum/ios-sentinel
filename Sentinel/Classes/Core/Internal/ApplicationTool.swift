@@ -10,15 +10,15 @@ import SwiftUI
 
 final class ApplicationTool: Tool {
 
-    // MARK: - Public properties -
+    // MARK: - Public properties
 
     public var name: String { tool.name }
 
-    // MARK: - Lifecycle -
+    // MARK: - Lifecycle
 
     public init() {}
 
-    // MARK: - Private properties -
+    // MARK: - Private properties
 
     private lazy var tool = CustomInfoTool(
         name: "Application",
@@ -43,7 +43,7 @@ final class ApplicationTool: Tool {
         ]
     )
     
-    // MARK: - Internal properties -
+    // MARK: - Internal properties
 
     var toolTable: ToolTable {
         tool.createToolTable(with: tool.info)
