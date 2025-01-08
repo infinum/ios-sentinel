@@ -41,7 +41,7 @@ public struct ToggleToolItem {
     }
 }
 
-// MARK: - Extensions
+// MARK: - Extensions -
 
 // MARK: - Helpres
 

@@ -26,7 +26,7 @@ public struct ToolTableSection {
     }
 }
 
-// MARK: - Extensions
+// MARK: - Extensions -
 
 // MARK: - Identifiable conformance
 

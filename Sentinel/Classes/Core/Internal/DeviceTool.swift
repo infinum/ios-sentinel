@@ -35,7 +35,7 @@ struct DeviceTool: Tool {
 
 }
 
-// MARK: - Extensions
+// MARK: - Extensions -
 
 // MARK: - UI
 

@@ -13,7 +13,7 @@ public struct NavigationToolItem {
     let didSelect: () -> any View
 }
 
-// MARK: - Extensions
+// MARK: - Extensions -
 
 // MARK: - Equatable conformance
 
