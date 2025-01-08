@@ -28,7 +28,7 @@ public class ToolTableSection: NSObject {
     }
 }
 
-// MARK: - Extensions
+// MARK: - Extensions -
 
 // MARK: - Identifiable conformance
 

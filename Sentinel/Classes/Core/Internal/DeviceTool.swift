@@ -44,7 +44,7 @@ final class DeviceTool: Tool {
 
 }
 
-// MARK: - Extensions
+// MARK: - Extensions -
 
 // MARK: - Helpers
 

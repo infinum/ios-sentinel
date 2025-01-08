@@ -31,7 +31,7 @@ public class CustomInfoTool: NSObject, Tool {
     }
 }
 
-// MARK: - Extensions
+// MARK: - Extensions -
 
 // MARK: - Helpers
 
