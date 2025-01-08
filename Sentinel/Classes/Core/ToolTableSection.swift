@@ -25,3 +25,14 @@ public struct ToolTableSection {
         self.items = items
     }
 }
+
+// MARK: - Extensions
+
+// MARK: - Identifiable conformance
+
+extension ToolTableSection: Identifiable {
+
+    public var id: String {
+        title ?? UUID().uuidString
+    }
+}

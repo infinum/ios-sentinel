@@ -11,15 +11,15 @@ import SwiftUI
 /// Tool which shows Plist information about the App
 struct ApplicationTool: Tool {
 
-    // MARK: - Public properties -
+    // MARK: - Public properties
 
     public var name: String { tool.name }
 
-    // MARK: - Lifecycle -
+    // MARK: - Lifecycle
 
     public init() {}
 
-    // MARK: - Private properties -
+    // MARK: - Private properties
 
     private let tool = CustomInfoTool(
         name: "Application",
@@ -45,7 +45,7 @@ struct ApplicationTool: Tool {
     )
 }
 
-// MARK: - Extensions -
+// MARK: - Extensions
 
 // MARK: - UI
 

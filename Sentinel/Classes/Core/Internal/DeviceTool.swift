@@ -5,7 +5,6 @@
 //  Created by Zvonimir Medak on 30.09.2021..
 //
 
-import Foundation
 import SwiftUI
 
 /// Tool which shows current device information
@@ -15,11 +14,11 @@ struct DeviceTool: Tool {
 
     public var name: String { tool.name }
 
-    // MARK: - Lifecycle -
+    // MARK: - Lifecycle
 
     public init() {}
 
-    // MARK: - Private properties -
+    // MARK: - Private properties
 
     private let tool = CustomInfoTool(
         name: "Device",
@@ -36,7 +35,7 @@ struct DeviceTool: Tool {
 
 }
 
-// MARK: - Extensions -
+// MARK: - Extensions
 
 // MARK: - UI
 

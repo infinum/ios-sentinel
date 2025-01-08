@@ -26,6 +26,11 @@ public struct ToolTable: Tool {
         self.name = name
         self.sections = sections
     }
+
+    public init(name: String, items: [ToolTableItem]) {
+        self.name = name
+        self.sections = [ToolTableSection(items: items)]
+    }
 }
 
 // MARK: - Extensions -

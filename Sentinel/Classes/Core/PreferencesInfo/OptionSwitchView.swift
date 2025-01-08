@@ -23,7 +23,7 @@ struct OptionSwitchView: View {
     }
 }
 
-// MARK: - Extensions -
+// MARK: - Extensions
 
 // MARK: - Helpers
 

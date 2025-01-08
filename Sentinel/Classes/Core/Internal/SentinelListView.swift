@@ -13,7 +13,7 @@ struct SentinelListView: View {
     let items: [ToolTableSection]
 
     var body: some View {
-        List(items, id: \.title) { section in
+        List(items, id: \.id) { section in
             Section {
                 if let title = section.title {
                     Text(title)

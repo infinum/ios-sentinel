@@ -9,16 +9,16 @@ import Foundation
 
 final class PerformanceInfoViewModel: ObservableObject {
 
-    // MARK: - Internal properties -
+    // MARK: - Internal properties
 
     @Published var value: String
     let item: PerformanceInfoItem
 
-    // MARK: - Private properties -
+    // MARK: - Private properties
 
     private var timer: Timer?
 
-    // MARK: - Init -
+    // MARK: - Init
 
     init(item: PerformanceInfoItem) {
         self.item = item
@@ -26,7 +26,7 @@ final class PerformanceInfoViewModel: ObservableObject {
     }
 }
 
-// MARK: - Extensions -
+// MARK: - Extensions
 
 // MARK: - Internal methods
 
