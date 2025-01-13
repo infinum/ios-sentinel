@@ -59,7 +59,6 @@ Pod::Spec.new do |s|
   s.subspec 'Default' do |sp|
     sp.dependency 'Sentinel/Core'
     sp.dependency 'Sentinel/UserDefaults'
-    sp.dependency 'Sentinel/CustomLocation'
     sp.dependency 'Sentinel/TextEditing'
   end
   
