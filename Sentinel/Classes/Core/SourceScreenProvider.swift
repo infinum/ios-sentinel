@@ -31,12 +31,10 @@ public struct DefaultSourceScreenProvider: SourceScreenProvider {
 
     #if os(macOS)
     public func showTools(for view: some View) {
-        let keyWindow = NSApplication.shared.keyWindow?.contentViewController
-//                .filter { $0.activationState == .foregroundActive }
-//                .compactMap { $0 as? UIWindowScene }
-//                .first?.windows
-//                .filter(\.isKeyWindow)
-//                .first
+        let keyWindow = NSApplication.shared.keyWindow
+        let controller = NSHostingController(rootView: view)
+        controller.view.frame = .init(x: 0, y: 0, width: 1000, height: 1000)
+        keyWindow?.contentViewController?.presentAsModalWindow(controller)
     }
     #else
     

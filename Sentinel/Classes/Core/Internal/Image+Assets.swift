@@ -24,7 +24,7 @@ extension Image {
 
     static func load(using name: String) -> Image {
         let frameworkBundle = Bundle(for: Sentinel.self)
-        guard let frameworkURL = frameworkBundle.resourceURL else { return .init(uiImage: .init()) }
+        guard let frameworkURL = frameworkBundle.resourceURL else { return .init(systemName: "edit") }
         let bundleURL = frameworkURL.appendingPathComponent("Sentinel.bundle")
 
         #if SWIFT_PACKAGE

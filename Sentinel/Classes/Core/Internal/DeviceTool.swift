@@ -77,6 +77,9 @@ private extension DeviceTool {
     }
 
     static var batteryState: String {
+        #if os(macOS)
+        "Unknown"
+        #else
         switch UIDevice.current.batteryState {
         case .charging:
             "Charging at: \(calculateBatteryPercentage(with: UIDevice.current.batteryLevel.description))%"
@@ -87,6 +90,7 @@ private extension DeviceTool {
         default:
             "Unknown"
         }
+        #endif
     }
 
     #if canImport(IOKit)

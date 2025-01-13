@@ -5,8 +5,7 @@
 //  Created by Vlaho Poluta on 30/07/2020.
 //
 
-#if canImport(UIKit)
-import UIKit
+import Foundation
 
 extension Bundle {
     static var sentinel: Bundle {
@@ -17,6 +16,9 @@ extension Bundle {
         #endif
     }
 }
+
+#if canImport(UIKit)
+import UIKit
 
 extension UIStoryboard {
     static var sentinel: UIStoryboard { UIStoryboard(name: "Sentinel", bundle: .sentinel) }

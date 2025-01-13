@@ -17,7 +17,11 @@ struct UserDefaultsToolView: View {
             Text(viewModel.value)
                 .contextMenu(ContextMenu(menuItems: {
                     Button("Copy", action: {
+                        #if os(macOS)
+                        NSPasteboard.general.setString(viewModel.value, forType: .string)
+                        #else
                         UIPasteboard.general.string = viewModel.value
+                        #endif
                     })
                 }))
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
