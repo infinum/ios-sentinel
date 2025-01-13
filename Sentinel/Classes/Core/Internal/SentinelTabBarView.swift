@@ -21,15 +21,12 @@ struct SentinelTabBarView: View {
     let tabs: [SentinelTabItem]
 
     var body: some View {
-        NavigationView {
-            TabView(selection: $selectedTab) {
-                ForEach(tabs, id: \.barItemTitle) { tab in
-                    SentinelListView(title: tab.barItemTitle, items: tab.sections)
-                        .tabItem { TabBarView(tab: tab) }
-                }
+        TabView(selection: $selectedTab) {
+            ForEach(tabs, id: \.barItemTitle) { tab in
+                SentinelListView(title: tab.barItemTitle, items: tab.sections)
+                    .tabItem { TabBarView(tab: tab) }
             }
         }
-        .navigationTitle("Sentinel")
     }
 }
 
