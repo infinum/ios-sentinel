@@ -39,7 +39,6 @@ private extension AppDelegate {
             tools: [
                 UserDefaultsTool(),
                 baseUrlTool,
-                CustomLocationTool(),
                 colorChangeTool
             ],
             preferences: optionSwitchItems
