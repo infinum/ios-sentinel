@@ -79,30 +79,8 @@ public extension EmailSenderTool {
         if EmailSenderView.canSendEmail() {
             EmailSenderView(mailData: getter())
         } else {
-            ErrorView(alertTitle: alertTitle, alertMessage: alertMessage)
+            EmailSenderErrorView(alertTitle: alertTitle, alertMessage: alertMessage)
         }
     }
 
-}
-
-// MARK: - ErrorView
-
-private struct ErrorView: View {
-
-    let alertTitle: String
-    let alertMessage: String
-
-    var body: some View {
-        VStack(spacing: 10) {
-            Text(alertTitle)
-                .font(.system(size: 17, weight: .bold))
-                .multilineTextAlignment(.center)
-
-            Text(alertMessage)
-                .font(.system(size: 14, weight: .regular))
-                .multilineTextAlignment(.center)
-        }
-        .frame(maxHeight: .infinity, alignment: .top)
-        .padding()
-    }
 }
