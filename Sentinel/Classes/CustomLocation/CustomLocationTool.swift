@@ -28,8 +28,6 @@ public struct CustomLocationTool: Tool {
     }
 }
 
-// MARK: - Extensions -
-
 // MARK: - UI
 
 public extension CustomLocationTool {

@@ -41,8 +41,6 @@ public struct TextEditingTool: Tool {
     }
 }
 
-// MARK: - Extensions -
-
 // MARK: - UI
 
 public extension TextEditingTool {

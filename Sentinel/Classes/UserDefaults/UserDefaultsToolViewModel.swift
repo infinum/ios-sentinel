@@ -25,8 +25,6 @@ final class UserDefaultsToolViewModel: ObservableObject {
 
 }
 
-// MARK: - Extensions -
-
 // MARK: - Internal methods
 
 extension UserDefaultsToolViewModel {

@@ -26,8 +26,6 @@ public struct CustomInfoTool: Tool {
     }
 }
 
-// MARK: - Extensions -
-
 // MARK: - UI
 
 public extension CustomInfoTool {

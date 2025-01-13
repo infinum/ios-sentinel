@@ -26,8 +26,6 @@ final class PerformanceInfoViewModel: ObservableObject {
     }
 }
 
-// MARK: - Extensions -
-
 // MARK: - Internal methods
 
 extension PerformanceInfoViewModel {

@@ -30,8 +30,6 @@ extension Sentinel {
     }
 }
 
-// MARK: - Extensions -
-
 // MARK: - Helpers
 
 private extension Sentinel {

@@ -33,8 +33,6 @@ public struct ToolTable: Tool {
     }
 }
 
-// MARK: - Extensions -
-
 // MARK: - UI
 
 public extension ToolTable {

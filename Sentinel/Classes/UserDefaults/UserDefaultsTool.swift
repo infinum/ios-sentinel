@@ -26,8 +26,6 @@ public struct UserDefaultsTool: Tool {
     }
 }
 
-// MARK: - Extensions -
-
 // MARK: - UI
 
 public extension UserDefaultsTool {

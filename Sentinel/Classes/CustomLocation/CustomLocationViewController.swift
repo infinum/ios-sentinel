@@ -75,8 +75,6 @@ final class CustomLocationViewController: UIViewController {
     }
 }
 
-// MARK: - Extensions -
-
 // MARK: - CLLocationManagerDelegate conformance
 
 extension CustomLocationViewController: CLLocationManagerDelegate {

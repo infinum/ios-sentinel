@@ -27,8 +27,6 @@ struct PreferencesTool: Tool {
     }
 }
 
-// MARK: - Extensions -
-
 // MARK: - UI
 
 extension PreferencesTool {

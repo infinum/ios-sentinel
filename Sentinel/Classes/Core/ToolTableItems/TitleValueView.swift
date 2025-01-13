@@ -24,8 +24,6 @@ struct TitleValueView: View {
     }
 }
 
-// MARK: - Extensions -
-
 // MARK: - Helpers
 
 extension TitleValueView {

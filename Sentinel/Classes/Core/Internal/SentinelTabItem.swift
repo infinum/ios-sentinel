@@ -16,8 +16,6 @@ struct SentinelTabItem {
     }
 }
 
-// MARK: - Extensions -
-
 // MARK: - Helpers
 
 extension SentinelTabItem {

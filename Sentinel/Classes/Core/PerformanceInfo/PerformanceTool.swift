@@ -21,8 +21,6 @@ struct PerformanceTool: Tool {
     }
 }
 
-// MARK: - Extensions -
-
 // MARK: - UI
 
 extension PerformanceTool {

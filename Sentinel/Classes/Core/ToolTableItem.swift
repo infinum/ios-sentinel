@@ -18,8 +18,6 @@ public enum ToolTableItem {
     case custom(any CustomToolTableItem)
 }
 
-// MARK: - Extensions -
-
 // MARK: - Identifiable conformance
 
 extension ToolTableItem: Identifiable {
