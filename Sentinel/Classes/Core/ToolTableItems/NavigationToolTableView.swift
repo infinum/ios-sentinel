@@ -16,7 +16,6 @@ struct NavigationToolTableView: View {
         HStack(spacing: 10) {
             Text(title)
                 .font(.system(size: 13, weight: .bold))
-                .foregroundColor(.black)
                 .frame(maxWidth: .infinity, alignment: .leading)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
