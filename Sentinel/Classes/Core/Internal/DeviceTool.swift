@@ -53,8 +53,7 @@ private extension DeviceTool {
             .init(title: "Model", value: getModelIdentifier() ?? ""),
             .init(title: "Name", value: ProcessInfo.processInfo.hostName),
             .init(title: "System version", value: systemVersion),
-//            .init(title: "UUID", value: UIDevice.current.identifierForVendor?.uuidString ?? "???"),
-//            .init(title: "Battery state", value: batteryState)
+            .init(title: "UUID", value: hardwareDeviceUUID ?? "???")
         ])
         #else
         CustomInfoTool.Section(title: "Device", items: [
@@ -104,6 +103,20 @@ private extension DeviceTool {
 
         IOObjectRelease(service)
         return modelIdentifier
+    }
+
+    static var hardwareDeviceUUID: String? {
+        let platformExpertDeviceServiceName = IOServiceMatching("IOPlatformExpertDevice")
+        let platformExpertDeviceService = IOServiceGetMatchingService(kIOMainPortDefault, platformExpertDeviceServiceName)
+        guard platformExpertDeviceService != 0 else {
+            return nil
+        }
+        let machineUUIDKey = kIOPlatformUUIDKey as CFString
+        let property = IORegistryEntryCreateCFProperty(platformExpertDeviceService, machineUUIDKey, kCFAllocatorDefault, 0)
+        defer {
+            IOObjectRelease(platformExpertDeviceService)
+        }
+        return property?.takeRetainedValue() as? String
     }
     #endif
 
