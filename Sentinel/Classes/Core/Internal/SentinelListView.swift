@@ -15,31 +15,35 @@ struct SentinelListView: View {
 
     var body: some View {
         NavigationView {
-            List(items, id: \.id) { section in
-                Section {
-                    if let title = section.title {
-                        Text(title)
-                    }
+            ScrollView {
+                VStack(spacing: 15) {
+                    ForEach(items, id: \.id) { section in
+                        VStack(spacing: 5) {
+                            if let title = section.title {
+                                Text(title)
+                                    .padding(.bottom, 10)
+                            }
 
-                    ForEach(section.items) { item in
-                        switch item {
-                        case .navigation(let item):
-                            NavigationLink(destination: { AnyView(item.didSelect()) }) {
-                                NavigationToolTableView(item: item)
+                            ForEach(section.items) { item in
+                                switch item {
+                                case .navigation(let item):
+                                    NavigationLink(destination: { AnyView(item.didSelect()) }) {
+                                        NavigationToolTableView(item: item)
+                                    }
+                                case .toggle(let item):
+                                    OptionSwitchView(item: item)
+                                case .customInfo(let item):
+                                    TitleValueView(item: item)
+                                case .performance(let item):
+                                    PerformanceToolView(viewModel: .init(item: item))
+                                case .custom(let item):
+                                    AnyView(item.content)
+                                }
                             }
-                        case .toggle(let item):
-                            OptionSwitchView(item: item)
-                        case .customInfo(let item):
-                            NavigationLink(destination: Text("Something")) {
-                                TitleValueView(item: item)
-                            }
-                        case .performance(let item):
-                            PerformanceToolView(viewModel: .init(item: item))
-                        case .custom(let item):
-                            AnyView(item.content)
                         }
                     }
                 }
+                .frame(maxHeight: .infinity, alignment: .top)
             }
         }
         .navigationTitle(title)
