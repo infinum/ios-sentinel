@@ -30,8 +30,7 @@ public final class Sentinel {
     public func setup(with configuration: Configuration) {
         self.configuration = configuration
         configuration.trigger.subscribe { [weak self] in
-            guard let viewController = configuration.sourceScreenProvider.viewControllerForShowingTools else { return }
-            self?.present(tools: configuration.tools, preferences: configuration.preferences, on: viewController)
+            configuration.sourceScreenProvider.showTools(for: self?.createSentinelView(tools: configuration.tools, preferences: configuration.preferences))
         }
     }
 }

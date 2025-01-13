@@ -6,6 +6,9 @@
 //
 
 import SwiftUI
+#if canImport(IOKit)
+import IOKit
+#endif
 
 /// Tool which shows current device information
 struct DeviceTool: Tool {
@@ -22,16 +25,8 @@ struct DeviceTool: Tool {
 
     private let tool = CustomInfoTool(
         name: "Device",
-        info: [
-            CustomInfoTool.Section(title: "Device", items: [
-                .init(title: "Model", value: UIDevice.current.model),
-                .init(title: "Name", value: UIDevice.current.name),
-                .init(title: "System version", value: systemVersion),
-                .init(title: "UUID", value: UIDevice.current.identifierForVendor?.uuidString ?? "???"),
-                .init(title: "Battery state", value: batteryState),
-                .init(title: "Proximity state", value: UIDevice.current.proximityState ? "Close" : "Far")
-            ])
-        ])
+        info: [section]
+    )
 
 }
 
@@ -52,8 +47,33 @@ extension DeviceTool {
 
 private extension DeviceTool {
 
+    static var section: CustomInfoTool.Section {
+        #if os(macOS)
+        CustomInfoTool.Section(title: "Device", items: [
+            .init(title: "Model", value: getModelIdentifier() ?? ""),
+            .init(title: "Name", value: ProcessInfo.processInfo.hostName),
+            .init(title: "System version", value: systemVersion),
+//            .init(title: "UUID", value: UIDevice.current.identifierForVendor?.uuidString ?? "???"),
+//            .init(title: "Battery state", value: batteryState)
+        ])
+        #else
+        CustomInfoTool.Section(title: "Device", items: [
+            .init(title: "Model", value: UIDevice.current.model),
+            .init(title: "Name", value: UIDevice.current.name),
+            .init(title: "System version", value: systemVersion),
+            .init(title: "UUID", value: UIDevice.current.identifierForVendor?.uuidString ?? "???"),
+            .init(title: "Battery state", value: batteryState),
+            .init(title: "Proximity state", value: UIDevice.current.proximityState ? "Close" : "Far")
+        ])
+        #endif
+    }
+
     static var systemVersion: String {
+        #if os(iOS)
         "\(UIDevice.current.systemName) \(UIDevice.current.systemVersion)"
+        #elseif os(macOS)
+        "macOS \(ProcessInfo.processInfo.operatingSystemVersionString)"
+        #endif
     }
 
     static var batteryState: String {
@@ -68,6 +88,20 @@ private extension DeviceTool {
             "Unknown"
         }
     }
+
+    #if canImport(IOKit)
+    static func getModelIdentifier() -> String? {
+        let service = IOServiceGetMatchingService(kIOMasterPortDefault,
+                                                  IOServiceMatching("IOPlatformExpertDevice"))
+        var modelIdentifier: String?
+        if let modelData = IORegistryEntryCreateCFProperty(service, "model" as CFString, kCFAllocatorDefault, 0).takeRetainedValue() as? Data {
+            modelIdentifier = String(data: modelData, encoding: .utf8)?.trimmingCharacters(in: .controlCharacters)
+        }
+
+        IOObjectRelease(service)
+        return modelIdentifier
+    }
+    #endif
 
     static func calculateBatteryPercentage(with amount: String) -> String {
         guard let batteryLevel = Double(amount) else { return "Unknown" }

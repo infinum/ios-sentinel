@@ -5,13 +5,14 @@
 //  Created by Vlaho Poluta on 30/07/2020.
 //
 
-import UIKit
+//import UIKit
+import SwiftUI
 
 /// Defines source screen which will be used to present Sentinel when triggered.
 public protocol SourceScreenProvider {
 
     /// The view controller used for presenting the Sentinel.
-    var viewControllerForShowingTools: UIViewController? { get }
+    func showTools(for view: some View)
 }
 
 /// Provides possible source screens used for presenting the Sentinel.
@@ -27,11 +28,24 @@ public enum SourceScreenProviders {
 public struct DefaultSourceScreenProvider: SourceScreenProvider {
 
     // MARK: - Public properties
+
+    #if os(macOS)
+    public func showTools(for view: some View) {
+        let keyWindow = NSApplication.shared.keyWindow?.contentViewController
+//                .filter { $0.activationState == .foregroundActive }
+//                .compactMap { $0 as? UIWindowScene }
+//                .first?.windows
+//                .filter(\.isKeyWindow)
+//                .first
+    }
+    #else
     
-    public var viewControllerForShowingTools: UIViewController? { topMostController() }
-    
+    public func showTools(for view: some View) {
+        topMostController()?.present(UIHostingController(rootView: view), animated: true)
+    }
+
     // MARK: - Private methods
-    
+
     private func topMostController() -> UIViewController? {
         let keyWindow = UIApplication.shared.connectedScenes
                 .filter { $0.activationState == .foregroundActive }
@@ -52,4 +66,5 @@ public struct DefaultSourceScreenProvider: SourceScreenProvider {
 
         return topController
     }
+    #endif
 }

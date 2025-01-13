@@ -14,19 +14,16 @@ extension Sentinel {
     /// - Parameters:
     ///     - tools: Tools which will be available in the Sentinel.
     ///     - preferences: items which can allow or deny an activity inside the app
-    ///     - viewController: The view controller from where will the Sentinel be presented.
-    func present(
+    func createSentinelView(
         tools: [Tool],
-        preferences: [ToolTableSection],
-        on viewController: UIViewController
-    ) {
+        preferences: [ToolTableSection]
+    ) -> SentinelTabBarView {
         let tabItems = createTabItems(
             with: tools,
             preferences: preferences
         )
 
-        let tabBarController = UIHostingController(rootView: SentinelTabBarView(tabs: tabItems))
-        viewController.present(tabBarController, animated: true)
+        return SentinelTabBarView(tabs: tabItems)
     }
 }
 

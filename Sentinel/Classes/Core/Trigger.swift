@@ -5,7 +5,9 @@
 //  Created by Vlaho Poluta on 30/07/2020.
 //
 
+#if canImport(UIKit)
 import UIKit
+#endif
 
 /// Defines interaction with trigger.
 public protocol Trigger {
@@ -18,16 +20,19 @@ public protocol Trigger {
 
 /// Provides different trigger types based on the event which makes the trigger.
 public enum Triggers {
-    /// The trigger type which is triggered on the shake event.
-    public static var shake: Trigger { ShakeTrigger() }
 
-    /// The trigger type which is triggered on the screenshot event.
-    public static var screenshot: Trigger { ScreenshotTrigger() }
 
     /// The trigger type which is triggered on the specified notification name.
     public static func notification(forName name: Notification.Name) -> Trigger {
         NotificationTrigger(notificationName: name)
     }
+    #if !os(macOS)
+    /// The trigger type which is triggered on the shake event.
+    public static var shake: Trigger { ShakeTrigger() }
+
+    /// The trigger type which is triggered on the screenshot event.
+    public static var screenshot: Trigger { ScreenshotTrigger() }
+    #endif
 }
 
 /// Defines trigger which is triggered when on the notification event.
@@ -77,6 +82,16 @@ public final class NotificationTrigger: Trigger {
     
 }
 
+// MARK: - Internal -
+
+extension Notification.Name {
+
+    /// The notification name for shake event.
+    static var shakeMotionDetected: Notification.Name { .init("sentinel_shake_motion_detected") }
+}
+
+#if canImport(UIKit)
+
 /// Defines trigger which is triggered when on the screenshot event.
 public final class ScreenshotTrigger: Trigger {
 
@@ -120,14 +135,6 @@ public final class ShakeTrigger: Trigger {
     }
 }
 
-// MARK: - Internal -
-
-extension Notification.Name {
-
-    /// The notification name for shake event.
-    static var shakeMotionDetected: Notification.Name { .init("sentinel_shake_motion_detected") }
-}
-
 extension UIApplication {
     
     static let classInit: Void = {
@@ -144,3 +151,4 @@ extension UIApplication {
         }
     }
 }
+#endif

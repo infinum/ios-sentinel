@@ -20,7 +20,6 @@ let package = Package(
             name: "Sentinel",
             dependencies: [],
             path: "Sentinel",
-            exclude: ["Classes/CustomLocation/CustomLocation.storyboard"],
             resources: [
                 .process("Assets"),
                 .copy("SupportingFiles/PrivacyInfo.xcprivacy")
@@ -33,7 +32,7 @@ let package = Package(
     name: "Sentinel",
     platforms: [
         .iOS(.v14),
-        .macOS(.v10_15)
+        .macOS(.v12)
     ],
     products: [
         .library(
@@ -46,7 +45,10 @@ let package = Package(
             name: "Sentinel",
             dependencies: [],
             path: "Sentinel",
-            exclude: ["Classes/CustomLocation/CustomLocation.storyboard"],
+            exclude: [
+                "Classes/CustomLocation",
+                "Classes/EmailSender"
+            ],
             resources: [
                 .process("Assets"),
                 .copy("SupportingFiles/PrivacyInfo.xcprivacy")

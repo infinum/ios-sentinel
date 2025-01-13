@@ -5,6 +5,7 @@
 //  Created by Vlaho Poluta on 30/07/2020.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 extension Bundle {
@@ -24,3 +25,4 @@ extension UIStoryboard {
         instantiateViewController(withIdentifier: String(describing: T.self)) as! T
     }
 }
+#endif
