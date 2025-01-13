@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-final class PerformanceTool: Tool {
+/// Tool which shows the current state of the CPU, memory, system and App duration
+struct PerformanceTool: Tool {
 
     // MARK: - Public properties
     
@@ -18,17 +19,19 @@ final class PerformanceTool: Tool {
     public init(name: String = "Performance") {
         self.name = name
     }
+}
 
-    // MARK: - Internal properties
+// MARK: - UI
+
+extension PerformanceTool {
 
     var toolTable: ToolTable {
-        return createToolTable()
+        createToolTable()
     }
 
     var content: any View {
         SentinelListView(title: name, items: toolTable.sections)
     }
-
 }
 
 // MARK: - Private methods

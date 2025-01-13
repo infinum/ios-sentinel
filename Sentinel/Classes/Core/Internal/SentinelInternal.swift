@@ -22,8 +22,7 @@ extension Sentinel {
     ) {
         let tabItems = createTabItems(
             with: tools,
-            preferences: preferences,
-            viewController: viewController
+            preferences: preferences
         )
 
         let tabBarController = UIHostingController(rootView: SentinelTabBarView(tabs: tabItems))
@@ -31,14 +30,13 @@ extension Sentinel {
     }
 }
 
-// MARK: - Private extension
+// MARK: - Helpers
 
 private extension Sentinel {
     
     func createTabItems(
         with tools: [Tool],
-        preferences: [ToolTableSection],
-        viewController: UIViewController
+        preferences: [ToolTableSection]
     ) -> [SentinelTabItem] {
         [
             SentinelTabItem(tab: .device),

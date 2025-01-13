@@ -24,8 +24,6 @@ struct TitleValueView: View {
     }
 }
 
-// MARK: - Extensions -
-
 // MARK: - Helpers
 
 extension TitleValueView {
@@ -34,5 +32,4 @@ extension TitleValueView {
         title = item.title
         value = item.value
     }
-
 }

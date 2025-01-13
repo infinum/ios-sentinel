@@ -7,17 +7,12 @@
 
 import SwiftUI
 
-@objcMembers
-public class CustomInfoTool: NSObject, Tool {
-    
+/// Tool which gives the ability to show info + value pairs
+public struct CustomInfoTool: Tool {
+
     // MARK: - Public properties
     
     public let name: String
-
-    @ViewBuilder
-    public var content: any View {
-        SentinelListView(title: name, items: createToolTable(with: info).sections)
-    }
 
     // MARK: - Internal properties
     
@@ -31,7 +26,15 @@ public class CustomInfoTool: NSObject, Tool {
     }
 }
 
-// MARK: - Extensions -
+// MARK: - UI
+
+public extension CustomInfoTool {
+
+    var content: any View {
+        SentinelListView(title: name, items: createToolTable(with: info).sections)
+    }
+
+}
 
 // MARK: - Helpers
 
@@ -47,51 +50,4 @@ extension CustomInfoTool {
         return ToolTable(name: name, sections: sections)
     }
 
-}
-
-extension CustomInfoTool {
-    
-    public class Section {
-        
-        // MARK: - Internal properties
-        
-        let title: String?
-        let items: [Item]
-        
-        // MARK: - Lifecycle
-
-        public init(title: String? = nil, items: [Item]) {
-            self.title = title
-            self.items = items
-        }
-    }
-    
-    public class Item {
-
-        // MARK: - Internal properties
-
-        let title: String
-        let value: String
-
-        // MARK: - Lifecycle
-        
-        public init(title: String, value: String) {
-            self.title = title
-            self.value = value
-        }
-    }
-    
-}
-
-// MARK: - Equatable and Identifiable conformance
-
-extension CustomInfoTool.Item: Equatable, Identifiable {
-
-    public var id: String {
-        title
-    }
-
-    public static func == (lhs: CustomInfoTool.Item, rhs: CustomInfoTool.Item) -> Bool {
-        lhs.title == rhs.title
-    }
 }

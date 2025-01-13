@@ -7,8 +7,9 @@
 
 import Foundation
 
-class SystemInfoProvider {
+struct SystemInfoProvider {
 
+    /// Fetches the active time of the app
     var uptime: String {
         secondsToHoursMinutesSeconds(interval: ProcessInfo().systemUptime)
     }
@@ -30,6 +31,6 @@ private extension SystemInfoProvider {
     }
 
     func formattedTime(from value: Int) -> String {
-        return value < 10 ? "0\(value)" : "\(value)"
+        value < 10 ? "0\(value)" : "\(value)"
     }
 }

@@ -14,6 +14,11 @@ struct SentinelTabItem {
     init(tab: SentinelTab) {
         self.tab = tab
     }
+}
+
+// MARK: - Helpers
+
+extension SentinelTabItem {
 
     var barItemTitle: String {
         switch tab {
@@ -44,6 +49,8 @@ struct SentinelTabItem {
         toolTable.sections
     }
 }
+
+// MARK: - Private helpers
 
 private extension SentinelTabItem {
 

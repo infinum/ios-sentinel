@@ -7,21 +7,26 @@
 
 import SwiftUI
 
+/// Item which has a title, and by tapping on it will lead to another screen
 public struct NavigationToolItem {
     let title: String
     let didSelect: () -> any View
 }
 
-// MARK: - Extensions -
+// MARK: - Equatable conformance
 
-// MARK: - Equatable and Identifiable conformance
-
-extension NavigationToolItem: Equatable, Identifiable {
-
-    public var id: String { title }
+extension NavigationToolItem: Equatable {
 
     public static func == (lhs: NavigationToolItem, rhs: NavigationToolItem) -> Bool {
         lhs.title == rhs.title
     }
+}
 
+// MARK: - Identifiable conformance
+
+extension NavigationToolItem: Identifiable {
+
+    public var id: String {
+        title
+    }
 }

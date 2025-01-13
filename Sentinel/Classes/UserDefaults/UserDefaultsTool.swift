@@ -7,16 +7,12 @@
 
 import SwiftUI
 
-@objcMembers
-public class UserDefaultsTool: NSObject, Tool {
-    
+/// Tool which gives the ability to list out all of the UserDefaults properties and delete them
+public struct UserDefaultsTool: Tool {
+
     // MARK: - Public properties
     
     public let name: String
-
-    public var content: any View {
-        SentinelListView(title: name, items: createToolTable(with: userDefaults).sections)
-    }
 
     // MARK: - Private properties
     
@@ -28,7 +24,15 @@ public class UserDefaultsTool: NSObject, Tool {
         self.name = name
         self.userDefaults = userDefaults
     }
+}
 
+// MARK: - UI
+
+public extension UserDefaultsTool {
+
+    var content: any View {
+        SentinelListView(title: name, items: createToolTable(with: userDefaults).sections)
+    }
 }
 
 // MARK: - Internal methods
@@ -39,7 +43,7 @@ private extension UserDefaultsTool {
         let items = userDefaults.dictionaryRepresentation()
             .sorted { $0.key < $1.key }
             .map { (key, value) in
-                return ToolTableItem.navigation(
+                ToolTableItem.navigation(
                     NavigationToolItem(
                         title: key,
                         didSelect: {

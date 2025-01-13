@@ -8,13 +8,14 @@
 import SwiftUI
 import MessageUI
 
+/// Error representation of the EmailSender failing to show
 public enum EmailSenderUnavailableError: Error {
     case unavailable
     case custom(title: String, message: String)
 }
 
-@objcMembers
-public final class EmailSenderTool: Tool {
+/// Tool which gives you the ability to easily integrate email sending with the MessageUI
+public struct EmailSenderTool: Tool {
 
     // MARK: - Public properties
     
@@ -50,8 +51,7 @@ public final class EmailSenderTool: Tool {
     /// - Parameters:
     ///   - getter: A callback function that returns `MailData` for the email to be sent.
     ///   - name: The name for the Email Sender tool. Defaults to "Email Sender".
-    ///   - alertTitle: The title of the alert that appears if the device is not configured to send emails. Defaults to "Email Not Available".
-    ///   - alertMessage: The message of the alert that appears if the device is not configured to send emails. Defaults to "Your device is not configured to send emails. Please set up an email account in Mail app or use another device."
+    ///   - alertText: The message of the alert that appears if the device is not configured to send emails. Defaults to "Your device is not configured to send emails. Please set up an email account in Mail app or use another device."
     ///
     /// - Note: Ensure that the device is configured to send emails, or the user will be prompted with the specified alert.
     public init(
@@ -71,8 +71,11 @@ public final class EmailSenderTool: Tool {
             self.alertMessage = message
         }
     }
+}
 
-    public var content: any View {
+public extension EmailSenderTool {
+
+    var content: any View {
         if EmailSenderView.canSendEmail() {
             EmailSenderView(mailData: getter())
         } else {

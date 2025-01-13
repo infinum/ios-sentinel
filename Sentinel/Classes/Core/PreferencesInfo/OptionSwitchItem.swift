@@ -7,6 +7,8 @@
 
 import Foundation
 
+/// Item which will be shown in the PreferencesTool
+/// Provides a switch which can save/fetch values from the UserDefaults or some other setter/getter which can be specified.
 public struct ToggleToolItem {
     let title: String
     let setter: ((Bool) -> ())?
@@ -39,19 +41,6 @@ public struct ToggleToolItem {
     }
 }
 
-// MARK: - Extensions -
-
-// MARK: - Equatable and Identifiable conformance
-
-extension ToggleToolItem: Equatable, Identifiable {
-
-    public var id: String { title }
-
-    public static func == (lhs: ToggleToolItem, rhs: ToggleToolItem) -> Bool {
-        lhs.title == rhs.title
-    }
-}
-
 // MARK: - Helpres
 
 extension ToggleToolItem {
@@ -68,5 +57,23 @@ extension ToggleToolItem {
               let value = userDefaults.object(forKey: key) as? Bool
         else { return getter?() ?? false }
         return value
+    }
+}
+
+// MARK: - Equatable conformance
+
+extension ToggleToolItem: Equatable {
+
+    public static func == (lhs: ToggleToolItem, rhs: ToggleToolItem) -> Bool {
+        lhs.title == rhs.title
+    }
+}
+
+// MARK: - Identifiable conformance
+
+extension ToggleToolItem: Identifiable {
+
+    public var id: String {
+        title
     }
 }

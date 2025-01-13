@@ -8,7 +8,8 @@
 import Foundation
 import SwiftUI
 
-final class ApplicationTool: Tool {
+/// Tool which shows Plist information about the App
+struct ApplicationTool: Tool {
 
     // MARK: - Public properties
 
@@ -20,7 +21,7 @@ final class ApplicationTool: Tool {
 
     // MARK: - Private properties
 
-    private lazy var tool = CustomInfoTool(
+    private let tool = CustomInfoTool(
         name: "Application",
         info: [
             CustomInfoTool.Section(
@@ -42,8 +43,13 @@ final class ApplicationTool: Tool {
             )
         ]
     )
-    
-    // MARK: - Internal properties
+}
+
+// MARK: - Extensions
+
+// MARK: - UI
+
+extension ApplicationTool {
 
     var toolTable: ToolTable {
         tool.createToolTable(with: tool.info)
@@ -52,22 +58,21 @@ final class ApplicationTool: Tool {
     var content: any View {
         SentinelListView(title: name, items: toolTable.sections)
     }
-
 }
 
-// MARK: - Internal extension
+// MARK: - Info helpers
 
 extension ApplicationTool {
 
-    func stringFromPlist(for key: CFString) -> String {
+    static func stringFromPlist(for key: CFString) -> String {
         stringFromPlist(for: key as String)
     }
     
-    func stringFromPlist(for key: String) -> String {
+    static func stringFromPlist(for key: String) -> String {
         Bundle.main.object(forInfoDictionaryKey: key).map { String(describing: $0) } ?? ""
     }
     
-    var bundleAllInfos: [CustomInfoTool.Item] {
+    static var bundleAllInfos: [CustomInfoTool.Item] {
         Bundle.main.infoDictionary?
             .map { CustomInfoTool.Item(title: $0.key, value: String(describing: $0.value)) }
             ?? []

@@ -8,8 +8,7 @@
 import SwiftUI
 
 /// Defines tool datasouce which can present different tool sections.
-@objcMembers
-public class ToolTable: NSObject, Tool {
+public struct ToolTable: Tool {
 
     // MARK: - Public properties
     
@@ -26,17 +25,19 @@ public class ToolTable: NSObject, Tool {
     public init(name: String, sections: [ToolTableSection]) {
         self.name = name
         self.sections = sections
-        super.init()
     }
 
     public init(name: String, items: [ToolTableItem]) {
         self.name = name
         self.sections = [ToolTableSection(items: items)]
-        super.init()
     }
+}
 
-    public var content: any View {
+// MARK: - UI
+
+public extension ToolTable {
+
+    var content: any View {
         SentinelListView(title: name, items: sections)
     }
-
 }

@@ -7,16 +7,14 @@
 
 import SwiftUI
 
-@objcMembers
-public final class TextEditingTool: NSObject, Tool {
+/// Tool which gives you the ability to edit a property on the fly
+///
+/// The property can be edited in the UserDefaults or by setting a custom setter/getter
+public struct TextEditingTool: Tool {
 
     // MARK: - Public properties
     
     public let name: String
-
-    public var content: any View {
-        TextEditingToolView(viewModel: .init(value: getter(), title: name, didPressSave: store(newValue:)))
-    }
 
     // MARK: - Private properties
     
@@ -39,8 +37,16 @@ public final class TextEditingTool: NSObject, Tool {
         self.getter = getter
         self.userDefaults = userDefaults
         self.userDefaultsKey = userDefaultsKey
-        super.init()
         loadStoredValue()
+    }
+}
+
+// MARK: - UI
+
+public extension TextEditingTool {
+
+    var content: any View {
+        TextEditingToolView(viewModel: .init(value: getter(), title: name, didPressSave: store(newValue:)))
     }
 }
 
