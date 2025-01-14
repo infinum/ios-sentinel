@@ -23,8 +23,15 @@ struct SentinelTabBarView: View {
     var body: some View {
         TabView(selection: $selectedTab) {
             ForEach(tabs, id: \.barItemTitle) { tab in
+                #if os(macOS)
                 SentinelListView(title: tab.barItemTitle, items: tab.sections)
                     .tabItem { TabBarView(tab: tab) }
+                #else
+                NavigationView {
+                    SentinelListView(title: tab.barItemTitle, items: tab.sections)
+                }
+                .tabItem { TabBarView(tab: tab) }
+                #endif
             }
         }
     }
