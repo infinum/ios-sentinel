@@ -14,7 +14,7 @@ extension Sentinel {
     /// - Parameters:
     ///     - tools: Tools which will be available in the Sentinel.
     ///     - preferences: items which can allow or deny an activity inside the app
-    func createSentinelView(
+    public static func createSentinelView(
         tools: [Tool],
         preferences: [ToolTableSection]
     ) -> SentinelTabBarView {
@@ -31,7 +31,7 @@ extension Sentinel {
 
 private extension Sentinel {
     
-    func createTabItems(
+    static func createTabItems(
         with tools: [Tool],
         preferences: [ToolTableSection]
     ) -> [SentinelTabItem] {

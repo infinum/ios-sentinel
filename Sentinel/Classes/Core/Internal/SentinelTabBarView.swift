@@ -15,12 +15,16 @@ enum Tab {
     case performance
 }
 
-struct SentinelTabBarView: View {
+public struct SentinelTabBarView: View {
 
-    @State var selectedTab: Tab = .tools
-    let tabs: [SentinelTabItem]
+    @State private var selectedTab: Tab = .tools
+    private let tabs: [SentinelTabItem]
 
-    var body: some View {
+    init(tabs: [SentinelTabItem]) {
+        self.tabs = tabs
+    }
+
+    public var body: some View {
         TabView(selection: $selectedTab) {
             ForEach(tabs, id: \.barItemTitle) { tab in
                 #if os(macOS)

@@ -30,7 +30,7 @@ public final class Sentinel {
     public func setup(with configuration: Configuration) {
         self.configuration = configuration
         configuration.trigger.subscribe { [weak self] in
-            configuration.sourceScreenProvider.showTools(for: self?.createSentinelView(tools: configuration.tools, preferences: configuration.preferences))
+            configuration.sourceScreenProvider.showTools(for: Self.createSentinelView(tools: configuration.tools, preferences: configuration.preferences))
         }
     }
 }
