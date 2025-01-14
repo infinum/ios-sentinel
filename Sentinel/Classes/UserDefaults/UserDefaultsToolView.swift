@@ -28,8 +28,11 @@ struct UserDefaultsToolView: View {
 
             Button(action: {
                 viewModel.didPressDelete()
-                presentationMode.wrappedValue.dismiss()
+                #if !os(macOS)
+                presentationMode.wrappedValue.dismiss() // on macOS dismisses the whole window which isn't desired
+                #endif
             }, label: { Text("Delete") })
+            .padding(.bottom, 20)
         }
         .padding(.horizontal, 16)
         .navigationTitle(viewModel.title)

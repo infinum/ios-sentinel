@@ -33,7 +33,7 @@ public struct DefaultSourceScreenProvider: SourceScreenProvider {
     public func showTools(for view: some View) {
         let keyWindow = NSApplication.shared.keyWindow
         let controller = NSHostingController(rootView: view)
-        controller.view.frame = .init(x: 0, y: 0, width: 1000, height: 1000)
+        controller.view.frame = .init(x: 0, y: 0, width: 1200, height: 800)
         keyWindow?.contentViewController?.presentAsModalWindow(controller)
     }
     #else

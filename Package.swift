@@ -3,10 +3,19 @@
 
 import PackageDescription
 
-#if os(iOS)
+#if os(macOS)
+let exclusions: [String] = [
+    "Classes/CustomLocation",
+    "Classes/EmailSender"
+]
+#else
+let exclusions: [String] = []
+#endif
+
 let package = Package(
     name: "Sentinel",
     platforms: [
+        .macOS(.v12),
         .iOS(.v14)
     ],
     products: [
@@ -20,6 +29,7 @@ let package = Package(
             name: "Sentinel",
             dependencies: [],
             path: "Sentinel",
+            exclude: exclusions,
             resources: [
                 .process("Assets"),
                 .copy("SupportingFiles/PrivacyInfo.xcprivacy")
@@ -27,33 +37,3 @@ let package = Package(
         )
     ]
 )
-#else
-let package = Package(
-    name: "Sentinel",
-    platforms: [
-        .iOS(.v14),
-        .macOS(.v12)
-    ],
-    products: [
-        .library(
-            name: "Sentinel",
-            targets: ["Sentinel"]
-        )
-    ],
-    targets: [
-        .target(
-            name: "Sentinel",
-            dependencies: [],
-            path: "Sentinel",
-            exclude: [
-                "Classes/CustomLocation",
-                "Classes/EmailSender"
-            ],
-            resources: [
-                .process("Assets"),
-                .copy("SupportingFiles/PrivacyInfo.xcprivacy")
-            ]
-        )
-    ]
-)
-#endif

@@ -15,6 +15,7 @@ struct SentinelListView: View {
     #if os(macOS)
         NavigationView {
             ContentView(title: title, items: items)
+                .frame(width: 400)
         }
     #else
         ContentView(title: title, items: items)
@@ -33,7 +34,7 @@ private struct ContentView: View {
             Section  {
                 if let title = section.title {
                     Text(title)
-                        .padding(.bottom, 10)
+                        .font(.headline)
                 }
 
                 ForEach(section.items) { item in

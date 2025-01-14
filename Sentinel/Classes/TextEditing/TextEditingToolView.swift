@@ -19,7 +19,9 @@ struct TextEditingToolView: View {
 
             Button(action: {
                 viewModel.didPressSave(viewModel.value)
-                presentationMode.wrappedValue.dismiss()
+                #if !os(macOS)
+                presentationMode.wrappedValue.dismiss() // on macOS dismisses the whole window which isn't desired
+                #endif
             }) {
                 Text("Save")
             }
