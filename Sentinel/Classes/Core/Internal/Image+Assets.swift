@@ -22,9 +22,29 @@ extension Image.SentinelImages {
 
 extension Image {
 
-    static func load(using name: String) -> Image {
+    /// Tries to load an image with the provided name. Defaults to nil if the Image is not available
+    /// - Parameters:
+    ///     - name: Name of the image which will be fetched
+    static func load(using name: String) -> Image? {
         let frameworkBundle = Bundle(for: Sentinel.self)
-        guard let frameworkURL = frameworkBundle.resourceURL else { return .init(systemName: "edit") }
+        guard let frameworkURL = frameworkBundle.resourceURL else { return nil }
+        return fetchImage(using: name, with: frameworkURL)
+    }
+
+    /// Tries to load an image with the provided name. If the image is not available, the app will default to the provided image.
+    /// - Parameters:
+    ///     - name: Name of the image which will be fetched
+    ///     - image: Image which the function will default to if the Image with the provided name wasn not found
+    static func load(using name: String, defaultTo image: Image = .init(systemName: "circle.fill")) -> Image {
+        let frameworkBundle = Bundle(for: Sentinel.self)
+        guard let frameworkURL = frameworkBundle.resourceURL else { return image }
+        return fetchImage(using: name, with: frameworkURL)
+    }
+}
+
+private extension Image {
+
+    static func fetchImage(using name: String, with frameworkURL: URL) -> Image {
         let bundleURL = frameworkURL.appendingPathComponent("Sentinel.bundle")
 
         #if SWIFT_PACKAGE
@@ -36,3 +56,4 @@ extension Image {
         return Image(name, bundle: resourceBundle)
     }
 }
+
