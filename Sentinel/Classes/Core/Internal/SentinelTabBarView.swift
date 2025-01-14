@@ -39,8 +39,10 @@ private struct TabBarView: View {
 
     var body: some View {
         VStack(spacing: 5) {
-            tab.barItemImage
-                .renderingMode(.template)
+            if let image = tab.barItemImage {
+                image
+                    .renderingMode(.template)
+            }
 
             Text(tab.barItemTitle)
         }

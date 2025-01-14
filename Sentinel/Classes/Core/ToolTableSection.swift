@@ -8,7 +8,11 @@
 import Foundation
 
 /// Represents tool section in the tool table view.
-public struct ToolTableSection {
+public struct ToolTableSection: Identifiable {
+
+    // MARK: - Public properties
+
+    public let id: String
 
     // MARK: - Internal properties
     
@@ -23,14 +27,6 @@ public struct ToolTableSection {
     public init(title: String? = nil, items: [ToolTableItem]) {
         self.title = title
         self.items = items
-    }
-}
-
-// MARK: - Identifiable conformance
-
-extension ToolTableSection: Identifiable {
-
-    public var id: String {
-        title ?? UUID().uuidString
+        id = title ?? UUID().uuidString
     }
 }
