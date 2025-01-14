@@ -15,7 +15,7 @@ struct SentinelListView: View {
     #if os(macOS)
         NavigationView {
             ContentView(title: title, items: items)
-                .frame(width: 400)
+                .frame(minWidth: 400)
         }
     #else
         ContentView(title: title, items: items)
