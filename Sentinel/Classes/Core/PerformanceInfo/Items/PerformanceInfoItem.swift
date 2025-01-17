@@ -5,9 +5,11 @@
 //  Created by Nikola Majcen on 18/11/2020.
 //
 
-import UIKit
+import Foundation
 
-class PerformanceInfoItem: NSObject {
+/// Item for the PerformanceTool
+/// Contains a title and a valueDidChange closure which updates the value every time the timer sends an event
+public struct PerformanceInfoItem {
 
     // MARK: - Internal properties
 
@@ -22,17 +24,20 @@ class PerformanceInfoItem: NSObject {
     }
 }
 
-// MARK: - ToolTableItem
+// MARK: - Equatable conformance
 
-extension PerformanceInfoItem: ToolTableItem {
+extension PerformanceInfoItem: Equatable {
 
-    public func cell(from tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(ofType: PerformanceInfoTableViewCell.self, for: indexPath)
-        cell.configure(with: self)
-        return cell
+    public static func == (lhs: PerformanceInfoItem, rhs: PerformanceInfoItem) -> Bool {
+        lhs.title == rhs.title
     }
+}
 
-    public func register(at tableView: UITableView) {
-        tableView.registerNib(cellOfType: PerformanceInfoTableViewCell.self)
+// MARK: - Identifiable conformance
+
+extension PerformanceInfoItem: Identifiable {
+
+    public var id: String {
+        title
     }
 }

@@ -5,7 +5,7 @@
 //  Created by Vlaho Poluta on 30/07/2020.
 //
 
-import UIKit
+import SwiftUI
 
 extension Sentinel {
     
@@ -17,40 +17,28 @@ extension Sentinel {
     ///     - viewController: The view controller from where will the Sentinel be presented.
     func present(
         tools: [Tool],
-        preferences: [OptionSwitchItem],
+        preferences: [ToolTableSection],
         on viewController: UIViewController
     ) {
         let tabItems = createTabItems(
             with: tools,
-            preferences: preferences,
-            viewController: viewController
+            preferences: preferences
         )
-        let tabBarController = UIStoryboard.sentinel
-            .instantiateViewController(ofType: SentinelTabBarController.self)
-        let preselectedTabIndex = preselectedTabIndex(
-            for: .tools(items: []),
-            tabItems: tabItems
-        )
-        tabBarController.setupViewControllers(
-            with: tabItems.map { $0.viewController },
-            preselectedIndex: preselectedTabIndex
-        )
-        tabBarController.title = "Sentinel"
 
-        let navController = UINavigationController(rootViewController: tabBarController)
-        viewController.present(navController, animated: true)
+        let tabBarController = UIHostingController(rootView: SentinelTabBarView(tabs: tabItems))
+        viewController.present(tabBarController, animated: true)
     }
 }
 
-// MARK: - Private extension
+// MARK: - Helpers
 
 private extension Sentinel {
+    
     func createTabItems(
         with tools: [Tool],
-        preferences: [OptionSwitchItem],
-        viewController: UIViewController
+        preferences: [ToolTableSection]
     ) -> [SentinelTabItem] {
-        return [
+        [
             SentinelTabItem(tab: .device),
             SentinelTabItem(tab: .application),
             SentinelTabItem(tab: .tools(items: tools)),
@@ -60,7 +48,7 @@ private extension Sentinel {
     }
 
     func preselectedTabIndex(for tab: SentinelTab, tabItems: [SentinelTabItem]) -> Int {
-        return tabItems
+        tabItems
             .enumerated()
             .first(where: {
                 guard case .tools = $0.element.tab else { return false }

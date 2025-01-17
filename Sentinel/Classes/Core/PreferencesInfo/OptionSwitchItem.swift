@@ -5,88 +5,75 @@
 //  Created by Nikola Majcen on 02/10/2020.
 //
 
-import UIKit
+import Foundation
 
-/// Provides option to change enabled state of the feature.
-@objcMembers
-public class OptionSwitchItem: NSObject {
-    
-    // MARK: - Internal properties
-    
-    /// Name of the item
-    let name: String
-    /// This function is called when value is changed.
-    ///
-    /// It should be used to change the current variable value.
-    let setter: (Bool) -> ()
-    /// This function is called when value needs to be read.
-    ///
-    /// It should be used to provide the current variable value.
-    let getter: () -> (Bool)
-    
-    // MARK: - Private properties
-    
-    private let userDefaults: UserDefaults
-    private let userDefaultsKey: String?
+/// Item which will be shown in the PreferencesTool
+/// Provides a switch which can save/fetch values from the UserDefaults or some other setter/getter which can be specified.
+public struct ToggleToolItem {
+    let title: String
+    let setter: ((Bool) -> ())?
+    let getter: (() -> Bool)?
+    let userDefaults: UserDefaults
+    let userDefaultsKey: String?
 
-    // MARK: - Lifecycle
-    
     public init(
-        name: String,
-        setter: @escaping (Bool) -> (),
-        getter: @escaping () -> (Bool),
+        title: String,
         userDefaults: UserDefaults = .standard,
-        userDefaultsKey: String?
+        userDefaultsKey: String
     ) {
-        self.name = name
-        self.setter = setter
-        self.getter = getter
+        self.title = title
         self.userDefaults = userDefaults
         self.userDefaultsKey = userDefaultsKey
-        super.init()
-        loadStoredValue()
+        setter = nil
+        getter = nil
     }
-    
-    // MARK: - Internal methods
-    
-    /// Changes current enabled state of the feature.
-    ///
-    /// This is mostly used inside option switch module
-    /// but it is also exposed for external change.
-    @objc(changeToValue:)
+
+    public init(
+        title: String,
+        setter: @escaping (Bool) -> (),
+        getter: @escaping () -> Bool
+    ) {
+        self.title = title
+        self.getter = getter
+        self.setter = setter
+        userDefaults = .standard
+        userDefaultsKey = nil
+    }
+}
+
+// MARK: - Helpres
+
+extension ToggleToolItem {
+
     func change(to value: Bool) {
-        store(newValue: value)
-    }
-}
-
-extension OptionSwitchItem: ToolTableItem {
-    
-    public func cell(from tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(ofType: OptionSwitchTableViewCell.self, for: indexPath)
-        cell.configure(with: self)
-        return cell
-    }
-    
-    public func register(at tableView: UITableView) {
-        tableView.registerNib(cellOfType: OptionSwitchTableViewCell.self)
-    }
-}
-
-// MARK: - Private methods
-
-private extension OptionSwitchItem {
-    
-    func store(newValue: Bool) {
-        if let key = userDefaultsKey {
-            userDefaults.set(newValue, forKey: key)
+        if let userDefaultsKey {
+            userDefaults.set(value, forKey: userDefaultsKey)
         }
-        setter(newValue)
+        setter?(value)
     }
-    
-    func loadStoredValue() {
+
+    func loadStoredValue() -> Bool {
         guard let key = userDefaultsKey,
               let value = userDefaults.object(forKey: key) as? Bool
-        else { return }
-        setter(value)
+        else { return getter?() ?? false }
+        return value
+    }
+}
+
+// MARK: - Equatable conformance
+
+extension ToggleToolItem: Equatable {
+
+    public static func == (lhs: ToggleToolItem, rhs: ToggleToolItem) -> Bool {
+        lhs.title == rhs.title
+    }
+}
+
+// MARK: - Identifiable conformance
+
+extension ToggleToolItem: Identifiable {
+
+    public var id: String {
+        title
     }
 }

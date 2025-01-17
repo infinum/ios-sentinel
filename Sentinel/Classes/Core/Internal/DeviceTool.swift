@@ -5,10 +5,14 @@
 //  Created by Zvonimir Medak on 30.09.2021..
 //
 
-import Foundation
-import UIKit
+import SwiftUI
 
-class DeviceTool: Tool {
+/// Tool which shows current device information
+struct DeviceTool: Tool {
+
+    // MARK: - Public properties
+
+    public var name: String { tool.name }
 
     // MARK: - Lifecycle
 
@@ -16,7 +20,7 @@ class DeviceTool: Tool {
 
     // MARK: - Private properties
 
-    private lazy var tool = CustomInfoTool(
+    private let tool = CustomInfoTool(
         name: "Device",
         info: [
             CustomInfoTool.Section(title: "Device", items: [
@@ -29,47 +33,43 @@ class DeviceTool: Tool {
             ])
         ])
 
-    // MARK: - Internal properties
+}
+
+// MARK: - UI
+
+extension DeviceTool {
 
     var toolTable: ToolTable {
-        return tool.createToolTable(with: tool.info)
+        tool.createToolTable(with: tool.info)
     }
 
-    // MARK: - Private properties
-
-    private var systemVersion: String {
-        "\(UIDevice.current.systemName) \(UIDevice.current.systemVersion)"
-    }
-
-    // MARK: - Public properties
-
-    public var name: String { tool.name }
-
-    // MARK: - Public methods
-
-    public func presentPreview(from viewController: UIViewController) {
-        tool.presentPreview(from: viewController)
+    var content: any View {
+        SentinelListView(title: name, items: toolTable.sections)
     }
 }
 
-// MARK: - Private extension
+// MARK: - Info helpers
 
 private extension DeviceTool {
 
-    var batteryState: String {
+    static var systemVersion: String {
+        "\(UIDevice.current.systemName) \(UIDevice.current.systemVersion)"
+    }
+
+    static var batteryState: String {
         switch UIDevice.current.batteryState {
         case .charging:
-            return "Charging at: \(calculateBatteryPercentage(with: UIDevice.current.batteryLevel.description))%"
+            "Charging at: \(calculateBatteryPercentage(with: UIDevice.current.batteryLevel.description))%"
         case .full:
-            return "Full"
+            "Full"
         case .unplugged:
-            return "\(calculateBatteryPercentage(with: UIDevice.current.batteryLevel.description))%"
+            "\(calculateBatteryPercentage(with: UIDevice.current.batteryLevel.description))%"
         default:
-            return "Unknown"
+            "Unknown"
         }
     }
 
-    func calculateBatteryPercentage(with amount: String) -> String {
+    static func calculateBatteryPercentage(with amount: String) -> String {
         guard let batteryLevel = Double(amount) else { return "Unknown" }
         return "\(batteryLevel * 100.0)"
     }

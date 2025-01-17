@@ -6,17 +6,22 @@
 //
 
 import Foundation
-import UIKit
+import SwiftUI
 
-class ApplicationTool: Tool {
-    
+/// Tool which shows Plist information about the App
+struct ApplicationTool: Tool {
+
+    // MARK: - Public properties
+
+    public var name: String { tool.name }
+
     // MARK: - Lifecycle
-    
+
     public init() {}
 
     // MARK: - Private properties
-    
-    private lazy var tool = CustomInfoTool(
+
+    private let tool = CustomInfoTool(
         name: "Application",
         info: [
             CustomInfoTool.Section(
@@ -38,37 +43,36 @@ class ApplicationTool: Tool {
             )
         ]
     )
-    
-    // MARK: - Internal properties
-
-    var toolTable: ToolTable {
-        return tool.createToolTable(with: tool.info)
-    }
-    
-    // MARK: - Public properties
-
-    public var name: String { tool.name }
-    
-    // MARK: - Public methods
-    
-    public func presentPreview(from viewController: UIViewController) {
-        tool.presentPreview(from: viewController)
-    }
 }
 
-// MARK: - Internal extension
+// MARK: - Extensions
+
+// MARK: - UI
 
 extension ApplicationTool {
 
-    func stringFromPlist(for key: CFString) -> String {
+    var toolTable: ToolTable {
+        tool.createToolTable(with: tool.info)
+    }
+
+    var content: any View {
+        SentinelListView(title: name, items: toolTable.sections)
+    }
+}
+
+// MARK: - Info helpers
+
+extension ApplicationTool {
+
+    static func stringFromPlist(for key: CFString) -> String {
         stringFromPlist(for: key as String)
     }
     
-    func stringFromPlist(for key: String) -> String {
+    static func stringFromPlist(for key: String) -> String {
         Bundle.main.object(forInfoDictionaryKey: key).map { String(describing: $0) } ?? ""
     }
     
-    var bundleAllInfos: [CustomInfoTool.Item] {
+    static var bundleAllInfos: [CustomInfoTool.Item] {
         Bundle.main.infoDictionary?
             .map { CustomInfoTool.Item(title: $0.key, value: String(describing: $0.value)) }
             ?? []

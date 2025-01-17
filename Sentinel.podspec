@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.platform = :ios
   s.swift_version = '5.0'
-  s.ios.deployment_target = '11.0'
+  s.ios.deployment_target = '14.0'
   s.resource_bundles = {
       'Sentinel' => ['Sentinel/Assets/**/*', 'Sentinel/SupportingFiles/PrivacyInfo.xcprivacy'],
     }
