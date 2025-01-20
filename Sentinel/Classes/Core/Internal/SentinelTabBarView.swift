@@ -15,6 +15,7 @@ enum Tab {
     case performance
 }
 
+/// Container View which holds all of the Sentinel tabs. Can only be instantiated via Sentinel.createSentinelView(with:) function.
 public struct SentinelTabBarView: View {
 
     @State private var selectedTab: Tab = .tools

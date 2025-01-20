@@ -15,7 +15,7 @@ struct SentinelListView: View {
     #if os(macOS)
         NavigationView {
             ContentView(title: title, items: items)
-                .frame(minWidth: 400)
+                .frame(minWidth: 400) // Expands the content in width so it's visible
         }
     #else
         ContentView(title: title, items: items)
@@ -31,7 +31,7 @@ private struct ContentView: View {
 
     var body: some View {
         List(items, id: \.id) { section in
-            Section  {
+            Section {
                 if let title = section.title {
                     Text(title)
                         .font(.headline)

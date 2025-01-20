@@ -29,9 +29,21 @@ public final class Sentinel {
     /// - Parameter configuration: The configuration used to setup current instance of the Sentinel.
     public func setup(with configuration: Configuration) {
         self.configuration = configuration
-        configuration.trigger.subscribe { [weak self] in
-            configuration.sourceScreenProvider.showTools(for: Self.createSentinelView(tools: configuration.tools, preferences: configuration.preferences))
+        configuration.trigger.subscribe {
+            configuration.sourceScreenProvider.showTools(for: Self.createSentinelView(with: configuration))
         }
+    }
+
+    /// Creates the Sentinel View with tools.
+    ///
+    /// - Parameter configuration: The configuration used to setup current instance of the Sentinel.
+    public static func createSentinelView(with configuration: Configuration) -> SentinelTabBarView {
+        let tabItems = createTabItems(
+            with: configuration.tools,
+            preferences: configuration.preferences
+        )
+
+        return SentinelTabBarView(tabs: tabItems)
     }
 }
 
@@ -57,7 +69,7 @@ public extension Sentinel {
         public let tools: [Tool]
 
         /// Items which are shown on preferences screen
-        public let preferences: [ToolTableSection]
+        public let preferences: [PreferencesTool.Section]
 
         // MARK: - Lifecycle
 
@@ -72,7 +84,7 @@ public extension Sentinel {
             trigger: Trigger,
             sourceScreenProvider: SourceScreenProvider = SourceScreenProviders.default,
             tools: [Tool],
-            preferences: [ToolTableSection] = []
+            preferences: [PreferencesTool.Section] = []
         ) {
             self.trigger = trigger
             self.sourceScreenProvider = sourceScreenProvider

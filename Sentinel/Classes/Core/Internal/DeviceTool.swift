@@ -94,29 +94,11 @@ private extension DeviceTool {
 
     #if canImport(IOKit)
     static func getModelIdentifier() -> String? {
-        let service = IOServiceGetMatchingService(kIOMasterPortDefault,
-                                                  IOServiceMatching("IOPlatformExpertDevice"))
-        var modelIdentifier: String?
-        if let modelData = IORegistryEntryCreateCFProperty(service, "model" as CFString, kCFAllocatorDefault, 0).takeRetainedValue() as? Data {
-            modelIdentifier = String(data: modelData, encoding: .utf8)?.trimmingCharacters(in: .controlCharacters)
-        }
-
-        IOObjectRelease(service)
-        return modelIdentifier
+        fetchIOValue(for: "model")
     }
 
     static var hardwareDeviceUUID: String? {
-        let platformExpertDeviceServiceName = IOServiceMatching("IOPlatformExpertDevice")
-        let platformExpertDeviceService = IOServiceGetMatchingService(kIOMainPortDefault, platformExpertDeviceServiceName)
-        guard platformExpertDeviceService != 0 else {
-            return nil
-        }
-        let machineUUIDKey = kIOPlatformUUIDKey as CFString
-        let property = IORegistryEntryCreateCFProperty(platformExpertDeviceService, machineUUIDKey, kCFAllocatorDefault, 0)
-        defer {
-            IOObjectRelease(platformExpertDeviceService)
-        }
-        return property?.takeRetainedValue() as? String
+        fetchIOValue(for: kIOPlatformUUIDKey)
     }
     #endif
 
@@ -125,3 +107,23 @@ private extension DeviceTool {
         return "\(batteryLevel * 100.0)"
     }
 }
+
+#if os(macOS)
+// MARK: - MacOS helpers
+
+private extension DeviceTool {
+
+    static func fetchIOValue(for valueName: String) -> String? {
+        let service = IOServiceGetMatchingService(kIOMasterPortDefault, IOServiceMatching("IOPlatformExpertDevice"))
+
+        let valueIdentifier: String?
+        if let property = IORegistryEntryCreateCFProperty(service, valueName as CFString, kCFAllocatorDefault, 0).takeRetainedValue() as? Data {
+            valueIdentifier = String(data: modelData, encoding: .utf8)?.trimmingCharacters(in: .controlCharacters)
+        }
+
+        IOObjectRelease(service)
+        return modelIdentifier
+    }
+
+}
+#endif

@@ -71,7 +71,7 @@ private extension SentinelTabItem {
             let toolTable = ToolTable(name: barItemTitle, sections: [section])
             return toolTable
         case .preferences(let items):
-            let preferencesTool = PreferencesTool(items: items)
+            let preferencesTool = PreferencesTool(sections: items)
             let toolTable = preferencesTool.toolTable
             return toolTable
         case .performance:

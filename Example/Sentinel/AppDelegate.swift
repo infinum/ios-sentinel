@@ -66,31 +66,25 @@ private extension AppDelegate {
         )
     }
 
-    var optionSwitchItems: [ToolTableSection] {
+    var optionSwitchItems: [PreferencesTool.Section] {
         [
             .init(
                 title: "UserDefaults flags",
                 items: [
-                    .toggle(
-                        ToggleToolItem(
-                            title: "Analytics",
-                            userDefaults: .standard,
-                            userDefaultsKey: "com.infinum.sentinel.optionSwitch.analytics"
-                        )
+                    ToggleToolItem(
+                        title: "Analytics",
+                        userDefaults: .standard,
+                        userDefaultsKey: "com.infinum.sentinel.optionSwitch.analytics"
                     ),
-                    .toggle(
-                        ToggleToolItem(
-                            title: "Crashlytics",
-                            setter: { AppSwitches.crashlyticsEnabled = $0 },
-                            getter: { AppSwitches.crashlyticsEnabled }
-                        )
+                    ToggleToolItem(
+                        title: "Crashlytics",
+                        setter: { AppSwitches.crashlyticsEnabled = $0 },
+                        getter: { AppSwitches.crashlyticsEnabled }
                     ),
-                    .toggle(
-                        ToggleToolItem(
-                            title: "Logging",
-                            userDefaults: .standard,
-                            userDefaultsKey: "com.infinum.sentinel.optionSwitch.logging"
-                        )
+                    ToggleToolItem(
+                        title: "Logging",
+                        userDefaults: .standard,
+                        userDefaultsKey: "com.infinum.sentinel.optionSwitch.logging"
                     )
                 ]
             )
