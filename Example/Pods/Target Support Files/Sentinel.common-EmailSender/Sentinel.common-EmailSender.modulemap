@@ -1,5 +1,5 @@
 framework module Sentinel {
-  umbrella header "Sentinel-umbrella.h"
+  umbrella header "Sentinel.common-EmailSender-umbrella.h"
 
   export *
   module * { export * }

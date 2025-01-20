@@ -176,10 +176,10 @@ code_sign_if_enabled() {
 }
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/Sentinel.common-EmailSender/Sentinel.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Sentinel.common/Sentinel.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/Sentinel.common-EmailSender/Sentinel.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Sentinel.common/Sentinel.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

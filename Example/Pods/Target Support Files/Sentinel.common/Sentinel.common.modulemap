@@ -1,0 +1,6 @@
+framework module Sentinel {
+  umbrella header "Sentinel.common-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,7 +1,8 @@
 use_frameworks!
-platform :ios, '14.0'
 
 target 'Sentinel_Example' do
+  platform :ios, '14.0'
+
   pod 'Sentinel', :path => '../'
   pod 'Sentinel/EmailSender', :path => '../'
 
@@ -9,4 +10,10 @@ target 'Sentinel_Example' do
   target 'Sentinel_Tests' do
     inherit! :search_paths
   end
+end
+
+target 'MacOSExample' do
+  platform :osx, '12.0'
+
+  pod 'Sentinel', :path => '../'
 end

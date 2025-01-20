@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		16A9EB0AFC62A85C1E02F52D /* Pods_Sentinel_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D3BD8F8F00659DB8DDF5547 /* Pods_Sentinel_Example.framework */; };
+		2F26A63341EF29E1CB7FB7D5 /* Pods_Sentinel_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FC3BB07F97FAC49845BABA4 /* Pods_Sentinel_Tests.framework */; };
+		374E1A4D765726F3D1200A1D /* Pods_MacOSExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9101F350532531E42A074C5F /* Pods_MacOSExample.framework */; };
 		377E92762D0C4D660075DFB8 /* ColorChangeToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377E92752D0C4D660075DFB8 /* ColorChangeToolView.swift */; };
 		377E92782D0C4F280075DFB8 /* ColorChangeToolTableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377E92772D0C4F280075DFB8 /* ColorChangeToolTableItem.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
@@ -15,8 +18,6 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
-		A5BA26EBACC6744A81375D6C /* Pods_Sentinel_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75A96145CC3A7848932BED33 /* Pods_Sentinel_Example.framework */; };
-		C4B53571ED4E31B64EF2B085 /* Pods_Sentinel_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61C8A9890BCA9F2F56BB2176 /* Pods_Sentinel_Tests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,9 +31,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1C1442853648AB442AF2A524 /* Pods-Sentinel_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sentinel_Tests.debug.xcconfig"; path = "Target Support Files/Pods-Sentinel_Tests/Pods-Sentinel_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		149D4942A98A05DAE72C5FAD /* Pods-MacOSExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MacOSExample.release.xcconfig"; path = "Target Support Files/Pods-MacOSExample/Pods-MacOSExample.release.xcconfig"; sourceTree = "<group>"; };
+		1FC3BB07F97FAC49845BABA4 /* Pods_Sentinel_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sentinel_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		329478E2E1D8ED9BE5D95E7E /* Pods-Sentinel_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sentinel_Tests.release.xcconfig"; path = "Target Support Files/Pods-Sentinel_Tests/Pods-Sentinel_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		376E3A262D3E746A0029DE62 /* MacOSExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacOSExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		377E92752D0C4D660075DFB8 /* ColorChangeToolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorChangeToolView.swift; sourceTree = "<group>"; };
 		377E92772D0C4F280075DFB8 /* ColorChangeToolTableItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorChangeToolTableItem.swift; sourceTree = "<group>"; };
+		45249286AC50F71171FE0FEC /* Pods-Sentinel_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sentinel_Example.debug.xcconfig"; path = "Target Support Files/Pods-Sentinel_Example/Pods-Sentinel_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		4FC51A772513952F00E98846 /* Sentinel_Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sentinel_Example-Bridging-Header.h"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* Sentinel_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sentinel_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -44,22 +49,34 @@
 		607FACE51AFB9204008FA782 /* Sentinel_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Sentinel_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		61C8A9890BCA9F2F56BB2176 /* Pods_Sentinel_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sentinel_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6600ACF52B64D5714E051740 /* Pods-Sentinel_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sentinel_Example.debug.xcconfig"; path = "Target Support Files/Pods-Sentinel_Example/Pods-Sentinel_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		75A96145CC3A7848932BED33 /* Pods_Sentinel_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sentinel_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		69B7E9610751EFB5BF1327D1 /* Pods-Sentinel_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sentinel_Example.release.xcconfig"; path = "Target Support Files/Pods-Sentinel_Example/Pods-Sentinel_Example.release.xcconfig"; sourceTree = "<group>"; };
+		7D3BD8F8F00659DB8DDF5547 /* Pods_Sentinel_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sentinel_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		846398ADE643817AA6044FE0 /* Pods-MacOSExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MacOSExample.debug.xcconfig"; path = "Target Support Files/Pods-MacOSExample/Pods-MacOSExample.debug.xcconfig"; sourceTree = "<group>"; };
+		9101F350532531E42A074C5F /* Pods_MacOSExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MacOSExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9533AA5071F8B3C320CB0EAF /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		A2E62755C38902FFAC4E9A7A /* Pods-Sentinel_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sentinel_Tests.release.xcconfig"; path = "Target Support Files/Pods-Sentinel_Tests/Pods-Sentinel_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		A5CD9E5D6B215DE1B7DAD54D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		ADE62A678F3EFBCFB5F548B7 /* Pods-Sentinel_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sentinel_Example.release.xcconfig"; path = "Target Support Files/Pods-Sentinel_Example/Pods-Sentinel_Example.release.xcconfig"; sourceTree = "<group>"; };
 		CBB6C51C3843F1DB480D9EE0 /* Sentinel.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Sentinel.podspec; path = ../Sentinel.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		D09F06680821D1303C4E1991 /* Pods-Sentinel_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sentinel_Tests.debug.xcconfig"; path = "Target Support Files/Pods-Sentinel_Tests/Pods-Sentinel_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		376E3A272D3E746A0029DE62 /* MacOSExample */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = MacOSExample; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
+		376E3A232D3E746A0029DE62 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				374E1A4D765726F3D1200A1D /* Pods_MacOSExample.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		607FACCD1AFB9204008FA782 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5BA26EBACC6744A81375D6C /* Pods_Sentinel_Example.framework in Frameworks */,
+				16A9EB0AFC62A85C1E02F52D /* Pods_Sentinel_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,7 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C4B53571ED4E31B64EF2B085 /* Pods_Sentinel_Tests.framework in Frameworks */,
+				2F26A63341EF29E1CB7FB7D5 /* Pods_Sentinel_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,9 +97,10 @@
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for Sentinel */,
 				607FACE81AFB9204008FA782 /* Tests */,
+				376E3A272D3E746A0029DE62 /* MacOSExample */,
 				607FACD11AFB9204008FA782 /* Products */,
 				9A6135EB77CB7CB35CD695C9 /* Pods */,
-				A7AB46BA61D39FADA50B299B /* Frameworks */,
+				8A1AC05019F46BAC3B21B885 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -91,6 +109,7 @@
 			children = (
 				607FACD01AFB9204008FA782 /* Sentinel_Example.app */,
 				607FACE51AFB9204008FA782 /* Sentinel_Tests.xctest */,
+				376E3A262D3E746A0029DE62 /* MacOSExample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -147,38 +166,63 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
+		8A1AC05019F46BAC3B21B885 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9101F350532531E42A074C5F /* Pods_MacOSExample.framework */,
+				7D3BD8F8F00659DB8DDF5547 /* Pods_Sentinel_Example.framework */,
+				1FC3BB07F97FAC49845BABA4 /* Pods_Sentinel_Tests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9A6135EB77CB7CB35CD695C9 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				6600ACF52B64D5714E051740 /* Pods-Sentinel_Example.debug.xcconfig */,
-				ADE62A678F3EFBCFB5F548B7 /* Pods-Sentinel_Example.release.xcconfig */,
-				1C1442853648AB442AF2A524 /* Pods-Sentinel_Tests.debug.xcconfig */,
-				A2E62755C38902FFAC4E9A7A /* Pods-Sentinel_Tests.release.xcconfig */,
+				846398ADE643817AA6044FE0 /* Pods-MacOSExample.debug.xcconfig */,
+				149D4942A98A05DAE72C5FAD /* Pods-MacOSExample.release.xcconfig */,
+				45249286AC50F71171FE0FEC /* Pods-Sentinel_Example.debug.xcconfig */,
+				69B7E9610751EFB5BF1327D1 /* Pods-Sentinel_Example.release.xcconfig */,
+				D09F06680821D1303C4E1991 /* Pods-Sentinel_Tests.debug.xcconfig */,
+				329478E2E1D8ED9BE5D95E7E /* Pods-Sentinel_Tests.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		A7AB46BA61D39FADA50B299B /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				75A96145CC3A7848932BED33 /* Pods_Sentinel_Example.framework */,
-				61C8A9890BCA9F2F56BB2176 /* Pods_Sentinel_Tests.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		376E3A252D3E746A0029DE62 /* MacOSExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 376E3A342D3E746C0029DE62 /* Build configuration list for PBXNativeTarget "MacOSExample" */;
+			buildPhases = (
+				17B5E7A114CB738274C799A8 /* [CP] Check Pods Manifest.lock */,
+				376E3A222D3E746A0029DE62 /* Sources */,
+				376E3A232D3E746A0029DE62 /* Frameworks */,
+				376E3A242D3E746A0029DE62 /* Resources */,
+				EC18E8FB77CA7FC76EA9BD85 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				376E3A272D3E746A0029DE62 /* MacOSExample */,
+			);
+			name = MacOSExample;
+			productName = MacOSExample;
+			productReference = 376E3A262D3E746A0029DE62 /* MacOSExample.app */;
+			productType = "com.apple.product-type.application";
+		};
 		607FACCF1AFB9204008FA782 /* Sentinel_Example */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "Sentinel_Example" */;
 			buildPhases = (
-				17350DCD224153EE63D1A1FA /* [CP] Check Pods Manifest.lock */,
+				A543CE3B1F7E2A1E05C926AD /* [CP] Check Pods Manifest.lock */,
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
-				F363D48096109DFD654E7D93 /* [CP] Embed Pods Frameworks */,
+				FA190464C0AFE21297431799 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -193,7 +237,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "Sentinel_Tests" */;
 			buildPhases = (
-				ADAAFEE9C246346D8FCA0BA8 /* [CP] Check Pods Manifest.lock */,
+				B051B95892AE7B0AEDCF6FDC /* [CP] Check Pods Manifest.lock */,
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
@@ -214,10 +258,13 @@
 		607FACC81AFB9204008FA782 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
+				LastSwiftUpdateCheck = 1600;
 				LastUpgradeCheck = 1160;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
+					376E3A252D3E746A0029DE62 = {
+						CreatedOnToolsVersion = 16.0;
+					};
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
 						DevelopmentTeam = 5F5M64F878;
@@ -246,12 +293,20 @@
 			projectRoot = "";
 			targets = (
 				607FACCF1AFB9204008FA782 /* Sentinel_Example */,
+				376E3A252D3E746A0029DE62 /* MacOSExample */,
 				607FACE41AFB9204008FA782 /* Sentinel_Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		376E3A242D3E746A0029DE62 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		607FACCE1AFB9204008FA782 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -272,7 +327,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		17350DCD224153EE63D1A1FA /* [CP] Check Pods Manifest.lock */ = {
+		17B5E7A114CB738274C799A8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MacOSExample-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A543CE3B1F7E2A1E05C926AD /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -294,7 +371,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		ADAAFEE9C246346D8FCA0BA8 /* [CP] Check Pods Manifest.lock */ = {
+		B051B95892AE7B0AEDCF6FDC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -316,14 +393,32 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F363D48096109DFD654E7D93 /* [CP] Embed Pods Frameworks */ = {
+		EC18E8FB77CA7FC76EA9BD85 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MacOSExample/Pods-MacOSExample-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Sentinel.common/Sentinel.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sentinel.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MacOSExample/Pods-MacOSExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FA190464C0AFE21297431799 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Sentinel_Example/Pods-Sentinel_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Sentinel/Sentinel.framework",
+				"${BUILT_PRODUCTS_DIR}/Sentinel.common-EmailSender/Sentinel.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -337,6 +432,13 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		376E3A222D3E746A0029DE62 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		607FACCC1AFB9204008FA782 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -386,6 +488,89 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		376E3A322D3E746C0029DE62 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 846398ADE643817AA6044FE0 /* Pods-MacOSExample.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = MacOSExample/MacOSExample.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 CocoaPods. All rights reserved.";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.infinum.demo.Sentinel.MacOSExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		376E3A332D3E746C0029DE62 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 149D4942A98A05DAE72C5FAD /* Pods-MacOSExample.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = MacOSExample/MacOSExample.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 CocoaPods. All rights reserved.";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
+				MARKETING_VERSION = 1.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.infinum.demo.Sentinel.MacOSExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		607FACED1AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -485,7 +670,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = "iOS 14.0";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -493,14 +679,17 @@
 		};
 		607FACF01AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6600ACF52B64D5714E051740 /* Pods-Sentinel_Example.debug.xcconfig */;
+			baseConfigurationReference = 45249286AC50F71171FE0FEC /* Pods-Sentinel_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 5F5M64F878;
 				INFOPLIST_FILE = Sentinel/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.infinum.demo.Sentinel-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -513,14 +702,17 @@
 		};
 		607FACF11AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ADE62A678F3EFBCFB5F548B7 /* Pods-Sentinel_Example.release.xcconfig */;
+			baseConfigurationReference = 69B7E9610751EFB5BF1327D1 /* Pods-Sentinel_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 5F5M64F878;
 				INFOPLIST_FILE = Sentinel/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.infinum.demo.Sentinel-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -532,7 +724,7 @@
 		};
 		607FACF31AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1C1442853648AB442AF2A524 /* Pods-Sentinel_Tests.debug.xcconfig */;
+			baseConfigurationReference = D09F06680821D1303C4E1991 /* Pods-Sentinel_Tests.debug.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 5F5M64F878;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -545,7 +737,11 @@
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -555,7 +751,7 @@
 		};
 		607FACF41AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A2E62755C38902FFAC4E9A7A /* Pods-Sentinel_Tests.release.xcconfig */;
+			baseConfigurationReference = 329478E2E1D8ED9BE5D95E7E /* Pods-Sentinel_Tests.release.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 5F5M64F878;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -564,7 +760,11 @@
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -575,6 +775,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		376E3A342D3E746C0029DE62 /* Build configuration list for PBXNativeTarget "MacOSExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				376E3A322D3E746C0029DE62 /* Debug */,
+				376E3A332D3E746C0029DE62 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "Sentinel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

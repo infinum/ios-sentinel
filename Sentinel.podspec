@@ -25,6 +25,7 @@ Pod::Spec.new do |s|
   s.platform = :ios
   s.swift_version = '5.0'
   s.ios.deployment_target = '14.0'
+  s.osx.deployment_target = '12.0'
   s.resource_bundles = {
       'Sentinel' => ['Sentinel/Assets/**/*', 'Sentinel/SupportingFiles/PrivacyInfo.xcprivacy'],
     }
@@ -33,7 +34,6 @@ Pod::Spec.new do |s|
   
   s.subspec 'Core' do |sp|
     sp.source_files = 'Sentinel/Classes/Core/**/*'
-    sp.frameworks = 'UIKit'
   end
   
   s.subspec 'UserDefaults' do |sp|
