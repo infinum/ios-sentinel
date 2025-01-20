@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		376E39692D3E6BD90029DE62 /* Sentinel in Frameworks */ = {isa = PBXBuildFile; productRef = 376E39682D3E6BD90029DE62 /* Sentinel */; };
+		376E3AB12D3E9E8A0029DE62 /* Sentinel in Frameworks */ = {isa = PBXBuildFile; productRef = 376E3AB02D3E9E8A0029DE62 /* Sentinel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +27,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				376E39692D3E6BD90029DE62 /* Sentinel in Frameworks */,
+				376E3AB12D3E9E8A0029DE62 /* Sentinel in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,7 +70,7 @@
 			);
 			name = SwiftUIExample;
 			packageProductDependencies = (
-				376E39682D3E6BD90029DE62 /* Sentinel */,
+				376E3AB02D3E9E8A0029DE62 /* Sentinel */,
 			);
 			productName = SwiftUIExample;
 			productReference = 376E39412D3E69830029DE62 /* SwiftUIExample.app */;
@@ -101,7 +101,7 @@
 			mainGroup = 376E39382D3E69830029DE62;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				376E39672D3E6BD90029DE62 /* XCLocalSwiftPackageReference "../../ios-sentinel" */,
+				376E3AAF2D3E9E8A0029DE62 /* XCLocalSwiftPackageReference "../../ios-sentinel" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 376E39422D3E69830029DE62 /* Products */;
@@ -348,14 +348,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		376E39672D3E6BD90029DE62 /* XCLocalSwiftPackageReference "../../ios-sentinel" */ = {
+		376E3AAF2D3E9E8A0029DE62 /* XCLocalSwiftPackageReference "../../ios-sentinel" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "../../ios-sentinel";
 		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		376E39682D3E6BD90029DE62 /* Sentinel */ = {
+		376E3AB02D3E9E8A0029DE62 /* Sentinel */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Sentinel;
 		};
