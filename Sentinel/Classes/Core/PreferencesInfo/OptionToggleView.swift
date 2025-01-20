@@ -1,5 +1,5 @@
 //
-//  OptionSwitchView.swift
+//  OptionToggleView.swift
 //  Sentinel
 //
 //  Created by Zvonimir Medak on 27.11.2024..
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct OptionSwitchView: View {
+struct OptionToggleView: View {
 
     @State var value: Bool
     let title: String
@@ -25,7 +25,7 @@ struct OptionSwitchView: View {
 
 // MARK: - Helpers
 
-extension OptionSwitchView {
+extension OptionToggleView {
 
     init(item: ToggleToolItem) {
         value = item.loadStoredValue()
