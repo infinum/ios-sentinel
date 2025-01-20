@@ -29,7 +29,7 @@ public final class Sentinel {
     /// - Parameter configuration: The configuration used to setup current instance of the Sentinel.
     public func setup(with configuration: Configuration) {
         self.configuration = configuration
-        configuration.trigger.subscribe {
+        configuration.trigger?.subscribe {
             configuration.sourceScreenProvider.showTools(for: Self.createSentinelView(with: configuration))
         }
     }
@@ -60,7 +60,7 @@ public extension Sentinel {
         // MARK: - Public properties
 
         /// The trigger event which starts the Sentinel.
-        public let trigger: Trigger
+        public let trigger: Trigger?
 
         /// The screen used for presenting the Sentinel.
         public let sourceScreenProvider: SourceScreenProvider
@@ -81,7 +81,7 @@ public extension Sentinel {
         ///     - tools: Tools available from the Sentinel.
         ///     - preferences: Section items which can allow or deny an activity inside the app
         public init(
-            trigger: Trigger,
+            trigger: Trigger? = nil,
             sourceScreenProvider: SourceScreenProvider = SourceScreenProviders.default,
             tools: [Tool],
             preferences: [PreferencesTool.Section] = []

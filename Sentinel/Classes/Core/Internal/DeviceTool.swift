@@ -116,13 +116,13 @@ private extension DeviceTool {
     static func fetchIOValue(for valueName: String) -> String? {
         let service = IOServiceGetMatchingService(kIOMasterPortDefault, IOServiceMatching("IOPlatformExpertDevice"))
 
-        let valueIdentifier: String?
+        var valueIdentifier: String?
         if let property = IORegistryEntryCreateCFProperty(service, valueName as CFString, kCFAllocatorDefault, 0).takeRetainedValue() as? Data {
-            valueIdentifier = String(data: modelData, encoding: .utf8)?.trimmingCharacters(in: .controlCharacters)
+            valueIdentifier = String(data: property, encoding: .utf8)?.trimmingCharacters(in: .controlCharacters)
         }
 
         IOObjectRelease(service)
-        return modelIdentifier
+        return valueIdentifier
     }
 
 }
