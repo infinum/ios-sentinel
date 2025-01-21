@@ -11,6 +11,7 @@ import SwiftUI
 public struct NavigationToolItem {
     let title: String
     #if os(macOS)
+    /// Binding is provided from the parent screen, which should be set to nil if we want to navigate the user back once they perform an action
     let didSelect: (Binding<String?>) -> any View
     #else
     let didSelect: () -> any View
