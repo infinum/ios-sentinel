@@ -21,7 +21,11 @@ struct OptionToggleView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
         }
         .onChange(of: value) { onValueChanged($0) }
-        .onAppear { value = getter() }
+        .onAppear {
+            let fetchedValue = getter()
+            guard fetchedValue != value else { return }
+            value = fetchedValue
+        }
     }
 }
 

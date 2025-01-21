@@ -31,46 +31,12 @@ public struct UserDefaultsTool: Tool {
 public extension UserDefaultsTool {
 
     #if os(macOS)
-    public func createContent(selection: Binding<String?>) -> any View {
-        SentinelListView(title: name, items: createToolTable(with: userDefaults).sections)
+    func createContent(selection: Binding<String?>) -> any View {
+        UserDefaultsToolView(viewModel: .init(name: name, userDefaults: userDefaults))
     }
     #else
-    public var content: any View {
-        SentinelListView(title: name, items: createToolTable(with: userDefaults).sections)
+    var content: any View {
+        UserDefaultsToolView(viewModel: .init(name: name, userDefaults: userDefaults))
     }
     #endif
-}
-
-// MARK: - Internal methods
-
-private extension UserDefaultsTool {
-
-    func createToolTable(with userDefaults: UserDefaults) -> ToolTable {
-        let items = userDefaults.dictionaryRepresentation()
-            .sorted { $0.key < $1.key }
-            .map { (key, value) in
-                #if os(macOS)
-                ToolTableItem.navigation(
-                    NavigationToolItem(
-                        title: key,
-                        didSelect: {
-                            UserDefaultsToolView(viewModel: .init(value: String(describing: value), title: key, userDefaults: userDefaults), selection: $0)
-                        }
-                    )
-                )
-                #else
-                ToolTableItem.navigation(
-                    NavigationToolItem(
-                        title: key,
-                        didSelect: {
-                            UserDefaultsToolView(viewModel: .init(value: String(describing: value), title: key, userDefaults: userDefaults))
-                        }
-                    )
-                )
-                #endif
-            }
-
-        let section = ToolTableSection(items: items)
-        return ToolTable(name: name, sections: [section])
-    }
 }
