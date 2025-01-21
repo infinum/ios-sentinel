@@ -10,7 +10,11 @@ import SwiftUI
 struct NavigationToolTableView: View {
 
     let title: String
+    #if os(macOS)
+    let didSelect: (Binding<String?>) -> any View
+    #else
     let didSelect: () -> any View
+    #endif
 
     var body: some View {
         HStack(spacing: 10) {

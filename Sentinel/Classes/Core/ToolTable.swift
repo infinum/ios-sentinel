@@ -37,7 +37,13 @@ public struct ToolTable: Tool {
 
 public extension ToolTable {
 
-    var content: any View {
+    #if os(macOS)
+    public func createContent(selection: Binding<String?>) -> any View {
         SentinelListView(title: name, items: sections)
     }
+    #else
+    public var content: any View {
+        SentinelListView(title: name, items: sections)
+    }
+    #endif
 }

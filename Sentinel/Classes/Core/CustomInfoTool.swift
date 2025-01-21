@@ -30,10 +30,15 @@ public struct CustomInfoTool: Tool {
 
 public extension CustomInfoTool {
 
+    #if os(macOS)
+    func createContent(selection: Binding<String?>) -> any View  {
+        SentinelListView(title: name, items: createToolTable(with: info).sections)
+    }
+    #else
     var content: any View {
         SentinelListView(title: name, items: createToolTable(with: info).sections)
     }
-
+    #endif
 }
 
 // MARK: - Helpers

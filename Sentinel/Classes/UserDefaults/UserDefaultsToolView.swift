@@ -11,6 +11,9 @@ struct UserDefaultsToolView: View {
 
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject var viewModel: UserDefaultsToolViewModel
+    #if os(macOS)
+    @Binding var selection: String?
+    #endif
 
     var body: some View {
         VStack(spacing: 10) {
@@ -28,7 +31,9 @@ struct UserDefaultsToolView: View {
 
             Button(action: {
                 viewModel.didPressDelete()
-                #if !os(macOS)
+                #if os(macOS)
+                selection = nil
+                #else
                 presentationMode.wrappedValue.dismiss() // on macOS dismisses the whole window which isn't desired
                 #endif
             }, label: { Text("Delete") })

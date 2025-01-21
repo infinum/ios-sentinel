@@ -37,9 +37,15 @@ extension PreferencesTool {
         createToolTable(with: sections)
     }
 
+    #if os(macOS)
+    public func createContent(selection: Binding<String?>) -> any View  {
+        SentinelListView(title: name, items: toolTable.sections)
+    }
+    #else
     public var content: any View {
         SentinelListView(title: name, items: toolTable.sections)
     }
+    #endif
 }
 
 // MARK: - Private extension
