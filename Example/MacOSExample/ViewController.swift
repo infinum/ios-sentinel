@@ -12,20 +12,8 @@ class ViewController: NSViewController {
 
     @IBOutlet private weak var showSentinelButton: NSButton!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override var representedObject: Any? {
-        didSet {
-        // Update the view, if already loaded.
-        }
-    }
-
     @IBAction func showSentinel(_ sender: Any) {
-        NotificationCenter.default.post(name: .init("SomeValue"), object: nil)
+        NotificationCenter.default.post(name: Notification.Name("SomeValue"), object: nil)
     }
 }
 

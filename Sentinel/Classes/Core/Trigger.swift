@@ -27,7 +27,8 @@ public enum Triggers {
     public static func notification(forName name: Notification.Name) -> Trigger {
         NotificationTrigger(notificationName: name)
     }
-    #if !os(macOS)
+    // Available only on handheld devices
+    #if os(iOS)
     /// The trigger type which is triggered on the shake event.
     public static var shake: Trigger { ShakeTrigger() }
 
@@ -88,7 +89,7 @@ public final class NotificationTrigger: Trigger {
 extension Notification.Name {
 
     /// The notification name for shake event.
-    static var shakeMotionDetected: Notification.Name { .init("sentinel_shake_motion_detected") }
+    static var shakeMotionDetected: Notification.Name { Notification.Name("sentinel_shake_motion_detected") }
 }
 
 #if canImport(UIKit)

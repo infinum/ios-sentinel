@@ -1,11 +1,11 @@
 //
-//  SentinelAsSheet.swift
-//  SwiftUIExample
+//  SentinelAsSheetView.swift
+//  Example-iOS
 //
-//  Created by Zvonimir Medak on 20.01.2025..
+//  Created by Zvonimir Medak on 29.01.2025..
+//  Copyright © 2025 CocoaPods. All rights reserved.
 //
 
-#if os(iOS)
 import SwiftUI
 import Sentinel
 
@@ -49,4 +49,3 @@ struct SentinelAsSheet: View {
 #Preview {
     SentinelAsSheet()
 }
-#endif
