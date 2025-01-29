@@ -55,10 +55,17 @@
 			);
 			target = 607FACE41AFB9204008FA782 /* Sentinel_Tests */;
 		};
+		37C7BEC02D4A37D900B9B028 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				SwiftUI/SentinelButtonView.swift,
+			);
+			target = 607FACCF1AFB9204008FA782 /* Example-iOS */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		376E3A272D3E746A0029DE62 /* MacOSExample */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = MacOSExample; sourceTree = "<group>"; };
+		376E3A272D3E746A0029DE62 /* MacOSExample */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (37C7BEC02D4A37D900B9B028 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = MacOSExample; sourceTree = "<group>"; };
 		378902842D4A26390088860E /* iOSExample */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (3789028D2D4A26390088860E /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = iOSExample; sourceTree = "<group>"; };
 		378902932D4A265A0088860E /* Tests */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (378902952D4A265A0088860E /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Tests; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */

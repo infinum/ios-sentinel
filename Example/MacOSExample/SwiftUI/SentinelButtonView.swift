@@ -1,15 +1,15 @@
 //
-//  ContentView.swift
-//  SwiftUIExample
+//  SentinelButtonView.swift
+//  Example-iOS
 //
-//  Created by Zvonimir Medak on 20.01.2025..
+//  Created by Zvonimir Medak on 29.01.2025..
+//  Copyright © 2025 CocoaPods. All rights reserved.
 //
 
 import SwiftUI
 
-struct ContentView: View {
+struct SentinelButtonView: View {
     var body: some View {
-        #if os(macOS)
         VStack {
             Text("Press the button to show Sentinel")
                 .font(.headline)
@@ -17,15 +17,9 @@ struct ContentView: View {
                 NotificationCenter.default.post(name: .init("SomeValue"), object: nil)
             }
         }
-        #else
-        VStack {
-            Text("Shake the device to show Sentinel")
-                .font(.headline)
-        }
-        #endif
     }
 }
 
 #Preview {
-    ContentView()
+    SentinelButtonView()
 }

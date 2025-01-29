@@ -27,7 +27,8 @@ public enum Triggers {
     public static func notification(forName name: Notification.Name) -> Trigger {
         NotificationTrigger(notificationName: name)
     }
-    #if !os(macOS)
+    // Available only on handheld devices
+    #if os(iOS)
     /// The trigger type which is triggered on the shake event.
     public static var shake: Trigger { ShakeTrigger() }
 

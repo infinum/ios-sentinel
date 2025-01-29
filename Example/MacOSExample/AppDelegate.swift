@@ -58,7 +58,7 @@ private extension AppDelegate {
 
     var optionSwitchItems: [PreferencesTool.Section] {
         [
-            .init(
+            PreferencesTool.Section(
                 title: "UserDefaults flags",
                 items: [
                     ToggleToolItem(
