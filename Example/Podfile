@@ -1,6 +1,6 @@
 use_frameworks!
 
-target 'Sentinel_Example' do
+target 'Example-iOS' do
   platform :ios, '14.0'
 
   pod 'Sentinel', :path => '../'

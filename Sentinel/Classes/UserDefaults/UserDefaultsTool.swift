@@ -47,7 +47,7 @@ private extension UserDefaultsTool {
                     NavigationToolItem(
                         title: key,
                         didSelect: {
-                            UserDefaultsToolView(viewModel: .init(value: String(describing: value), title: key, userDefaults: userDefaults))
+                            UserDefaultsToolView(viewModel: UserDefaultsToolViewModel(value: String(describing: value), title: key, userDefaults: userDefaults))
                         }
                     )
                 )

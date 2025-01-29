@@ -66,7 +66,7 @@ private extension SentinelTabItem {
             return toolTable
         case .tools(let items):
             let navigationItems = items
-                .map { tool in ToolTableItem.navigation(.init(title: tool.name, didSelect: { tool.content })) }
+                .map { tool in ToolTableItem.navigation(NavigationToolItem(title: tool.name, didSelect: { tool.content })) }
             let section = ToolTableSection(title: barItemTitle, items: navigationItems)
             let toolTable = ToolTable(name: barItemTitle, sections: [section])
             return toolTable

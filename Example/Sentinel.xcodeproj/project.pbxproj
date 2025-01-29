@@ -3,11 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		16A9EB0AFC62A85C1E02F52D /* Pods_Sentinel_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D3BD8F8F00659DB8DDF5547 /* Pods_Sentinel_Example.framework */; };
 		2F26A63341EF29E1CB7FB7D5 /* Pods_Sentinel_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FC3BB07F97FAC49845BABA4 /* Pods_Sentinel_Tests.framework */; };
 		374E1A4D765726F3D1200A1D /* Pods_MacOSExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9101F350532531E42A074C5F /* Pods_MacOSExample.framework */; };
 		377E92762D0C4D660075DFB8 /* ColorChangeToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377E92752D0C4D660075DFB8 /* ColorChangeToolView.swift */; };
@@ -18,6 +17,7 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		FB8CAB855118455E23C4AB3D /* Pods_Example_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 946C4EA9599554200E33DF7B /* Pods_Example_iOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,8 +38,9 @@
 		377E92752D0C4D660075DFB8 /* ColorChangeToolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorChangeToolView.swift; sourceTree = "<group>"; };
 		377E92772D0C4F280075DFB8 /* ColorChangeToolTableItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorChangeToolTableItem.swift; sourceTree = "<group>"; };
 		45249286AC50F71171FE0FEC /* Pods-Sentinel_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sentinel_Example.debug.xcconfig"; path = "Target Support Files/Pods-Sentinel_Example/Pods-Sentinel_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		4FC51A772513952F00E98846 /* Sentinel_Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sentinel_Example-Bridging-Header.h"; sourceTree = "<group>"; };
-		607FACD01AFB9204008FA782 /* Sentinel_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sentinel_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FC51A772513952F00E98846 /* iOSExample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iOSExample-Bridging-Header.h"; sourceTree = "<group>"; };
+		5A59B0E6D9FC1313C6D8DADD /* Pods-Example-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example-iOS.debug.xcconfig"; path = "Target Support Files/Pods-Example-iOS/Pods-Example-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		607FACD01AFB9204008FA782 /* Example-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Example-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		607FACD71AFB9204008FA782 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -50,10 +51,11 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		69B7E9610751EFB5BF1327D1 /* Pods-Sentinel_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sentinel_Example.release.xcconfig"; path = "Target Support Files/Pods-Sentinel_Example/Pods-Sentinel_Example.release.xcconfig"; sourceTree = "<group>"; };
-		7D3BD8F8F00659DB8DDF5547 /* Pods_Sentinel_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sentinel_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		846398ADE643817AA6044FE0 /* Pods-MacOSExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MacOSExample.debug.xcconfig"; path = "Target Support Files/Pods-MacOSExample/Pods-MacOSExample.debug.xcconfig"; sourceTree = "<group>"; };
 		9101F350532531E42A074C5F /* Pods_MacOSExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MacOSExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		946C4EA9599554200E33DF7B /* Pods_Example_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9533AA5071F8B3C320CB0EAF /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		A1754F1D418617D4275CE532 /* Pods-Example-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example-iOS.release.xcconfig"; path = "Target Support Files/Pods-Example-iOS/Pods-Example-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		A5CD9E5D6B215DE1B7DAD54D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		CBB6C51C3843F1DB480D9EE0 /* Sentinel.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Sentinel.podspec; path = ../Sentinel.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		D09F06680821D1303C4E1991 /* Pods-Sentinel_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sentinel_Tests.debug.xcconfig"; path = "Target Support Files/Pods-Sentinel_Tests/Pods-Sentinel_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -76,7 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16A9EB0AFC62A85C1E02F52D /* Pods_Sentinel_Example.framework in Frameworks */,
+				FB8CAB855118455E23C4AB3D /* Pods_Example_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,7 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
-				607FACD21AFB9204008FA782 /* Example for Sentinel */,
+				607FACD21AFB9204008FA782 /* iOSExample */,
 				607FACE81AFB9204008FA782 /* Tests */,
 				376E3A272D3E746A0029DE62 /* MacOSExample */,
 				607FACD11AFB9204008FA782 /* Products */,
@@ -107,14 +109,14 @@
 		607FACD11AFB9204008FA782 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				607FACD01AFB9204008FA782 /* Sentinel_Example.app */,
+				607FACD01AFB9204008FA782 /* Example-iOS.app */,
 				607FACE51AFB9204008FA782 /* Sentinel_Tests.xctest */,
 				376E3A262D3E746A0029DE62 /* MacOSExample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		607FACD21AFB9204008FA782 /* Example for Sentinel */ = {
+		607FACD21AFB9204008FA782 /* iOSExample */ = {
 			isa = PBXGroup;
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
@@ -123,12 +125,11 @@
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
-				4FC51A772513952F00E98846 /* Sentinel_Example-Bridging-Header.h */,
+				4FC51A772513952F00E98846 /* iOSExample-Bridging-Header.h */,
 				377E92752D0C4D660075DFB8 /* ColorChangeToolView.swift */,
 				377E92772D0C4F280075DFB8 /* ColorChangeToolTableItem.swift */,
 			);
-			name = "Example for Sentinel";
-			path = Sentinel;
+			path = iOSExample;
 			sourceTree = "<group>";
 		};
 		607FACD31AFB9204008FA782 /* Supporting Files */ = {
@@ -170,8 +171,8 @@
 			isa = PBXGroup;
 			children = (
 				9101F350532531E42A074C5F /* Pods_MacOSExample.framework */,
-				7D3BD8F8F00659DB8DDF5547 /* Pods_Sentinel_Example.framework */,
 				1FC3BB07F97FAC49845BABA4 /* Pods_Sentinel_Tests.framework */,
+				946C4EA9599554200E33DF7B /* Pods_Example_iOS.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -185,6 +186,8 @@
 				69B7E9610751EFB5BF1327D1 /* Pods-Sentinel_Example.release.xcconfig */,
 				D09F06680821D1303C4E1991 /* Pods-Sentinel_Tests.debug.xcconfig */,
 				329478E2E1D8ED9BE5D95E7E /* Pods-Sentinel_Tests.release.xcconfig */,
+				5A59B0E6D9FC1313C6D8DADD /* Pods-Example-iOS.debug.xcconfig */,
+				A1754F1D418617D4275CE532 /* Pods-Example-iOS.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -214,9 +217,9 @@
 			productReference = 376E3A262D3E746A0029DE62 /* MacOSExample.app */;
 			productType = "com.apple.product-type.application";
 		};
-		607FACCF1AFB9204008FA782 /* Sentinel_Example */ = {
+		607FACCF1AFB9204008FA782 /* Example-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "Sentinel_Example" */;
+			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "Example-iOS" */;
 			buildPhases = (
 				A543CE3B1F7E2A1E05C926AD /* [CP] Check Pods Manifest.lock */,
 				607FACCC1AFB9204008FA782 /* Sources */,
@@ -228,9 +231,9 @@
 			);
 			dependencies = (
 			);
-			name = Sentinel_Example;
+			name = "Example-iOS";
 			productName = ToolBox;
-			productReference = 607FACD01AFB9204008FA782 /* Sentinel_Example.app */;
+			productReference = 607FACD01AFB9204008FA782 /* Example-iOS.app */;
 			productType = "com.apple.product-type.application";
 		};
 		607FACE41AFB9204008FA782 /* Sentinel_Tests */ = {
@@ -292,7 +295,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				607FACCF1AFB9204008FA782 /* Sentinel_Example */,
+				607FACCF1AFB9204008FA782 /* Example-iOS */,
 				376E3A252D3E746A0029DE62 /* MacOSExample */,
 				607FACE41AFB9204008FA782 /* Sentinel_Tests */,
 			);
@@ -364,7 +367,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Sentinel_Example-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Example-iOS-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -417,7 +420,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Sentinel_Example/Pods-Sentinel_Example-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Example-iOS/Pods-Example-iOS-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Sentinel.common-EmailSender/Sentinel.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -426,7 +429,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Sentinel_Example/Pods-Sentinel_Example-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Example-iOS/Pods-Example-iOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -463,7 +466,7 @@
 /* Begin PBXTargetDependency section */
 		607FACE71AFB9204008FA782 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 607FACCF1AFB9204008FA782 /* Sentinel_Example */;
+			target = 607FACCF1AFB9204008FA782 /* Example-iOS */;
 			targetProxy = 607FACE61AFB9204008FA782 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -679,12 +682,12 @@
 		};
 		607FACF01AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 45249286AC50F71171FE0FEC /* Pods-Sentinel_Example.debug.xcconfig */;
+			baseConfigurationReference = 5A59B0E6D9FC1313C6D8DADD /* Pods-Example-iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 5F5M64F878;
-				INFOPLIST_FILE = Sentinel/Info.plist;
+				INFOPLIST_FILE = iOSExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -693,7 +696,7 @@
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.infinum.demo.Sentinel-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Sentinel/Sentinel_Example-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "iOSExample/iOSExample-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
@@ -702,12 +705,12 @@
 		};
 		607FACF11AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 69B7E9610751EFB5BF1327D1 /* Pods-Sentinel_Example.release.xcconfig */;
+			baseConfigurationReference = A1754F1D418617D4275CE532 /* Pods-Example-iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 5F5M64F878;
-				INFOPLIST_FILE = Sentinel/Info.plist;
+				INFOPLIST_FILE = iOSExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -716,7 +719,7 @@
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.infinum.demo.Sentinel-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Sentinel/Sentinel_Example-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "iOSExample/iOSExample-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
 			};
@@ -793,7 +796,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "Sentinel_Example" */ = {
+		607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "Example-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				607FACF01AFB9204008FA782 /* Debug */,

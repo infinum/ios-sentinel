@@ -46,7 +46,7 @@ public struct TextEditingTool: Tool {
 public extension TextEditingTool {
 
     var content: any View {
-        TextEditingToolView(viewModel: .init(value: getter(), title: name, didPressSave: store(newValue:)))
+        TextEditingToolView(viewModel: TextEditingToolViewModel(value: getter(), title: name, didPressSave: store(newValue:)))
     }
 }
 

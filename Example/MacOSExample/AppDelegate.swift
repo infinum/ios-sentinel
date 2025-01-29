@@ -29,23 +29,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to initialize your application
         setupSentinel()
     }
-
-    func applicationWillTerminate(_ aNotification: Notification) {
-        // Insert code here to tear down your application
-    }
-
-    func applicationSupportsSecureRestorableState(_ app: NSApplication) -> Bool {
-        return true
-    }
-
-
 }
 
 private extension AppDelegate {
 
     func setupSentinel() {
         let configuration = Sentinel.Configuration(
-            trigger: Triggers.notification(forName: .init("SomeValue")),
+            trigger: Triggers.notification(forName: Notification.Name("SomeValue")),
             tools: [
                 UserDefaultsTool(),
                 baseUrlTool
@@ -92,5 +82,4 @@ private extension AppDelegate {
         ]
 
     }
-
 }

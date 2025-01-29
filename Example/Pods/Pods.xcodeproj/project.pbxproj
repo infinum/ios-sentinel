@@ -8,16 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		01DF20A7793676040D103B042400BEAC /* NavigationToolTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BCCE55771A3C98137C231383BB0182 /* NavigationToolTableView.swift */; };
-		0207938303F4B09B48174B79120233BB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35AB5DA2955B4E68B4309192408426E5 /* Foundation.framework */; };
 		020F47D1F6D7F961BFDA977BE257FFC4 /* UserDefaultsToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB8C227603ECEEC69338B0CADE241F0 /* UserDefaultsToolView.swift */; };
 		10D381B1FB8EB548B4E15664C7E61F6C /* CPUInfoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932F948C141039C8FD3BC908FB6E0A6F /* CPUInfoProvider.swift */; };
+		112566533BE0A421ACD8CAB0ACE3E56D /* Pods-Example-iOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A70FBFCFD3144C63923E11589DD80BEE /* Pods-Example-iOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1296B025225ED905F71B35171782638A /* SentinelTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318D2AABAC78E3FBC1352B74D6EFBDD9 /* SentinelTabBarView.swift */; };
 		13544F0A432079549F26AF6007929454 /* SentinelListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA106FAD7ADD157F4DCB87395FE9375 /* SentinelListView.swift */; };
 		138DA6A228BEB732069B2598CC920C2F /* DeviceTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B35C3129ED1B505EAEB1B9FE15D56EC /* DeviceTool.swift */; };
 		16BF471FC8C57DB277F878BA6D564330 /* PerformanceTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3352C96EDC1113E49D52DC40128D843 /* PerformanceTool.swift */; };
 		17CF587F234ECA5F7C9F13BA78FCEAC2 /* Sentinel.common-Sentinel in Resources */ = {isa = PBXBuildFile; fileRef = 17BE64710C0606EEC8BDB81D450D2349 /* Sentinel.common-Sentinel */; };
 		19F4D0C7EEB0CE8D618F56C37D948AFF /* EmailSenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328BF98850EBE3DEAEC8EF72C20C6C7D /* EmailSenderView.swift */; };
-		1CD052257A420FAAC70A4CAE5342EA11 /* Pods-Sentinel_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CE1EB460D03DD63756EF3D37763CFED /* Pods-Sentinel_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1ED5AA510CFF905F529C19027A6AE6AC /* CustomInfoTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D91003063B22A865AA9912B34E60C7 /* CustomInfoTool.swift */; };
 		1ED95B91EE5775C2BF2D450F971A9735 /* SystemInfoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17C868C86BBDD96741E1D2718C27C8F /* SystemInfoProvider.swift */; };
 		206C7353679AD4F68E553DBCD6EBF545 /* CustomInfoTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D91003063B22A865AA9912B34E60C7 /* CustomInfoTool.swift */; };
@@ -32,6 +31,7 @@
 		3E7C059CE8F28A00D00D484F738DA650 /* Sentinel.common-EmailSender-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 45AC1C5ADF97941EDD7363A99BB23705 /* Sentinel.common-EmailSender-dummy.m */; };
 		3E8FEC2B43B9D8E4C0E0BC4D4BB63C2D /* PreferencesToolSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF71C6A74585DB5994744D772FF8CF0 /* PreferencesToolSection.swift */; };
 		444A1213C87A75EE294AD3722D88260D /* UserDefaultsTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9E5A0D192A11A6A384BEFAD0AFFDA1 /* UserDefaultsTool.swift */; };
+		468C570C4F6C12EEDBDEEEE8FE32677B /* Pods-Sentinel_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E0D0BEAB44B4BD615130D80D9AE398F5 /* Pods-Sentinel_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4A4ADAB0055E677C1966A91484D68B6C /* TextEditingToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B0FEE41526D9DDEAD2F37ACFD9C6D0 /* TextEditingToolView.swift */; };
 		4B288B056E4BBF672D1631F430F35FB2 /* ApplicationTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BE60EB3B3DCFC45ACF6111BCC28BFD /* ApplicationTool.swift */; };
 		4DBA14B100DBF313535E2FD313A0D1D3 /* CustomInfoToolSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D32FA2565EA9C6DCFEA7E2254C21F9B /* CustomInfoToolSection.swift */; };
@@ -40,9 +40,9 @@
 		53FDA8C6671AB837FD9633C6C4669A0A /* SourceScreenProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE66D664731BFD022222A54AA7DE5F9F /* SourceScreenProvider.swift */; };
 		56C23ACEAAC347599D18D00041D0D5E4 /* EmailSenderErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA72F1639DF19831E97E97188914A47B /* EmailSenderErrorView.swift */; };
 		5884B225F95256B07DEFD5647A590ADD /* ToolTableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA445BC0716FCA6442E3CFDC8694B95 /* ToolTableItem.swift */; };
-		5A210F0D0137B7C094242C17CC0B4EBF /* Pods-Sentinel_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 20CEE3719B76B3B187D29A3C24ECB8EE /* Pods-Sentinel_Tests-dummy.m */; };
 		5B6CA0BD7D7B9ED2FAB2104C3FA3C47B /* UserDefaultsToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB8C227603ECEEC69338B0CADE241F0 /* UserDefaultsToolView.swift */; };
 		5BB2FF5CB5C1673E1FD4B839CF20779C /* SourceScreenProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE66D664731BFD022222A54AA7DE5F9F /* SourceScreenProvider.swift */; };
+		5C2ED674D8E14FCE8222B53246DCD844 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35AB5DA2955B4E68B4309192408426E5 /* Foundation.framework */; };
 		616EE3AC7A87C32E98B26E759F9AFFFA /* UserDefaultsTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9E5A0D192A11A6A384BEFAD0AFFDA1 /* UserDefaultsTool.swift */; };
 		63639BA78C1C767028E1B3C86A2AC719 /* NavigationToolTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14BCCE55771A3C98137C231383BB0182 /* NavigationToolTableView.swift */; };
 		6573494524CC69F977D5CDE5A0DCBBF7 /* assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36387C1B7F86AE5BE78E4A34913AAFA4 /* assets.xcassets */; };
@@ -56,16 +56,16 @@
 		722DB0926890652C717CF6D646D4751B /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 04BD2FCDC28C1E539E3A2285DAE6E201 /* PrivacyInfo.xcprivacy */; };
 		73F9C234F11419315A85B3C3BC2432F1 /* ToggleToolItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53601A34C92EE8EA0DE2138F8FBB492E /* ToggleToolItem.swift */; };
 		7805333DFF16959D9C9651A2B95D2C8A /* TextEditingTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5146150400E0A854BBDB2CE513EE9A2C /* TextEditingTool.swift */; };
-		786E86786710AD39B296E11C654FF62C /* Pods-Sentinel_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A747EABA59660134D2C0FB27C9FB07A /* Pods-Sentinel_Example-dummy.m */; };
-		78947EA7E2BCCBC5DAACEC8129F3CA91 /* Pods-MacOSExample-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B01022844B5D06E0F93B723A3B49DB4 /* Pods-MacOSExample-dummy.m */; };
+		78947EA7E2BCCBC5DAACEC8129F3CA91 /* Pods-MacOSExample-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E61BFB2C94FCA21DA96797053317C55 /* Pods-MacOSExample-dummy.m */; };
 		798F98F159D267B73EFA3D49C598444B /* Image+Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D492D1F1482CDBC530E331D3748EEA3 /* Image+Assets.swift */; };
 		7E2003ED3D9C1588C9833173B3FB300A /* UserDefaultsToolViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7618AC4785819FF343486BCE498BB011 /* UserDefaultsToolViewModel.swift */; };
+		7FA2AD669D45F4B37EABD395471156E3 /* Pods-Sentinel_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1690D6FEFC2C659338BDD9047FEDB522 /* Pods-Sentinel_Tests-dummy.m */; };
 		7FF9DD09B43783A9C0D3B7F356D8491F /* PerformanceToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C832404133F0DA2A4DB047FF9782092 /* PerformanceToolView.swift */; };
 		8425D67275A830CD8C798FD992B835A9 /* ToggleToolItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53601A34C92EE8EA0DE2138F8FBB492E /* ToggleToolItem.swift */; };
 		850EE1144BE60E6DDE7A76060C52773F /* OptionToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFA8829651AF52D362F85A132603E98 /* OptionToggleView.swift */; };
 		85E801A1A68A6DE8BBD384C38E013A2B /* Sentinel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D900A999F246A516960FC2625719B5 /* Sentinel.swift */; };
+		86C1B27FEE86F85B65B3BC8BEC96EEDD /* Pods-Example-iOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4631FAF1B51BA65A7870CD077B30A3 /* Pods-Example-iOS-dummy.m */; };
 		8745B3E0ED4D7A5399C1603D57FD1A65 /* DeviceTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B35C3129ED1B505EAEB1B9FE15D56EC /* DeviceTool.swift */; };
-		8A773626D56BA7BB7F7DD74AF9AFD0D7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35AB5DA2955B4E68B4309192408426E5 /* Foundation.framework */; };
 		8BCE42A80D50A8D744527BA2E9C6CF07 /* PerformanceTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3352C96EDC1113E49D52DC40128D843 /* PerformanceTool.swift */; };
 		8D215321DA38E5535DFB8E3F5AF75E56 /* CustomToolTableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0F524DB55F18F05F91E749027E9D91 /* CustomToolTableItem.swift */; };
 		8D471135B945CA594F43AC4AE1B78FF4 /* Trigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A737D1EC4E3B9CDE18DE8430EE80CC6 /* Trigger.swift */; };
@@ -82,7 +82,7 @@
 		A19EAA003A132FED3AC9F9D466682C16 /* ApplicationTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BE60EB3B3DCFC45ACF6111BCC28BFD /* ApplicationTool.swift */; };
 		A4D8F04B5F60466ED5F6A919A3C44941 /* SentinelInternal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F3CCCD3A6F66C01DB710E25A4A5A5C /* SentinelInternal.swift */; };
 		A81C9C62EFD60768FDE5EF28A0D137FF /* TextEditingTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5146150400E0A854BBDB2CE513EE9A2C /* TextEditingTool.swift */; };
-		AE60E405EF157E529935D1BA9644C305 /* Pods-MacOSExample-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 109213727B303726BFF022527BB1C189 /* Pods-MacOSExample-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AE60E405EF157E529935D1BA9644C305 /* Pods-MacOSExample-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 772A8AC51425546A4A7B6F354CE61E7D /* Pods-MacOSExample-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AFD4C70FA7064E36E1955FBBE6AC36B3 /* ToolTableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B9DA1709DA51F42C793ED561F733F1C /* ToolTableSection.swift */; };
 		AFFF877C026F1B964FFFB5B497E7AEF2 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9D55E2608FD4D1D5FC5EFA58F49BF1B /* Cocoa.framework */; };
 		B301797A1A65D37E330BD9D7B912EB08 /* CustomInfoToolSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D32FA2565EA9C6DCFEA7E2254C21F9B /* CustomInfoToolSection.swift */; };
@@ -95,7 +95,7 @@
 		C496DF989A7EF5BC799F3A3088F728D7 /* NavigationToolTableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F823F3DF2D2500F3184E04DB6DB60662 /* NavigationToolTableItem.swift */; };
 		C6BFE19B179C3E7BE4A335847D66DA91 /* SentinelInternal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F3CCCD3A6F66C01DB710E25A4A5A5C /* SentinelInternal.swift */; };
 		D050CC641294930151FCD39596244157 /* Sentinel.common-EmailSender-Sentinel in Resources */ = {isa = PBXBuildFile; fileRef = 4C8016EA23C99362F29A2E0A34A25654 /* Sentinel.common-EmailSender-Sentinel */; };
-		D282775138FB2134E857AD3B294517B6 /* Pods-Sentinel_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 297157DC0A97E7A53EFF4B590647C4AB /* Pods-Sentinel_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D17F42184E1A508989676B20E17973E2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35AB5DA2955B4E68B4309192408426E5 /* Foundation.framework */; };
 		D2F2CB3265A180C9E1C23175B12A47E5 /* TitleValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9790789C0E9D750628315B4F8C91EFDD /* TitleValueView.swift */; };
 		D33EE2A553848B7C32114F63899C70F8 /* MemoryInfoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D31A3FF32C2DDE20C9C05EF731B3E28 /* MemoryInfoProvider.swift */; };
 		D3544E5F6B04654C8091D9400C41ABAB /* Sentinel.common-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FA9111D564498A488095D59BD20FE64 /* Sentinel.common-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -120,14 +120,7 @@
 			remoteGlobalIDString = E71FD70A1DD1F440A3204231CCAB3F44;
 			remoteInfo = "Sentinel.common-Sentinel";
 		};
-		1318A8D6D6A8E611AF20199845F3A7F1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 254C1FBF05728FD8BE3AFCBC3F313646;
-			remoteInfo = "Pods-Sentinel_Example";
-		};
-		40A1222679F01AD980F561D38B0C6346 /* PBXContainerItemProxy */ = {
+		7C2A9FFD8B07FAD7AF5834EA891B51E7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
@@ -141,6 +134,13 @@
 			remoteGlobalIDString = 020385992F50562D5823624BCBE4B0B6;
 			remoteInfo = Sentinel.common;
 		};
+		E65939CEA3FF499505C261D6B0C7A03E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B448AC191110D164125F599EA0AC2249;
+			remoteInfo = "Pods-Example-iOS";
+		};
 		EFFC0E124D4240458E6D5DF954F482FD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
@@ -151,98 +151,98 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		007F31AC3AB54B1E58D4366F290FE70B /* Pods-Example-iOS-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Example-iOS-acknowledgements.plist"; sourceTree = "<group>"; };
 		02BDCF4B56EAC4F1290AA668879D960A /* PerformanceInfoViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PerformanceInfoViewModel.swift; sourceTree = "<group>"; };
-		044A11DBA25F058332AB51F249405903 /* Pods-MacOSExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MacOSExample.debug.xcconfig"; sourceTree = "<group>"; };
 		04BD2FCDC28C1E539E3A2285DAE6E201 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		05068C011F99CFAA0AD574DEE271472C /* Sentinel.common-EmailSender-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = "Sentinel.common-EmailSender-Info.plist"; path = "../Sentinel.common-EmailSender/Sentinel.common-EmailSender-Info.plist"; sourceTree = "<group>"; };
+		082FFF40BA738290F8F13BD3EA9A73E9 /* Pods-MacOSExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MacOSExample.release.xcconfig"; sourceTree = "<group>"; };
+		0A119B0AF9BF7B0E6AA4FB62E5E54CD9 /* Pods-Example-iOS-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Example-iOS-frameworks.sh"; sourceTree = "<group>"; };
 		0A737D1EC4E3B9CDE18DE8430EE80CC6 /* Trigger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Trigger.swift; path = Sentinel/Classes/Core/Trigger.swift; sourceTree = "<group>"; };
-		109213727B303726BFF022527BB1C189 /* Pods-MacOSExample-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MacOSExample-umbrella.h"; sourceTree = "<group>"; };
 		14BCCE55771A3C98137C231383BB0182 /* NavigationToolTableView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NavigationToolTableView.swift; sourceTree = "<group>"; };
+		1690D6FEFC2C659338BDD9047FEDB522 /* Pods-Sentinel_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Sentinel_Tests-dummy.m"; sourceTree = "<group>"; };
 		17BE64710C0606EEC8BDB81D450D2349 /* Sentinel.common-Sentinel */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "Sentinel.common-Sentinel"; path = Sentinel.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		17DFD52402E770D79A1241867358E31B /* SentinelTab.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SentinelTab.swift; sourceTree = "<group>"; };
 		1A92A6E54C25D58ECFB93E03DD9480D4 /* Sentinel.common */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Sentinel.common; path = Sentinel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CA106FAD7ADD157F4DCB87395FE9375 /* SentinelListView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SentinelListView.swift; sourceTree = "<group>"; };
+		1D0F617F0F6907CB698D1C312EE96F16 /* Pods-Sentinel_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Sentinel_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		1E44EF37397175EB370D24F135076900 /* PerformanceInfoItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PerformanceInfoItem.swift; sourceTree = "<group>"; };
+		203A38A06D8B054C788F58837448EC05 /* Pods-MacOSExample.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-MacOSExample.modulemap"; sourceTree = "<group>"; };
 		207F03D1EE7E2986D592720E07BEDAE5 /* TextEditingToolViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextEditingToolViewModel.swift; path = Sentinel/Classes/TextEditing/TextEditingToolViewModel.swift; sourceTree = "<group>"; };
-		20CEE3719B76B3B187D29A3C24ECB8EE /* Pods-Sentinel_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Sentinel_Tests-dummy.m"; sourceTree = "<group>"; };
-		297157DC0A97E7A53EFF4B590647C4AB /* Pods-Sentinel_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Sentinel_Example-umbrella.h"; sourceTree = "<group>"; };
-		2A6CA9BF91722D330CBE24F5926AFC62 /* Pods-MacOSExample-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MacOSExample-Info.plist"; sourceTree = "<group>"; };
 		2B6B55E4F803BEDE4A382EDBFF393A7F /* PreferencesTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PreferencesTool.swift; sourceTree = "<group>"; };
 		2CF71C6A74585DB5994744D772FF8CF0 /* PreferencesToolSection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PreferencesToolSection.swift; sourceTree = "<group>"; };
-		2D9CDE622D5C8E1E3ABC3F2F00E209E2 /* Pods-Sentinel_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Sentinel_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		2EF7EF329DE3281047C25EF3AC77C795 /* Pods-Sentinel_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Sentinel_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		2E61BFB2C94FCA21DA96797053317C55 /* Pods-MacOSExample-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MacOSExample-dummy.m"; sourceTree = "<group>"; };
 		2F234C620BAAC65A8991D3D88C960536 /* Sentinel.common-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Sentinel.common-Info.plist"; sourceTree = "<group>"; };
-		316836659026E5D02FBB5F70A2829659 /* Pods-Sentinel_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Sentinel_Tests.modulemap"; sourceTree = "<group>"; };
+		2F466B5D214BCB711ECD84D2AC4A05B4 /* Pods-Sentinel_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Sentinel_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		312FC899DF0CFA33A3C79629A46263AA /* Pods-Sentinel_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Sentinel_Tests.modulemap"; sourceTree = "<group>"; };
 		318D2AABAC78E3FBC1352B74D6EFBDD9 /* SentinelTabBarView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SentinelTabBarView.swift; sourceTree = "<group>"; };
+		3237F9437BD2F0365967F6CF33DD67E1 /* Pods-Example-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Example-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		328BF98850EBE3DEAEC8EF72C20C6C7D /* EmailSenderView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EmailSenderView.swift; path = Sentinel/Classes/EmailSender/EmailSenderView.swift; sourceTree = "<group>"; };
 		356E8940625FEE8672F894BDB5410CA5 /* Pods-MacOSExample */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-MacOSExample"; path = Pods_MacOSExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3580F62F6B2A1AD3BDEEC779912CE9C3 /* Pods-MacOSExample-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MacOSExample-acknowledgements.markdown"; sourceTree = "<group>"; };
 		35AB5DA2955B4E68B4309192408426E5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		36387C1B7F86AE5BE78E4A34913AAFA4 /* assets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = assets.xcassets; sourceTree = "<group>"; };
 		375283A79796DB2267F8D9984E45DAFB /* Sentinel.common.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Sentinel.common.modulemap; sourceTree = "<group>"; };
 		38D91003063B22A865AA9912B34E60C7 /* CustomInfoTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CustomInfoTool.swift; path = Sentinel/Classes/Core/CustomInfoTool.swift; sourceTree = "<group>"; };
 		3AE5CC8CC8AC1CA0DBC591F079DD5C38 /* Sentinel.common-EmailSender-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Sentinel.common-EmailSender-umbrella.h"; path = "../Sentinel.common-EmailSender/Sentinel.common-EmailSender-umbrella.h"; sourceTree = "<group>"; };
+		3B0EBE1DCCAE5F7380950B892B81D2CC /* Pods-Example-iOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Example-iOS-Info.plist"; sourceTree = "<group>"; };
 		3B9DA1709DA51F42C793ED561F733F1C /* ToolTableSection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ToolTableSection.swift; path = Sentinel/Classes/Core/ToolTableSection.swift; sourceTree = "<group>"; };
 		3D31A3FF32C2DDE20C9C05EF731B3E28 /* MemoryInfoProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MemoryInfoProvider.swift; sourceTree = "<group>"; };
 		3F84DF116342340B8F03D191AB175FCB /* Sentinel.common-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Sentinel.common-dummy.m"; sourceTree = "<group>"; };
 		3FA9111D564498A488095D59BD20FE64 /* Sentinel.common-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Sentinel.common-umbrella.h"; sourceTree = "<group>"; };
 		45AC1C5ADF97941EDD7363A99BB23705 /* Sentinel.common-EmailSender-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Sentinel.common-EmailSender-dummy.m"; path = "../Sentinel.common-EmailSender/Sentinel.common-EmailSender-dummy.m"; sourceTree = "<group>"; };
 		4BA445BC0716FCA6442E3CFDC8694B95 /* ToolTableItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ToolTableItem.swift; path = Sentinel/Classes/Core/ToolTableItem.swift; sourceTree = "<group>"; };
-		4BA773C2B4ADFBA5631FD4A5356BE439 /* Pods-MacOSExample-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MacOSExample-frameworks.sh"; sourceTree = "<group>"; };
 		4C8016EA23C99362F29A2E0A34A25654 /* Sentinel.common-EmailSender-Sentinel */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "Sentinel.common-EmailSender-Sentinel"; path = Sentinel.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D4631FAF1B51BA65A7870CD077B30A3 /* Pods-Example-iOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Example-iOS-dummy.m"; sourceTree = "<group>"; };
 		5146150400E0A854BBDB2CE513EE9A2C /* TextEditingTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextEditingTool.swift; path = Sentinel/Classes/TextEditing/TextEditingTool.swift; sourceTree = "<group>"; };
+		517E732B4BC13E1B97F0B343E7371EF7 /* Pods-MacOSExample-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MacOSExample-acknowledgements.plist"; sourceTree = "<group>"; };
 		53601A34C92EE8EA0DE2138F8FBB492E /* ToggleToolItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ToggleToolItem.swift; sourceTree = "<group>"; };
-		53AC122686668A4780DA89A7B148C35B /* Pods-Sentinel_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Sentinel_Example.modulemap"; sourceTree = "<group>"; };
-		560669328C8C786424FCC6E775A041CB /* Pods-Sentinel_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Sentinel_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		57636CCF3CC9CBD2E936BAC46F6F7D47 /* MailData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MailData.swift; path = Sentinel/Classes/EmailSender/MailData.swift; sourceTree = "<group>"; };
 		5C832404133F0DA2A4DB047FF9782092 /* PerformanceToolView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PerformanceToolView.swift; sourceTree = "<group>"; };
+		5F88ECACDD5295EF163C4DEA4DF9257A /* Pods-Example-iOS-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Example-iOS-acknowledgements.markdown"; sourceTree = "<group>"; };
+		62D71B6CC2D63C9EDD34FE342BD5BBF6 /* Pods-Example-iOS */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-Example-iOS"; path = Pods_Example_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		65C9954C4CF9EB181467C37DE9785CCF /* Pods-Sentinel_Tests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-Sentinel_Tests"; path = Pods_Sentinel_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		660EE269B65A09C955344E2AC2A7EF21 /* SentinelTabItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SentinelTabItem.swift; sourceTree = "<group>"; };
+		671A9F1A4878CDA6AA446E08BC07C56F /* Pods-Sentinel_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Sentinel_Tests-Info.plist"; sourceTree = "<group>"; };
 		68F0200009E643ACC6CC2B556F1DF623 /* Sentinel.common-EmailSender.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Sentinel.common-EmailSender.release.xcconfig"; path = "../Sentinel.common-EmailSender/Sentinel.common-EmailSender.release.xcconfig"; sourceTree = "<group>"; };
-		6C33BEA39CBBA600FFBE0ABFDF29F593 /* Pods-MacOSExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MacOSExample.release.xcconfig"; sourceTree = "<group>"; };
 		6C9E5A0D192A11A6A384BEFAD0AFFDA1 /* UserDefaultsTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UserDefaultsTool.swift; path = Sentinel/Classes/UserDefaults/UserDefaultsTool.swift; sourceTree = "<group>"; };
-		6CE1EB460D03DD63756EF3D37763CFED /* Pods-Sentinel_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Sentinel_Tests-umbrella.h"; sourceTree = "<group>"; };
 		71D900A999F246A516960FC2625719B5 /* Sentinel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Sentinel.swift; path = Sentinel/Classes/Core/Sentinel.swift; sourceTree = "<group>"; };
 		7255425A10CB2340B1884DF51E76CCC5 /* Sentinel.common-EmailSender-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Sentinel.common-EmailSender-prefix.pch"; path = "../Sentinel.common-EmailSender/Sentinel.common-EmailSender-prefix.pch"; sourceTree = "<group>"; };
 		7618AC4785819FF343486BCE498BB011 /* UserDefaultsToolViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UserDefaultsToolViewModel.swift; path = Sentinel/Classes/UserDefaults/UserDefaultsToolViewModel.swift; sourceTree = "<group>"; };
-		7E49425DF917811B575F2687575FE923 /* Pods-Sentinel_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Sentinel_Tests-Info.plist"; sourceTree = "<group>"; };
+		772A8AC51425546A4A7B6F354CE61E7D /* Pods-MacOSExample-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MacOSExample-umbrella.h"; sourceTree = "<group>"; };
 		830EA6B55819B101E9C70110332A67C3 /* Sentinel.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = Sentinel.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		85BE60EB3B3DCFC45ACF6111BCC28BFD /* ApplicationTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ApplicationTool.swift; sourceTree = "<group>"; };
-		8B01022844B5D06E0F93B723A3B49DB4 /* Pods-MacOSExample-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MacOSExample-dummy.m"; sourceTree = "<group>"; };
 		8B35C3129ED1B505EAEB1B9FE15D56EC /* DeviceTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DeviceTool.swift; sourceTree = "<group>"; };
 		932F948C141039C8FD3BC908FB6E0A6F /* CPUInfoProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPUInfoProvider.swift; sourceTree = "<group>"; };
+		96EAEFA17AFB4A5CEEA062F43EDA3E15 /* Pods-Example-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Example-iOS.modulemap"; sourceTree = "<group>"; };
 		9790789C0E9D750628315B4F8C91EFDD /* TitleValueView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TitleValueView.swift; sourceTree = "<group>"; };
-		9A747EABA59660134D2C0FB27C9FB07A /* Pods-Sentinel_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Sentinel_Example-dummy.m"; sourceTree = "<group>"; };
-		9CBF94EE2267AF4FC2AAF0410678A430 /* Pods-Sentinel_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Sentinel_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		9D22D55282ED2E82E5B29AEB4938F453 /* Sentinel.common-EmailSender.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Sentinel.common-EmailSender.debug.xcconfig"; path = "../Sentinel.common-EmailSender/Sentinel.common-EmailSender.debug.xcconfig"; sourceTree = "<group>"; };
 		9D32FA2565EA9C6DCFEA7E2254C21F9B /* CustomInfoToolSection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CustomInfoToolSection.swift; path = Sentinel/Classes/Core/CustomInfoToolSection.swift; sourceTree = "<group>"; };
 		9D492D1F1482CDBC530E331D3748EEA3 /* Image+Assets.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Image+Assets.swift"; sourceTree = "<group>"; };
+		9D8FC4E58927916927C1A82FCCAABFEC /* Pods-Example-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Example-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9EED2B67FA3973EE361CFED7B88EEA60 /* ResourceBundle-Sentinel-Sentinel.common-EmailSender-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = "ResourceBundle-Sentinel-Sentinel.common-EmailSender-Info.plist"; path = "../Sentinel.common-EmailSender/ResourceBundle-Sentinel-Sentinel.common-EmailSender-Info.plist"; sourceTree = "<group>"; };
 		A17C868C86BBDD96741E1D2718C27C8F /* SystemInfoProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SystemInfoProvider.swift; sourceTree = "<group>"; };
-		A38B28D6AB1BF9F4C1E0A0215B5CB0F8 /* Pods-Sentinel_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Sentinel_Example-Info.plist"; sourceTree = "<group>"; };
-		A81788E536A98A9B8490B30354F80923 /* Pods-Sentinel_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Sentinel_Example.release.xcconfig"; sourceTree = "<group>"; };
-		A94616E1BEA73AA34C24FDEFD7C7A612 /* Pods-MacOSExample.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-MacOSExample.modulemap"; sourceTree = "<group>"; };
-		AD36F3D7385AE7F7396AB00D5B3F26E8 /* Pods-Sentinel_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Sentinel_Example-frameworks.sh"; sourceTree = "<group>"; };
+		A70FBFCFD3144C63923E11589DD80BEE /* Pods-Example-iOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Example-iOS-umbrella.h"; sourceTree = "<group>"; };
 		AE2426203A97240D7A9B7639E1FB1407 /* Sentinel.common-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Sentinel.common-prefix.pch"; sourceTree = "<group>"; };
 		AE66D664731BFD022222A54AA7DE5F9F /* SourceScreenProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SourceScreenProvider.swift; path = Sentinel/Classes/Core/SourceScreenProvider.swift; sourceTree = "<group>"; };
 		B3352C96EDC1113E49D52DC40128D843 /* PerformanceTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PerformanceTool.swift; sourceTree = "<group>"; };
-		B471D0A2978E02B314FBB6DE9ABDAEAC /* Pods-Sentinel_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Sentinel_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		B56E9C23487557D29977F4F3ACE2D09A /* Pods-MacOSExample-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MacOSExample-acknowledgements.markdown"; sourceTree = "<group>"; };
+		B43A6590EFD90755912CDC155D276E9D /* Pods-MacOSExample-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MacOSExample-Info.plist"; sourceTree = "<group>"; };
 		B94E0E9973A729EEB28873F3E34803D3 /* ResourceBundle-Sentinel-Sentinel.common-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-Sentinel-Sentinel.common-Info.plist"; sourceTree = "<group>"; };
 		BA24D8353675AD25420CCF7889F40270 /* Sentinel.common.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Sentinel.common.release.xcconfig; sourceTree = "<group>"; };
 		BC361EF58FE7E15F1F854F397B3AB43C /* Sentinel.common-EmailSender */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Sentinel.common-EmailSender"; path = Sentinel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC71AB30085C21FCBF09BDA83BB570F0 /* Sentinel.common-EmailSender.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; name = "Sentinel.common-EmailSender.modulemap"; path = "../Sentinel.common-EmailSender/Sentinel.common-EmailSender.modulemap"; sourceTree = "<group>"; };
-		BD7D8D3DD85C8832400A63649CC9DBF7 /* Pods-Sentinel_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Sentinel_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		BFA6D467FCC296A140DB311D3E7FB1AD /* EmailSenderTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EmailSenderTool.swift; path = Sentinel/Classes/EmailSender/EmailSenderTool.swift; sourceTree = "<group>"; };
-		C48FFB5EBB07D47A9190049C94C72697 /* Pods-MacOSExample-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MacOSExample-acknowledgements.plist"; sourceTree = "<group>"; };
+		C15799B9B9A4155E88D28BBC03493806 /* Pods-Sentinel_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Sentinel_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		C59C7CF12F23B42629CC5D8D18C09106 /* Sentinel.common.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Sentinel.common.debug.xcconfig; sourceTree = "<group>"; };
 		CCFA8829651AF52D362F85A132603E98 /* OptionToggleView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OptionToggleView.swift; sourceTree = "<group>"; };
 		CD0B738FB791FF0ABD689601CF152E85 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
-		CEF8E0AE9D9E256230384B3F2794C32B /* Pods-Sentinel_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Sentinel_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		CEA09DDD5AB54B9C75444744D1456EEF /* Pods-MacOSExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MacOSExample.debug.xcconfig"; sourceTree = "<group>"; };
+		CFD1DC52A9BAAC3B8BD73373EC6C01F5 /* Pods-MacOSExample-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MacOSExample-frameworks.sh"; sourceTree = "<group>"; };
 		D9B0FEE41526D9DDEAD2F37ACFD9C6D0 /* TextEditingToolView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextEditingToolView.swift; path = Sentinel/Classes/TextEditing/TextEditingToolView.swift; sourceTree = "<group>"; };
 		DA72F1639DF19831E97E97188914A47B /* EmailSenderErrorView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EmailSenderErrorView.swift; path = Sentinel/Classes/EmailSender/EmailSenderErrorView.swift; sourceTree = "<group>"; };
+		DE8AB86F006E3E5A969F58776ADC514F /* Pods-Sentinel_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Sentinel_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		E0D0BEAB44B4BD615130D80D9AE398F5 /* Pods-Sentinel_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Sentinel_Tests-umbrella.h"; sourceTree = "<group>"; };
 		E9F3CCCD3A6F66C01DB710E25A4A5A5C /* SentinelInternal.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SentinelInternal.swift; sourceTree = "<group>"; };
-		F4A9B14258CE10FBC253BB5B34DAAE75 /* Pods-Sentinel_Example */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-Sentinel_Example"; path = Pods_Sentinel_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4AF9598BB51A8C6DEC17917F04A3F66 /* ToolTable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ToolTable.swift; path = Sentinel/Classes/Core/ToolTable.swift; sourceTree = "<group>"; };
 		F7FAA94CD4A45DE6779FEE88D83A9D80 /* Tool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Tool.swift; path = Sentinel/Classes/Core/Tool.swift; sourceTree = "<group>"; };
 		F823F3DF2D2500F3184E04DB6DB60662 /* NavigationToolTableItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NavigationToolTableItem.swift; sourceTree = "<group>"; };
@@ -269,11 +269,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		35E463148D7B3E8093225C4962C0E56A /* Frameworks */ = {
+		1E3F51ADD6117BF331C6053DCBE72B10 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0207938303F4B09B48174B79120233BB /* Foundation.framework in Frameworks */,
+				5C2ED674D8E14FCE8222B53246DCD844 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +282,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				90FA0A11A59DD826C1EB7EFCC9593D2D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		77FF5BA843C9138B08FB1418092E9845 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D17F42184E1A508989676B20E17973E2 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,14 +305,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD511A5333BD665D67C968AE2BDCFD2D /* Cocoa.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		999F5BBC74EF38608DFCDE39B2FBE401 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8A773626D56BA7BB7F7DD74AF9AFD0D7 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,76 +377,12 @@
 			path = Sentinel/Classes/Core/PerformanceInfo;
 			sourceTree = "<group>";
 		};
-		4D35BFF9D3212D827346EA7A0927F020 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				356E8940625FEE8672F894BDB5410CA5 /* Pods-MacOSExample */,
-				F4A9B14258CE10FBC253BB5B34DAAE75 /* Pods-Sentinel_Example */,
-				65C9954C4CF9EB181467C37DE9785CCF /* Pods-Sentinel_Tests */,
-				1A92A6E54C25D58ECFB93E03DD9480D4 /* Sentinel.common */,
-				BC361EF58FE7E15F1F854F397B3AB43C /* Sentinel.common-EmailSender */,
-				4C8016EA23C99362F29A2E0A34A25654 /* Sentinel.common-EmailSender-Sentinel */,
-				17BE64710C0606EEC8BDB81D450D2349 /* Sentinel.common-Sentinel */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		4ED5EC21FC4B5413DC7E698D32F2AF25 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
 				B3CFA310181B660F0AD04B1F48F04394 /* Sentinel */,
 			);
 			name = "Development Pods";
-			sourceTree = "<group>";
-		};
-		5237AD71E43DD2C5E1FC80DACFCBE6D8 /* Pods-MacOSExample */ = {
-			isa = PBXGroup;
-			children = (
-				A94616E1BEA73AA34C24FDEFD7C7A612 /* Pods-MacOSExample.modulemap */,
-				B56E9C23487557D29977F4F3ACE2D09A /* Pods-MacOSExample-acknowledgements.markdown */,
-				C48FFB5EBB07D47A9190049C94C72697 /* Pods-MacOSExample-acknowledgements.plist */,
-				8B01022844B5D06E0F93B723A3B49DB4 /* Pods-MacOSExample-dummy.m */,
-				4BA773C2B4ADFBA5631FD4A5356BE439 /* Pods-MacOSExample-frameworks.sh */,
-				2A6CA9BF91722D330CBE24F5926AFC62 /* Pods-MacOSExample-Info.plist */,
-				109213727B303726BFF022527BB1C189 /* Pods-MacOSExample-umbrella.h */,
-				044A11DBA25F058332AB51F249405903 /* Pods-MacOSExample.debug.xcconfig */,
-				6C33BEA39CBBA600FFBE0ABFDF29F593 /* Pods-MacOSExample.release.xcconfig */,
-			);
-			name = "Pods-MacOSExample";
-			path = "Target Support Files/Pods-MacOSExample";
-			sourceTree = "<group>";
-		};
-		529DD6490696B9ECD0CE29D15BEAB0C3 /* Pods-Sentinel_Example */ = {
-			isa = PBXGroup;
-			children = (
-				53AC122686668A4780DA89A7B148C35B /* Pods-Sentinel_Example.modulemap */,
-				2EF7EF329DE3281047C25EF3AC77C795 /* Pods-Sentinel_Example-acknowledgements.markdown */,
-				B471D0A2978E02B314FBB6DE9ABDAEAC /* Pods-Sentinel_Example-acknowledgements.plist */,
-				9A747EABA59660134D2C0FB27C9FB07A /* Pods-Sentinel_Example-dummy.m */,
-				AD36F3D7385AE7F7396AB00D5B3F26E8 /* Pods-Sentinel_Example-frameworks.sh */,
-				A38B28D6AB1BF9F4C1E0A0215B5CB0F8 /* Pods-Sentinel_Example-Info.plist */,
-				297157DC0A97E7A53EFF4B590647C4AB /* Pods-Sentinel_Example-umbrella.h */,
-				CEF8E0AE9D9E256230384B3F2794C32B /* Pods-Sentinel_Example.debug.xcconfig */,
-				A81788E536A98A9B8490B30354F80923 /* Pods-Sentinel_Example.release.xcconfig */,
-			);
-			name = "Pods-Sentinel_Example";
-			path = "Target Support Files/Pods-Sentinel_Example";
-			sourceTree = "<group>";
-		};
-		685D30EF38F4982FA873AF0E99BC2B47 /* Pods-Sentinel_Tests */ = {
-			isa = PBXGroup;
-			children = (
-				316836659026E5D02FBB5F70A2829659 /* Pods-Sentinel_Tests.modulemap */,
-				BD7D8D3DD85C8832400A63649CC9DBF7 /* Pods-Sentinel_Tests-acknowledgements.markdown */,
-				9CBF94EE2267AF4FC2AAF0410678A430 /* Pods-Sentinel_Tests-acknowledgements.plist */,
-				20CEE3719B76B3B187D29A3C24ECB8EE /* Pods-Sentinel_Tests-dummy.m */,
-				7E49425DF917811B575F2687575FE923 /* Pods-Sentinel_Tests-Info.plist */,
-				6CE1EB460D03DD63756EF3D37763CFED /* Pods-Sentinel_Tests-umbrella.h */,
-				560669328C8C786424FCC6E775A041CB /* Pods-Sentinel_Tests.debug.xcconfig */,
-				2D9CDE622D5C8E1E3ABC3F2F00E209E2 /* Pods-Sentinel_Tests.release.xcconfig */,
-			);
-			name = "Pods-Sentinel_Tests";
-			path = "Target Support Files/Pods-Sentinel_Tests";
 			sourceTree = "<group>";
 		};
 		7398E7A1CD8580BFF44887751D234408 /* Pod */ = {
@@ -491,14 +427,20 @@
 			path = "Example/Pods/Target Support Files/Sentinel.common";
 			sourceTree = "<group>";
 		};
-		88DAF1976144A5BBFF9E64F9022C9B48 /* Targets Support Files */ = {
+		8BF21191A7D63D5CE9DA92537AE3E7BB /* Pods-Sentinel_Tests */ = {
 			isa = PBXGroup;
 			children = (
-				5237AD71E43DD2C5E1FC80DACFCBE6D8 /* Pods-MacOSExample */,
-				529DD6490696B9ECD0CE29D15BEAB0C3 /* Pods-Sentinel_Example */,
-				685D30EF38F4982FA873AF0E99BC2B47 /* Pods-Sentinel_Tests */,
+				312FC899DF0CFA33A3C79629A46263AA /* Pods-Sentinel_Tests.modulemap */,
+				DE8AB86F006E3E5A969F58776ADC514F /* Pods-Sentinel_Tests-acknowledgements.markdown */,
+				2F466B5D214BCB711ECD84D2AC4A05B4 /* Pods-Sentinel_Tests-acknowledgements.plist */,
+				1690D6FEFC2C659338BDD9047FEDB522 /* Pods-Sentinel_Tests-dummy.m */,
+				671A9F1A4878CDA6AA446E08BC07C56F /* Pods-Sentinel_Tests-Info.plist */,
+				E0D0BEAB44B4BD615130D80D9AE398F5 /* Pods-Sentinel_Tests-umbrella.h */,
+				1D0F617F0F6907CB698D1C312EE96F16 /* Pods-Sentinel_Tests.debug.xcconfig */,
+				C15799B9B9A4155E88D28BBC03493806 /* Pods-Sentinel_Tests.release.xcconfig */,
 			);
-			name = "Targets Support Files";
+			name = "Pods-Sentinel_Tests";
+			path = "Target Support Files/Pods-Sentinel_Tests";
 			sourceTree = "<group>";
 		};
 		8F46C597F0DDBE63D652977FFE230D1F /* Assets */ = {
@@ -508,6 +450,20 @@
 			);
 			name = Assets;
 			path = Sentinel/Assets;
+			sourceTree = "<group>";
+		};
+		935613DD4455CED221D99D21FC97D558 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				62D71B6CC2D63C9EDD34FE342BD5BBF6 /* Pods-Example-iOS */,
+				356E8940625FEE8672F894BDB5410CA5 /* Pods-MacOSExample */,
+				65C9954C4CF9EB181467C37DE9785CCF /* Pods-Sentinel_Tests */,
+				1A92A6E54C25D58ECFB93E03DD9480D4 /* Sentinel.common */,
+				BC361EF58FE7E15F1F854F397B3AB43C /* Sentinel.common-EmailSender */,
+				4C8016EA23C99362F29A2E0A34A25654 /* Sentinel.common-EmailSender-Sentinel */,
+				17BE64710C0606EEC8BDB81D450D2349 /* Sentinel.common-Sentinel */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		99697F63D44834E9BBFA793038B8E5D7 /* Internal */ = {
@@ -565,14 +521,24 @@
 			path = ../..;
 			sourceTree = "<group>";
 		};
+		C9F38CABB95757DA90B0E473B3AF240B /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				F2DCDB6F28FA25209CD7994639E460B9 /* Pods-Example-iOS */,
+				F6373B6278A0E34DAAEDF976E119F196 /* Pods-MacOSExample */,
+				8BF21191A7D63D5CE9DA92537AE3E7BB /* Pods-Sentinel_Tests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				4ED5EC21FC4B5413DC7E698D32F2AF25 /* Development Pods */,
 				16C2DDD7ACBF27A6F430D467E2E6AAD4 /* Frameworks */,
-				4D35BFF9D3212D827346EA7A0927F020 /* Products */,
-				88DAF1976144A5BBFF9E64F9022C9B48 /* Targets Support Files */,
+				935613DD4455CED221D99D21FC97D558 /* Products */,
+				C9F38CABB95757DA90B0E473B3AF240B /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -611,6 +577,40 @@
 			path = Sentinel/Classes/Core/ToolTableItems;
 			sourceTree = "<group>";
 		};
+		F2DCDB6F28FA25209CD7994639E460B9 /* Pods-Example-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				96EAEFA17AFB4A5CEEA062F43EDA3E15 /* Pods-Example-iOS.modulemap */,
+				5F88ECACDD5295EF163C4DEA4DF9257A /* Pods-Example-iOS-acknowledgements.markdown */,
+				007F31AC3AB54B1E58D4366F290FE70B /* Pods-Example-iOS-acknowledgements.plist */,
+				4D4631FAF1B51BA65A7870CD077B30A3 /* Pods-Example-iOS-dummy.m */,
+				0A119B0AF9BF7B0E6AA4FB62E5E54CD9 /* Pods-Example-iOS-frameworks.sh */,
+				3B0EBE1DCCAE5F7380950B892B81D2CC /* Pods-Example-iOS-Info.plist */,
+				A70FBFCFD3144C63923E11589DD80BEE /* Pods-Example-iOS-umbrella.h */,
+				3237F9437BD2F0365967F6CF33DD67E1 /* Pods-Example-iOS.debug.xcconfig */,
+				9D8FC4E58927916927C1A82FCCAABFEC /* Pods-Example-iOS.release.xcconfig */,
+			);
+			name = "Pods-Example-iOS";
+			path = "Target Support Files/Pods-Example-iOS";
+			sourceTree = "<group>";
+		};
+		F6373B6278A0E34DAAEDF976E119F196 /* Pods-MacOSExample */ = {
+			isa = PBXGroup;
+			children = (
+				203A38A06D8B054C788F58837448EC05 /* Pods-MacOSExample.modulemap */,
+				3580F62F6B2A1AD3BDEEC779912CE9C3 /* Pods-MacOSExample-acknowledgements.markdown */,
+				517E732B4BC13E1B97F0B343E7371EF7 /* Pods-MacOSExample-acknowledgements.plist */,
+				2E61BFB2C94FCA21DA96797053317C55 /* Pods-MacOSExample-dummy.m */,
+				CFD1DC52A9BAAC3B8BD73373EC6C01F5 /* Pods-MacOSExample-frameworks.sh */,
+				B43A6590EFD90755912CDC155D276E9D /* Pods-MacOSExample-Info.plist */,
+				772A8AC51425546A4A7B6F354CE61E7D /* Pods-MacOSExample-umbrella.h */,
+				CEA09DDD5AB54B9C75444744D1456EEF /* Pods-MacOSExample.debug.xcconfig */,
+				082FFF40BA738290F8F13BD3EA9A73E9 /* Pods-MacOSExample.release.xcconfig */,
+			);
+			name = "Pods-MacOSExample";
+			path = "Target Support Files/Pods-MacOSExample";
+			sourceTree = "<group>";
+		};
 		FE852ED1BB546690B88FBEA391D46E8A /* EmailSender */ = {
 			isa = PBXGroup;
 			children = (
@@ -625,27 +625,11 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		0D7BD443CFBF573516FCB200F8652393 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D282775138FB2134E857AD3B294517B6 /* Pods-Sentinel_Example-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		1C7F114F0410291D15F6E29CBB251FF4 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				AE60E405EF157E529935D1BA9644C305 /* Pods-MacOSExample-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2440D773E8F682B608D8A4DBEFE07BA6 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1CD052257A420FAAC70A4CAE5342EA11 /* Pods-Sentinel_Tests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -662,6 +646,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C614AEF5B86AE183CAA3DB3DD9E7925 /* Sentinel.common-EmailSender-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A73F59A1046829C8F5013C3D39477DFB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				112566533BE0A421ACD8CAB0ACE3E56D /* Pods-Example-iOS-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA3D1A73D4F33C211C395C3879E82C78 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				468C570C4F6C12EEDBDEEEE8FE32677B /* Pods-Sentinel_Tests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -687,38 +687,19 @@
 			productReference = 1A92A6E54C25D58ECFB93E03DD9480D4 /* Sentinel.common */;
 			productType = "com.apple.product-type.framework";
 		};
-		254C1FBF05728FD8BE3AFCBC3F313646 /* Pods-Sentinel_Example */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8A0487C44C71A578A8D92A8AC723D44B /* Build configuration list for PBXNativeTarget "Pods-Sentinel_Example" */;
-			buildPhases = (
-				0D7BD443CFBF573516FCB200F8652393 /* Headers */,
-				8095AC80D7F7B2B9FFDD5243B005C1C3 /* Sources */,
-				999F5BBC74EF38608DFCDE39B2FBE401 /* Frameworks */,
-				FCC6DA5FF2113866E3F1555E8C2257EB /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				0B46F0A650E5AA55A320842854F20DE7 /* PBXTargetDependency */,
-			);
-			name = "Pods-Sentinel_Example";
-			productName = Pods_Sentinel_Example;
-			productReference = F4A9B14258CE10FBC253BB5B34DAAE75 /* Pods-Sentinel_Example */;
-			productType = "com.apple.product-type.framework";
-		};
 		456B9E0EFF5B252F2D01BD09BEE7094C /* Pods-Sentinel_Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 90A20A902093842EAA6A5881461A2736 /* Build configuration list for PBXNativeTarget "Pods-Sentinel_Tests" */;
+			buildConfigurationList = 04C20DA8E1919611CFE7B1C205B6E972 /* Build configuration list for PBXNativeTarget "Pods-Sentinel_Tests" */;
 			buildPhases = (
-				2440D773E8F682B608D8A4DBEFE07BA6 /* Headers */,
-				ABE7EBBC64A9E0D16DD5C7656B5DEDC1 /* Sources */,
-				35E463148D7B3E8093225C4962C0E56A /* Frameworks */,
-				95451725A399C85BBB01541C60E89EA5 /* Resources */,
+				AA3D1A73D4F33C211C395C3879E82C78 /* Headers */,
+				6A4A59A6EEBC7DACF8244AEABC812DCA /* Sources */,
+				77FF5BA843C9138B08FB1418092E9845 /* Frameworks */,
+				2FF14018675FA49286ABB0FCF5E94632 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				6D90F339B68958882A4096BC9E9F6B37 /* PBXTargetDependency */,
+				B92383C4653A502A24F626C9D87A57A1 /* PBXTargetDependency */,
 			);
 			name = "Pods-Sentinel_Tests";
 			productName = Pods_Sentinel_Tests;
@@ -742,6 +723,25 @@
 			name = "Sentinel.common-EmailSender";
 			productName = Sentinel;
 			productReference = BC361EF58FE7E15F1F854F397B3AB43C /* Sentinel.common-EmailSender */;
+			productType = "com.apple.product-type.framework";
+		};
+		B448AC191110D164125F599EA0AC2249 /* Pods-Example-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CDDA7D21E6DB762A76B64E214F93E437 /* Build configuration list for PBXNativeTarget "Pods-Example-iOS" */;
+			buildPhases = (
+				A73F59A1046829C8F5013C3D39477DFB /* Headers */,
+				D6411E8A63BA2A7EF3B93F6453EF1962 /* Sources */,
+				1E3F51ADD6117BF331C6053DCBE72B10 /* Frameworks */,
+				7776B7F2901279C9DA35350B775F0775 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F47AC5F72BC53AB347EB0F0D8D559B06 /* PBXTargetDependency */,
+			);
+			name = "Pods-Example-iOS";
+			productName = Pods_Example_iOS;
+			productReference = 62D71B6CC2D63C9EDD34FE342BD5BBF6 /* Pods-Example-iOS */;
 			productType = "com.apple.product-type.framework";
 		};
 		CF8141917D9726F8BB1A183B81449CCA /* Pods-MacOSExample */ = {
@@ -817,12 +817,12 @@
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
 			minimizedProjectReferenceProxies = 0;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 4D35BFF9D3212D827346EA7A0927F020 /* Products */;
+			productRefGroup = 935613DD4455CED221D99D21FC97D558 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				B448AC191110D164125F599EA0AC2249 /* Pods-Example-iOS */,
 				CF8141917D9726F8BB1A183B81449CCA /* Pods-MacOSExample */,
-				254C1FBF05728FD8BE3AFCBC3F313646 /* Pods-Sentinel_Example */,
 				456B9E0EFF5B252F2D01BD09BEE7094C /* Pods-Sentinel_Tests */,
 				020385992F50562D5823624BCBE4B0B6 /* Sentinel.common */,
 				AF6DDE5E8E233521CF9BB06E9C60A61F /* Sentinel.common-EmailSender */,
@@ -833,6 +833,13 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		2FF14018675FA49286ABB0FCF5E94632 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4270FE9AD3CBC954A167C756E14F8F33 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -851,7 +858,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		95451725A399C85BBB01541C60E89EA5 /* Resources */ = {
+		7776B7F2901279C9DA35350B775F0775 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -875,13 +882,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		FB776F5131CC5B91F93C678A6A87EF86 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FCC6DA5FF2113866E3F1555E8C2257EB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -996,11 +996,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8095AC80D7F7B2B9FFDD5243B005C1C3 /* Sources */ = {
+		6A4A59A6EEBC7DACF8244AEABC812DCA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				786E86786710AD39B296E11C654FF62C /* Pods-Sentinel_Example-dummy.m in Sources */,
+				7FA2AD669D45F4B37EABD395471156E3 /* Pods-Sentinel_Tests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1019,34 +1019,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		ABE7EBBC64A9E0D16DD5C7656B5DEDC1 /* Sources */ = {
+		D6411E8A63BA2A7EF3B93F6453EF1962 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A210F0D0137B7C094242C17CC0B4EBF /* Pods-Sentinel_Tests-dummy.m in Sources */,
+				86C1B27FEE86F85B65B3BC8BEC96EEDD /* Pods-Example-iOS-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		0B46F0A650E5AA55A320842854F20DE7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Sentinel.common-EmailSender";
-			target = AF6DDE5E8E233521CF9BB06E9C60A61F /* Sentinel.common-EmailSender */;
-			targetProxy = 40A1222679F01AD980F561D38B0C6346 /* PBXContainerItemProxy */;
-		};
 		20FA98BBE1E18A1A50B346AD90B23909 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Sentinel.common-Sentinel";
 			target = E71FD70A1DD1F440A3204231CCAB3F44 /* Sentinel.common-Sentinel */;
 			targetProxy = 01A352316834B1F9F47C8BFD6B4FDBE0 /* PBXContainerItemProxy */;
-		};
-		6D90F339B68958882A4096BC9E9F6B37 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Pods-Sentinel_Example";
-			target = 254C1FBF05728FD8BE3AFCBC3F313646 /* Pods-Sentinel_Example */;
-			targetProxy = 1318A8D6D6A8E611AF20199845F3A7F1 /* PBXContainerItemProxy */;
 		};
 		A12A2C575CC339B1895A9E1739CF25CD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1060,9 +1048,130 @@
 			target = E95B1882C5B285D7103685E0C70DFC98 /* Sentinel.common-EmailSender-Sentinel */;
 			targetProxy = EFFC0E124D4240458E6D5DF954F482FD /* PBXContainerItemProxy */;
 		};
+		B92383C4653A502A24F626C9D87A57A1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Example-iOS";
+			target = B448AC191110D164125F599EA0AC2249 /* Pods-Example-iOS */;
+			targetProxy = E65939CEA3FF499505C261D6B0C7A03E /* PBXContainerItemProxy */;
+		};
+		F47AC5F72BC53AB347EB0F0D8D559B06 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Sentinel.common-EmailSender";
+			target = AF6DDE5E8E233521CF9BB06E9C60A61F /* Sentinel.common-EmailSender */;
+			targetProxy = 7C2A9FFD8B07FAD7AF5834EA891B51E7 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		0386314A1001E937D9678DF6AC4F6AC4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3237F9437BD2F0365967F6CF33DD67E1 /* Pods-Example-iOS.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				INFOPLIST_FILE = "Target Support Files/Pods-Example-iOS/Pods-Example-iOS-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Example-iOS/Pods-Example-iOS.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		0F248815788F870AE78C76AF7AB27F76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D0F617F0F6907CB698D1C312EE96F16 /* Pods-Sentinel_Tests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				INFOPLIST_FILE = "Target Support Files/Pods-Sentinel_Tests/Pods-Sentinel_Tests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Sentinel_Tests/Pods-Sentinel_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		175C70E1CE50143D2279D2919C6FDE42 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9D8FC4E58927916927C1A82FCCAABFEC /* Pods-Example-iOS.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				INFOPLIST_FILE = "Target Support Files/Pods-Example-iOS/Pods-Example-iOS-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Example-iOS/Pods-Example-iOS.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		17E51884E8A8B9123EB4C6BC86C24F2F /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 68F0200009E643ACC6CC2B556F1DF623 /* Sentinel.common-EmailSender.release.xcconfig */;
@@ -1142,42 +1251,6 @@
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Release;
-		};
-		40B908E91360DD877E8637F739DEA3BB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = CEF8E0AE9D9E256230384B3F2794C32B /* Pods-Sentinel_Example.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_MODULE_VERIFIER = NO;
-				ENABLE_USER_SCRIPT_SANDBOXING = NO;
-				INFOPLIST_FILE = "Target Support Files/Pods-Sentinel_Example/Pods-Sentinel_Example-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Sentinel_Example/Pods-Sentinel_Example.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
 		};
 		50B0DFB3E9D06306D1193035A59A3F4A /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -1302,7 +1375,7 @@
 		};
 		688435624FA1EED6E0F423FBA886D481 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 044A11DBA25F058332AB51F249405903 /* Pods-MacOSExample.debug.xcconfig */;
+			baseConfigurationReference = CEA09DDD5AB54B9C75444744D1456EEF /* Pods-MacOSExample.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
@@ -1370,9 +1443,9 @@
 			};
 			name = Release;
 		};
-		A363C5C3F9207F74B4278ED582B7C7C3 /* Debug */ = {
+		B2DB560C8DD0CF90C305BCD17CCFAC0D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 560669328C8C786424FCC6E775A041CB /* Pods-Sentinel_Tests.debug.xcconfig */;
+			baseConfigurationReference = C15799B9B9A4155E88D28BBC03493806 /* Pods-Sentinel_Tests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
@@ -1401,10 +1474,11 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
 		C653CDDD2061ABADD97639C3EF9DA319 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -1436,80 +1510,6 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		D86DEB168E08C51AA9BB6DF843854F90 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A81788E536A98A9B8490B30354F80923 /* Pods-Sentinel_Example.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_MODULE_VERIFIER = NO;
-				ENABLE_USER_SCRIPT_SANDBOXING = NO;
-				INFOPLIST_FILE = "Target Support Files/Pods-Sentinel_Example/Pods-Sentinel_Example-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Sentinel_Example/Pods-Sentinel_Example.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		E69E0C313D2A1104DDC45EEF4BB53FF4 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2D9CDE622D5C8E1E3ABC3F2F00E209E2 /* Pods-Sentinel_Tests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_MODULE_VERIFIER = NO;
-				ENABLE_USER_SCRIPT_SANDBOXING = NO;
-				INFOPLIST_FILE = "Target Support Files/Pods-Sentinel_Tests/Pods-Sentinel_Tests-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Sentinel_Tests/Pods-Sentinel_Tests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1572,7 +1572,7 @@
 		};
 		FE25EC11DA2CD725EA769B19E68D1FDF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6C33BEA39CBBA600FFBE0ABFDF29F593 /* Pods-MacOSExample.release.xcconfig */;
+			baseConfigurationReference = 082FFF40BA738290F8F13BD3EA9A73E9 /* Pods-MacOSExample.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
@@ -1625,6 +1625,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		04C20DA8E1919611CFE7B1C205B6E972 /* Build configuration list for PBXNativeTarget "Pods-Sentinel_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0F248815788F870AE78C76AF7AB27F76 /* Debug */,
+				B2DB560C8DD0CF90C305BCD17CCFAC0D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1643,24 +1652,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8A0487C44C71A578A8D92A8AC723D44B /* Build configuration list for PBXNativeTarget "Pods-Sentinel_Example" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				40B908E91360DD877E8637F739DEA3BB /* Debug */,
-				D86DEB168E08C51AA9BB6DF843854F90 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		90A20A902093842EAA6A5881461A2736 /* Build configuration list for PBXNativeTarget "Pods-Sentinel_Tests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A363C5C3F9207F74B4278ED582B7C7C3 /* Debug */,
-				E69E0C313D2A1104DDC45EEF4BB53FF4 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		AF078691711525A83DC859E6FFA8374C /* Build configuration list for PBXNativeTarget "Sentinel.common-EmailSender-Sentinel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1675,6 +1666,15 @@
 			buildConfigurations = (
 				FA1C4FCE8381B630A5CBB5468FBFEF39 /* Debug */,
 				9D32C5E0C0D72C454C8BF202084F38AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CDDA7D21E6DB762A76B64E214F93E437 /* Build configuration list for PBXNativeTarget "Pods-Example-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0386314A1001E937D9678DF6AC4F6AC4 /* Debug */,
+				175C70E1CE50143D2279D2919C6FDE42 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

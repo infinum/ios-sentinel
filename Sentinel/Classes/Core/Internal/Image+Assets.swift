@@ -35,7 +35,7 @@ extension Image {
     /// - Parameters:
     ///     - name: Name of the image which will be fetched
     ///     - image: Image which the function will default to if the Image with the provided name wasn not found
-    static func load(using name: String, defaultTo image: Image = .init(systemName: "circle.fill")) -> Image {
+    static func load(using name: String, defaultTo image: Image = Image(systemName: "circle.fill")) -> Image {
         let frameworkBundle = Bundle(for: Sentinel.self)
         guard let frameworkURL = frameworkBundle.resourceURL else { return image }
         return fetchImage(using: name, with: frameworkURL)

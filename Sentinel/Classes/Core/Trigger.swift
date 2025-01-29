@@ -88,7 +88,7 @@ public final class NotificationTrigger: Trigger {
 extension Notification.Name {
 
     /// The notification name for shake event.
-    static var shakeMotionDetected: Notification.Name { .init("sentinel_shake_motion_detected") }
+    static var shakeMotionDetected: Notification.Name { Notification.Name("sentinel_shake_motion_detected") }
 }
 
 #if canImport(UIKit)

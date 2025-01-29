@@ -49,21 +49,9 @@ private extension DeviceTool {
 
     static var section: CustomInfoTool.Section {
         #if os(macOS)
-        CustomInfoTool.Section(title: "Device", items: [
-            .init(title: "Model", value: getModelIdentifier() ?? ""),
-            .init(title: "Name", value: ProcessInfo.processInfo.hostName),
-            .init(title: "System version", value: systemVersion),
-            .init(title: "UUID", value: hardwareDeviceUUID ?? "???")
-        ])
+        macOSSection
         #else
-        CustomInfoTool.Section(title: "Device", items: [
-            .init(title: "Model", value: UIDevice.current.model),
-            .init(title: "Name", value: UIDevice.current.name),
-            .init(title: "System version", value: systemVersion),
-            .init(title: "UUID", value: UIDevice.current.identifierForVendor?.uuidString ?? "???"),
-            .init(title: "Battery state", value: batteryState),
-            .init(title: "Proximity state", value: UIDevice.current.proximityState ? "Close" : "Far")
-        ])
+        iOSSection
         #endif
     }
 
@@ -129,5 +117,28 @@ private extension DeviceTool {
         return valueIdentifier
     }
 
+    static var macOSSection: CustomInfoTool.Section {
+        CustomInfoTool.Section(title: "Device", items: [
+            CustomInfoTool.Item(title: "Model", value: getModelIdentifier() ?? ""),
+            CustomInfoTool.Item(title: "Name", value: ProcessInfo.processInfo.hostName),
+            CustomInfoTool.Item(title: "System version", value: systemVersion),
+            CustomInfoTool.Item(title: "UUID", value: hardwareDeviceUUID ?? "???")
+        ])
+    }
+}
+#else
+
+private extension DeviceTool {
+
+    static var iOSSection: CustomInfoTool.Section {
+        CustomInfoTool.Section(title: "Device", items: [
+            CustomInfoTool.Item(title: "Model", value: UIDevice.current.model),
+            CustomInfoTool.Item(title: "Name", value: UIDevice.current.name),
+            CustomInfoTool.Item(title: "System version", value: systemVersion),
+            CustomInfoTool.Item(title: "UUID", value: UIDevice.current.identifierForVendor?.uuidString ?? "???"),
+            CustomInfoTool.Item(title: "Battery state", value: batteryState),
+            CustomInfoTool.Item(title: "Proximity state", value: UIDevice.current.proximityState ? "Close" : "Far")
+        ])
+    }
 }
 #endif
