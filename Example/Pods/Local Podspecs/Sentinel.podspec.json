@@ -40,50 +40,36 @@
       "name": "UserDefaults",
       "source_files": "Sentinel/Classes/UserDefaults/**/*",
       "dependencies": {
-        "Sentinel/Core": [
-
-        ]
+        "Sentinel/Core": []
       }
     },
     {
       "name": "EmailSender",
       "source_files": "Sentinel/Classes/EmailSender/**/*",
       "dependencies": {
-        "Sentinel/Core": [
-
-        ]
+        "Sentinel/Core": []
       }
     },
     {
       "name": "CustomLocation",
       "source_files": "Sentinel/Classes/CustomLocation/**/*",
       "dependencies": {
-        "Sentinel/Core": [
-
-        ]
+        "Sentinel/Core": []
       }
     },
     {
       "name": "TextEditing",
       "source_files": "Sentinel/Classes/TextEditing/**/*",
       "dependencies": {
-        "Sentinel/Core": [
-
-        ]
+        "Sentinel/Core": []
       }
     },
     {
       "name": "Default",
       "dependencies": {
-        "Sentinel/Core": [
-
-        ],
-        "Sentinel/UserDefaults": [
-
-        ],
-        "Sentinel/TextEditing": [
-
-        ]
+        "Sentinel/Core": [],
+        "Sentinel/UserDefaults": [],
+        "Sentinel/TextEditing": []
       }
     }
   ],

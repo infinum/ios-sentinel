@@ -47,11 +47,11 @@ public extension TextEditingTool {
 
     #if os(macOS)
     func createContent(selection: Binding<String?>) -> any View {
-        TextEditingToolView(viewModel: .init(value: getter(), title: name, didPressSave: store(newValue:)), selection: selection)
+        TextEditingToolView(viewModel: TextEditingToolViewModel(value: getter(), title: name, didPressSave: store(newValue:)), selection: selection)
     }
     #else
     public var content: any View {
-        TextEditingToolView(viewModel: .init(value: getter(), title: name, didPressSave: store(newValue:)))
+        TextEditingToolView(viewModel: TextEditingToolViewModel(value: getter(), title: name, didPressSave: store(newValue:)))
     }
     #endif
 }

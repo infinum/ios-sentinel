@@ -32,11 +32,11 @@ public extension UserDefaultsTool {
 
     #if os(macOS)
     func createContent(selection: Binding<String?>) -> any View {
-        UserDefaultsToolView(viewModel: .init(name: name, userDefaults: userDefaults))
+        UserDefaultsToolView(viewModel: UserDefaultsToolViewModel(name: name, userDefaults: userDefaults))
     }
     #else
     var content: any View {
-        UserDefaultsToolView(viewModel: .init(name: name, userDefaults: userDefaults))
+        UserDefaultsToolView(viewModel: UserDefaultsToolViewModel(name: name, userDefaults: userDefaults))
     }
     #endif
 }

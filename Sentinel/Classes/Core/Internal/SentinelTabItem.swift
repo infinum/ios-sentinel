@@ -68,9 +68,9 @@ private extension SentinelTabItem {
             let navigationItems = items
                 .map { tool in
                     #if os(macOS)
-                    ToolTableItem.navigation(.init(title: tool.name, didSelect: { tool.createContent(selection: $0) }))
+                    ToolTableItem.navigation(NavigationToolItem(title: tool.name, didSelect: { tool.createContent(selection: $0) }))
                     #else
-                    ToolTableItem.navigation(.init(title: tool.name, didSelect: { tool.content }))
+                    ToolTableItem.navigation(NavigationToolItem(title: tool.name, didSelect: { tool.content }))
                     #endif
                 }
             let section = ToolTableSection(title: barItemTitle, items: navigationItems)

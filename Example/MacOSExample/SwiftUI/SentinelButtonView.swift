@@ -14,7 +14,7 @@ struct SentinelButtonView: View {
             Text("Press the button to show Sentinel")
                 .font(.headline)
             Button("Show Sentinel") {
-                NotificationCenter.default.post(name: .init("SomeValue"), object: nil)
+                NotificationCenter.default.post(name: Notification.Name("SomeValue"), object: nil)
             }
         }
     }
