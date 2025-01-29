@@ -9,14 +9,6 @@
 /* Begin PBXBuildFile section */
 		2F26A63341EF29E1CB7FB7D5 /* Pods_Sentinel_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FC3BB07F97FAC49845BABA4 /* Pods_Sentinel_Tests.framework */; };
 		374E1A4D765726F3D1200A1D /* Pods_MacOSExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9101F350532531E42A074C5F /* Pods_MacOSExample.framework */; };
-		377E92762D0C4D660075DFB8 /* ColorChangeToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377E92752D0C4D660075DFB8 /* ColorChangeToolView.swift */; };
-		377E92782D0C4F280075DFB8 /* ColorChangeToolTableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377E92772D0C4F280075DFB8 /* ColorChangeToolTableItem.swift */; };
-		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
-		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
-		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
-		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
-		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
-		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		FB8CAB855118455E23C4AB3D /* Pods_Example_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 946C4EA9599554200E33DF7B /* Pods_Example_iOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,22 +27,9 @@
 		1FC3BB07F97FAC49845BABA4 /* Pods_Sentinel_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sentinel_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		329478E2E1D8ED9BE5D95E7E /* Pods-Sentinel_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sentinel_Tests.release.xcconfig"; path = "Target Support Files/Pods-Sentinel_Tests/Pods-Sentinel_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		376E3A262D3E746A0029DE62 /* MacOSExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacOSExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		377E92752D0C4D660075DFB8 /* ColorChangeToolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorChangeToolView.swift; sourceTree = "<group>"; };
-		377E92772D0C4F280075DFB8 /* ColorChangeToolTableItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorChangeToolTableItem.swift; sourceTree = "<group>"; };
-		45249286AC50F71171FE0FEC /* Pods-Sentinel_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sentinel_Example.debug.xcconfig"; path = "Target Support Files/Pods-Sentinel_Example/Pods-Sentinel_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		4FC51A772513952F00E98846 /* iOSExample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iOSExample-Bridging-Header.h"; sourceTree = "<group>"; };
 		5A59B0E6D9FC1313C6D8DADD /* Pods-Example-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example-iOS.debug.xcconfig"; path = "Target Support Files/Pods-Example-iOS/Pods-Example-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* Example-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Example-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		607FACD71AFB9204008FA782 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* Sentinel_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Sentinel_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		69B7E9610751EFB5BF1327D1 /* Pods-Sentinel_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sentinel_Example.release.xcconfig"; path = "Target Support Files/Pods-Sentinel_Example/Pods-Sentinel_Example.release.xcconfig"; sourceTree = "<group>"; };
 		846398ADE643817AA6044FE0 /* Pods-MacOSExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MacOSExample.debug.xcconfig"; path = "Target Support Files/Pods-MacOSExample/Pods-MacOSExample.debug.xcconfig"; sourceTree = "<group>"; };
 		9101F350532531E42A074C5F /* Pods_MacOSExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MacOSExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		946C4EA9599554200E33DF7B /* Pods_Example_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,8 +40,27 @@
 		D09F06680821D1303C4E1991 /* Pods-Sentinel_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sentinel_Tests.debug.xcconfig"; path = "Target Support Files/Pods-Sentinel_Tests/Pods-Sentinel_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		3789028D2D4A26390088860E /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"Supporting Files/Info.plist",
+			);
+			target = 607FACCF1AFB9204008FA782 /* Example-iOS */;
+		};
+		378902952D4A265A0088860E /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Tests.swift,
+			);
+			target = 607FACE41AFB9204008FA782 /* Sentinel_Tests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		376E3A272D3E746A0029DE62 /* MacOSExample */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = MacOSExample; sourceTree = "<group>"; };
+		378902842D4A26390088860E /* iOSExample */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (3789028D2D4A26390088860E /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = iOSExample; sourceTree = "<group>"; };
+		378902932D4A265A0088860E /* Tests */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (378902952D4A265A0088860E /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Tests; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +95,8 @@
 			isa = PBXGroup;
 			children = (
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
-				607FACD21AFB9204008FA782 /* iOSExample */,
-				607FACE81AFB9204008FA782 /* Tests */,
+				378902842D4A26390088860E /* iOSExample */,
+				378902932D4A265A0088860E /* Tests */,
 				376E3A272D3E746A0029DE62 /* MacOSExample */,
 				607FACD11AFB9204008FA782 /* Products */,
 				9A6135EB77CB7CB35CD695C9 /* Pods */,
@@ -114,47 +112,6 @@
 				376E3A262D3E746A0029DE62 /* MacOSExample.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		607FACD21AFB9204008FA782 /* iOSExample */ = {
-			isa = PBXGroup;
-			children = (
-				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
-				607FACD71AFB9204008FA782 /* ViewController.swift */,
-				607FACD91AFB9204008FA782 /* Main.storyboard */,
-				607FACDC1AFB9204008FA782 /* Images.xcassets */,
-				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
-				607FACD31AFB9204008FA782 /* Supporting Files */,
-				4FC51A772513952F00E98846 /* iOSExample-Bridging-Header.h */,
-				377E92752D0C4D660075DFB8 /* ColorChangeToolView.swift */,
-				377E92772D0C4F280075DFB8 /* ColorChangeToolTableItem.swift */,
-			);
-			path = iOSExample;
-			sourceTree = "<group>";
-		};
-		607FACD31AFB9204008FA782 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				607FACD41AFB9204008FA782 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		607FACE81AFB9204008FA782 /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-				607FACEB1AFB9204008FA782 /* Tests.swift */,
-				607FACE91AFB9204008FA782 /* Supporting Files */,
-			);
-			path = Tests;
-			sourceTree = "<group>";
-		};
-		607FACE91AFB9204008FA782 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				607FACEA1AFB9204008FA782 /* Info.plist */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		607FACF51AFB993E008FA782 /* Podspec Metadata */ = {
@@ -182,8 +139,6 @@
 			children = (
 				846398ADE643817AA6044FE0 /* Pods-MacOSExample.debug.xcconfig */,
 				149D4942A98A05DAE72C5FAD /* Pods-MacOSExample.release.xcconfig */,
-				45249286AC50F71171FE0FEC /* Pods-Sentinel_Example.debug.xcconfig */,
-				69B7E9610751EFB5BF1327D1 /* Pods-Sentinel_Example.release.xcconfig */,
 				D09F06680821D1303C4E1991 /* Pods-Sentinel_Tests.debug.xcconfig */,
 				329478E2E1D8ED9BE5D95E7E /* Pods-Sentinel_Tests.release.xcconfig */,
 				5A59B0E6D9FC1313C6D8DADD /* Pods-Example-iOS.debug.xcconfig */,
@@ -230,6 +185,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				378902842D4A26390088860E /* iOSExample */,
 			);
 			name = "Example-iOS";
 			productName = ToolBox;
@@ -314,9 +272,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
-				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
-				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,10 +401,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
-				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
-				377E92762D0C4D660075DFB8 /* ColorChangeToolView.swift in Sources */,
-				377E92782D0C4F280075DFB8 /* ColorChangeToolTableItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,7 +408,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,25 +420,6 @@
 			targetProxy = 607FACE61AFB9204008FA782 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		607FACD91AFB9204008FA782 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				607FACDA1AFB9204008FA782 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		607FACDE1AFB9204008FA782 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				607FACDF1AFB9204008FA782 /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		376E3A322D3E746C0029DE62 /* Debug */ = {
@@ -687,14 +618,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 5F5M64F878;
-				INFOPLIST_FILE = iOSExample/Info.plist;
+				INFOPLIST_FILE = "iOSExample/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.infinum.demo.Sentinel-Example";
+				PRODUCT_BUNDLE_IDENTIFIER = com.infinum.demo.iOSExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "iOSExample/iOSExample-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -710,14 +641,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 5F5M64F878;
-				INFOPLIST_FILE = iOSExample/Info.plist;
+				INFOPLIST_FILE = "iOSExample/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.infinum.demo.Sentinel-Example";
+				PRODUCT_BUNDLE_IDENTIFIER = com.infinum.demo.iOSExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "iOSExample/iOSExample-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -738,7 +669,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = Tests/Info.plist;
+				INFOPLIST_FILE = "Tests/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -761,7 +692,7 @@
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = Tests/Info.plist;
+				INFOPLIST_FILE = "Tests/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
