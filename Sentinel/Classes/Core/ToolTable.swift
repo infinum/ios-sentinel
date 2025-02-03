@@ -38,11 +38,11 @@ public struct ToolTable: Tool {
 public extension ToolTable {
 
     #if os(macOS)
-    public func createContent(selection: Binding<String?>) -> any View {
+    func createContent(selection: Binding<String?>) -> any View {
         SentinelListView(title: name, items: sections)
     }
     #else
-    public var content: any View {
+    var content: any View {
         SentinelListView(title: name, items: sections)
     }
     #endif
