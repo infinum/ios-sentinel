@@ -5,38 +5,15 @@
 //  Created by Vlaho Poluta on 30/07/2020.
 //
 
-import SwiftUI
-
-extension Sentinel {
-    
-    /// Presents the Sentinel with tools from provided view controller.
-    ///
-    /// - Parameters:
-    ///     - tools: Tools which will be available in the Sentinel.
-    ///     - preferences: items which can allow or deny an activity inside the app
-    ///     - viewController: The view controller from where will the Sentinel be presented.
-    func present(
-        tools: [Tool],
-        preferences: [ToolTableSection],
-        on viewController: UIViewController
-    ) {
-        let tabItems = createTabItems(
-            with: tools,
-            preferences: preferences
-        )
-
-        let tabBarController = UIHostingController(rootView: SentinelTabBarView(tabs: tabItems))
-        viewController.present(tabBarController, animated: true)
-    }
-}
+import Foundation
 
 // MARK: - Helpers
 
-private extension Sentinel {
+extension Sentinel {
     
-    func createTabItems(
+    static func createTabItems(
         with tools: [Tool],
-        preferences: [ToolTableSection]
+        preferences: [PreferencesTool.Section]
     ) -> [SentinelTabItem] {
         [
             SentinelTabItem(tab: .device),

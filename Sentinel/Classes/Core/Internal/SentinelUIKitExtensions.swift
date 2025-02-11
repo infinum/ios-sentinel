@@ -5,7 +5,7 @@
 //  Created by Vlaho Poluta on 30/07/2020.
 //
 
-import UIKit
+import Foundation
 
 extension Bundle {
     static var sentinel: Bundle {
@@ -17,6 +17,9 @@ extension Bundle {
     }
 }
 
+#if canImport(UIKit)
+import UIKit
+
 extension UIStoryboard {
     static var sentinel: UIStoryboard { UIStoryboard(name: "Sentinel", bundle: .sentinel) }
 
@@ -24,3 +27,4 @@ extension UIStoryboard {
         instantiateViewController(withIdentifier: String(describing: T.self)) as! T
     }
 }
+#endif

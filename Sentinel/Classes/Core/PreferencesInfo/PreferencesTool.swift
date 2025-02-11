@@ -9,7 +9,7 @@ import SwiftUI
 
 /// Tool which gives the user ability to change environment variables in the application.
 /// Options are grouped into sections for a better overview of different types of preferences.
-struct PreferencesTool: Tool {
+public struct PreferencesTool: Tool {
 
     // MARK: - Public properties
     
@@ -17,13 +17,15 @@ struct PreferencesTool: Tool {
 
     // MARK: - Private properties
     
-    private let items: [ToolTableSection]
+    private let sections: [ToolTableSection]
 
     // MARK: - Lifecycle
     
-    public init(name: String = "Preferences", items: [ToolTableSection]) {
+    public init(name: String = "Preferences", sections: [PreferencesTool.Section]) {
         self.name = name
-        self.items = items
+        self.sections = sections.map {
+            ToolTableSection(title: $0.title, items: $0.items.map { item in ToolTableItem.toggle(item) })
+        }
     }
 }
 
@@ -32,12 +34,18 @@ struct PreferencesTool: Tool {
 extension PreferencesTool {
 
     var toolTable: ToolTable {
-        createToolTable(with: items)
+        createToolTable(with: sections)
     }
 
-    var content: any View {
+    #if os(macOS)
+    public func createContent(selection: Binding<String?>) -> any View  {
         SentinelListView(title: name, items: toolTable.sections)
     }
+    #else
+    public var content: any View {
+        SentinelListView(title: name, items: toolTable.sections)
+    }
+    #endif
 }
 
 // MARK: - Private extension

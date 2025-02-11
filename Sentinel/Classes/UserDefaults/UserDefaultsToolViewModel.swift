@@ -2,7 +2,7 @@
 //  UserDefaultsToolViewModel.swift
 //  Sentinel
 //
-//  Created by Zvonimir Medak on 28.11.2024..
+//  Created by Zvonimir Medak on 21.01.2025..
 //
 
 import Foundation
@@ -11,26 +11,70 @@ final class UserDefaultsToolViewModel: ObservableObject {
 
     // MARK: - Internal properties
 
-    let value: String
-    let title: String
-    let userDefaults: UserDefaults
+    @Published var sections: [ToolTableSection] = []
+    let name: String
+
+    // MARK: - Private properties
+
+    private let userDefaults: UserDefaults
 
     // MARK: - Init
 
-    init(value: String, title: String, userDefaults: UserDefaults = .standard) {
-        self.value = value
-        self.title = title
+    init(name: String, userDefaults: UserDefaults = .standard) {
+        self.name = name
         self.userDefaults = userDefaults
     }
 
-}
-
-// MARK: - Internal methods
-
-extension UserDefaultsToolViewModel {
-
-    func didPressDelete() {
-        UserDefaults.standard.removeObject(forKey: title)
+    func updateSections() {
+        sections = createSectionItems(with: userDefaults)
     }
-
 }
+
+// MARK: - Item creation
+
+private extension UserDefaultsToolViewModel {
+
+    func createSectionItems(with userDefaults: UserDefaults) -> [ToolTableSection] {
+        let items = userDefaults.dictionaryRepresentation()
+            .sorted { $0.key < $1.key }
+            .map { (key, value) in
+                #if os(macOS)
+                ToolTableItem.navigation(
+                    NavigationToolItem(
+                        title: key,
+                        didSelect: {
+                            UserDefaultsToolDetailView(
+                                viewModel: UserDefaultsToolDetailViewModel(
+                                    value: String(describing: value),
+                                    title: key,
+                                    userDefaults: userDefaults,
+                                    didDeleteProperty: { [unowned self] in sections = createSectionItems(with: userDefaults) }
+                                ),
+                                selection: $0
+                            )
+                        }
+                    )
+                )
+                #else
+                ToolTableItem.navigation(
+                    NavigationToolItem(
+                        title: key,
+                        didSelect: {
+                            UserDefaultsToolDetailView(
+                                viewModel: UserDefaultsToolDetailViewModel(
+                                    value: String(describing: value),
+                                    title: key,
+                                    userDefaults: userDefaults,
+                                    didDeleteProperty: nil // onAppear will update the screen on iOS
+                                )
+                            )
+                        }
+                    )
+                )
+                #endif
+            }
+
+        return [ToolTableSection(items: items)]
+    }
+}
+

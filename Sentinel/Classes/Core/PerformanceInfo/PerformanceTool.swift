@@ -29,9 +29,15 @@ extension PerformanceTool {
         createToolTable()
     }
 
+    #if os(macOS)
+    func createContent(selection: Binding<String?>) -> any View  {
+        SentinelListView(title: name, items: toolTable.sections)
+    }
+    #else
     var content: any View {
         SentinelListView(title: name, items: toolTable.sections)
     }
+    #endif
 }
 
 // MARK: - Private methods
@@ -52,7 +58,7 @@ private extension PerformanceTool {
     func cpuInfoItems() -> [ToolTableItem] {
         let cpuInfo = CPUInfoProvider()
         return [
-            .performance(.init(title: "CPU Usage", valueDidChange: { String(format: "%.2f%%", cpuInfo.currentUsage) })),
+            .performance(PerformanceInfoItem(title: "CPU Usage", valueDidChange: { String(format: "%.2f%%", cpuInfo.currentUsage) })),
             .performance(PerformanceInfoItem(title: "Number of cores", valueDidChange: { String(format: "%d", cpuInfo.numberOfCores) }))
         ]
     }

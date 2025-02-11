@@ -2,11 +2,8 @@ PODS:
   - Sentinel (2.0.0):
     - Sentinel/Default (= 2.0.0)
   - Sentinel/Core (2.0.0)
-  - Sentinel/CustomLocation (2.0.0):
-    - Sentinel/Core
   - Sentinel/Default (2.0.0):
     - Sentinel/Core
-    - Sentinel/CustomLocation
     - Sentinel/TextEditing
     - Sentinel/UserDefaults
   - Sentinel/EmailSender (2.0.0):
@@ -25,8 +22,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Sentinel: d846456bed40a8f1983534a141eb259b8fc1870f
+  Sentinel: d891e08a322bbb340f12c48b37c38027555d8836
 
-PODFILE CHECKSUM: b4ac31ac0023145189dcb5c8e0a0491b082199f1
+PODFILE CHECKSUM: a6cfec6c3d3e79534c345ee8e800ae5dfadca74e
 
 COCOAPODS: 1.16.2

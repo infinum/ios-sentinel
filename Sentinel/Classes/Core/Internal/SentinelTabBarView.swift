@@ -15,21 +15,30 @@ enum Tab {
     case performance
 }
 
-struct SentinelTabBarView: View {
+/// Container View which holds all of the Sentinel tabs. Can only be instantiated via Sentinel.createSentinelView(with:) function.
+public struct SentinelTabBarView: View {
 
-    @State var selectedTab: Tab = .tools
-    let tabs: [SentinelTabItem]
+    @State private var selectedTab: Tab = .tools
+    private let tabs: [SentinelTabItem]
 
-    var body: some View {
-        NavigationView {
-            TabView(selection: $selectedTab) {
-                ForEach(tabs, id: \.barItemTitle) { tab in
+    init(tabs: [SentinelTabItem]) {
+        self.tabs = tabs
+    }
+
+    public var body: some View {
+        TabView(selection: $selectedTab) {
+            ForEach(tabs, id: \.barItemTitle) { tab in
+                #if os(macOS)
+                SentinelListView(title: tab.barItemTitle, items: tab.sections)
+                    .tabItem { TabBarView(tab: tab) }
+                #else
+                NavigationView {
                     SentinelListView(title: tab.barItemTitle, items: tab.sections)
-                        .tabItem { TabBarView(tab: tab) }
                 }
+                .tabItem { TabBarView(tab: tab) }
+                #endif
             }
         }
-        .navigationTitle("Sentinel")
     }
 }
 

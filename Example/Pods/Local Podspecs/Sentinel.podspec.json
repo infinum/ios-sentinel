@@ -19,7 +19,8 @@
   },
   "requires_arc": true,
   "platforms": {
-    "ios": "14.0"
+    "ios": "14.0",
+    "osx": "12.0"
   },
   "swift_versions": "5.0",
   "resource_bundles": {
@@ -33,60 +34,42 @@
   "subspecs": [
     {
       "name": "Core",
-      "source_files": "Sentinel/Classes/Core/**/*",
-      "frameworks": "UIKit"
+      "source_files": "Sentinel/Classes/Core/**/*"
     },
     {
       "name": "UserDefaults",
       "source_files": "Sentinel/Classes/UserDefaults/**/*",
       "dependencies": {
-        "Sentinel/Core": [
-
-        ]
+        "Sentinel/Core": []
       }
     },
     {
       "name": "EmailSender",
       "source_files": "Sentinel/Classes/EmailSender/**/*",
       "dependencies": {
-        "Sentinel/Core": [
-
-        ]
+        "Sentinel/Core": []
       }
     },
     {
       "name": "CustomLocation",
       "source_files": "Sentinel/Classes/CustomLocation/**/*",
       "dependencies": {
-        "Sentinel/Core": [
-
-        ]
+        "Sentinel/Core": []
       }
     },
     {
       "name": "TextEditing",
       "source_files": "Sentinel/Classes/TextEditing/**/*",
       "dependencies": {
-        "Sentinel/Core": [
-
-        ]
+        "Sentinel/Core": []
       }
     },
     {
       "name": "Default",
       "dependencies": {
-        "Sentinel/Core": [
-
-        ],
-        "Sentinel/UserDefaults": [
-
-        ],
-        "Sentinel/CustomLocation": [
-
-        ],
-        "Sentinel/TextEditing": [
-
-        ]
+        "Sentinel/Core": [],
+        "Sentinel/UserDefaults": [],
+        "Sentinel/TextEditing": []
       }
     }
   ],

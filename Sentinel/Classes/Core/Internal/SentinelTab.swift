@@ -11,6 +11,6 @@ enum SentinelTab {
     case device
     case application
     case tools(items: [Tool])
-    case preferences(items: [ToolTableSection])
+    case preferences(items: [PreferencesTool.Section])
     case performance
 }
