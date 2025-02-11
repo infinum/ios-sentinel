@@ -45,9 +45,15 @@ public struct TextEditingTool: Tool {
 
 public extension TextEditingTool {
 
-    var content: any View {
+    #if os(macOS)
+    func createContent(selection: Binding<String?>) -> any View {
+        TextEditingToolView(viewModel: TextEditingToolViewModel(value: getter(), title: name, didPressSave: store(newValue:)), selection: selection)
+    }
+    #else
+    public var content: any View {
         TextEditingToolView(viewModel: TextEditingToolViewModel(value: getter(), title: name, didPressSave: store(newValue:)))
     }
+    #endif
 }
 
 // MARK: - Internal methods

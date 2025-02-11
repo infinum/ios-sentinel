@@ -9,9 +9,10 @@ import SwiftUI
 
 struct OptionToggleView: View {
 
-    @State var value: Bool
+    @State private var value: Bool
     let title: String
     let onValueChanged: (Bool) -> Void
+    let getter: () -> Bool
 
     var body: some View {
         Toggle(isOn: $value) {
@@ -20,6 +21,11 @@ struct OptionToggleView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
         }
         .onChange(of: value) { onValueChanged($0) }
+        .onAppear {
+            let fetchedValue = getter()
+            guard fetchedValue != value else { return }
+            value = fetchedValue
+        }
     }
 }
 
@@ -31,5 +37,6 @@ extension OptionToggleView {
         value = item.loadStoredValue()
         title = item.title
         onValueChanged = item.change(to:)
+        getter = item.loadStoredValue
     }
 }

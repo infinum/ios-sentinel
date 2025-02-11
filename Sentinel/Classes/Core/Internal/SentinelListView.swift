@@ -40,8 +40,15 @@ private struct ContentView: View {
                 ForEach(section.items) { item in
                     switch item {
                     case .navigation(let item):
+                        let destination = {
+                            #if os(macOS)
+                            AnyView(item.didSelect($selectedItem))
+                            #else
+                            AnyView(item.didSelect())
+                            #endif
+                        }
                         NavigationLink(
-                            destination: AnyView(item.didSelect()),
+                            destination: destination(),
                             tag: item.id,
                             selection: $selectedItem,
                             label: { NavigationToolTableView(item: item) }

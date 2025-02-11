@@ -55,9 +55,15 @@ extension ApplicationTool {
         tool.createToolTable(with: tool.info)
     }
 
+    #if os(macOS)
+    func createContent(selection: Binding<String?>) -> any View {
+        SentinelListView(title: name, items: toolTable.sections)
+    }
+    #else
     var content: any View {
         SentinelListView(title: name, items: toolTable.sections)
     }
+    #endif
 }
 
 // MARK: - Info helpers
