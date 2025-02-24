@@ -59,8 +59,6 @@ pod 'Sentinel'
 - `TextEditing` which will add the `TextEditingTool`
 - `Default` - which will install `UserDefaults`, and `TextEditing`
 
-*NOTE: All of the subspecs add `Core` as a dependency, and MacOS doesn't support `CustomLocation`, and `EmailSender`*
-
 #### Swift Package Manager
 
 If you are using SPM for your dependency manager, add this to the dependencies in your `Package.swift` file:
@@ -70,8 +68,6 @@ dependencies: [
     .package(url: "https://github.com/infinum/ios-sentinel.git")
 ]
 ```
-
-*NOTE: When using SPM for MacOS the `CustomLocation`, and `EmailSender` won't be installed due to not being supported on MacOS*
 
 ## Usage
 
@@ -272,25 +268,23 @@ var colorChangeTool: Tool {
 
 #### CustomInfoTool
 
-*CustomInfoTool* is used on the `Device`, and `Application` tabs. Its primary use is to list out properties and their values.
+*CustomInfoTool* is used on the `Device`, and `Application` tabs. Its primary use is to list out properties and their values. The tool is available on both iOS, and MacOS platforms.
 
 #### TextEditingTool
 
-*TextEditingTool* is used to give the ability to edit a value. Where you have to provide a `getter`, and a `setter` for the property you want to change dynamically.
+*TextEditingTool* is used to give the ability to edit a value. Where you have to provide a `getter`, and a `setter` for the property you want to change dynamically. The tool is available on both iOS, and MacOS platforms.
 
 #### UserDefaultsTool
 
-*UserDefaultsTool* is used to give an overview of all the `UserDefaults` properties, their values, and the ability to delete properties.
-
-#### iOS only
+*UserDefaultsTool* is used to give an overview of all the `UserDefaults` properties, their values, and the ability to delete properties. The tool is available on both iOS, and MacOS platforms.
 
 #### CustomLocationTool
 
-*CustomLocationTool* is used to change the current user's location. After changing the location, the application will have to be restarted.
+*CustomLocationTool* is used to change the current user's location. After changing the location, the application will have to be restarted. The tool is available on iOS.
 
 #### EmailSenderTool
 
-*EmailSenderTool* is used to let the user send emails with attachments from the app with ease.
+*EmailSenderTool* is used to let the user send emails with attachments from the app with ease. The tool is available on both iOS, and MacOS platforms. The tool is available on iOS.
 
 ## Contributing
 
