@@ -21,6 +21,8 @@
 
 This library supports **Swift**, and **SwiftUI**.
 
+**Note: For Objective-C support, please use 1.2.2 version**
+
 ## Table of contents
 
 * [Requirements](#requirements)
