@@ -4,13 +4,13 @@
 import PackageDescription
 
 // Excluding some Tools due to being tightly coupled to some unsupported frameworks on macOS
-#if os(macOS)
+#if os(iOS)
+let excludedSources: [String] = []
+#else
 let excludedSources: [String] = [
     "Classes/CustomLocation",
     "Classes/EmailSender"
 ]
-#else
-let excludedSources: [String] = []
 #endif
 
 let package = Package(

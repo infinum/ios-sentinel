@@ -13,11 +13,15 @@
 
 **Sentinel** is a simple library that gives developers the possibility to configure one entry point for every debug tool. The idea of **Sentinel** is to give the ability to developers to configure a screen with multiple debug tools which are available via some event (e.g. shake, notification).
 
+**Sentinel** supports **iOS**, and **MacOS**. There are some differences which will be mentioned in the following sections.
+
 **Sentinel** has a tab bar that contains five screens. Three of those aren't configurable, and two of them are. The first screen is the **Device** screen which allows the user to look into some of the device-specific information. The second screen is the **Application** screen which allows the user to look into some of the application-specific information from the <i>info.plist</i>. The third, the first configurable screen, is the **Tools** screen. **Tools** screen allows you to add as many `Tool` objects as your heart desires which can be used by the user to find out some specific information. The fourth, last configurable screen, is the **Preferences** screen. **Preferences** screen allows you to add options that allow or deny some activity inside the app. **Preferences** tab can also be used as a feature control entry point, the user will be able to enable or disable the features by pressing the option button. Last, but not the least, is the **Performance** screen which contains performance-specific information. Later on, we'll explain how you can configure those screens.
 
 **Sentinel** contains a few custom tools which can be used, some of which are in their own subspecs. You can find out more about it in the [Usage](#usage) section.
 
-This library supports both **Swift** and **Objective-C**.
+This library supports **Swift**, and **SwiftUI**.
+
+**Note: For Objective-C support, please use 1.2.2 version**
 
 ## Table of contents
 
@@ -30,8 +34,9 @@ This library supports both **Swift** and **Objective-C**.
 
 ## Requirements
 
-* iOS 11 and above
-* Xcode 15 and above
+* iOS 14 and above
+* MacOS 12 and above
+* Xcode 16 and above
 
 ## Getting started
 
@@ -49,12 +54,10 @@ pod 'Sentinel'
 *Sentinel* is made of multiple subspecs:
 - `Core` which will install only the core features for the *Sentinel* to be usable
 - `UserDefaults` which will add the `UserDefaultsTool`
-- `EmailSendel` which will add the `EmailSenderTool`
+- `EmailSender` which will add the `EmailSenderTool`
 - `CustomLocation` which will add the `CustomLocationTool`
 - `TextEditing` which will add the `TextEditingTool`
-- `Default` - which will install `UserDefaults`, `Core`, `CustomLocation`, and `TextEditing`
-
-*NOTE: All of the subspecs add `Core` as a dependency*
+- `Default` - which will install `UserDefaults`, and `TextEditing`
 
 #### Swift Package Manager
 
@@ -68,31 +71,66 @@ dependencies: [
 
 ## Usage
 
-`Sentinel` is the main class used to set up the *Sentinel* which will be used in the application. The `Sentinel` object can configured via `setup:` method by `Configuration` object. The `setup:` can be called in the `AppDelegate` method `application(_:didFinishLaunchingWithOptions:)`.
+`Sentinel` is the main class used to set up the *Sentinel* which will be used in the application. `Sentinel` has a main View which is called `SentinelTabBarView`. The main View can be accessed in two different ways:
+
+- by using the `setup(with:)` method on the `Sentinel` class, and providing a `Configuration` object. The `setup:` can be called in the `AppDelegate` method `application(_:didFinishLaunchingWithOptions:)`. *Sentinel* will be shown based on the *Trigger* which is specified in the `Configuration` object.
+
+- by using the `createSentinelView(with:)` and providing the `Configuration` object. The method will return the `SentinelTabBarView` which can be shown in whichever way possible.
 
 ```swift
-let optionSwitchItems: [OptionSwitchItem] = [
-    OptionSwitchItem(
-        name: "Analytics",
-        setter: { AppSwitches.analyticsEnabled = $0 },
-        getter: { AppSwitches.analyticsEnabled },
-        userDefaults: .standard,
-        userDefaultsKey: "com.infinum.sentinel.optionSwitch.analytics"
-    ),
-    OptionSwitchItem(
-        name: "Crashlytics",
-        setter: { AppSwitches.crashlyticsEnabled = $0 },
-        getter: { AppSwitches.crashlyticsEnabled },
-        userDefaults: .standard,
-        userDefaultsKey: "com.infinum.sentinel.optionSwitch.crashlytics"
+var optionSwitchItems: [PreferencesTool.Section] {
+    [
+        PreferencesTool.Section(
+            title: "UserDefaults flags",
+            items: [
+                ToggleToolItem(
+                    title: "Analytics",
+                    userDefaults: .standard,
+                    userDefaultsKey: "com.infinum.sentinel.optionSwitch.analytics"
+                ),
+                ToggleToolItem(
+                    title: "Crashlytics",
+                    setter: { AppSwitches.crashlyticsEnabled = $0 },
+                    getter: { AppSwitches.crashlyticsEnabled }
+                ),
+                ToggleToolItem(
+                    title: "Logging",
+                    userDefaults: .standard,
+                    userDefaultsKey: "com.infinum.sentinel.optionSwitch.logging"
+                )
+            ]
+        )
+    ]
+ }
+
+ var colorChangeTool: Tool {
+    ToolTable(
+        name: "Color Change Tool",
+        sections: [
+            ToolTableSection(
+                title: "Color change", 
+                items: [ToolTableItem.custom(ColorChangeToolTableItem())]
+            )
+        ]
     )
-]
+}
+
+ var baseUrlTool: Tool {
+    TextEditingTool(
+        name: "Base URL",
+        setter: { AppUrl.baseURL = $0 },
+        getter: { AppUrl.baseURL },
+        userDefaults: .standard,
+        userDefaultsKey: "base_url_user_defaults_key"
+    )
+}
 
 let configuration = Sentinel.Configuration(
     trigger: Triggers.shake,
     tools: [
         UserDefaultsTool(),
-        CustomLocationTool()
+        baseUrlTool,
+        colorChangeTool
     ],
     preferences: optionSwitchItems
 )
@@ -102,40 +140,55 @@ Sentinel.shared.setup(with: configuration)
 
 ### Configuration
 
-To configure the `Sentinel` object, the `Configuration` object is introduced. `Configuration` contains multiple objects which define general *Sentinel* behaviour. The inputs which this object needs are; `trigger`, `sourceScreenProvider`, `tools`, and `preferences`.  
+To configure the `Sentinel` object, the `Configuration` object is introduced. `Configuration` contains multiple objects which define general *Sentinel* behaviour. The inputs which this object needs are; `trigger`, `sourceScreenProvider`, `tools`, and `preferences`.
 
-The `trigger` object is a type of `Trigger` which defines on which event the *Sentinel* will be triggered. Currently, three types are supported; `ShakeTrigger`, `ScreenshotTrigger`, `NotificationTrigger`. New triggers can be added as well, just by conforming to the `Trigger` protocol. Currently, available triggers can be accessed from the `Triggers` class by using its designated static properties like `shake`, `screenshot` or `notification(forName:)`.
+#### Trigger
+
+The `trigger` object is a type of `Trigger` which defines on which event the *Sentinel* will be triggered. Currently, three types are supported on iOS; `ShakeTrigger`, `ScreenshotTrigger`, `NotificationTrigger`. On MacOS only the `NotificationTrigger` is available. New triggers can be added as well, just by conforming to the `Trigger` protocol. Currently, available triggers can be accessed from the `Triggers` class by using its designated static properties like `shake`, `screenshot` or `notification(forName:)`.
 
 In case there's a need for another `Trigger`, take a look at the currently implemented ones to gain some information on how it should be done.
 
+*Note: if the `Trigger` object hasn't been specified when using the `setup(with:)` method, Sentinel will **never** be shown!*
+
 ```swift
 /// Defines interaction with trigger.
-@objc
-public protocol Trigger: NSObjectProtocol {
+public protocol Trigger {
 
     /// Subscribes to the triggering event.
     ///
     /// - Parameter events: The block which will be called when notification arrives.
-    @objc(subscribeOnEvents:)
     func subscribe(on events: @escaping () -> ())
 }
 ```
 
-The `sourceScreenProvider` object is a type of `SourceScreenProvider` which should provide a view controller from where will *Sentinel* be presented. Currently, one type is supported; `default`, and the initializer will default to it. The `SourceScreenProvider.default` uses the current top ViewController to be the one providing the *Sentinel* screens. 
+#### SourceScreenProvider
 
-The `tools` object is an array of `Tool` objects. `Tool` objects represent tools which will be available from *Sentinel*. There are multiple tools already supported by the library, but custom tools can be created and added to the *Sentinel*.
+The `sourceScreenProvider` object is of type `SourceScreenProvider` which shows the *Sentinel* main View. Currently, one type is supported, `default`, and the initializer will default to it.
 
-Last, but not the least, is the `preferences` object which is an array of `OptionSwitchItem` objects. `OptionSwitchItem` is used to allow the user to switch of some of the preferences which are contained in the `UserDefaults`. To allow the user the interaction, you will have to add a `getter`, and a `setter` for the property from the `UserDefaults` object.
+On iOS the `SourceScreenProvider.default` finds the current top ViewController, and presents *Sentinel* on top of it.
 
-e.g. The app supports Analitycs and you can add an `OptionSwitchTool` which will be shown on the `Preferences` screen and the user can turn it off if he doesn't want it.
+On MacOS the `SourceScreenProvider.default` finds the current top window, and presents a new modal Window on top of it.
+
+#### Tool
+
+The `tools` object is an array of `Tool` objects. `Tool` objects represent tools which will be available from *Sentinel*. There are multiple tools already supported by the library based on the platform, but custom tools can be created and added to the *Sentinel*.
+
+#### Preferences
+
+Last, but not the least, is the `preferences` object which is an array of `PreferencesTool.Section` objects. `PreferencesTool.Section` is used to allow the user to create sections of toggleable options. Each section consists of `ToggleToolItem` objects. To allow the user the interaction, you will have to add a `getter`, and a `setter` for the property from the `UserDefaults` object.
+
+e.g. The app supports Analitycs and you can add an `PreferencesTool.Section` which will be shown on the `Preferences` screen and the user can turn it off if he doesn't want it.
 
 ```swift
-OptionSwitchItem(
-    name: "Analytics",
-    setter: { AppSwitches.analyticsEnabled = $0 },
-    getter: { AppSwitches.analyticsEnabled },
-    userDefaults: .standard,
-    userDefaultsKey: "com.infinum.sentinel.optionSwitch.analytics"
+PreferencesTool.Section(
+    title: "UserDefaults flags",
+    items: [
+        ToggleToolItem(
+            title: "Analytics",
+            userDefaults: .standard,
+            userDefaultsKey: "com.infinum.sentinel.optionSwitch.analytics"
+        )
+    ]
 )
 ```
 
@@ -144,48 +197,94 @@ OptionSwitchItem(
 To be able to create a custom tool that will be available through the *Sentinel*, a new class should be created which conforms to the `Tool` protocol. This protocol is defined as:
 
 ```swift
-/// Defines tool behaviour.
-@objc
+/// Defines tool behaviour and the content View.
 public protocol Tool {
     
     /// The name of the tool.
     var name: String { get }
-    /// Presents the tool view controller from provided view controller.
-    ///
-    /// - Parameter viewController: The view controller used for presenting tool view controller.
-    @objc(presentPreviewFromViewController:)
-    func presentPreview(from viewController: UIViewController)
+
+    #if os(macOS)
+    /// Tool's content View. Selection is a binding provided from the parent view which should be set to nil if we want to navigate the user back to the previous screen.
+    func createContent(selection: Binding<String?>) -> any View
+    #else
+    /// Tool's content View
+    @ViewBuilder var content: any View { get }
+    #endif
 }
 ```
+The `name` property will be available in the `Tools` tab as one of the cells.
+Depending on the platform you are using, there are different conformances due to a bit different handling of the navigation.
 
-The `name` property will be available in the `Tools` tab as one of the cells. The `presentPreview` method needs to instantiate the screen you want to show, and it will use the view controller from the `sourceScreenProvider` to show your custom tool.
+#### MacOS
+The `createContent(selection: Binding<String?>)` method provides the *View* which will be shown when the *Tool* is selected. If the *Tool* contains multiple navigation Views, you can provide the `selection` binding which needs to be set to `nil` when the user should be navigated back.
+
+If you need more context, you can check out the `UserDefaultsTool` or `EditTextTool`.
+
+#### iOS
+The `content` property provides the *View* which will be shown when the *Tool* is selected.
 
 At Infinum, we're using `Pulse` as our network logger. We only use it for internal builds, and it helps a lot if we can somehow access the logs from `Pulse`, as well as other debug tools. That's why we have a need to create the `PulseTool` which will be an example on how to create your own tool.
 
 ```swift
-
 final class PulseTool: Tool {
     var name: String { "Pulse" }
 
-    func presentPreview(from viewController: UIViewController) {
-        let pulse = UIHostingController(rootView: ConsoleView())
-        let pulseNavigation = UINavigationController(rootViewController: pulse)
-        viewController.present(pulseNavigation, animated: true)
+    var content: any View {
+        ConsoleView()
     }
+}
+```
+
+When creating custom `Tool` objects. You can use the `ToolTable` object which will use `SentinelListView` as the main View which is a ScrollView with a predefined number of items which can be shown. To create a `ToolTable` you need to provide a name for that tool, and the section items. Section items are items of type `ToolTableSection` which can have a section title, and an array of items of type `ToolTableItem`. `ToolTableItem` is an Enum with five different states which can be shown just by providing the required information for it:
+ - **navigation** - creates a View with title + arrow right which will lead to a different screen when tapped
+ - **toggle** - creates a View with a Toggle which will change the state of the provided property when tapped
+ - **customInfo** - creates a View with a title + value
+ - **performance** - creates a View with a title + value which will be updated each second
+ - **custom** - creates a View whichever you provide, gives the ability to show a custom View. The item will need to conform to the `CustomToolTableItem` protocol.
+
+```swift
+struct ColorChangeToolTableItem: CustomToolTableItem {
+
+    var title: String {
+        "Color change"
+    }
+
+    var content: any View {
+        ColorChangeToolView()
+    }
+}
+
+var colorChangeTool: Tool {
+    ToolTable(
+        name: "Color Change Tool",
+        sections: [
+            ToolTableSection(title: "Color change", items: [ToolTableItem.custom(ColorChangeToolTableItem())])
+        ]
+    )
 }
 ```
 
 ### Available custom tools
 
-*CustomInfoTool* is used on the `Device`, and `Application` tabs. Its primary use is to list out properties and their values.
+#### CustomInfoTool
 
-*CustomLocationTool* is used to change the current user's location. After changing the location, the application will have to be restarted.
+*CustomInfoTool* is used on the `Device`, and `Application` tabs. Its primary use is to list out properties and their values. The tool is available on both iOS, and MacOS platforms.
 
-*TextEditingTool* is used to give the ability to edit a value. Where you have to provide a `getter`, and a `setter` for the property you want to change dynamically.
+#### TextEditingTool
 
-*UserDefaultsTool* is used to give an overview of all the `UserDefaults` properties, their values, and the ability to delete properties.
+*TextEditingTool* is used to give the ability to edit a value. Where you have to provide a `getter`, and a `setter` for the property you want to change dynamically. The tool is available on both iOS, and MacOS platforms.
 
-*EmailSenderTool* is used to let the user send emails with attachments from the app with ease.
+#### UserDefaultsTool
+
+*UserDefaultsTool* is used to give an overview of all the `UserDefaults` properties, their values, and the ability to delete properties. The tool is available on both iOS, and MacOS platforms.
+
+#### CustomLocationTool
+
+*CustomLocationTool* is used to change the current user's location. After changing the location, the application will have to be restarted. The tool is available on iOS.
+
+#### EmailSenderTool
+
+*EmailSenderTool* is used to let the user send emails with attachments from the app with ease. The tool is available on both iOS, and MacOS platforms. The tool is available on iOS.
 
 ## Contributing
 
