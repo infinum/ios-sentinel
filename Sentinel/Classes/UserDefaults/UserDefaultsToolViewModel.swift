@@ -42,6 +42,7 @@ private extension UserDefaultsToolViewModel {
                 ToolTableItem.navigation(
                     NavigationToolItem(
                         title: key,
+                        value: String(describing: value),
                         didSelect: {
                             UserDefaultsToolDetailView(
                                 viewModel: UserDefaultsToolDetailViewModel(
@@ -59,6 +60,7 @@ private extension UserDefaultsToolViewModel {
                 ToolTableItem.navigation(
                     NavigationToolItem(
                         title: key,
+                        value: String(describing: value),
                         didSelect: {
                             UserDefaultsToolDetailView(
                                 viewModel: UserDefaultsToolDetailViewModel(
