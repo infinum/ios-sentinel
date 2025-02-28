@@ -17,6 +17,9 @@ struct UserDefaultsToolDetailView: View {
 
     var body: some View {
         VStack(spacing: 10) {
+            Text(viewModel.title)
+                .font(.title)
+
             Text(viewModel.value)
                 .contextMenu(ContextMenu(menuItems: {
                     Button("Copy", action: {
@@ -40,6 +43,5 @@ struct UserDefaultsToolDetailView: View {
             .padding(.bottom, 20)
         }
         .padding(.horizontal, 16)
-        .navigationTitle(viewModel.title)
     }
 }
