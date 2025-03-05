@@ -32,7 +32,7 @@ final class UserDefaultsToolDetailViewModel: ObservableObject {
 extension UserDefaultsToolDetailViewModel {
 
     func didPressDelete() {
-        UserDefaults.standard.removeObject(forKey: title)
+        userDefaults.removeObject(forKey: title)
         didDeleteProperty?()
     }
 
