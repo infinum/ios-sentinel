@@ -45,6 +45,16 @@ extension SentinelTabItem {
         }
     }
 
+    var tabViewTab: Tab {
+        switch tab {
+        case .device: .device
+        case .application: .application
+        case .tools: .tools
+        case .preferences: .preferences
+        case .performance: .performance
+        }
+    }
+
     var sections: [ToolTableSection] {
         toolTable.sections
     }
