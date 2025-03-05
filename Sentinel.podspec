@@ -44,11 +44,13 @@ Pod::Spec.new do |s|
   s.subspec 'EmailSender' do |sp|
     sp.source_files = 'Sentinel/Classes/EmailSender/**/*'
     sp.dependency 'Sentinel/Core'
+    sp.ios.deployment_target = '14.0'
   end
 
   s.subspec 'CustomLocation' do |sp|
     sp.source_files = 'Sentinel/Classes/CustomLocation/**/*'
     sp.dependency 'Sentinel/Core'
+    sp.ios.deployment_target = '14.0'
   end
   
   s.subspec 'TextEditing' do |sp|

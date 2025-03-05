@@ -50,7 +50,7 @@ public extension TextEditingTool {
         TextEditingToolView(viewModel: TextEditingToolViewModel(value: getter(), title: name, didPressSave: store(newValue:)), selection: selection)
     }
     #else
-    public var content: any View {
+    var content: any View {
         TextEditingToolView(viewModel: TextEditingToolViewModel(value: getter(), title: name, didPressSave: store(newValue:)))
     }
     #endif
