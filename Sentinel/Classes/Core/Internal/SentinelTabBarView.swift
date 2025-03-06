@@ -31,11 +31,13 @@ public struct SentinelTabBarView: View {
                 #if os(macOS)
                 SentinelListView(title: tab.barItemTitle, items: tab.sections)
                     .tabItem { TabBarView(tab: tab) }
+                    .tag(tab.tabViewTab)
                 #else
                 NavigationView {
                     SentinelListView(title: tab.barItemTitle, items: tab.sections)
                 }
                 .tabItem { TabBarView(tab: tab) }
+                .tag(tab.tabViewTab)
                 #endif
             }
         }
