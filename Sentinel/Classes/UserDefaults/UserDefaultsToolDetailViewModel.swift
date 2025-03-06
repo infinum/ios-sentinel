@@ -11,18 +11,18 @@ final class UserDefaultsToolDetailViewModel: ObservableObject {
 
     // MARK: - Internal properties
 
-    let value: String
+    @Published var value: String
     let title: String
     let userDefaults: UserDefaults
-    let didDeleteProperty: (() -> Void)?
+    let didUpdateProperty: (() -> Void)?
 
     // MARK: - Init
 
-    init(value: String, title: String, userDefaults: UserDefaults = .standard, didDeleteProperty: (() -> Void)?) {
+    init(value: String, title: String, userDefaults: UserDefaults = .standard, didUpdateProperty: (() -> Void)?) {
         self.value = value
         self.title = title
         self.userDefaults = userDefaults
-        self.didDeleteProperty = didDeleteProperty
+        self.didUpdateProperty = didUpdateProperty
     }
 
 }
@@ -33,7 +33,27 @@ extension UserDefaultsToolDetailViewModel {
 
     func didPressDelete() {
         userDefaults.removeObject(forKey: title)
-        didDeleteProperty?()
+        didUpdateProperty?()
+    }
+
+    func didPressSave() {
+        let object = userDefaults.object(forKey: title)
+        if object is String {
+            userDefaults.set(value, forKey: title)
+        } else if object is Bool, let newValue = Bool(value) {
+            userDefaults.set(newValue, forKey: title)
+        } else if object is Data, let newValue = Data(base64Encoded: value) {
+            userDefaults.set(newValue, forKey: title)
+        } else if object is Double, let newValue = Double(value) {
+            userDefaults.set(newValue, forKey: title)
+        } else if object is Float, let newValue = Float(value) {
+            userDefaults.set(newValue, forKey: title)
+        } else if object is Int, let newValue = Int(value) {
+            userDefaults.set(newValue, forKey: title)
+        } else if object is [String] {
+            userDefaults.set(value.split(separator: ","), forKey: title)
+        }
+        didUpdateProperty?()
     }
 
 }

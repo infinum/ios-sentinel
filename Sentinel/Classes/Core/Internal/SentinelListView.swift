@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct SentinelListView: View {
     let title: String
@@ -14,11 +15,11 @@ struct SentinelListView: View {
     var body: some View {
     #if os(macOS)
         NavigationView {
-            ContentView(title: title, items: items)
+            ContentView(title: title, initialSections: items)
                 .frame(minWidth: 400) // Expands the content in width so it's visible
         }
     #else
-        ContentView(title: title, items: items)
+        ContentView(title: title, initialSections: items)
     #endif
     }
 }
@@ -27,17 +28,18 @@ private struct ContentView: View {
 
     @State private var selectedItem: String?
     let title: String
-    let items: [ToolTableSection]
+
+    @ObservedObject var viewModel: SentinelListViewModel
 
     var body: some View {
-        List(items, id: \.id) { section in
+        List(viewModel.sections, id: \.id) { currentSection in
             Section {
-                if let title = section.title {
+                if let title = currentSection.title {
                     Text(title)
                         .font(.headline)
                 }
 
-                ForEach(section.items) { item in
+                ForEach(currentSection.items) { item in
                     switch item {
                     case .navigation(let item):
                         let destination = {
@@ -65,6 +67,14 @@ private struct ContentView: View {
                 }
             }
         }
+        .searchableIfAvailable(text: $viewModel.serachText, prompt: "Search for an item")
         .navigationTitle(title)
+    }
+}
+extension ContentView {
+
+    init(title: String, initialSections: [ToolTableSection]) {
+        self.title = title
+        viewModel = .init(initialSections: initialSections)
     }
 }
