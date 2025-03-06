@@ -49,7 +49,7 @@ private extension UserDefaultsToolViewModel {
                                     value: String(describing: value),
                                     title: key,
                                     userDefaults: userDefaults,
-                                    didDeleteProperty: { [unowned self] in sections = createSectionItems(with: userDefaults) }
+                                    didUpdateProperty: { [unowned self] in sections = createSectionItems(with: userDefaults) }
                                 ),
                                 selection: $0
                             )
@@ -67,7 +67,7 @@ private extension UserDefaultsToolViewModel {
                                     value: String(describing: value),
                                     title: key,
                                     userDefaults: userDefaults,
-                                    didDeleteProperty: nil // onAppear will update the screen on iOS
+                                    didUpdateProperty: nil // onAppear will update the screen on iOS
                                 )
                             )
                         }

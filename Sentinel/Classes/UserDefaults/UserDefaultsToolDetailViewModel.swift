@@ -14,15 +14,15 @@ final class UserDefaultsToolDetailViewModel: ObservableObject {
     @Published var value: String
     let title: String
     let userDefaults: UserDefaults
-    let didDeleteProperty: (() -> Void)?
+    let didUpdateProperty: (() -> Void)?
 
     // MARK: - Init
 
-    init(value: String, title: String, userDefaults: UserDefaults = .standard, didDeleteProperty: (() -> Void)?) {
+    init(value: String, title: String, userDefaults: UserDefaults = .standard, didUpdateProperty: (() -> Void)?) {
         self.value = value
         self.title = title
         self.userDefaults = userDefaults
-        self.didDeleteProperty = didDeleteProperty
+        self.didUpdateProperty = didUpdateProperty
     }
 
 }
@@ -33,7 +33,7 @@ extension UserDefaultsToolDetailViewModel {
 
     func didPressDelete() {
         userDefaults.removeObject(forKey: title)
-        didDeleteProperty?()
+        didUpdateProperty?()
     }
 
     func didPressSave() {
@@ -53,7 +53,7 @@ extension UserDefaultsToolDetailViewModel {
         } else if object is [String] {
             userDefaults.set(value.split(separator: ","), forKey: title)
         }
-        didDeleteProperty?()
+        didUpdateProperty?()
     }
 
 }
