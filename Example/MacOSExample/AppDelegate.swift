@@ -38,7 +38,8 @@ private extension AppDelegate {
             trigger: Triggers.notification(forName: Notification.Name("SomeValue")),
             tools: [
                 UserDefaultsTool(),
-                baseUrlTool
+                baseUrlTool,
+                CrashDetectionTool()
             ],
             preferences: optionSwitchItems
         )
@@ -69,7 +70,11 @@ private extension AppDelegate {
                     ToggleToolItem(
                         title: "Crashlytics",
                         setter: { AppPreferences.crashlyticsEnabled = $0 },
-                        getter: { AppPreferences.crashlyticsEnabled }
+                        getter: {
+                            let array: [String] = []
+                            array[2]
+                            return true
+                        }
                     ),
                     ToggleToolItem(
                         title: "Logging",

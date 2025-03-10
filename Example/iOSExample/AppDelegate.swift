@@ -39,7 +39,8 @@ private extension AppDelegate {
             tools: [
                 UserDefaultsTool(),
                 baseUrlTool,
-                colorChangeTool
+                colorChangeTool,
+                CrashDetectionTool()
             ],
             preferences: optionSwitchItems
         )
@@ -79,7 +80,11 @@ private extension AppDelegate {
                     ToggleToolItem(
                         title: "Crashlytics",
                         setter: { AppSwitches.crashlyticsEnabled = $0 },
-                        getter: { AppSwitches.crashlyticsEnabled }
+                        getter: {
+                            let array: [String] = []
+                            array[2]
+                            return true
+                        }
                     ),
                     ToggleToolItem(
                         title: "Logging",
