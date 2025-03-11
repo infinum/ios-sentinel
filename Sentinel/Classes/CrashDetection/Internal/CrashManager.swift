@@ -9,11 +9,11 @@
 
 import Foundation
 
-public enum CrashManager {
+enum CrashManager {
 
     /// Registers to handle the crashes and log them
     /// Should be called on app start-up
-    public static func register() {
+    static func register() {
         CrashHandler.shared.prepare()
     }
 
@@ -30,18 +30,15 @@ public enum CrashManager {
         do {
             let jsonData = try JSONEncoder().encode(existingCrashes)
             try jsonData.write(to: filePath)
-//            MC.log(level: .error, domain: .default) { crashLog(for: crash) }
-        } catch {
-//            MC.log(level: .error, domain: .default) { "Error saving crash data: \(error)" }
-        }
+        } catch { }
     }
 
-    public static func recover(ofType type: CrashType) -> [CrashModel] {
+    static func recover(ofType type: CrashType) -> [CrashModel] {
         let filePath = getDocumentsDirectory().appendingPathComponent(type.fileName)
         return (try? readCrashModels(from: filePath)) ?? []
     }
 
-    public static func deleteAll() {
+    static func deleteAll() {
         let nsExceptionPath = getDocumentsDirectory().appendingPathComponent(CrashType.nsexception.fileName)
         let signalPath = getDocumentsDirectory().appendingPathComponent(CrashType.signal.fileName)
 
@@ -85,9 +82,9 @@ private extension CrashManager {
         String.newLine
         "Crash name: \(crashModel.details.name)"
         String.newLine
-        "Crash date: \(crashModel.details.date)" //.formatted())"
-//        String.newLine
-//        crashModel.details.deviceInfo
+        "Crash date: \(crashModel.details.date)"
+        String.newLine
+        crashModel.details.deviceInfo
         String.newLine
 
         crashModel.traces

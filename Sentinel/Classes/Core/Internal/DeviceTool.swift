@@ -148,3 +148,41 @@ private extension DeviceTool {
     }
 }
 #endif
+
+extension DeviceTool {
+
+    struct Info: Codable, CustomStringConvertible {
+        let model: String
+        let name: String
+        let systemVersion: String
+        let UUID: String
+
+        #if os(macOS)
+        init() {
+            model = DeviceTool.getModelIdentifier() ?? ""
+            name = ProcessInfo.processInfo.hostName
+            systemVersion = DeviceTool.systemVersion
+            UUID = DeviceTool.hardwareDeviceUUID
+        }
+        #else
+        init() {
+            model = UIDevice.current.model
+            name = UIDevice.current.name
+            systemVersion = DeviceTool.systemVersion
+            UUID = UIDevice.current.identifierForVendor?.uuidString ?? "???"
+        }
+        #endif
+
+        @StringBuilder
+        var description: String {
+            "Manufacturer: Apple"
+            String.newLine
+            "Device model: \(model)"
+            String.newLine
+            "Device OS: \(systemVersion)"
+            String.newLine
+            "Device ID: \(UUID)"
+            String.newLine
+        }
+    }
+}

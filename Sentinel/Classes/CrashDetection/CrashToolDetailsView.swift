@@ -79,7 +79,7 @@ private extension CrashToolDetailsView {
         [
             ("Error:", crashModel.details.name),
             ("Date:", crashModel.details.date.description),
-//            ("Other:", crashModel.details.deviceInfo.description)
+            ("Other:", crashModel.details.deviceInfo.description)
         ]
     }
 }

@@ -5,14 +5,16 @@
 //  Created by Zvonimir Medak on 10.03.2025..
 //
 
+// Inspiration link: https://github.com/DebugSwift/DebugSwift
+
 import Foundation
 
-public enum CrashType: String, Codable {
+enum CrashType: String, Codable {
     case nsexception
     case signal
 }
 
-public extension CrashType {
+extension CrashType {
 
     var fileName: String {
         "\(rawValue)_crashes.json"

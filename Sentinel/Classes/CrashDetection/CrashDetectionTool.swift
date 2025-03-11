@@ -5,6 +5,8 @@
 //  Created by Zvonimir Medak on 10.03.2025..
 //
 
+// Inspiration link: https://github.com/DebugSwift/DebugSwift
+
 import SwiftUI
 
 /// Tool which gives the ability to catch, and store a stack trace for the crash

@@ -5,9 +5,11 @@
 //  Created by Zvonimir Medak on 10.03.2025..
 //
 
+// Inspiration link: https://github.com/DebugSwift/DebugSwift
+
 import Foundation
 
-public struct CrashModel: Codable {
+struct CrashModel: Codable {
     public let type: CrashType
     public let details: Details
     public let traces: [Trace]
@@ -24,13 +26,11 @@ public struct CrashModel: Codable {
 
 }
 
-// MARK: - Extensions -
-
 // MARK: - Equatable conformance
 
 extension CrashModel: Equatable {
 
-    public static func == (lhs: CrashModel, rhs: CrashModel) -> Bool {
+    static func == (lhs: CrashModel, rhs: CrashModel) -> Bool {
         lhs.details.name == rhs.details.name
     }
 
@@ -40,17 +40,19 @@ extension CrashModel: Equatable {
 
 // MARK: - Details
 
-public extension CrashModel {
+extension CrashModel {
 
     struct Details: Codable {
 
-        public let name: String
-        public let date: Date
+        let name: String
+        let date: Date
+        let deviceInfo: DeviceTool.Info
 
         static func builder(name: String) -> Self {
             .init(
                 name: name,
-                date: .init()
+                date: .init(),
+                deviceInfo: .init()
             )
         }
     }
@@ -59,7 +61,7 @@ public extension CrashModel {
 
 // MARK: - Trace
 
-public extension CrashModel {
+extension CrashModel {
 
     struct Trace: Codable {
         public let title: String

@@ -5,6 +5,8 @@
 //  Created by Zvonimir Medak on 10.03.2025..
 //
 
+// Inspiration link: https://github.com/DebugSwift/DebugSwift
+
 import Foundation
 import MachO
 
