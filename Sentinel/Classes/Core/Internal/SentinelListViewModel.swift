@@ -11,19 +11,19 @@ final class SentinelListViewModel: ObservableObject {
 
     // MARK: - Internal properties
 
-    @Published var serachText: String = ""
+    @Published var searchText: String = ""
     @Published var sections: [ToolTableSection]
-    let initialSections: [ToolTableSection]
 
     // MARK: - Private properties
 
     private var cancellables: Set<AnyCancellable> = .init()
+    private let initialSections: [ToolTableSection]
 
     // MARK: - Init
 
-    init(initialSections: [ToolTableSection]) {
-        self.initialSections = initialSections
-        sections = initialSections
+    init(sections: [ToolTableSection]) {
+        initialSections = sections
+        self.sections = sections
 
         setupSearchObserving()
     }
@@ -32,7 +32,7 @@ final class SentinelListViewModel: ObservableObject {
 private extension SentinelListViewModel {
 
     func setupSearchObserving() {
-        $serachText
+        $searchText
             .sink { [unowned self] value in
                 guard value.isEmpty else {
                     let filteredItems = initialSections.flatMap(\.items).filter { $0.id.lowercased().contains(value.lowercased()) }
