@@ -162,7 +162,7 @@ extension DeviceTool {
             model = DeviceTool.getModelIdentifier() ?? ""
             name = ProcessInfo.processInfo.hostName
             systemVersion = DeviceTool.systemVersion
-            UUID = DeviceTool.hardwareDeviceUUID
+            UUID = DeviceTool.hardwareDeviceUUID ?? "???"
         }
         #else
         init() {

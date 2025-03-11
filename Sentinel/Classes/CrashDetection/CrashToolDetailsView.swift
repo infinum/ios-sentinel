@@ -65,9 +65,9 @@ private struct StackTraceView: View {
         .onTapGesture { }
         .onLongPressGesture {
             #if os(macOS)
-            NSPasteboard.general.setString(description, forType: .string)
+            NSPasteboard.general.setString(title, forType: .string)
             #else
-            UIPasteboard.general.string = description
+            UIPasteboard.general.string = title
             #endif
         }
     }

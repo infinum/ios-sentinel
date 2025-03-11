@@ -10,6 +10,24 @@ import SwiftUI
 struct CrashToolView: View {
 
     @State private var crashes: [CrashModel] = []
+    @State private var selectedItem: String?
+
+    var body: some View {
+        #if os(macOS)
+        NavigationView {
+            ContentView()
+                .frame(minWidth: 300)
+        }
+        #else
+        ContentView()
+        #endif
+    }
+}
+
+private struct ContentView: View {
+
+    @State private var crashes: [CrashModel] = []
+    @State private var selectedItem: String?
 
     var body: some View {
         List {
@@ -18,10 +36,10 @@ struct CrashToolView: View {
             } else {
                 ForEach(crashes, id: \.details.date) { model in
                     NavigationLink(
-                        destination: { CrashToolDetailsView(crashModel: model) },
-                        label: {
-                            Text(model.details.name)
-                        }
+                        destination: CrashToolDetailsView(crashModel: model),
+                        tag: model.details.date.description,
+                        selection: $selectedItem,
+                        label: { Text(model.details.name) }
                     )
                 }
             }
