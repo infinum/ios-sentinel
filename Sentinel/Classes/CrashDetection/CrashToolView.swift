@@ -9,9 +9,6 @@ import SwiftUI
 
 struct CrashToolView: View {
 
-    @State private var crashes: [CrashModel] = []
-    @State private var selectedItem: String?
-
     var body: some View {
         #if os(macOS)
         NavigationView {
