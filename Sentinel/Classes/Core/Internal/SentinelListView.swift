@@ -15,11 +15,11 @@ struct SentinelListView: View {
     var body: some View {
     #if os(macOS)
         NavigationView {
-            ContentView(title: title, initialSections: items)
+            ContentView(title: title, sections: items)
                 .frame(minWidth: 400) // Expands the content in width so it's visible
         }
     #else
-        ContentView(title: title, initialSections: items)
+        ContentView(title: title, sections: items)
     #endif
     }
 }
@@ -67,14 +67,14 @@ private struct ContentView: View {
                 }
             }
         }
-        .searchableIfAvailable(text: $viewModel.serachText, prompt: "Search for an item")
+        .searchableIfAvailable(text: $viewModel.searchText, prompt: "Search for an item")
         .navigationTitle(title)
     }
 }
 extension ContentView {
 
-    init(title: String, initialSections: [ToolTableSection]) {
+    init(title: String, sections: [ToolTableSection]) {
         self.title = title
-        viewModel = .init(initialSections: initialSections)
+        viewModel = .init(sections: sections)
     }
 }
