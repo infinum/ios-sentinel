@@ -30,6 +30,7 @@ Sentinel is a debug tool which contains multiple debug tools with a single point
 - ``UserDefaultsTool``
 - ``ToolTable``
 - ``TextEditingTool``
+- ``CrashDetectionTool``
 
 ### Predefined items
 - ``ToolTableItem``

@@ -38,7 +38,8 @@ private extension AppDelegate {
             trigger: Triggers.notification(forName: Notification.Name("SomeValue")),
             tools: [
                 UserDefaultsTool(),
-                baseUrlTool
+                baseUrlTool,
+                CrashDetectionTool()
             ],
             preferences: optionSwitchItems
         )

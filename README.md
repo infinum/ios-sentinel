@@ -57,6 +57,7 @@ pod 'Sentinel'
 - `EmailSender` which will add the `EmailSenderTool`
 - `CustomLocation` which will add the `CustomLocationTool`
 - `TextEditing` which will add the `TextEditingTool`
+- `CrashDetection` which will add the `CrashDetectionTool`
 - `Default` - which will install `UserDefaults`, and `TextEditing`
 
 #### Swift Package Manager
@@ -277,6 +278,10 @@ var colorChangeTool: Tool {
 #### UserDefaultsTool
 
 *UserDefaultsTool* is used to give an overview of all the `UserDefaults` properties, their values, and the ability to update or delete properties. The tool is available on both iOS, and MacOS platforms.
+
+#### CrashDetectionTool
+
+*CrashDetectionTool* sets up listeners on system exceptions which will be logged into a local json file with the stack trace. The tool is available on iOS.
 
 #### CustomLocationTool
 
