@@ -70,7 +70,7 @@ private extension AppDelegate {
                     ToggleToolItem(
                         title: "Crashlytics",
                         setter: { AppPreferences.crashlyticsEnabled = $0 },
-                        getter: { AppSwitches.crashlyticsEnabled }
+                        getter: { AppPreferences.crashlyticsEnabled }
                     ),
                     ToggleToolItem(
                         title: "Logging",
