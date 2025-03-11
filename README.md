@@ -276,7 +276,7 @@ var colorChangeTool: Tool {
 
 #### UserDefaultsTool
 
-*UserDefaultsTool* is used to give an overview of all the `UserDefaults` properties, their values, and the ability to delete properties. The tool is available on both iOS, and MacOS platforms.
+*UserDefaultsTool* is used to give an overview of all the `UserDefaults` properties, their values, and the ability to update or delete properties. The tool is available on both iOS, and MacOS platforms.
 
 #### CustomLocationTool
 
@@ -284,7 +284,7 @@ var colorChangeTool: Tool {
 
 #### EmailSenderTool
 
-*EmailSenderTool* is used to let the user send emails with attachments from the app with ease. The tool is available on both iOS, and MacOS platforms. The tool is available on iOS.
+*EmailSenderTool* is used to let the user send emails with attachments from the app with ease. The tool is available on iOS.
 
 ## Contributing
 
