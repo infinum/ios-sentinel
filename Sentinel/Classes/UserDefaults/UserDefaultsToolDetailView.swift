@@ -17,29 +17,35 @@ struct UserDefaultsToolDetailView: View {
 
     var body: some View {
         VStack(spacing: 10) {
-            Text(viewModel.value)
-                .contextMenu(ContextMenu(menuItems: {
-                    Button("Copy", action: {
-                        #if os(macOS)
-                        NSPasteboard.general.setString(viewModel.value, forType: .string)
-                        #else
-                        UIPasteboard.general.string = viewModel.value
-                        #endif
-                    })
-                }))
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+            Text(viewModel.title)
+                .font(.title)
+                .padding(.top, 20)
 
-            Button(action: {
-                viewModel.didPressDelete()
-                #if os(macOS)
-                selection = nil
-                #else
-                presentationMode.wrappedValue.dismiss() // on macOS dismisses the whole window which isn't desired
-                #endif
-            }, label: { Text("Delete") })
+            TextEditor(text: $viewModel.value)
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+                .padding(.top, 40)
+
+            HStack(spacing: 30) {
+                Button(action: {
+                    viewModel.didPressDelete()
+                    #if os(macOS)
+                    selection = nil
+                    #else
+                    presentationMode.wrappedValue.dismiss() // on macOS dismisses the whole window which isn't desired
+                    #endif
+                }, label: { Text("Delete") })
+
+                Button(action: {
+                    viewModel.didPressSave()
+                    #if os(macOS)
+                    selection = nil
+                    #else
+                    presentationMode.wrappedValue.dismiss() // on macOS dismisses the whole window which isn't desired
+                    #endif
+                }, label: { Text("Save") })
+            }
             .padding(.bottom, 20)
         }
         .padding(.horizontal, 16)
-        .navigationTitle(viewModel.title)
     }
 }
