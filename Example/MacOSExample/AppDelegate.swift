@@ -70,11 +70,7 @@ private extension AppDelegate {
                     ToggleToolItem(
                         title: "Crashlytics",
                         setter: { AppPreferences.crashlyticsEnabled = $0 },
-                        getter: {
-                            let array: [String] = []
-                            array[2]
-                            return true
-                        }
+                        getter: { AppSwitches.crashlyticsEnabled }
                     ),
                     ToggleToolItem(
                         title: "Logging",
