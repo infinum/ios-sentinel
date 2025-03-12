@@ -39,7 +39,8 @@ private extension AppDelegate {
             tools: [
                 UserDefaultsTool(),
                 baseUrlTool,
-                CrashDetectionTool()
+                CrashDetectionTool(),
+                DatabaseImportExportTool()
             ],
             preferences: optionSwitchItems
         )

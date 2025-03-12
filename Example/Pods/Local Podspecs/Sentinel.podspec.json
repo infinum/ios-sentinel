@@ -1,6 +1,6 @@
 {
   "name": "Sentinel",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "summary": "Developer's toolbox for debugging applications",
   "description": "Sentinel is a simple library which gives developers a possibility to configure one entry point for every debug tool.\nThe idea of Sentinel is to give ability to developers to configure screen with multiple debug tools which are available via some event (e.g. shake, notification).",
   "homepage": "https://github.com/infinum/ios-sentinel",
@@ -15,7 +15,7 @@
   },
   "source": {
     "git": "https://github.com/infinum/ios-sentinel.git",
-    "tag": "2.0.0"
+    "tag": "2.0.1"
   },
   "requires_arc": true,
   "platforms": {
@@ -78,12 +78,20 @@
       }
     },
     {
+      "name": "DatabaseImportExport",
+      "source_files": "Sentinel/Classes/DatabaseImportExport/**/*",
+      "dependencies": {
+        "Sentinel/Core": []
+      }
+    },
+    {
       "name": "Default",
       "dependencies": {
         "Sentinel/Core": [],
         "Sentinel/UserDefaults": [],
         "Sentinel/TextEditing": [],
-        "Sentinel/CrashDetection": []
+        "Sentinel/CrashDetection": [],
+        "Sentinel/DatabaseImportExport": []
       }
     }
   ],

@@ -62,12 +62,18 @@ Pod::Spec.new do |s|
     sp.source_files = 'Sentinel/Classes/CrashDetection/**/*'
     sp.dependency 'Sentinel/Core'
   end
+
+  s.subspec 'DatabaseImportExport' do |sp|
+    sp.source_files = 'Sentinel/Classes/DatabaseImportExport/**/*'
+    sp.dependency 'Sentinel/Core'
+  end
   
   s.subspec 'Default' do |sp|
     sp.dependency 'Sentinel/Core'
     sp.dependency 'Sentinel/UserDefaults'
     sp.dependency 'Sentinel/TextEditing'
     sp.dependency 'Sentinel/CrashDetection'
+    sp.dependency 'Sentinel/DatabaseImportExport'
   end
   
 end
