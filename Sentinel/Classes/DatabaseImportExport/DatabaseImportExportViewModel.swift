@@ -13,7 +13,7 @@ final class DatabaseImportExportViewModel: ObservableObject {
     // MARK: - Internal properties
 
     @Published var selectedURL: URL? = nil
-    let allowedTypes: [UTType] = [.init(filenameExtension: "zigbee")!, .text, .plainText, .init(filenameExtension: "realm")!]
+    let allowedTypes: [UTType]
 
     // MARK: - Private properties
 
@@ -22,16 +22,17 @@ final class DatabaseImportExportViewModel: ObservableObject {
 
     // MARK: - Init
 
-    init(databaseFileName: String, fileManager: FileManager) {
+    init(databaseFileName: String, allowedTypes: [UTType]) {
         self.databaseFileName = databaseFileName
-        databaseFileManager = .init(fileManager: fileManager, databaseFileName: databaseFileName)
+        self.allowedTypes = allowedTypes
+        databaseFileManager = .init(databaseFileName: databaseFileName)
     }
 }
 
 extension DatabaseImportExportViewModel {
 
     func importDatabase(url: URL) {
-        try! databaseFileManager.importDatabase(from: url)
+        try? databaseFileManager.importDatabase(from: url)
     }
 
     func exportDatabase() {

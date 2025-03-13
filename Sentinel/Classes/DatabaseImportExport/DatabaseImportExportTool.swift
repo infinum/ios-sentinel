@@ -6,8 +6,7 @@
 //
 
 import SwiftUI
-
-import SwiftUI
+import UniformTypeIdentifiers
 
 /// Tool which gives the ability to import or export the database file
 public struct DatabaseImportExportTool: Tool {
@@ -19,14 +18,18 @@ public struct DatabaseImportExportTool: Tool {
     // MARK: - Private properties
 
     private let databaseFileName: String
-    private let fileManager: FileManager
+    private let allowedTypes: [UTType]
 
     // MARK: - Lifecycle
 
-    public init(name: String = "Database Import/Export Tool", databaseFileName: String, fileManager: FileManager) {
+    public init(
+        name: String = "Database Import/Export Tool",
+        databaseFileName: String,
+        allowedTypes: [UTType]
+    ) {
         self.name = name
         self.databaseFileName = databaseFileName
-        self.fileManager = fileManager
+        self.allowedTypes = allowedTypes
     }
 }
 
@@ -40,7 +43,12 @@ public extension DatabaseImportExportTool {
     }
     #else
     var content: any View {
-        DatabaseImportExportView(viewModel: DatabaseImportExportViewModel(databaseFileName: databaseFileName, fileManager: fileManager))
+        DatabaseImportExportView(
+            viewModel: DatabaseImportExportViewModel(
+                databaseFileName: databaseFileName,
+                allowedTypes: allowedTypes
+            )
+        )
     }
     #endif
 }

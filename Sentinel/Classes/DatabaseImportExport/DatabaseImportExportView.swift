@@ -17,21 +17,32 @@ struct DatabaseImportExportView: View {
 
     var body: some View {
         VStack(spacing: 30) {
-            Button(action: { showPicker = true }) { Text("Import Database") }
-            Button(action: { viewModel.exportDatabase() }) { Text("Export Database") }
-                .fileImporter(isPresented: $showPicker, allowedContentTypes: viewModel.allowedTypes) {
-                    guard case .success(let url) = $0 else { return }
-                    viewModel.importDatabase(url: url)
-                }
-                .onChange(of: viewModel.selectedURL) {
-                    guard $0 != nil else { return }
-                    showShare = true
-                }
-                #if os(macOS)
-                .background(SharingsPicker(isPresented: $showShare, sharingItems: [viewModel.selectedURL]))
-                #else
-                .sheet(isPresented: $showShare) { ActivityViewController(activityItems: [viewModel.selectedURL]) }
-                #endif
+            Button(action: { showPicker = true }) {
+                Text("Import Database")
+            }
+
+            Button(action: { viewModel.exportDatabase() }) {
+                Text("Export Database")
+            }
+            .fileImporter(isPresented: $showPicker, allowedContentTypes: viewModel.allowedTypes) {
+                guard case .success(let url) = $0 else { return }
+                viewModel.importDatabase(url: url)
+            }
+            .onChange(of: viewModel.selectedURL) {
+                guard $0 != nil else { return }
+                showShare = true
+            }
+            #if os(macOS)
+            .background(SharingsPicker(isPresented: $showShare, sharingItems: [viewModel.selectedURL]))
+            #else
+            .sheet(isPresented: $showShare) {
+                ActivityViewController(
+                    activityItems: [viewModel.selectedURL],
+                    applicationActivities: nil,
+                    didFinish: { viewModel.selectedURL = nil }
+                )
+            }
+            #endif
         }
     }
 }
@@ -85,14 +96,17 @@ struct SharingsPicker: NSViewRepresentable {
 #if os(iOS)
 struct ActivityViewController: UIViewControllerRepresentable {
 
-    var activityItems: [Any]
-    var applicationActivities: [UIActivity]? = nil
     @Environment(\.presentationMode) var presentationMode
+
+    let activityItems: [Any]
+    let applicationActivities: [UIActivity]?
+    let didFinish: () -> Void
 
     func makeUIViewController(context: UIViewControllerRepresentableContext<ActivityViewController>) -> UIActivityViewController {
         let controller = UIActivityViewController(activityItems: activityItems, applicationActivities: applicationActivities)
         controller.completionWithItemsHandler = { (activityType, completed, returnedItems, error) in
             self.presentationMode.wrappedValue.dismiss()
+            didFinish()
         }
         return controller
     }
