@@ -18,13 +18,15 @@ public struct DatabaseImportExportTool: Tool {
 
     // MARK: - Private properties
 
-    private let databaseURL: URL
+    private let databaseFileName: String
+    private let fileManager: FileManager
 
     // MARK: - Lifecycle
 
-    public init(name: String = "Database Import/Export Tool", databaseURL: URL) {
+    public init(name: String = "Database Import/Export Tool", databaseFileName: String, fileManager: FileManager) {
         self.name = name
-        self.databaseURL = databaseURL
+        self.databaseFileName = databaseFileName
+        self.fileManager = fileManager
     }
 }
 
@@ -38,7 +40,7 @@ public extension DatabaseImportExportTool {
     }
     #else
     var content: any View {
-        DatabaseImportExportView(viewModel: DatabaseImportExportViewModel(databaseURL: databaseURL))
+        DatabaseImportExportView(viewModel: DatabaseImportExportViewModel(databaseFileName: databaseFileName, fileManager: fileManager))
     }
     #endif
 }

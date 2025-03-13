@@ -13,18 +13,18 @@ final class DatabaseImportExportViewModel: ObservableObject {
     // MARK: - Internal properties
 
     @Published var selectedURL: URL? = nil
-    let allowedTypes: [UTType] = [.init(filenameExtension: "zigbee")!, .text, .plainText]
+    let allowedTypes: [UTType] = [.init(filenameExtension: "zigbee")!, .text, .plainText, .init(filenameExtension: "realm")!]
 
     // MARK: - Private properties
 
     private let databaseFileManager: DatabaseFileManager
-    private let databaseURL: URL
+    let databaseFileName: String
 
     // MARK: - Init
 
-    init(databaseURL: URL) {
-        self.databaseURL = databaseURL
-        databaseFileManager = .init(fileManager: .default, databaseURL: databaseURL)
+    init(databaseFileName: String, fileManager: FileManager) {
+        self.databaseFileName = databaseFileName
+        databaseFileManager = .init(fileManager: fileManager, databaseFileName: databaseFileName)
     }
 }
 
@@ -32,5 +32,9 @@ extension DatabaseImportExportViewModel {
 
     func importDatabase(url: URL) {
         try! databaseFileManager.importDatabase(from: url)
+    }
+
+    func exportDatabase() {
+        selectedURL = databaseFileManager.exportDatabase()
     }
 }
