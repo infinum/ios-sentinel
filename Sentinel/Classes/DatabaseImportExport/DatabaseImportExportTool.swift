@@ -39,7 +39,12 @@ public extension DatabaseImportExportTool {
 
     #if os(macOS)
     func createContent(selection: Binding<String?>) -> any View {
-        DatabaseImportExportView(viewModel: DatabaseImportExportViewModel(databaseURL: databaseURL))
+        DatabaseImportExportView(
+            viewModel: DatabaseImportExportViewModel(
+                databaseFileName: databaseFileName,
+                allowedTypes: allowedTypes
+            )
+        )
     }
     #else
     var content: any View {

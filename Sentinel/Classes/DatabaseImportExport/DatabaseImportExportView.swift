@@ -33,11 +33,17 @@ struct DatabaseImportExportView: View {
                 showShare = true
             }
             #if os(macOS)
-            .background(SharingsPicker(isPresented: $showShare, sharingItems: [viewModel.selectedURL]))
+            .background(
+                SharingsPicker(
+                    isPresented: $showShare,
+                    sharingItems: [viewModel.selectedURL as Any],
+                    didFinish: { viewModel.selectedURL = nil }
+                )
+            )
             #else
             .sheet(isPresented: $showShare) {
                 ActivityViewController(
-                    activityItems: [viewModel.selectedURL],
+                    activityItems: [viewModel.selectedURL as Any],
                     applicationActivities: nil,
                     didFinish: { viewModel.selectedURL = nil }
                 )
@@ -51,7 +57,8 @@ struct DatabaseImportExportView: View {
 
 struct SharingsPicker: NSViewRepresentable {
     @Binding var isPresented: Bool
-    var sharingItems: [Any] = []
+    let sharingItems: [Any]
+    let didFinish: () -> Void
 
     func makeNSView(context: Context) -> NSView {
         let view = NSView()
@@ -87,6 +94,7 @@ struct SharingsPicker: NSViewRepresentable {
 
             sharingServicePicker.delegate = nil   // << cleanup
             self.owner.isPresented = false        // << dismiss
+            owner.didFinish()
         }
     }
 }

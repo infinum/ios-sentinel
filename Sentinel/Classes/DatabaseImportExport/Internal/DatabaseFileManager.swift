@@ -19,13 +19,6 @@ final class DatabaseFileManager {
     private let fileManager: FileManager
     private let databaseFileName: String
 
-    // MARK: - Lifecycle
-
-    init(fileManager: FileManager = .default, databaseFileName: String) {
-        self.fileManager = fileManager
-        self.databaseFileName = databaseFileName
-    }
-
     private lazy var documentDirectoryUrl: URL? = {
         fileManager.urls(for: .documentDirectory, in: .userDomainMask).first
     }()
@@ -43,14 +36,22 @@ final class DatabaseFileManager {
         return URL(fileURLWithPath: "\(documentDirectoryUrl.path)/\(databaseFileName)")
     }()
 
+    // MARK: - Init
+
+    init(fileManager: FileManager = .default, databaseFileName: String) {
+        self.fileManager = fileManager
+        self.databaseFileName = databaseFileName
+    }
+
     func importDatabase(from url: URL) throws {
         defer { url.stopAccessingSecurityScopedResource() }
         guard
             let databaseURL,
             url.startAccessingSecurityScopedResource()
         else { return }
+        deleteDirectoryIfExists(atPath: databaseURL.path)
 
-        _ = try fileManager.replaceItemAt(databaseURL, withItemAt: url)
+        _ = try fileManager.copyItem(at: url, to: databaseURL)
     }
 
     func exportDatabase() -> URL? {
