@@ -4,12 +4,9 @@ PODS:
   - Sentinel/Core (2.0.1)
   - Sentinel/CrashDetection (2.0.1):
     - Sentinel/Core
-  - Sentinel/DatabaseImportExport (2.0.1):
-    - Sentinel/Core
   - Sentinel/Default (2.0.1):
     - Sentinel/Core
     - Sentinel/CrashDetection
-    - Sentinel/DatabaseImportExport
     - Sentinel/TextEditing
     - Sentinel/UserDefaults
   - Sentinel/EmailSender (2.0.1):
@@ -28,7 +25,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Sentinel: 68dfa40790654e0427b3e7e5825fe27fc15386d9
+  Sentinel: fb9390a7da1f29f74c3f2d5f4b534bc4612c26c7
 
 PODFILE CHECKSUM: a6cfec6c3d3e79534c345ee8e800ae5dfadca74e
 

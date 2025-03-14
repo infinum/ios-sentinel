@@ -90,8 +90,7 @@
         "Sentinel/Core": [],
         "Sentinel/UserDefaults": [],
         "Sentinel/TextEditing": [],
-        "Sentinel/CrashDetection": [],
-        "Sentinel/DatabaseImportExport": []
+        "Sentinel/CrashDetection": []
       }
     }
   ],

@@ -40,8 +40,7 @@ private extension AppDelegate {
                 UserDefaultsTool(),
                 baseUrlTool,
                 colorChangeTool,
-                CrashDetectionTool(),
-                DatabaseImportExportTool(databaseURL: <#T##URL#>)
+                CrashDetectionTool()
             ],
             preferences: optionSwitchItems
         )
