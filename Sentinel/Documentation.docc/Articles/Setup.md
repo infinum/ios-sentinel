@@ -144,6 +144,14 @@ Tool is a name for the wrapper around a debug tool that Sentinel will provide. T
 
 **UserDefaultsTool** is used to give an overview of all the `UserDefaults` properties, their values, and the ability to update or delete properties. The list of properties can be searched as well. The tool is available on both iOS, and MacOS platforms.
 
+### DatabaseImportExportTool
+
+**DatabaseImportExportTool** gives the ability to import or export the database file which is located in the documents folder of the app. The tool is available on iOS and MacOS.
+
+The Tool expects the database file to be in the Documents folder of the App. You have to provide the the `UTType` for the database file so it can be properly imported, and you have to provide the relative path in the documents folder of the app.
+
+The tool will export the database file as a zip, and the file should be imported as is. The existing database file will be replaced with the new one.
+
 ### CrashDetectionTool
 
 **CrashDetectionTool** sets up listeners on system exceptions which will be logged into a local json file with the stack trace. The tool is available on iOS.
