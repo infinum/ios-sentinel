@@ -53,16 +53,16 @@ struct DatabaseImportExportView: View {
     }
 }
 
-#if os(macOS)
+// MARK: - MacOS share
 
+#if os(macOS)
 struct SharingsPicker: NSViewRepresentable {
     @Binding var isPresented: Bool
     let sharingItems: [Any]
     let didFinish: () -> Void
 
     func makeNSView(context: Context) -> NSView {
-        let view = NSView()
-        return view
+        NSView()
     }
 
     func updateNSView(_ nsView: NSView, context: Context) {
@@ -70,7 +70,6 @@ struct SharingsPicker: NSViewRepresentable {
             let picker = NSSharingServicePicker(items: sharingItems)
             picker.delegate = context.coordinator
 
-            // !! MUST BE CALLED IN ASYNC, otherwise blocks update
             DispatchQueue.main.async {
                 picker.show(relativeTo: .zero, of: nsView, preferredEdge: .minY)
             }
@@ -78,28 +77,26 @@ struct SharingsPicker: NSViewRepresentable {
     }
 
     func makeCoordinator() -> Coordinator {
-        Coordinator(owner: self)
+        Coordinator(picker: self)
     }
 
     class Coordinator: NSObject, NSSharingServicePickerDelegate {
-        let owner: SharingsPicker
+        let picker: SharingsPicker
 
-        init(owner: SharingsPicker) {
-            self.owner = owner
+        init(picker: SharingsPicker) {
+            self.picker = picker
         }
 
         func sharingServicePicker(_ sharingServicePicker: NSSharingServicePicker, didChoose service: NSSharingService?) {
-
-            // do here whatever more needed here with selected service
-
-            sharingServicePicker.delegate = nil   // << cleanup
-            self.owner.isPresented = false        // << dismiss
-            owner.didFinish()
+            sharingServicePicker.delegate = nil
+            picker.isPresented = false
+            picker.didFinish()
         }
     }
 }
-
 #endif
+
+// MARK: - iOS share
 
 #if os(iOS)
 struct ActivityViewController: UIViewControllerRepresentable {
