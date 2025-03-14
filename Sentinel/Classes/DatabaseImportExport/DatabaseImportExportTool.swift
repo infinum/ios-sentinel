@@ -17,18 +17,22 @@ public struct DatabaseImportExportTool: Tool {
 
     // MARK: - Private properties
 
-    private let databaseFileName: String
+    private let databaseFilePath: String
     private let allowedTypes: [UTType]
 
     // MARK: - Lifecycle
 
+    /// - Parameters
+    ///   - name: Name of the tool in the Tools section
+    ///   - databaseFilePath: Relative path of the database file from the Documents directory
+    ///   - allowedTypes: Types of the files which can be imported, should be the type of the database file
     public init(
         name: String = "Database Import/Export Tool",
-        databaseFileName: String,
+        databaseFilePath: String,
         allowedTypes: [UTType]
     ) {
         self.name = name
-        self.databaseFileName = databaseFileName
+        self.databaseFilePath = databaseFilePath
         self.allowedTypes = allowedTypes
     }
 }
@@ -41,7 +45,7 @@ public extension DatabaseImportExportTool {
     func createContent(selection: Binding<String?>) -> any View {
         DatabaseImportExportView(
             viewModel: DatabaseImportExportViewModel(
-                databaseFileName: databaseFileName,
+                databaseFilePath: databaseFilePath,
                 allowedTypes: allowedTypes
             )
         )
@@ -50,7 +54,7 @@ public extension DatabaseImportExportTool {
     var content: any View {
         DatabaseImportExportView(
             viewModel: DatabaseImportExportViewModel(
-                databaseFileName: databaseFileName,
+                databaseFilePath: databaseFilePath,
                 allowedTypes: allowedTypes
             )
         )

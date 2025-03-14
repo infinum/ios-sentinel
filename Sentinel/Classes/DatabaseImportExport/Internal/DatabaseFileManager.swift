@@ -17,7 +17,7 @@ final class DatabaseFileManager {
     // MARK: - Private properties
 
     private let fileManager: FileManager
-    private let databaseFileName: String
+    private let databaseFilePath: String
 
     private lazy var documentDirectoryUrl: URL? = {
         fileManager.urls(for: .documentDirectory, in: .userDomainMask).first
@@ -33,14 +33,14 @@ final class DatabaseFileManager {
 
     private lazy var databaseURL: URL? = {
         guard let documentDirectoryUrl else { return nil }
-        return URL(fileURLWithPath: "\(documentDirectoryUrl.path)/\(databaseFileName)")
+        return URL(fileURLWithPath: "\(documentDirectoryUrl.path)/\(databaseFilePath)")
     }()
 
     // MARK: - Init
 
-    init(fileManager: FileManager = .default, databaseFileName: String) {
+    init(fileManager: FileManager = .default, databaseFilePath: String) {
         self.fileManager = fileManager
-        self.databaseFileName = databaseFileName
+        self.databaseFilePath = databaseFilePath
     }
 
     func importDatabase(from url: URL) throws {

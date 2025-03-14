@@ -18,14 +18,12 @@ final class DatabaseImportExportViewModel: ObservableObject {
     // MARK: - Private properties
 
     private let databaseFileManager: DatabaseFileManager
-    let databaseFileName: String
 
     // MARK: - Init
 
-    init(databaseFileName: String, allowedTypes: [UTType]) {
-        self.databaseFileName = databaseFileName
+    init(databaseFilePath: String, allowedTypes: [UTType]) {
         self.allowedTypes = allowedTypes
-        databaseFileManager = .init(databaseFileName: databaseFileName)
+        databaseFileManager = .init(databaseFilePath: databaseFilePath)
     }
 }
 
