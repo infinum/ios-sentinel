@@ -18,7 +18,7 @@ struct UserDefaultsToolDetailView: View {
     var body: some View {
         VStack(spacing: 10) {
             Text(viewModel.title)
-                .font(.title)
+                .font(.title1Bold)
                 .padding(.top, 20)
 
             TextEditor(text: $viewModel.value)

@@ -21,11 +21,11 @@ struct NavigationToolTableView: View {
     var body: some View {
         VStack(spacing: 10) {
             Text(value == nil ? title : "\(title): ")
-                .font(.system(size: 13, weight: .bold))
+                .font(.body2Bold)
                 .frame(maxWidth: .infinity, alignment: .leading)
             if let value {
                 Text(value)
-                    .font(.system(size: 13, weight: .bold))
+                    .font(.body2Regular)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .multilineTextAlignment(.leading)
                     .padding(.trailing, 10)
