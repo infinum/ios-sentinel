@@ -1,20 +1,20 @@
 //
-//  PreferenceTextItem.swift
-//  Sentinel
+//  PreferencesDoubleItem.swift
+//  Pods
 //
 //  Created by Zvonimir Medak on 17.03.2025..
 //
 
 import Foundation
 
-public struct PreferenceTextItem: PreferenceItem {
+public struct PreferencesDoubleItem: PreferenceItem {
 
     // MARK: - Public properties
 
     public let name: String
-    public let setter: (String) -> ()
-    public let getter: () -> String
-    public let validators: [AnyPreferenceValidator<String>]
+    public let setter: (Double) -> ()
+    public let getter: () -> Double
+    public let validators: [AnyPreferenceValidator<Double>]
     public let userDefaults: UserDefaults
     public let userDefaultsKey: String?
 
@@ -23,7 +23,7 @@ public struct PreferenceTextItem: PreferenceItem {
 
     public init(
         title: String,
-        validators: [AnyPreferenceValidator<String>] = [],
+        validators: [AnyPreferenceValidator<Double>] = [],
         userDefaults: UserDefaults = .standard,
         userDefaultsKey: String
     ) {
@@ -32,14 +32,14 @@ public struct PreferenceTextItem: PreferenceItem {
         self.userDefaultsKey = userDefaultsKey
         self.validators = validators
         setter = { userDefaults.set($0, forKey: userDefaultsKey) }
-        getter = { userDefaults.string(forKey: userDefaultsKey) ?? "no-value" }
+        getter = { userDefaults.double(forKey: userDefaultsKey) }
     }
 
     public init(
         title: String,
-        validators: [AnyPreferenceValidator<String>] = [],
-        setter: @escaping (String) -> (),
-        getter: @escaping () -> String
+        validators: [AnyPreferenceValidator<Double>] = [],
+        setter: @escaping (Double) -> (),
+        getter: @escaping () -> Double
     ) {
         self.name = title
         self.getter = getter
@@ -55,11 +55,14 @@ public struct PreferenceTextItem: PreferenceItem {
     ///
     /// This is mostly used inside option switch module
     /// but it is also exposed for external change.
-    func change(to value: String) {
+    func change(to value: Double) {
         store(newValue: value)
     }
+}
 
-    public static func == (lhs: PreferenceTextItem, rhs: PreferenceTextItem) -> Bool {
+extension PreferencesDoubleItem: Equatable {
+
+    public static func == (lhs: PreferencesDoubleItem, rhs: PreferencesDoubleItem) -> Bool {
         lhs.getter() == rhs.getter()
     }
 }

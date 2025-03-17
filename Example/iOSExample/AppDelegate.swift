@@ -86,7 +86,9 @@ private extension AppDelegate {
                         title: "Logging",
                         userDefaults: .standard,
                         userDefaultsKey: "com.infinum.sentinel.optionSwitch.logging"
-                    )
+                    ),
+                    PreferenceTextItem(title: "name", userDefaultsKey: "com.infinum.sentinel.name"),
+                    PreferencesIntItem(title: "some number", userDefaultsKey: "com.inifnum.sentinel.number")
                 ]
             )
 
