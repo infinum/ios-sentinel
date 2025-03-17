@@ -33,7 +33,7 @@ struct OptionToggleView: View {
 
 extension OptionToggleView {
 
-    init(item: PreferenceBoolItem) {
+    init(item: PreferencesBoolItem) {
         value = item.getter()
         title = item.name
         onValueChanged = item.change(to:)

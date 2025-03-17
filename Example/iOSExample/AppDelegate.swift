@@ -72,23 +72,24 @@ private extension AppDelegate {
             PreferencesTool.Section(
                 title: "UserDefaults flags",
                 items: [
-                    PreferenceBoolItem(
+                    PreferencesBoolItem(
                         title: "Analytics",
                         userDefaults: .standard,
                         userDefaultsKey: "com.infinum.sentinel.optionSwitch.analytics"
                     ),
-                    PreferenceBoolItem(
+                    PreferencesBoolItem(
                         title: "Crashlytics",
                         setter: { AppSwitches.crashlyticsEnabled = $0 },
                         getter: { AppSwitches.crashlyticsEnabled }
                     ),
-                    PreferenceBoolItem(
+                    PreferencesBoolItem(
                         title: "Logging",
                         userDefaults: .standard,
                         userDefaultsKey: "com.infinum.sentinel.optionSwitch.logging"
                     ),
-                    PreferenceTextItem(title: "name", userDefaultsKey: "com.infinum.sentinel.name"),
-                    PreferencesIntItem(title: "some number", userDefaultsKey: "com.inifnum.sentinel.number")
+                    PreferencesTextItem(title: "name", userDefaultsKey: "com.infinum.sentinel.name"),
+                    PreferencesIntItem(title: "some number", userDefaultsKey: "com.inifnum.sentinel.number"),
+                    PreferencesPickerItem(title: "Picker values", values: SomePickerValue.allCases, setter: { _ in }, getter: { SomePickerValue.option1 })
                 ]
             )
 
@@ -98,3 +99,10 @@ private extension AppDelegate {
 
 }
 
+enum SomePickerValue: String, CustomStringConvertible, CaseIterable {
+    var description: String {
+        self.rawValue
+    }
+
+    case option1, option2, option3
+}

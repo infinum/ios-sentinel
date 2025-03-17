@@ -12,12 +12,14 @@ struct PreferencesView: View {
     let preferenceItem: any PreferenceItem
 
     var body: some View {
-        if let item = preferenceItem as? PreferenceTextItem {
+        if let item = preferenceItem as? PreferencesTextItem {
             PreferenceTextView(item: item)
-        } else if let item = preferenceItem as? PreferenceBoolItem {
+        } else if let item = preferenceItem as? PreferencesBoolItem {
             OptionToggleView(item: item)
         } else if let item = preferenceItem as? PreferencesIntItem {
             PreferenceTextView(item: item)
+        } else if let item = preferenceItem as? PreferencesPickerItem {
+            PreferencesPickerView(item: item)
         }
     }
 }

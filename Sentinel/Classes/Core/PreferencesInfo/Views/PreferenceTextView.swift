@@ -35,7 +35,7 @@ struct PreferenceTextView: View {
 
 extension PreferenceTextView {
 
-    init(item: PreferenceTextItem) {
+    init(item: PreferencesTextItem) {
         value = item.getter()
         title = item.name
         onValueChanged = item.change(to:)
