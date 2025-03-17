@@ -34,7 +34,7 @@ struct SentinelAsSheet: View {
                             getter: { editText })
                     ],
                     preferences: [
-                        PreferencesTool.Section(title: "User defaults", items: toggleItems)
+//                        PreferencesTool.Section(title: "User defaults", items: toggleItems)
                     ]
                 )
             )

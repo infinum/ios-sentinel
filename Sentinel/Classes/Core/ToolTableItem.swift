@@ -12,7 +12,7 @@ import SwiftUI
 /// In case a custom view is needed use the Custom case with a custom Item which conforms to CustomToolTableItem.
 public enum ToolTableItem {
     case navigation(NavigationToolItem)
-    case toggle(ToggleToolItem)
+    case toggle(any PreferenceItem)
     case customInfo(CustomInfoTool.Item)
     case performance(PerformanceInfoItem)
     case custom(any CustomToolTableItem)
