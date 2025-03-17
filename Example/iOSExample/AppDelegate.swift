@@ -74,8 +74,6 @@ private extension AppDelegate {
                 items: [
                     PreferenceBoolItem(
                         title: "Analytics",
-                        setter: { AppSwitches.analyticsEnabled = $0 },
-                        getter: { AppSwitches.analyticsEnabled },
                         userDefaults: .standard,
                         userDefaultsKey: "com.infinum.sentinel.optionSwitch.analytics"
                     ),
@@ -86,8 +84,6 @@ private extension AppDelegate {
                     ),
                     PreferenceBoolItem(
                         title: "Logging",
-                        setter: { AppSwitches.loggingEnabled = $0 },
-                        getter: { AppSwitches.loggingEnabled },
                         userDefaults: .standard,
                         userDefaultsKey: "com.infinum.sentinel.optionSwitch.logging"
                     )

@@ -20,21 +20,33 @@ public struct PreferenceTextItem: PreferenceItem {
 
     // MARK: - Lifecycle
 
+
     public init(
-        name: String,
-        setter: @escaping (String) -> Void,
-        getter: @escaping () -> String,
+        title: String,
         validators: [AnyPreferenceValidator<String>] = [],
         userDefaults: UserDefaults = .standard,
-        userDefaultsKey: String?
+        userDefaultsKey: String
     ) {
-        self.name = name
-        self.setter = setter
-        self.getter = getter
-        self.validators = validators
+        self.name = title
         self.userDefaults = userDefaults
         self.userDefaultsKey = userDefaultsKey
-        loadStoredValue()
+        self.validators = validators
+        setter = { userDefaults.set($0, forKey: userDefaultsKey) }
+        getter = { userDefaults.string(forKey: userDefaultsKey) ?? "no-value" }
+    }
+
+    public init(
+        title: String,
+        validators: [AnyPreferenceValidator<String>] = [],
+        setter: @escaping (String) -> (),
+        getter: @escaping () -> String
+    ) {
+        self.name = title
+        self.getter = getter
+        self.setter = setter
+        self.validators = validators
+        userDefaults = .standard
+        userDefaultsKey = nil
     }
 
     // MARK: - Internal methods

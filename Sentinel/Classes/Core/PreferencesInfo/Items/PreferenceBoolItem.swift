@@ -18,23 +18,34 @@ public struct PreferenceBoolItem: PreferenceItem {
     public let userDefaults: UserDefaults
     public let userDefaultsKey: String?
 
-    // MARK: - Lifecycle
+    // MARK: - Init
 
     public init(
         title: String,
-        setter: @escaping (Bool) -> Void,
-        getter: @escaping () -> Bool,
         validators: [AnyPreferenceValidator<Bool>] = [],
         userDefaults: UserDefaults = .standard,
-        userDefaultsKey: String? = nil
+        userDefaultsKey: String
     ) {
         self.name = title
-        self.setter = setter
-        self.getter = getter
-        self.validators = validators
         self.userDefaults = userDefaults
         self.userDefaultsKey = userDefaultsKey
-        loadStoredValue()
+        self.validators = validators
+        setter = { userDefaults.set($0, forKey: userDefaultsKey) }
+        getter = { userDefaults.bool(forKey: userDefaultsKey)}
+    }
+
+    public init(
+        title: String,
+        validators: [AnyPreferenceValidator<Bool>] = [],
+        setter: @escaping (Bool) -> (),
+        getter: @escaping () -> Bool
+    ) {
+        self.name = title
+        self.getter = getter
+        self.setter = setter
+        self.validators = validators
+        userDefaults = .standard
+        userDefaultsKey = nil
     }
 
     // MARK: - Internal methods
@@ -46,7 +57,9 @@ public struct PreferenceBoolItem: PreferenceItem {
     func change(to value: Bool) {
         store(newValue: value)
     }
+}
 
+extension PreferenceBoolItem: Equatable {
     public static func == (lhs: PreferenceBoolItem, rhs: PreferenceBoolItem) -> Bool {
         lhs.getter() == rhs.getter()
     }
