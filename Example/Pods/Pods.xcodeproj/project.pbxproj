@@ -39,6 +39,10 @@
 		3343DBAB11C6D25E5AF100D314490423 /* DeviceTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111C3EE82D04F8CF3A2081DEDA2B00D4 /* DeviceTool.swift */; };
 		34B14D36245B6215CBB745F5830A93A0 /* PreferencesToolSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424267CDE13F9C5D94884FCAEFF18E20 /* PreferencesToolSection.swift */; };
 		3549727CDFF591BCF65CF378E037EB41 /* DeviceTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111C3EE82D04F8CF3A2081DEDA2B00D4 /* DeviceTool.swift */; };
+		378BF3902D8C41D000C4F5FB /* PreferenceCountValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378BF38F2D8C41D000C4F5FB /* PreferenceCountValidator.swift */; };
+		378BF3912D8C41D000C4F5FB /* PreferenceCountValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378BF38F2D8C41D000C4F5FB /* PreferenceCountValidator.swift */; };
+		378BF3932D8C439900C4F5FB /* PreferenceValueValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378BF3922D8C439900C4F5FB /* PreferenceValueValidator.swift */; };
+		378BF3942D8C439900C4F5FB /* PreferenceValueValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378BF3922D8C439900C4F5FB /* PreferenceValueValidator.swift */; };
 		39CD93A7AA62782063A3EFAD918EAFCB /* EmailSenderTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EF8DDB0C575A53AEA71443DD5C27F9 /* EmailSenderTool.swift */; };
 		3E8D1D35A574A20C77FD8E944C03D918 /* UserDefaultsToolDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F503F9C5BDD27191D531FFA3CDBF701 /* UserDefaultsToolDetailViewModel.swift */; };
 		3F13DA6FCDAA1508463153DC352EBABB /* SentinelTabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D67275BACE5AFF2EA93CAA3E0FD616 /* SentinelTabItem.swift */; };
@@ -237,6 +241,8 @@
 		32DB3B4B0441471AD7B41E848CFA3CDF /* Sentinel.common-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Sentinel.common-Info.plist"; sourceTree = "<group>"; };
 		35AB5DA2955B4E68B4309192408426E5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		35EF8DDB0C575A53AEA71443DD5C27F9 /* EmailSenderTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EmailSenderTool.swift; path = Sentinel/Classes/EmailSender/EmailSenderTool.swift; sourceTree = "<group>"; };
+		378BF38F2D8C41D000C4F5FB /* PreferenceCountValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceCountValidator.swift; sourceTree = "<group>"; };
+		378BF3922D8C439900C4F5FB /* PreferenceValueValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceValueValidator.swift; sourceTree = "<group>"; };
 		3B9B5C8CAA380F9857F08D9FC528E880 /* Pods-Example-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Example-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		3F3BA5555219EF1B9EB1ECDD8E8BD687 /* PreferencesView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
 		3FB5325B2B6FFC2A6E06D63B32ED4B74 /* Sentinel.common.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Sentinel.common.release.xcconfig; sourceTree = "<group>"; };
@@ -645,6 +651,8 @@
 			isa = PBXGroup;
 			children = (
 				6A01BF79DB3CA2DA2FC5FFBBC98E1212 /* PreferenceValidator.swift */,
+				378BF38F2D8C41D000C4F5FB /* PreferenceCountValidator.swift */,
+				378BF3922D8C439900C4F5FB /* PreferenceValueValidator.swift */,
 			);
 			path = Validators;
 			sourceTree = "<group>";
@@ -1091,6 +1099,7 @@
 				AAF2705C5587C78837D3446293ECC18A /* PreferenceTextView.swift in Sources */,
 				9261667B318EBB4AE50B8D1BD76FA1EC /* PreferenceValidator.swift in Sources */,
 				CC5E0ECA86F6A8B195518A22950F3269 /* Preperable.swift in Sources */,
+				378BF3932D8C439900C4F5FB /* PreferenceValueValidator.swift in Sources */,
 				8DEAD2D293D8F0BAD7CC144BE2F989B8 /* SearchableIfAvaialbleModifier.swift in Sources */,
 				B50FD25002A9D41A2D388FA3A74EE57D /* Sentinel.swift in Sources */,
 				F037BD9F98ECF39DAD3E4E658A379248 /* Sentinel.common-dummy.m in Sources */,
@@ -1105,6 +1114,7 @@
 				841DDA46A459841B7A0EEF365FF40260 /* SourceScreenProvider.swift in Sources */,
 				BAC2E036C8C9C2F4C24CD769DC8AE283 /* StringBuilder.swift in Sources */,
 				08C5728F204B56F210F16292F95FC5E9 /* SystemInfoProvider.swift in Sources */,
+				378BF3912D8C41D000C4F5FB /* PreferenceCountValidator.swift in Sources */,
 				D55A435747B95552EA83050174851ED6 /* TextEditingTool.swift in Sources */,
 				67EA8303CB2A5D4F3E8A56997538F6AC /* TextEditingToolView.swift in Sources */,
 				B4D79DD11CDCAAE06784F866682B3908 /* TextEditingToolViewModel.swift in Sources */,
@@ -1161,9 +1171,11 @@
 				39CD93A7AA62782063A3EFAD918EAFCB /* EmailSenderTool.swift in Sources */,
 				ED49006F9258465A594ABC8AD37AF233 /* EmailSenderView.swift in Sources */,
 				B8B86C9C1507DD2651BFA85A6C52898B /* Font+Size.swift in Sources */,
+				378BF3942D8C439900C4F5FB /* PreferenceValueValidator.swift in Sources */,
 				631A7D0C129DACB3BAB75E59443CBC74 /* Image+Assets.swift in Sources */,
 				57361D62E7ABE28B249291743167348C /* MailData.swift in Sources */,
 				180FDDA525959099FE65601B44476DC5 /* MemoryInfoProvider.swift in Sources */,
+				378BF3902D8C41D000C4F5FB /* PreferenceCountValidator.swift in Sources */,
 				A4C64070389A5199D9052AB48C84C5A4 /* NavigationToolTableItem.swift in Sources */,
 				D80353259704232BE290D636F0B9D475 /* NavigationToolTableView.swift in Sources */,
 				C412C7DF2F0E038155FCDA784EE4D054 /* OptionToggleView.swift in Sources */,

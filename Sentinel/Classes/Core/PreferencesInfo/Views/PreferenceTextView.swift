@@ -10,10 +10,12 @@ import SwiftUI
 struct PreferenceTextView: View {
 
     @State private var value: String
+    @State private var errorMessage: String?
     let title: String
     let description: String?
     let onValueChanged: (String) -> Void
     let getter: () -> String
+    let hasErrorMessage: (String) -> String?
 
     var body: some View {
         VStack(spacing: 8) {
@@ -25,13 +27,15 @@ struct PreferenceTextView: View {
                     .border(.gray, width: 1)
             }
 
-            if let description {
-                Text(description)
-                    .font(.caption1Regular)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-            }
+            DescriptionView(description: description, errorMessage: errorMessage)
         }
-        .onChange(of: value) { onValueChanged($0) }
+        .onChange(of: value) { value in
+            guard let message = hasErrorMessage(value) else {
+                onValueChanged(value)
+                return
+            }
+            errorMessage = message
+        }
         .onAppear {
             let fetchedValue = getter()
             guard fetchedValue != value else { return }
@@ -50,6 +54,7 @@ extension PreferenceTextView {
         onValueChanged = item.change(to:)
         getter = item.getter
         description = item.description
+        hasErrorMessage = item.lastErrorMessageIfInvalid
     }
 
     init(item: PreferencesIntItem) {
@@ -61,6 +66,10 @@ extension PreferenceTextView {
         }
         getter = { String(describing: item.getter()) }
         description = item.description
+        hasErrorMessage = {
+            guard let value = Int($0) else { return "Invalid value" }
+            return item.lastErrorMessageIfInvalid(value: value)
+        }
     }
 
     init(item: PreferencesFloatItem) {
@@ -72,6 +81,10 @@ extension PreferenceTextView {
         }
         getter = { String(describing: item.getter()) }
         description = item.description
+        hasErrorMessage = {
+            guard let value = Float($0) else { return "Invalid value" }
+            return item.lastErrorMessageIfInvalid(value: value)
+        }
     }
 
     init(item: PreferencesDoubleItem) {
@@ -83,5 +96,9 @@ extension PreferenceTextView {
         }
         getter = { String(describing: item.getter()) }
         description = item.description
+        hasErrorMessage = {
+            guard let value = Double($0) else { return "Invalid value" }
+            return item.lastErrorMessageIfInvalid(value: value)
+        }
     }
 }

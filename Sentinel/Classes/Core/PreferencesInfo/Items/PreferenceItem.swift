@@ -42,6 +42,12 @@ public protocol PreferenceItem: Identifiable, Equatable {
 
 extension PreferenceItem {
 
+    func lastErrorMessageIfInvalid(value: T) -> String? {
+        validators
+            .compactMap { $0.validate(value: value) ? nil : $0.validationMessage }
+            .last
+    }
+
     func store(newValue: T) {
         if let key = userDefaultsKey {
             userDefaults.set(newValue, forKey: key)

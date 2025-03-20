@@ -23,3 +23,21 @@ struct PreferencesView: View {
         }
     }
 }
+
+struct DescriptionView: View {
+
+    let description: String?
+    let errorMessage: String?
+    
+    var body: some View {
+        if let errorMessage {
+            Text(errorMessage)
+                .font(.caption1Regular)
+                .frame(maxWidth: .infinity, alignment: .leading)
+        } else if let description {
+            Text(description)
+                .font(.caption1Regular)
+                .frame(maxWidth: .infinity, alignment: .leading)
+        }
+    }
+}

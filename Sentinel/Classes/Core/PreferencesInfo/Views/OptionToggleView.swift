@@ -10,10 +10,12 @@ import SwiftUI
 struct OptionToggleView: View {
 
     @State private var value: Bool
+    @State private var errorMessage: String?
     let title: String
     let description: String?
     let onValueChanged: (Bool) -> Void
     let getter: () -> Bool
+    let hasErrorMessage: (Bool) -> String?
 
     var body: some View {
         VStack(spacing: 8) {
@@ -23,13 +25,15 @@ struct OptionToggleView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
 
-            if let description {
-                Text(description)
-                    .font(.caption1Regular)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-            }
+            DescriptionView(description: description, errorMessage: errorMessage)
         }
-        .onChange(of: value) { onValueChanged($0) }
+        .onChange(of: value) { value in
+            guard let message = hasErrorMessage(value) else {
+                onValueChanged(value)
+                return
+            }
+            errorMessage = message
+        }
         .onAppear {
             let fetchedValue = getter()
             guard fetchedValue != value else { return }
@@ -48,5 +52,6 @@ extension OptionToggleView {
         onValueChanged = item.change(to:)
         getter = item.getter
         description = item.description
+        hasErrorMessage = item.lastErrorMessageIfInvalid
     }
 }

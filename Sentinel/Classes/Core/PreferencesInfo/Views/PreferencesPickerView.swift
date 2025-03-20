@@ -9,11 +9,13 @@ import SwiftUI
 
 struct PreferencesPickerView: View {
 
-    @State var selectedOption: String
+    @State private var selectedOption: String
+    @State private var errorMessage: String?
     let title: String
     let description: String?
     let values: [any PickerValue]
     let onValueChanged: (any PickerValue) -> Void
+    let hasErrorMessage: (any PickerValue) -> String?
 
     var body: some View {
         VStack(spacing: 8) {
@@ -26,15 +28,15 @@ struct PreferencesPickerView: View {
                     .font(.body2Bold)
             }
 
-            if let description {
-                Text(description)
-                    .font(.caption1Regular)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-            }
+            DescriptionView(description: description, errorMessage: errorMessage)
         }
         .onChange(of: selectedOption) { value in
             guard let currentValue = values.first(where: { $0.description == value }) else { return }
-            onValueChanged(currentValue)
+            guard let message = hasErrorMessage(currentValue) else {
+                onValueChanged(currentValue)
+                return
+            }
+            errorMessage = message
         }
     }
 }
@@ -47,5 +49,6 @@ extension PreferencesPickerView {
         values = item.values
         onValueChanged = item.change
         description = item.description
+        hasErrorMessage = item.lastErrorMessageIfInvalid
     }
 }

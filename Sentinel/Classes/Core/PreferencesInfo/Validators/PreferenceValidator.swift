@@ -28,7 +28,7 @@ public protocol PreferenceValidator<T> {
     /// - Parameter value: Value to be validated.
     /// - Returns: `true` if value is valid, `false` otherwise.
     ///
-    var validate: (T) -> Bool { get }
+    func validate(value: T) -> Bool
 }
 
 ///
@@ -41,7 +41,10 @@ public struct AnyPreferenceValidator<T>: PreferenceValidator {
     // MARK: - Public properties
 
     public let validationMessage: String?
-    public let validate: (T) -> Bool
+
+    // MARK: - Private properties
+
+    private let isValid: (T) -> Bool
 
     // MARK: - Lifecycle
 
@@ -54,6 +57,12 @@ public struct AnyPreferenceValidator<T>: PreferenceValidator {
     ///
     public init<V: PreferenceValidator>(validator: V) where V.T == T {
         validationMessage = validator.validationMessage
-        validate = validator.validate
+        isValid = validator.validate(value:)
+    }
+
+    // MARK: - Public methods
+
+    public func validate(value: T) -> Bool {
+        isValid(value)
     }
 }
