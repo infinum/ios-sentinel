@@ -13,6 +13,9 @@ public protocol PreferenceItem: Identifiable, Equatable {
     /// Name of the item
     var name: String { get }
 
+    /// Description of the item
+    var description: String? { get }
+
     /// This function is called when value is changed.
     ///
     /// It should be used to change the current variable value.

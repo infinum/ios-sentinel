@@ -81,22 +81,23 @@ private extension AppDelegate {
             PreferencesTool.Section(
                 title: "UserDefaults flags",
                 items: [
-                    PreferencesBoolItem(
+                    ToggleToolItem(
                         title: "Analytics",
                         userDefaults: .standard,
                         userDefaultsKey: "com.infinum.sentinel.optionSwitch.analytics"
                     ),
-                    PreferencesBoolItem(
+                    ToggleToolItem(
                         title: "Crashlytics",
                         setter: { AppPreferences.crashlyticsEnabled = $0 },
                         getter: { AppPreferences.crashlyticsEnabled }
                     ),
-                    PreferencesBoolItem(
+                    ToggleToolItem(
                         title: "Logging",
+                        description: "It is used to turn the Logging on or off",
                         userDefaults: .standard,
                         userDefaultsKey: "com.infinum.sentinel.optionSwitch.logging"
                     ),
-                    PreferencesTextItem(title: "name", userDefaultsKey: "com.infinum.sentinel.name"),
+                    PreferencesTextItem(title: "name", description: "Saves the current name into user defaults", userDefaultsKey: "com.infinum.sentinel.name"),
                     PreferencesIntItem(title: "some number", userDefaultsKey: "com.inifnum.sentinel.number"),
                     PreferencesPickerItem(
                         title: "Picker values",

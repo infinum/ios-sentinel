@@ -11,17 +11,26 @@ struct PreferencesPickerView: View {
 
     @State var selectedOption: String
     let title: String
+    let description: String?
     let values: [any PickerValue]
     let onValueChanged: (any PickerValue) -> Void
 
     var body: some View {
-        Picker(selection: $selectedOption) {
-            ForEach(values.map(\.description), id: \.self) { option in
-                Text(option)
+        VStack(spacing: 8) {
+            Picker(selection: $selectedOption) {
+                ForEach(values.map(\.description), id: \.self) { option in
+                    Text(option)
+                }
+            } label: {
+                Text(title)
+                    .font(.body2Bold)
             }
-        } label: {
-            Text(title)
-                .font(.body2Bold)
+
+            if let description {
+                Text(description)
+                    .font(.caption1Regular)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+            }
         }
         .onChange(of: selectedOption) { value in
             guard let currentValue = values.first(where: { $0.description == value }) else { return }
@@ -37,5 +46,6 @@ extension PreferencesPickerView {
         title = item.name
         values = item.values
         onValueChanged = item.change
+        description = item.description
     }
 }

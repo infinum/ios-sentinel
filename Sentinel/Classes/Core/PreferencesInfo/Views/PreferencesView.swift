@@ -14,7 +14,7 @@ struct PreferencesView: View {
     var body: some View {
         if let item = preferenceItem as? PreferencesTextItem {
             PreferenceTextView(item: item)
-        } else if let item = preferenceItem as? PreferencesBoolItem {
+        } else if let item = preferenceItem as? ToggleToolItem {
             OptionToggleView(item: item)
         } else if let item = preferenceItem as? PreferencesIntItem {
             PreferenceTextView(item: item)

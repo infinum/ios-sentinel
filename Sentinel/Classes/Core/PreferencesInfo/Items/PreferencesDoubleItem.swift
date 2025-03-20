@@ -13,6 +13,7 @@ public struct PreferencesDoubleItem: PreferenceItem {
     // MARK: - Public properties
 
     public let name: String
+    public let description: String?
     public let setter: (Double) -> ()
     public let getter: () -> Double
     public let validators: [AnyPreferenceValidator<Double>]
@@ -23,11 +24,13 @@ public struct PreferencesDoubleItem: PreferenceItem {
 
     public init(
         title: String,
+        description: String?,
         validators: [AnyPreferenceValidator<Double>] = [],
         userDefaults: UserDefaults = .standard,
         userDefaultsKey: String
     ) {
         self.name = title
+        self.description = description
         self.userDefaults = userDefaults
         self.userDefaultsKey = userDefaultsKey
         self.validators = validators
@@ -37,11 +40,13 @@ public struct PreferencesDoubleItem: PreferenceItem {
 
     public init(
         title: String,
+        description: String?,
         validators: [AnyPreferenceValidator<Double>] = [],
         setter: @escaping (Double) -> (),
         getter: @escaping () -> Double
     ) {
         self.name = title
+        self.description = description
         self.getter = getter
         self.setter = setter
         self.validators = validators

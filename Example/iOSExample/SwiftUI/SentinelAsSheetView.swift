@@ -43,17 +43,17 @@ struct SentinelAsSheet: View {
 
     var toggleItems: [any PreferenceItem] {
         [
-            PreferencesBoolItem(
+            ToggleToolItem(
                 title: "Analytics",
                 userDefaults: .standard,
                 userDefaultsKey: "com.infinum.sentinel.optionSwitch.analytics"
             ),
-            PreferencesBoolItem(
+            ToggleToolItem(
                 title: "Crashlytics",
                 setter: { AppPreferences.crashlyticsEnabled = $0 },
                 getter: { AppPreferences.crashlyticsEnabled }
             ),
-            PreferencesBoolItem(
+            ToggleToolItem(
                 title: "Logging",
                 userDefaults: .standard,
                 userDefaultsKey: "com.infinum.sentinel.optionSwitch.logging"

@@ -11,16 +11,25 @@ struct PreferenceTextView: View {
 
     @State private var value: String
     let title: String
+    let description: String?
     let onValueChanged: (String) -> Void
     let getter: () -> String
 
     var body: some View {
-        HStack(spacing: 10) {
-            Text(title)
-                .font(.body2Bold)
-            TextEditor(text: $value)
-                .frame(maxWidth: .infinity, alignment: .trailing)
-                .border(.gray, width: 1)
+        VStack(spacing: 8) {
+            HStack(spacing: 10) {
+                Text(title)
+                    .font(.body2Bold)
+                TextEditor(text: $value)
+                    .frame(maxWidth: .infinity, alignment: .trailing)
+                    .border(.gray, width: 1)
+            }
+
+            if let description {
+                Text(description)
+                    .font(.caption1Regular)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+            }
         }
         .onChange(of: value) { onValueChanged($0) }
         .onAppear {
@@ -40,6 +49,7 @@ extension PreferenceTextView {
         title = item.name
         onValueChanged = item.change(to:)
         getter = item.getter
+        description = item.description
     }
 
     init(item: PreferencesIntItem) {
@@ -50,6 +60,7 @@ extension PreferenceTextView {
             item.change(to: value)
         }
         getter = { String(describing: item.getter()) }
+        description = item.description
     }
 
     init(item: PreferencesFloatItem) {
@@ -60,6 +71,7 @@ extension PreferenceTextView {
             item.change(to: value)
         }
         getter = { String(describing: item.getter()) }
+        description = item.description
     }
 
     init(item: PreferencesDoubleItem) {
@@ -70,5 +82,6 @@ extension PreferenceTextView {
             item.change(to: value)
         }
         getter = { String(describing: item.getter()) }
+        description = item.description
     }
 }

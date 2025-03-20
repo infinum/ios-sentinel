@@ -9,11 +9,13 @@ import Foundation
 
 public typealias PickerValue = RawRepresentable & CustomStringConvertible
 
+/// Item which will create a preferences view with a picker
 public struct PreferencesPickerItem: PreferenceItem {
 
     // MARK: - Public properties
 
     public let name: String
+    public var description: String?
     public let setter: (any PickerValue) -> ()
     public let getter: () -> any PickerValue
     public let validators: [AnyPreferenceValidator<any PickerValue>]
@@ -28,6 +30,7 @@ public struct PreferencesPickerItem: PreferenceItem {
 
     public init(
         title: String,
+        description: String? = nil,
         values: [any PickerValue],
         setter: @escaping (any PickerValue) -> (),
         getter: @escaping () -> any PickerValue,
@@ -36,6 +39,7 @@ public struct PreferencesPickerItem: PreferenceItem {
         userDefaultsKey: String? = nil
     ) {
         name = title
+        self.description = description
         self.values = values
         self.getter = getter
         self.setter = setter
