@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Item which will create a preferences view with a title, and a text editor which will only save Double values
 public struct PreferencesDoubleItem: PreferenceItem {
 
     // MARK: - Public properties
@@ -18,8 +19,7 @@ public struct PreferencesDoubleItem: PreferenceItem {
     public let userDefaults: UserDefaults
     public let userDefaultsKey: String?
 
-    // MARK: - Lifecycle
-
+    // MARK: - Init
 
     public init(
         title: String,

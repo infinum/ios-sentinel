@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Item which will create a preferences view with a title, and a text editor which will only save Int values
 public struct PreferencesIntItem: PreferenceItem {
 
     // MARK: - Public properties
@@ -18,8 +19,7 @@ public struct PreferencesIntItem: PreferenceItem {
     public let userDefaults: UserDefaults
     public let userDefaultsKey: String?
 
-    // MARK: - Lifecycle
-
+    // MARK: - Init
 
     public init(
         title: String,

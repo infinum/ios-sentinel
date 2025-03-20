@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Item which will create a preferences view with a title, and a text editor
 public struct PreferencesTextItem: PreferenceItem {
 
     // MARK: - Public properties
@@ -18,8 +19,7 @@ public struct PreferencesTextItem: PreferenceItem {
     public let userDefaults: UserDefaults
     public let userDefaultsKey: String?
 
-    // MARK: - Lifecycle
-
+    // MARK: - Init
 
     public init(
         title: String,
@@ -58,8 +58,6 @@ public struct PreferencesTextItem: PreferenceItem {
     func change(to value: String) {
         store(newValue: value)
     }
-
-
 }
 
 extension PreferencesTextItem {
