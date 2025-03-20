@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Item which will create a preferences view with a toggle button
 public struct PreferencesBoolItem: PreferenceItem {
 
     // MARK: - Public properties

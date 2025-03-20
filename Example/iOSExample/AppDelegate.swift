@@ -25,10 +25,19 @@ enum AppUrl {
     static var baseURL = "http://google.com"
 }
 
-enum AppSwitches {
+enum AppPreferences {
     static var analyticsEnabled = true
     static var crashlyticsEnabled = true
     static var loggingEnabled = false
+    static var pickerValue = SomePickerValue.option1
+}
+
+enum SomePickerValue: String, CustomStringConvertible, CaseIterable {
+    var description: String {
+        self.rawValue
+    }
+
+    case option1, option2, option3
 }
 
 private extension AppDelegate {
@@ -79,8 +88,8 @@ private extension AppDelegate {
                     ),
                     PreferencesBoolItem(
                         title: "Crashlytics",
-                        setter: { AppSwitches.crashlyticsEnabled = $0 },
-                        getter: { AppSwitches.crashlyticsEnabled }
+                        setter: { AppPreferences.crashlyticsEnabled = $0 },
+                        getter: { AppPreferences.crashlyticsEnabled }
                     ),
                     PreferencesBoolItem(
                         title: "Logging",
@@ -89,7 +98,11 @@ private extension AppDelegate {
                     ),
                     PreferencesTextItem(title: "name", userDefaultsKey: "com.infinum.sentinel.name"),
                     PreferencesIntItem(title: "some number", userDefaultsKey: "com.inifnum.sentinel.number"),
-                    PreferencesPickerItem(title: "Picker values", values: SomePickerValue.allCases, setter: { _ in }, getter: { SomePickerValue.option1 })
+                    PreferencesPickerItem(
+                        title: "Picker values",
+                        values: SomePickerValue.allCases,
+                        setter: { value in AppPreferences.pickerValue = value as! SomePickerValue },
+                        getter: { AppPreferences.pickerValue })
                 ]
             )
 
@@ -97,12 +110,4 @@ private extension AppDelegate {
 
     }
 
-}
-
-enum SomePickerValue: String, CustomStringConvertible, CaseIterable {
-    var description: String {
-        self.rawValue
-    }
-
-    case option1, option2, option3
 }

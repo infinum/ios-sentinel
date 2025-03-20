@@ -18,6 +18,15 @@ enum AppPreferences {
     static var analyticsEnabled = true
     static var crashlyticsEnabled = true
     static var loggingEnabled = false
+    static var pickerValue = SomePickerValue.option1
+}
+
+enum SomePickerValue: String, CustomStringConvertible, CaseIterable {
+    var description: String {
+        self.rawValue
+    }
+
+    case option1, option2, option3
 }
 
 @main
@@ -79,19 +88,15 @@ private extension AppDelegate {
                     ),
                     PreferencesTextItem(title: "name", userDefaultsKey: "com.infinum.sentinel.name"),
                     PreferencesIntItem(title: "some number", userDefaultsKey: "com.inifnum.sentinel.number"),
-                    PreferencesPickerItem(title: "Picker values", values: SomePickerValue.allCases, setter: { _ in }, getter: { SomePickerValue.option1 })
+                    PreferencesPickerItem(
+                        title: "Picker values",
+                        values: SomePickerValue.allCases,
+                        setter: { value in AppPreferences.pickerValue = value as! SomePickerValue },
+                        getter: { AppPreferences.pickerValue })
                 ]
             )
 
         ]
 
     }
-}
-
-enum SomePickerValue: String, CustomStringConvertible, CaseIterable {
-    var description: String {
-        self.rawValue
-    }
-
-    case option1, option2, option3
 }
