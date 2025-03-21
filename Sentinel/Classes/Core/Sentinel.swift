@@ -30,6 +30,10 @@ public final class Sentinel {
     public func setup(with configuration: Configuration) {
         self.configuration = configuration
         configuration.trigger?.subscribe {
+            guard configuration.sourceScreenProvider.shouldShowSentinel() else {
+                configuration.sourceScreenProvider.dismissSentinel()
+                return
+            }
             configuration.sourceScreenProvider.showTools(for: Self.createSentinelView(with: configuration))
         }
     }

@@ -83,7 +83,7 @@ private extension SentinelTabItem {
                     ToolTableItem.navigation(NavigationToolItem(title: tool.name, didSelect: { tool.content }))
                     #endif
                 }
-            let section = ToolTableSection(title: barItemTitle, items: navigationItems)
+            let section = ToolTableSection(title: "Custom Tools", items: navigationItems)
             let toolTable = ToolTable(name: barItemTitle, sections: [section])
             return toolTable
         case .preferences(let items):

@@ -92,7 +92,7 @@ public func setup(with configuration: Configuration) {
 
 ### 2. Creating and showing a View
 
-Another way to set up Sentinel is by using the `createViewSentinelView` method needs to be used. The method will provide a SentinelTabBarView which can be shown anywhere in the App.
+Another way to set up Sentinel is by using the ``createViewSentinelView`` method needs to be used. The method will provide a SentinelTabBarView which can be shown anywhere in the App.
 
 ```swift
 /// Creates the Sentinel View with tools.
@@ -110,7 +110,81 @@ public static func createSentinelView(with configuration: Configuration) -> Sent
 
 ## Add Preferences
 
-The `prefernces` can be added as part of the configuration setup of **Sentinel**. Prefrences add items to the Preferences tab of Sentinel which are toggleable flags. Preference sections can be added:
+The `prefernces` can be added as part of the configuration setup of **Sentinel**. Prefrences add items to the Preferences tab of Sentinel which are editable items. Each section consists of `PreferenceItem` objects.
+
+```swift
+public protocol PreferenceItem: Identifiable, Equatable {
+    associatedtype T
+
+    /// Name of the item
+    var name: String { get }
+
+    /// Description of the item
+    var description: String? { get }
+
+    /// This function is called when value is changed.
+    ///
+    /// It should be used to change the current variable value.
+    var setter: (T) -> () { get }
+
+    /// This function is called when value needs to be read.
+    ///
+    /// It should be used to provide the current variable value.
+    var getter: () -> T { get }
+
+    /// Array of validators used to define validation rules..
+    var validators: [AnyPreferenceValidator<T>] { get }
+
+    /// Default storage used for storing information if the key is provided.
+    var userDefaults: UserDefaults { get }
+
+    /// Defines key for storing information.
+    ///
+    /// If the value is not provided, the information won't be stored.
+    var userDefaultsKey: String? { get }
+}
+```
+
+**PreferenceItem** is a protocol which defines which properties are mandatory for a preference object. It provides a `setter`, and a `getter` so Sentinel can know how to store new values or fetch existing ones. There is an optional `userDefaultsKey` parameter which is used if the value should be stored in the `UserDefaults`.
+
+`PreferenceItem` also supports validators. You can create your own validator by conforming to the `PreferenceValidator`.
+```swift
+///
+/// Defines validator behavior for preference items.
+///
+public protocol PreferenceValidator<T> {
+    associatedtype T
+
+    ///
+    /// Defines custom message which will be shown instead
+    /// of default validator message.
+    ///
+    /// - Returns: Custom validation message.
+    ///
+    var validationMessage: String? { get }
+
+    ///
+    /// Validates the provided value and returns `true`
+    /// if value is valid for the provided validator.
+    ///
+    /// - Parameter value: Value to be validated.
+    /// - Returns: `true` if value is valid, `false` otherwise.
+    ///
+    func validate(value: T) -> Bool
+}
+```
+There are two validators already created; `PreferenceCountValidator`, and `PreferenceValueValidator`.
+When creating a `PreferenceItem`, you will need to wrap them in the `AnyPreferenceValidator` struct so that it is type agnostic.
+
+There is a couple of supported `PreferenceItem` objects:
+- **ToggleToolItem** - toggleable view
+- **PreferencesTextItem** - view with a text field
+- **PreferencesIntItem** - view witha a text field which only accepts Int when saving
+- **PreferencesFloatItem** - view witha a text field which only accepts Float when saving
+- **PreferencesDoubleItem** - view witha a text field which only accepts Double when saving
+- **PreferencesPickerItem** - view witha a picker view
+
+e.g. The app supports Analitycs and you can add an `PreferencesTool.Section` which will be shown on the `Preferences` screen and the user can turn it off if he doesn't want it.
 
 ```swift
 PreferencesTool.Section(
@@ -124,8 +198,6 @@ PreferencesTool.Section(
     ]
 )
 ```
-
-The toggles can update a value in the `UserDefaults` so they ca nbe used as feature flags as well.
 
 ## Add Tools
 

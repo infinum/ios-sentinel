@@ -36,7 +36,7 @@ private struct ContentView: View {
             Section {
                 if let title = currentSection.title {
                     Text(title)
-                        .font(.headline)
+                        .font(.title1Bold)
                 }
 
                 ForEach(currentSection.items) { item in
@@ -56,7 +56,7 @@ private struct ContentView: View {
                             label: { NavigationToolTableView(item: item) }
                         )
                     case .toggle(let item):
-                        OptionToggleView(item: item)
+                        PreferencesView(preferenceItem: item)
                     case .customInfo(let item):
                         TitleValueView(item: item)
                     case .performance(let item):

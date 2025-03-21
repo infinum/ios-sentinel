@@ -31,14 +31,29 @@ Sentinel is a debug tool which contains multiple debug tools with a single point
 - ``ToolTable``
 - ``TextEditingTool``
 - ``CrashDetectionTool``
+- ``DatabaseImportExportTool``
 
 ### Predefined items
 - ``ToolTableItem``
 - ``ToolTableSection``
-- ``ToggleToolItem``
 - ``PerformanceInfoItem``
 - ``NavigationToolItem``
 
+### Preferences
+- ``PreferenceItem``
+- ``ToggleToolItem``
+- ``PreferencesTextItem``
+- ``PreferencesIntItem``
+- ``PreferencesFloatItem``
+- ``PreferencesDoubleItem``
+- ``PreferencesPickerItem``
+- ``PickerValue``
+
+### Prefrence validators
+- ``PreferenceValidator``
+- ``AnyPreferenceValidator``
+- ``PreferenceCountValidator``
+- ``PreferenceValueValidator``
 ### Creating your custom tools
 - ``Tool``
 - ``CustomToolTableItem``
