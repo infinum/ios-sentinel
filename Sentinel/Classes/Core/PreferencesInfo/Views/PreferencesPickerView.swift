@@ -33,6 +33,7 @@ struct PreferencesPickerView: View {
         .onChange(of: selectedOption) { value in
             guard let currentValue = values.first(where: { $0.description == value }) else { return }
             guard let message = hasErrorMessage(currentValue) else {
+                errorMessage = nil
                 onValueChanged(currentValue)
                 return
             }

@@ -22,8 +22,9 @@ struct PreferenceTextView: View {
             HStack(spacing: 10) {
                 Text(title)
                     .font(.body2Bold)
-                TextEditor(text: $value)
+                TextField(description ?? "", text: $value)
                     .frame(maxWidth: .infinity, alignment: .trailing)
+                    .padding(4)
                     .border(.gray, width: 1)
             }
 
@@ -31,6 +32,7 @@ struct PreferenceTextView: View {
         }
         .onChange(of: value) { value in
             guard let message = hasErrorMessage(value) else {
+                errorMessage = nil
                 onValueChanged(value)
                 return
             }
@@ -67,7 +69,7 @@ extension PreferenceTextView {
         getter = { String(describing: item.getter()) }
         description = item.description
         hasErrorMessage = {
-            guard let value = Int($0) else { return "Invalid value" }
+            guard let value = Int($0) else { return "Can not convert value" }
             return item.lastErrorMessageIfInvalid(value: value)
         }
     }
@@ -82,7 +84,7 @@ extension PreferenceTextView {
         getter = { String(describing: item.getter()) }
         description = item.description
         hasErrorMessage = {
-            guard let value = Float($0) else { return "Invalid value" }
+            guard let value = Float($0) else { return "Can not convert value" }
             return item.lastErrorMessageIfInvalid(value: value)
         }
     }
@@ -97,7 +99,7 @@ extension PreferenceTextView {
         getter = { String(describing: item.getter()) }
         description = item.description
         hasErrorMessage = {
-            guard let value = Double($0) else { return "Invalid value" }
+            guard let value = Double($0) else { return "Can not convert value" }
             return item.lastErrorMessageIfInvalid(value: value)
         }
     }

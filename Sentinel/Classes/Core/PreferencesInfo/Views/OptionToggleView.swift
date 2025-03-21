@@ -29,6 +29,7 @@ struct OptionToggleView: View {
         }
         .onChange(of: value) { value in
             guard let message = hasErrorMessage(value) else {
+                errorMessage = nil
                 onValueChanged(value)
                 return
             }

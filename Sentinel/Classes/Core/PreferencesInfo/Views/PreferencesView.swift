@@ -34,6 +34,7 @@ struct DescriptionView: View {
             Text(errorMessage)
                 .font(.caption1Regular)
                 .frame(maxWidth: .infinity, alignment: .leading)
+                .foregroundColor(.red)
         } else if let description {
             Text(description)
                 .font(.caption1Regular)
