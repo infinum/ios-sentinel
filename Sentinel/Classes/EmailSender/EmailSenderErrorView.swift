@@ -15,11 +15,11 @@ struct EmailSenderErrorView: View {
     var body: some View {
         VStack(spacing: 10) {
             Text(alertTitle)
-                .font(.system(size: 17, weight: .bold))
+                .font(.subtitle1Bold)
                 .multilineTextAlignment(.center)
 
             Text(alertMessage)
-                .font(.system(size: 14, weight: .regular))
+                .font(.body1Regular)
                 .multilineTextAlignment(.center)
         }
         .frame(maxHeight: .infinity, alignment: .top)
