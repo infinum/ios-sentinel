@@ -15,10 +15,10 @@ struct TitleValueView: View {
     var body: some View {
         HStack(spacing: 10) {
             Text(title)
-                .font(.body2Bold)
+                .font(.body1Bold)
 
             Text(value)
-                .font(.body2Regular)
+                .font(.body1Regular)
                 .frame(maxWidth: .infinity, alignment: .trailing)
         }
     }
