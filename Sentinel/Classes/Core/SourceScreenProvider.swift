@@ -15,7 +15,7 @@ public protocol SourceScreenProvider {
     func showTools(for view: some View)
 
     /// Checks if Sentinel is already shown
-    func shouldShowSentinel() -> Bool
+    func isSentinelShown() -> Bool
 
     /// Dismisses Sentinel, used if the user triggers the showing of Sentinel but it is already shown
     func dismissSentinel()
@@ -43,8 +43,8 @@ public struct DefaultSourceScreenProvider: SourceScreenProvider {
         keyWindow?.contentViewController?.presentAsModalWindow(controller)
     }
 
-    public func shouldShowSentinel() -> Bool {
-        !NSApplication.shared.windows.compactMap(\.contentViewController).contains(where: { $0 is NSHostingController<SentinelTabBarView> })
+    public func isSentinelShown() -> Bool {
+        NSApplication.shared.windows.compactMap(\.contentViewController).contains(where: { $0 is NSHostingController<SentinelTabBarView> })
     }
 
     public func dismissSentinel() {
@@ -56,8 +56,8 @@ public struct DefaultSourceScreenProvider: SourceScreenProvider {
         topMostController()?.present(UIHostingController(rootView: view), animated: true)
     }
 
-    public func shouldShowSentinel() -> Bool {
-        !(topMostController() is UIHostingController<SentinelTabBarView>)
+    public func isSentinelShown() -> Bool {
+        topMostController() is UIHostingController<SentinelTabBarView>
     }
 
     public func dismissSentinel() {
