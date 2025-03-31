@@ -1,5 +1,5 @@
 //
-//  CrashToolView.swift
+//  CrashDetectionToolView.swift
 //  Sentinel
 //
 //  Created by Zvonimir Medak on 10.03.2025..
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CrashToolView: View {
+struct CrashDetectionToolView: View {
 
     var body: some View {
         #if os(macOS)
@@ -33,7 +33,7 @@ private struct ContentView: View {
             } else {
                 ForEach(crashes, id: \.details.date) { model in
                     NavigationLink(
-                        destination: CrashToolDetailsView(crashModel: model),
+                        destination: CrashDetectionToolDetailsView(crashModel: model),
                         tag: model.details.date.description,
                         selection: $selectedItem,
                         label: { Text(model.details.name) }
@@ -42,7 +42,7 @@ private struct ContentView: View {
             }
         }
         .onAppear {
-            crashes = CrashManager.recover(ofType: .nsexception) + CrashManager.recover(ofType: .signal)
+            crashes = CrashFileManager.recover(ofType: .nsexception) + CrashFileManager.recover(ofType: .signal)
         }
         .navigationTitle("Crashes Tool")
         .toolbar {
@@ -55,7 +55,7 @@ private struct ContentView: View {
             ToolbarItemGroup(placement: placement) {
                 Button(
                     action: {
-                        CrashManager.deleteAll()
+                        CrashFileManager.deleteAll()
                         crashes = []
                     },
                     label: {

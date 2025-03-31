@@ -24,11 +24,13 @@
 		2E13666EF72C0C9FEA22D2FE65A57C0A /* SentinelInternal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309E9683112ADB957E323084BE3AD1C9 /* SentinelInternal.swift */; };
 		2ED6BF981B4F6FD19BCBFF039FA69DF3 /* SentinelUIKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BDF4CDDEF4404C3AB446A1727CA6AA /* SentinelUIKitExtensions.swift */; };
 		32521EE36F6D89E6A55C13CF0E48D3BB /* SentinelListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9663246E0EC07E0C0E38249E3229C1FF /* SentinelListView.swift */; };
-		344ABFF2A11E47714396B4374E88F809 /* Trace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5618201FBE5F086457E87AAC89F3E38C /* Trace.swift */; };
+		344ABFF2A11E47714396B4374E88F809 /* StackTrace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5618201FBE5F086457E87AAC89F3E38C /* StackTrace.swift */; };
 		35A1A93089EB909F1C56FE352325D7E4 /* PreferencesTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701D58166D774061CA93670E314D5636 /* PreferencesTool.swift */; };
 		369CAB60838537C5FC4471287582799E /* SentinelTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B335B4CC49C10B9FC3D283C6B54F8D3E /* SentinelTabBarView.swift */; };
 		36E8C6FCA2696C2B1E5700A87EE83FE1 /* CustomInfoTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFBF0D51AA9D8B929C32F8262B7E82C2 /* CustomInfoTool.swift */; };
-		387D302319B166B6B71840041AE98003 /* CrashToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7385D8E4C4CE7969E58B2DB90C596730 /* CrashToolView.swift */; };
+		37AC663F2D9AC17C0065FE91 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AC663E2D9AC17C0065FE91 /* StringExtensions.swift */; };
+		37AC66402D9AC17C0065FE91 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AC663E2D9AC17C0065FE91 /* StringExtensions.swift */; };
+		387D302319B166B6B71840041AE98003 /* CrashDetectionToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7385D8E4C4CE7969E58B2DB90C596730 /* CrashDetectionToolView.swift */; };
 		38D0CC6C75E7377626132E0D68262E75 /* SignalPrehandlerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24A0068311C71EEDD54B32FDCBE9BE3 /* SignalPrehandlerManager.swift */; };
 		398B84CA1E358779EBB4E1D421CDB7B2 /* CrashType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD4BA5884AE201F19D7C7DCD95AFF00 /* CrashType.swift */; };
 		3C204E8E5E4DA43358CCCCB0276749E9 /* ToolTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF6B610530C46CBF5187517F60FE5787 /* ToolTable.swift */; };
@@ -43,7 +45,7 @@
 		4936B94427EEFB7E7A137143A6BFB22D /* ToolTableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83C0A00F0F4880C86BAF314D3413C8F /* ToolTableItem.swift */; };
 		5042DE7A407F4BC077465790649A80F8 /* TitleValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559097E1339F988BB22F208350F76CA4 /* TitleValueView.swift */; };
 		51B1C81704665FA7E9BF93D6BC1DDE39 /* CrashHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F16D754F3C9D68F5FC117F23F9804D3 /* CrashHandler.swift */; };
-		54B9A98680696EC138B07A81EA8E3C72 /* CrashManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA28B42CC1230B42A1B4EE7E4BEF2F58 /* CrashManager.swift */; };
+		54B9A98680696EC138B07A81EA8E3C72 /* CrashFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA28B42CC1230B42A1B4EE7E4BEF2F58 /* CrashFileManager.swift */; };
 		59897FB6FB970AAC6B923BE3D9229BB2 /* PreferencesTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701D58166D774061CA93670E314D5636 /* PreferencesTool.swift */; };
 		5A58D07BB62AFBE23C400C01713C298A /* Sentinel.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4C8016EA23C99362F29A2E0A34A25654 /* Sentinel.bundle */; };
 		5B9AB4B16E4D7B49A78B949250A6B049 /* CrashDetectionTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DE32F07F3D2E8C81686E25C5AECF1 /* CrashDetectionTool.swift */; };
@@ -63,7 +65,7 @@
 		7762883DC06BA4F8EE2828F4CC907C90 /* PerformanceInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E002C8EE4A6760DDD5238706C43CD0D9 /* PerformanceInfoViewModel.swift */; };
 		79AD6903C1C90730829D87AC5769D7B0 /* PerformanceTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98496DBD1499165C693C805D4FC6816 /* PerformanceTool.swift */; };
 		7A11A4C7BA55DF9227A1CEB368BFEAAD /* CrashSignalExceptionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8D1EF0B2E6298BA47DC23D0C4DBFFB /* CrashSignalExceptionHandler.swift */; };
-		7DACF06323733AFE98C6847D42E16439 /* CrashToolDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84BF552C1CFDE6A7015BFBF86AD87AB /* CrashToolDetailsView.swift */; };
+		7DACF06323733AFE98C6847D42E16439 /* CrashDetectionToolDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84BF552C1CFDE6A7015BFBF86AD87AB /* CrashDetectionToolDetailsView.swift */; };
 		7DE16112CCDAF52B32817BD994F1C8E3 /* UserDefaultsTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0146FA4E35CCBD21591B44C34F22AE99 /* UserDefaultsTool.swift */; };
 		7F2ED1CC08B5EA696FD0AD518937DD13 /* UserDefaultsToolDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AB1E0AE30B87ABCE948457E739462C /* UserDefaultsToolDetailView.swift */; };
 		7FA2AD669D45F4B37EABD395471156E3 /* Pods-Sentinel_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B00DF721C9E0BB44EDA2C39DDB4CFB0 /* Pods-Sentinel_Tests-dummy.m */; };
@@ -71,23 +73,23 @@
 		84CECDC6005F0BE6D78E7B3648ABB6C8 /* SourceScreenProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF38204D033578A3979D36CA2E611FD8 /* SourceScreenProvider.swift */; };
 		863C06B57056AE45A6603A78FB9E3693 /* CustomToolTableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A562FFABB04067439479EE0AA6071778 /* CustomToolTableItem.swift */; };
 		86C1B27FEE86F85B65B3BC8BEC96EEDD /* Pods-Example-iOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 95632FF61F474F29A54541E442ACB706 /* Pods-Example-iOS-dummy.m */; };
-		875F459E8CA7374FE5AD725A1FFEDC5F /* CrashToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7385D8E4C4CE7969E58B2DB90C596730 /* CrashToolView.swift */; };
+		875F459E8CA7374FE5AD725A1FFEDC5F /* CrashDetectionToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7385D8E4C4CE7969E58B2DB90C596730 /* CrashDetectionToolView.swift */; };
 		8A61B19AC4DF2C5E7EB4594B81B5B47F /* UserDefaultsToolViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADEBAE17F09B3C8D742EBEDF937BED3 /* UserDefaultsToolViewModel.swift */; };
 		8B716ED0925440D6691E5442E8EBB254 /* CrashDetectionTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DE32F07F3D2E8C81686E25C5AECF1 /* CrashDetectionTool.swift */; };
 		93996BB45E6D642F2E53350E55F7A07F /* EmailSenderErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63ED989A6504579FF28759B329EBA57B /* EmailSenderErrorView.swift */; };
 		97C954ECB6EA5DE52BB21C96C89662F7 /* SentinelInternal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309E9683112ADB957E323084BE3AD1C9 /* SentinelInternal.swift */; };
 		98F4891B3F43E22DF8F7C6F8FFC9079A /* PreferencesToolSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6C70AB44D0DC123CD95FBB54F668C9 /* PreferencesToolSection.swift */; };
-		9AA3A157FA72E91AF0B842A4071B3CF8 /* CrashManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA28B42CC1230B42A1B4EE7E4BEF2F58 /* CrashManager.swift */; };
-		9B02946ADF4CAD0A52B8FF95436EB882 /* Preperable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AADC4C8FF67BB85124D630CA7601914 /* Preperable.swift */; };
+		9AA3A157FA72E91AF0B842A4071B3CF8 /* CrashFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA28B42CC1230B42A1B4EE7E4BEF2F58 /* CrashFileManager.swift */; };
+		9B02946ADF4CAD0A52B8FF95436EB882 /* CrashExceptionPrepareable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AADC4C8FF67BB85124D630CA7601914 /* CrashExceptionPrepareable.swift */; };
 		9C236FC7284514DC3855FA1CEFDE226E /* TextEditingTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FF4088E98BDBE047D4C8618C33047E /* TextEditingTool.swift */; };
 		9F638F30378552FE7AFED195E4DF31B1 /* CrashHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F16D754F3C9D68F5FC117F23F9804D3 /* CrashHandler.swift */; };
 		A1EFFE95013C74588A144AEE2E4AA385 /* ToolTableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717FC04E4169C2A39A2282F6DF015729 /* ToolTableSection.swift */; };
 		A418FCD3D6A4C28196F1DC6A812E3203 /* Sentinel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89141AB1AAA8A3F3136C73B4D1ECDAB /* Sentinel.swift */; };
-		A6AE8F5A2BAAAAD38937A0D00B426C58 /* Trace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5618201FBE5F086457E87AAC89F3E38C /* Trace.swift */; };
+		A6AE8F5A2BAAAAD38937A0D00B426C58 /* StackTrace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5618201FBE5F086457E87AAC89F3E38C /* StackTrace.swift */; };
 		A7DFD45971C3D67B4D9ECBFABD49DAC0 /* CustomInfoToolSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CEC652EED42A5426FC1E87C7801394 /* CustomInfoToolSection.swift */; };
 		A9DF58D4A76FB8AD06E92B9C4A3DBFA8 /* CrashModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E035556DFE641F2D16A62B777325F718 /* CrashModel.swift */; };
 		AB4AF1B6985D44675861121089BA30FB /* ToolTableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717FC04E4169C2A39A2282F6DF015729 /* ToolTableSection.swift */; };
-		AC06A5474E2F92C80920563048DB2671 /* CrashToolDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84BF552C1CFDE6A7015BFBF86AD87AB /* CrashToolDetailsView.swift */; };
+		AC06A5474E2F92C80920563048DB2671 /* CrashDetectionToolDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84BF552C1CFDE6A7015BFBF86AD87AB /* CrashDetectionToolDetailsView.swift */; };
 		ACCF231AD15225F6BAC29A01E85B3516 /* assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70AA5B8323C78F9EAB8A73452106BBC5 /* assets.xcassets */; };
 		ADA701450F31AC5842EEBE589D113AEB /* TextEditingTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FF4088E98BDBE047D4C8618C33047E /* TextEditingTool.swift */; };
 		AE348E43E802C26151DE3D53EA733D59 /* UserDefaultsToolViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADEBAE17F09B3C8D742EBEDF937BED3 /* UserDefaultsToolViewModel.swift */; };
@@ -133,7 +135,7 @@
 		F13B576D665C2630457E6C0D09E9696C /* PerformanceTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98496DBD1499165C693C805D4FC6816 /* PerformanceTool.swift */; };
 		F5025786ED3CFA4CCDEC422B4762E065 /* MemoryInfoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E32385CBF0016DCFDEEE3887EAEFE1A /* MemoryInfoProvider.swift */; };
 		F5BDC4D58D5688704D81A5E8F467D767 /* TextEditingToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC65E5769FA4324AEF3FDF490438A96D /* TextEditingToolView.swift */; };
-		F61F775081C2377AB305F909900F0372 /* Preperable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AADC4C8FF67BB85124D630CA7601914 /* Preperable.swift */; };
+		F61F775081C2377AB305F909900F0372 /* CrashExceptionPrepareable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AADC4C8FF67BB85124D630CA7601914 /* CrashExceptionPrepareable.swift */; };
 		F66BA8503E10D02B2E2DF6754224B142 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = AAA2C0401AF97E5BF6BC0C206E0D2AA6 /* PrivacyInfo.xcprivacy */; };
 		F819416E16609BF9586C679E97C4ADFC /* CrashSignalExceptionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8D1EF0B2E6298BA47DC23D0C4DBFFB /* CrashSignalExceptionHandler.swift */; };
 		F97144E90F2656EF3574CB6BE89BDAEF /* NavigationToolTableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F97DDBFFC905D2613BCDE63B6E12B53 /* NavigationToolTableItem.swift */; };
@@ -208,6 +210,7 @@
 		34CEC652EED42A5426FC1E87C7801394 /* CustomInfoToolSection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CustomInfoToolSection.swift; path = Sentinel/Classes/Core/CustomInfoToolSection.swift; sourceTree = "<group>"; };
 		35AB5DA2955B4E68B4309192408426E5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		35EF8DDB0C575A53AEA71443DD5C27F9 /* EmailSenderTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EmailSenderTool.swift; path = Sentinel/Classes/EmailSender/EmailSenderTool.swift; sourceTree = "<group>"; };
+		37AC663E2D9AC17C0065FE91 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		3B9B5C8CAA380F9857F08D9FC528E880 /* Pods-Example-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Example-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		3FB5325B2B6FFC2A6E06D63B32ED4B74 /* Sentinel.common.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Sentinel.common.release.xcconfig; sourceTree = "<group>"; };
 		4878C0CB914689C65E662ADBAA85193D /* Pods-Example-MacOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Example-MacOS-umbrella.h"; sourceTree = "<group>"; };
@@ -219,7 +222,7 @@
 		53F8EF2FCF14A4B8F28812FEDDA8C4F5 /* ResourceBundle-Sentinel-Sentinel.common-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-Sentinel-Sentinel.common-Info.plist"; sourceTree = "<group>"; };
 		5430F4F303C53171054F65274A5E1A56 /* Pods-Sentinel_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Sentinel_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		559097E1339F988BB22F208350F76CA4 /* TitleValueView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TitleValueView.swift; sourceTree = "<group>"; };
-		5618201FBE5F086457E87AAC89F3E38C /* Trace.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Trace.swift; sourceTree = "<group>"; };
+		5618201FBE5F086457E87AAC89F3E38C /* StackTrace.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StackTrace.swift; sourceTree = "<group>"; };
 		58E046B2C93157B014B529E28A3A8AFC /* Sentinel.common-EmailSender-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = "Sentinel.common-EmailSender-Info.plist"; path = "../Sentinel.common-EmailSender/Sentinel.common-EmailSender-Info.plist"; sourceTree = "<group>"; };
 		59B8321CBAD0E47BD3513D53921E3E34 /* Pods_Example_MacOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example_MacOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B7FF26A75020C2065E5F5E8971D5810 /* Sentinel.common-EmailSender-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Sentinel.common-EmailSender-prefix.pch"; path = "../Sentinel.common-EmailSender/Sentinel.common-EmailSender-prefix.pch"; sourceTree = "<group>"; };
@@ -236,7 +239,7 @@
 		698C336FF858BB34F72E12736994E8C4 /* Sentinel.common-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Sentinel.common-dummy.m"; sourceTree = "<group>"; };
 		69B22F7A61AE2AEBE87400BC0C78D789 /* Pods-Example-iOS-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Example-iOS-acknowledgements.plist"; sourceTree = "<group>"; };
 		6A3A4A2DCF784E20FAF72E86891DC581 /* Pods-Example-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Example-iOS.debug.xcconfig"; sourceTree = "<group>"; };
-		6AADC4C8FF67BB85124D630CA7601914 /* Preperable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Preperable.swift; sourceTree = "<group>"; };
+		6AADC4C8FF67BB85124D630CA7601914 /* CrashExceptionPrepareable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CrashExceptionPrepareable.swift; sourceTree = "<group>"; };
 		6B52EFE362FF974021DB04E3E7250E13 /* StringBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StringBuilder.swift; sourceTree = "<group>"; };
 		6BC98AFFCB63C9003AAE12422328FCF7 /* Pods-Example-MacOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Example-MacOS-dummy.m"; sourceTree = "<group>"; };
 		6F6D5384020BDE352D3B58B45161F363 /* DeviceTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DeviceTool.swift; sourceTree = "<group>"; };
@@ -244,7 +247,7 @@
 		70AA5B8323C78F9EAB8A73452106BBC5 /* assets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = assets.xcassets; sourceTree = "<group>"; };
 		717FC04E4169C2A39A2282F6DF015729 /* ToolTableSection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ToolTableSection.swift; path = Sentinel/Classes/Core/ToolTableSection.swift; sourceTree = "<group>"; };
 		7367BCA4BC55E631C0F500663336DB5C /* Pods-Example-MacOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Example-MacOS.debug.xcconfig"; sourceTree = "<group>"; };
-		7385D8E4C4CE7969E58B2DB90C596730 /* CrashToolView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CrashToolView.swift; path = Sentinel/Classes/CrashDetection/CrashToolView.swift; sourceTree = "<group>"; };
+		7385D8E4C4CE7969E58B2DB90C596730 /* CrashDetectionToolView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CrashDetectionToolView.swift; path = Sentinel/Classes/CrashDetection/CrashDetectionToolView.swift; sourceTree = "<group>"; };
 		76FB306158F824BE41F1024FCC8ACF62 /* Pods-Example-iOS-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Example-iOS-frameworks.sh"; sourceTree = "<group>"; };
 		78FA90B4EAAD3746A72A358DF933D6D7 /* EmailSenderView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EmailSenderView.swift; path = Sentinel/Classes/EmailSender/EmailSenderView.swift; sourceTree = "<group>"; };
 		7AF3C18739FC061EC3A90EE6E0DDEB41 /* Sentinel.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = Sentinel.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -276,7 +279,7 @@
 		BF38204D033578A3979D36CA2E611FD8 /* SourceScreenProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SourceScreenProvider.swift; path = Sentinel/Classes/Core/SourceScreenProvider.swift; sourceTree = "<group>"; };
 		C1FFE2A3264BE5E6BA1DB26A93A3D325 /* CrashUncaughtExceptionHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CrashUncaughtExceptionHandler.swift; sourceTree = "<group>"; };
 		C5F85507B734CC14D049A30630BB2869 /* NavigationToolTableView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NavigationToolTableView.swift; sourceTree = "<group>"; };
-		CA28B42CC1230B42A1B4EE7E4BEF2F58 /* CrashManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CrashManager.swift; sourceTree = "<group>"; };
+		CA28B42CC1230B42A1B4EE7E4BEF2F58 /* CrashFileManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CrashFileManager.swift; sourceTree = "<group>"; };
 		CAADF9FB59B5C39A1420BCC9AFDA0349 /* Pods-Example-MacOS-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Example-MacOS-acknowledgements.plist"; sourceTree = "<group>"; };
 		CD34B26EFC0D62CC4B138F922042FA75 /* Pods-Sentinel_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Sentinel_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		D5611258D5BA090578EF43C1CD875522 /* Sentinel.common.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Sentinel.common.modulemap; sourceTree = "<group>"; };
@@ -291,7 +294,7 @@
 		E0BF3252B9241739F18C98CF08B93E0D /* Sentinel.common-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Sentinel.common-prefix.pch"; sourceTree = "<group>"; };
 		E24A0068311C71EEDD54B32FDCBE9BE3 /* SignalPrehandlerManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignalPrehandlerManager.swift; sourceTree = "<group>"; };
 		E72D7EA69C7066BF89CB12706D9F455D /* Sentinel.common.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Sentinel.common.debug.xcconfig; sourceTree = "<group>"; };
-		E84BF552C1CFDE6A7015BFBF86AD87AB /* CrashToolDetailsView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CrashToolDetailsView.swift; path = Sentinel/Classes/CrashDetection/CrashToolDetailsView.swift; sourceTree = "<group>"; };
+		E84BF552C1CFDE6A7015BFBF86AD87AB /* CrashDetectionToolDetailsView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CrashDetectionToolDetailsView.swift; path = Sentinel/Classes/CrashDetection/CrashDetectionToolDetailsView.swift; sourceTree = "<group>"; };
 		E98496DBD1499165C693C805D4FC6816 /* PerformanceTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PerformanceTool.swift; sourceTree = "<group>"; };
 		EB8042775B5560CA6327F588CA76E377 /* ApplicationTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ApplicationTool.swift; sourceTree = "<group>"; };
 		EFBF0D51AA9D8B929C32F8262B7E82C2 /* CustomInfoTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CustomInfoTool.swift; path = Sentinel/Classes/Core/CustomInfoTool.swift; sourceTree = "<group>"; };
@@ -429,6 +432,7 @@
 				B335B4CC49C10B9FC3D283C6B54F8D3E /* SentinelTabBarView.swift */,
 				B3F469FCEE85DAA31B9F5F38D4A11260 /* SentinelTabItem.swift */,
 				65BDF4CDDEF4404C3AB446A1727CA6AA /* SentinelUIKitExtensions.swift */,
+				37AC663E2D9AC17C0065FE91 /* StringExtensions.swift */,
 			);
 			name = Internal;
 			path = Sentinel/Classes/Core/Internal;
@@ -509,8 +513,8 @@
 			isa = PBXGroup;
 			children = (
 				178DE32F07F3D2E8C81686E25C5AECF1 /* CrashDetectionTool.swift */,
-				E84BF552C1CFDE6A7015BFBF86AD87AB /* CrashToolDetailsView.swift */,
-				7385D8E4C4CE7969E58B2DB90C596730 /* CrashToolView.swift */,
+				E84BF552C1CFDE6A7015BFBF86AD87AB /* CrashDetectionToolDetailsView.swift */,
+				7385D8E4C4CE7969E58B2DB90C596730 /* CrashDetectionToolView.swift */,
 				7895A04807F77B39E8B2E50066063707 /* Internal */,
 			);
 			name = CrashDetection;
@@ -522,7 +526,7 @@
 				5F16D754F3C9D68F5FC117F23F9804D3 /* CrashHandler.swift */,
 				2B8D1EF0B2E6298BA47DC23D0C4DBFFB /* CrashSignalExceptionHandler.swift */,
 				C1FFE2A3264BE5E6BA1DB26A93A3D325 /* CrashUncaughtExceptionHandler.swift */,
-				6AADC4C8FF67BB85124D630CA7601914 /* Preperable.swift */,
+				6AADC4C8FF67BB85124D630CA7601914 /* CrashExceptionPrepareable.swift */,
 				E24A0068311C71EEDD54B32FDCBE9BE3 /* SignalPrehandlerManager.swift */,
 			);
 			path = Handlers;
@@ -553,10 +557,10 @@
 		7895A04807F77B39E8B2E50066063707 /* Internal */ = {
 			isa = PBXGroup;
 			children = (
-				CA28B42CC1230B42A1B4EE7E4BEF2F58 /* CrashManager.swift */,
+				CA28B42CC1230B42A1B4EE7E4BEF2F58 /* CrashFileManager.swift */,
 				E035556DFE641F2D16A62B777325F718 /* CrashModel.swift */,
 				DAD4BA5884AE201F19D7C7DCD95AFF00 /* CrashType.swift */,
-				5618201FBE5F086457E87AAC89F3E38C /* Trace.swift */,
+				5618201FBE5F086457E87AAC89F3E38C /* StackTrace.swift */,
 				4FD1F0724BECC28B0A8E8397925CDF16 /* Handlers */,
 			);
 			name = Internal;
@@ -988,16 +992,17 @@
 				D2CA71727627F16F91A76D32E709FD5B /* CPUInfoProvider.swift in Sources */,
 				8B716ED0925440D6691E5442E8EBB254 /* CrashDetectionTool.swift in Sources */,
 				9F638F30378552FE7AFED195E4DF31B1 /* CrashHandler.swift in Sources */,
-				54B9A98680696EC138B07A81EA8E3C72 /* CrashManager.swift in Sources */,
+				54B9A98680696EC138B07A81EA8E3C72 /* CrashFileManager.swift in Sources */,
 				A9DF58D4A76FB8AD06E92B9C4A3DBFA8 /* CrashModel.swift in Sources */,
 				F819416E16609BF9586C679E97C4ADFC /* CrashSignalExceptionHandler.swift in Sources */,
-				AC06A5474E2F92C80920563048DB2671 /* CrashToolDetailsView.swift in Sources */,
-				387D302319B166B6B71840041AE98003 /* CrashToolView.swift in Sources */,
+				AC06A5474E2F92C80920563048DB2671 /* CrashDetectionToolDetailsView.swift in Sources */,
+				387D302319B166B6B71840041AE98003 /* CrashDetectionToolView.swift in Sources */,
 				398B84CA1E358779EBB4E1D421CDB7B2 /* CrashType.swift in Sources */,
 				17C75745497ED5C3AD0E090D8C3112E1 /* CrashUncaughtExceptionHandler.swift in Sources */,
 				36E8C6FCA2696C2B1E5700A87EE83FE1 /* CustomInfoTool.swift in Sources */,
 				E424B376A8F60705A9C270DB08F6DBAA /* CustomInfoToolSection.swift in Sources */,
 				863C06B57056AE45A6603A78FB9E3693 /* CustomToolTableItem.swift in Sources */,
+				37AC663F2D9AC17C0065FE91 /* StringExtensions.swift in Sources */,
 				E26A21841206480E110CC57B9430B4E5 /* DeviceTool.swift in Sources */,
 				D8F831FC7656D8F181FB0928B6F82497 /* StringBuilder.swift in Sources */,
 				FFAE3B76D2442FD06FF3C5A0C1BBF22B /* Image+Assets.swift in Sources */,
@@ -1011,7 +1016,7 @@
 				164AA1AE3455B4AF042DF5E398135462 /* PerformanceToolView.swift in Sources */,
 				35A1A93089EB909F1C56FE352325D7E4 /* PreferencesTool.swift in Sources */,
 				98F4891B3F43E22DF8F7C6F8FFC9079A /* PreferencesToolSection.swift in Sources */,
-				F61F775081C2377AB305F909900F0372 /* Preperable.swift in Sources */,
+				F61F775081C2377AB305F909900F0372 /* CrashExceptionPrepareable.swift in Sources */,
 				09CA79A01BFA188C859A1DA37BE2720B /* SearchableIfAvaialbleModifier.swift in Sources */,
 				A418FCD3D6A4C28196F1DC6A812E3203 /* Sentinel.swift in Sources */,
 				FD41D2CE5C44FB5C00F94C04ED594982 /* Sentinel.common-dummy.m in Sources */,
@@ -1034,7 +1039,7 @@
 				DF3CA0A7EC1942FDB91198E5F43B3772 /* ToolTable.swift in Sources */,
 				4936B94427EEFB7E7A137143A6BFB22D /* ToolTableItem.swift in Sources */,
 				A1EFFE95013C74588A144AEE2E4AA385 /* ToolTableSection.swift in Sources */,
-				344ABFF2A11E47714396B4374E88F809 /* Trace.swift in Sources */,
+				344ABFF2A11E47714396B4374E88F809 /* StackTrace.swift in Sources */,
 				FA5ECC6D5643128CBC1AB63E30ECAAF8 /* Trigger.swift in Sources */,
 				7DE16112CCDAF52B32817BD994F1C8E3 /* UserDefaultsTool.swift in Sources */,
 				7F2ED1CC08B5EA696FD0AD518937DD13 /* UserDefaultsToolDetailView.swift in Sources */,
@@ -1052,11 +1057,11 @@
 				1A28C9A9546D07904DE0279F6AD8B91B /* CPUInfoProvider.swift in Sources */,
 				5B9AB4B16E4D7B49A78B949250A6B049 /* CrashDetectionTool.swift in Sources */,
 				51B1C81704665FA7E9BF93D6BC1DDE39 /* CrashHandler.swift in Sources */,
-				9AA3A157FA72E91AF0B842A4071B3CF8 /* CrashManager.swift in Sources */,
+				9AA3A157FA72E91AF0B842A4071B3CF8 /* CrashFileManager.swift in Sources */,
 				C0C22A22883C0FCB1E95E2AFBB0FB348 /* CrashModel.swift in Sources */,
 				7A11A4C7BA55DF9227A1CEB368BFEAAD /* CrashSignalExceptionHandler.swift in Sources */,
-				7DACF06323733AFE98C6847D42E16439 /* CrashToolDetailsView.swift in Sources */,
-				875F459E8CA7374FE5AD725A1FFEDC5F /* CrashToolView.swift in Sources */,
+				7DACF06323733AFE98C6847D42E16439 /* CrashDetectionToolDetailsView.swift in Sources */,
+				875F459E8CA7374FE5AD725A1FFEDC5F /* CrashDetectionToolView.swift in Sources */,
 				C846CCA067881000FE9C9DBBC998A2C4 /* CrashType.swift in Sources */,
 				FCC6A1FC92E7E6C3204195B3F42C6136 /* CrashUncaughtExceptionHandler.swift in Sources */,
 				17E860F768EA94A84D20221EAF49EF96 /* CustomInfoTool.swift in Sources */,
@@ -1079,7 +1084,7 @@
 				D309866FB1180476515FEEAE7F61C1BB /* PerformanceToolView.swift in Sources */,
 				59897FB6FB970AAC6B923BE3D9229BB2 /* PreferencesTool.swift in Sources */,
 				40DFCB4BA9820DF12385EF75DEF60C00 /* PreferencesToolSection.swift in Sources */,
-				9B02946ADF4CAD0A52B8FF95436EB882 /* Preperable.swift in Sources */,
+				9B02946ADF4CAD0A52B8FF95436EB882 /* CrashExceptionPrepareable.swift in Sources */,
 				0C37FBC090EF2CFDCB76DD0AE44663F7 /* SearchableIfAvaialbleModifier.swift in Sources */,
 				21C43E5F00F6BB61821D2F23BCCED93E /* Sentinel.swift in Sources */,
 				48DA67CC03D31D7088AD739ED312F8E3 /* Sentinel.common-EmailSender-dummy.m in Sources */,
@@ -1102,7 +1107,8 @@
 				3C204E8E5E4DA43358CCCCB0276749E9 /* ToolTable.swift in Sources */,
 				F04D79CEE2667DEC32B30CC4C720E362 /* ToolTableItem.swift in Sources */,
 				AB4AF1B6985D44675861121089BA30FB /* ToolTableSection.swift in Sources */,
-				A6AE8F5A2BAAAAD38937A0D00B426C58 /* Trace.swift in Sources */,
+				37AC66402D9AC17C0065FE91 /* StringExtensions.swift in Sources */,
+				A6AE8F5A2BAAAAD38937A0D00B426C58 /* StackTrace.swift in Sources */,
 				E04B71B779035A6E8FC9BBF11259A043 /* Trigger.swift in Sources */,
 				08DE84E9608130EBC485251DB94032EA /* UserDefaultsTool.swift in Sources */,
 				03742ABE146106C183BB4E595783A99C /* UserDefaultsToolDetailView.swift in Sources */,

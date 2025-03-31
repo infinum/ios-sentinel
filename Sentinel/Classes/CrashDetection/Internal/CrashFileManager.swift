@@ -1,5 +1,5 @@
 //
-//  CrashManager.swift
+//  CrashFileManager.swift
 //  Sentinel
 //
 //  Created by Zvonimir Medak on 10.03.2025..
@@ -9,7 +9,7 @@
 
 import Foundation
 
-enum CrashManager {
+enum CrashFileManager {
 
     /// Registers to handle the crashes and log them
     /// Should be called on app start-up
@@ -48,7 +48,7 @@ enum CrashManager {
 
 }
 
-private extension CrashManager {
+private extension CrashFileManager {
 
     @discardableResult
     static func deleteFile(at url: URL) -> Bool {
@@ -74,7 +74,7 @@ private extension CrashManager {
 
 }
 
-private extension CrashManager {
+private extension CrashFileManager {
 
     @StringBuilder
     static func crashLog(for crashModel: CrashModel) -> String {
@@ -93,7 +93,7 @@ private extension CrashManager {
     }
 
     @StringBuilder
-    static func stackTrace(for trace: CrashModel.Trace) -> String {
+    static func stackTrace(for trace: CrashModel.StackTrace) -> String {
         trace.title
         trace.detail
     }

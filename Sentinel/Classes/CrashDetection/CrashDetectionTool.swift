@@ -20,7 +20,7 @@ public struct CrashDetectionTool: Tool {
 
     public init(name: String = "Crash Detection Tool") {
         self.name = name
-        CrashManager.register()
+        CrashFileManager.register()
     }
 }
 
@@ -30,11 +30,11 @@ public extension CrashDetectionTool {
 
     #if os(macOS)
     func createContent(selection: Binding<String?>) -> any View {
-        CrashToolView()
+        CrashDetectionToolView()
     }
     #else
     var content: any View {
-        CrashToolView()
+        CrashDetectionToolView()
     }
     #endif
 }

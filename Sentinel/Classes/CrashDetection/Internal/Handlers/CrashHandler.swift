@@ -31,14 +31,14 @@ final class CrashHandler {
 
         CrashUncaughtExceptionHandler.exceptionReceiveClosure = { [weak self] signal, exception, info in
             self?.exceptionReceiveClosure?(signal, exception, info)
-            CrashManager.save(
+            CrashFileManager.save(
                 crash: .init(type: .nsexception, details: .builder(name: info))
             )
         }
 
         CrashSignalExceptionHandler.exceptionReceiveClosure = { [weak self] signal, exception, info in
             self?.exceptionReceiveClosure?(signal, exception, info)
-            CrashManager.save(
+            CrashFileManager.save(
                 crash: .init(type: .signal, details: .builder(name: info))
             )
         }
@@ -50,7 +50,7 @@ final class CrashHandler {
 
 // MARK: - Preperable conformance
 
-extension CrashHandler: Preperable {
+extension CrashHandler: CrashExceptionPrepareable {
 
     func prepare() {
         uncaughtExceptionHandler.prepare()
