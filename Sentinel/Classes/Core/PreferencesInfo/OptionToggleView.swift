@@ -17,7 +17,7 @@ struct OptionToggleView: View {
     var body: some View {
         Toggle(isOn: $value) {
             Text(title)
-                .font(.body2Bold)
+                .font(.body1Bold)
                 .frame(maxWidth: .infinity, alignment: .leading)
         }
         .onChange(of: value) { onValueChanged($0) }

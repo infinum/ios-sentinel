@@ -56,7 +56,7 @@ private struct StackTraceView: View {
     var body: some View {
         VStack(spacing: 4) {
             Text(title)
-                .font(.body2Bold)
+                .font(.body1Bold)
             if let description {
                 Text(description)
                     .font(.caption1Regular)
