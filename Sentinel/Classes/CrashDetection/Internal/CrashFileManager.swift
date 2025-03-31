@@ -11,10 +11,18 @@ import Foundation
 
 enum CrashFileManager {
 
-    /// Registers to handle the crashes and log them
+    /// Registers to handle the uncaught crashes and log them
     /// Should be called on app start-up
-    static func register() {
-        CrashHandler.shared.prepare()
+    static func registerUncaughtExceptionHandler(exceptionReceiveHandler: ((Int32?, NSException?, String) -> Void)?) {
+        CrashHandler.shared.registerUncaughtExceptionHandler()
+        CrashHandler.shared.registerUncaughtExceptionHandler(exceptionReceiveHandler: exceptionReceiveHandler)
+    }
+
+    /// Registers to handle the signal crashes and log them
+    /// Should be called on app start-up
+    static func registerSignalExceptionHandler(exceptionReceiveHandler: ((Int32?, NSException?, String) -> Void)?) {
+        CrashHandler.shared.registerSignalExceptionHandler()
+        CrashHandler.shared.registerSignalExceptionHandler(exceptionReceiveHandler: exceptionReceiveHandler)
     }
 
     static func save(crash: CrashModel) {
