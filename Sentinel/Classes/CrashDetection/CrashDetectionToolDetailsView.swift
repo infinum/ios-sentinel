@@ -9,6 +9,8 @@ import SwiftUI
 
 struct CrashDetectionToolDetailsView: View {
 
+    @State private var showShare = false
+
     let crashModel: CrashModel
 
     var body: some View {
@@ -31,6 +33,41 @@ struct CrashDetectionToolDetailsView: View {
                 }
             }
         }
+        .toolbar {
+            #if os(macOS)
+            let placement = ToolbarItemPlacement.navigation
+            #else
+            let placement = ToolbarItemPlacement.topBarTrailing
+            #endif
+
+            ToolbarItemGroup(placement: placement) {
+                Button(
+                    action: {
+                        showShare = true
+                    },
+                    label: {
+                        Image(systemName: "square.and.arrow.up")
+                    }
+                )
+            }
+        }
+        #if os(macOS)
+        .background(
+            SharingsPicker(
+                isPresented: $showShare,
+                sharingItems: [shareText as Any],
+                didFinish: { showShare = false }
+            )
+        )
+        #else
+        .sheet(isPresented: $showShare) {
+            ActivityViewController(
+                activityItems: [shareText as Any],
+                applicationActivities: nil,
+                didFinish: { showShare = false }
+            )
+        }
+        #endif
     }
 }
 
@@ -65,9 +102,9 @@ private struct StackTraceView: View {
         .onTapGesture { }
         .onLongPressGesture {
             #if os(macOS)
-            NSPasteboard.general.setString(title, forType: .string)
+            NSPasteboard.general.setString(title + String.newLine + (description ?? .empty), forType: .string)
             #else
-            UIPasteboard.general.string = title
+            UIPasteboard.general.string = title + String.newLine + (description ?? .empty)
             #endif
         }
     }
@@ -81,5 +118,20 @@ private extension CrashDetectionToolDetailsView {
             ("Date:", crashModel.details.date.description),
             ("Other:", crashModel.details.deviceInfo.description)
         ]
+    }
+
+    @StringBuilder
+    var shareText: String {
+        detailItems.map { title, value in
+            "\(title): \(value)"
+        }.joined(separator: .newLine)
+        String.newLine
+
+        "Stack Trace:"
+        String.newLine
+
+        crashModel.traces.map { trace in
+            trace.title + String.newLine + trace.detail
+        }.joined(separator: .newLine + .newLine)
     }
 }
