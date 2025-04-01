@@ -1,5 +1,5 @@
 //
-//  Preperable.swift
+//  CrashExceptionPrepareable.swift
 //  MasterConnect
 //
 //  Created by Zvonimir Medak on 18.04.2024..
@@ -10,6 +10,6 @@
 
 import Foundation
 
-protocol Preperable {
+protocol CrashExceptionPrepareable {
     func prepare()
 }

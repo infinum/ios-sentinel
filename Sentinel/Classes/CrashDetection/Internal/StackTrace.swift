@@ -1,5 +1,5 @@
 //
-//  Trace.swift
+//  StackTrace.swift
 //  Sentinel
 //
 //  Created by Zvonimir Medak on 10.03.2025..
@@ -10,7 +10,7 @@
 import Foundation
 import MachO
 
-enum Trace {
+enum StackTrace {
 
     static func classNameFromSymbol(_ symbol: String) -> String? {
         try? fetchClassName(for: symbol, pattern: "\\$s(\\S+)\\d+")
@@ -59,9 +59,9 @@ enum Trace {
     }
 }
 
-private extension Trace {
+private extension StackTrace {
 
-    @available(iOS, deprecated: 16, message: "We can use Regex")
+    @available(iOS, deprecated: 16, message: "Use Regex instead")
     static func fetchClassName(for symbol: String, pattern: String) throws -> String? {
         let range = NSRange(location: 0, length: symbol.count)
         let regex = try NSRegularExpression(pattern: pattern, options: .caseInsensitive)

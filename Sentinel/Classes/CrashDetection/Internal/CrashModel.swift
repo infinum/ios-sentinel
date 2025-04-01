@@ -12,12 +12,12 @@ import Foundation
 struct CrashModel: Codable {
     public let type: CrashType
     public let details: Details
-    public let traces: [Trace]
+    public let traces: [StackTrace]
 
     init(
         type: CrashType,
         details: Details,
-        traces: [Trace] = .builder()
+        traces: [StackTrace] = .builder()
     ) {
         self.type = type
         self.details = details
@@ -63,7 +63,7 @@ extension CrashModel {
 
 extension CrashModel {
 
-    struct Trace: Codable {
+    struct StackTrace: Codable {
         public let title: String
         public let detail: String
     }
@@ -72,12 +72,12 @@ extension CrashModel {
 
 // MARK: - Trace helper
 
-extension [CrashModel.Trace] {
+extension [CrashModel.StackTrace] {
 
     static func builder() -> Self {
-        var traces = [CrashModel.Trace]()
+        var traces = [CrashModel.StackTrace]()
         for symbol in Thread.callStackSymbols {
-            let trace = CrashModel.Trace(
+            let trace = CrashModel.StackTrace(
                 title: symbol,
                 detail: detailsInfo(from: symbol)
             )
@@ -89,11 +89,11 @@ extension [CrashModel.Trace] {
 
     @StringBuilder
     private static func detailsInfo(from symbol: String) -> String {
-        if let className = Trace.classNameFromSymbol(symbol) {
+        if let className = StackTrace.classNameFromSymbol(symbol) {
             "Class: \(className)"
             String.newLine
         }
-        if let fileInfo = Trace.fileInfoFromSymbol(symbol) {
+        if let fileInfo = StackTrace.fileInfoFromSymbol(symbol) {
             "File: \(fileInfo.file)"
             String.newLine
             "Line: \(fileInfo.line)"

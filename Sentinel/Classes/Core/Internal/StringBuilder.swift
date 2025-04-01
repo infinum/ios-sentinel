@@ -6,10 +6,6 @@
 //
 
 extension String {
-    static let newLine = "\n"
-}
-
-extension String {
 
     init(@StringBuilder builder: () -> String) {
         self.init(builder())
@@ -25,7 +21,7 @@ enum StringBuilder {
     }
 
     static func buildOptional(_ component: String?) -> String {
-        component ?? ""
+        component ?? .empty
     }
 
     static func buildEither(first component: String) -> String {
