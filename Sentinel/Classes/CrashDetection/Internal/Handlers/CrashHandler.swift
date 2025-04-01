@@ -28,33 +28,49 @@ final class CrashHandler {
         let signalHandler = SignalPrehandlerManager()
         uncaughtExceptionHandler = CrashUncaughtExceptionHandler(preHandlers: signalHandler.preHandlers)
         signalExceptionHandler = CrashSignalExceptionHandler(preHandlers: signalHandler.preHandlers)
-
-        CrashUncaughtExceptionHandler.exceptionReceiveClosure = { [weak self] signal, exception, info in
-            self?.exceptionReceiveClosure?(signal, exception, info)
-            CrashManager.save(
-                crash: .init(type: .nsexception, details: .builder(name: info))
-            )
-        }
-
-        CrashSignalExceptionHandler.exceptionReceiveClosure = { [weak self] signal, exception, info in
-            self?.exceptionReceiveClosure?(signal, exception, info)
-            CrashManager.save(
-                crash: .init(type: .signal, details: .builder(name: info))
-            )
-        }
     }
 
 }
 
 // MARK: - Extensions -
 
-// MARK: - Preperable conformance
+// MARK: - Register handlers
 
-extension CrashHandler: Preperable {
+extension CrashHandler {
 
-    func prepare() {
+    func registerUncaughtExceptionHandler() {
         uncaughtExceptionHandler.prepare()
+    }
+
+    func registerSignalExceptionHandler() {
         signalExceptionHandler.prepare()
     }
 
+}
+
+// MARK: - Register completions for handlers
+
+extension CrashHandler {
+
+    func registerUncaughtExceptionHandler(exceptionReceiveHandler: ((Int32?, NSException?, String) -> Void)?) {
+        CrashUncaughtExceptionHandler.exceptionReceiveClosure = { [weak self] signal, exception, info in
+            self?.exceptionReceiveClosure?(signal, exception, info)
+            guard let exceptionReceiveHandler else {
+                CrashFileManager.save(crash: .init(type: .nsexception, details: .builder(name: info)))
+                return
+            }
+            exceptionReceiveHandler(signal, exception, info)
+        }
+    }
+
+    func registerSignalExceptionHandler(exceptionReceiveHandler: ((Int32?, NSException?, String) -> Void)?) {
+        CrashSignalExceptionHandler.exceptionReceiveClosure = { [weak self] signal, exception, info in
+            self?.exceptionReceiveClosure?(signal, exception, info)
+            guard let exceptionReceiveHandler else {
+                CrashFileManager.save(crash: .init(type: .signal, details: .builder(name: info)))
+                return
+            }
+            exceptionReceiveHandler(signal, exception, info)
+        }
+    }
 }

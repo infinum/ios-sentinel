@@ -29,7 +29,7 @@ final class CrashSignalExceptionHandler {
 
 // MARK: - Preparable conformance
 
-extension CrashSignalExceptionHandler: Preperable {
+extension CrashSignalExceptionHandler: CrashExceptionPrepareable {
 
     func prepare() {
         backupOriginalHandler()

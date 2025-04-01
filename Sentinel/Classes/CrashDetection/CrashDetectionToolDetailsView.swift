@@ -1,5 +1,5 @@
 //
-//  CrashToolDetailsView.swift
+//  CrashDetectionToolDetailsView.swift
 //  Sentinel
 //
 //  Created by Zvonimir Medak on 10.03.2025..
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CrashToolDetailsView: View {
+struct CrashDetectionToolDetailsView: View {
 
     let crashModel: CrashModel
 
@@ -73,7 +73,7 @@ private struct StackTraceView: View {
     }
 }
 
-private extension CrashToolDetailsView {
+private extension CrashDetectionToolDetailsView {
 
     var detailItems: [(String, String)] {
         [
