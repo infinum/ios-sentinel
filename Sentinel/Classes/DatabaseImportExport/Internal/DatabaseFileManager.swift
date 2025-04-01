@@ -64,8 +64,8 @@ final class DatabaseFileManager {
         deleteDirectoryIfExists(atPath: exportDirectoryUrl.path)
         createDirectoryIfNeeded(atPath: exportDirectoryUrl.path)
 
-        return try? ZipHandler.createZip(
-            zipFinalURL: exportArchiveUrl,
+        return try? ArchiveHandler.createArchive(
+            archiveDestinationURL: exportArchiveUrl,
             fromDirectory: exportDirectoryUrl,
             databaseURL: databaseURL
         )
