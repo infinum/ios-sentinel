@@ -36,7 +36,7 @@ private struct ContentView: View {
             Section {
                 if let title = currentSection.title {
                     Text(title)
-                        .font(.headline)
+                        .font(.title1Bold)
                 }
 
                 ForEach(currentSection.items) { item in

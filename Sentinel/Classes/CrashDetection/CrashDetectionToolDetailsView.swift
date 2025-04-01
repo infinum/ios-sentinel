@@ -9,13 +9,15 @@ import SwiftUI
 
 struct CrashDetectionToolDetailsView: View {
 
+    @State private var showShare = false
+
     let crashModel: CrashModel
 
     var body: some View {
         List {
             Section {
                 Text("Details")
-                    .font(.headline)
+                    .font(.title1Bold)
 
                 ForEach(detailItems, id: \.0) {
                     CrashToolDetailsRow(title: $0.0, value: $0.1)
@@ -24,13 +26,48 @@ struct CrashDetectionToolDetailsView: View {
 
             Section {
                 Text("Stack trace")
-                    .font(.headline)
+                    .font(.title1Bold)
 
                 ForEach(crashModel.traces, id: \.title) {
                     StackTraceView(title: $0.title, description: $0.detail)
                 }
             }
         }
+        .toolbar {
+            #if os(macOS)
+            let placement = ToolbarItemPlacement.navigation
+            #else
+            let placement = ToolbarItemPlacement.topBarTrailing
+            #endif
+
+            ToolbarItemGroup(placement: placement) {
+                Button(
+                    action: {
+                        showShare = true
+                    },
+                    label: {
+                        Image(systemName: "square.and.arrow.up")
+                    }
+                )
+            }
+        }
+        #if os(macOS)
+        .background(
+            SharingsPicker(
+                isPresented: $showShare,
+                sharingItems: [shareText as Any],
+                didFinish: { showShare = false }
+            )
+        )
+        #else
+        .sheet(isPresented: $showShare) {
+            ActivityViewController(
+                activityItems: [shareText as Any],
+                applicationActivities: nil,
+                didFinish: { showShare = false }
+            )
+        }
+        #endif
     }
 }
 
@@ -41,9 +78,9 @@ private struct CrashToolDetailsRow: View {
     var body: some View {
         HStack(spacing: 0) {
             Text(title)
-                .font(.system(size: 14, weight: .bold))
+                .font(.body1Bold)
             Text(value)
-                .font(.system(size: 14))
+                .font(.body1Regular)
                 .frame(maxWidth: .infinity, alignment: .trailing)
         }
     }
@@ -56,18 +93,18 @@ private struct StackTraceView: View {
     var body: some View {
         VStack(spacing: 4) {
             Text(title)
-                .font(.system(size: 14, weight: .bold))
+                .font(.body1Bold)
             if let description {
                 Text(description)
-                    .font(.system(size: 11))
+                    .font(.caption1Regular)
             }
         }
         .onTapGesture { }
         .onLongPressGesture {
             #if os(macOS)
-            NSPasteboard.general.setString(title, forType: .string)
+            NSPasteboard.general.setString(title + String.newLine + (description ?? .empty), forType: .string)
             #else
-            UIPasteboard.general.string = title
+            UIPasteboard.general.string = title + String.newLine + (description ?? .empty)
             #endif
         }
     }
@@ -81,5 +118,20 @@ private extension CrashDetectionToolDetailsView {
             ("Date:", crashModel.details.date.description),
             ("Other:", crashModel.details.deviceInfo.description)
         ]
+    }
+
+    @StringBuilder
+    var shareText: String {
+        detailItems.map { title, value in
+            "\(title): \(value)"
+        }.joined(separator: .newLine)
+        String.newLine
+
+        "Stack Trace:"
+        String.newLine
+
+        crashModel.traces.map { trace in
+            trace.title + String.newLine + trace.detail
+        }.joined(separator: .newLine + .newLine)
     }
 }
