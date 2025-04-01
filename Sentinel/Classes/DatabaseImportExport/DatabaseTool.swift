@@ -19,6 +19,7 @@ public struct DatabaseTool: Tool {
 
     private let databaseFilePath: String
     private let allowedTypes: [UTType]
+    private let exportAsArchive: Bool
 
     // MARK: - Lifecycle
 
@@ -29,11 +30,13 @@ public struct DatabaseTool: Tool {
     public init(
         name: String = "Database Tool",
         databaseFilePath: String,
-        allowedTypes: [UTType]
+        allowedTypes: [UTType],
+        exportAsArchive: Bool
     ) {
         self.name = name
         self.databaseFilePath = databaseFilePath
         self.allowedTypes = allowedTypes
+        self.exportAsArchive = exportAsArchive
     }
 }
 
@@ -46,7 +49,8 @@ public extension DatabaseTool {
         DatabaseView(
             viewModel: DatabaseViewModel(
                 databaseFilePath: databaseFilePath,
-                allowedTypes: allowedTypes
+                allowedTypes: allowedTypes,
+                exportAsArchive: exportAsArchive
             )
         )
     }
@@ -55,7 +59,8 @@ public extension DatabaseTool {
         DatabaseView(
             viewModel: DatabaseViewModel(
                 databaseFilePath: databaseFilePath,
-                allowedTypes: allowedTypes
+                allowedTypes: allowedTypes,
+                exportAsArchive: exportAsArchive
             )
         )
     }

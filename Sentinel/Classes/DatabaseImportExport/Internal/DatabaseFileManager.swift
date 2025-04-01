@@ -54,7 +54,7 @@ final class DatabaseFileManager {
         _ = try fileManager.copyItem(at: url, to: databaseURL)
     }
 
-    func exportDatabase() -> URL? {
+    func exportDatabase(asArchive: Bool) -> URL? {
         guard
             let exportDirectoryUrl,
             let databaseURL,
@@ -63,6 +63,10 @@ final class DatabaseFileManager {
 
         deleteDirectoryIfExists(atPath: exportDirectoryUrl.path)
         createDirectoryIfNeeded(atPath: exportDirectoryUrl.path)
+
+        guard asArchive else {
+            return try? copyFileToExportDirectory(fromDirectory: exportDirectoryUrl, databaseUrl: databaseURL)
+        }
 
         return try? ArchiveHandler.createArchive(
             archiveDestinationURL: exportArchiveUrl,
@@ -91,5 +95,12 @@ private extension DatabaseFileManager {
         if fileManager.fileExists(atPath: path) {
             try? fileManager.removeItem(atPath: path)
         }
+    }
+
+    func copyFileToExportDirectory(fromDirectory exportDirectoryUrl: URL, databaseUrl: URL) throws -> URL? {
+        // Copy the database file into the export directory
+        let newDatabaseFileURL = exportDirectoryUrl.appendingPathComponent(databaseUrl.lastPathComponent)
+        try FileManager.default.copyItem(at: databaseUrl, to: newDatabaseFileURL)
+        return newDatabaseFileURL
     }
 }

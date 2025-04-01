@@ -18,12 +18,14 @@ final class DatabaseViewModel: ObservableObject {
     // MARK: - Private properties
 
     private let databaseFileManager: DatabaseFileManager
+    private let exportAsArchive: Bool
 
     // MARK: - Init
 
-    init(databaseFilePath: String, allowedTypes: [UTType]) {
+    init(databaseFilePath: String, allowedTypes: [UTType], exportAsArchive: Bool) {
         self.allowedTypes = allowedTypes
         databaseFileManager = .init(databaseFilePath: databaseFilePath)
+        self.exportAsArchive = exportAsArchive
     }
 }
 
@@ -34,6 +36,6 @@ extension DatabaseViewModel {
     }
 
     func exportDatabase() {
-        selectedURL = databaseFileManager.exportDatabase()
+        selectedURL = databaseFileManager.exportDatabase(asArchive: exportAsArchive)
     }
 }
