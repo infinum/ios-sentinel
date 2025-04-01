@@ -125,10 +125,10 @@ private extension DeviceTool {
 
     static var macOSSection: CustomInfoTool.Section {
         CustomInfoTool.Section(title: "Device", items: [
-            CustomInfoTool.Item(title: "Model", value: getModelIdentifier() ?? ""),
+            CustomInfoTool.Item(title: "Model", value: getModelIdentifier() ?? "Unknown"),
             CustomInfoTool.Item(title: "Name", value: ProcessInfo.processInfo.hostName),
             CustomInfoTool.Item(title: "System version", value: systemVersion),
-            CustomInfoTool.Item(title: "UUID", value: hardwareDeviceUUID ?? "???")
+            CustomInfoTool.Item(title: "UUID", value: hardwareDeviceUUID ?? "Unknown")
         ])
     }
 }
@@ -141,10 +141,48 @@ private extension DeviceTool {
             CustomInfoTool.Item(title: "Model", value: UIDevice.current.model),
             CustomInfoTool.Item(title: "Name", value: UIDevice.current.name),
             CustomInfoTool.Item(title: "System version", value: systemVersion),
-            CustomInfoTool.Item(title: "UUID", value: UIDevice.current.identifierForVendor?.uuidString ?? "???"),
+            CustomInfoTool.Item(title: "UUID", value: UIDevice.current.identifierForVendor?.uuidString ?? "Unknown"),
             CustomInfoTool.Item(title: "Battery state", value: batteryState),
             CustomInfoTool.Item(title: "Proximity state", value: UIDevice.current.proximityState ? "Close" : "Far")
         ])
     }
 }
 #endif
+
+extension DeviceTool {
+
+    struct Info: Codable, CustomStringConvertible {
+        let model: String
+        let name: String
+        let systemVersion: String
+        let UUID: String
+
+        #if os(macOS)
+        init() {
+            model = DeviceTool.getModelIdentifier() ?? ""
+            name = ProcessInfo.processInfo.hostName
+            systemVersion = DeviceTool.systemVersion
+            UUID = DeviceTool.hardwareDeviceUUID ?? "???"
+        }
+        #else
+        init() {
+            model = UIDevice.current.model
+            name = UIDevice.current.name
+            systemVersion = DeviceTool.systemVersion
+            UUID = UIDevice.current.identifierForVendor?.uuidString ?? "???"
+        }
+        #endif
+
+        @StringBuilder
+        var description: String {
+            "Manufacturer: Apple"
+            String.newLine
+            "Device model: \(model)"
+            String.newLine
+            "Device OS: \(systemVersion)"
+            String.newLine
+            "Device ID: \(UUID)"
+            String.newLine
+        }
+    }
+}

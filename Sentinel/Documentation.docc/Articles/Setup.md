@@ -144,6 +144,10 @@ Tool is a name for the wrapper around a debug tool that Sentinel will provide. T
 
 **UserDefaultsTool** is used to give an overview of all the `UserDefaults` properties, their values, and the ability to update or delete properties. The list of properties can be searched as well. The tool is available on both iOS, and MacOS platforms.
 
+### CrashDetectionTool
+
+**CrashDetectionTool** sets up listeners on system exceptions which will be logged into a local json file with the stack trace. The tool is available on iOS.
+
 ### CustomLocationTool
 
 **CustomLocationTool** is used to change the user's current location. After changing the location, the application have to be restarted. The tool is available on iOS.

@@ -48,6 +48,9 @@
       "source_files": "Sentinel/Classes/EmailSender/**/*",
       "dependencies": {
         "Sentinel/Core": []
+      },
+      "platforms": {
+        "ios": "14.0"
       }
     },
     {
@@ -55,6 +58,9 @@
       "source_files": "Sentinel/Classes/CustomLocation/**/*",
       "dependencies": {
         "Sentinel/Core": []
+      },
+      "platforms": {
+        "ios": "14.0"
       }
     },
     {
@@ -65,11 +71,19 @@
       }
     },
     {
+      "name": "CrashDetection",
+      "source_files": "Sentinel/Classes/CrashDetection/**/*",
+      "dependencies": {
+        "Sentinel/Core": []
+      }
+    },
+    {
       "name": "Default",
       "dependencies": {
         "Sentinel/Core": [],
         "Sentinel/UserDefaults": [],
-        "Sentinel/TextEditing": []
+        "Sentinel/TextEditing": [],
+        "Sentinel/CrashDetection": []
       }
     }
   ],
