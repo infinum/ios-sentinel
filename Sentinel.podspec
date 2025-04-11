@@ -73,7 +73,6 @@ Pod::Spec.new do |s|
     sp.dependency 'Sentinel/UserDefaults'
     sp.dependency 'Sentinel/TextEditing'
     sp.dependency 'Sentinel/CrashDetection'
-    sp.dependency 'Sentinel/Database'
   end
   
 end
