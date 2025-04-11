@@ -78,7 +78,7 @@
       }
     },
     {
-      "name": "DatabaseImportExport",
+      "name": "Database",
       "source_files": "Sentinel/Classes/DatabaseImportExport/**/*",
       "dependencies": {
         "Sentinel/Core": []
