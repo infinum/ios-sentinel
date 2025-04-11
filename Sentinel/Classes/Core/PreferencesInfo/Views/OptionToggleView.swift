@@ -21,7 +21,7 @@ struct OptionToggleView: View {
         VStack(spacing: 8) {
             Toggle(isOn: $value) {
                 Text(title)
-                    .font(.body2Bold)
+                    .font(.body1Bold)
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
 

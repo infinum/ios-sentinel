@@ -1,5 +1,5 @@
 //
-//  DatabaseImportExportTool.swift
+//  DatabaseTool.swift
 //  Sentinel
 //
 //  Created by Zvonimir Medak on 12.03.2025..
@@ -9,7 +9,7 @@ import SwiftUI
 import UniformTypeIdentifiers
 
 /// Tool which gives the ability to import or export the database file
-public struct DatabaseImportExportTool: Tool {
+public struct DatabaseTool: Tool {
 
     // MARK: - Public properties
 
@@ -19,6 +19,7 @@ public struct DatabaseImportExportTool: Tool {
 
     private let databaseFilePath: String
     private let allowedTypes: [UTType]
+    private let exportAsArchive: Bool
 
     // MARK: - Lifecycle
 
@@ -27,35 +28,39 @@ public struct DatabaseImportExportTool: Tool {
     ///   - databaseFilePath: Relative path of the database file from the Documents directory
     ///   - allowedTypes: Types of the files which can be imported, should be the type of the database file
     public init(
-        name: String = "Database Import/Export Tool",
+        name: String = "Database Tool",
         databaseFilePath: String,
-        allowedTypes: [UTType]
+        allowedTypes: [UTType],
+        exportAsArchive: Bool
     ) {
         self.name = name
         self.databaseFilePath = databaseFilePath
         self.allowedTypes = allowedTypes
+        self.exportAsArchive = exportAsArchive
     }
 }
 
 // MARK: - UI
 
-public extension DatabaseImportExportTool {
+public extension DatabaseTool {
 
     #if os(macOS)
     func createContent(selection: Binding<String?>) -> any View {
-        DatabaseImportExportView(
-            viewModel: DatabaseImportExportViewModel(
+        DatabaseView(
+            viewModel: DatabaseViewModel(
                 databaseFilePath: databaseFilePath,
-                allowedTypes: allowedTypes
+                allowedTypes: allowedTypes,
+                exportAsArchive: exportAsArchive
             )
         )
     }
     #else
     var content: any View {
-        DatabaseImportExportView(
-            viewModel: DatabaseImportExportViewModel(
+        DatabaseView(
+            viewModel: DatabaseViewModel(
                 databaseFilePath: databaseFilePath,
-                allowedTypes: allowedTypes
+                allowedTypes: allowedTypes,
+                exportAsArchive: exportAsArchive
             )
         )
     }

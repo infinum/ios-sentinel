@@ -14,10 +14,10 @@ struct PerformanceToolView: View {
     var body: some View {
         HStack(spacing: 10) {
             Text(viewModel.item.title)
-                .font(.body2Bold)
+                .font(.body1Bold)
 
             Text(viewModel.value)
-                .font(.body2Regular)
+                .font(.body1Regular)
                 .frame(maxWidth: .infinity, alignment: .trailing)
         }
         .onAppear { viewModel.startTimer() }

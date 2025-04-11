@@ -125,10 +125,10 @@ private extension DeviceTool {
 
     static var macOSSection: CustomInfoTool.Section {
         CustomInfoTool.Section(title: "Device", items: [
-            CustomInfoTool.Item(title: "Model", value: getModelIdentifier() ?? ""),
+            CustomInfoTool.Item(title: "Model", value: getModelIdentifier() ?? "Unknown"),
             CustomInfoTool.Item(title: "Name", value: ProcessInfo.processInfo.hostName),
             CustomInfoTool.Item(title: "System version", value: systemVersion),
-            CustomInfoTool.Item(title: "UUID", value: hardwareDeviceUUID ?? "???")
+            CustomInfoTool.Item(title: "UUID", value: hardwareDeviceUUID ?? "Unknown")
         ])
     }
 }
@@ -141,7 +141,7 @@ private extension DeviceTool {
             CustomInfoTool.Item(title: "Model", value: UIDevice.current.model),
             CustomInfoTool.Item(title: "Name", value: UIDevice.current.name),
             CustomInfoTool.Item(title: "System version", value: systemVersion),
-            CustomInfoTool.Item(title: "UUID", value: UIDevice.current.identifierForVendor?.uuidString ?? "???"),
+            CustomInfoTool.Item(title: "UUID", value: UIDevice.current.identifierForVendor?.uuidString ?? "Unknown"),
             CustomInfoTool.Item(title: "Battery state", value: batteryState),
             CustomInfoTool.Item(title: "Proximity state", value: UIDevice.current.proximityState ? "Close" : "Far")
         ])

@@ -25,7 +25,7 @@ struct PreferencesPickerView: View {
                 }
             } label: {
                 Text(title)
-                    .font(.body2Bold)
+                    .font(.body1Bold)
             }
 
             DescriptionView(description: description, errorMessage: errorMessage)

@@ -1,5 +1,5 @@
 //
-//  CrashToolDetailsView.swift
+//  CrashDetectionToolDetailsView.swift
 //  Sentinel
 //
 //  Created by Zvonimir Medak on 10.03.2025..
@@ -7,7 +7,9 @@
 
 import SwiftUI
 
-struct CrashToolDetailsView: View {
+struct CrashDetectionToolDetailsView: View {
+
+    @State private var showShare = false
 
     let crashModel: CrashModel
 
@@ -31,6 +33,29 @@ struct CrashToolDetailsView: View {
                 }
             }
         }
+        .toolbar {
+            #if os(macOS)
+            let placement = ToolbarItemPlacement.navigation
+            #else
+            let placement = ToolbarItemPlacement.topBarTrailing
+            #endif
+
+            ToolbarItemGroup(placement: placement) {
+                Button(
+                    action: {
+                        showShare = true
+                    },
+                    label: {
+                        Image(systemName: "square.and.arrow.up")
+                    }
+                )
+            }
+        }
+        .share(
+            showShare: $showShare,
+            items: [shareText as Any],
+            didFinish: { showShare = false }
+        )
     }
 }
 
@@ -56,7 +81,7 @@ private struct StackTraceView: View {
     var body: some View {
         VStack(spacing: 4) {
             Text(title)
-                .font(.body2Bold)
+                .font(.body1Bold)
             if let description {
                 Text(description)
                     .font(.caption1Regular)
@@ -65,15 +90,15 @@ private struct StackTraceView: View {
         .onTapGesture { }
         .onLongPressGesture {
             #if os(macOS)
-            NSPasteboard.general.setString(title, forType: .string)
+            NSPasteboard.general.setString(title + String.newLine + (description ?? .empty), forType: .string)
             #else
-            UIPasteboard.general.string = title
+            UIPasteboard.general.string = title + String.newLine + (description ?? .empty)
             #endif
         }
     }
 }
 
-private extension CrashToolDetailsView {
+private extension CrashDetectionToolDetailsView {
 
     var detailItems: [(String, String)] {
         [
@@ -81,5 +106,20 @@ private extension CrashToolDetailsView {
             ("Date:", crashModel.details.date.description),
             ("Other:", crashModel.details.deviceInfo.description)
         ]
+    }
+
+    @StringBuilder
+    var shareText: String {
+        detailItems.map { title, value in
+            "\(title): \(value)"
+        }.joined(separator: .newLine)
+        String.newLine
+
+        "Stack Trace:"
+        String.newLine
+
+        crashModel.traces.map { trace in
+            trace.title + String.newLine + trace.detail
+        }.joined(separator: .newLine + .newLine)
     }
 }

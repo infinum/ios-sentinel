@@ -21,7 +21,7 @@ struct PreferenceTextView: View {
         VStack(spacing: 8) {
             HStack(spacing: 10) {
                 Text(title)
-                    .font(.body2Bold)
+                    .font(.body1Bold)
                 TextField(description ?? "", text: $value)
                     .frame(maxWidth: .infinity, alignment: .trailing)
                     .padding(4)

@@ -7,339 +7,351 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0140C5A60F46036DBD2091C7EB7085B1 /* CrashManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA28B42CC1230B42A1B4EE7E4BEF2F58 /* CrashManager.swift */; };
-		029ACA53F23E74B05B95D22B661C3A9E /* PreferencesIntItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08A0CE4C50DD0AAE72D69B286B4BDF8 /* PreferencesIntItem.swift */; };
-		0625CF8EEAE1A49D7DA63D8C18125F05 /* PerformanceInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5FEFB6A57DC708E91AB230CF826BAE /* PerformanceInfoViewModel.swift */; };
-		06EEC19DB7A0439FECED80566A37BC43 /* PreferencesFloatItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D349473492C192966A15538F98782C86 /* PreferencesFloatItem.swift */; };
-		08C5728F204B56F210F16292F95FC5E9 /* SystemInfoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8293F0B8AAC267AFDF6226F44E56B085 /* SystemInfoProvider.swift */; };
-		0A2FB2CDF0A20FCAFE9267AC71F0EE39 /* SignalPrehandlerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24A0068311C71EEDD54B32FDCBE9BE3 /* SignalPrehandlerManager.swift */; };
-		0BB819BDA0F12DD570E8F5AAB8AA0489 /* SentinelListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E617ED708A6DF1B240D0C3C9F3177F /* SentinelListViewModel.swift */; };
-		0E41ABBA135C88EC2C7944549BEC1CE6 /* Trace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5618201FBE5F086457E87AAC89F3E38C /* Trace.swift */; };
-		0FBBC4FD6A616101A18BCAB80F689F01 /* CrashDetectionTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DE32F07F3D2E8C81686E25C5AECF1 /* CrashDetectionTool.swift */; };
+		008837E222447E5C881DE47B73B36FBE /* DeviceTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = E867B5ED362BFFCF3EC2B884A02356B6 /* DeviceTool.swift */; };
+		076E150BB8DA101B5F8090EDF504EEB7 /* Sentinel.common-EmailSender-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F1FEB7DCC6B7EF110AC0E652000C6E /* Sentinel.common-EmailSender-dummy.m */; };
+		08349BF7858011C75A32248737827512 /* SentinelInternal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DB7650EB2CE38638155AFB1250AF90 /* SentinelInternal.swift */; };
+		08A3921733822699B0ADE3CF33B9DEF7 /* SearchableIfAvaialbleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77CF6470E5BEDDF9B643B9FF6BAA5CD /* SearchableIfAvaialbleModifier.swift */; };
+		0A3307ED0E43068E057BDC4551FAC68B /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = AAA2C0401AF97E5BF6BC0C206E0D2AA6 /* PrivacyInfo.xcprivacy */; };
+		0BD2D3809F0E103DA5EC04F0BE8C7AE5 /* Sentinel.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 17BE64710C0606EEC8BDB81D450D2349 /* Sentinel.bundle */; };
+		0EEB53CD3BEC90C243D734EF78B2838A /* CrashModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F482AE33F65646DB58507F01F6AE2F /* CrashModel.swift */; };
+		11039F2D03A96B97CBA3B66A703CB8FD /* PerformanceTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5D7091E0EFDA1A8E294A0B51500D08 /* PerformanceTool.swift */; };
 		112566533BE0A421ACD8CAB0ACE3E56D /* Pods-Example-iOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E5D0B25A8B50D56931EF4C7A103797B /* Pods-Example-iOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		127839B6235E713F426B0D695EC56D3C /* ToolTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA1CE3ACA3196FCC0E529395386AF44 /* ToolTable.swift */; };
-		12A3E6616B62DDF0F16B401B73DBBEB5 /* Preperable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AADC4C8FF67BB85124D630CA7601914 /* Preperable.swift */; };
-		16F028D0814A2F295846E7BC69DBF3EE /* Image+Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63FB88105A93E8BE2CCC702FAEE404F /* Image+Assets.swift */; };
-		180FDDA525959099FE65601B44476DC5 /* MemoryInfoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93CD7FB3F76622E040E8CAA695D8777 /* MemoryInfoProvider.swift */; };
-		2043F4EA2A35CB8471B00CBB523C7AAB /* ToolTableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA44D27495DFB1FFFA03ED249BC21DCA /* ToolTableSection.swift */; };
-		26D49A3D405731A1AFC7A442EA70F36C /* CrashToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7385D8E4C4CE7969E58B2DB90C596730 /* CrashToolView.swift */; };
-		27100E01B6FA3B195B3285D2519644B5 /* CrashDetectionTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178DE32F07F3D2E8C81686E25C5AECF1 /* CrashDetectionTool.swift */; };
-		2848302099FDDFD2325E263CF0E6A894 /* ApplicationTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E900AFAC408E335E8C3484DE333F86 /* ApplicationTool.swift */; };
-		28BCDA02DC4D4B8FC836ED8DF33B7D9B /* CrashUncaughtExceptionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FFE2A3264BE5E6BA1DB26A93A3D325 /* CrashUncaughtExceptionHandler.swift */; };
-		2986B727706407BCE57AD8663AD72311 /* PerformanceInfoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D91B0A48A29B5B30A36091B64B6CF11 /* PerformanceInfoItem.swift */; };
-		2AECE66BDA01825DAB58EC9315A9D550 /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505BEEDDB0D79C37A180795099626942 /* Tool.swift */; };
-		2BC7FE043329B70D7D8D10E7ECC42A23 /* StringBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFABF497E8967B35D088A90C9E43F356 /* StringBuilder.swift */; };
-		2DAFDA06F4F29D6A715D20EA67FFC161 /* CustomInfoTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B53052EACE12F6F9A7C9351F4BB0F8 /* CustomInfoTool.swift */; };
-		2E932B207258408B0EAC39593E60E55E /* UserDefaultsTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0146FA4E35CCBD21591B44C34F22AE99 /* UserDefaultsTool.swift */; };
-		2ED8E698FCBF9AC258964CCB36BA1FBD /* assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70AA5B8323C78F9EAB8A73452106BBC5 /* assets.xcassets */; };
-		2F36BC10A5D38CC93BF56463656EC0F5 /* SentinelListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E467D30EC43B0E5842B62C85834F82 /* SentinelListView.swift */; };
-		2FF974392AE0A1571C51EC9DFF40F0B9 /* PreferenceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825DB14CCFD53E6D0B1A069ACF4A4CDF /* PreferenceItem.swift */; };
-		30367CAC7380CEB168BCCA37F1BA250D /* PreferencesFloatItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D349473492C192966A15538F98782C86 /* PreferencesFloatItem.swift */; };
-		32F5B4F3EC4B961D0AFEE03524BCF77B /* UserDefaultsTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0146FA4E35CCBD21591B44C34F22AE99 /* UserDefaultsTool.swift */; };
-		3343DBAB11C6D25E5AF100D314490423 /* DeviceTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111C3EE82D04F8CF3A2081DEDA2B00D4 /* DeviceTool.swift */; };
-		34B14D36245B6215CBB745F5830A93A0 /* PreferencesToolSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424267CDE13F9C5D94884FCAEFF18E20 /* PreferencesToolSection.swift */; };
-		3549727CDFF591BCF65CF378E037EB41 /* DeviceTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111C3EE82D04F8CF3A2081DEDA2B00D4 /* DeviceTool.swift */; };
-		378BF3902D8C41D000C4F5FB /* PreferenceCountValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378BF38F2D8C41D000C4F5FB /* PreferenceCountValidator.swift */; };
-		378BF3912D8C41D000C4F5FB /* PreferenceCountValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378BF38F2D8C41D000C4F5FB /* PreferenceCountValidator.swift */; };
-		378BF3932D8C439900C4F5FB /* PreferenceValueValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378BF3922D8C439900C4F5FB /* PreferenceValueValidator.swift */; };
-		378BF3942D8C439900C4F5FB /* PreferenceValueValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378BF3922D8C439900C4F5FB /* PreferenceValueValidator.swift */; };
-		39CD93A7AA62782063A3EFAD918EAFCB /* EmailSenderTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EF8DDB0C575A53AEA71443DD5C27F9 /* EmailSenderTool.swift */; };
-		3E8D1D35A574A20C77FD8E944C03D918 /* UserDefaultsToolDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F503F9C5BDD27191D531FFA3CDBF701 /* UserDefaultsToolDetailViewModel.swift */; };
-		3F13DA6FCDAA1508463153DC352EBABB /* SentinelTabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D67275BACE5AFF2EA93CAA3E0FD616 /* SentinelTabItem.swift */; };
-		3F8F353F3CD96732DDFD78BC680648BC /* UserDefaultsToolDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F503F9C5BDD27191D531FFA3CDBF701 /* UserDefaultsToolDetailViewModel.swift */; };
-		40B336CE99426B3E31D6BBB36675B9AE /* CrashSignalExceptionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8D1EF0B2E6298BA47DC23D0C4DBFFB /* CrashSignalExceptionHandler.swift */; };
-		40DAA765481D70C3E5584AEF0664E8D9 /* ToolTableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC5320263F246F984B997B6F1393BE8 /* ToolTableItem.swift */; };
-		413DF987003E384289BA20F4B6B7D768 /* PreferencesIntItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08A0CE4C50DD0AAE72D69B286B4BDF8 /* PreferencesIntItem.swift */; };
-		41861CC0069C51B9530E956D6E9DED5C /* PreferenceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825DB14CCFD53E6D0B1A069ACF4A4CDF /* PreferenceItem.swift */; };
-		42867ED6B61C6BEE97F9B319ED0237DF /* ToolTableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC5320263F246F984B997B6F1393BE8 /* ToolTableItem.swift */; };
-		438145136A28DABEF4587EB88351AEBF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9D55E2608FD4D1D5FC5EFA58F49BF1B /* Cocoa.framework */; };
-		460E77F500951EF73566B0498209214E /* PreferencesTextItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8944A2683989A2CA9AD32EE2E7470BAF /* PreferencesTextItem.swift */; };
-		4629A2CF7915C7FBC9E37DDD95AFAE05 /* ToggleToolItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC555F8688608863810532023F85093 /* ToggleToolItem.swift */; };
+		13745B9AF5CD37EE663B978F6562B1E9 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9D55E2608FD4D1D5FC5EFA58F49BF1B /* Cocoa.framework */; };
+		144EA008E95FC3621085CD6CE832B908 /* Trigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989093A831FB2EA72620DF79128A35A7 /* Trigger.swift */; };
+		150B44DB1EDBFD5109B618C7F06B1130 /* CrashUncaughtExceptionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CDFC53E6E88DD101D5C851B4BEAB09 /* CrashUncaughtExceptionHandler.swift */; };
+		16C39A7E78D5FDCF60D034DDCC04A465 /* TextEditingTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FF4088E98BDBE047D4C8618C33047E /* TextEditingTool.swift */; };
+		16F31816C86C014D90F70301FB1C8ED8 /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD98FEAE9E8224235F532EE9DC24892 /* Tool.swift */; };
+		1A799BB90A22BB29520FD0C8C12A9D4A /* CustomToolTableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF2B126B17879FA025EC7223EEEEAB3 /* CustomToolTableItem.swift */; };
+		2075F1A9CA45DA8646AEE4CBAD8D1A50 /* SourceScreenProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C98E4736B3C94E7FD144E5FCA374163 /* SourceScreenProvider.swift */; };
+		21B3A858D46167059E4FAE3A9CD9B8D1 /* UserDefaultsTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0146FA4E35CCBD21591B44C34F22AE99 /* UserDefaultsTool.swift */; };
+		224D9274CC9642EB7D400DB19AF78D3B /* PreferenceTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E811006C18CDF497D323A90FEB5D97 /* PreferenceTextView.swift */; };
+		2264E903C3675C6B1394A53088C6FA3D /* SentinelTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF8DC05C1BADCA96B788CF7760D0BD4 /* SentinelTab.swift */; };
+		238AF8E1CD1696BE7099691C211C8D2D /* MemoryInfoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A29A3AB14BB01ED798BF417BBB8505 /* MemoryInfoProvider.swift */; };
+		241F978F64DAE09A59B582F67725D126 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3205058A32D74EAD6D01D60D99E25FBA /* StringExtensions.swift */; };
+		24248F7D8911B1F3D483A4AE962D47B1 /* PerformanceInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8AB22EE2E994A7A37396BC8F2EA1E6 /* PerformanceInfoViewModel.swift */; };
+		24C47ADDAD659489719884813613237C /* CrashHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB89D59556F0781052D75CA8211BE1F5 /* CrashHandler.swift */; };
+		282D513C22D03CAD1B7683B1668A776D /* TitleValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F65DA29F6376F8B3DB89F1A8490769 /* TitleValueView.swift */; };
+		292B4327C379B6E73462E8765B2BB7EE /* PreferencesToolSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0637ACCFACC394AB143B18391DF46DCC /* PreferencesToolSection.swift */; };
+		2BE945DAD396F40EAC9DA896B35993FC /* CustomToolTableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF2B126B17879FA025EC7223EEEEAB3 /* CustomToolTableItem.swift */; };
+		2BFDF4FC4DE9D3B558AA26F4941BD0ED /* OptionToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B4924EEC2563C8CBD0AB9CD7D9DEEB /* OptionToggleView.swift */; };
+		2C86BEC580D5CCBB183B9D52A4CBE5B2 /* CrashExceptionPrepareable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2A293BDBD6395FC2775BD5CF7923A7 /* CrashExceptionPrepareable.swift */; };
+		2C9BE1B4E41AAC562D4964A01DF681E0 /* SentinelTabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AA37D07083080F89EF0ED68CBC09D5 /* SentinelTabItem.swift */; };
+		2D5F4353A406ECAE48DDDB77FE0B79CC /* DeviceTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = E867B5ED362BFFCF3EC2B884A02356B6 /* DeviceTool.swift */; };
+		2DB33756C74EC2130E25AB9CA2E538B0 /* UserDefaultsTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0146FA4E35CCBD21591B44C34F22AE99 /* UserDefaultsTool.swift */; };
+		2E8D0156DECA3F5878160922BB265226 /* PreferenceValueValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA83E01184EC77CA70546BE7AF402085 /* PreferenceValueValidator.swift */; };
+		2F40AE4476692FD2559B86F1B411E7B6 /* UserDefaultsToolDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AB1E0AE30B87ABCE948457E739462C /* UserDefaultsToolDetailView.swift */; };
+		329304CE0F57937D9A0823C813F42915 /* CrashModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F482AE33F65646DB58507F01F6AE2F /* CrashModel.swift */; };
+		32F6A37A7185F32C25DF9585779D6E2F /* CrashType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9186440AEBE60200C8BAFDFDCCC22959 /* CrashType.swift */; };
+		33A6B36F3CC5440837445A4C17FA577C /* SentinelListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C2C63D602854409514AB049096AA36 /* SentinelListView.swift */; };
+		34563E4F93BAD52C121E2C1FD04585E5 /* CPUInfoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323DC5418AE7CB1BACB02A4FB0C56AEC /* CPUInfoProvider.swift */; };
+		35DB3AAEB84B9D0B5EC3C7381407516B /* CustomInfoToolSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5860120524FA3575EE453FAFB6CA915E /* CustomInfoToolSection.swift */; };
+		363BB18BD45EBB99111896090158F94E /* View+Share.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C0B56606EA89D3DFF6901B4A1BF579 /* View+Share.swift */; };
+		366E84D736A0A0718041C918D1616E91 /* OptionToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B4924EEC2563C8CBD0AB9CD7D9DEEB /* OptionToggleView.swift */; };
+		375CC7FCD7067CEAAECED429092A5C68 /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3910966ECF7C8DD7C2B827B0B479C68A /* PreferencesView.swift */; };
+		39F3AC4ADC263CE3DA50543C92B42002 /* PreferencesTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48347D77D2F682D470C0001E7A1D9312 /* PreferencesTool.swift */; };
+		39FB657DC98E57BF7EFA5A2117451664 /* ToolTableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D736A880B97E0B6215906A44704B6E /* ToolTableItem.swift */; };
+		3CFD3F7633C541BFD3E24EFF5EFF0C8E /* CrashDetectionToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB1524744EAB106604EE29A94EC02F4 /* CrashDetectionToolView.swift */; };
+		4274F3BD7D19B8775A6A0461A7710B1B /* SentinelTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7AC9241FD8981106C7B8FDB6707676 /* SentinelTabBarView.swift */; };
+		429D3F6D39748D77746ABD479E9F7372 /* SystemInfoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4980AF1560B0AAC0C30AB2C23634361 /* SystemInfoProvider.swift */; };
+		44588B8AFFC380335CB999E7421922A3 /* NavigationToolTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B13DB789B02295EF4A04317D8495E3F /* NavigationToolTableView.swift */; };
 		468C570C4F6C12EEDBDEEEE8FE32677B /* Pods-Sentinel_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9EDF26810B51F1632C7DAF5739FD9DC2 /* Pods-Sentinel_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		470909E0F3BBB31966FB98AE58B5F11D /* PreferencesDoubleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA523E30EFAAFEE7E56D4E3AEFDBFA05 /* PreferencesDoubleItem.swift */; };
-		474E4AA1E0372F0C19CC41639295855F /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = AAA2C0401AF97E5BF6BC0C206E0D2AA6 /* PrivacyInfo.xcprivacy */; };
-		50BD10DE4E97E896E87839FFC0A99354 /* SentinelTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B7724D8A6A7F69D49409EC47EC09BC /* SentinelTab.swift */; };
-		512091E328F735DA0C36C707FF48DDB7 /* UserDefaultsToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4CC7C674099358D16FF1FAACEB6EA8 /* UserDefaultsToolView.swift */; };
-		5535F6D4D5204394F4C38B96004ACF31 /* NavigationToolTableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764B6AC4EE068BA6E01DABE8FF614B44 /* NavigationToolTableItem.swift */; };
-		55443D1CD10382C96157A73CC18672F9 /* PerformanceInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5FEFB6A57DC708E91AB230CF826BAE /* PerformanceInfoViewModel.swift */; };
-		57361D62E7ABE28B249291743167348C /* MailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280F16D9DB5AD0069C3A799590D9D824 /* MailData.swift */; };
-		57F1209D8DE33F3D99A8824116C773FF /* TextEditingToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC65E5769FA4324AEF3FDF490438A96D /* TextEditingToolView.swift */; };
+		47283FA30E0AEA32DCFBFC7A922B3C72 /* UserDefaultsToolViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADEBAE17F09B3C8D742EBEDF937BED3 /* UserDefaultsToolViewModel.swift */; };
+		476E9E160AB7D109D88854FD75E66CA4 /* MailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280F16D9DB5AD0069C3A799590D9D824 /* MailData.swift */; };
+		47F8A0BFF7F507BA5736F7DD6689E1DA /* SentinelListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C2C63D602854409514AB049096AA36 /* SentinelListView.swift */; };
+		483FC5B1CC61E2C2C820639913FF3FE1 /* UserDefaultsToolViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADEBAE17F09B3C8D742EBEDF937BED3 /* UserDefaultsToolViewModel.swift */; };
+		4B5395A3A5197619328CA8D8CBF9380D /* Sentinel.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4C8016EA23C99362F29A2E0A34A25654 /* Sentinel.bundle */; };
+		4C1357B2CBD27ECAB334B3DA09946A20 /* ToggleToolItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3C4CF1300F1036ADF07E27F69A5BFF /* ToggleToolItem.swift */; };
+		4C3DD9CAA13E8D23E5D1A91A8AC78BF5 /* PreferencesPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD27033C080BEF1B7FBC03B927BD27E /* PreferencesPickerView.swift */; };
+		4D2601B396B38F16F6D439337B724564 /* CustomInfoTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = E022F6D615D1FED83E59D5BC44CC2FD7 /* CustomInfoTool.swift */; };
+		513CFFDCFC5783B31D6BD66E1ECE7CEF /* PreferenceValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDFAC847D155B28E42DA3259BB4DB51 /* PreferenceValidator.swift */; };
+		53049080396CD22996A2C76E666208BA /* PreferencesDoubleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8C6E052F32FC0028C162A9EAB63FAF /* PreferencesDoubleItem.swift */; };
+		53663DA5BC559639816926973519D245 /* PreferenceTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E811006C18CDF497D323A90FEB5D97 /* PreferenceTextView.swift */; };
+		5511833222D41E955AC5302A9C72D756 /* PreferencesFloatItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2F7D5739C2473CF9B4630BA349D928 /* PreferencesFloatItem.swift */; };
+		566BEC088C4D3552C734122363AB0D48 /* SentinelListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E366D5E0D09F5A60F3C856AE042C4DB /* SentinelListViewModel.swift */; };
+		5716EE79880E0ECAAD621ACF117A1B27 /* NavigationToolTableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3665F37A250CC2484E61087C9FF8F2CC /* NavigationToolTableItem.swift */; };
+		59A52AE2427F91AAC9BA9F1C77F1D654 /* PreferencesToolSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0637ACCFACC394AB143B18391DF46DCC /* PreferencesToolSection.swift */; };
+		5B84A163BD5835916231D6D0A149B7E2 /* UserDefaultsToolDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F503F9C5BDD27191D531FFA3CDBF701 /* UserDefaultsToolDetailViewModel.swift */; };
 		5C2ED674D8E14FCE8222B53246DCD844 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35AB5DA2955B4E68B4309192408426E5 /* Foundation.framework */; };
-		6250416C3F8170F8F32D99D3E5D5E94D /* SentinelTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064914A5097445C8302DCC9F219073E7 /* SentinelTabBarView.swift */; };
-		631A7D0C129DACB3BAB75E59443CBC74 /* Image+Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63FB88105A93E8BE2CCC702FAEE404F /* Image+Assets.swift */; };
-		65BD62AF57E732DE2867B32B463F5E0E /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = AAA2C0401AF97E5BF6BC0C206E0D2AA6 /* PrivacyInfo.xcprivacy */; };
-		67EA8303CB2A5D4F3E8A56997538F6AC /* TextEditingToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC65E5769FA4324AEF3FDF490438A96D /* TextEditingToolView.swift */; };
-		68E7C7E2B5692DFD19E00E12799A5598 /* MemoryInfoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93CD7FB3F76622E040E8CAA695D8777 /* MemoryInfoProvider.swift */; };
-		6ACE523CFFD2DE6070BA558DC4CDC45A /* Sentinel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A1A39E11E4B25912980E328F4076E0 /* Sentinel.swift */; };
-		6B4DD7B23D27232A3D87BCFBD4DB7CFE /* SentinelUIKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E576D27EAE7AC4B4531353828F9618E9 /* SentinelUIKitExtensions.swift */; };
-		6C803DCD2E6EEC0B6F5C45F8C0FCDFE0 /* CrashHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F16D754F3C9D68F5FC117F23F9804D3 /* CrashHandler.swift */; };
-		71E3A67D67E4B632A800C24975FC0994 /* PreferenceValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A01BF79DB3CA2DA2FC5FFBBC98E1212 /* PreferenceValidator.swift */; };
-		7207A1E5E7C225E63CAF7B8254417739 /* PreferencesPickerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69EC1BEE9941678726E0C123BEA40E6 /* PreferencesPickerItem.swift */; };
-		7CDC8C375A670744CBF7EDD483B8EDB8 /* Sentinel.common-EmailSender-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F1FEB7DCC6B7EF110AC0E652000C6E /* Sentinel.common-EmailSender-dummy.m */; };
-		7D0BD5B4580F863E549F35D18EAF953A /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3BA5555219EF1B9EB1ECDD8E8BD687 /* PreferencesView.swift */; };
-		7DE1546F75C0234452AE8FF936165865 /* PreferencesTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F3B79051F424F67FAD3EC5079283F8 /* PreferencesTool.swift */; };
-		7F443CD95A3979743749A7978414944E /* CustomInfoToolSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42188DB72964C8D4143816E2FF10CCAD /* CustomInfoToolSection.swift */; };
-		7FA257E97BF2A75B782CA0EE30489ADB /* UserDefaultsToolDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AB1E0AE30B87ABCE948457E739462C /* UserDefaultsToolDetailView.swift */; };
+		6080857635EE05607C5E17A913F9EB15 /* PreferencesPickerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E386BBE2B240EEE8EB59068B4D704E /* PreferencesPickerItem.swift */; };
+		618D54978A2B52CAF7E6D8D6E829432E /* CrashDetectionTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742766A905ABA5B93A6359F9E60AF6AD /* CrashDetectionTool.swift */; };
+		628E81BFB1625F6B56182F2EE92723EE /* StackTrace.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62629AEC83C368905C328E3EC2C97F2 /* StackTrace.swift */; };
+		62A045971737EC5682F438DDDCDA6708 /* PerformanceInfoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AEEE7C58CB1450224EFCAE1BA54CC4 /* PerformanceInfoItem.swift */; };
+		64F13E21E4B0C93DA74E1B3F285EB1BD /* Image+Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = B116D2A5FA77E1D86CF07B3122A7A57A /* Image+Assets.swift */; };
+		68365E305E8B2250D85AF6AC77D0FA5D /* PreferencesTextItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524DA1307C987DFF1314CD25AFD4C241 /* PreferencesTextItem.swift */; };
+		6A6FE0E308F693B3E05F6E5E38AD5051 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E9C83304A42FB738F058E7BBD73EFE /* ActivityViewController.swift */; };
+		6A97D9E6BA55A17AC1FC33689580A099 /* PreferencesFloatItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2F7D5739C2473CF9B4630BA349D928 /* PreferencesFloatItem.swift */; };
+		6CDEAB171EE71BE483F275A1F0D7BC8C /* ToolTableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6664F88AF1AE2D9E169DC7DC0C64BCA9 /* ToolTableSection.swift */; };
+		6D83EF5293EE6CB54763EACAC9D03B35 /* TextEditingTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FF4088E98BDBE047D4C8618C33047E /* TextEditingTool.swift */; };
+		70AC8AFEC2C87C884CDA58A9A8BABB78 /* CrashDetectionToolDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A38F4AED0A126D5A62CC10CF2D9F77C /* CrashDetectionToolDetailsView.swift */; };
+		71082533784D59D878778AD5EAF501D9 /* ToggleToolItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3C4CF1300F1036ADF07E27F69A5BFF /* ToggleToolItem.swift */; };
+		73D5C38FB531F6F359B01C15F68E0DB9 /* NavigationToolTableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3665F37A250CC2484E61087C9FF8F2CC /* NavigationToolTableItem.swift */; };
+		7492F33929C367BEDAB346489A14BD31 /* CrashFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2777C107607EE9D0F032D75E4FC64411 /* CrashFileManager.swift */; };
+		7528A5CDEE93C5E7538A9A16F8CFA20A /* EmailSenderTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EF8DDB0C575A53AEA71443DD5C27F9 /* EmailSenderTool.swift */; };
+		76CAC9C3CD24B2D29FE6836F102F824F /* StringBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566C0AE54B1E22E63E1D9061315D459A /* StringBuilder.swift */; };
+		7774D0F5A8A8CA1D69254E8F42943D46 /* SearchableIfAvaialbleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77CF6470E5BEDDF9B643B9FF6BAA5CD /* SearchableIfAvaialbleModifier.swift */; };
+		7A3182E43EC36EB2C8DE5120431E7D42 /* SentinelInternal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DB7650EB2CE38638155AFB1250AF90 /* SentinelInternal.swift */; };
+		7AC44191798CA4A75344B0643B02A9DA /* Sentinel.common-EmailSender-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F24C76E203BA300DFFE20CDCBDEBAB39 /* Sentinel.common-EmailSender-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7D8B416D931162D556247928AAC430A0 /* PreferenceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C718C30D9A6E3F3B4E6F405760917EA6 /* PreferenceItem.swift */; };
+		7DF141DAF6D7FA484E01A1BCC25AD247 /* SentinelListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E366D5E0D09F5A60F3C856AE042C4DB /* SentinelListViewModel.swift */; };
+		7E40FFBC28C7F70A1538C0ACB6BE388F /* Sentinel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C880ABCB1B429D5EE6EB0F478631F3E /* Sentinel.swift */; };
 		7FA2AD669D45F4B37EABD395471156E3 /* Pods-Sentinel_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B00DF721C9E0BB44EDA2C39DDB4CFB0 /* Pods-Sentinel_Tests-dummy.m */; };
-		8109CE0D3B254990FFB5B58C4835C82D /* SystemInfoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8293F0B8AAC267AFDF6226F44E56B085 /* SystemInfoProvider.swift */; };
-		818DE5B9432E00FB9518B4EAE0079C03 /* Sentinel.common-EmailSender-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F24C76E203BA300DFFE20CDCBDEBAB39 /* Sentinel.common-EmailSender-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		841DDA46A459841B7A0EEF365FF40260 /* SourceScreenProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620C586FB8970AD946B15B85FAE03CC9 /* SourceScreenProvider.swift */; };
-		84C8FE5082EFCC67A6411D0C4881C672 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35AB5DA2955B4E68B4309192408426E5 /* Foundation.framework */; };
-		84C9FFCC3223D87BB3627E9D4D4CA406 /* Trace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5618201FBE5F086457E87AAC89F3E38C /* Trace.swift */; };
-		84DB09D2656BBDA9849096A199F2FB3A /* TitleValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751D57B87BD13EBB83773089C9ED5CF5 /* TitleValueView.swift */; };
+		7FB1687FC659DA0CD41829FEECE2C8B8 /* PreferencesDoubleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8C6E052F32FC0028C162A9EAB63FAF /* PreferencesDoubleItem.swift */; };
+		81178C49539C76C5DA41E6482D592015 /* PreferencesTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48347D77D2F682D470C0001E7A1D9312 /* PreferencesTool.swift */; };
+		8519DF10E75F0D583EC5FE3C4662F6AF /* SystemInfoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4980AF1560B0AAC0C30AB2C23634361 /* SystemInfoProvider.swift */; };
+		864AF8D71F58394F03900F230C513AB9 /* PerformanceInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8AB22EE2E994A7A37396BC8F2EA1E6 /* PerformanceInfoViewModel.swift */; };
 		86C1B27FEE86F85B65B3BC8BEC96EEDD /* Pods-Example-iOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 95632FF61F474F29A54541E442ACB706 /* Pods-Example-iOS-dummy.m */; };
-		87377790240A43F04ECC711D2BB2D9BA /* SentinelInternal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B026600FD619A8F188DBA6185E662E /* SentinelInternal.swift */; };
-		875402F6FC19B5207FE26B34DB4EC9DE /* SentinelTabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D67275BACE5AFF2EA93CAA3E0FD616 /* SentinelTabItem.swift */; };
-		8B8A40BE262B3E18A307A1D4DCAED7B6 /* SentinelInternal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B026600FD619A8F188DBA6185E662E /* SentinelInternal.swift */; };
-		8C466CDE255A9A7DB7583949EEA5676B /* Sentinel.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4C8016EA23C99362F29A2E0A34A25654 /* Sentinel.bundle */; };
-		8C5CBC471311D37B4FFE74A8F3B9EC94 /* UserDefaultsToolDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AB1E0AE30B87ABCE948457E739462C /* UserDefaultsToolDetailView.swift */; };
-		8D0A58C09788CCF0B15E517532AC78FB /* TextEditingToolViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D694A7075AA1EEAF57D96ABF9CD968 /* TextEditingToolViewModel.swift */; };
-		8DEAD2D293D8F0BAD7CC144BE2F989B8 /* SearchableIfAvaialbleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A455844F2DAEC4BFEFFE9D1DA97CFE8F /* SearchableIfAvaialbleModifier.swift */; };
-		90EB347405A14CA71F7E59C2666DBD4F /* Font+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AF5EC954A15FD66170EE4ABCBE5B43 /* Font+Size.swift */; };
-		9237C4333B553DCDECED0CB26CF9EDF7 /* SearchableIfAvaialbleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A455844F2DAEC4BFEFFE9D1DA97CFE8F /* SearchableIfAvaialbleModifier.swift */; };
-		9253F136D4EC7D6132E935E75118A232 /* SentinelListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E617ED708A6DF1B240D0C3C9F3177F /* SentinelListViewModel.swift */; };
-		9261667B318EBB4AE50B8D1BD76FA1EC /* PreferenceValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A01BF79DB3CA2DA2FC5FFBBC98E1212 /* PreferenceValidator.swift */; };
-		941119393E2805F689F8374955E34A30 /* PreferencesTextItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8944A2683989A2CA9AD32EE2E7470BAF /* PreferencesTextItem.swift */; };
-		94EED13BBA396E7EDEB67A7B4389B32B /* SourceScreenProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620C586FB8970AD946B15B85FAE03CC9 /* SourceScreenProvider.swift */; };
-		987B92D1C5941043607D32E44D647FA5 /* CrashSignalExceptionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8D1EF0B2E6298BA47DC23D0C4DBFFB /* CrashSignalExceptionHandler.swift */; };
-		98E2CEB3D061394F32BBE2C7367701D5 /* SignalPrehandlerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24A0068311C71EEDD54B32FDCBE9BE3 /* SignalPrehandlerManager.swift */; };
-		9E876C63235D7499FFD00EC67E3C8067 /* CrashHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F16D754F3C9D68F5FC117F23F9804D3 /* CrashHandler.swift */; };
-		A0ADA8BABBDDB8CF20C4CE0D88F91E28 /* CrashType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD4BA5884AE201F19D7C7DCD95AFF00 /* CrashType.swift */; };
-		A4C64070389A5199D9052AB48C84C5A4 /* NavigationToolTableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764B6AC4EE068BA6E01DABE8FF614B44 /* NavigationToolTableItem.swift */; };
-		A6AD3D23D54AD613B7CBB3431E5C3DC5 /* ToolTableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA44D27495DFB1FFFA03ED249BC21DCA /* ToolTableSection.swift */; };
-		A7EAF19F6E77D95BC8471177B97A9122 /* PerformanceTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34449042FA6D8B78145435037C9AE60 /* PerformanceTool.swift */; };
-		A865A23B38CCFB840F55534B54E43F19 /* PerformanceInfoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D91B0A48A29B5B30A36091B64B6CF11 /* PerformanceInfoItem.swift */; };
-		AAF2705C5587C78837D3446293ECC18A /* PreferenceTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043ECC544729CFED318CCFCF106447E7 /* PreferenceTextView.swift */; };
-		AB61DB1ADA8C90B4A096D4C8B9C6FC55 /* Trigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32139F7D9847FA266B3CE9A028E92E24 /* Trigger.swift */; };
-		AC36BD7F7CC4CB61AA342F5FD7D27DE7 /* ToolTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA1CE3ACA3196FCC0E529395386AF44 /* ToolTable.swift */; };
-		B0EF06DAE7103A08016561913216994C /* TitleValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751D57B87BD13EBB83773089C9ED5CF5 /* TitleValueView.swift */; };
-		B215324228CE21DC5D54930EEACAF7A5 /* PreferenceTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043ECC544729CFED318CCFCF106447E7 /* PreferenceTextView.swift */; };
-		B216386B262D421A9CD7ED37E827EEC1 /* PreferencesTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F3B79051F424F67FAD3EC5079283F8 /* PreferencesTool.swift */; };
-		B4C1B1F926AD7638D5542BE406385EDD /* PreferencesPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241250B8FC411F35004E180355FA6E2C /* PreferencesPickerView.swift */; };
-		B4D79DD11CDCAAE06784F866682B3908 /* TextEditingToolViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D694A7075AA1EEAF57D96ABF9CD968 /* TextEditingToolViewModel.swift */; };
-		B50FD25002A9D41A2D388FA3A74EE57D /* Sentinel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A1A39E11E4B25912980E328F4076E0 /* Sentinel.swift */; };
-		B8B86C9C1507DD2651BFA85A6C52898B /* Font+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AF5EC954A15FD66170EE4ABCBE5B43 /* Font+Size.swift */; };
-		BA0EE4B8E231F46C61E97A333ACBE9C1 /* PerformanceToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9F624E15A9B4531737CE086380F088 /* PerformanceToolView.swift */; };
-		BAC2E036C8C9C2F4C24CD769DC8AE283 /* StringBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFABF497E8967B35D088A90C9E43F356 /* StringBuilder.swift */; };
-		BD657CAE76244BFDEE689D228D98E6BF /* CustomInfoToolSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42188DB72964C8D4143816E2FF10CCAD /* CustomInfoToolSection.swift */; };
-		BE297BA1DA07A4F1873BCF8E1F6276DF /* UserDefaultsToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4CC7C674099358D16FF1FAACEB6EA8 /* UserDefaultsToolView.swift */; };
-		BE4245DAB10E9A0F27F4C4CBFE31117A /* UserDefaultsToolViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADEBAE17F09B3C8D742EBEDF937BED3 /* UserDefaultsToolViewModel.swift */; };
-		BFF76DA1D5641BDE25AAA054C0E5B992 /* Sentinel.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 17BE64710C0606EEC8BDB81D450D2349 /* Sentinel.bundle */; };
-		C10ED6BB16F42BB2214BFDF31B60791B /* TextEditingTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FF4088E98BDBE047D4C8618C33047E /* TextEditingTool.swift */; };
-		C412C7DF2F0E038155FCDA784EE4D054 /* OptionToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE7D387B15A63C96B2B48DE1BC8F27 /* OptionToggleView.swift */; };
-		C866AA5B0EBFF753E55C9CD57866531C /* CrashModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E035556DFE641F2D16A62B777325F718 /* CrashModel.swift */; };
-		C9ADC9BEA8291848285CF5F1E768E976 /* CrashType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD4BA5884AE201F19D7C7DCD95AFF00 /* CrashType.swift */; };
-		CA27D6EE7897C69D2D05241EAB9C9014 /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3BA5555219EF1B9EB1ECDD8E8BD687 /* PreferencesView.swift */; };
-		CAC16B9F0A5F099A5862380593836DFE /* Sentinel.common-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B324FF2231E4B30107D3C2C2EB1DD8F /* Sentinel.common-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CC5E0ECA86F6A8B195518A22950F3269 /* Preperable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AADC4C8FF67BB85124D630CA7601914 /* Preperable.swift */; };
+		87DEAE3D0620A2CB63E58B0DE385BBED /* ToolTableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D736A880B97E0B6215906A44704B6E /* ToolTableItem.swift */; };
+		89072A854B9EC61A7D6AD6EA67F4BDBA /* ApplicationTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728D75CE765B6FF914F5A8BA3295F904 /* ApplicationTool.swift */; };
+		8AA9C27414A39D2F2EA5CABCF07FBBA8 /* CustomInfoToolSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5860120524FA3575EE453FAFB6CA915E /* CustomInfoToolSection.swift */; };
+		8F5449F763A1B53DC34909B99F10A260 /* PreferencesPickerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E386BBE2B240EEE8EB59068B4D704E /* PreferencesPickerItem.swift */; };
+		8F8EA3753097F776A3DB552C8F270882 /* PreferenceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C718C30D9A6E3F3B4E6F405760917EA6 /* PreferenceItem.swift */; };
+		8F9F571837F003406B4C1E75B32850C0 /* CrashDetectionTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742766A905ABA5B93A6359F9E60AF6AD /* CrashDetectionTool.swift */; };
+		92665C1952BC8280B9C264CB2088456D /* MemoryInfoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A29A3AB14BB01ED798BF417BBB8505 /* MemoryInfoProvider.swift */; };
+		93359086928D7900416A5286E078E6F6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35AB5DA2955B4E68B4309192408426E5 /* Foundation.framework */; };
+		93D90C8F67F198339EE4FB126F61E860 /* SentinelTabItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AA37D07083080F89EF0ED68CBC09D5 /* SentinelTabItem.swift */; };
+		966C15FE75C4F2545EF8B54EE1F44EB0 /* PreferencesIntItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B5CC8A99F086A3B3C28DD15E11044D /* PreferencesIntItem.swift */; };
+		993C1ED0AEFC5AF8F08744692AC4020A /* CrashType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9186440AEBE60200C8BAFDFDCCC22959 /* CrashType.swift */; };
+		9B0A783C07988B35B4D388BBAC9088C1 /* SentinelTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF8DC05C1BADCA96B788CF7760D0BD4 /* SentinelTab.swift */; };
+		9BFF05EC7A94BDD4CD81EB3EB2913AE6 /* UserDefaultsToolDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AB1E0AE30B87ABCE948457E739462C /* UserDefaultsToolDetailView.swift */; };
+		9C90D6C3F0C267106A485204B81E126D /* TextEditingToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC65E5769FA4324AEF3FDF490438A96D /* TextEditingToolView.swift */; };
+		A07DC2DC8EE0649D53F28F13A21EB3B4 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3205058A32D74EAD6D01D60D99E25FBA /* StringExtensions.swift */; };
+		A08D50C2C1E7223DAB41B07A1BE9264E /* SentinelTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7AC9241FD8981106C7B8FDB6707676 /* SentinelTabBarView.swift */; };
+		A1A2B9DCF7565F95E68990080EF5040F /* CrashUncaughtExceptionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CDFC53E6E88DD101D5C851B4BEAB09 /* CrashUncaughtExceptionHandler.swift */; };
+		A5587D3DA3B92332293E195E23A1B7C1 /* StringBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566C0AE54B1E22E63E1D9061315D459A /* StringBuilder.swift */; };
+		A74FFBEBCC115BBF8C2BB1AC17B564ED /* CustomInfoTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = E022F6D615D1FED83E59D5BC44CC2FD7 /* CustomInfoTool.swift */; };
+		A7AA8053AEA7FF120281C8958F234BC9 /* StackTrace.swift in Sources */ = {isa = PBXBuildFile; fileRef = A62629AEC83C368905C328E3EC2C97F2 /* StackTrace.swift */; };
+		A84F4B5B91BED9BFE9F2BE048B9D3666 /* PreferenceValueValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA83E01184EC77CA70546BE7AF402085 /* PreferenceValueValidator.swift */; };
+		AA3C1108883628F682F30DF4C7812955 /* ToolTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B779138ADC5A7D2A531C7FECD5DB131E /* ToolTable.swift */; };
+		ABA07DBADF062675AFECB146236B29D7 /* CrashHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB89D59556F0781052D75CA8211BE1F5 /* CrashHandler.swift */; };
+		B2B368E53621A0D59EC5D0CB4E9EDD0F /* CrashExceptionPrepareable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2A293BDBD6395FC2775BD5CF7923A7 /* CrashExceptionPrepareable.swift */; };
+		B764630D545EBD1FC5C0E9DDC1B60B0F /* SignalPrehandlerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805EC4EA9E7F56E94F934545F7208861 /* SignalPrehandlerManager.swift */; };
+		B7E73B45B5915D3D9B9652FE2FEF6F7A /* View+Share.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C0B56606EA89D3DFF6901B4A1BF579 /* View+Share.swift */; };
+		B803C33F3DD9E23576680CE704A805FF /* ToolTableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6664F88AF1AE2D9E169DC7DC0C64BCA9 /* ToolTableSection.swift */; };
+		B969C33F331E80E695114321601B988E /* PerformanceToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3565CBBB7E06DED674D54F0F537275B3 /* PerformanceToolView.swift */; };
+		BA5B0911E1D23D80E0A262E8301BCEBB /* TextEditingToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC65E5769FA4324AEF3FDF490438A96D /* TextEditingToolView.swift */; };
+		BBF431063353A67AF78955B5F75D8F80 /* PreferenceCountValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0191916DD61D66165743C9F213B941D /* PreferenceCountValidator.swift */; };
+		C0C3508B4D9314938A94941CDD7D5D61 /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD98FEAE9E8224235F532EE9DC24892 /* Tool.swift */; };
+		C0FE07D44FA2400FB28A96DEBC8FC70F /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = AAA2C0401AF97E5BF6BC0C206E0D2AA6 /* PrivacyInfo.xcprivacy */; };
+		C17D1C4FEA2D273E80670AEEB86C311C /* SentinelUIKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627B1C91541564643077C126B5A31EE6 /* SentinelUIKitExtensions.swift */; };
+		C2C3F972ED1408E2AE12F6FC1A21593B /* CrashFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2777C107607EE9D0F032D75E4FC64411 /* CrashFileManager.swift */; };
+		C3B52ABE6C005F46289F29EAE34821F4 /* SharingsPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D28C933B39E4A4745906C3ED2D0EED /* SharingsPicker.swift */; };
+		C67D7EC41A0057342173D0E4DDC9C1AE /* CrashDetectionToolDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A38F4AED0A126D5A62CC10CF2D9F77C /* CrashDetectionToolDetailsView.swift */; };
+		C7B44D758AB139827EE341779B062DFA /* SourceScreenProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C98E4736B3C94E7FD144E5FCA374163 /* SourceScreenProvider.swift */; };
+		C80AB7F62D47FC1B9FC63395586A4947 /* PerformanceTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5D7091E0EFDA1A8E294A0B51500D08 /* PerformanceTool.swift */; };
+		CD632F5154DB96125497AEAA2D77F7B0 /* Sentinel.common-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 698C336FF858BB34F72E12736994E8C4 /* Sentinel.common-dummy.m */; };
 		CE240567F747594FA119539D92E8E181 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9D55E2608FD4D1D5FC5EFA58F49BF1B /* Cocoa.framework */; };
-		CE2A819275DBE405FDDB4BD4BA0053BD /* NavigationToolTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4C11C8C747744FCA6983E72E2907CF /* NavigationToolTableView.swift */; };
-		CF0B7301FAA37A7C8276846537F683E7 /* CustomInfoTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B53052EACE12F6F9A7C9351F4BB0F8 /* CustomInfoTool.swift */; };
+		CFD0B9AC93EA4182A5DD406B35D1DB40 /* assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70AA5B8323C78F9EAB8A73452106BBC5 /* assets.xcassets */; };
+		D1066888DA8A2795D5C3ABC6D29C90B5 /* NavigationToolTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B13DB789B02295EF4A04317D8495E3F /* NavigationToolTableView.swift */; };
+		D11365505EA383FD7C8AAAB0E2FE14DB /* Trigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989093A831FB2EA72620DF79128A35A7 /* Trigger.swift */; };
 		D17F42184E1A508989676B20E17973E2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35AB5DA2955B4E68B4309192408426E5 /* Foundation.framework */; };
-		D2E0A66F51C4C3C780D4B2E523E67354 /* CrashToolDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84BF552C1CFDE6A7015BFBF86AD87AB /* CrashToolDetailsView.swift */; };
-		D464EA5571F158F64472E6806848EA75 /* EmailSenderErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63ED989A6504579FF28759B329EBA57B /* EmailSenderErrorView.swift */; };
-		D4E0B7E0AA532928867C5D9058ADA03B /* PreferencesPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241250B8FC411F35004E180355FA6E2C /* PreferencesPickerView.swift */; };
-		D55A435747B95552EA83050174851ED6 /* TextEditingTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FF4088E98BDBE047D4C8618C33047E /* TextEditingTool.swift */; };
-		D7F0C808D242E00BD69664BE3F21234D /* PreferencesPickerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69EC1BEE9941678726E0C123BEA40E6 /* PreferencesPickerItem.swift */; };
-		D80353259704232BE290D636F0B9D475 /* NavigationToolTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4C11C8C747744FCA6983E72E2907CF /* NavigationToolTableView.swift */; };
-		DBDF5DD5C881DDB7BAACA704DBD2A731 /* CrashToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7385D8E4C4CE7969E58B2DB90C596730 /* CrashToolView.swift */; };
-		DCB19E28A1A991A376CCB44C3BAF3DC2 /* Tool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505BEEDDB0D79C37A180795099626942 /* Tool.swift */; };
-		DE8B39D2C2B28514566381FD59784804 /* CustomToolTableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A2994CFFBF9C18AFEAAFA4E4F5801F /* CustomToolTableItem.swift */; };
-		DEA5F9DFDB07674E11E80FCB5605689B /* SentinelTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 064914A5097445C8302DCC9F219073E7 /* SentinelTabBarView.swift */; };
-		E22DB2EA7B73E12FCA87CEBC56BA6593 /* PerformanceToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9F624E15A9B4531737CE086380F088 /* PerformanceToolView.swift */; };
-		E23BF821C8C857EF18744762EC54B3AF /* CrashUncaughtExceptionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FFE2A3264BE5E6BA1DB26A93A3D325 /* CrashUncaughtExceptionHandler.swift */; };
-		E345A559B5F782D450A108BDB09D5F95 /* PreferencesDoubleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA523E30EFAAFEE7E56D4E3AEFDBFA05 /* PreferencesDoubleItem.swift */; };
-		E516EFA163B9EDFBB75CCF06BADF34F5 /* SentinelTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B7724D8A6A7F69D49409EC47EC09BC /* SentinelTab.swift */; };
-		E63C4ECA631E9B79E9506528BCF6B1AD /* assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70AA5B8323C78F9EAB8A73452106BBC5 /* assets.xcassets */; };
-		E657AF1B9F675DCD4A30B4AA9F7A4A5C /* ToggleToolItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC555F8688608863810532023F85093 /* ToggleToolItem.swift */; };
-		E7F91B915DF523CD1C6E2F2BA78E09C2 /* CrashManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA28B42CC1230B42A1B4EE7E4BEF2F58 /* CrashManager.swift */; };
-		E9456E17FCF3CB5C19150BEE43DF57DF /* SentinelListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E467D30EC43B0E5842B62C85834F82 /* SentinelListView.swift */; };
-		E9B36ABFD09358914966DBF31B19F9D2 /* ApplicationTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E900AFAC408E335E8C3484DE333F86 /* ApplicationTool.swift */; };
-		ECEDBFC0774BBEC8A0140E87E99EC08C /* SentinelUIKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E576D27EAE7AC4B4531353828F9618E9 /* SentinelUIKitExtensions.swift */; };
-		ED24A70D6667AF05BA585B2751BE9091 /* Trigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32139F7D9847FA266B3CE9A028E92E24 /* Trigger.swift */; };
-		ED49006F9258465A594ABC8AD37AF233 /* EmailSenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FA90B4EAAD3746A72A358DF933D6D7 /* EmailSenderView.swift */; };
-		EDBEA45F5CCF23C57E47D6F95E64AC94 /* PerformanceTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34449042FA6D8B78145435037C9AE60 /* PerformanceTool.swift */; };
-		EF06D75FC318B13AF11452B58957C8B8 /* PreferencesToolSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424267CDE13F9C5D94884FCAEFF18E20 /* PreferencesToolSection.swift */; };
-		EFEA26BE9D789EDAD929444AEBA857DC /* OptionToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAE7D387B15A63C96B2B48DE1BC8F27 /* OptionToggleView.swift */; };
-		F037BD9F98ECF39DAD3E4E658A379248 /* Sentinel.common-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 698C336FF858BB34F72E12736994E8C4 /* Sentinel.common-dummy.m */; };
-		F3B5DAF938D9177143673462A184688F /* CrashToolDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84BF552C1CFDE6A7015BFBF86AD87AB /* CrashToolDetailsView.swift */; };
-		F4180E88ABC6D3A6A4900E5C2305D443 /* UserDefaultsToolViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADEBAE17F09B3C8D742EBEDF937BED3 /* UserDefaultsToolViewModel.swift */; };
+		D1A617B943A577616F8BFE3BC41000F6 /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3910966ECF7C8DD7C2B827B0B479C68A /* PreferencesView.swift */; };
+		D37F0C0A4F2931FFDE1D64B8CE25C92F /* Image+Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = B116D2A5FA77E1D86CF07B3122A7A57A /* Image+Assets.swift */; };
+		D769911C5F3696D9C14110267A5B4D8E /* UserDefaultsToolDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F503F9C5BDD27191D531FFA3CDBF701 /* UserDefaultsToolDetailViewModel.swift */; };
+		D7A3FD7614CF7EC2194ACAD9365FB7E5 /* TitleValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F65DA29F6376F8B3DB89F1A8490769 /* TitleValueView.swift */; };
+		D81FE1184BD401E78A7912B90E2439AE /* PreferenceValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDFAC847D155B28E42DA3259BB4DB51 /* PreferenceValidator.swift */; };
+		D875548641C131786638484DF1843304 /* TextEditingToolViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D694A7075AA1EEAF57D96ABF9CD968 /* TextEditingToolViewModel.swift */; };
+		DDD4E767639D905BE9968685A6AE5D3D /* PerformanceToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3565CBBB7E06DED674D54F0F537275B3 /* PerformanceToolView.swift */; };
+		DEB25A93FBE6F52E98AD4968B80AF444 /* UserDefaultsToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4CC7C674099358D16FF1FAACEB6EA8 /* UserDefaultsToolView.swift */; };
+		DEDB562E669B7EE6A2D558990A7DEFFD /* Sentinel.common-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B324FF2231E4B30107D3C2C2EB1DD8F /* Sentinel.common-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E02E9055A1D73AECDDD0ECCA80CC8131 /* CrashSignalExceptionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481350E7B6CC0775B9550632D09288F7 /* CrashSignalExceptionHandler.swift */; };
+		E10ABF400C04E8AFBDFC908734BCA5A4 /* PreferencesPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD27033C080BEF1B7FBC03B927BD27E /* PreferencesPickerView.swift */; };
+		E19B9254733FF2C3C936DF575B924491 /* PerformanceInfoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49AEEE7C58CB1450224EFCAE1BA54CC4 /* PerformanceInfoItem.swift */; };
+		E27B3FC042BC54EEFE8212A8BB1AE23B /* UserDefaultsToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4CC7C674099358D16FF1FAACEB6EA8 /* UserDefaultsToolView.swift */; };
+		E3AC050D415AA7FEFB2B8FBAB04E9C10 /* CPUInfoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323DC5418AE7CB1BACB02A4FB0C56AEC /* CPUInfoProvider.swift */; };
+		E3B03EA72F93AE4D1333E39DB19CA970 /* SharingsPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D28C933B39E4A4745906C3ED2D0EED /* SharingsPicker.swift */; };
+		E46BE58587789BDD2DACE5F77BE1B544 /* PreferencesTextItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 524DA1307C987DFF1314CD25AFD4C241 /* PreferencesTextItem.swift */; };
+		E9DC616C21E1659F228EEEF46BB472BD /* CrashDetectionToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB1524744EAB106604EE29A94EC02F4 /* CrashDetectionToolView.swift */; };
+		E9E24B1206A564181E0798D22F7E07BE /* CrashSignalExceptionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481350E7B6CC0775B9550632D09288F7 /* CrashSignalExceptionHandler.swift */; };
+		EB0203C10E4EB47B1B920E692DAE5E9F /* SentinelUIKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627B1C91541564643077C126B5A31EE6 /* SentinelUIKitExtensions.swift */; };
+		ED00E0913E0ADE94847935EB49D0809D /* Font+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4684BAC17658C53FCBD34FFC6AB6B065 /* Font+Size.swift */; };
+		ED4037ABDABE08DAF8EF342ED2AF6DC4 /* EmailSenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FA90B4EAAD3746A72A358DF933D6D7 /* EmailSenderView.swift */; };
+		ED977ABD63E46903DABE1FE59236C0D2 /* PreferenceCountValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0191916DD61D66165743C9F213B941D /* PreferenceCountValidator.swift */; };
+		EE4DD583383530ED960C1ADFD0FB9326 /* ApplicationTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728D75CE765B6FF914F5A8BA3295F904 /* ApplicationTool.swift */; };
+		EF23DB183B24EF03B7665674997FB605 /* EmailSenderErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63ED989A6504579FF28759B329EBA57B /* EmailSenderErrorView.swift */; };
+		F310E76C6712AFB49EE80E081DD29B22 /* ToolTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B779138ADC5A7D2A531C7FECD5DB131E /* ToolTable.swift */; };
+		F36E0CD0C9D968AC2D72371AFC6AB69D /* SignalPrehandlerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805EC4EA9E7F56E94F934545F7208861 /* SignalPrehandlerManager.swift */; };
+		F495DFE66BD2F7F23968A0C654EAD5CD /* Font+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4684BAC17658C53FCBD34FFC6AB6B065 /* Font+Size.swift */; };
+		F571DB371A2C1B685B210E71B55D241D /* TextEditingToolViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D694A7075AA1EEAF57D96ABF9CD968 /* TextEditingToolViewModel.swift */; };
+		F7BEDB1BBAF5FF7194059E92F653BD47 /* Sentinel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C880ABCB1B429D5EE6EB0F478631F3E /* Sentinel.swift */; };
 		F9BD442AE9D1D8C47901F8CC6C3FF586 /* Pods-Example-MacOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4878C0CB914689C65E662ADBAA85193D /* Pods-Example-MacOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F9F2D22E559BC27B76E258DB83E6DCB0 /* CPUInfoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BCF9CEF6FCD60786CF567863C3D3A4 /* CPUInfoProvider.swift */; };
-		F9FE5CC445C6D41938872C528E5283A3 /* CPUInfoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BCF9CEF6FCD60786CF567863C3D3A4 /* CPUInfoProvider.swift */; };
-		FB574F8312B946CC398D74A08767C639 /* CrashModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E035556DFE641F2D16A62B777325F718 /* CrashModel.swift */; };
+		FB27B3D68F4A038F0B61B2EBAF863748 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E9C83304A42FB738F058E7BBD73EFE /* ActivityViewController.swift */; };
+		FC542C18D0C3305F40AC2305B32B6270 /* assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70AA5B8323C78F9EAB8A73452106BBC5 /* assets.xcassets */; };
 		FD8C070E5FEC42E9F49B6B832F930A3F /* Pods-Example-MacOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BC98AFFCB63C9003AAE12422328FCF7 /* Pods-Example-MacOS-dummy.m */; };
-		FFC4BC0EC5EFC13C1B8A4D1C1D852208 /* CustomToolTableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A2994CFFBF9C18AFEAAFA4E4F5801F /* CustomToolTableItem.swift */; };
+		FEA562F2EB9480372A4D88E13259ADA6 /* PreferencesIntItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B5CC8A99F086A3B3C28DD15E11044D /* PreferencesIntItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		06A1D256EE2581EFBEE244B4C5027B30 /* PBXContainerItemProxy */ = {
+		236595DACCE4A7F0A5CD3AB28B52900E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = AF6DDE5E8E233521CF9BB06E9C60A61F;
 			remoteInfo = "Sentinel.common-EmailSender";
 		};
-		203B3AD059306B7D8A111A47C404249F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 020385992F50562D5823624BCBE4B0B6;
-			remoteInfo = Sentinel.common;
-		};
-		685E12137FFF0CBA140287215882F08C /* PBXContainerItemProxy */ = {
+		48788A422D425B84A1251B72C84E2D92 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = B448AC191110D164125F599EA0AC2249;
 			remoteInfo = "Pods-Example-iOS";
 		};
-		B151D3F1D5E429BAD6775C018D04442A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E95B1882C5B285D7103685E0C70DFC98;
-			remoteInfo = "Sentinel.common-EmailSender-Sentinel";
-		};
-		C14A7164CAE9F443729A024E23CC700D /* PBXContainerItemProxy */ = {
+		5336205B069DCFA97A361FFB5DF1352B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = E71FD70A1DD1F440A3204231CCAB3F44;
 			remoteInfo = "Sentinel.common-Sentinel";
 		};
+		55A1FEB331C94C9A052959019559975F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E95B1882C5B285D7103685E0C70DFC98;
+			remoteInfo = "Sentinel.common-EmailSender-Sentinel";
+		};
+		809825C3A9387E213BA4851379214F9F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 020385992F50562D5823624BCBE4B0B6;
+			remoteInfo = Sentinel.common;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00C2C63D602854409514AB049096AA36 /* SentinelListView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SentinelListView.swift; sourceTree = "<group>"; };
 		0146FA4E35CCBD21591B44C34F22AE99 /* UserDefaultsTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UserDefaultsTool.swift; path = Sentinel/Classes/UserDefaults/UserDefaultsTool.swift; sourceTree = "<group>"; };
 		030C74000CE6E193A9CEB452CB5A4DAA /* Pods-Sentinel_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Sentinel_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		043ECC544729CFED318CCFCF106447E7 /* PreferenceTextView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PreferenceTextView.swift; sourceTree = "<group>"; };
-		05E617ED708A6DF1B240D0C3C9F3177F /* SentinelListViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SentinelListViewModel.swift; sourceTree = "<group>"; };
-		064914A5097445C8302DCC9F219073E7 /* SentinelTabBarView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SentinelTabBarView.swift; sourceTree = "<group>"; };
+		0637ACCFACC394AB143B18391DF46DCC /* PreferencesToolSection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PreferencesToolSection.swift; sourceTree = "<group>"; };
 		06D694A7075AA1EEAF57D96ABF9CD968 /* TextEditingToolViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextEditingToolViewModel.swift; path = Sentinel/Classes/TextEditing/TextEditingToolViewModel.swift; sourceTree = "<group>"; };
 		08E71E2EBF899CEA58430D435DF42F5E /* Pods-Sentinel_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Sentinel_Tests.modulemap"; sourceTree = "<group>"; };
 		0A15D04BBCB50975F3DFC4323108921B /* Pods-Example-MacOS-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Example-MacOS-acknowledgements.markdown"; sourceTree = "<group>"; };
-		0CA1CE3ACA3196FCC0E529395386AF44 /* ToolTable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ToolTable.swift; path = Sentinel/Classes/Core/ToolTable.swift; sourceTree = "<group>"; };
-		111C3EE82D04F8CF3A2081DEDA2B00D4 /* DeviceTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DeviceTool.swift; sourceTree = "<group>"; };
-		178DE32F07F3D2E8C81686E25C5AECF1 /* CrashDetectionTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CrashDetectionTool.swift; path = Sentinel/Classes/CrashDetection/CrashDetectionTool.swift; sourceTree = "<group>"; };
+		0C98E4736B3C94E7FD144E5FCA374163 /* SourceScreenProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SourceScreenProvider.swift; path = Sentinel/Classes/Core/SourceScreenProvider.swift; sourceTree = "<group>"; };
+		0E366D5E0D09F5A60F3C856AE042C4DB /* SentinelListViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SentinelListViewModel.swift; sourceTree = "<group>"; };
+		11B5CC8A99F086A3B3C28DD15E11044D /* PreferencesIntItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PreferencesIntItem.swift; sourceTree = "<group>"; };
 		17BE64710C0606EEC8BDB81D450D2349 /* Sentinel.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Sentinel.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A92A6E54C25D58ECFB93E03DD9480D4 /* Sentinel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Sentinel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ADEBAE17F09B3C8D742EBEDF937BED3 /* UserDefaultsToolViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UserDefaultsToolViewModel.swift; path = Sentinel/Classes/UserDefaults/UserDefaultsToolViewModel.swift; sourceTree = "<group>"; };
 		1B324FF2231E4B30107D3C2C2EB1DD8F /* Sentinel.common-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Sentinel.common-umbrella.h"; sourceTree = "<group>"; };
-		1F5FEFB6A57DC708E91AB230CF826BAE /* PerformanceInfoViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PerformanceInfoViewModel.swift; sourceTree = "<group>"; };
+		1C2F7D5739C2473CF9B4630BA349D928 /* PreferencesFloatItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PreferencesFloatItem.swift; sourceTree = "<group>"; };
+		1C8C6E052F32FC0028C162A9EAB63FAF /* PreferencesDoubleItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PreferencesDoubleItem.swift; sourceTree = "<group>"; };
 		2189BB271E61CA89E576B94BC38FD340 /* Pods-Example-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Example-iOS.modulemap"; sourceTree = "<group>"; };
-		241250B8FC411F35004E180355FA6E2C /* PreferencesPickerView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PreferencesPickerView.swift; sourceTree = "<group>"; };
-		24BCF9CEF6FCD60786CF567863C3D3A4 /* CPUInfoProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPUInfoProvider.swift; sourceTree = "<group>"; };
+		2777C107607EE9D0F032D75E4FC64411 /* CrashFileManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CrashFileManager.swift; sourceTree = "<group>"; };
 		280F16D9DB5AD0069C3A799590D9D824 /* MailData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MailData.swift; path = Sentinel/Classes/EmailSender/MailData.swift; sourceTree = "<group>"; };
-		2B4C11C8C747744FCA6983E72E2907CF /* NavigationToolTableView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NavigationToolTableView.swift; sourceTree = "<group>"; };
-		2B8D1EF0B2E6298BA47DC23D0C4DBFFB /* CrashSignalExceptionHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CrashSignalExceptionHandler.swift; sourceTree = "<group>"; };
 		2BFEEE052A1FBC49E3227D81C5F2FFF5 /* Pods-Sentinel_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Sentinel_Tests-Info.plist"; sourceTree = "<group>"; };
-		2CAE7D387B15A63C96B2B48DE1BC8F27 /* OptionToggleView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OptionToggleView.swift; sourceTree = "<group>"; };
-		2D9F624E15A9B4531737CE086380F088 /* PerformanceToolView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PerformanceToolView.swift; sourceTree = "<group>"; };
-		30A2994CFFBF9C18AFEAAFA4E4F5801F /* CustomToolTableItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CustomToolTableItem.swift; sourceTree = "<group>"; };
-		32139F7D9847FA266B3CE9A028E92E24 /* Trigger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Trigger.swift; path = Sentinel/Classes/Core/Trigger.swift; sourceTree = "<group>"; };
+		3205058A32D74EAD6D01D60D99E25FBA /* StringExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		323DC5418AE7CB1BACB02A4FB0C56AEC /* CPUInfoProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CPUInfoProvider.swift; sourceTree = "<group>"; };
 		32DB3B4B0441471AD7B41E848CFA3CDF /* Sentinel.common-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Sentinel.common-Info.plist"; sourceTree = "<group>"; };
+		3565CBBB7E06DED674D54F0F537275B3 /* PerformanceToolView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PerformanceToolView.swift; sourceTree = "<group>"; };
 		35AB5DA2955B4E68B4309192408426E5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		35EF8DDB0C575A53AEA71443DD5C27F9 /* EmailSenderTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EmailSenderTool.swift; path = Sentinel/Classes/EmailSender/EmailSenderTool.swift; sourceTree = "<group>"; };
-		378BF38F2D8C41D000C4F5FB /* PreferenceCountValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceCountValidator.swift; sourceTree = "<group>"; };
-		378BF3922D8C439900C4F5FB /* PreferenceValueValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceValueValidator.swift; sourceTree = "<group>"; };
+		3665F37A250CC2484E61087C9FF8F2CC /* NavigationToolTableItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NavigationToolTableItem.swift; sourceTree = "<group>"; };
+		36F65DA29F6376F8B3DB89F1A8490769 /* TitleValueView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TitleValueView.swift; sourceTree = "<group>"; };
+		3910966ECF7C8DD7C2B827B0B479C68A /* PreferencesView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
 		3B9B5C8CAA380F9857F08D9FC528E880 /* Pods-Example-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Example-iOS.release.xcconfig"; sourceTree = "<group>"; };
-		3F3BA5555219EF1B9EB1ECDD8E8BD687 /* PreferencesView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
 		3FB5325B2B6FFC2A6E06D63B32ED4B74 /* Sentinel.common.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Sentinel.common.release.xcconfig; sourceTree = "<group>"; };
-		42188DB72964C8D4143816E2FF10CCAD /* CustomInfoToolSection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CustomInfoToolSection.swift; path = Sentinel/Classes/Core/CustomInfoToolSection.swift; sourceTree = "<group>"; };
-		424267CDE13F9C5D94884FCAEFF18E20 /* PreferencesToolSection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PreferencesToolSection.swift; sourceTree = "<group>"; };
-		42D67275BACE5AFF2EA93CAA3E0FD616 /* SentinelTabItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SentinelTabItem.swift; sourceTree = "<group>"; };
-		46AF5EC954A15FD66170EE4ABCBE5B43 /* Font+Size.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Font+Size.swift"; sourceTree = "<group>"; };
+		4684BAC17658C53FCBD34FFC6AB6B065 /* Font+Size.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Font+Size.swift"; sourceTree = "<group>"; };
+		481350E7B6CC0775B9550632D09288F7 /* CrashSignalExceptionHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CrashSignalExceptionHandler.swift; sourceTree = "<group>"; };
+		48347D77D2F682D470C0001E7A1D9312 /* PreferencesTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PreferencesTool.swift; sourceTree = "<group>"; };
 		4878C0CB914689C65E662ADBAA85193D /* Pods-Example-MacOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Example-MacOS-umbrella.h"; sourceTree = "<group>"; };
+		49AEEE7C58CB1450224EFCAE1BA54CC4 /* PerformanceInfoItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PerformanceInfoItem.swift; sourceTree = "<group>"; };
+		49C0B56606EA89D3DFF6901B4A1BF579 /* View+Share.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "View+Share.swift"; sourceTree = "<group>"; };
 		4C8016EA23C99362F29A2E0A34A25654 /* Sentinel.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Sentinel.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E7AC9241FD8981106C7B8FDB6707676 /* SentinelTabBarView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SentinelTabBarView.swift; sourceTree = "<group>"; };
 		4F29141BF45B69D92293A4832B29C606 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		505BEEDDB0D79C37A180795099626942 /* Tool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Tool.swift; path = Sentinel/Classes/Core/Tool.swift; sourceTree = "<group>"; };
 		51BC673982ADB5FD01D8503ADB51F000 /* Pods-Example-iOS-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Example-iOS-acknowledgements.markdown"; sourceTree = "<group>"; };
+		524DA1307C987DFF1314CD25AFD4C241 /* PreferencesTextItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PreferencesTextItem.swift; sourceTree = "<group>"; };
 		52FACAC36A9A93540BA044FDBE62D915 /* Pods-Example-MacOS-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Example-MacOS-frameworks.sh"; sourceTree = "<group>"; };
 		53F8EF2FCF14A4B8F28812FEDDA8C4F5 /* ResourceBundle-Sentinel-Sentinel.common-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-Sentinel-Sentinel.common-Info.plist"; sourceTree = "<group>"; };
 		5430F4F303C53171054F65274A5E1A56 /* Pods-Sentinel_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Sentinel_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		5618201FBE5F086457E87AAC89F3E38C /* Trace.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Trace.swift; sourceTree = "<group>"; };
+		566C0AE54B1E22E63E1D9061315D459A /* StringBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StringBuilder.swift; sourceTree = "<group>"; };
+		5860120524FA3575EE453FAFB6CA915E /* CustomInfoToolSection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CustomInfoToolSection.swift; path = Sentinel/Classes/Core/CustomInfoToolSection.swift; sourceTree = "<group>"; };
 		58E046B2C93157B014B529E28A3A8AFC /* Sentinel.common-EmailSender-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = "Sentinel.common-EmailSender-Info.plist"; path = "../Sentinel.common-EmailSender/Sentinel.common-EmailSender-Info.plist"; sourceTree = "<group>"; };
+		58E9C83304A42FB738F058E7BBD73EFE /* ActivityViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		59B8321CBAD0E47BD3513D53921E3E34 /* Pods_Example_MacOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example_MacOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		59CDFC53E6E88DD101D5C851B4BEAB09 /* CrashUncaughtExceptionHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CrashUncaughtExceptionHandler.swift; sourceTree = "<group>"; };
+		5B13DB789B02295EF4A04317D8495E3F /* NavigationToolTableView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NavigationToolTableView.swift; sourceTree = "<group>"; };
 		5B7FF26A75020C2065E5F5E8971D5810 /* Sentinel.common-EmailSender-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Sentinel.common-EmailSender-prefix.pch"; path = "../Sentinel.common-EmailSender/Sentinel.common-EmailSender-prefix.pch"; sourceTree = "<group>"; };
 		5E5D0B25A8B50D56931EF4C7A103797B /* Pods-Example-iOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Example-iOS-umbrella.h"; sourceTree = "<group>"; };
-		5F16D754F3C9D68F5FC117F23F9804D3 /* CrashHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CrashHandler.swift; sourceTree = "<group>"; };
 		5F1F17206E76A8788D31D273212C518F /* Sentinel.common-EmailSender.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; name = "Sentinel.common-EmailSender.modulemap"; path = "../Sentinel.common-EmailSender/Sentinel.common-EmailSender.modulemap"; sourceTree = "<group>"; };
-		620C586FB8970AD946B15B85FAE03CC9 /* SourceScreenProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SourceScreenProvider.swift; path = Sentinel/Classes/Core/SourceScreenProvider.swift; sourceTree = "<group>"; };
+		61E811006C18CDF497D323A90FEB5D97 /* PreferenceTextView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PreferenceTextView.swift; sourceTree = "<group>"; };
 		6227DE90ADF2A01BA37FEDFDC232508F /* Pods-Example-MacOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Example-MacOS.modulemap"; sourceTree = "<group>"; };
+		627B1C91541564643077C126B5A31EE6 /* SentinelUIKitExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SentinelUIKitExtensions.swift; sourceTree = "<group>"; };
 		62D71B6CC2D63C9EDD34FE342BD5BBF6 /* Pods_Example_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		63ED989A6504579FF28759B329EBA57B /* EmailSenderErrorView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EmailSenderErrorView.swift; path = Sentinel/Classes/EmailSender/EmailSenderErrorView.swift; sourceTree = "<group>"; };
 		65AE4BEAA26551D4491C2D3DC78575D8 /* Sentinel.common-EmailSender.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Sentinel.common-EmailSender.debug.xcconfig"; path = "../Sentinel.common-EmailSender/Sentinel.common-EmailSender.debug.xcconfig"; sourceTree = "<group>"; };
 		65C9954C4CF9EB181467C37DE9785CCF /* Pods_Sentinel_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sentinel_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6664F88AF1AE2D9E169DC7DC0C64BCA9 /* ToolTableSection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ToolTableSection.swift; path = Sentinel/Classes/Core/ToolTableSection.swift; sourceTree = "<group>"; };
 		698C336FF858BB34F72E12736994E8C4 /* Sentinel.common-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Sentinel.common-dummy.m"; sourceTree = "<group>"; };
 		69B22F7A61AE2AEBE87400BC0C78D789 /* Pods-Example-iOS-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Example-iOS-acknowledgements.plist"; sourceTree = "<group>"; };
-		6A01BF79DB3CA2DA2FC5FFBBC98E1212 /* PreferenceValidator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PreferenceValidator.swift; sourceTree = "<group>"; };
 		6A3A4A2DCF784E20FAF72E86891DC581 /* Pods-Example-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Example-iOS.debug.xcconfig"; sourceTree = "<group>"; };
-		6AADC4C8FF67BB85124D630CA7601914 /* Preperable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Preperable.swift; sourceTree = "<group>"; };
 		6BC98AFFCB63C9003AAE12422328FCF7 /* Pods-Example-MacOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Example-MacOS-dummy.m"; sourceTree = "<group>"; };
+		6C880ABCB1B429D5EE6EB0F478631F3E /* Sentinel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Sentinel.swift; path = Sentinel/Classes/Core/Sentinel.swift; sourceTree = "<group>"; };
 		70AA5B8323C78F9EAB8A73452106BBC5 /* assets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = assets.xcassets; sourceTree = "<group>"; };
+		728D75CE765B6FF914F5A8BA3295F904 /* ApplicationTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ApplicationTool.swift; sourceTree = "<group>"; };
 		7367BCA4BC55E631C0F500663336DB5C /* Pods-Example-MacOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Example-MacOS.debug.xcconfig"; sourceTree = "<group>"; };
-		7385D8E4C4CE7969E58B2DB90C596730 /* CrashToolView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CrashToolView.swift; path = Sentinel/Classes/CrashDetection/CrashToolView.swift; sourceTree = "<group>"; };
-		751D57B87BD13EBB83773089C9ED5CF5 /* TitleValueView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TitleValueView.swift; sourceTree = "<group>"; };
-		764B6AC4EE068BA6E01DABE8FF614B44 /* NavigationToolTableItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NavigationToolTableItem.swift; sourceTree = "<group>"; };
+		742766A905ABA5B93A6359F9E60AF6AD /* CrashDetectionTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CrashDetectionTool.swift; path = Sentinel/Classes/CrashDetection/CrashDetectionTool.swift; sourceTree = "<group>"; };
 		76FB306158F824BE41F1024FCC8ACF62 /* Pods-Example-iOS-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Example-iOS-frameworks.sh"; sourceTree = "<group>"; };
 		78FA90B4EAAD3746A72A358DF933D6D7 /* EmailSenderView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EmailSenderView.swift; path = Sentinel/Classes/EmailSender/EmailSenderView.swift; sourceTree = "<group>"; };
+		7A38F4AED0A126D5A62CC10CF2D9F77C /* CrashDetectionToolDetailsView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CrashDetectionToolDetailsView.swift; path = Sentinel/Classes/CrashDetection/CrashDetectionToolDetailsView.swift; sourceTree = "<group>"; };
 		7AF3C18739FC061EC3A90EE6E0DDEB41 /* Sentinel.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = Sentinel.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		7CD27033C080BEF1B7FBC03B927BD27E /* PreferencesPickerView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PreferencesPickerView.swift; sourceTree = "<group>"; };
 		7CFA37ECBEAA37BEAFF43A11C0FEBACB /* Pods-Sentinel_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Sentinel_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		7D91B0A48A29B5B30A36091B64B6CF11 /* PerformanceInfoItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PerformanceInfoItem.swift; sourceTree = "<group>"; };
 		7F4CC7C674099358D16FF1FAACEB6EA8 /* UserDefaultsToolView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UserDefaultsToolView.swift; path = Sentinel/Classes/UserDefaults/UserDefaultsToolView.swift; sourceTree = "<group>"; };
-		825DB14CCFD53E6D0B1A069ACF4A4CDF /* PreferenceItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PreferenceItem.swift; sourceTree = "<group>"; };
-		8293F0B8AAC267AFDF6226F44E56B085 /* SystemInfoProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SystemInfoProvider.swift; sourceTree = "<group>"; };
-		83B026600FD619A8F188DBA6185E662E /* SentinelInternal.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SentinelInternal.swift; sourceTree = "<group>"; };
+		805EC4EA9E7F56E94F934545F7208861 /* SignalPrehandlerManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignalPrehandlerManager.swift; sourceTree = "<group>"; };
 		83FF4088E98BDBE047D4C8618C33047E /* TextEditingTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextEditingTool.swift; path = Sentinel/Classes/TextEditing/TextEditingTool.swift; sourceTree = "<group>"; };
-		8944A2683989A2CA9AD32EE2E7470BAF /* PreferencesTextItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PreferencesTextItem.swift; sourceTree = "<group>"; };
+		8BF8DC05C1BADCA96B788CF7760D0BD4 /* SentinelTab.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SentinelTab.swift; sourceTree = "<group>"; };
+		8D3C4CF1300F1036ADF07E27F69A5BFF /* ToggleToolItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ToggleToolItem.swift; sourceTree = "<group>"; };
 		906DB0DC046E44FE8773BD9DBC1EF5E8 /* Pods-Example-iOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Example-iOS-Info.plist"; sourceTree = "<group>"; };
-		90B53052EACE12F6F9A7C9351F4BB0F8 /* CustomInfoTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CustomInfoTool.swift; path = Sentinel/Classes/Core/CustomInfoTool.swift; sourceTree = "<group>"; };
+		9186440AEBE60200C8BAFDFDCCC22959 /* CrashType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CrashType.swift; sourceTree = "<group>"; };
 		95632FF61F474F29A54541E442ACB706 /* Pods-Example-iOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Example-iOS-dummy.m"; sourceTree = "<group>"; };
 		95F1FEB7DCC6B7EF110AC0E652000C6E /* Sentinel.common-EmailSender-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Sentinel.common-EmailSender-dummy.m"; path = "../Sentinel.common-EmailSender/Sentinel.common-EmailSender-dummy.m"; sourceTree = "<group>"; };
+		989093A831FB2EA72620DF79128A35A7 /* Trigger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Trigger.swift; path = Sentinel/Classes/Core/Trigger.swift; sourceTree = "<group>"; };
+		9A2A293BDBD6395FC2775BD5CF7923A7 /* CrashExceptionPrepareable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CrashExceptionPrepareable.swift; sourceTree = "<group>"; };
 		9B00DF721C9E0BB44EDA2C39DDB4CFB0 /* Pods-Sentinel_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Sentinel_Tests-dummy.m"; sourceTree = "<group>"; };
-		9BC5320263F246F984B997B6F1393BE8 /* ToolTableItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ToolTableItem.swift; path = Sentinel/Classes/Core/ToolTableItem.swift; sourceTree = "<group>"; };
+		9C5D7091E0EFDA1A8E294A0B51500D08 /* PerformanceTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PerformanceTool.swift; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9E8AB22EE2E994A7A37396BC8F2EA1E6 /* PerformanceInfoViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PerformanceInfoViewModel.swift; sourceTree = "<group>"; };
 		9EDF26810B51F1632C7DAF5739FD9DC2 /* Pods-Sentinel_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Sentinel_Tests-umbrella.h"; sourceTree = "<group>"; };
 		9F503F9C5BDD27191D531FFA3CDBF701 /* UserDefaultsToolDetailViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UserDefaultsToolDetailViewModel.swift; path = Sentinel/Classes/UserDefaults/UserDefaultsToolDetailViewModel.swift; sourceTree = "<group>"; };
-		A455844F2DAEC4BFEFFE9D1DA97CFE8F /* SearchableIfAvaialbleModifier.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SearchableIfAvaialbleModifier.swift; sourceTree = "<group>"; };
-		A4B7724D8A6A7F69D49409EC47EC09BC /* SentinelTab.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SentinelTab.swift; sourceTree = "<group>"; };
+		A5F482AE33F65646DB58507F01F6AE2F /* CrashModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CrashModel.swift; sourceTree = "<group>"; };
+		A62629AEC83C368905C328E3EC2C97F2 /* StackTrace.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StackTrace.swift; sourceTree = "<group>"; };
+		A7AA37D07083080F89EF0ED68CBC09D5 /* SentinelTabItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SentinelTabItem.swift; sourceTree = "<group>"; };
 		A9A53C726AE2FA8321E43977A3D00E5B /* Pods-Example-MacOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Example-MacOS-Info.plist"; sourceTree = "<group>"; };
 		AAA2C0401AF97E5BF6BC0C206E0D2AA6 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		B8E467D30EC43B0E5842B62C85834F82 /* SentinelListView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SentinelListView.swift; sourceTree = "<group>"; };
+		B116D2A5FA77E1D86CF07B3122A7A57A /* Image+Assets.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Image+Assets.swift"; sourceTree = "<group>"; };
+		B779138ADC5A7D2A531C7FECD5DB131E /* ToolTable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ToolTable.swift; path = Sentinel/Classes/Core/ToolTable.swift; sourceTree = "<group>"; };
+		B77CF6470E5BEDDF9B643B9FF6BAA5CD /* SearchableIfAvaialbleModifier.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SearchableIfAvaialbleModifier.swift; sourceTree = "<group>"; };
+		BBD98FEAE9E8224235F532EE9DC24892 /* Tool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Tool.swift; path = Sentinel/Classes/Core/Tool.swift; sourceTree = "<group>"; };
 		BC361EF58FE7E15F1F854F397B3AB43C /* Sentinel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Sentinel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC65E5769FA4324AEF3FDF490438A96D /* TextEditingToolView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextEditingToolView.swift; path = Sentinel/Classes/TextEditing/TextEditingToolView.swift; sourceTree = "<group>"; };
-		C0F3B79051F424F67FAD3EC5079283F8 /* PreferencesTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PreferencesTool.swift; sourceTree = "<group>"; };
-		C1FFE2A3264BE5E6BA1DB26A93A3D325 /* CrashUncaughtExceptionHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CrashUncaughtExceptionHandler.swift; sourceTree = "<group>"; };
-		CA28B42CC1230B42A1B4EE7E4BEF2F58 /* CrashManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CrashManager.swift; sourceTree = "<group>"; };
-		CA44D27495DFB1FFFA03ED249BC21DCA /* ToolTableSection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ToolTableSection.swift; path = Sentinel/Classes/Core/ToolTableSection.swift; sourceTree = "<group>"; };
-		CA523E30EFAAFEE7E56D4E3AEFDBFA05 /* PreferencesDoubleItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PreferencesDoubleItem.swift; sourceTree = "<group>"; };
+		C718C30D9A6E3F3B4E6F405760917EA6 /* PreferenceItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PreferenceItem.swift; sourceTree = "<group>"; };
 		CAADF9FB59B5C39A1420BCC9AFDA0349 /* Pods-Example-MacOS-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Example-MacOS-acknowledgements.plist"; sourceTree = "<group>"; };
 		CD34B26EFC0D62CC4B138F922042FA75 /* Pods-Sentinel_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Sentinel_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		D34449042FA6D8B78145435037C9AE60 /* PerformanceTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PerformanceTool.swift; sourceTree = "<group>"; };
-		D349473492C192966A15538F98782C86 /* PreferencesFloatItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PreferencesFloatItem.swift; sourceTree = "<group>"; };
+		D2D28C933B39E4A4745906C3ED2D0EED /* SharingsPicker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SharingsPicker.swift; sourceTree = "<group>"; };
 		D5611258D5BA090578EF43C1CD875522 /* Sentinel.common.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Sentinel.common.modulemap; sourceTree = "<group>"; };
 		D92B82CF842409D2292A0EF0958C59E1 /* Sentinel.common-EmailSender.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Sentinel.common-EmailSender.release.xcconfig"; path = "../Sentinel.common-EmailSender/Sentinel.common-EmailSender.release.xcconfig"; sourceTree = "<group>"; };
-		D93CD7FB3F76622E040E8CAA695D8777 /* MemoryInfoProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MemoryInfoProvider.swift; sourceTree = "<group>"; };
-		DAD4BA5884AE201F19D7C7DCD95AFF00 /* CrashType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CrashType.swift; sourceTree = "<group>"; };
+		DDDFAC847D155B28E42DA3259BB4DB51 /* PreferenceValidator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PreferenceValidator.swift; sourceTree = "<group>"; };
 		DE760C7F5D484A1C53AE25284786DC82 /* Pods-Example-MacOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Example-MacOS.release.xcconfig"; sourceTree = "<group>"; };
-		DFABF497E8967B35D088A90C9E43F356 /* StringBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StringBuilder.swift; sourceTree = "<group>"; };
-		E035556DFE641F2D16A62B777325F718 /* CrashModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CrashModel.swift; sourceTree = "<group>"; };
-		E08A0CE4C50DD0AAE72D69B286B4BDF8 /* PreferencesIntItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PreferencesIntItem.swift; sourceTree = "<group>"; };
+		DEF2B126B17879FA025EC7223EEEEAB3 /* CustomToolTableItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CustomToolTableItem.swift; sourceTree = "<group>"; };
+		E0191916DD61D66165743C9F213B941D /* PreferenceCountValidator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PreferenceCountValidator.swift; sourceTree = "<group>"; };
+		E022F6D615D1FED83E59D5BC44CC2FD7 /* CustomInfoTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CustomInfoTool.swift; path = Sentinel/Classes/Core/CustomInfoTool.swift; sourceTree = "<group>"; };
 		E0BF3252B9241739F18C98CF08B93E0D /* Sentinel.common-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Sentinel.common-prefix.pch"; sourceTree = "<group>"; };
-		E24A0068311C71EEDD54B32FDCBE9BE3 /* SignalPrehandlerManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SignalPrehandlerManager.swift; sourceTree = "<group>"; };
-		E576D27EAE7AC4B4531353828F9618E9 /* SentinelUIKitExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SentinelUIKitExtensions.swift; sourceTree = "<group>"; };
-		E69EC1BEE9941678726E0C123BEA40E6 /* PreferencesPickerItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PreferencesPickerItem.swift; sourceTree = "<group>"; };
+		E2E386BBE2B240EEE8EB59068B4D704E /* PreferencesPickerItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PreferencesPickerItem.swift; sourceTree = "<group>"; };
+		E3B4924EEC2563C8CBD0AB9CD7D9DEEB /* OptionToggleView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OptionToggleView.swift; sourceTree = "<group>"; };
 		E72D7EA69C7066BF89CB12706D9F455D /* Sentinel.common.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Sentinel.common.debug.xcconfig; sourceTree = "<group>"; };
-		E7E900AFAC408E335E8C3484DE333F86 /* ApplicationTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ApplicationTool.swift; sourceTree = "<group>"; };
-		E84BF552C1CFDE6A7015BFBF86AD87AB /* CrashToolDetailsView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CrashToolDetailsView.swift; path = Sentinel/Classes/CrashDetection/CrashToolDetailsView.swift; sourceTree = "<group>"; };
-		EFC555F8688608863810532023F85093 /* ToggleToolItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ToggleToolItem.swift; sourceTree = "<group>"; };
+		E867B5ED362BFFCF3EC2B884A02356B6 /* DeviceTool.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DeviceTool.swift; sourceTree = "<group>"; };
+		EA83E01184EC77CA70546BE7AF402085 /* PreferenceValueValidator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PreferenceValueValidator.swift; sourceTree = "<group>"; };
+		EEB1524744EAB106604EE29A94EC02F4 /* CrashDetectionToolView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CrashDetectionToolView.swift; path = Sentinel/Classes/CrashDetection/CrashDetectionToolView.swift; sourceTree = "<group>"; };
 		F1D76D3AD890DCEBF7B3762D46198100 /* ResourceBundle-Sentinel-Sentinel.common-EmailSender-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = "ResourceBundle-Sentinel-Sentinel.common-EmailSender-Info.plist"; path = "../Sentinel.common-EmailSender/ResourceBundle-Sentinel-Sentinel.common-EmailSender-Info.plist"; sourceTree = "<group>"; };
+		F1DB7650EB2CE38638155AFB1250AF90 /* SentinelInternal.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SentinelInternal.swift; sourceTree = "<group>"; };
 		F24C76E203BA300DFFE20CDCBDEBAB39 /* Sentinel.common-EmailSender-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Sentinel.common-EmailSender-umbrella.h"; path = "../Sentinel.common-EmailSender/Sentinel.common-EmailSender-umbrella.h"; sourceTree = "<group>"; };
-		F2A1A39E11E4B25912980E328F4076E0 /* Sentinel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Sentinel.swift; path = Sentinel/Classes/Core/Sentinel.swift; sourceTree = "<group>"; };
+		F4980AF1560B0AAC0C30AB2C23634361 /* SystemInfoProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SystemInfoProvider.swift; sourceTree = "<group>"; };
 		F4AB1E0AE30B87ABCE948457E739462C /* UserDefaultsToolDetailView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UserDefaultsToolDetailView.swift; path = Sentinel/Classes/UserDefaults/UserDefaultsToolDetailView.swift; sourceTree = "<group>"; };
-		F63FB88105A93E8BE2CCC702FAEE404F /* Image+Assets.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Image+Assets.swift"; sourceTree = "<group>"; };
+		F8A29A3AB14BB01ED798BF417BBB8505 /* MemoryInfoProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MemoryInfoProvider.swift; sourceTree = "<group>"; };
+		F8D736A880B97E0B6215906A44704B6E /* ToolTableItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ToolTableItem.swift; path = Sentinel/Classes/Core/ToolTableItem.swift; sourceTree = "<group>"; };
 		F9D55E2608FD4D1D5FC5EFA58F49BF1B /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		FB89D59556F0781052D75CA8211BE1F5 /* CrashHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CrashHandler.swift; sourceTree = "<group>"; };
 		FF35C2B0F25D4EFA3FEC177E21CE03A7 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -352,11 +364,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		454BE7A2F3B54CA2CFCECB6B33944528 /* Frameworks */ = {
+		3E2DFDE342021ADD3E7AB444D9F9D670 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84C8FE5082EFCC67A6411D0C4881C672 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,13 +379,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		638F6BA6171BB287AAB9F289BAFFBFFD /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		77FF5BA843C9138B08FB1418092E9845 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -383,24 +387,42 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8AB5450A6F88452E5A9247F1BF80AF64 /* Frameworks */ = {
+		7A62636ED5DDA78DC5F0EE824CDE67A2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93359086928D7900416A5286E078E6F6 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBF35B32439F4FA03411655BDC0FAAF0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D154D4A642B0682C4AE626780367816F /* Frameworks */ = {
+		D49B1581CFE23D1DF884380E30F73CB2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				438145136A28DABEF4587EB88351AEBF /* Cocoa.framework in Frameworks */,
+				13745B9AF5CD37EE663B978F6562B1E9 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0217B4CA3C9A050D962DBF596A175314 /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				323DC5418AE7CB1BACB02A4FB0C56AEC /* CPUInfoProvider.swift */,
+				F8A29A3AB14BB01ED798BF417BBB8505 /* MemoryInfoProvider.swift */,
+				F4980AF1560B0AAC0C30AB2C23634361 /* SystemInfoProvider.swift */,
+			);
+			path = Internal;
+			sourceTree = "<group>";
+		};
 		09566A0E087919C072FD287ABCEE8D6A /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -437,6 +459,26 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		23C4964F6734AA852D7497141C9096A5 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				E022F6D615D1FED83E59D5BC44CC2FD7 /* CustomInfoTool.swift */,
+				5860120524FA3575EE453FAFB6CA915E /* CustomInfoToolSection.swift */,
+				6C880ABCB1B429D5EE6EB0F478631F3E /* Sentinel.swift */,
+				0C98E4736B3C94E7FD144E5FCA374163 /* SourceScreenProvider.swift */,
+				BBD98FEAE9E8224235F532EE9DC24892 /* Tool.swift */,
+				B779138ADC5A7D2A531C7FECD5DB131E /* ToolTable.swift */,
+				F8D736A880B97E0B6215906A44704B6E /* ToolTableItem.swift */,
+				6664F88AF1AE2D9E169DC7DC0C64BCA9 /* ToolTableSection.swift */,
+				989093A831FB2EA72620DF79128A35A7 /* Trigger.swift */,
+				B98E8D07894227DA47318E7D829D6784 /* Internal */,
+				B56F7A9A0694321BAD1867F057CB6F1E /* PerformanceInfo */,
+				7635617754117062450FB64C20CCBEEA /* PreferencesInfo */,
+				ADC8E39BA5C00444C254807E3E5139AC /* ToolTableItems */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
 		2433FDA067B1F931050625C480D7750E /* Pods-Sentinel_Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -453,56 +495,17 @@
 			path = "Target Support Files/Pods-Sentinel_Tests";
 			sourceTree = "<group>";
 		};
-		28205F9D746717674755148A2A6E955B /* Internal */ = {
+		467DA5C870B22F2D3FB4245F5E18C45A /* Internal */ = {
 			isa = PBXGroup;
 			children = (
-				E7E900AFAC408E335E8C3484DE333F86 /* ApplicationTool.swift */,
-				111C3EE82D04F8CF3A2081DEDA2B00D4 /* DeviceTool.swift */,
-				46AF5EC954A15FD66170EE4ABCBE5B43 /* Font+Size.swift */,
-				F63FB88105A93E8BE2CCC702FAEE404F /* Image+Assets.swift */,
-				A455844F2DAEC4BFEFFE9D1DA97CFE8F /* SearchableIfAvaialbleModifier.swift */,
-				83B026600FD619A8F188DBA6185E662E /* SentinelInternal.swift */,
-				B8E467D30EC43B0E5842B62C85834F82 /* SentinelListView.swift */,
-				05E617ED708A6DF1B240D0C3C9F3177F /* SentinelListViewModel.swift */,
-				A4B7724D8A6A7F69D49409EC47EC09BC /* SentinelTab.swift */,
-				064914A5097445C8302DCC9F219073E7 /* SentinelTabBarView.swift */,
-				42D67275BACE5AFF2EA93CAA3E0FD616 /* SentinelTabItem.swift */,
-				E576D27EAE7AC4B4531353828F9618E9 /* SentinelUIKitExtensions.swift */,
-				DFABF497E8967B35D088A90C9E43F356 /* StringBuilder.swift */,
+				2777C107607EE9D0F032D75E4FC64411 /* CrashFileManager.swift */,
+				A5F482AE33F65646DB58507F01F6AE2F /* CrashModel.swift */,
+				9186440AEBE60200C8BAFDFDCCC22959 /* CrashType.swift */,
+				A62629AEC83C368905C328E3EC2C97F2 /* StackTrace.swift */,
+				CFC4AC0866A03BE18DBE9B8431A99404 /* Handlers */,
 			);
 			name = Internal;
-			path = Sentinel/Classes/Core/Internal;
-			sourceTree = "<group>";
-		};
-		329AFA426C5E21035BFC453E8984F2B2 /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				90B53052EACE12F6F9A7C9351F4BB0F8 /* CustomInfoTool.swift */,
-				42188DB72964C8D4143816E2FF10CCAD /* CustomInfoToolSection.swift */,
-				F2A1A39E11E4B25912980E328F4076E0 /* Sentinel.swift */,
-				620C586FB8970AD946B15B85FAE03CC9 /* SourceScreenProvider.swift */,
-				505BEEDDB0D79C37A180795099626942 /* Tool.swift */,
-				0CA1CE3ACA3196FCC0E529395386AF44 /* ToolTable.swift */,
-				9BC5320263F246F984B997B6F1393BE8 /* ToolTableItem.swift */,
-				CA44D27495DFB1FFFA03ED249BC21DCA /* ToolTableSection.swift */,
-				32139F7D9847FA266B3CE9A028E92E24 /* Trigger.swift */,
-				28205F9D746717674755148A2A6E955B /* Internal */,
-				FFA44B3B84B4A25ED1166A24B277C3A7 /* PerformanceInfo */,
-				704279FE42A96146DBAE9D9884161AB9 /* PreferencesInfo */,
-				C98EB7CF5302A9D34B02E7074C0D8D4D /* ToolTableItems */,
-			);
-			name = Core;
-			sourceTree = "<group>";
-		};
-		45BCB0CF53D423A98C30215E21C9A957 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				2CAE7D387B15A63C96B2B48DE1BC8F27 /* OptionToggleView.swift */,
-				241250B8FC411F35004E180355FA6E2C /* PreferencesPickerView.swift */,
-				3F3BA5555219EF1B9EB1ECDD8E8BD687 /* PreferencesView.swift */,
-				043ECC544729CFED318CCFCF106447E7 /* PreferenceTextView.swift */,
-			);
-			path = Views;
+			path = Sentinel/Classes/CrashDetection/Internal;
 			sourceTree = "<group>";
 		};
 		4B5928A0D712224E1F655DFA1ACB6A57 /* TextEditing */ = {
@@ -543,8 +546,8 @@
 			isa = PBXGroup;
 			children = (
 				ADB4EEF0765C2D0A1E398343E66E4ADE /* Assets */,
-				329AFA426C5E21035BFC453E8984F2B2 /* Core */,
-				4D48AC8EF4388A137874C43610760185 /* CrashDetection */,
+				23C4964F6734AA852D7497141C9096A5 /* Core */,
+				79D992EBFE3D312838179987B31CB86C /* CrashDetection */,
 				E936818BDD347585E316941C0770B518 /* EmailSender */,
 				5DCA833A89B7544BE7DF0D5428141BE4 /* Pod */,
 				4BAAFB8D5B9D0AA36B0A4FD15D66C25D /* Support Files */,
@@ -556,27 +559,15 @@
 			path = ../..;
 			sourceTree = "<group>";
 		};
-		4D48AC8EF4388A137874C43610760185 /* CrashDetection */ = {
+		55B80133A7F627AE44AB2ACC7BDCFFC4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				178DE32F07F3D2E8C81686E25C5AECF1 /* CrashDetectionTool.swift */,
-				E84BF552C1CFDE6A7015BFBF86AD87AB /* CrashToolDetailsView.swift */,
-				7385D8E4C4CE7969E58B2DB90C596730 /* CrashToolView.swift */,
-				7895A04807F77B39E8B2E50066063707 /* Internal */,
+				E3B4924EEC2563C8CBD0AB9CD7D9DEEB /* OptionToggleView.swift */,
+				7CD27033C080BEF1B7FBC03B927BD27E /* PreferencesPickerView.swift */,
+				3910966ECF7C8DD7C2B827B0B479C68A /* PreferencesView.swift */,
+				61E811006C18CDF497D323A90FEB5D97 /* PreferenceTextView.swift */,
 			);
-			name = CrashDetection;
-			sourceTree = "<group>";
-		};
-		4FD1F0724BECC28B0A8E8397925CDF16 /* Handlers */ = {
-			isa = PBXGroup;
-			children = (
-				5F16D754F3C9D68F5FC117F23F9804D3 /* CrashHandler.swift */,
-				2B8D1EF0B2E6298BA47DC23D0C4DBFFB /* CrashSignalExceptionHandler.swift */,
-				C1FFE2A3264BE5E6BA1DB26A93A3D325 /* CrashUncaughtExceptionHandler.swift */,
-				6AADC4C8FF67BB85124D630CA7601914 /* Preperable.swift */,
-				E24A0068311C71EEDD54B32FDCBE9BE3 /* SignalPrehandlerManager.swift */,
-			);
-			path = Handlers;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		5DCA833A89B7544BE7DF0D5428141BE4 /* Pod */ = {
@@ -589,54 +580,28 @@
 			name = Pod;
 			sourceTree = "<group>";
 		};
-		6020B03E4F2A977B805295FF8B0A655D /* Items */ = {
+		7635617754117062450FB64C20CCBEEA /* PreferencesInfo */ = {
 			isa = PBXGroup;
 			children = (
-				7D91B0A48A29B5B30A36091B64B6CF11 /* PerformanceInfoItem.swift */,
-				1F5FEFB6A57DC708E91AB230CF826BAE /* PerformanceInfoViewModel.swift */,
-				2D9F624E15A9B4531737CE086380F088 /* PerformanceToolView.swift */,
-			);
-			path = Items;
-			sourceTree = "<group>";
-		};
-		704279FE42A96146DBAE9D9884161AB9 /* PreferencesInfo */ = {
-			isa = PBXGroup;
-			children = (
-				C0F3B79051F424F67FAD3EC5079283F8 /* PreferencesTool.swift */,
-				424267CDE13F9C5D94884FCAEFF18E20 /* PreferencesToolSection.swift */,
-				72C4D984BEECF6DA52B73DE58CB3BC4B /* Items */,
-				86174EA3E845746982A9AFC482A087AA /* Validators */,
-				45BCB0CF53D423A98C30215E21C9A957 /* Views */,
+				48347D77D2F682D470C0001E7A1D9312 /* PreferencesTool.swift */,
+				0637ACCFACC394AB143B18391DF46DCC /* PreferencesToolSection.swift */,
+				943B9B8AD8B85664019B8CCAA7C18584 /* Items */,
+				91B5E2DDC7F6D3846D8EA1213392A644 /* Validators */,
+				55B80133A7F627AE44AB2ACC7BDCFFC4 /* Views */,
 			);
 			name = PreferencesInfo;
 			path = Sentinel/Classes/Core/PreferencesInfo;
 			sourceTree = "<group>";
 		};
-		72C4D984BEECF6DA52B73DE58CB3BC4B /* Items */ = {
+		79D992EBFE3D312838179987B31CB86C /* CrashDetection */ = {
 			isa = PBXGroup;
 			children = (
-				825DB14CCFD53E6D0B1A069ACF4A4CDF /* PreferenceItem.swift */,
-				EFC555F8688608863810532023F85093 /* ToggleToolItem.swift */,
-				CA523E30EFAAFEE7E56D4E3AEFDBFA05 /* PreferencesDoubleItem.swift */,
-				D349473492C192966A15538F98782C86 /* PreferencesFloatItem.swift */,
-				E08A0CE4C50DD0AAE72D69B286B4BDF8 /* PreferencesIntItem.swift */,
-				E69EC1BEE9941678726E0C123BEA40E6 /* PreferencesPickerItem.swift */,
-				8944A2683989A2CA9AD32EE2E7470BAF /* PreferencesTextItem.swift */,
+				742766A905ABA5B93A6359F9E60AF6AD /* CrashDetectionTool.swift */,
+				7A38F4AED0A126D5A62CC10CF2D9F77C /* CrashDetectionToolDetailsView.swift */,
+				EEB1524744EAB106604EE29A94EC02F4 /* CrashDetectionToolView.swift */,
+				467DA5C870B22F2D3FB4245F5E18C45A /* Internal */,
 			);
-			path = Items;
-			sourceTree = "<group>";
-		};
-		7895A04807F77B39E8B2E50066063707 /* Internal */ = {
-			isa = PBXGroup;
-			children = (
-				CA28B42CC1230B42A1B4EE7E4BEF2F58 /* CrashManager.swift */,
-				E035556DFE641F2D16A62B777325F718 /* CrashModel.swift */,
-				DAD4BA5884AE201F19D7C7DCD95AFF00 /* CrashType.swift */,
-				5618201FBE5F086457E87AAC89F3E38C /* Trace.swift */,
-				4FD1F0724BECC28B0A8E8397925CDF16 /* Handlers */,
-			);
-			name = Internal;
-			path = Sentinel/Classes/CrashDetection/Internal;
+			name = CrashDetection;
 			sourceTree = "<group>";
 		};
 		79ED21AE1978EBF4EA74BEB9215E6494 /* iOS */ = {
@@ -647,24 +612,38 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		86174EA3E845746982A9AFC482A087AA /* Validators */ = {
+		91B5E2DDC7F6D3846D8EA1213392A644 /* Validators */ = {
 			isa = PBXGroup;
 			children = (
-				6A01BF79DB3CA2DA2FC5FFBBC98E1212 /* PreferenceValidator.swift */,
-				378BF38F2D8C41D000C4F5FB /* PreferenceCountValidator.swift */,
-				378BF3922D8C439900C4F5FB /* PreferenceValueValidator.swift */,
+				E0191916DD61D66165743C9F213B941D /* PreferenceCountValidator.swift */,
+				DDDFAC847D155B28E42DA3259BB4DB51 /* PreferenceValidator.swift */,
+				EA83E01184EC77CA70546BE7AF402085 /* PreferenceValueValidator.swift */,
 			);
 			path = Validators;
 			sourceTree = "<group>";
 		};
-		9A582FBBADC0AC9A0C735DC20C1496AA /* Internal */ = {
+		943B9B8AD8B85664019B8CCAA7C18584 /* Items */ = {
 			isa = PBXGroup;
 			children = (
-				24BCF9CEF6FCD60786CF567863C3D3A4 /* CPUInfoProvider.swift */,
-				D93CD7FB3F76622E040E8CAA695D8777 /* MemoryInfoProvider.swift */,
-				8293F0B8AAC267AFDF6226F44E56B085 /* SystemInfoProvider.swift */,
+				C718C30D9A6E3F3B4E6F405760917EA6 /* PreferenceItem.swift */,
+				1C8C6E052F32FC0028C162A9EAB63FAF /* PreferencesDoubleItem.swift */,
+				1C2F7D5739C2473CF9B4630BA349D928 /* PreferencesFloatItem.swift */,
+				11B5CC8A99F086A3B3C28DD15E11044D /* PreferencesIntItem.swift */,
+				E2E386BBE2B240EEE8EB59068B4D704E /* PreferencesPickerItem.swift */,
+				524DA1307C987DFF1314CD25AFD4C241 /* PreferencesTextItem.swift */,
+				8D3C4CF1300F1036ADF07E27F69A5BFF /* ToggleToolItem.swift */,
 			);
-			path = Internal;
+			path = Items;
+			sourceTree = "<group>";
+		};
+		951CD9FFC10FF8D3421A3DDC5FE196BD /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				49AEEE7C58CB1450224EFCAE1BA54CC4 /* PerformanceInfoItem.swift */,
+				9E8AB22EE2E994A7A37396BC8F2EA1E6 /* PerformanceInfoViewModel.swift */,
+				3565CBBB7E06DED674D54F0F537275B3 /* PerformanceToolView.swift */,
+			);
+			path = Items;
 			sourceTree = "<group>";
 		};
 		A428C60AA50DC33872401C310F445B36 /* OS X */ = {
@@ -696,24 +675,60 @@
 			path = Sentinel/Assets;
 			sourceTree = "<group>";
 		};
+		ADC8E39BA5C00444C254807E3E5139AC /* ToolTableItems */ = {
+			isa = PBXGroup;
+			children = (
+				DEF2B126B17879FA025EC7223EEEEAB3 /* CustomToolTableItem.swift */,
+				3665F37A250CC2484E61087C9FF8F2CC /* NavigationToolTableItem.swift */,
+				5B13DB789B02295EF4A04317D8495E3F /* NavigationToolTableView.swift */,
+				36F65DA29F6376F8B3DB89F1A8490769 /* TitleValueView.swift */,
+			);
+			name = ToolTableItems;
+			path = Sentinel/Classes/Core/ToolTableItems;
+			sourceTree = "<group>";
+		};
+		B56F7A9A0694321BAD1867F057CB6F1E /* PerformanceInfo */ = {
+			isa = PBXGroup;
+			children = (
+				9C5D7091E0EFDA1A8E294A0B51500D08 /* PerformanceTool.swift */,
+				0217B4CA3C9A050D962DBF596A175314 /* Internal */,
+				951CD9FFC10FF8D3421A3DDC5FE196BD /* Items */,
+			);
+			name = PerformanceInfo;
+			path = Sentinel/Classes/Core/PerformanceInfo;
+			sourceTree = "<group>";
+		};
+		B98E8D07894227DA47318E7D829D6784 /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				58E9C83304A42FB738F058E7BBD73EFE /* ActivityViewController.swift */,
+				728D75CE765B6FF914F5A8BA3295F904 /* ApplicationTool.swift */,
+				E867B5ED362BFFCF3EC2B884A02356B6 /* DeviceTool.swift */,
+				4684BAC17658C53FCBD34FFC6AB6B065 /* Font+Size.swift */,
+				B116D2A5FA77E1D86CF07B3122A7A57A /* Image+Assets.swift */,
+				B77CF6470E5BEDDF9B643B9FF6BAA5CD /* SearchableIfAvaialbleModifier.swift */,
+				F1DB7650EB2CE38638155AFB1250AF90 /* SentinelInternal.swift */,
+				00C2C63D602854409514AB049096AA36 /* SentinelListView.swift */,
+				0E366D5E0D09F5A60F3C856AE042C4DB /* SentinelListViewModel.swift */,
+				8BF8DC05C1BADCA96B788CF7760D0BD4 /* SentinelTab.swift */,
+				4E7AC9241FD8981106C7B8FDB6707676 /* SentinelTabBarView.swift */,
+				A7AA37D07083080F89EF0ED68CBC09D5 /* SentinelTabItem.swift */,
+				627B1C91541564643077C126B5A31EE6 /* SentinelUIKitExtensions.swift */,
+				D2D28C933B39E4A4745906C3ED2D0EED /* SharingsPicker.swift */,
+				566C0AE54B1E22E63E1D9061315D459A /* StringBuilder.swift */,
+				3205058A32D74EAD6D01D60D99E25FBA /* StringExtensions.swift */,
+				49C0B56606EA89D3DFF6901B4A1BF579 /* View+Share.swift */,
+			);
+			name = Internal;
+			path = Sentinel/Classes/Core/Internal;
+			sourceTree = "<group>";
+		};
 		C335E5C2868F0138935753918A40894D /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
 				4C8FD97937A63955DE33F4AFA244D2BD /* Sentinel */,
 			);
 			name = "Development Pods";
-			sourceTree = "<group>";
-		};
-		C98EB7CF5302A9D34B02E7074C0D8D4D /* ToolTableItems */ = {
-			isa = PBXGroup;
-			children = (
-				30A2994CFFBF9C18AFEAAFA4E4F5801F /* CustomToolTableItem.swift */,
-				764B6AC4EE068BA6E01DABE8FF614B44 /* NavigationToolTableItem.swift */,
-				2B4C11C8C747744FCA6983E72E2907CF /* NavigationToolTableView.swift */,
-				751D57B87BD13EBB83773089C9ED5CF5 /* TitleValueView.swift */,
-			);
-			name = ToolTableItems;
-			path = Sentinel/Classes/Core/ToolTableItems;
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
@@ -739,6 +754,18 @@
 				17BE64710C0606EEC8BDB81D450D2349 /* Sentinel.bundle */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		CFC4AC0866A03BE18DBE9B8431A99404 /* Handlers */ = {
+			isa = PBXGroup;
+			children = (
+				9A2A293BDBD6395FC2775BD5CF7923A7 /* CrashExceptionPrepareable.swift */,
+				FB89D59556F0781052D75CA8211BE1F5 /* CrashHandler.swift */,
+				481350E7B6CC0775B9550632D09288F7 /* CrashSignalExceptionHandler.swift */,
+				59CDFC53E6E88DD101D5C851B4BEAB09 /* CrashUncaughtExceptionHandler.swift */,
+				805EC4EA9E7F56E94F934545F7208861 /* SignalPrehandlerManager.swift */,
+			);
+			path = Handlers;
 			sourceTree = "<group>";
 		};
 		DE955F74AE3258E60750D73C879A6FE1 /* SupportingFiles */ = {
@@ -778,25 +805,22 @@
 			name = EmailSender;
 			sourceTree = "<group>";
 		};
-		FFA44B3B84B4A25ED1166A24B277C3A7 /* PerformanceInfo */ = {
-			isa = PBXGroup;
-			children = (
-				D34449042FA6D8B78145435037C9AE60 /* PerformanceTool.swift */,
-				9A582FBBADC0AC9A0C735DC20C1496AA /* Internal */,
-				6020B03E4F2A977B805295FF8B0A655D /* Items */,
-			);
-			name = PerformanceInfo;
-			path = Sentinel/Classes/Core/PerformanceInfo;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		82B052919B3AEC7833F0CF5F190C6C15 /* Headers */ = {
+		1859C707E7128BDC15034306D9381A82 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				818DE5B9432E00FB9518B4EAE0079C03 /* Sentinel.common-EmailSender-umbrella.h in Headers */,
+				7AC44191798CA4A75344B0643B02A9DA /* Sentinel.common-EmailSender-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9264514320F5A717D373B6C0D7373FA5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DEDB562E669B7EE6A2D558990A7DEFFD /* Sentinel.common-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -824,30 +848,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FD9CADEA1ABC3E90A3306E76697C465A /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CAC16B9F0A5F099A5862380593836DFE /* Sentinel.common-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		020385992F50562D5823624BCBE4B0B6 /* Sentinel.common */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F0A0E2021979D801EB877852905586AC /* Build configuration list for PBXNativeTarget "Sentinel.common" */;
+			buildConfigurationList = FAE94CE3C1D07EA83E5D0F9E19C95B5B /* Build configuration list for PBXNativeTarget "Sentinel.common" */;
 			buildPhases = (
-				FD9CADEA1ABC3E90A3306E76697C465A /* Headers */,
-				4C48E560C617B442EB8366F27923A8B1 /* Sources */,
-				D154D4A642B0682C4AE626780367816F /* Frameworks */,
-				34C433CE5BD73BAAE3B2F97B0FE66063 /* Resources */,
+				9264514320F5A717D373B6C0D7373FA5 /* Headers */,
+				B3033ACADBCF55E35D79520B645D5A0D /* Sources */,
+				D49B1581CFE23D1DF884380E30F73CB2 /* Frameworks */,
+				4F8F302277080D9437FDCA78F00E3469 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				F503292E6A627CE8F947B9D0E76239AC /* PBXTargetDependency */,
+				AC12A5C091E7FCB52219D9E0E5A80F01 /* PBXTargetDependency */,
 			);
 			name = Sentinel.common;
 			productName = Sentinel;
@@ -866,7 +882,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				75F033E1B250C146ED27B5E206D513BE /* PBXTargetDependency */,
+				0D0AB129600E225FD6A65700427AD00C /* PBXTargetDependency */,
 			);
 			name = "Pods-Sentinel_Tests";
 			productName = Pods_Sentinel_Tests;
@@ -875,17 +891,17 @@
 		};
 		AF6DDE5E8E233521CF9BB06E9C60A61F /* Sentinel.common-EmailSender */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1EEA5A64138C345676FF06849E2E90AC /* Build configuration list for PBXNativeTarget "Sentinel.common-EmailSender" */;
+			buildConfigurationList = 31EC66720CD83D0435AF130B826995C6 /* Build configuration list for PBXNativeTarget "Sentinel.common-EmailSender" */;
 			buildPhases = (
-				82B052919B3AEC7833F0CF5F190C6C15 /* Headers */,
-				70613A329CE388DD9EE259C84C342461 /* Sources */,
-				454BE7A2F3B54CA2CFCECB6B33944528 /* Frameworks */,
-				5B2F73A03659C8190A752263EDE5908A /* Resources */,
+				1859C707E7128BDC15034306D9381A82 /* Headers */,
+				02401DC972B8E4072C4A13D7461FF681 /* Sources */,
+				7A62636ED5DDA78DC5F0EE824CDE67A2 /* Frameworks */,
+				367571852805B623684A2C592721AB23 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				900F233D66BAA5C3EE0B7E66C47F9E76 /* PBXTargetDependency */,
+				40907DAC7A98AD7992402385BABE86E2 /* PBXTargetDependency */,
 			);
 			name = "Sentinel.common-EmailSender";
 			productName = Sentinel;
@@ -904,7 +920,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				5E1F09E45D3AED6C1FDF1CAEA9C16A3F /* PBXTargetDependency */,
+				FD84B116701130C9D2D890E698B0070E /* PBXTargetDependency */,
 			);
 			name = "Pods-Example-MacOS";
 			productName = Pods_Example_MacOS;
@@ -923,7 +939,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				4D3976A4CF09440EB117B3E88765656D /* PBXTargetDependency */,
+				2CF6441ECF666CDCA09F01C04D32171F /* PBXTargetDependency */,
 			);
 			name = "Pods-Example-iOS";
 			productName = Pods_Example_iOS;
@@ -932,11 +948,11 @@
 		};
 		E71FD70A1DD1F440A3204231CCAB3F44 /* Sentinel.common-Sentinel */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 18EF25E1D070215806A99F36CBB9462C /* Build configuration list for PBXNativeTarget "Sentinel.common-Sentinel" */;
+			buildConfigurationList = EDAE144B810FCFA5282B6E193491CCCA /* Build configuration list for PBXNativeTarget "Sentinel.common-Sentinel" */;
 			buildPhases = (
-				7E8B2550E6BC54365F7348C4A4FEAADB /* Sources */,
-				8AB5450A6F88452E5A9247F1BF80AF64 /* Frameworks */,
-				9872970C1B1076AC71A60256F20A3ED3 /* Resources */,
+				324977C7D48D7DAA994BF1178BEFEB29 /* Sources */,
+				CBF35B32439F4FA03411655BDC0FAAF0 /* Frameworks */,
+				FC785D5384C46E868E2955A588718DD8 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -949,11 +965,11 @@
 		};
 		E95B1882C5B285D7103685E0C70DFC98 /* Sentinel.common-EmailSender-Sentinel */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9C619D19155F9DDFED375375E836794C /* Build configuration list for PBXNativeTarget "Sentinel.common-EmailSender-Sentinel" */;
+			buildConfigurationList = E5167C7265D2265957124A69D97CB692 /* Build configuration list for PBXNativeTarget "Sentinel.common-EmailSender-Sentinel" */;
 			buildPhases = (
-				5FDFB5B04A713325990F8F4847FD41B8 /* Sources */,
-				638F6BA6171BB287AAB9F289BAFFBFFD /* Frameworks */,
-				04F40E4742C39D4579108225EE5EFD23 /* Resources */,
+				C3E43B1336F3B20CD3F24C25523C2A68 /* Sources */,
+				3E2DFDE342021ADD3E7AB444D9F9D670 /* Frameworks */,
+				2DA6E83AB03EF071566805E8FCE7A7F4 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -998,12 +1014,12 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		04F40E4742C39D4579108225EE5EFD23 /* Resources */ = {
+		2DA6E83AB03EF071566805E8FCE7A7F4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E63C4ECA631E9B79E9506528BCF6B1AD /* assets.xcassets in Resources */,
-				65BD62AF57E732DE2867B32B463F5E0E /* PrivacyInfo.xcprivacy in Resources */,
+				FC542C18D0C3305F40AC2305B32B6270 /* assets.xcassets in Resources */,
+				0A3307ED0E43068E057BDC4551FAC68B /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1014,19 +1030,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		34C433CE5BD73BAAE3B2F97B0FE66063 /* Resources */ = {
+		367571852805B623684A2C592721AB23 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BFF76DA1D5641BDE25AAA054C0E5B992 /* Sentinel.bundle in Resources */,
+				4B5395A3A5197619328CA8D8CBF9380D /* Sentinel.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5B2F73A03659C8190A752263EDE5908A /* Resources */ = {
+		4F8F302277080D9437FDCA78F00E3469 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C466CDE255A9A7DB7583949EEA5676B /* Sentinel.bundle in Resources */,
+				0BD2D3809F0E103DA5EC04F0BE8C7AE5 /* Sentinel.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1037,15 +1053,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9872970C1B1076AC71A60256F20A3ED3 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2ED8E698FCBF9AC258964CCB36BA1FBD /* assets.xcassets in Resources */,
-				474E4AA1E0372F0C19CC41639295855F /* PrivacyInfo.xcprivacy in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		98B9F4237DE482D813A5247B212D3359 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1053,87 +1060,105 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		4C48E560C617B442EB8366F27923A8B1 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
+		FC785D5384C46E868E2955A588718DD8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2848302099FDDFD2325E263CF0E6A894 /* ApplicationTool.swift in Sources */,
-				F9FE5CC445C6D41938872C528E5283A3 /* CPUInfoProvider.swift in Sources */,
-				0FBBC4FD6A616101A18BCAB80F689F01 /* CrashDetectionTool.swift in Sources */,
-				9E876C63235D7499FFD00EC67E3C8067 /* CrashHandler.swift in Sources */,
-				E7F91B915DF523CD1C6E2F2BA78E09C2 /* CrashManager.swift in Sources */,
-				FB574F8312B946CC398D74A08767C639 /* CrashModel.swift in Sources */,
-				987B92D1C5941043607D32E44D647FA5 /* CrashSignalExceptionHandler.swift in Sources */,
-				F3B5DAF938D9177143673462A184688F /* CrashToolDetailsView.swift in Sources */,
-				DBDF5DD5C881DDB7BAACA704DBD2A731 /* CrashToolView.swift in Sources */,
-				A0ADA8BABBDDB8CF20C4CE0D88F91E28 /* CrashType.swift in Sources */,
-				E23BF821C8C857EF18744762EC54B3AF /* CrashUncaughtExceptionHandler.swift in Sources */,
-				CF0B7301FAA37A7C8276846537F683E7 /* CustomInfoTool.swift in Sources */,
-				7F443CD95A3979743749A7978414944E /* CustomInfoToolSection.swift in Sources */,
-				DE8B39D2C2B28514566381FD59784804 /* CustomToolTableItem.swift in Sources */,
-				3549727CDFF591BCF65CF378E037EB41 /* DeviceTool.swift in Sources */,
-				90EB347405A14CA71F7E59C2666DBD4F /* Font+Size.swift in Sources */,
-				16F028D0814A2F295846E7BC69DBF3EE /* Image+Assets.swift in Sources */,
-				68E7C7E2B5692DFD19E00E12799A5598 /* MemoryInfoProvider.swift in Sources */,
-				5535F6D4D5204394F4C38B96004ACF31 /* NavigationToolTableItem.swift in Sources */,
-				CE2A819275DBE405FDDB4BD4BA0053BD /* NavigationToolTableView.swift in Sources */,
-				EFEA26BE9D789EDAD929444AEBA857DC /* OptionToggleView.swift in Sources */,
-				2986B727706407BCE57AD8663AD72311 /* PerformanceInfoItem.swift in Sources */,
-				55443D1CD10382C96157A73CC18672F9 /* PerformanceInfoViewModel.swift in Sources */,
-				A7EAF19F6E77D95BC8471177B97A9122 /* PerformanceTool.swift in Sources */,
-				E22DB2EA7B73E12FCA87CEBC56BA6593 /* PerformanceToolView.swift in Sources */,
-				41861CC0069C51B9530E956D6E9DED5C /* PreferenceItem.swift in Sources */,
-				4629A2CF7915C7FBC9E37DDD95AFAE05 /* ToggleToolItem.swift in Sources */,
-				E345A559B5F782D450A108BDB09D5F95 /* PreferencesDoubleItem.swift in Sources */,
-				06EEC19DB7A0439FECED80566A37BC43 /* PreferencesFloatItem.swift in Sources */,
-				413DF987003E384289BA20F4B6B7D768 /* PreferencesIntItem.swift in Sources */,
-				D7F0C808D242E00BD69664BE3F21234D /* PreferencesPickerItem.swift in Sources */,
-				B4C1B1F926AD7638D5542BE406385EDD /* PreferencesPickerView.swift in Sources */,
-				941119393E2805F689F8374955E34A30 /* PreferencesTextItem.swift in Sources */,
-				B216386B262D421A9CD7ED37E827EEC1 /* PreferencesTool.swift in Sources */,
-				34B14D36245B6215CBB745F5830A93A0 /* PreferencesToolSection.swift in Sources */,
-				CA27D6EE7897C69D2D05241EAB9C9014 /* PreferencesView.swift in Sources */,
-				AAF2705C5587C78837D3446293ECC18A /* PreferenceTextView.swift in Sources */,
-				9261667B318EBB4AE50B8D1BD76FA1EC /* PreferenceValidator.swift in Sources */,
-				CC5E0ECA86F6A8B195518A22950F3269 /* Preperable.swift in Sources */,
-				378BF3932D8C439900C4F5FB /* PreferenceValueValidator.swift in Sources */,
-				8DEAD2D293D8F0BAD7CC144BE2F989B8 /* SearchableIfAvaialbleModifier.swift in Sources */,
-				B50FD25002A9D41A2D388FA3A74EE57D /* Sentinel.swift in Sources */,
-				F037BD9F98ECF39DAD3E4E658A379248 /* Sentinel.common-dummy.m in Sources */,
-				8B8A40BE262B3E18A307A1D4DCAED7B6 /* SentinelInternal.swift in Sources */,
-				E9456E17FCF3CB5C19150BEE43DF57DF /* SentinelListView.swift in Sources */,
-				9253F136D4EC7D6132E935E75118A232 /* SentinelListViewModel.swift in Sources */,
-				50BD10DE4E97E896E87839FFC0A99354 /* SentinelTab.swift in Sources */,
-				6250416C3F8170F8F32D99D3E5D5E94D /* SentinelTabBarView.swift in Sources */,
-				3F13DA6FCDAA1508463153DC352EBABB /* SentinelTabItem.swift in Sources */,
-				ECEDBFC0774BBEC8A0140E87E99EC08C /* SentinelUIKitExtensions.swift in Sources */,
-				0A2FB2CDF0A20FCAFE9267AC71F0EE39 /* SignalPrehandlerManager.swift in Sources */,
-				841DDA46A459841B7A0EEF365FF40260 /* SourceScreenProvider.swift in Sources */,
-				BAC2E036C8C9C2F4C24CD769DC8AE283 /* StringBuilder.swift in Sources */,
-				08C5728F204B56F210F16292F95FC5E9 /* SystemInfoProvider.swift in Sources */,
-				378BF3912D8C41D000C4F5FB /* PreferenceCountValidator.swift in Sources */,
-				D55A435747B95552EA83050174851ED6 /* TextEditingTool.swift in Sources */,
-				67EA8303CB2A5D4F3E8A56997538F6AC /* TextEditingToolView.swift in Sources */,
-				B4D79DD11CDCAAE06784F866682B3908 /* TextEditingToolViewModel.swift in Sources */,
-				84DB09D2656BBDA9849096A199F2FB3A /* TitleValueView.swift in Sources */,
-				DCB19E28A1A991A376CCB44C3BAF3DC2 /* Tool.swift in Sources */,
-				AC36BD7F7CC4CB61AA342F5FD7D27DE7 /* ToolTable.swift in Sources */,
-				40DAA765481D70C3E5584AEF0664E8D9 /* ToolTableItem.swift in Sources */,
-				A6AD3D23D54AD613B7CBB3431E5C3DC5 /* ToolTableSection.swift in Sources */,
-				0E41ABBA135C88EC2C7944549BEC1CE6 /* Trace.swift in Sources */,
-				AB61DB1ADA8C90B4A096D4C8B9C6FC55 /* Trigger.swift in Sources */,
-				2E932B207258408B0EAC39593E60E55E /* UserDefaultsTool.swift in Sources */,
-				8C5CBC471311D37B4FFE74A8F3B9EC94 /* UserDefaultsToolDetailView.swift in Sources */,
-				3E8D1D35A574A20C77FD8E944C03D918 /* UserDefaultsToolDetailViewModel.swift in Sources */,
-				BE297BA1DA07A4F1873BCF8E1F6276DF /* UserDefaultsToolView.swift in Sources */,
-				F4180E88ABC6D3A6A4900E5C2305D443 /* UserDefaultsToolViewModel.swift in Sources */,
+				CFD0B9AC93EA4182A5DD406B35D1DB40 /* assets.xcassets in Resources */,
+				C0FE07D44FA2400FB28A96DEBC8FC70F /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5FDFB5B04A713325990F8F4847FD41B8 /* Sources */ = {
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		02401DC972B8E4072C4A13D7461FF681 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A6FE0E308F693B3E05F6E5E38AD5051 /* ActivityViewController.swift in Sources */,
+				EE4DD583383530ED960C1ADFD0FB9326 /* ApplicationTool.swift in Sources */,
+				34563E4F93BAD52C121E2C1FD04585E5 /* CPUInfoProvider.swift in Sources */,
+				618D54978A2B52CAF7E6D8D6E829432E /* CrashDetectionTool.swift in Sources */,
+				C67D7EC41A0057342173D0E4DDC9C1AE /* CrashDetectionToolDetailsView.swift in Sources */,
+				E9DC616C21E1659F228EEEF46BB472BD /* CrashDetectionToolView.swift in Sources */,
+				B2B368E53621A0D59EC5D0CB4E9EDD0F /* CrashExceptionPrepareable.swift in Sources */,
+				7492F33929C367BEDAB346489A14BD31 /* CrashFileManager.swift in Sources */,
+				ABA07DBADF062675AFECB146236B29D7 /* CrashHandler.swift in Sources */,
+				0EEB53CD3BEC90C243D734EF78B2838A /* CrashModel.swift in Sources */,
+				E02E9055A1D73AECDDD0ECCA80CC8131 /* CrashSignalExceptionHandler.swift in Sources */,
+				32F6A37A7185F32C25DF9585779D6E2F /* CrashType.swift in Sources */,
+				A1A2B9DCF7565F95E68990080EF5040F /* CrashUncaughtExceptionHandler.swift in Sources */,
+				A74FFBEBCC115BBF8C2BB1AC17B564ED /* CustomInfoTool.swift in Sources */,
+				8AA9C27414A39D2F2EA5CABCF07FBBA8 /* CustomInfoToolSection.swift in Sources */,
+				2BE945DAD396F40EAC9DA896B35993FC /* CustomToolTableItem.swift in Sources */,
+				008837E222447E5C881DE47B73B36FBE /* DeviceTool.swift in Sources */,
+				EF23DB183B24EF03B7665674997FB605 /* EmailSenderErrorView.swift in Sources */,
+				7528A5CDEE93C5E7538A9A16F8CFA20A /* EmailSenderTool.swift in Sources */,
+				ED4037ABDABE08DAF8EF342ED2AF6DC4 /* EmailSenderView.swift in Sources */,
+				F495DFE66BD2F7F23968A0C654EAD5CD /* Font+Size.swift in Sources */,
+				D37F0C0A4F2931FFDE1D64B8CE25C92F /* Image+Assets.swift in Sources */,
+				476E9E160AB7D109D88854FD75E66CA4 /* MailData.swift in Sources */,
+				238AF8E1CD1696BE7099691C211C8D2D /* MemoryInfoProvider.swift in Sources */,
+				5716EE79880E0ECAAD621ACF117A1B27 /* NavigationToolTableItem.swift in Sources */,
+				D1066888DA8A2795D5C3ABC6D29C90B5 /* NavigationToolTableView.swift in Sources */,
+				2BFDF4FC4DE9D3B558AA26F4941BD0ED /* OptionToggleView.swift in Sources */,
+				2BFDF4FC4DE9D3B558AA26F4941BD0ED /* OptionToggleView.swift in Sources */,
+				E19B9254733FF2C3C936DF575B924491 /* PerformanceInfoItem.swift in Sources */,
+				24248F7D8911B1F3D483A4AE962D47B1 /* PerformanceInfoViewModel.swift in Sources */,
+				11039F2D03A96B97CBA3B66A703CB8FD /* PerformanceTool.swift in Sources */,
+				DDD4E767639D905BE9968685A6AE5D3D /* PerformanceToolView.swift in Sources */,
+				ED977ABD63E46903DABE1FE59236C0D2 /* PreferenceCountValidator.swift in Sources */,
+				7D8B416D931162D556247928AAC430A0 /* PreferenceItem.swift in Sources */,
+				53049080396CD22996A2C76E666208BA /* PreferencesDoubleItem.swift in Sources */,
+				5511833222D41E955AC5302A9C72D756 /* PreferencesFloatItem.swift in Sources */,
+				966C15FE75C4F2545EF8B54EE1F44EB0 /* PreferencesIntItem.swift in Sources */,
+				6080857635EE05607C5E17A913F9EB15 /* PreferencesPickerItem.swift in Sources */,
+				4C3DD9CAA13E8D23E5D1A91A8AC78BF5 /* PreferencesPickerView.swift in Sources */,
+				E46BE58587789BDD2DACE5F77BE1B544 /* PreferencesTextItem.swift in Sources */,
+				81178C49539C76C5DA41E6482D592015 /* PreferencesTool.swift in Sources */,
+				292B4327C379B6E73462E8765B2BB7EE /* PreferencesToolSection.swift in Sources */,
+				375CC7FCD7067CEAAECED429092A5C68 /* PreferencesView.swift in Sources */,
+				224D9274CC9642EB7D400DB19AF78D3B /* PreferenceTextView.swift in Sources */,
+				513CFFDCFC5783B31D6BD66E1ECE7CEF /* PreferenceValidator.swift in Sources */,
+				A84F4B5B91BED9BFE9F2BE048B9D3666 /* PreferenceValueValidator.swift in Sources */,
+				08A3921733822699B0ADE3CF33B9DEF7 /* SearchableIfAvaialbleModifier.swift in Sources */,
+				F7BEDB1BBAF5FF7194059E92F653BD47 /* Sentinel.swift in Sources */,
+				076E150BB8DA101B5F8090EDF504EEB7 /* Sentinel.common-EmailSender-dummy.m in Sources */,
+				08349BF7858011C75A32248737827512 /* SentinelInternal.swift in Sources */,
+				47F8A0BFF7F507BA5736F7DD6689E1DA /* SentinelListView.swift in Sources */,
+				566BEC088C4D3552C734122363AB0D48 /* SentinelListViewModel.swift in Sources */,
+				9B0A783C07988B35B4D388BBAC9088C1 /* SentinelTab.swift in Sources */,
+				A08D50C2C1E7223DAB41B07A1BE9264E /* SentinelTabBarView.swift in Sources */,
+				2C9BE1B4E41AAC562D4964A01DF681E0 /* SentinelTabItem.swift in Sources */,
+				C17D1C4FEA2D273E80670AEEB86C311C /* SentinelUIKitExtensions.swift in Sources */,
+				E3B03EA72F93AE4D1333E39DB19CA970 /* SharingsPicker.swift in Sources */,
+				B764630D545EBD1FC5C0E9DDC1B60B0F /* SignalPrehandlerManager.swift in Sources */,
+				C7B44D758AB139827EE341779B062DFA /* SourceScreenProvider.swift in Sources */,
+				A7AA8053AEA7FF120281C8958F234BC9 /* StackTrace.swift in Sources */,
+				A5587D3DA3B92332293E195E23A1B7C1 /* StringBuilder.swift in Sources */,
+				A07DC2DC8EE0649D53F28F13A21EB3B4 /* StringExtensions.swift in Sources */,
+				8519DF10E75F0D583EC5FE3C4662F6AF /* SystemInfoProvider.swift in Sources */,
+				6D83EF5293EE6CB54763EACAC9D03B35 /* TextEditingTool.swift in Sources */,
+				9C90D6C3F0C267106A485204B81E126D /* TextEditingToolView.swift in Sources */,
+				F571DB371A2C1B685B210E71B55D241D /* TextEditingToolViewModel.swift in Sources */,
+				282D513C22D03CAD1B7683B1668A776D /* TitleValueView.swift in Sources */,
+				4C1357B2CBD27ECAB334B3DA09946A20 /* ToggleToolItem.swift in Sources */,
+				16F31816C86C014D90F70301FB1C8ED8 /* Tool.swift in Sources */,
+				F310E76C6712AFB49EE80E081DD29B22 /* ToolTable.swift in Sources */,
+				39FB657DC98E57BF7EFA5A2117451664 /* ToolTableItem.swift in Sources */,
+				B803C33F3DD9E23576680CE704A805FF /* ToolTableSection.swift in Sources */,
+				144EA008E95FC3621085CD6CE832B908 /* Trigger.swift in Sources */,
+				21B3A858D46167059E4FAE3A9CD9B8D1 /* UserDefaultsTool.swift in Sources */,
+				9BFF05EC7A94BDD4CD81EB3EB2913AE6 /* UserDefaultsToolDetailView.swift in Sources */,
+				D769911C5F3696D9C14110267A5B4D8E /* UserDefaultsToolDetailViewModel.swift in Sources */,
+				E27B3FC042BC54EEFE8212A8BB1AE23B /* UserDefaultsToolView.swift in Sources */,
+				47283FA30E0AEA32DCFBFC7A922B3C72 /* UserDefaultsToolViewModel.swift in Sources */,
+				B7E73B45B5915D3D9B9652FE2FEF6F7A /* View+Share.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		324977C7D48D7DAA994BF1178BEFEB29 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1148,99 +1173,100 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		70613A329CE388DD9EE259C84C342461 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E9B36ABFD09358914966DBF31B19F9D2 /* ApplicationTool.swift in Sources */,
-				F9F2D22E559BC27B76E258DB83E6DCB0 /* CPUInfoProvider.swift in Sources */,
-				27100E01B6FA3B195B3285D2519644B5 /* CrashDetectionTool.swift in Sources */,
-				6C803DCD2E6EEC0B6F5C45F8C0FCDFE0 /* CrashHandler.swift in Sources */,
-				0140C5A60F46036DBD2091C7EB7085B1 /* CrashManager.swift in Sources */,
-				C866AA5B0EBFF753E55C9CD57866531C /* CrashModel.swift in Sources */,
-				40B336CE99426B3E31D6BBB36675B9AE /* CrashSignalExceptionHandler.swift in Sources */,
-				D2E0A66F51C4C3C780D4B2E523E67354 /* CrashToolDetailsView.swift in Sources */,
-				26D49A3D405731A1AFC7A442EA70F36C /* CrashToolView.swift in Sources */,
-				C9ADC9BEA8291848285CF5F1E768E976 /* CrashType.swift in Sources */,
-				28BCDA02DC4D4B8FC836ED8DF33B7D9B /* CrashUncaughtExceptionHandler.swift in Sources */,
-				2DAFDA06F4F29D6A715D20EA67FFC161 /* CustomInfoTool.swift in Sources */,
-				BD657CAE76244BFDEE689D228D98E6BF /* CustomInfoToolSection.swift in Sources */,
-				FFC4BC0EC5EFC13C1B8A4D1C1D852208 /* CustomToolTableItem.swift in Sources */,
-				3343DBAB11C6D25E5AF100D314490423 /* DeviceTool.swift in Sources */,
-				D464EA5571F158F64472E6806848EA75 /* EmailSenderErrorView.swift in Sources */,
-				39CD93A7AA62782063A3EFAD918EAFCB /* EmailSenderTool.swift in Sources */,
-				ED49006F9258465A594ABC8AD37AF233 /* EmailSenderView.swift in Sources */,
-				B8B86C9C1507DD2651BFA85A6C52898B /* Font+Size.swift in Sources */,
-				378BF3942D8C439900C4F5FB /* PreferenceValueValidator.swift in Sources */,
-				631A7D0C129DACB3BAB75E59443CBC74 /* Image+Assets.swift in Sources */,
-				57361D62E7ABE28B249291743167348C /* MailData.swift in Sources */,
-				180FDDA525959099FE65601B44476DC5 /* MemoryInfoProvider.swift in Sources */,
-				378BF3902D8C41D000C4F5FB /* PreferenceCountValidator.swift in Sources */,
-				A4C64070389A5199D9052AB48C84C5A4 /* NavigationToolTableItem.swift in Sources */,
-				D80353259704232BE290D636F0B9D475 /* NavigationToolTableView.swift in Sources */,
-				C412C7DF2F0E038155FCDA784EE4D054 /* OptionToggleView.swift in Sources */,
-				A865A23B38CCFB840F55534B54E43F19 /* PerformanceInfoItem.swift in Sources */,
-				0625CF8EEAE1A49D7DA63D8C18125F05 /* PerformanceInfoViewModel.swift in Sources */,
-				EDBEA45F5CCF23C57E47D6F95E64AC94 /* PerformanceTool.swift in Sources */,
-				BA0EE4B8E231F46C61E97A333ACBE9C1 /* PerformanceToolView.swift in Sources */,
-				2FF974392AE0A1571C51EC9DFF40F0B9 /* PreferenceItem.swift in Sources */,
-				E657AF1B9F675DCD4A30B4AA9F7A4A5C /* ToggleToolItem.swift in Sources */,
-				470909E0F3BBB31966FB98AE58B5F11D /* PreferencesDoubleItem.swift in Sources */,
-				30367CAC7380CEB168BCCA37F1BA250D /* PreferencesFloatItem.swift in Sources */,
-				029ACA53F23E74B05B95D22B661C3A9E /* PreferencesIntItem.swift in Sources */,
-				7207A1E5E7C225E63CAF7B8254417739 /* PreferencesPickerItem.swift in Sources */,
-				D4E0B7E0AA532928867C5D9058ADA03B /* PreferencesPickerView.swift in Sources */,
-				460E77F500951EF73566B0498209214E /* PreferencesTextItem.swift in Sources */,
-				7DE1546F75C0234452AE8FF936165865 /* PreferencesTool.swift in Sources */,
-				EF06D75FC318B13AF11452B58957C8B8 /* PreferencesToolSection.swift in Sources */,
-				7D0BD5B4580F863E549F35D18EAF953A /* PreferencesView.swift in Sources */,
-				B215324228CE21DC5D54930EEACAF7A5 /* PreferenceTextView.swift in Sources */,
-				71E3A67D67E4B632A800C24975FC0994 /* PreferenceValidator.swift in Sources */,
-				12A3E6616B62DDF0F16B401B73DBBEB5 /* Preperable.swift in Sources */,
-				9237C4333B553DCDECED0CB26CF9EDF7 /* SearchableIfAvaialbleModifier.swift in Sources */,
-				6ACE523CFFD2DE6070BA558DC4CDC45A /* Sentinel.swift in Sources */,
-				7CDC8C375A670744CBF7EDD483B8EDB8 /* Sentinel.common-EmailSender-dummy.m in Sources */,
-				87377790240A43F04ECC711D2BB2D9BA /* SentinelInternal.swift in Sources */,
-				2F36BC10A5D38CC93BF56463656EC0F5 /* SentinelListView.swift in Sources */,
-				0BB819BDA0F12DD570E8F5AAB8AA0489 /* SentinelListViewModel.swift in Sources */,
-				E516EFA163B9EDFBB75CCF06BADF34F5 /* SentinelTab.swift in Sources */,
-				DEA5F9DFDB07674E11E80FCB5605689B /* SentinelTabBarView.swift in Sources */,
-				875402F6FC19B5207FE26B34DB4EC9DE /* SentinelTabItem.swift in Sources */,
-				6B4DD7B23D27232A3D87BCFBD4DB7CFE /* SentinelUIKitExtensions.swift in Sources */,
-				98E2CEB3D061394F32BBE2C7367701D5 /* SignalPrehandlerManager.swift in Sources */,
-				94EED13BBA396E7EDEB67A7B4389B32B /* SourceScreenProvider.swift in Sources */,
-				2BC7FE043329B70D7D8D10E7ECC42A23 /* StringBuilder.swift in Sources */,
-				8109CE0D3B254990FFB5B58C4835C82D /* SystemInfoProvider.swift in Sources */,
-				C10ED6BB16F42BB2214BFDF31B60791B /* TextEditingTool.swift in Sources */,
-				57F1209D8DE33F3D99A8824116C773FF /* TextEditingToolView.swift in Sources */,
-				8D0A58C09788CCF0B15E517532AC78FB /* TextEditingToolViewModel.swift in Sources */,
-				B0EF06DAE7103A08016561913216994C /* TitleValueView.swift in Sources */,
-				2AECE66BDA01825DAB58EC9315A9D550 /* Tool.swift in Sources */,
-				127839B6235E713F426B0D695EC56D3C /* ToolTable.swift in Sources */,
-				42867ED6B61C6BEE97F9B319ED0237DF /* ToolTableItem.swift in Sources */,
-				2043F4EA2A35CB8471B00CBB523C7AAB /* ToolTableSection.swift in Sources */,
-				84C9FFCC3223D87BB3627E9D4D4CA406 /* Trace.swift in Sources */,
-				ED24A70D6667AF05BA585B2751BE9091 /* Trigger.swift in Sources */,
-				32F5B4F3EC4B961D0AFEE03524BCF77B /* UserDefaultsTool.swift in Sources */,
-				7FA257E97BF2A75B782CA0EE30489ADB /* UserDefaultsToolDetailView.swift in Sources */,
-				3F8F353F3CD96732DDFD78BC680648BC /* UserDefaultsToolDetailViewModel.swift in Sources */,
-				512091E328F735DA0C36C707FF48DDB7 /* UserDefaultsToolView.swift in Sources */,
-				BE4245DAB10E9A0F27F4C4CBFE31117A /* UserDefaultsToolViewModel.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7E8B2550E6BC54365F7348C4A4FEAADB /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		9E8EA67AB5E08E24D0ADBBE2AD47D34D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				FD8C070E5FEC42E9F49B6B832F930A3F /* Pods-Example-MacOS-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B3033ACADBCF55E35D79520B645D5A0D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB27B3D68F4A038F0B61B2EBAF863748 /* ActivityViewController.swift in Sources */,
+				89072A854B9EC61A7D6AD6EA67F4BDBA /* ApplicationTool.swift in Sources */,
+				E3AC050D415AA7FEFB2B8FBAB04E9C10 /* CPUInfoProvider.swift in Sources */,
+				8F9F571837F003406B4C1E75B32850C0 /* CrashDetectionTool.swift in Sources */,
+				70AC8AFEC2C87C884CDA58A9A8BABB78 /* CrashDetectionToolDetailsView.swift in Sources */,
+				3CFD3F7633C541BFD3E24EFF5EFF0C8E /* CrashDetectionToolView.swift in Sources */,
+				2C86BEC580D5CCBB183B9D52A4CBE5B2 /* CrashExceptionPrepareable.swift in Sources */,
+				C2C3F972ED1408E2AE12F6FC1A21593B /* CrashFileManager.swift in Sources */,
+				24C47ADDAD659489719884813613237C /* CrashHandler.swift in Sources */,
+				329304CE0F57937D9A0823C813F42915 /* CrashModel.swift in Sources */,
+				E9E24B1206A564181E0798D22F7E07BE /* CrashSignalExceptionHandler.swift in Sources */,
+				993C1ED0AEFC5AF8F08744692AC4020A /* CrashType.swift in Sources */,
+				150B44DB1EDBFD5109B618C7F06B1130 /* CrashUncaughtExceptionHandler.swift in Sources */,
+				4D2601B396B38F16F6D439337B724564 /* CustomInfoTool.swift in Sources */,
+				35DB3AAEB84B9D0B5EC3C7381407516B /* CustomInfoToolSection.swift in Sources */,
+				1A799BB90A22BB29520FD0C8C12A9D4A /* CustomToolTableItem.swift in Sources */,
+				2D5F4353A406ECAE48DDDB77FE0B79CC /* DeviceTool.swift in Sources */,
+				ED00E0913E0ADE94847935EB49D0809D /* Font+Size.swift in Sources */,
+				64F13E21E4B0C93DA74E1B3F285EB1BD /* Image+Assets.swift in Sources */,
+				92665C1952BC8280B9C264CB2088456D /* MemoryInfoProvider.swift in Sources */,
+				73D5C38FB531F6F359B01C15F68E0DB9 /* NavigationToolTableItem.swift in Sources */,
+				44588B8AFFC380335CB999E7421922A3 /* NavigationToolTableView.swift in Sources */,
+				366E84D736A0A0718041C918D1616E91 /* OptionToggleView.swift in Sources */,
+				366E84D736A0A0718041C918D1616E91 /* OptionToggleView.swift in Sources */,
+				62A045971737EC5682F438DDDCDA6708 /* PerformanceInfoItem.swift in Sources */,
+				864AF8D71F58394F03900F230C513AB9 /* PerformanceInfoViewModel.swift in Sources */,
+				C80AB7F62D47FC1B9FC63395586A4947 /* PerformanceTool.swift in Sources */,
+				B969C33F331E80E695114321601B988E /* PerformanceToolView.swift in Sources */,
+				BBF431063353A67AF78955B5F75D8F80 /* PreferenceCountValidator.swift in Sources */,
+				8F8EA3753097F776A3DB552C8F270882 /* PreferenceItem.swift in Sources */,
+				7FB1687FC659DA0CD41829FEECE2C8B8 /* PreferencesDoubleItem.swift in Sources */,
+				6A97D9E6BA55A17AC1FC33689580A099 /* PreferencesFloatItem.swift in Sources */,
+				FEA562F2EB9480372A4D88E13259ADA6 /* PreferencesIntItem.swift in Sources */,
+				8F5449F763A1B53DC34909B99F10A260 /* PreferencesPickerItem.swift in Sources */,
+				E10ABF400C04E8AFBDFC908734BCA5A4 /* PreferencesPickerView.swift in Sources */,
+				68365E305E8B2250D85AF6AC77D0FA5D /* PreferencesTextItem.swift in Sources */,
+				39F3AC4ADC263CE3DA50543C92B42002 /* PreferencesTool.swift in Sources */,
+				59A52AE2427F91AAC9BA9F1C77F1D654 /* PreferencesToolSection.swift in Sources */,
+				D1A617B943A577616F8BFE3BC41000F6 /* PreferencesView.swift in Sources */,
+				53663DA5BC559639816926973519D245 /* PreferenceTextView.swift in Sources */,
+				D81FE1184BD401E78A7912B90E2439AE /* PreferenceValidator.swift in Sources */,
+				2E8D0156DECA3F5878160922BB265226 /* PreferenceValueValidator.swift in Sources */,
+				7774D0F5A8A8CA1D69254E8F42943D46 /* SearchableIfAvaialbleModifier.swift in Sources */,
+				7E40FFBC28C7F70A1538C0ACB6BE388F /* Sentinel.swift in Sources */,
+				CD632F5154DB96125497AEAA2D77F7B0 /* Sentinel.common-dummy.m in Sources */,
+				7A3182E43EC36EB2C8DE5120431E7D42 /* SentinelInternal.swift in Sources */,
+				33A6B36F3CC5440837445A4C17FA577C /* SentinelListView.swift in Sources */,
+				7DF141DAF6D7FA484E01A1BCC25AD247 /* SentinelListViewModel.swift in Sources */,
+				2264E903C3675C6B1394A53088C6FA3D /* SentinelTab.swift in Sources */,
+				4274F3BD7D19B8775A6A0461A7710B1B /* SentinelTabBarView.swift in Sources */,
+				93D90C8F67F198339EE4FB126F61E860 /* SentinelTabItem.swift in Sources */,
+				EB0203C10E4EB47B1B920E692DAE5E9F /* SentinelUIKitExtensions.swift in Sources */,
+				C3B52ABE6C005F46289F29EAE34821F4 /* SharingsPicker.swift in Sources */,
+				F36E0CD0C9D968AC2D72371AFC6AB69D /* SignalPrehandlerManager.swift in Sources */,
+				2075F1A9CA45DA8646AEE4CBAD8D1A50 /* SourceScreenProvider.swift in Sources */,
+				628E81BFB1625F6B56182F2EE92723EE /* StackTrace.swift in Sources */,
+				76CAC9C3CD24B2D29FE6836F102F824F /* StringBuilder.swift in Sources */,
+				241F978F64DAE09A59B582F67725D126 /* StringExtensions.swift in Sources */,
+				429D3F6D39748D77746ABD479E9F7372 /* SystemInfoProvider.swift in Sources */,
+				16C39A7E78D5FDCF60D034DDCC04A465 /* TextEditingTool.swift in Sources */,
+				BA5B0911E1D23D80E0A262E8301BCEBB /* TextEditingToolView.swift in Sources */,
+				D875548641C131786638484DF1843304 /* TextEditingToolViewModel.swift in Sources */,
+				D7A3FD7614CF7EC2194ACAD9365FB7E5 /* TitleValueView.swift in Sources */,
+				71082533784D59D878778AD5EAF501D9 /* ToggleToolItem.swift in Sources */,
+				C0C3508B4D9314938A94941CDD7D5D61 /* Tool.swift in Sources */,
+				AA3C1108883628F682F30DF4C7812955 /* ToolTable.swift in Sources */,
+				87DEAE3D0620A2CB63E58B0DE385BBED /* ToolTableItem.swift in Sources */,
+				6CDEAB171EE71BE483F275A1F0D7BC8C /* ToolTableSection.swift in Sources */,
+				D11365505EA383FD7C8AAAB0E2FE14DB /* Trigger.swift in Sources */,
+				2DB33756C74EC2130E25AB9CA2E538B0 /* UserDefaultsTool.swift in Sources */,
+				2F40AE4476692FD2559B86F1B411E7B6 /* UserDefaultsToolDetailView.swift in Sources */,
+				5B84A163BD5835916231D6D0A149B7E2 /* UserDefaultsToolDetailViewModel.swift in Sources */,
+				DEB25A93FBE6F52E98AD4968B80AF444 /* UserDefaultsToolView.swift in Sources */,
+				483FC5B1CC61E2C2C820639913FF3FE1 /* UserDefaultsToolViewModel.swift in Sources */,
+				363BB18BD45EBB99111896090158F94E /* View+Share.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3E43B1336F3B20CD3F24C25523C2A68 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1255,39 +1281,74 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		4D3976A4CF09440EB117B3E88765656D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Sentinel.common-EmailSender";
-			target = AF6DDE5E8E233521CF9BB06E9C60A61F /* Sentinel.common-EmailSender */;
-			targetProxy = 06A1D256EE2581EFBEE244B4C5027B30 /* PBXContainerItemProxy */;
-		};
-		5E1F09E45D3AED6C1FDF1CAEA9C16A3F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Sentinel.common;
-			target = 020385992F50562D5823624BCBE4B0B6 /* Sentinel.common */;
-			targetProxy = 203B3AD059306B7D8A111A47C404249F /* PBXContainerItemProxy */;
-		};
-		75F033E1B250C146ED27B5E206D513BE /* PBXTargetDependency */ = {
+		0D0AB129600E225FD6A65700427AD00C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-Example-iOS";
 			target = B448AC191110D164125F599EA0AC2249 /* Pods-Example-iOS */;
-			targetProxy = 685E12137FFF0CBA140287215882F08C /* PBXContainerItemProxy */;
+			targetProxy = 48788A422D425B84A1251B72C84E2D92 /* PBXContainerItemProxy */;
 		};
-		900F233D66BAA5C3EE0B7E66C47F9E76 /* PBXTargetDependency */ = {
+		2CF6441ECF666CDCA09F01C04D32171F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Sentinel.common-EmailSender";
+			target = AF6DDE5E8E233521CF9BB06E9C60A61F /* Sentinel.common-EmailSender */;
+			targetProxy = 236595DACCE4A7F0A5CD3AB28B52900E /* PBXContainerItemProxy */;
+		};
+		40907DAC7A98AD7992402385BABE86E2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Sentinel.common-EmailSender-Sentinel";
 			target = E95B1882C5B285D7103685E0C70DFC98 /* Sentinel.common-EmailSender-Sentinel */;
-			targetProxy = B151D3F1D5E429BAD6775C018D04442A /* PBXContainerItemProxy */;
+			targetProxy = 55A1FEB331C94C9A052959019559975F /* PBXContainerItemProxy */;
 		};
-		F503292E6A627CE8F947B9D0E76239AC /* PBXTargetDependency */ = {
+		AC12A5C091E7FCB52219D9E0E5A80F01 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Sentinel.common-Sentinel";
 			target = E71FD70A1DD1F440A3204231CCAB3F44 /* Sentinel.common-Sentinel */;
-			targetProxy = C14A7164CAE9F443729A024E23CC700D /* PBXContainerItemProxy */;
+			targetProxy = 5336205B069DCFA97A361FFB5DF1352B /* PBXContainerItemProxy */;
+		};
+		FD84B116701130C9D2D890E698B0070E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Sentinel.common;
+			target = 020385992F50562D5823624BCBE4B0B6 /* Sentinel.common */;
+			targetProxy = 809825C3A9387E213BA4851379214F9F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		015DDA7EAF5D5F45B66E100FE1B7DEA1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3FB5325B2B6FFC2A6E06D63B32ED4B74 /* Sentinel.common.release.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_PREFIX_HEADER = "Target Support Files/Sentinel.common/Sentinel.common-prefix.pch";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Target Support Files/Sentinel.common/Sentinel.common-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MODULEMAP_FILE = "Target Support Files/Sentinel.common/Sentinel.common.modulemap";
+				PRODUCT_MODULE_NAME = Sentinel;
+				PRODUCT_NAME = Sentinel;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		0386314A1001E937D9678DF6AC4F6AC4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6A3A4A2DCF784E20FAF72E86891DC581 /* Pods-Example-iOS.debug.xcconfig */;
@@ -1324,15 +1385,15 @@
 			};
 			name = Debug;
 		};
-		0696215695911168AF0E00D073CF575B /* Debug */ = {
+		0E969511397FFB04AAEC15AEF08B0375 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 65AE4BEAA26551D4491C2D3DC78575D8 /* Sentinel.common-EmailSender.debug.xcconfig */;
+			baseConfigurationReference = E72D7EA69C7066BF89CB12706D9F455D /* Sentinel.common.debug.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1340,21 +1401,20 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_MODULE_VERIFIER = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
-				GCC_PREFIX_HEADER = "Target Support Files/Sentinel.common-EmailSender/Sentinel.common-EmailSender-prefix.pch";
+				GCC_PREFIX_HEADER = "Target Support Files/Sentinel.common/Sentinel.common-prefix.pch";
 				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = "Target Support Files/Sentinel.common-EmailSender/Sentinel.common-EmailSender-Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Sentinel.common/Sentinel.common-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Sentinel.common-EmailSender/Sentinel.common-EmailSender.modulemap";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MODULEMAP_FILE = "Target Support Files/Sentinel.common/Sentinel.common.modulemap";
 				PRODUCT_MODULE_NAME = Sentinel;
 				PRODUCT_NAME = Sentinel;
-				SDKROOT = iphoneos;
+				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -1495,6 +1555,60 @@
 			};
 			name = Release;
 		};
+		348A383185CBABFDFD44D7FCCDC132FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 65AE4BEAA26551D4491C2D3DC78575D8 /* Sentinel.common-EmailSender.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGNING_ALLOWED = NO;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Sentinel.common-EmailSender";
+				IBSC_MODULE = Sentinel;
+				INFOPLIST_FILE = "Target Support Files/Sentinel.common-EmailSender/ResourceBundle-Sentinel-Sentinel.common-EmailSender-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_NAME = Sentinel;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		599920CEEBEE901043100F8C1F9EABDA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D92B82CF842409D2292A0EF0958C59E1 /* Sentinel.common-EmailSender.release.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_PREFIX_HEADER = "Target Support Files/Sentinel.common-EmailSender/Sentinel.common-EmailSender-prefix.pch";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Target Support Files/Sentinel.common-EmailSender/Sentinel.common-EmailSender-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Sentinel.common-EmailSender/Sentinel.common-EmailSender.modulemap";
+				PRODUCT_MODULE_NAME = Sentinel;
+				PRODUCT_NAME = Sentinel;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		5FE67593A526C0070A08805521EAF77D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1632,7 +1746,7 @@
 			};
 			name = Debug;
 		};
-		7ABF3ACBB1D7F8DFD1F2BB2DA2B12D20 /* Release */ = {
+		A549E4C2B529C82F5049EA00A55FB5C1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3FB5325B2B6FFC2A6E06D63B32ED4B74 /* Sentinel.common.release.xcconfig */;
 			buildSettings = {
@@ -1646,58 +1760,6 @@
 				PRODUCT_NAME = Sentinel;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Release;
-		};
-		90F1A34C140F1E59396165031075DE78 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3FB5325B2B6FFC2A6E06D63B32ED4B74 /* Sentinel.common.release.xcconfig */;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_MODULE_VERIFIER = NO;
-				ENABLE_USER_SCRIPT_SANDBOXING = NO;
-				GCC_PREFIX_HEADER = "Target Support Files/Sentinel.common/Sentinel.common-prefix.pch";
-				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = "Target Support Files/Sentinel.common/Sentinel.common-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MODULEMAP_FILE = "Target Support Files/Sentinel.common/Sentinel.common.modulemap";
-				PRODUCT_MODULE_NAME = Sentinel;
-				PRODUCT_NAME = Sentinel;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_INSTALL_OBJC_HEADER = YES;
-				SWIFT_VERSION = 5.0;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		B2A8142DD4F65E7593BEE99B9CA0F8EF /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D92B82CF842409D2292A0EF0958C59E1 /* Sentinel.common-EmailSender.release.xcconfig */;
-			buildSettings = {
-				CODE_SIGNING_ALLOWED = NO;
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Sentinel.common-EmailSender";
-				IBSC_MODULE = Sentinel;
-				INFOPLIST_FILE = "Target Support Files/Sentinel.common-EmailSender/ResourceBundle-Sentinel-Sentinel.common-EmailSender-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				PRODUCT_NAME = Sentinel;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = bundle;
 			};
 			name = Release;
@@ -1739,44 +1801,9 @@
 			};
 			name = Release;
 		};
-		DCEDB7C756B28EB7FB1C0CE2879FB4A2 /* Debug */ = {
+		B98009F9C4752773EB2C72DC58AD19B9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E72D7EA69C7066BF89CB12706D9F455D /* Sentinel.common.debug.xcconfig */;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_MODULE_VERIFIER = NO;
-				ENABLE_USER_SCRIPT_SANDBOXING = NO;
-				GCC_PREFIX_HEADER = "Target Support Files/Sentinel.common/Sentinel.common-prefix.pch";
-				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = "Target Support Files/Sentinel.common/Sentinel.common-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MODULEMAP_FILE = "Target Support Files/Sentinel.common/Sentinel.common.modulemap";
-				PRODUCT_MODULE_NAME = Sentinel;
-				PRODUCT_NAME = Sentinel;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_INSTALL_OBJC_HEADER = YES;
-				SWIFT_VERSION = 5.0;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		E2E6D6B605D3EB5EA6075BCF0B99313B /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D92B82CF842409D2292A0EF0958C59E1 /* Sentinel.common-EmailSender.release.xcconfig */;
+			baseConfigurationReference = 65AE4BEAA26551D4491C2D3DC78575D8 /* Sentinel.common-EmailSender.debug.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -1805,15 +1832,14 @@
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
-		EBD84D66B066A1E01C7F0449150A8B73 /* Debug */ = {
+		DB96E82549391F1E4ECD023ED7A8E846 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 65AE4BEAA26551D4491C2D3DC78575D8 /* Sentinel.common-EmailSender.debug.xcconfig */;
+			baseConfigurationReference = D92B82CF842409D2292A0EF0958C59E1 /* Sentinel.common-EmailSender.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGNING_ALLOWED = NO;
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Sentinel.common-EmailSender";
@@ -1826,9 +1852,9 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = bundle;
 			};
-			name = Debug;
+			name = Release;
 		};
-		F46CC2C49F5D974120323611078F98C5 /* Debug */ = {
+		ED2E8E20C7E8910F3A32B5B285302060 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E72D7EA69C7066BF89CB12706D9F455D /* Sentinel.common.debug.xcconfig */;
 			buildSettings = {
@@ -1858,29 +1884,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		18EF25E1D070215806A99F36CBB9462C /* Build configuration list for PBXNativeTarget "Sentinel.common-Sentinel" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F46CC2C49F5D974120323611078F98C5 /* Debug */,
-				7ABF3ACBB1D7F8DFD1F2BB2DA2B12D20 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		1EEA5A64138C345676FF06849E2E90AC /* Build configuration list for PBXNativeTarget "Sentinel.common-EmailSender" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0696215695911168AF0E00D073CF575B /* Debug */,
-				E2E6D6B605D3EB5EA6075BCF0B99313B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		24D2F2D06567B15549C28148C3DAE7B4 /* Build configuration list for PBXNativeTarget "Pods-Example-MacOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				67E265CD0D3D684EBA2CD7B47BBE4CE4 /* Debug */,
 				636242D5877BE624021A113DA9022CF1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		31EC66720CD83D0435AF130B826995C6 /* Build configuration list for PBXNativeTarget "Sentinel.common-EmailSender" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B98009F9C4752773EB2C72DC58AD19B9 /* Debug */,
+				599920CEEBEE901043100F8C1F9EABDA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1894,15 +1911,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9C619D19155F9DDFED375375E836794C /* Build configuration list for PBXNativeTarget "Sentinel.common-EmailSender-Sentinel" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				EBD84D66B066A1E01C7F0449150A8B73 /* Debug */,
-				B2A8142DD4F65E7593BEE99B9CA0F8EF /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		CDDA7D21E6DB762A76B64E214F93E437 /* Build configuration list for PBXNativeTarget "Pods-Example-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1912,11 +1920,29 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F0A0E2021979D801EB877852905586AC /* Build configuration list for PBXNativeTarget "Sentinel.common" */ = {
+		E5167C7265D2265957124A69D97CB692 /* Build configuration list for PBXNativeTarget "Sentinel.common-EmailSender-Sentinel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DCEDB7C756B28EB7FB1C0CE2879FB4A2 /* Debug */,
-				90F1A34C140F1E59396165031075DE78 /* Release */,
+				348A383185CBABFDFD44D7FCCDC132FE /* Debug */,
+				DB96E82549391F1E4ECD023ED7A8E846 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EDAE144B810FCFA5282B6E193491CCCA /* Build configuration list for PBXNativeTarget "Sentinel.common-Sentinel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED2E8E20C7E8910F3A32B5B285302060 /* Debug */,
+				A549E4C2B529C82F5049EA00A55FB5C1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FAE94CE3C1D07EA83E5D0F9E19C95B5B /* Build configuration list for PBXNativeTarget "Sentinel.common" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0E969511397FFB04AAEC15AEF08B0375 /* Debug */,
+				015DDA7EAF5D5F45B66E100FE1B7DEA1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
