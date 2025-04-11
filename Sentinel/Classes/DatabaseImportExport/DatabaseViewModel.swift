@@ -8,7 +8,7 @@
 import SwiftUI
 import UniformTypeIdentifiers
 
-final class DatabaseImportExportViewModel: ObservableObject {
+final class DatabaseViewModel: ObservableObject {
 
     // MARK: - Internal properties
 
@@ -18,22 +18,24 @@ final class DatabaseImportExportViewModel: ObservableObject {
     // MARK: - Private properties
 
     private let databaseFileManager: DatabaseFileManager
+    private let exportAsArchive: Bool
 
     // MARK: - Init
 
-    init(databaseFilePath: String, allowedTypes: [UTType]) {
+    init(databaseFilePath: String, allowedTypes: [UTType], exportAsArchive: Bool) {
         self.allowedTypes = allowedTypes
         databaseFileManager = .init(databaseFilePath: databaseFilePath)
+        self.exportAsArchive = exportAsArchive
     }
 }
 
-extension DatabaseImportExportViewModel {
+extension DatabaseViewModel {
 
     func importDatabase(url: URL) {
         try? databaseFileManager.importDatabase(from: url)
     }
 
     func exportDatabase() {
-        selectedURL = databaseFileManager.exportDatabase()
+        selectedURL = databaseFileManager.exportDatabase(asArchive: exportAsArchive)
     }
 }

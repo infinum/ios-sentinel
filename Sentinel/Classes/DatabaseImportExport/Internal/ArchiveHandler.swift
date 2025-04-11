@@ -1,5 +1,5 @@
 //
-//  ZipHandler.swift
+//  ArchiveHandler.swift
 //  Sentinel
 //
 //  Created by Zvonimir Medak on 13.03.2025..
@@ -7,20 +7,20 @@
 
 import Foundation
 
-enum CreateZipError: Error {
+enum CreateArchiveError: Error {
     case urlNotADirectory(URL)
-    case failedToCreateZIP(Error)
+    case failedToCreateArchive(Error)
 }
 
-enum ZipHandler {
+enum ArchiveHandler {
 
-    static func createZip(zipFinalURL: URL, fromDirectory directoryURL: URL, databaseURL: URL) throws -> URL {
+    static func createArchive(archiveDestinationURL: URL, fromDirectory directoryURL: URL, databaseURL: URL) throws -> URL {
         // Copy the database file into the export directory
         let newDatabaseFileURL = directoryURL.appendingPathComponent(databaseURL.lastPathComponent)
         try FileManager.default.copyItem(at: databaseURL, to: newDatabaseFileURL)
 
         guard directoryURL.isDirectory else {
-            throw CreateZipError.urlNotADirectory(directoryURL)
+            throw CreateArchiveError.urlNotADirectory(directoryURL)
         }
 
         var fileManagerError: Error?
@@ -30,17 +30,17 @@ enum ZipHandler {
             readingItemAt: directoryURL,
             options: .forUploading,
             error: &coordinatorError
-        ) { zipCreatedURL in
+        ) { archiveCreatedURL in
             do {
-                try FileManager.default.moveItem(at: zipCreatedURL, to: zipFinalURL)
+                try FileManager.default.moveItem(at: archiveCreatedURL, to: archiveDestinationURL)
             } catch {
                 fileManagerError = error
             }
         }
         if let error = coordinatorError ?? fileManagerError {
-            throw CreateZipError.failedToCreateZIP(error)
+            throw CreateArchiveError.failedToCreateArchive(error)
         }
-        return zipFinalURL
+        return archiveDestinationURL
     }
 }
 

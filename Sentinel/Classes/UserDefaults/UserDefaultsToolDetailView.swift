@@ -25,7 +25,7 @@ struct UserDefaultsToolDetailView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
                 .padding(.top, 40)
 
-            HStack(spacing: 30) {
+            HStack(spacing: 32) {
                 Button(action: {
                     viewModel.didPressDelete()
                     #if os(macOS)

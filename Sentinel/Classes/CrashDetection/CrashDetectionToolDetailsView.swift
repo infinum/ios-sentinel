@@ -51,23 +51,11 @@ struct CrashDetectionToolDetailsView: View {
                 )
             }
         }
-        #if os(macOS)
-        .background(
-            SharingsPicker(
-                isPresented: $showShare,
-                sharingItems: [shareText as Any],
-                didFinish: { showShare = false }
-            )
+        .share(
+            showShare: $showShare,
+            items: [shareText as Any],
+            didFinish: { showShare = false }
         )
-        #else
-        .sheet(isPresented: $showShare) {
-            ActivityViewController(
-                activityItems: [shareText as Any],
-                applicationActivities: nil,
-                didFinish: { showShare = false }
-            )
-        }
-        #endif
     }
 }
 

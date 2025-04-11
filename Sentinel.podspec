@@ -63,7 +63,7 @@ Pod::Spec.new do |s|
     sp.dependency 'Sentinel/Core'
   end
 
-  s.subspec 'DatabaseImportExport' do |sp|
+  s.subspec 'Database' do |sp|
     sp.source_files = 'Sentinel/Classes/DatabaseImportExport/**/*'
     sp.dependency 'Sentinel/Core'
   end

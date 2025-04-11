@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  SharingsPicker.swift
 //  Sentinel
 //
 //  Created by Zvonimir Medak on 01.04.2025..
