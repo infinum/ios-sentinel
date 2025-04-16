@@ -52,7 +52,7 @@ extension CustomInfoTool {
                 items: section.items.map { .customInfo($0) }
             )
         }
-        return ToolTable(name: name, sections: sections)
+        return ToolTable(name: "Information", sections: sections)
     }
 
 }
