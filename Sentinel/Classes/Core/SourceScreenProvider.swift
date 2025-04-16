@@ -13,6 +13,12 @@ public protocol SourceScreenProvider {
 
     /// The view controller used for presenting the Sentinel.
     func showTools(for view: some View)
+
+    /// Checks if Sentinel is already shown
+    func isShown() -> Bool
+
+    /// Dismisses Sentinel, used if the user triggers the showing of Sentinel but it is already shown
+    func dismiss()
 }
 
 /// Provides possible source screens used for presenting the Sentinel.
@@ -36,10 +42,26 @@ public struct DefaultSourceScreenProvider: SourceScreenProvider {
         controller.view.frame = NSRect(x: 0, y: 0, width: 1200, height: 800)
         keyWindow?.contentViewController?.presentAsModalWindow(controller)
     }
+
+    public func isShown() -> Bool {
+        NSApplication.shared.windows.compactMap(\.contentViewController).contains(where: { $0 is NSHostingController<SentinelTabBarView> })
+    }
+
+    public func dismiss() {
+        NSApplication.shared.windows.first(where: { $0.contentViewController is NSHostingController<SentinelTabBarView> })?.close()
+    }
     #else
     
     public func showTools(for view: some View) {
         topMostController()?.present(UIHostingController(rootView: view), animated: true)
+    }
+
+    public func isShown() -> Bool {
+        topMostController() is UIHostingController<SentinelTabBarView>
+    }
+
+    public func dismiss() {
+        topMostController()?.dismiss(animated: true)
     }
 
     // MARK: - Private methods

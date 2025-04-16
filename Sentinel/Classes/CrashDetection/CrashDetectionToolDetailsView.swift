@@ -15,7 +15,7 @@ struct CrashDetectionToolDetailsView: View {
         List {
             Section {
                 Text("Details")
-                    .font(.headline)
+                    .font(.title1Bold)
 
                 ForEach(detailItems, id: \.0) {
                     CrashToolDetailsRow(title: $0.0, value: $0.1)
@@ -24,7 +24,7 @@ struct CrashDetectionToolDetailsView: View {
 
             Section {
                 Text("Stack trace")
-                    .font(.headline)
+                    .font(.title1Bold)
 
                 ForEach(crashModel.traces, id: \.title) {
                     StackTraceView(title: $0.title, description: $0.detail)
@@ -41,9 +41,9 @@ private struct CrashToolDetailsRow: View {
     var body: some View {
         HStack(spacing: 0) {
             Text(title)
-                .font(.system(size: 14, weight: .bold))
+                .font(.body1Bold)
             Text(value)
-                .font(.system(size: 14))
+                .font(.body1Regular)
                 .frame(maxWidth: .infinity, alignment: .trailing)
         }
     }
@@ -56,10 +56,10 @@ private struct StackTraceView: View {
     var body: some View {
         VStack(spacing: 4) {
             Text(title)
-                .font(.system(size: 14, weight: .bold))
+                .font(.body1Bold)
             if let description {
                 Text(description)
-                    .font(.system(size: 11))
+                    .font(.caption1Regular)
             }
         }
         .onTapGesture { }

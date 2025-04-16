@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Sentinel'
-  s.version          = '2.1.0'
+  s.version          = '2.2.0'
   s.summary          = 'Developer\'s toolbox for debugging applications'
 
   s.description      = <<-DESC
@@ -60,6 +60,11 @@ Pod::Spec.new do |s|
 
   s.subspec 'CrashDetection' do |sp|
     sp.source_files = 'Sentinel/Classes/CrashDetection/**/*'
+    sp.dependency 'Sentinel/Core'
+  end
+
+  s.subspec 'Database' do |sp|
+    sp.source_files = 'Sentinel/Classes/DatabaseTool/**/*'
     sp.dependency 'Sentinel/Core'
   end
   
