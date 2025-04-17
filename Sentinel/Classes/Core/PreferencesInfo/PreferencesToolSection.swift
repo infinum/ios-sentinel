@@ -22,9 +22,9 @@ extension PreferencesTool {
         let title: String?
 
         /// Tool items available in the section.
-        let items: [ToggleToolItem]
+        let items: [any PreferenceItem]
 
-        public init(title: String?, items: [ToggleToolItem]) {
+        public init(title: String?, items: [any PreferenceItem]) {
             self.title = title
             self.items = items
             id = title ?? UUID().uuidString

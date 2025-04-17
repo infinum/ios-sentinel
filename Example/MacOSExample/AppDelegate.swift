@@ -18,6 +18,15 @@ enum AppPreferences {
     static var analyticsEnabled = true
     static var crashlyticsEnabled = true
     static var loggingEnabled = false
+    static var pickerValue = SomePickerValue.option1
+}
+
+enum SomePickerValue: String, CustomStringConvertible, CaseIterable {
+    var description: String {
+        self.rawValue
+    }
+
+    case option1, option2, option3
 }
 
 @main
@@ -74,8 +83,26 @@ private extension AppDelegate {
                     ),
                     ToggleToolItem(
                         title: "Logging",
+                        description: "It is used to turn the Logging on or off",
                         userDefaults: .standard,
                         userDefaultsKey: "com.infinum.sentinel.optionSwitch.logging"
+                    ),
+                    PreferencesTextItem(
+                        title: "name",
+                        description: "Saves the current name into user defaults",
+                        userDefaultsKey: "com.infinum.sentinel.name"
+                    ),
+                    PreferencesIntItem(
+                        title: "some number",
+                        description: "number from 3 to 10",
+                        validators: [AnyPreferenceValidator(validator: PreferenceValueValidator(min: 3, max: 10, validationMessage: "value has to be in the range"))],
+                        userDefaultsKey: "com.inifnum.sentinel.number"
+                    ),
+                    PreferencesPickerItem(
+                        title: "Picker values",
+                        values: SomePickerValue.allCases,
+                        setter: { value in AppPreferences.pickerValue = value as! SomePickerValue },
+                        getter: { AppPreferences.pickerValue }
                     )
                 ]
             )
