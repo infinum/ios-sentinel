@@ -110,7 +110,7 @@ public static func createSentinelView(with configuration: Configuration) -> Sent
 
 ## Add Preferences
 
-The `preferences` can be added as part of the configuration setup of **Sentinel**. Prefrences add items to the Preferences tab of Sentinel which are editable items. Each section consists of `PreferenceItem` objects.
+The `preferences` can be added as part of the configuration setup of **Sentinel**. Preferences add items to the Preferences tab of Sentinel which are editable items. Each section consists of `PreferenceItem` objects.
 
 ```swift
 public protocol PreferenceItem: Identifiable, Equatable {
