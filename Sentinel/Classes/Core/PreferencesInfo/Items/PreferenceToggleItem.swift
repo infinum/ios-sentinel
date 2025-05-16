@@ -7,7 +7,7 @@
 
 import Foundation
 
-@available(*, deprecated, renamed: "PreferenceToggleItem", message: "ToggleToolItem has been renamed to PreferenceToggleItem, and please use the new name, as it is more consistent with other preference items")
+@available(*, deprecated, renamed: "PreferenceToggleItem", message: "Usage of the ToggleToolItem is not recommended due to the plan for deprecation. Use PreferenceToggleItem instead.")
 public typealias ToggleToolItem = PreferenceToggleItem
 
 /// Item which will create a preferences view with a toggle button
