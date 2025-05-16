@@ -1,5 +1,5 @@
 //
-//  ToggleToolItem.swift
+//  PreferenceToggleItem.swift
 //  Sentinel
 //
 //  Created by Zvonimir Medak on 17.03.2025..
@@ -7,8 +7,11 @@
 
 import Foundation
 
+@available(*, deprecated, renamed: "PreferenceToggleItem", message: "ToggleToolItem has been renamed to PreferenceToggleItem, and please use the new name, as it is more consistent with other preference items")
+public typealias ToggleToolItem = PreferenceToggleItem
+
 /// Item which will create a preferences view with a toggle button
-public struct ToggleToolItem: PreferenceItem {
+public struct PreferenceToggleItem: PreferenceItem {
 
     // MARK: - Public properties
 
@@ -65,9 +68,9 @@ public struct ToggleToolItem: PreferenceItem {
     }
 }
 
-extension ToggleToolItem: Equatable {
+extension PreferenceToggleItem: Equatable {
 
-    public static func == (lhs: ToggleToolItem, rhs: ToggleToolItem) -> Bool {
+    public static func == (lhs: PreferenceToggleItem, rhs: PreferenceToggleItem) -> Bool {
         lhs.getter() == rhs.getter()
     }
 }

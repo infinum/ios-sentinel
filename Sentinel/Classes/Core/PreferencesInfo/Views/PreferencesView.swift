@@ -9,17 +9,17 @@ import SwiftUI
 
 struct PreferencesView: View {
 
-    let preferenceItem: any PreferenceItem
+    let item: any PreferenceItem
 
     var body: some View {
-        if let item = preferenceItem as? PreferencesTextItem {
-            PreferenceTextView(item: item)
-        } else if let item = preferenceItem as? ToggleToolItem {
-            OptionToggleView(item: item)
-        } else if let item = preferenceItem as? PreferencesIntItem {
-            PreferenceTextView(item: item)
-        } else if let item = preferenceItem as? PreferencesPickerItem {
-            PreferencesPickerView(item: item)
+        if let textItem = item as? PreferencesTextItem {
+            PreferenceTextView(item: textItem)
+        } else if let toggleItem = item as? PreferenceToggleItem {
+            PreferenceToggleView(item: toggleItem)
+        } else if let intItem = item as? PreferencesIntItem {
+            PreferenceTextView(item: intItem)
+        } else if let pickerItem = item as? PreferencesPickerItem {
+            PreferencesPickerView(item: pickerItem)
         }
     }
 }

@@ -1,5 +1,5 @@
 //
-//  OptionToggleView.swift
+//  PreferenceToggleView.swift
 //  Sentinel
 //
 //  Created by Zvonimir Medak on 27.11.2024..
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct OptionToggleView: View {
+struct PreferenceToggleView: View {
 
     @State private var value: Bool
     @State private var errorMessage: String?
@@ -27,32 +27,35 @@ struct OptionToggleView: View {
 
             DescriptionView(description: description, errorMessage: errorMessage)
         }
-        .onChange(of: value) { value in
-            guard let message = hasErrorMessage(value) else {
-                errorMessage = nil
-                onValueChanged(value)
-                return
-            }
-            errorMessage = message
-        }
-        .onAppear {
-            let fetchedValue = getter()
-            guard fetchedValue != value else { return }
-            value = fetchedValue
-        }
+        .onChange(of: value, perform: handleValueChange)
+        .onAppear { value = getter() }
     }
 }
 
 // MARK: - Helpers
 
-extension OptionToggleView {
+// MARK: - Init
 
-    init(item: ToggleToolItem) {
+extension PreferenceToggleView {
+
+    init(item: PreferenceToggleItem) {
         value = item.getter()
         title = item.name
         onValueChanged = item.change(to:)
         getter = item.getter
         description = item.description
         hasErrorMessage = item.lastErrorMessageIfInvalid
+    }
+}
+
+extension PreferenceToggleView {
+
+    func handleValueChange(_ value: Bool) {
+        guard let message = hasErrorMessage(value) else {
+            errorMessage = nil
+            onValueChanged(value)
+            return
+        }
+        errorMessage = message
     }
 }

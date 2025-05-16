@@ -38,11 +38,7 @@ struct PreferenceTextView: View {
             }
             errorMessage = message
         }
-        .onAppear {
-            let fetchedValue = getter()
-            guard fetchedValue != value else { return }
-            value = fetchedValue
-        }
+        .onAppear { value = getter() }
     }
 }
 

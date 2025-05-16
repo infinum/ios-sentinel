@@ -71,17 +71,17 @@ private extension AppDelegate {
             PreferencesTool.Section(
                 title: "UserDefaults flags",
                 items: [
-                    ToggleToolItem(
+                    PreferenceToggleItem(
                         title: "Analytics",
                         userDefaults: .standard,
                         userDefaultsKey: "com.infinum.sentinel.optionSwitch.analytics"
                     ),
-                    ToggleToolItem(
+                    PreferenceToggleItem(
                         title: "Crashlytics",
                         setter: { AppPreferences.crashlyticsEnabled = $0 },
                         getter: { AppPreferences.crashlyticsEnabled }
                     ),
-                    ToggleToolItem(
+                    PreferenceToggleItem(
                         title: "Logging",
                         description: "It is used to turn the Logging on or off",
                         userDefaults: .standard,
