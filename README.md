@@ -176,7 +176,79 @@ The `tools` object is an array of `Tool` objects. `Tool` objects represent tools
 
 #### Preferences
 
-Last, but not the least, is the `preferences` object which is an array of `PreferencesTool.Section` objects. `PreferencesTool.Section` is used to allow the user to create sections of toggleable options. Each section consists of `ToggleToolItem` objects. To allow the user the interaction, you will have to add a `getter`, and a `setter` for the property from the `UserDefaults` object.
+Last, but not the least, is the `preferences` object which is an array of `PreferencesTool.Section` objects. `PreferencesTool.Section` is used to allow the user to create sections of editable options. Each section consists of `PreferenceItem` objects.
+
+```swift
+public protocol PreferenceItem: Identifiable, Equatable {
+    associatedtype T
+
+    /// Name of the item
+    var name: String { get }
+
+    /// Description of the item
+    var description: String? { get }
+
+    /// This function is called when value is changed.
+    ///
+    /// It should be used to change the current variable value.
+    var setter: (T) -> () { get }
+
+    /// This function is called when value needs to be read.
+    ///
+    /// It should be used to provide the current variable value.
+    var getter: () -> T { get }
+
+    /// Array of validators used to define validation rules..
+    var validators: [AnyPreferenceValidator<T>] { get }
+
+    /// Default storage used for storing information if the key is provided.
+    var userDefaults: UserDefaults { get }
+
+    /// Defines key for storing information.
+    ///
+    /// If the value is not provided, the information won't be stored.
+    var userDefaultsKey: String? { get }
+}
+```
+
+**PreferenceItem** is a protocol which defines which properties are mandatory for a preference object. It provides a `setter`, and a `getter` so Sentinel can know how to store new values or fetch existing ones. There is an optional `userDefaultsKey` parameter which is used if the value should be stored in the `UserDefaults`.
+
+`PreferenceItem` also supports validators. You can create your own validator by conforming to the `PreferenceValidator`.
+```swift
+///
+/// Defines validator behavior for preference items.
+///
+public protocol PreferenceValidator<T> {
+    associatedtype T
+
+    ///
+    /// Defines custom message which will be shown instead
+    /// of default validator message.
+    ///
+    /// - Returns: Custom validation message.
+    ///
+    var validationMessage: String? { get }
+
+    ///
+    /// Validates the provided value and returns `true`
+    /// if value is valid for the provided validator.
+    ///
+    /// - Parameter value: Value to be validated.
+    /// - Returns: `true` if value is valid, `false` otherwise.
+    ///
+    func validate(value: T) -> Bool
+}
+```
+There are two validators already created; `PreferenceCountValidator`, and `PreferenceValueValidator`.
+When creating a `PreferenceItem`, you will need to wrap them in the `AnyPreferenceValidator` struct so that it is type agnostic.
+
+There is a couple of supported `PreferenceItem` objects:
+- **ToggleToolItem** - toggleable view
+- **PreferencesTextItem** - view with a text field
+- **PreferencesIntItem** - view witha a text field which only accepts Int when saving
+- **PreferencesFloatItem** - view witha a text field which only accepts Float when saving
+- **PreferencesDoubleItem** - view witha a text field which only accepts Double when saving
+- **PreferencesPickerItem** - view witha a picker view
 
 e.g. The app supports Analitycs and you can add an `PreferencesTool.Section` which will be shown on the `Preferences` screen and the user can turn it off if he doesn't want it.
 

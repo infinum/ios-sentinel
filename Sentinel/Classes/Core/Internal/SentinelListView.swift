@@ -56,7 +56,7 @@ private struct ContentView: View {
                             label: { NavigationToolTableView(item: item) }
                         )
                     case .toggle(let item):
-                        OptionToggleView(item: item)
+                        PreferencesView(item: item)
                     case .customInfo(let item):
                         TitleValueView(item: item)
                     case .performance(let item):
