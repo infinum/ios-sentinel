@@ -41,8 +41,31 @@ struct SentinelAsSheet: View {
         }
     }
 
-    var toggleItems: [ToggleToolItem] {
-        [ToggleToolItem(title: "item", setter: { toggle = $0 }, getter: { toggle })]
+    var toggleItems: [any PreferenceItem] {
+        [
+            ToggleToolItem(
+                title: "Analytics",
+                userDefaults: .standard,
+                userDefaultsKey: "com.infinum.sentinel.optionSwitch.analytics"
+            ),
+            ToggleToolItem(
+                title: "Crashlytics",
+                setter: { AppPreferences.crashlyticsEnabled = $0 },
+                getter: { AppPreferences.crashlyticsEnabled }
+            ),
+            ToggleToolItem(
+                title: "Logging",
+                userDefaults: .standard,
+                userDefaultsKey: "com.infinum.sentinel.optionSwitch.logging"
+            ),
+            PreferencesTextItem(title: "name", userDefaultsKey: "com.infinum.sentinel.name"),
+            PreferencesIntItem(title: "some number", userDefaultsKey: "com.inifnum.sentinel.number"),
+            PreferencesPickerItem(
+                title: "Picker values",
+                values: SomePickerValue.allCases,
+                setter: { value in AppPreferences.pickerValue = value as! SomePickerValue },
+                getter: { AppPreferences.pickerValue })
+        ]
     }
 }
 
