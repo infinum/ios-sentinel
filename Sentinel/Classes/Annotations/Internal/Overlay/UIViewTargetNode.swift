@@ -33,7 +33,13 @@ final class UIViewTargetNode: TargetNode {
 
     let text: String?
 
-    let screenFrame: CGRect
+    /// Read live rather than captured at construction.
+    ///
+    /// Children are built lazily, so nodes in one tree come into existence at different moments.
+    /// A stored frame would therefore let a single whole-tree pass — counting the ordinal, say —
+    /// compare a position recorded when the element was tapped against one recorded later, after
+    /// the app had relaid out. That reported two same-type siblings as position 2 of 2 each.
+    var screenFrame: CGRect { view.sentinelScreenFrame }
 
     let isAnnotatable: Bool
 
@@ -92,7 +98,6 @@ final class UIViewTargetNode: TargetNode {
         accessibilityIdentifier = Self.nonEmpty(view.accessibilityIdentifier)
         accessibilityLabel = Self.nonEmpty(view.accessibilityLabel)
         text = Self.text(of: view)
-        screenFrame = view.sentinelScreenFrame
         toolkit = isInsideHostingView || SwiftUIIdentity.isHostingView(view) ? .swiftUI : .uiKit
 
         let isChrome = Self.isFrameworkChrome(view)

@@ -210,6 +210,62 @@ final class UIViewTargetResolverTests: XCTestCase {
         XCTAssertTrue(resolved.view === button)
     }
 
+    func testOrdinalIsReportedForEachOfTwoSameTypeControls() throws {
+        let top = UIButton(type: .system)
+        top.frame = CGRect(x: 10, y: 100, width: 200, height: 44)
+        top.setTitle("Pay now", for: .normal)
+        top.accessibilityIdentifier = "payButton"
+
+        let bottom = UIButton(type: .system)
+        bottom.frame = CGRect(x: 10, y: 200, width: 200, height: 44)
+        bottom.setTitle("Pay later", for: .normal)
+        bottom.accessibilityIdentifier = "payLaterButton"
+
+        window.addSubview(top)
+        window.addSubview(bottom)
+        window.layoutIfNeeded()
+
+        let first = try XCTUnwrap(resolver.resolve(root: window, at: CGPoint(x: 100, y: 120)))
+        XCTAssertEqual(first.node.accessibilityIdentifier, "payButton")
+        let firstPosition = TargetSelection.ordinal(of: first.node, in: first.root)
+        XCTAssertEqual(firstPosition.count, 2)
+        XCTAssertEqual(firstPosition.ordinal, 1, "the topmost of two buttons is the first")
+
+        let second = try XCTUnwrap(resolver.resolve(root: window, at: CGPoint(x: 100, y: 220)))
+        XCTAssertEqual(second.node.accessibilityIdentifier, "payLaterButton")
+        let secondPosition = TargetSelection.ordinal(of: second.node, in: second.root)
+        XCTAssertEqual(secondPosition.count, 2)
+        XCTAssertEqual(secondPosition.ordinal, 2)
+    }
+
+    /// A tree's nodes are built lazily and therefore at different moments, so every position it
+    /// reports has to be read live. With frames captured at construction, a layout change between
+    /// selecting an element and recording its ordinal made two same-type siblings both report
+    /// "2 of 2".
+    func testOrdinalUsesCurrentPositionsRatherThanOnesCapturedEarlier() throws {
+        let top = UIButton(type: .system)
+        top.frame = CGRect(x: 10, y: 100, width: 200, height: 44)
+        top.accessibilityIdentifier = "topButton"
+
+        let bottom = UIButton(type: .system)
+        bottom.frame = CGRect(x: 10, y: 200, width: 200, height: 44)
+        bottom.accessibilityIdentifier = "bottomButton"
+
+        window.addSubview(top)
+        window.addSubview(bottom)
+
+        let resolved = try XCTUnwrap(resolver.resolve(root: window, at: CGPoint(x: 100, y: 120)))
+        XCTAssertEqual(resolved.node.accessibilityIdentifier, "topButton")
+        XCTAssertEqual(TargetSelection.ordinal(of: resolved.node, in: resolved.root).ordinal, 1)
+
+        // The app relays out: what was the lower button is now the upper one.
+        bottom.frame = CGRect(x: 10, y: 10, width: 200, height: 44)
+
+        let position = TargetSelection.ordinal(of: resolved.node, in: resolved.root)
+        XCTAssertEqual(position.count, 2)
+        XCTAssertEqual(position.ordinal, 2, "the selection is now the lower of the two")
+    }
+
     /// Sentinel's own overlay chrome covers the whole screen and has no children, so leaving it
     /// in the tree would make it the deepest hit for every tap.
     func testSentinelOwnOverlayIsExcludedFromTheTree() {
