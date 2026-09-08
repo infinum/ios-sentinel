@@ -68,11 +68,17 @@ Pod::Spec.new do |s|
     sp.dependency 'Sentinel/Core'
   end
   
+  s.subspec 'Annotations' do |sp|
+    sp.source_files = 'Sentinel/Classes/Annotations/**/*'
+    sp.dependency 'Sentinel/Core'
+  end
+
   s.subspec 'Default' do |sp|
     sp.dependency 'Sentinel/Core'
     sp.dependency 'Sentinel/UserDefaults'
     sp.dependency 'Sentinel/TextEditing'
     sp.dependency 'Sentinel/CrashDetection'
+    sp.dependency 'Sentinel/Annotations'
   end
   
 end
