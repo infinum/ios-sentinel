@@ -38,13 +38,13 @@ final class AnnotationStore: ObservableObject {
         static let idLength = 8
     }
 
-    /// Live handles to the annotated views, keyed by annotation id.
+    /// Live handles to the annotated elements, keyed by annotation id.
     ///
     /// Weak, and held outside ``SentinelAnnotation`` on purpose: this cache lives as long as the
     /// process, and a `UIView` reaches its view controller through the responder chain. A strong
     /// handle would keep a dismissed screen alive for as long as its note existed, and report as
     /// a leak in the consumer's own app.
-    private var targets: [String: WeakViewBox] = [:]
+    private var targets: [String: WeakHandleBox] = [:]
 
     // MARK: - Lifecycle
 
@@ -54,7 +54,7 @@ final class AnnotationStore: ObservableObject {
 
     /// Stores `annotation`, assigning an id when it has none. Returns the stored copy.
     @discardableResult
-    func add(_ annotation: SentinelAnnotation, target: UIView?) -> SentinelAnnotation {
+    func add(_ annotation: SentinelAnnotation, target: AnnotationTargetHandle?) -> SentinelAnnotation {
         var stored = annotation
         if stored.id.isEmpty {
             stored.id = generateID()
@@ -96,23 +96,23 @@ final class AnnotationStore: ObservableObject {
         }
     }
 
-    /// Re-points a note at a freshly created view after navigating back to its screen.
-    func bind(id: String, to view: UIView?) {
-        guard let view = view else {
+    /// Re-points a note at a freshly created element after navigating back to its screen.
+    func bind(id: String, to handle: AnnotationTargetHandle?) {
+        guard let handle = handle else {
             targets[id] = nil
             return
         }
-        targets[id] = WeakViewBox(view: view)
+        targets[id] = WeakHandleBox(handle: handle)
     }
 
-    /// The live view a note points at, or `nil` once it has been released.
-    func target(for id: String) -> UIView? {
+    /// The live element a note points at, or `nil` once it has been released.
+    func target(for id: String) -> AnnotationTargetHandle? {
         guard let box = targets[id] else { return nil }
-        guard let view = box.view else {
+        guard let handle = box.handle else {
             targets[id] = nil
             return nil
         }
-        return view
+        return handle
     }
 
     // MARK: - Private methods
@@ -131,12 +131,12 @@ final class AnnotationStore: ObservableObject {
 
 // MARK: - Weak box
 
-private final class WeakViewBox {
+private final class WeakHandleBox {
 
-    weak var view: UIView?
+    weak var handle: AnnotationTargetHandle?
 
-    init(view: UIView) {
-        self.view = view
+    init(handle: AnnotationTargetHandle) {
+        self.handle = handle
     }
 }
 

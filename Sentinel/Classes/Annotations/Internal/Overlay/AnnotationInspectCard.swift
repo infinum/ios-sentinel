@@ -57,8 +57,12 @@ final class AnnotationInspectCard: UIView, SentinelOverlayView {
     func show(for node: TargetNode, anchor: CGRect, in viewport: CGRect) {
         typeLabel.text = node.type
         // UIKit views identify by accessibility identifier, SwiftUI ones by their hosting type.
-        // Show whichever resolved, then the element's text as a last resort.
-        detailLabel.text = node.accessibilityIdentifier ?? node.swiftUIType ?? node.text
+        // Show whichever resolved, then the element's text. SwiftUI-drawn content has none of
+        // those, so it falls back to the size, which at least confirms what was selected.
+        detailLabel.text = node.accessibilityIdentifier
+            ?? node.swiftUIType
+            ?? node.text
+            ?? Self.sizeDescription(of: node.screenFrame)
         detailLabel.isHidden = detailLabel.text?.isEmpty != false
         isHidden = false
 
@@ -131,6 +135,11 @@ final class AnnotationInspectCard: UIView, SentinelOverlayView {
 
     @objc private func handleAddNote() {
         onAddNote?()
+    }
+
+    private static func sizeDescription(of frame: CGRect) -> String? {
+        guard !frame.isEmpty else { return nil }
+        return "\(Int(frame.width.rounded())) × \(Int(frame.height.rounded())) pt"
     }
 }
 

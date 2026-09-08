@@ -67,6 +67,13 @@ public struct SentinelAnnotation: Identifiable, Equatable, Encodable, Sendable {
     /// Class name of the deepest view controller whose view contains the target.
     public let viewController: String?
 
+    /// The element's rectangle on screen, in points, when it was captured.
+    ///
+    /// Part of the payload because it is the only geometric signal a note carries, and for
+    /// SwiftUI-drawn content — which has no identifier and no text — it is most of what
+    /// distinguishes one element from another beyond ``ordinal``.
+    public let bounds: ElementBounds
+
     // MARK: - Internal bookkeeping, not exported
 
     /// Screen coordinates of the target's centre when captured. Anchors re-binding after the
@@ -92,6 +99,7 @@ public struct SentinelAnnotation: Identifiable, Equatable, Encodable, Sendable {
         text: String? = nil,
         screen: String? = nil,
         viewController: String? = nil,
+        bounds: ElementBounds = ElementBounds(),
         rebindPoint: CGPoint = .zero,
         isSent: Bool = false
     ) {
@@ -108,6 +116,7 @@ public struct SentinelAnnotation: Identifiable, Equatable, Encodable, Sendable {
         self.text = text
         self.screen = screen
         self.viewController = viewController
+        self.bounds = bounds
         self.rebindPoint = rebindPoint
         self.isSent = isSent
     }
@@ -131,6 +140,7 @@ public extension SentinelAnnotation {
         case text
         case screen
         case viewController
+        case bounds
     }
 
     /// Writes every key, `null` included.
@@ -153,6 +163,7 @@ public extension SentinelAnnotation {
         try container.encode(text, forKey: .text)
         try container.encode(screen, forKey: .screen)
         try container.encode(viewController, forKey: .viewController)
+        try container.encode(bounds, forKey: .bounds)
     }
 
     /// The default export payload for a batch: a JSON array of annotation objects.
@@ -169,6 +180,33 @@ public extension SentinelAnnotation {
     /// The default export payload for a single annotation.
     func exportJSON() throws -> String {
         try Self.exportJSON(for: [self])
+    }
+}
+
+// MARK: - Bounds
+
+/// An element's rectangle on screen, in points.
+public struct ElementBounds: Encodable, Equatable, Sendable {
+
+    public let x: Double
+    public let y: Double
+    public let width: Double
+    public let height: Double
+
+    public init(x: Double = 0, y: Double = 0, width: Double = 0, height: Double = 0) {
+        self.x = x
+        self.y = y
+        self.width = width
+        self.height = height
+    }
+
+    init(_ rect: CGRect) {
+        self.init(
+            x: rect.origin.x.rounded(),
+            y: rect.origin.y.rounded(),
+            width: rect.size.width.rounded(),
+            height: rect.size.height.rounded()
+        )
     }
 }
 

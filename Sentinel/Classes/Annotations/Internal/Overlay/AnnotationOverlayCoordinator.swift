@@ -49,9 +49,9 @@ final class AnnotationOverlayCoordinator {
     /// The element the current selection chain started from — the hit of the tap that began it —
     /// kept so repeated taps on the same spot keep broadening instead of resetting.
     ///
-    /// Held as the live view rather than a ``TargetNode``: each tap rebuilds the node tree, so
-    /// node identity is not stable across taps, while the view underneath it is.
-    private weak var selectionAnchor: UIView?
+    /// Held as the live handle rather than a ``TargetNode``: each tap rebuilds the node tree, so
+    /// node identity is not stable across taps, while the element underneath it is.
+    private weak var selectionAnchor: AnnotationTargetHandle?
 
     /// Ids of the notes whose rebind already failed on the current screen.
     ///
@@ -204,19 +204,19 @@ final class AnnotationOverlayCoordinator {
     /// Frame of `annotation`'s live element, without walking the hierarchy when it can be
     /// avoided.
     ///
-    /// A live, on-screen view is read directly — that is what keeps the per-frame refresh cheap.
-    /// Only when the handle is stale (released, detached or hidden) does this fall back to a
+    /// A live, on-screen handle is read directly — that is what keeps the per-frame refresh
+    /// cheap. Only when it is stale (released, detached or hidden) does this fall back to a
     /// rebind, which does walk the hierarchy; that cost is paid only for the notes needing it.
     private func screenFrame(for annotation: SentinelAnnotation, host: UIWindow) -> CGRect? {
-        if let live = store.target(for: annotation.id), live.isSentinelVisible {
-            return live.sentinelScreenFrame
+        if let frame = store.target(for: annotation.id)?.sentinelLiveScreenFrame {
+            return frame
         }
         guard !failedRebinds.contains(annotation.id) else { return nil }
         guard let rebound = resolver.rebind(annotation, root: host) else {
             failedRebinds.insert(annotation.id)
             return nil
         }
-        store.bind(id: annotation.id, to: rebound.view)
+        store.bind(id: annotation.id, to: rebound.handle)
         return rebound.node.screenFrame
     }
 
@@ -238,10 +238,10 @@ final class AnnotationOverlayCoordinator {
         // node, so after one step up the two never match again and every further tap would
         // reset instead of continuing up the tree.
         let next: ResolvedTarget
-        if let current = selected, fresh.view === selectionAnchor {
+        if let current = selected, fresh.handle === selectionAnchor {
             next = stepUp(from: current) ?? fresh
         } else {
-            selectionAnchor = fresh.view
+            selectionAnchor = fresh.handle
             next = fresh
         }
 
@@ -253,12 +253,13 @@ final class AnnotationOverlayCoordinator {
     /// `current` broadened one annotatable step toward the root, or `nil` when it is already the
     /// outermost one — the caller then wraps back to the deepest target under the tap.
     ///
-    /// The stepped-to node brings its own live view: reusing `current`'s would leave a note, once
-    /// saved, pointing at — and its marker drawn around — the narrower element first tapped
+    /// The stepped-to node brings its own live handle: reusing `current`'s would leave a note,
+    /// once saved, pointing at — and its marker drawn around — the narrower element first tapped
     /// rather than the one the user actually broadened to.
     private func stepUp(from current: ResolvedTarget) -> ResolvedTarget? {
-        guard let stepped = TargetSelection.stepUp(from: current.node) as? UIViewTargetNode else { return nil }
-        return ResolvedTarget(root: current.root, node: stepped, view: stepped.view)
+        guard let stepped = TargetSelection.stepUp(from: current.node),
+              let handle = TargetNodeBuilder.handle(of: stepped) else { return nil }
+        return ResolvedTarget(root: current.root, node: stepped, handle: handle)
     }
 
     private func showInspectCard(for target: ResolvedTarget) {
@@ -326,9 +327,10 @@ final class AnnotationOverlayCoordinator {
                 text: target.node.text,
                 screen: ScreenIdentity.screenName(in: host),
                 viewController: ScreenIdentity.viewControllerName(in: host, containing: center),
+                bounds: ElementBounds(frame),
                 rebindPoint: center
             ),
-            target: target.view
+            target: target.handle
         )
         clearSelection()
     }

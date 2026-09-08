@@ -34,16 +34,94 @@ final class SwiftUIResolutionTests: XCTestCase {
         super.tearDown()
     }
 
-    func testATapOnSwiftUIDrawnContentResolvesToTheHostingViewAndNamesTheAppsViewType() throws {
+    /// SwiftUI creates no backing view for a `Text`, but it does draw it into a layer of its own,
+    /// and that layer is what the user actually pointed at.
+    func testATapOnSwiftUIDrawnTextResolvesToItsOwnDrawingLayer() throws {
         let controller = UIHostingController(rootView: TextOnlyScreen())
         show(controller)
 
-        let resolved = try XCTUnwrap(resolver.resolve(root: window, at: CGPoint(x: 160, y: 240)))
+        let drawn = try XCTUnwrap(drawingLayers(under: controller.view).first, "SwiftUI drew nothing")
+        let frame = drawn.sentinelScreenFrame
+        XCTAssertFalse(frame.isEmpty)
+
+        let resolved = try XCTUnwrap(
+            resolver.resolve(root: window, at: CGPoint(x: frame.midX, y: frame.midY))
+        )
 
         XCTAssertEqual(resolved.toolkit, .swiftUI)
-        XCTAssertEqual(resolved.node.type, "_UIHostingView")
-        // The locator that actually matters: the app's own view type, so an agent knows the file.
+        XCTAssertTrue(resolved.handle === drawn, "the tapped drawing layer is the target")
+        XCTAssertNotEqual(resolved.node.type, "_UIHostingView", "the host is no longer the target")
+        // Bounds are the element's own, not the whole screen's.
+        XCTAssertEqual(resolved.node.screenFrame, frame)
+        XCTAssertLessThan(resolved.node.screenFrame.height, window.bounds.height / 2)
+        // The one name a drawn layer can carry: the app's own view type, so an agent knows which
+        // file to open.
         XCTAssertEqual(resolved.node.swiftUIType, "TextOnlyScreen")
+    }
+
+    /// A drawn layer carries no name of its own, and claiming otherwise would send an agent
+    /// looking for something that is not in the source.
+    func testADrawingLayerReportsNoIdentifierOrText() throws {
+        let controller = UIHostingController(rootView: TextOnlyScreen())
+        show(controller)
+
+        let drawn = try XCTUnwrap(drawingLayers(under: controller.view).first)
+        let frame = drawn.sentinelScreenFrame
+        let resolved = try XCTUnwrap(
+            resolver.resolve(root: window, at: CGPoint(x: frame.midX, y: frame.midY))
+        )
+
+        XCTAssertNil(resolved.node.accessibilityIdentifier)
+        XCTAssertNil(resolved.node.accessibilityLabel)
+        XCTAssertNil(resolved.node.text, "a rasterised layer no longer holds its string")
+    }
+
+    /// Broadening from a drawn element still reaches the screen it belongs to.
+    func testBroadeningFromADrawingLayerReachesTheHostingView() throws {
+        let controller = UIHostingController(rootView: TextOnlyScreen())
+        show(controller)
+
+        let drawn = try XCTUnwrap(drawingLayers(under: controller.view).first)
+        let frame = drawn.sentinelScreenFrame
+        let resolved = try XCTUnwrap(
+            resolver.resolve(root: window, at: CGPoint(x: frame.midX, y: frame.midY))
+        )
+
+        let broadened = try XCTUnwrap(TargetSelection.stepUp(from: resolved.node))
+        XCTAssertEqual(broadened.type, "_UIHostingView")
+    }
+
+    /// A tap that lands on nothing drawn falls back to the host, so a selection is always made.
+    func testATapOnEmptySpaceStillResolvesToTheHostingView() throws {
+        let controller = UIHostingController(rootView: TextOnlyScreen())
+        show(controller)
+
+        let resolved = try XCTUnwrap(resolver.resolve(root: window, at: CGPoint(x: 8, y: 8)))
+
+        XCTAssertEqual(resolved.node.type, "_UIHostingView")
+        XCTAssertEqual(resolved.node.swiftUIType, "TextOnlyScreen")
+    }
+
+    /// Several drawn elements of the same kind are ordered top to bottom, so a note can say
+    /// which one it means.
+    func testDrawingLayersAreOrdinalledTopToBottom() throws {
+        let controller = UIHostingController(rootView: ThreeTextScreen())
+        show(controller)
+
+        let drawn = drawingLayers(under: controller.view)
+            .sorted { $0.sentinelScreenFrame.minY < $1.sentinelScreenFrame.minY }
+        XCTAssertEqual(drawn.count, 3)
+
+        for (index, layer) in drawn.enumerated() {
+            let frame = layer.sentinelScreenFrame
+            let resolved = try XCTUnwrap(
+                resolver.resolve(root: window, at: CGPoint(x: frame.midX, y: frame.midY)),
+                "nothing resolved for drawn element \(index)"
+            )
+            let position = TargetSelection.ordinal(of: resolved.node, in: resolved.root)
+            XCTAssertEqual(position.count, 3)
+            XCTAssertEqual(position.ordinal, index + 1)
+        }
     }
 
     /// SwiftUI bridges some controls to real UIKit ones. Those resolve properly, and are still
@@ -74,7 +152,7 @@ final class SwiftUIResolutionTests: XCTestCase {
         let center = CGPoint(x: switchView.sentinelScreenFrame.midX, y: switchView.sentinelScreenFrame.midY)
         let resolved = try XCTUnwrap(resolver.resolve(root: window, at: center))
 
-        XCTAssertTrue(resolved.view === switchView)
+        XCTAssertTrue(resolved.handle === switchView)
         XCTAssertTrue(resolved.node.children.isEmpty)
     }
 
@@ -105,7 +183,7 @@ final class SwiftUIResolutionTests: XCTestCase {
                 resolver.resolve(root: window, at: CGPoint(x: frame.midX, y: frame.midY)),
                 "nothing resolved for button \(index)"
             )
-            XCTAssertTrue(resolved.view === button)
+            XCTAssertTrue(resolved.handle === button)
             let position = TargetSelection.ordinal(of: resolved.node, in: resolved.root)
             XCTAssertEqual(position.count, 2, "button \(index) counted the wrong number of siblings")
             XCTAssertEqual(position.ordinal, index + 1, "button \(index) reported the wrong ordinal")
@@ -114,6 +192,11 @@ final class SwiftUIResolutionTests: XCTestCase {
 
     // MARK: - Helpers
 
+    /// The layers SwiftUI draws into: everything under the hosting view that no `UIView` backs.
+    private func drawingLayers(under view: UIView) -> [CALayer] {
+        (view.layer.sublayers ?? []).filter { $0.delegate as? UIView == nil }
+    }
+
     private func allButtons(in view: UIView) -> [UIButton] {
         var found: [UIButton] = []
         if let button = view as? UIButton { found.append(button) }
@@ -121,11 +204,14 @@ final class SwiftUIResolutionTests: XCTestCase {
         return found
     }
 
+    /// SwiftUI creates the layers it draws into during a render pass, which `layoutIfNeeded`
+    /// alone does not trigger — the run loop has to turn over first.
     private func show(_ controller: UIViewController) {
         window.rootViewController = controller
-        window.isHidden = false
+        window.makeKeyAndVisible()
         window.layoutIfNeeded()
         controller.view.layoutIfNeeded()
+        RunLoop.current.run(until: Date().addingTimeInterval(0.4))
     }
 
     private func firstSwitch(in view: UIView) -> UISwitch? {
@@ -144,6 +230,17 @@ private struct TextOnlyScreen: View {
     var body: some View {
         Text("Total")
             .accessibilityIdentifier("totalText")
+    }
+}
+
+private struct ThreeTextScreen: View {
+
+    var body: some View {
+        VStack(spacing: 20) {
+            Text("First")
+            Text("Second")
+            Text("Third")
+        }
     }
 }
 

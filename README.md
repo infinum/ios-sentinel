@@ -406,8 +406,8 @@ Sentinel.shared.setup(
   unexported note, so export before you do.
 
 Each note records the element's class, its `accessibilityIdentifier`, its accessibility label,
-its position among same-type siblings, the view controllers it belongs to and — for SwiftUI —
-the app's own view type hosting it. The `text` field captures the element's live visible text, so
+its exact bounds, its position among same-type siblings, the view controllers it belongs to
+and — for SwiftUI — the app's own view type hosting it. The `text` field captures the element's live visible text, so
 a note on a filled-in field carries what that field currently shows; a secure text field is the
 exception and contributes only its placeholder.
 
@@ -430,26 +430,37 @@ whatever reads the export.
 
 #### SwiftUI support
 
-**Limitation: per-view resolution does not work for SwiftUI-drawn content.** Verified on device
-against the iOS 26 SDK: SwiftUI draws `Text`, `Button`, `Image` and the rest itself and creates
-**no backing `UIView`** for them, so there is nothing under the tap to resolve to. The
-accessibility element tree that would otherwise carry `.accessibilityIdentifier(...)` is only
-built while an assistive technology is running, so it cannot be relied on either — and
-`.accessibilityIdentifier(...)` does not reach the backing view. This is the iOS counterpart of
-the Compose limitation the Android library documents, and it is a platform constraint rather
-than a Sentinel defect.
+SwiftUI needs no changes to a screen's code either, but what a note can say about a SwiftUI
+element is narrower, and it is worth knowing why.
 
-What you get instead:
+SwiftUI draws `Text`, `Button`, `Image` and the rest itself and creates **no backing `UIView`**
+for them. It does give each one a `CALayer`, though, and Sentinel resolves those: a tap selects
+the element you actually pointed at, with its exact bounds, rather than the whole screen. Only
+public `CALayer` API is used for this — `sublayers`, `frame`, `contents` — so there is nothing
+here that a SwiftUI release can quietly break.
 
-- A tap on SwiftUI-drawn content resolves to the hosting view, reported as `_UIHostingView`.
-- `swiftUIType` names **your** view type (`CheckoutScreen`), recovered from the generic
-  parameter of the enclosing `UIHostingController` / `_UIHostingView`. This is the locator that
-  matters: it tells an agent which file to open, and `note`, `text` and `ordinal` narrow it down
-  from there. It resolves to `nil` only when the hierarchy exposes nothing but framework types,
-  as `UIHostingController<AnyView>` does — so prefer a concrete root view over `AnyView`.
-- Controls SwiftUI bridges to real UIKit views do resolve exactly. A `Toggle` is a `UISwitch`,
-  and a note on it records `targetType: "UISwitch"` while still being tagged
-  `toolkit: "swiftui"`, because that is the code the fix belongs in.
+A note on SwiftUI-drawn content carries:
+
+- `targetType`: the layer's class, which reads as a kind rather than a name — `CGDrawingLayer`
+  for drawn text and shapes, `ImageLayer` for an image.
+- `bounds`: the element's exact position and size in points.
+- `ordinal`: its position among same-kind elements on the screen, top to bottom.
+- `swiftUIType`: **your** view type (`CheckoutScreen`), recovered from the generic parameter of
+  the enclosing `UIHostingController` / `_UIHostingView`, which tells an agent which file to
+  open. It is `nil` when the hierarchy exposes nothing of your own — a `WindowGroup` root is
+  erased to `AnyView` — so a screen hosted in a `UIHostingController<CheckoutScreen>` gives a
+  much better note than one reached through `AnyView`.
+
+It cannot carry `accessibilityIdentifier`, `accessibilityLabel` or `text`. A drawn layer's
+contents are already rasterised, and the accessibility element tree that would otherwise hold
+`.accessibilityIdentifier(...)` is only built while an assistive technology is running. So a
+SwiftUI note identifies its element by kind, position and ordinal, and relies on the note text
+for the rest — the same trade-off the Android library documents for Compose.
+
+Controls SwiftUI bridges to real UIKit views resolve exactly. A `Toggle` is a `UISwitch`, and a
+note on it records `targetType: "UISwitch"` and its identifier, while still being tagged
+`toolkit: "swiftui"`, because that is the code the fix belongs in. The same goes for anything
+you wrap in a `UIViewRepresentable`, whose own type name is reported as `swiftUIType`.
 
 #### Sending to Claude
 

@@ -30,7 +30,15 @@ extension UIView {
 
     /// Whether the view is currently on screen and drawing something.
     var isSentinelVisible: Bool {
-        window != nil && !isHidden && alpha > 0.01 && !bounds.isEmpty
+        window != nil && isSentinelDisplayable
+    }
+
+    /// Whether the view draws at all, ignoring whether it is in a window.
+    ///
+    /// Used while building a tree, where every node is being read from a live hierarchy anyway,
+    /// so what matters is only whether the user can see this particular element.
+    var isSentinelDisplayable: Bool {
+        !isHidden && alpha > 0.01 && !bounds.isEmpty
     }
 }
 

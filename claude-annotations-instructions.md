@@ -21,6 +21,7 @@ If the array is empty, say so. Stop.
 | `accessibilityLabel` | The element's accessibility label. Often the only signal a SwiftUI leaf carries. |
 | `swiftUIType` | The app's own SwiftUI view type hosting the element, e.g. `CheckoutScreen`. **Check this first for a SwiftUI target** — it is usually the only locator one has. `null` for UIKit. |
 | `ordinal` / `ordinalCount` | Position "N of M" among same-type elements on the screen, top to bottom then left to right. Use this when there is no identifier. |
+| `bounds` | The element's rectangle on screen in points (`x`, `y`, `width`, `height`). The main way to tell one SwiftUI-drawn element from another, together with `ordinal`. |
 | `text` | Visible text, used to disambiguate identical siblings. Never the contents of a secure text field. |
 | `screen` | Class name of the topmost presented view controller. The main grouping key. |
 | `viewController` | Class name of the deepest view controller containing the target. The secondary grouping key. `null` when it is the same as `screen`. |
@@ -31,27 +32,35 @@ not in the payload.
 ### A note on SwiftUI targets
 
 SwiftUI draws its own content and creates no backing view for `Text`, `Button`,
-`Image` and the rest, so a tap on SwiftUI-drawn content resolves to the view
-*hosting* the whole hierarchy. When `toolkit` is `"swiftui"`, expect
-`targetType` to be `_UIHostingView` and `accessibilityIdentifier` to be `null`.
-There is no in-process equivalent of a `file:line` for a SwiftUI view.
+`Image` and the rest. Sentinel resolves the layer each is drawn into, so the
+element itself is identified — but by kind, not by name. When `toolkit` is
+`"swiftui"` and `targetType` is a layer class, expect:
 
-Locate the element like this:
+- `targetType`: `CGDrawingLayer` (drawn text or a shape) or `ImageLayer`.
+- `accessibilityIdentifier`, `accessibilityLabel` and `text`: all `null`. A
+  drawn layer is rasterised, so the string is genuinely not there. Do not go
+  looking for an identifier that does not exist in the source.
+- `bounds` and `ordinal`: how to tell one element from another.
 
-1. Use `swiftUIType`. It names the app's own view type hosting the element
-   (recovered from the enclosing `UIHostingController` / `_UIHostingView`
-   generic parameter), e.g. `CheckoutScreen`. Open that type and pick the right
-   view by reading the code, narrowed with `note`, `text`, `accessibilityLabel`
-   and the `ordinal` position.
-2. If `swiftUIType` is `null` — the app hosts an `AnyView` — fall back to
-   `screen` and `viewController` to find the right file.
-3. If `accessibilityIdentifier` *is* set on a SwiftUI target, the element was a
+There is no in-process equivalent of a `file:line` for a SwiftUI view. Locate
+the element like this:
+
+1. Use `swiftUIType`. It names the app's own view type hosting the element,
+   e.g. `CheckoutScreen`. Open that type.
+2. Within that file, pick the element using `note` first — it usually says what
+   it is ("this text is too small") — then `ordinal` ("the 2nd drawn text from
+   the top") and `bounds` (a 127x20 element is a line of text; a 44pt-tall one
+   is likely a control).
+3. If `swiftUIType` is `null` — the app's root is a `WindowGroup`, whose content
+   SwiftUI erases to `AnyView` — fall back to `screen` and `viewController` to
+   find the file.
+4. If `accessibilityIdentifier` *is* set on a SwiftUI target, the element is a
    control SwiftUI bridges to a real UIKit view. Search for it as usual.
 
 A `targetType` of `UISwitch`, `UITextField` or similar with
-`toolkit: "swiftui"` is exactly that bridged case: the annotation points at a
-real UIKit control, but the code to change is the SwiftUI view named by
-`swiftUIType` (a `Toggle`, for instance).
+`toolkit: "swiftui"` is that bridged case: the annotation points at a real UIKit
+control, but the code to change is the SwiftUI view named by `swiftUIType` (a
+`Toggle`, for instance).
 
 For `toolkit: "uikit"`, `targetType` is a real class name and
 `accessibilityIdentifier` is greppable in both Swift and storyboard/XIB XML,
@@ -115,10 +124,10 @@ Steps:
    for the accessibilityIdentifier first — `accessibilityIdentifier = "x"` in
    Swift and identifier="x" in .storyboard/.xib XML — then fall back to
    targetType plus screen and viewController. For a SwiftUI target,
-   accessibilityIdentifier is normally absent and targetType is
-   _UIHostingView: open the view type named by swiftUIType and pick the right
-   view by reading the code, narrowed with note, text, accessibilityLabel or
-   the ordinal position. Do not guess past what the fields support.
+   accessibilityIdentifier and text are absent and targetType names a layer
+   class (CGDrawingLayer, ImageLayer): open the view type named by swiftUIType
+   and pick the right view by reading the code, narrowed with note, the ordinal
+   position and bounds. Do not guess past what the fields support.
 2. Apply the change the note asks for. Keep the edit small. Match the
    surrounding code style.
 3. Build what you changed and make sure it still compiles, e.g.

@@ -90,6 +90,26 @@ final class SentinelAnnotationTests: XCTestCase {
         XCTAssertNil(json["isSent"])
     }
 
+    /// Geometry is the only distinguishing signal a SwiftUI-drawn element has beyond its
+    /// ordinal, so it has to reach the payload.
+    func testExportJSONCarriesTheElementBounds() throws {
+        let annotation = SentinelAnnotation(
+            note: "too small",
+            toolkit: .swiftUI,
+            targetType: "CGDrawingLayer",
+            targetPath: "_UIHostingView>CGDrawingLayer",
+            bounds: ElementBounds(x: 96, y: 251, width: 127, height: 20)
+        )
+
+        let json = try object(from: annotation.exportJSON())
+        let bounds = try XCTUnwrap(json["bounds"] as? [String: Any])
+
+        XCTAssertEqual(bounds["x"] as? Double, 96)
+        XCTAssertEqual(bounds["y"] as? Double, 251)
+        XCTAssertEqual(bounds["width"] as? Double, 127)
+        XCTAssertEqual(bounds["height"] as? Double, 20)
+    }
+
     func testBatchExportProducesAnArray() throws {
         let annotations = [
             SentinelAnnotation(id: "one", note: "a", toolkit: .uiKit, targetType: "UIView", targetPath: "UIView"),

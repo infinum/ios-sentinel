@@ -40,7 +40,7 @@ final class UIViewTargetResolverTests: XCTestCase {
         XCTAssertEqual(resolved?.node.accessibilityIdentifier, "totalLabel")
         XCTAssertEqual(resolved?.node.text, "Total")
         XCTAssertEqual(resolved?.toolkit, .uiKit)
-        XCTAssertTrue(resolved?.view === label)
+        XCTAssertTrue(resolved?.handle === label)
     }
 
     /// An anonymous wrapper must not outrank the content inside it, and it must still be
@@ -116,7 +116,7 @@ final class UIViewTargetResolverTests: XCTestCase {
             rebindPoint: CGPoint(x: 50, y: 20)
         )
 
-        XCTAssertTrue(resolver.rebind(annotation, root: window)?.view === label)
+        XCTAssertTrue(resolver.rebind(annotation, root: window)?.handle === label)
     }
 
     func testRebindRejectsADifferentIdentifierAtTheSamePoint() {
@@ -171,7 +171,7 @@ final class UIViewTargetResolverTests: XCTestCase {
         XCTAssertNil(resolver.rebind(annotation, root: window))
 
         label.text = "Total"
-        XCTAssertTrue(resolver.rebind(annotation, root: window)?.view === label)
+        XCTAssertTrue(resolver.rebind(annotation, root: window)?.handle === label)
     }
 
     /// A field that resolved on neither side must never orphan a note.
@@ -189,7 +189,7 @@ final class UIViewTargetResolverTests: XCTestCase {
             rebindPoint: CGPoint(x: 50, y: 50)
         )
 
-        XCTAssertTrue(resolver.rebind(annotation, root: window)?.view === view)
+        XCTAssertTrue(resolver.rebind(annotation, root: window)?.handle === view)
     }
 
     /// A button's `titleLabel` is a subview, and selecting it instead of the button is never
@@ -207,7 +207,7 @@ final class UIViewTargetResolverTests: XCTestCase {
         XCTAssertEqual(resolved.node.type, "UIButton")
         XCTAssertEqual(resolved.node.accessibilityIdentifier, "submitButton")
         XCTAssertEqual(resolved.node.text, "Submit")
-        XCTAssertTrue(resolved.view === button)
+        XCTAssertTrue(resolved.handle === button)
     }
 
     func testOrdinalIsReportedForEachOfTwoSameTypeControls() throws {

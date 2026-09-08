@@ -11,8 +11,11 @@
 
 import UIKit
 
-/// A resolved selection: the toolkit-independent description, the live view used to recompute
+/// A resolved selection: the toolkit-independent description, the live handle used to recompute
 /// bounds while the note is on screen, and the tree root.
+///
+/// The handle is a `UIView` for a UIKit target and a `CALayer` for SwiftUI-drawn content, which
+/// has no backing view of its own.
 ///
 /// `root` is held on purpose. Nodes link to their parent weakly, so dropping the root would
 /// break the ancestor chain that ``TargetSelection/stepUp(from:)`` and
@@ -21,7 +24,7 @@ struct ResolvedTarget {
 
     let root: TargetNode
     let node: TargetNode
-    let view: UIView
+    let handle: AnnotationTargetHandle
 
     var toolkit: AnnotationToolkit { node.toolkit }
 }
@@ -43,8 +46,8 @@ final class UIViewTargetResolver: TargetResolver {
         let tree = UIViewTargetNode(view: root, parent: nil)
         guard let deepest = TargetSelection.deepest(in: tree, at: point) else { return nil }
         let selected = TargetSelection.nearestAnnotatable(from: deepest) ?? deepest
-        guard let node = selected as? UIViewTargetNode else { return nil }
-        return ResolvedTarget(root: tree, node: node, view: node.view)
+        guard let handle = TargetNodeBuilder.handle(of: selected) else { return nil }
+        return ResolvedTarget(root: tree, node: selected, handle: handle)
     }
 
     /// Re-points `annotation` at the element now drawn where it was captured.

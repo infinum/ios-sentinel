@@ -80,7 +80,6 @@ final class UIViewTargetNode: TargetNode {
         /// Live text is captured to disambiguate siblings, not to ship the user's content.
         static let maxTextLength = 200
 
-        static let minimumVisibleAlpha: CGFloat = 0.01
     }
 
     private weak var parentNode: TargetNode?
@@ -130,13 +129,20 @@ final class UIViewTargetNode: TargetNode {
         guard !(view is UIControl) else { return [] }
 
         let insideHosting = isInsideHostingView || SwiftUIIdentity.isHostingView(view)
+
+        // A hosting view has no subviews for the content SwiftUI draws itself, so its children
+        // come from the layer tree instead. That tree also carries the backing layers of any
+        // bridged UIKit views, so nothing is lost by not walking `subviews` here.
+        if SwiftUIIdentity.isHostingView(view) {
+            return TargetNodeBuilder.nodes(
+                forSublayersOf: view.layer,
+                parent: self,
+                isInsideHostingView: insideHosting
+            )
+        }
+
         return view.subviews
-            .filter { subview in
-                !subview.isHidden
-                    && subview.alpha >= Constants.minimumVisibleAlpha
-                    && !subview.bounds.isEmpty
-                    && !(subview is SentinelOverlayView)
-            }
+            .filter { $0.isSentinelDisplayable && !($0 is SentinelOverlayView) }
             .map { UIViewTargetNode(view: $0, parent: self, isInsideHostingView: insideHosting) }
     }
 
