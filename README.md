@@ -58,6 +58,7 @@ pod 'Sentinel'
 - `CustomLocation` which will add the `CustomLocationTool`
 - `TextEditing` which will add the `TextEditingTool`
 - `CrashDetection` which will add the `CrashDetectionTool`
+- `Annotations` which will add the `AnnotationsTool`
 - `Default` - which will install `UserDefaults`, and `TextEditing`
 
 #### Swift Package Manager
@@ -366,6 +367,136 @@ var colorChangeTool: Tool {
 #### EmailSenderTool
 
 *EmailSenderTool* is used to let the user send emails with attachments from the app with ease. The tool is available on iOS.
+
+#### AnnotationsTool
+
+*AnnotationsTool* attaches free-text notes to elements on the running app and exports them to the clipboard or to a Claude Code routine. The tool is available on iOS.
+
+### Annotations
+
+Attach free-text notes to elements on the running app, then export them so a coding agent can
+apply the changes.
+
+```swift
+Sentinel.shared.setup(
+    with: Sentinel.Configuration(
+        trigger: Triggers.shake,
+        tools: [AnnotationsTool()]
+    )
+)
+```
+
+- Navigate the host app to the screen you want to annotate **first**. Once capture is armed it
+  consumes every touch, so there is no way to navigate the app after arming it — see below.
+- Open **Tools** and tap **Annotations**, then **Enable annotations** (or **Start annotating**
+  once notes already exist). The whole Sentinel panel closes — not just the Annotations screen —
+  and the live app returns with capture armed. Tap any element to select it, then tap **Add
+  note** on the card that appears.
+- Tapping the already-selected element widens the selection to its parent, so a note can target
+  a whole card rather than the label inside it.
+- While capture is armed the overlay consumes every touch, so the host app cannot be navigated.
+  To annotate a different screen, stop capture with the draggable **✕** control, navigate to the
+  new screen, then re-arm from **Tools** > **Annotations**. A long press on the **✕** reopens the
+  Sentinel panel with capture still armed, instead of stopping it.
+- Saved notes stay on screen as a numbered badge and an outline. They follow the element as the
+  screen scrolls and are re-bound after navigating away and back. Tap a badge to edit or delete
+  that note.
+- The export button copies every unsent note as JSON, or sends it to a Claude Code routine.
+- Notes live in memory only, for the app process's lifetime. Killing the app discards every
+  unexported note, so export before you do.
+
+Each note records the element's class, its `accessibilityIdentifier`, its accessibility label,
+its position among same-type siblings, the view controllers it belongs to and — for SwiftUI —
+the app's own view type hosting it. The `text` field captures the element's live visible text, so
+a note on a filled-in field carries what that field currently shows; a secure text field is the
+exception and contributes only its placeholder.
+
+A `UIControl` is treated as a single element: tapping anywhere on a `UIButton`, `UISwitch` or
+`UITextField` selects the control itself rather than one of the private views UIKit builds it
+out of. A `UISwitch` is eight levels of `UISwitchModernVisualElement` and anonymous `UIView`s,
+none of which appears anywhere in your source.
+
+The capture overlay lives in a `UIWindow` of its own above the app's, so it is never part of the
+hierarchy target resolution walks, and touches that miss a marker badge fall straight through to
+the app.
+
+#### Set accessibility identifiers on UIKit views
+
+**For UIKit targets, the single most useful thing you can do for this tool is to set
+`accessibilityIdentifier` on the views you expect to annotate.** It is the one locator that is
+exactly greppable in your source — as `accessibilityIdentifier = "x"` in Swift and
+`identifier="x"` in a storyboard or XIB — which turns a note into an exact file and line for
+whatever reads the export.
+
+#### SwiftUI support
+
+**Limitation: per-view resolution does not work for SwiftUI-drawn content.** Verified on device
+against the iOS 26 SDK: SwiftUI draws `Text`, `Button`, `Image` and the rest itself and creates
+**no backing `UIView`** for them, so there is nothing under the tap to resolve to. The
+accessibility element tree that would otherwise carry `.accessibilityIdentifier(...)` is only
+built while an assistive technology is running, so it cannot be relied on either — and
+`.accessibilityIdentifier(...)` does not reach the backing view. This is the iOS counterpart of
+the Compose limitation the Android library documents, and it is a platform constraint rather
+than a Sentinel defect.
+
+What you get instead:
+
+- A tap on SwiftUI-drawn content resolves to the hosting view, reported as `_UIHostingView`.
+- `swiftUIType` names **your** view type (`CheckoutScreen`), recovered from the generic
+  parameter of the enclosing `UIHostingController` / `_UIHostingView`. This is the locator that
+  matters: it tells an agent which file to open, and `note`, `text` and `ordinal` narrow it down
+  from there. It resolves to `nil` only when the hierarchy exposes nothing but framework types,
+  as `UIHostingController<AnyView>` does — so prefer a concrete root view over `AnyView`.
+- Controls SwiftUI bridges to real UIKit views do resolve exactly. A `Toggle` is a `UISwitch`,
+  and a note on it records `targetType: "UISwitch"` while still being tagged
+  `toolkit: "swiftui"`, because that is the code the fix belongs in.
+
+#### Sending to Claude
+
+```swift
+Sentinel.shared.setup(
+    with: Sentinel.Configuration(
+        trigger: Triggers.shake,
+        tools: [
+            AnnotationsTool(
+                exporter: ClaudeRoutineExporter(
+                    token: { ProcessInfo.processInfo.environment["CLAUDE_CODE_TOKEN"] },
+                    fireUrl: "https://api.anthropic.com/v1/claude_code/routines/<trigger-id>/fire"
+                )
+            )
+        ]
+    )
+)
+```
+
+`token` is a closure so the credential can come from an xcconfig, the environment or a
+development-only source rather than a string literal. **Treat this token as a secret.** It is a
+long-lived Claude Code OAuth credential with your full permissions, and anyone holding the app
+binary can extract a value compiled into it. Never commit one. The export refuses with
+"No Claude token configured" rather than firing an unauthenticated request when the closure
+returns `nil`.
+
+`claude-annotations-instructions.md` in this repository is the routine prompt: it parses the
+exported batch, groups the notes by screen, applies each change and opens a pull request.
+
+#### Custom destinations
+
+Implement `AnnotationExporter` to send notes anywhere else. `SentinelAnnotation.exportJSON(for:)`
+produces the default payload; return a short status message, and throw to report a failure.
+
+```swift
+struct FileAnnotationExporter: AnnotationExporter {
+
+    let iconSystemName = "square.and.arrow.down"
+    let label = "Save to file"
+
+    func export(_ annotations: [SentinelAnnotation]) async throws -> String {
+        let json = try SentinelAnnotation.exportJSON(for: annotations)
+        try json.write(to: destination, atomically: true, encoding: .utf8)
+        return "Saved \(annotations.count) annotations"
+    }
+}
+```
 
 ## Contributing
 
