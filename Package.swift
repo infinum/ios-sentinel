@@ -35,6 +35,11 @@ let package = Package(
                 .process("Assets"),
                 .copy("SupportingFiles/PrivacyInfo.xcprivacy")
             ]
+        ),
+        .testTarget(
+            name: "SentinelTests",
+            dependencies: ["Sentinel"],
+            path: "Tests"
         )
     ]
 )
