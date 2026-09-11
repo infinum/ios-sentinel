@@ -72,7 +72,7 @@ struct AnnotationsToolView: View {
 private extension AnnotationsToolView {
 
     var emptyStateSection: some View {
-        Section {
+        Section(header: Text("")) {
             Button(action: viewModel.arm) {
                 Text("Enable annotations")
                     .font(.subtitle1Bold)
@@ -85,7 +85,7 @@ private extension AnnotationsToolView {
     }
 
     var actionsSection: some View {
-        Section {
+        Section(header: Text("")) {
             Button(action: viewModel.arm) {
                 Text("Start annotating")
                     .font(.subtitle1Bold)
