@@ -17,7 +17,7 @@ cd Example && pod install
 ```
 
 ```bash
-xcodebuild -workspace Example/Sentinel.xcworkspace -scheme Example-iOS -destination 'platform=iOS Simulator,name=iPhone 17 Pro' build
+xcodebuild -workspace Example/Sentinel.xcworkspace -scheme Example-iOS -destination 'generic/platform=iOS Simulator' build
 ```
 
 ```bash
