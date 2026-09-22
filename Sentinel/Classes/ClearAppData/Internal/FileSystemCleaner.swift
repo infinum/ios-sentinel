@@ -62,8 +62,8 @@ private extension FileSystemCleaner {
         return ClearAppDataFailure(
             step: step,
             item: item,
-            reason: error.localizedDescription,
-            kind: isSystemManaged ? .skipped : .failed
+            reason: isSystemManaged ? "skipped (system-managed)" : error.localizedDescription,
+            kind: isSystemManaged ? .warning : .failed
         )
     }
 }

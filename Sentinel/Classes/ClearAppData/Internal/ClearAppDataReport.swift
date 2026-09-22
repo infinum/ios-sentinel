@@ -41,14 +41,14 @@ enum ClearAppDataStep: CaseIterable {
 /// Describes a single item which could not be cleared.
 struct ClearAppDataFailure {
 
-    /// Distinguishes a genuine error from an item the system refuses to hand over.
+    /// Distinguishes a genuine error from something worth mentioning but not worth failing over.
     ///
     /// Directories such as `Caches/Snapshots` are managed by the OS and cannot be removed by the
-    /// app. Reporting those as failures would make a healthy run look broken, so they are listed
-    /// separately and do not affect ``ClearAppDataReport/isFullySuccessful``.
+    /// app. Reporting those as failures would make a healthy run look broken, so warnings are
+    /// listed alongside failures but do not affect ``ClearAppDataReport/isFullySuccessful``.
     enum Kind {
         case failed
-        case skipped
+        case warning
     }
 
     let step: ClearAppDataStep
@@ -84,7 +84,9 @@ struct ClearAppDataReport {
 
     @StringBuilder
     var message: String {
-        let listed = failures.prefix(Self.maxListedFailures)
+        // Real failures first, so they survive the truncation below.
+        let ordered = failures.sorted { $0.kind == .failed && $1.kind == .warning }
+        let listed = ordered.prefix(Self.maxListedFailures)
         for failure in listed {
             line(for: failure)
             String.newLine
@@ -110,11 +112,6 @@ private extension ClearAppDataReport {
 
     func line(for failure: ClearAppDataFailure) -> String {
         let subject = failure.item.map { "\(failure.step.title) — \($0)" } ?? failure.step.title
-        switch failure.kind {
-        case .failed:
-            return "• \(subject): \(failure.reason)"
-        case .skipped:
-            return "• \(subject): skipped (system-managed)"
-        }
+        return "• \(subject): \(failure.reason)"
     }
 }
