@@ -1,21 +1,21 @@
 PODS:
-  - Sentinel (2.3.0):
-    - Sentinel/Default (= 2.3.0)
-  - Sentinel/ClearAppData (2.3.0):
+  - Sentinel (2.4.0):
+    - Sentinel/Default (= 2.4.0)
+  - Sentinel/ClearAppData (2.4.0):
     - Sentinel/Core
-  - Sentinel/Core (2.3.0)
-  - Sentinel/CrashDetection (2.3.0):
+  - Sentinel/Core (2.4.0)
+  - Sentinel/CrashDetection (2.4.0):
     - Sentinel/Core
-  - Sentinel/Default (2.3.0):
+  - Sentinel/Default (2.4.0):
     - Sentinel/Core
     - Sentinel/CrashDetection
     - Sentinel/TextEditing
     - Sentinel/UserDefaults
-  - Sentinel/EmailSender (2.3.0):
+  - Sentinel/EmailSender (2.4.0):
     - Sentinel/Core
-  - Sentinel/TextEditing (2.3.0):
+  - Sentinel/TextEditing (2.4.0):
     - Sentinel/Core
-  - Sentinel/UserDefaults (2.3.0):
+  - Sentinel/UserDefaults (2.4.0):
     - Sentinel/Core
 
 DEPENDENCIES:
@@ -28,7 +28,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Sentinel: fcb76de5e93a328be457e039c77cf191441f7a65
+  Sentinel: a6f33ff86a6498a9000a52cf3794c9b159ebf2a1
 
 PODFILE CHECKSUM: 9e770ca23c17882724a69cf79721ab70c0f352cb
 
