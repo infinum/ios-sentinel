@@ -84,27 +84,22 @@ struct ClearAppDataReport {
         isFullySuccessful ? "Data cleared" : "Cleared with errors"
     }
 
-    @StringBuilder
     var message: String {
         // Real failures first, so they survive the truncation below.
         let ordered = failures.sorted { $0.kind == .failed && $1.kind == .warning }
         let listed = ordered.prefix(Self.maxListedFailures)
-        for failure in listed {
-            line(for: failure)
-            String.newLine
-        }
 
+        var lines = listed.map(line(for:))
         let remaining = failures.count - listed.count
         if remaining > 0 {
-            "…and \(remaining) more"
-            String.newLine
+            lines.append("…and \(remaining) more")
         }
-
-        if !failures.isEmpty {
-            String.newLine
+        if !lines.isEmpty {
+            lines.append(.empty)
         }
+        lines.append("Force-quit the app and launch it again. Data already loaded in memory is still active until you do.")
 
-        "Force-quit the app and launch it again. Data already loaded in memory is still active until you do."
+        return lines.joined(separator: .newLine)
     }
 }
 
