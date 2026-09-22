@@ -58,6 +58,7 @@ pod 'Sentinel'
 - `CustomLocation` which will add the `CustomLocationTool`
 - `TextEditing` which will add the `TextEditingTool`
 - `CrashDetection` which will add the `CrashDetectionTool`
+- `ClearAppData` which will add the `ClearAppDataTool`
 - `Default` - which will install `UserDefaults`, and `TextEditing`
 
 #### Swift Package Manager
@@ -366,6 +367,14 @@ var colorChangeTool: Tool {
 #### EmailSenderTool
 
 *EmailSenderTool* is used to let the user send emails with attachments from the app with ease. The tool is available on iOS.
+
+#### ClearAppDataTool
+
+*ClearAppDataTool* wipes the app's stored data so it can be tested from a clean state without being deleted and reinstalled, which is the iOS equivalent of Android's *Clear storage*. It clears the app's user defaults and the suites it created, the temporary, Caches, Application Support and Documents directories, the shared URL cache, cookies, web site data, and the keychain items in the app's own access group. The tool is available on iOS.
+
+The app has to be force quit and relaunched afterwards. iOS cannot restart it, so anything already held in memory — singletons, open database connections, cached credentials — stays live until the app is relaunched.
+
+Keychain items in shared access groups and data in app group containers are left alone, since both are shared with other apps and extensions. Clearing those stays the host app's responsibility.
 
 ## Contributing
 
