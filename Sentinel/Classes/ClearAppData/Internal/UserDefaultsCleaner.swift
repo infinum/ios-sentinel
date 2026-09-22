@@ -7,6 +7,8 @@
 
 import Foundation
 
+#if os(iOS)
+
 /// Removes the app's persisted user defaults, including any suites it created.
 enum UserDefaultsCleaner {
 
@@ -56,3 +58,5 @@ private extension UserDefaultsCleaner {
             .filter { !$0.hasPrefix("com.apple.") && $0 != ".GlobalPreferences" }
     }
 }
+
+#endif

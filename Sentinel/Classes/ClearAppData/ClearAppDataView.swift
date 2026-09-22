@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+#if os(iOS)
+
 struct ClearAppDataView: View {
 
     // `SentinelListView` rebuilds every navigation destination on each body evaluation, so an
@@ -63,3 +65,5 @@ private extension ClearAppDataView {
         }
     }
 }
+
+#endif

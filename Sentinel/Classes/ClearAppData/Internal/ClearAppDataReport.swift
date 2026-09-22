@@ -7,6 +7,8 @@
 
 import Foundation
 
+#if os(iOS)
+
 // MARK: - Step
 
 /// A single unit of work performed when clearing the app data.
@@ -115,3 +117,5 @@ private extension ClearAppDataReport {
         return "• \(subject): \(failure.reason)"
     }
 }
+
+#endif

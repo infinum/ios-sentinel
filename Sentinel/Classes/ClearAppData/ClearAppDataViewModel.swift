@@ -7,6 +7,8 @@
 
 import Foundation
 
+#if os(iOS)
+
 final class ClearAppDataViewModel: ObservableObject {
 
     /// Both alerts are driven by a single value. Two `alert(isPresented:)` modifiers on one view
@@ -56,3 +58,5 @@ extension ClearAppDataViewModel {
         }
     }
 }
+
+#endif

@@ -8,6 +8,8 @@
 import Foundation
 import WebKit
 
+#if os(iOS)
+
 /// Removes cached responses, cookies and web view storage.
 enum WebDataCleaner {
 
@@ -49,3 +51,5 @@ enum WebDataCleaner {
         return []
     }
 }
+
+#endif

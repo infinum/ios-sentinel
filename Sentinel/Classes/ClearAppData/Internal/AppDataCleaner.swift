@@ -7,6 +7,8 @@
 
 import Foundation
 
+#if os(iOS)
+
 /// Runs every clearing step and collects what went wrong.
 enum AppDataCleaner {
 
@@ -67,3 +69,5 @@ private extension AppDataCleaner {
         return failures
     }
 }
+
+#endif

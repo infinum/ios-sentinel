@@ -7,6 +7,8 @@
 
 import Foundation
 
+#if os(iOS)
+
 /// Removes the contents of the app container directories.
 enum FileSystemCleaner {
 
@@ -67,3 +69,5 @@ private extension FileSystemCleaner {
         )
     }
 }
+
+#endif

@@ -8,6 +8,8 @@
 import Foundation
 import Security
 
+#if os(iOS)
+
 /// Removes the app's keychain items.
 ///
 /// Keychain items are removed when an app is uninstalled, so clearing them is part of restoring a
@@ -105,3 +107,5 @@ private extension KeychainCleaner {
         }
     }
 }
+
+#endif
