@@ -6,6 +6,8 @@ PODS:
   - Sentinel/Core (2.4.0)
   - Sentinel/CrashDetection (2.4.0):
     - Sentinel/Core
+  - Sentinel/CustomLocation (2.4.0):
+    - Sentinel/Core
   - Sentinel/Default (2.4.0):
     - Sentinel/Core
     - Sentinel/CrashDetection
@@ -21,6 +23,7 @@ PODS:
 DEPENDENCIES:
   - Sentinel (from `../`)
   - Sentinel/ClearAppData (from `../`)
+  - Sentinel/CustomLocation (from `../`)
   - Sentinel/EmailSender (from `../`)
 
 EXTERNAL SOURCES:
@@ -30,6 +33,6 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Sentinel: a6f33ff86a6498a9000a52cf3794c9b159ebf2a1
 
-PODFILE CHECKSUM: 9e770ca23c17882724a69cf79721ab70c0f352cb
+PODFILE CHECKSUM: 220bb9491531d3f1c7d451a696e1ee4fdb0025b7
 
 COCOAPODS: 1.16.2

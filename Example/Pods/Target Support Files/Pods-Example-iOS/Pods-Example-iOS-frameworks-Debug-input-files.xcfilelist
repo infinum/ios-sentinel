@@ -1,2 +1,2 @@
 ${PODS_ROOT}/Target Support Files/Pods-Example-iOS/Pods-Example-iOS-frameworks.sh
-${BUILT_PRODUCTS_DIR}/Sentinel.common-ClearAppData-EmailSender/Sentinel.framework
+${BUILT_PRODUCTS_DIR}/Sentinel.common-ClearAppData-CustomLocation-EmailSender/Sentinel.framework

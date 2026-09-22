@@ -46,7 +46,8 @@ private extension AppDelegate {
                 baseUrlTool,
                 colorChangeTool,
                 CrashDetectionTool(),
-                ClearAppDataTool()
+                ClearAppDataTool(),
+                CustomLocationTool()
             ],
             preferences: optionSwitchItems
         )
