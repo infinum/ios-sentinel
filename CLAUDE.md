@@ -46,7 +46,7 @@ There is no real test suite: `Example/Tests/Tests.swift` is an empty placeholder
 
 **One folder per subspec.** Each directory in `Sentinel/Classes/` is a CocoaPods subspec depending on `Sentinel/Core`. `Default` bundles Core, UserDefaults, TextEditing and CrashDetection; the others (EmailSender, CustomLocation, ClearAppData, Database) are opt-in. Non-public types live in `Internal/` subfolders. Adding a tool means: a new folder, a subspec in the podspec, a section under "Available custom tools" in `README.md`, and registering it in the example app (Podfile + `AppDelegate`) if it should be showcased.
 
-**iOS-only code.** Guard it with `#if os(iOS)` inside the source files, as `ClearAppData` does. Don't exclude it in `Package.swift`: the manifest's `#if os(iOS)` is evaluated on the host when SwiftPM compiles it, so a manifest exclusion also drops the code from iOS builds made on a Mac. The existing exclusions of `CustomLocation` and `EmailSender` there have that problem.
+**iOS-only code.** Guard it with `#if os(iOS)` inside the source files, as `ClearAppData` does. Don't exclude it in `Package.swift`: the manifest's `#if os(iOS)` is evaluated on the host when SwiftPM compiles it, so a manifest exclusion also drops the code from iOS builds made on a Mac. SwiftPM also can't restrict a resource to one platform, so iOS-only tools build their UI in code rather than in storyboards or XIBs.
 
 **Resources.** `Sentinel/Assets` and `SupportingFiles/PrivacyInfo.xcprivacy` are declared in both the podspec (`resource_bundles`) and `Package.swift` (`resources`); update both when adding resources.
 
