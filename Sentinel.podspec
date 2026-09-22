@@ -63,6 +63,12 @@ Pod::Spec.new do |s|
     sp.dependency 'Sentinel/Core'
   end
 
+  s.subspec 'ClearAppData' do |sp|
+    sp.source_files = 'Sentinel/Classes/ClearAppData/**/*'
+    sp.dependency 'Sentinel/Core'
+    sp.ios.deployment_target = '14.0'
+  end
+
   s.subspec 'Database' do |sp|
     sp.source_files = 'Sentinel/Classes/DatabaseTool/**/*'
     sp.dependency 'Sentinel/Core'
