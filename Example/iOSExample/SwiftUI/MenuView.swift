@@ -12,34 +12,25 @@ import SwiftUI
 /// relaunch — both values should read as empty again.
 struct MenuView: View {
 
-    @Environment(\.presentationMode) private var presentationMode
-
     @State private var userDefaultsValue: String?
     @State private var keychainValue: String?
 
     var body: some View {
-        NavigationView {
-            List {
-                Section(header: Text("Stored state")) {
-                    row(title: "User defaults", description: userDefaultsValue)
-                    row(title: "Keychain", description: keychainValue)
-                }
-
-                Section {
-                    Button("Save current state") {
-                        StoredDataProvider.save()
-                        reload()
-                    }
-                }
+        List {
+            Section(header: Text("Stored state")) {
+                row(title: "User defaults", description: userDefaultsValue)
+                row(title: "Keychain", description: keychainValue)
             }
-            .listStyle(InsetGroupedListStyle())
-            .navigationTitle("Menu")
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Close") { presentationMode.wrappedValue.dismiss() }
+
+            Section {
+                Button("Save current state") {
+                    StoredDataProvider.save()
+                    reload()
                 }
             }
         }
+        .listStyle(InsetGroupedListStyle())
+        .navigationTitle("Menu")
         .onAppear(perform: reload)
     }
 }
