@@ -8,6 +8,8 @@
 import Foundation
 import CoreLocation
 
+#if os(iOS)
+
 private enum Constants {
     static let locationMockEnabledKey = "com.infinum.sentinel.locationMock.enabled"
     static let locationMockLocationKey = "com.infinum.sentinel.locationMock.location"
@@ -61,3 +63,5 @@ private extension CustomLocationProvider {
         method_exchangeImplementations(originalMethod, swizzledMethod)
     }
 }
+
+#endif
