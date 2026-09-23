@@ -5,6 +5,8 @@ target 'Example-iOS' do
 
   pod 'Sentinel', :path => '../'
   pod 'Sentinel/EmailSender', :path => '../'
+  pod 'Sentinel/ClearAppData', :path => '../'
+  pod 'Sentinel/CustomLocation', :path => '../'
 
 
   target 'Sentinel_Tests' do
