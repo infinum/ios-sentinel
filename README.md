@@ -33,8 +33,8 @@ This library supports **Swift**, and **SwiftUI**.
 
 ## Requirements
 
-* iOS 14 and above
-* MacOS 12 and above
+* iOS 15 and above
+* MacOS 13 and above
 * Xcode 16 and above
 
 ## Getting started

@@ -6,7 +6,7 @@ This project can use AI assistance freely.
 
 ## What this is
 
-Sentinel is an Infinum library (iOS 14+, macOS 12+) that gives an app one debug screen hosting all of its debug tools, opened by a trigger such as a shake, a screenshot or a notification. It is distributed only through SwiftPM (`Package.swift`); CocoaPods support was dropped after 2.3.0.
+Sentinel is an Infinum library (iOS 15+, macOS 13+) that gives an app one debug screen hosting all of its debug tools, opened by a trigger such as a shake, a screenshot or a notification. It is distributed only through SwiftPM (`Package.swift`); CocoaPods support was dropped after 2.3.0.
 
 ## Commands
 
