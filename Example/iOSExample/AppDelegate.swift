@@ -9,11 +9,7 @@
 import UIKit
 import Sentinel
 
-@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-    var window: UIWindow?
-
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         setupSentinel()
@@ -49,7 +45,9 @@ private extension AppDelegate {
                 UserDefaultsTool(),
                 baseUrlTool,
                 colorChangeTool,
-                CrashDetectionTool()
+                CrashDetectionTool(),
+                ClearAppDataTool(),
+                CustomLocationTool()
             ],
             preferences: optionSwitchItems
         )

@@ -1,23 +1,13 @@
-// swift-tools-version:5.5
+// swift-tools-version:5.9
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
 
-// Excluding some Tools due to being tightly coupled to some unsupported frameworks on macOS
-#if os(iOS)
-let excludedSources: [String] = []
-#else
-let excludedSources: [String] = [
-    "Classes/CustomLocation",
-    "Classes/EmailSender"
-]
-#endif
-
 let package = Package(
     name: "Sentinel",
     platforms: [
-        .macOS(.v12),
-        .iOS(.v14)
+        .macOS(.v13),
+        .iOS(.v15)
     ],
     products: [
         .library(
@@ -30,7 +20,6 @@ let package = Package(
             name: "Sentinel",
             dependencies: [],
             path: "Sentinel",
-            exclude: excludedSources,
             resources: [
                 .process("Assets"),
                 .copy("SupportingFiles/PrivacyInfo.xcprivacy")

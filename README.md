@@ -5,9 +5,8 @@
 </p>
 
 [![Build Status](https://app.bitrise.io/app/56dc4082e9c3bb9e/status.svg?token=aHG6rIR2XDrJ3xNOIO2hXw&branch=master)](https://app.bitrise.io/app/56dc4082e9c3bb9e)
-[![Version](https://img.shields.io/cocoapods/v/Sentinel.svg?style=flat)](https://cocoapods.org/pods/Sentinel)
-[![License](https://img.shields.io/cocoapods/l/Sentinel.svg?style=flat)](https://cocoapods.org/pods/Sentinel#license)
-[![Platform](https://img.shields.io/cocoapods/p/Sentinel.svg?style=flat)](https://cocoapods.org/pods/Sentinel)
+[![Version](https://img.shields.io/github/v/tag/infinum/ios-sentinel?label=version&style=flat)](https://github.com/infinum/ios-sentinel/releases)
+[![License](https://img.shields.io/github/license/infinum/ios-sentinel?style=flat)](LICENSE)
 
 ## Description
 
@@ -17,7 +16,7 @@
 
 **Sentinel** has a tab bar that contains five screens. Three of those aren't configurable, and two of them are. The first screen is the **Device** screen which allows the user to look into some of the device-specific information. The second screen is the **Application** screen which allows the user to look into some of the application-specific information from the <i>info.plist</i>. The third, the first configurable screen, is the **Tools** screen. **Tools** screen allows you to add as many `Tool` objects as your heart desires which can be used by the user to find out some specific information. The fourth, last configurable screen, is the **Preferences** screen. **Preferences** screen allows you to add options that allow or deny some activity inside the app. **Preferences** tab can also be used as a feature control entry point, the user will be able to enable or disable the features by pressing the option button. Last, but not the least, is the **Performance** screen which contains performance-specific information. Later on, we'll explain how you can configure those screens.
 
-**Sentinel** contains a few custom tools which can be used, some of which are in their own subspecs. You can find out more about it in the [Usage](#usage) section.
+**Sentinel** contains a few custom tools which can be used. You can find out more about it in the [Usage](#usage) section.
 
 This library supports **Swift**, and **SwiftUI**.
 
@@ -34,41 +33,27 @@ This library supports **Swift**, and **SwiftUI**.
 
 ## Requirements
 
-* iOS 14 and above
-* MacOS 12 and above
+* iOS 15 and above
+* MacOS 13 and above
 * Xcode 16 and above
 
 ## Getting started
 
 ### Installation
 
-#### CocoaPods
-
-*Sentinel* is available through [CocoaPods](https://cocoapods.org). To install
-it, simply add the following line to your Podfile:
-
-```ruby
-pod 'Sentinel'
-```
-
-*Sentinel* is made of multiple subspecs:
-- `Core` which will install only the core features for the *Sentinel* to be usable
-- `UserDefaults` which will add the `UserDefaultsTool`
-- `EmailSender` which will add the `EmailSenderTool`
-- `CustomLocation` which will add the `CustomLocationTool`
-- `TextEditing` which will add the `TextEditingTool`
-- `CrashDetection` which will add the `CrashDetectionTool`
-- `Default` - which will install `UserDefaults`, and `TextEditing`
-
 #### Swift Package Manager
 
-If you are using SPM for your dependency manager, add this to the dependencies in your `Package.swift` file:
+*Sentinel* is distributed through Swift Package Manager. Add it to the dependencies in your `Package.swift` file:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/infinum/ios-sentinel.git")
+    .package(url: "https://github.com/infinum/ios-sentinel.git", from: "3.0.0")
 ]
 ```
+
+or add `https://github.com/infinum/ios-sentinel.git` in Xcode under *File › Add Package Dependencies…*. All of the tools are part of the `Sentinel` product.
+
+CocoaPods is no longer supported; the last version published to CocoaPods is 2.3.0.
 
 ## Usage
 
@@ -366,6 +351,14 @@ var colorChangeTool: Tool {
 #### EmailSenderTool
 
 *EmailSenderTool* is used to let the user send emails with attachments from the app with ease. The tool is available on iOS.
+
+#### ClearAppDataTool
+
+*ClearAppDataTool* wipes the app's stored data so it can be tested from a clean state without being deleted and reinstalled, which is the iOS equivalent of Android's *Clear storage*. It clears the app's user defaults and the suites it created, the temporary, Caches, Application Support and Documents directories, the shared URL cache, cookies, web site data, and the keychain items in the app's own access group. The tool is available on iOS.
+
+The app has to be force quit and relaunched afterwards. iOS cannot restart it, so anything already held in memory — singletons, open database connections, cached credentials — stays live until the app is relaunched.
+
+Keychain items in shared access groups and data in app group containers are left alone, since both are shared with other apps and extensions. Clearing those stays the host app's responsibility.
 
 ## Contributing
 
