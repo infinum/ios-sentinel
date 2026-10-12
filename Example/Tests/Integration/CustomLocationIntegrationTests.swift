@@ -18,10 +18,11 @@ extension IntegrationTests {
         private let suiteName = "com.infinum.sentinel.tests.\(UUID().uuidString)"
         private let defaults: UserDefaults
         private let previousConfiguration = Sentinel.shared.configuration
+        private let tool: CustomLocationTool
 
         init() {
             defaults = UserDefaults(suiteName: suiteName)!
-            let tool = CustomLocationTool(userDefaults: defaults)
+            tool = CustomLocationTool(userDefaults: defaults)
             tool.locationProvider.setCustomLocationUsageEnabled(true)
             tool.locationProvider.setCustomLocation(location: CLLocation(latitude: 45.815, longitude: 15.982))
             Sentinel.shared.configuration = Sentinel.Configuration(tools: [tool])
@@ -32,18 +33,6 @@ extension IntegrationTests {
             defaults.removePersistentDomain(forName: suiteName)
         }
 
-        @Test("The custom location is delivered to the manager's delegate")
-        func customLocationIsDelivered() {
-            let manager = CLLocationManager()
-            let delegate = LocationDelegate()
-            manager.delegate = delegate
-
-            manager.startUpdatingCustomLocation()
-
-            #expect(delegate.locations.map(\.coordinate.latitude) == [45.815])
-            #expect(delegate.locations.map(\.coordinate.longitude) == [15.982])
-        }
-
         @Test("Starting location updates delivers the custom location")
         func startUpdatingLocationUsesCustomLocation() async throws {
             let manager = CLLocationManager()
@@ -52,11 +41,37 @@ extension IntegrationTests {
 
             manager.startUpdatingLocation()
             try await Task.sleep(nanoseconds: 500_000_000)
+
+            #expect(delegate.locations.map(\.coordinate.latitude) == [45.815])
+            #expect(delegate.locations.map(\.coordinate.longitude) == [15.982])
+        }
+
+        @Test("With the custom location turned off, the real location updates start")
+        func disabledCustomLocationIsIgnored() async throws {
+            tool.locationProvider.setCustomLocationUsageEnabled(false)
+            let manager = CLLocationManager()
+            let delegate = LocationDelegate()
+            manager.delegate = delegate
+
+            manager.startUpdatingLocation()
+            try await Task.sleep(nanoseconds: 500_000_000)
             manager.stopUpdatingLocation()
 
-            withKnownIssue("swizzleCustomLocationMethods() is never called, so startUpdatingLocation isn't redirected") {
-                #expect(delegate.locations.contains { $0.coordinate.latitude == 45.815 })
-            }
+            #expect(!delegate.locations.contains { $0.coordinate.latitude == 45.815 })
+        }
+
+        @Test("Creating more tools doesn't swap the methods back")
+        func swizzlingHappensOnce() async throws {
+            _ = CustomLocationTool(userDefaults: defaults)
+            _ = CustomLocationTool(userDefaults: defaults)
+            let manager = CLLocationManager()
+            let delegate = LocationDelegate()
+            manager.delegate = delegate
+
+            manager.startUpdatingLocation()
+            try await Task.sleep(nanoseconds: 500_000_000)
+
+            #expect(delegate.locations.map(\.coordinate.latitude) == [45.815])
         }
     }
 }
