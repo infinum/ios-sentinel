@@ -54,7 +54,7 @@ final class TabsUITests: XCTestCase {
         XCTAssertTrue(toggle.waitForExistence(timeout: 5))
         let initialValue = toggle.value as? String
         toggle.tapSwitch()
-        XCTAssertNotEqual(toggle.value as? String, initialValue)
+        XCTAssertTrue(toggle.waitForValueChange(from: initialValue), "The toggle didn't change")
         let changedValue = toggle.value as? String
 
         let relaunched = SentinelScreen.launch(resetState: false)

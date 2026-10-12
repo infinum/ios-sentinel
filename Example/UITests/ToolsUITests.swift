@@ -39,10 +39,6 @@ final class ToolsUITests: XCTestCase {
     }
 
     func testBaseURLIsSavedAndSurvivesARelaunch() {
-        XCTExpectFailure(
-            "On iOS 26 the text field sits under the large navigation title, so tapping it never gives it focus",
-            options: XCTExpectedFailure.Options.nonStrict()
-        )
         let newURL = "https://staging.example.com"
         let screen = SentinelScreen.launch()
         screen.open()

@@ -33,7 +33,7 @@ struct TextEditingToolView: View {
             }
             .accessibilityIdentifier(AccessibilityIdentifier.textEditingSaveButton)
         }
-        .padding(.horizontal, 16)
+        .padding(16)
         .navigationTitle(viewModel.title)
     }
 }

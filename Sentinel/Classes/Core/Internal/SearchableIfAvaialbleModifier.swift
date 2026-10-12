@@ -15,7 +15,12 @@ struct SearchableIfAvaialbleModifier: ViewModifier {
     func body(content: Content) -> some View {
         #if os(iOS)
         content
-            .searchable(text: $text, placement: .toolbar, prompt: prompt)
+            // Always shown, so pushed lists offer search too instead of hiding it until pulled down.
+            .searchable(
+                text: $text,
+                placement: .navigationBarDrawer(displayMode: .always),
+                prompt: prompt
+            )
         #else
         content
             .searchable(text: $text, placement: .sidebar, prompt: prompt)

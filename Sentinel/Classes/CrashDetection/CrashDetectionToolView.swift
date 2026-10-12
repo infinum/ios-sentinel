@@ -41,6 +41,7 @@ private struct ContentView: View {
                 }
             }
         }
+        .pushedListTopMargin(isPushed: true)
         .onAppear {
             crashes = CrashFileManager.recover(ofType: .nsexception) + CrashFileManager.recover(ofType: .signal)
         }

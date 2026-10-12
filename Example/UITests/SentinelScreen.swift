@@ -94,10 +94,6 @@ struct SentinelScreen {
 
     func search(for text: String, file: StaticString = #filePath, line: UInt = #line) {
         let searchField = app.searchFields.firstMatch
-        // On a pushed screen the search bar starts collapsed under the navigation bar; pulling the list down reveals it.
-        if !searchField.waitForExistence(timeout: 2) {
-            app.collectionViews.firstMatch.swipeDown(velocity: .slow)
-        }
         XCTAssertTrue(
             searchField.waitForExistence(timeout: 5),
             "No search field",
@@ -157,6 +153,21 @@ extension XCUIElement {
 
     /// Taps the switch itself; tapping the middle of a SwiftUI toggle row hits its label.
     func tapSwitch() {
-        coordinate(withNormalizedOffset: CGVector(dx: 0.95, dy: 0.5)).tap()
+        // Some iOS versions expose the switch as a child of the identified toggle, others as the toggle itself.
+        let innerSwitch = switches.firstMatch
+        if innerSwitch.exists {
+            innerSwitch.tap()
+        } else {
+            coordinate(withNormalizedOffset: CGVector(dx: 0.95, dy: 0.5)).tap()
+        }
+    }
+
+    /// Waits until `value` is no longer `oldValue`.
+    func waitForValueChange(from oldValue: String?, timeout: TimeInterval = 3) -> Bool {
+        let expectation = XCTNSPredicateExpectation(
+            predicate: NSPredicate(format: "value != %@", oldValue ?? ""),
+            object: self
+        )
+        return XCTWaiter().wait(for: [expectation], timeout: timeout) == .completed
     }
 }
