@@ -41,6 +41,26 @@ struct UncaughtExceptionHandlerTests {
         #expect(info == "NSGenericExceptionUnknown")
     }
 
+    @Test("Preparing twice still calls the app's handler exactly once")
+    func preparingTwiceKeepsAppHandler() {
+        let previousHandler = NSGetUncaughtExceptionHandler()
+        let previousClosure = CrashUncaughtExceptionHandler.exceptionReceiveClosure
+        defer {
+            NSSetUncaughtExceptionHandler(previousHandler)
+            CrashUncaughtExceptionHandler.exceptionReceiveClosure = previousClosure
+        }
+        AppHandlerCalls.count = 0
+        NSSetUncaughtExceptionHandler { _ in AppHandlerCalls.count += 1 }
+        CrashUncaughtExceptionHandler.exceptionReceiveClosure = nil
+
+        CrashUncaughtExceptionHandler(preHandlers: [:]).prepare()
+        CrashUncaughtExceptionHandler(preHandlers: [:]).prepare()
+        // Before the fix, the second `prepare()` backed up Sentinel's own handler, which then called itself forever.
+        UncaughtExceptionHandler(exception: NSException(name: .genericException, reason: nil))
+
+        #expect(AppHandlerCalls.count == 1)
+    }
+
     @Test("The tool installs no handlers when observing is turned off")
     func toolWithoutObserving() {
         let previousHandler = handlerAddress()
@@ -64,4 +84,9 @@ private extension UncaughtExceptionHandlerTests {
     func handlerAddress() -> UnsafeRawPointer? {
         unsafeBitCast(NSGetUncaughtExceptionHandler(), to: UnsafeRawPointer?.self)
     }
+}
+
+/// Counts calls to the handler a test installs; a C function pointer can't capture a local variable.
+private enum AppHandlerCalls {
+    static var count = 0
 }
