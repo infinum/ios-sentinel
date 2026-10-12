@@ -8,15 +8,14 @@
 
 import UIKit
 import Sentinel
+import SentinelPulse
+import Pulse
 
-@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-    var window: UIWindow?
-
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         setupSentinel()
+        logSamplePulseEntries()
         return true
     }
 }
@@ -49,12 +48,26 @@ private extension AppDelegate {
                 UserDefaultsTool(),
                 baseUrlTool,
                 colorChangeTool,
-                CrashDetectionTool()
+                CrashDetectionTool(),
+                ClearAppDataTool(),
+                CustomLocationTool(),
+                PulseTool()
             ],
             preferences: optionSwitchItems
         )
 
         Sentinel.shared.setup(with: configuration)
+    }
+
+    /// Gives the Pulse tool something to show: a few messages and one request logged through `URLSessionProxy`.
+    func logSamplePulseEntries() {
+        LoggerStore.shared.storeMessage(label: "app", level: .info, message: "Example app did finish launching")
+        LoggerStore.shared.storeMessage(label: "app", level: .warning, message: "Sample warning logged by the example app")
+
+        let session = URLSessionProxy(configuration: .default)
+        Task {
+            _ = try? await session.data(from: URL(string: "https://api.github.com/repos/infinum/ios-sentinel")!)
+        }
     }
 
     var colorChangeTool: Tool {

@@ -4,19 +4,9 @@ How you can set up Sentinel.
 
 ## 1. Add Sentinel
 
-### Cocoapods
-
-You can add Sentinel via Cocoapods.
-
-```
-pod 'Sentinel'
-```
-
-This will add the default subspec, if you want additional tools, check out other subspecs.
-
 ### SPM
 
-You can add Sentinel via SPM.
+You can add Sentinel via SPM. All of the tools are part of the `Sentinel` product.
 
 ```
 https://github.com/infinum/ios-sentinel.git
@@ -235,6 +225,10 @@ The tool will export the database file as a zip, and the file should be imported
 ### EmailSenderTool
 
 **EmailSenderTool** is used to let the user send emails with attachments from the app with ease. The tool is available on iOS.
+
+### PulseTool
+
+**PulseTool** shows the [Pulse](https://github.com/kean/Pulse) console with the app's logs and network requests. It is part of the separate `SentinelPulse` product, so add that product and `import SentinelPulse` to use it. The app also needs Pulse itself as a dependency, to log messages and network requests. The tool shows `LoggerStore.shared` unless a different store is passed in. The tool is available on iOS, and Pulse 5.2 and newer need iOS 18 to show the console.
 
 ## Creating your own tools
 

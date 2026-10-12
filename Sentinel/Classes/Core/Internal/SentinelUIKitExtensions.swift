@@ -16,15 +16,3 @@ extension Bundle {
         #endif
     }
 }
-
-#if canImport(UIKit)
-import UIKit
-
-extension UIStoryboard {
-    static var sentinel: UIStoryboard { UIStoryboard(name: "Sentinel", bundle: .sentinel) }
-
-    func instantiateViewController<T: UIViewController>(ofType type: T.Type) -> T {
-        instantiateViewController(withIdentifier: String(describing: T.self)) as! T
-    }
-}
-#endif

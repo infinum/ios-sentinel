@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+#if os(iOS)
+
 struct EmailSenderErrorView: View {
 
     let alertTitle: String
@@ -26,3 +28,5 @@ struct EmailSenderErrorView: View {
         .padding()
     }
 }
+
+#endif

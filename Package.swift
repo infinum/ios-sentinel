@@ -1,40 +1,46 @@
-// swift-tools-version:5.5
+// swift-tools-version:5.9
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
 
-// Excluding some Tools due to being tightly coupled to some unsupported frameworks on macOS
-#if os(iOS)
-let excludedSources: [String] = []
-#else
-let excludedSources: [String] = [
-    "Classes/CustomLocation",
-    "Classes/EmailSender"
-]
-#endif
-
 let package = Package(
     name: "Sentinel",
     platforms: [
-        .macOS(.v12),
-        .iOS(.v14)
+        .macOS(.v13),
+        .iOS(.v15)
     ],
     products: [
         .library(
             name: "Sentinel",
             targets: ["Sentinel"]
+        ),
+        .library(
+            name: "SentinelPulse",
+            targets: ["SentinelPulse"]
         )
+    ],
+    dependencies: [
+        .package(url: "https://github.com/kean/Pulse.git", from: "5.0.0")
     ],
     targets: [
         .target(
             name: "Sentinel",
             dependencies: [],
             path: "Sentinel",
-            exclude: excludedSources,
             resources: [
                 .process("Assets"),
                 .copy("SupportingFiles/PrivacyInfo.xcprivacy")
             ]
+        ),
+        .target(
+            name: "SentinelPulse",
+            dependencies: [
+                "Sentinel",
+                // Pulse has no embeddable console on macOS, so the tool is iOS-only.
+                .product(name: "Pulse", package: "Pulse", condition: .when(platforms: [.iOS])),
+                .product(name: "PulseUI", package: "Pulse", condition: .when(platforms: [.iOS]))
+            ],
+            path: "SentinelPulse"
         )
     ]
 )
