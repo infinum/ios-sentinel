@@ -19,11 +19,17 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             ZStack(alignment: .topTrailing) {
-                Text("Shake the device to open Sentinel")
-                    .font(.title2)
-                    .multilineTextAlignment(.center)
-                    .padding()
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                VStack(spacing: 24) {
+                    Text("Shake the device to open Sentinel")
+                        .font(.title2)
+                        .multilineTextAlignment(.center)
+
+                    if LaunchEnvironment.isUITesting {
+                        openSentinelButton
+                    }
+                }
+                .padding()
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
 
                 menuButton
                     .padding(MenuButton.margin)
@@ -49,5 +55,13 @@ private extension ContentView {
                 .clipShape(Circle())
         }
         .accessibility(label: Text("Menu"))
+    }
+
+    /// UI tests can't shake the simulator, so they send the same shake event through this button.
+    var openSentinelButton: some View {
+        Button("Open Sentinel") {
+            UIApplication.shared.motionEnded(.motionShake, with: nil)
+        }
+        .accessibilityIdentifier("example.openSentinel")
     }
 }
