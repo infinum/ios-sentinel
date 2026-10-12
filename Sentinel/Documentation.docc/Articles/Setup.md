@@ -226,6 +226,10 @@ The tool will export the database file as a zip, and the file should be imported
 
 **EmailSenderTool** is used to let the user send emails with attachments from the app with ease. The tool is available on iOS.
 
+### PulseTool
+
+**PulseTool** shows the [Pulse](https://github.com/kean/Pulse) console with the app's logs and network requests. It is part of the separate `SentinelPulse` product, so add that product and `import SentinelPulse` to use it. The tool shows `LoggerStore.shared` unless a different store is passed in. The tool is available on iOS, and Pulse 5.2 and newer need iOS 18 to show the console.
+
 ## Creating your own tools
 
 The next step on your Sentiel journey is tailoring a new tool to your own needs in <doc:CustomTools>

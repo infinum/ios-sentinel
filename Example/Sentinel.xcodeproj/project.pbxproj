@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		37A1F0032E9B000100C0FFEE /* Sentinel in Frameworks */ = {isa = PBXBuildFile; productRef = 37A1F0022E9B000100C0FFEE /* Sentinel */; };
+		37A1F0072E9B000100C0FFEE /* SentinelPulse in Frameworks */ = {isa = PBXBuildFile; productRef = 37A1F0062E9B000100C0FFEE /* SentinelPulse */; };
+		37A1F0092E9B000100C0FFEE /* Pulse in Frameworks */ = {isa = PBXBuildFile; productRef = 37A1F0082E9B000100C0FFEE /* Pulse */; };
 		37A1F0052E9B000100C0FFEE /* Sentinel in Frameworks */ = {isa = PBXBuildFile; productRef = 37A1F0042E9B000100C0FFEE /* Sentinel */; };
 /* End PBXBuildFile section */
 
@@ -106,6 +108,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				37A1F0032E9B000100C0FFEE /* Sentinel in Frameworks */,
+				37A1F0072E9B000100C0FFEE /* SentinelPulse in Frameworks */,
+				37A1F0092E9B000100C0FFEE /* Pulse in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,6 +197,8 @@
 			name = "Example-iOS";
 			packageProductDependencies = (
 				37A1F0022E9B000100C0FFEE /* Sentinel */,
+				37A1F0062E9B000100C0FFEE /* SentinelPulse */,
+				37A1F0082E9B000100C0FFEE /* Pulse */,
 			);
 			productName = ToolBox;
 			productReference = 607FACD01AFB9204008FA782 /* Example-iOS.app */;
@@ -253,6 +259,7 @@
 			mainGroup = 607FACC71AFB9204008FA782;
 			packageReferences = (
 				37A1F0012E9B000100C0FFEE /* XCLocalSwiftPackageReference ".." */,
+				37A1F00A2E9B000100C0FFEE /* XCRemoteSwiftPackageReference "Pulse" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 607FACD11AFB9204008FA782 /* Products */;
@@ -651,6 +658,17 @@
 		};
 /* End XCLocalSwiftPackageReference section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		37A1F00A2E9B000100C0FFEE /* XCRemoteSwiftPackageReference "Pulse" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kean/Pulse.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		37A1F0022E9B000100C0FFEE /* Sentinel */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -659,6 +677,15 @@
 		37A1F0042E9B000100C0FFEE /* Sentinel */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Sentinel;
+		};
+		37A1F0062E9B000100C0FFEE /* SentinelPulse */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SentinelPulse;
+		};
+		37A1F0082E9B000100C0FFEE /* Pulse */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 37A1F00A2E9B000100C0FFEE /* XCRemoteSwiftPackageReference "Pulse" */;
+			productName = Pulse;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

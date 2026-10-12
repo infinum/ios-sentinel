@@ -13,7 +13,14 @@ let package = Package(
         .library(
             name: "Sentinel",
             targets: ["Sentinel"]
+        ),
+        .library(
+            name: "SentinelPulse",
+            targets: ["SentinelPulse"]
         )
+    ],
+    dependencies: [
+        .package(url: "https://github.com/kean/Pulse.git", from: "5.0.0")
     ],
     targets: [
         .target(
@@ -24,6 +31,16 @@ let package = Package(
                 .process("Assets"),
                 .copy("SupportingFiles/PrivacyInfo.xcprivacy")
             ]
+        ),
+        .target(
+            name: "SentinelPulse",
+            dependencies: [
+                "Sentinel",
+                // Pulse has no embeddable console on macOS, so the tool is iOS-only.
+                .product(name: "Pulse", package: "Pulse", condition: .when(platforms: [.iOS])),
+                .product(name: "PulseUI", package: "Pulse", condition: .when(platforms: [.iOS]))
+            ],
+            path: "SentinelPulse"
         )
     ]
 )

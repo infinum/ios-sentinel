@@ -38,6 +38,8 @@ There is no real test suite: `Example/Tests/Tests.swift` is an empty placeholder
 
 **One folder per tool.** Each directory in `Sentinel/Classes/` holds one tool (`Core` holds the framework itself); they all compile into the single `Sentinel` SwiftPM target, so every tool ships with the `Sentinel` product. Non-public types live in `Internal/` subfolders. Adding a tool means: a new folder, a section under "Available custom tools" in `README.md` and in the DocC `Setup` article, and registering it in the example app's `AppDelegate` if it should be showcased.
 
+**`SentinelPulse` is the one tool outside the `Sentinel` target.** It lives in the top-level `SentinelPulse/` folder as its own SwiftPM target and product, so only apps that use it pull in [Pulse](https://github.com/kean/Pulse). Pulse is linked for iOS only through `condition: .when(platforms: [.iOS])`, because Pulse 5 has no embeddable macOS console. Pulse 5 is also why the package requires iOS 15 / macOS 13.
+
 **iOS-only code.** Guard it with `#if os(iOS)` inside the source files, as `ClearAppData` does. Don't exclude it in `Package.swift`: the manifest's `#if os(iOS)` is evaluated on the host when SwiftPM compiles it, so a manifest exclusion also drops the code from iOS builds made on a Mac. SwiftPM also can't restrict a resource to one platform, so iOS-only tools build their UI in code rather than in storyboards or XIBs.
 
 **Resources.** `Sentinel/Assets` and `SupportingFiles/PrivacyInfo.xcprivacy` are declared in `Package.swift` (`resources`); declare new resources there.
