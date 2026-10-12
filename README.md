@@ -360,6 +360,35 @@ The app has to be force quit and relaunched afterwards. iOS cannot restart it, s
 
 Keychain items in shared access groups and data in app group containers are left alone, since both are shared with other apps and extensions. Clearing those stays the host app's responsibility.
 
+#### PulseTool
+
+*PulseTool* shows the [Pulse](https://github.com/kean/Pulse) console, with the app's logs and network requests, inside Sentinel. It lives in a separate `SentinelPulse` product, so Pulse is only added to apps that use the tool:
+
+```swift
+.target(
+    name: "YourApp",
+    dependencies: [
+        .product(name: "Sentinel", package: "ios-sentinel"),
+        .product(name: "SentinelPulse", package: "ios-sentinel")
+    ]
+)
+```
+
+```swift
+import SentinelPulse
+
+let configuration = Sentinel.Configuration(
+    trigger: Triggers.shake,
+    tools: [
+        PulseTool()
+    ]
+)
+```
+
+By default the tool shows `LoggerStore.shared`; pass `PulseTool(store:)` to show a different store. The tool only displays what Pulse has already recorded, so set up network logging as described in Pulse's [Getting Started](https://kean-docs.github.io/pulse/documentation/pulse/gettingstarted) guide.
+
+The tool is available on iOS. Pulse removed its embeddable macOS console in 5.0, and Pulse 5.2 and newer need iOS 18 to show the console; on older systems Pulse shows an *Unsupported* placeholder.
+
 ## Contributing
 
 We believe that the community can help us improve and build better a product.

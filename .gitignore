@@ -29,3 +29,6 @@ Carthage/Build
 
 # Swift Package Manager
 .build/
+
+# The library doesn't pin its dependencies; the example project's Package.resolved is tracked instead
+/Package.resolved
