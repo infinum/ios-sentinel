@@ -228,7 +228,7 @@ The tool will export the database file as a zip, and the file should be imported
 
 ### PulseTool
 
-**PulseTool** shows the [Pulse](https://github.com/kean/Pulse) console with the app's logs and network requests. It is part of the separate `SentinelPulse` product, so add that product and `import SentinelPulse` to use it. The tool shows `LoggerStore.shared` unless a different store is passed in. The tool is available on iOS, and Pulse 5.2 and newer need iOS 18 to show the console.
+**PulseTool** shows the [Pulse](https://github.com/kean/Pulse) console with the app's logs and network requests. It is part of the separate `SentinelPulse` product, so add that product and `import SentinelPulse` to use it. The app also needs Pulse itself as a dependency, to log messages and network requests. The tool shows `LoggerStore.shared` unless a different store is passed in. The tool is available on iOS, and Pulse 5.2 and newer need iOS 18 to show the console.
 
 ## Creating your own tools
 

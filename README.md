@@ -362,16 +362,23 @@ Keychain items in shared access groups and data in app group containers are left
 
 #### PulseTool
 
-*PulseTool* shows the [Pulse](https://github.com/kean/Pulse) console, with the app's logs and network requests, inside Sentinel. It lives in a separate `SentinelPulse` product, so Pulse is only added to apps that use the tool:
+*PulseTool* shows the [Pulse](https://github.com/kean/Pulse) console, with the app's logs and network requests, inside Sentinel. It lives in a separate `SentinelPulse` product, so Pulse is only added to apps that use the tool. The app also depends on Pulse itself, which it uses to log messages and network requests:
 
 ```swift
-.target(
-    name: "YourApp",
-    dependencies: [
-        .product(name: "Sentinel", package: "ios-sentinel"),
-        .product(name: "SentinelPulse", package: "ios-sentinel")
-    ]
-)
+dependencies: [
+    .package(url: "https://github.com/infinum/ios-sentinel.git", from: "3.0.0"),
+    .package(url: "https://github.com/kean/Pulse.git", from: "5.0.0")
+],
+targets: [
+    .target(
+        name: "YourApp",
+        dependencies: [
+            .product(name: "Sentinel", package: "ios-sentinel"),
+            .product(name: "SentinelPulse", package: "ios-sentinel"),
+            .product(name: "Pulse", package: "Pulse")
+        ]
+    )
+]
 ```
 
 ```swift
