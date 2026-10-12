@@ -91,6 +91,53 @@ extension IntegrationTests {
 
         @Test("A handler installed before Sentinel is kept so it can still be called")
         func previousHandlerIsBackedUp() {
+            withRestoredSignalState {
+                // A no-op handler for SIGPIPE, which is in Sentinel's list and harmless. Nothing raises it.
+                var appHandler = sigaction()
+                appHandler.__sigaction_u.__sa_sigaction = { _, _, _ in }
+                appHandler.sa_flags = SA_SIGINFO
+                sigemptyset(&appHandler.sa_mask)
+                sigaction(
+                    SIGPIPE,
+                    &appHandler,
+                    nil
+                )
+
+                CrashSignalExceptionHandler(preHandlers: SignalPrehandlerManager().preHandlers).prepare()
+
+                #expect(CrashSignalExceptionHandler.preHandlers.keys.sorted() == Self.handledSignals.sorted())
+                #expect(CrashSignalExceptionHandler.preHandlers[SIGPIPE] ?? nil != nil)
+            }
+        }
+
+        @Test("Preparing twice doesn't back up Sentinel's own handler")
+        func ownHandlerIsNotBackedUp() {
+            withRestoredSignalState {
+                for signal in Self.handledSignals {
+                    Darwin.signal(signal, SIG_DFL)
+                }
+
+                CrashSignalExceptionHandler(preHandlers: SignalPrehandlerManager().preHandlers).prepare()
+                CrashSignalExceptionHandler(preHandlers: SignalPrehandlerManager().preHandlers).prepare()
+
+                // Backing up its own handler would make Sentinel's crash handler call itself forever.
+                #expect(CrashSignalExceptionHandler.preHandlers.values.allSatisfy { $0 == nil })
+            }
+        }
+
+        @Test("An ignored signal isn't backed up as a handler")
+        func ignoredSignalIsNotBackedUp() {
+            withRestoredSignalState {
+                Darwin.signal(SIGPIPE, SIG_IGN)
+
+                CrashSignalExceptionHandler(preHandlers: SignalPrehandlerManager().preHandlers).prepare()
+
+                #expect(CrashSignalExceptionHandler.preHandlers[SIGPIPE] ?? nil == nil)
+            }
+        }
+
+        /// Runs `body`, then restores every handled signal's action and the backed-up handlers.
+        private func withRestoredSignalState(_ body: () -> Void) {
             let originalActions = Self.handledSignals.map { signal -> sigaction in
                 var action = sigaction()
                 sigaction(
@@ -112,24 +159,7 @@ extension IntegrationTests {
                 }
                 CrashSignalExceptionHandler.preHandlers = previousPreHandlers
             }
-
-            // A no-op handler for SIGPIPE, which is in Sentinel's list and harmless. Nothing raises it.
-            var appHandler = sigaction()
-            appHandler.__sigaction_u.__sa_sigaction = { _, _, _ in }
-            appHandler.sa_flags = SA_SIGINFO
-            sigemptyset(&appHandler.sa_mask)
-            sigaction(
-                SIGPIPE,
-                &appHandler,
-                nil
-            )
-
-            CrashSignalExceptionHandler(preHandlers: SignalPrehandlerManager().preHandlers).prepare()
-
-            #expect(CrashSignalExceptionHandler.preHandlers.keys.sorted() == Self.handledSignals.sorted())
-            withKnownIssue("backupSingleHandler writes into a temporary copy, so the previous handler is never stored") {
-                #expect(CrashSignalExceptionHandler.preHandlers[SIGPIPE] ?? nil != nil)
-            }
+            body()
         }
     }
 }
