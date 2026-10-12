@@ -55,6 +55,7 @@ private struct ContentView: View {
                             selection: $selectedItem,
                             label: { NavigationToolTableView(item: item) }
                         )
+                        .accessibilityIdentifier(AccessibilityIdentifier.row(item.title))
                     case .toggle(let item):
                         PreferencesView(item: item)
                     case .customInfo(let item):

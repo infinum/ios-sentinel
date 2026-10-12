@@ -18,6 +18,7 @@ struct TextEditingToolView: View {
     var body: some View {
         VStack(spacing: 10) {
             TextField(viewModel.title, text: $viewModel.value)
+                .accessibilityIdentifier(AccessibilityIdentifier.textEditingField)
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
 
             Button(action: {
@@ -30,6 +31,7 @@ struct TextEditingToolView: View {
             }) {
                 Text("Save")
             }
+            .accessibilityIdentifier(AccessibilityIdentifier.textEditingSaveButton)
         }
         .padding(.horizontal, 16)
         .navigationTitle(viewModel.title)

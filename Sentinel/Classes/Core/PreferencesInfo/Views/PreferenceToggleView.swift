@@ -24,6 +24,7 @@ struct PreferenceToggleView: View {
                     .font(.body1Bold)
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
+            .accessibilityIdentifier(AccessibilityIdentifier.toggle(title))
 
             DescriptionView(description: description, errorMessage: errorMessage)
         }

@@ -62,6 +62,7 @@ private struct ContentView: View {
                         Image(systemName: "trash")
                     }
                 )
+                .accessibilityIdentifier(AccessibilityIdentifier.crashesDeleteAllButton)
             }
         }
     }
