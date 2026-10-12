@@ -41,8 +41,7 @@ private extension ContentView {
 
     var menuButton: some View {
         NavigationLink(destination: MenuView()) {
-            // `line.3.horizontal` is iOS 16, this spelling works on the example's iOS 14 target.
-            Image(systemName: "line.horizontal.3")
+            Image(systemName: "line.3.horizontal")
                 .font(.system(size: MenuButton.iconSize, weight: .semibold))
                 .foregroundColor(.white)
                 .frame(width: MenuButton.size, height: MenuButton.size)

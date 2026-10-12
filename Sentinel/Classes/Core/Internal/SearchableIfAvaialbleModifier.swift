@@ -14,12 +14,8 @@ struct SearchableIfAvaialbleModifier: ViewModifier {
 
     func body(content: Content) -> some View {
         #if os(iOS)
-        if #available(iOS 15, *) {
-            content
-                .searchable(text: $text, placement: .toolbar, prompt: prompt)
-        } else {
-            content
-        }
+        content
+            .searchable(text: $text, placement: .toolbar, prompt: prompt)
         #else
         content
             .searchable(text: $text, placement: .sidebar, prompt: prompt)
