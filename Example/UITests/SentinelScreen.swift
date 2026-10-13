@@ -171,3 +171,16 @@ extension XCUIElement {
         return XCTWaiter().wait(for: [expectation], timeout: timeout) == .completed
     }
 }
+
+/// The tools registered by the example app's `AppDelegate`.
+enum ToolNames {
+    static let userDefaults = "User Defaults Inspector"
+    static let baseURL = "Base URL"
+    static let colorChange = "Color Change Tool"
+    static let crashDetection = "Crash Detection Tool"
+    static let clearAppData = "Clear App Data"
+    static let customLocation = "Custom Location"
+    static let pulse = "Pulse"
+
+    static let all = [userDefaults, baseURL, colorChange, crashDetection, clearAppData, customLocation, pulse]
+}

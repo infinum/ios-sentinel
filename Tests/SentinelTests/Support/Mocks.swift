@@ -29,7 +29,6 @@ final class MockSourceScreenProvider: SourceScreenProvider {
 
     var isShownResult = false
     private(set) var showToolsCount = 0
-    private(set) var isShownCount = 0
     private(set) var dismissCount = 0
 
     func showTools(for view: some View) {
@@ -37,8 +36,7 @@ final class MockSourceScreenProvider: SourceScreenProvider {
     }
 
     func isShown() -> Bool {
-        isShownCount += 1
-        return isShownResult
+        isShownResult
     }
 
     func dismiss() {
