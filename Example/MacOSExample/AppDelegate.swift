@@ -48,12 +48,27 @@ private extension AppDelegate {
             tools: [
                 UserDefaultsTool(),
                 baseUrlTool,
-                CrashDetectionTool()
+                CrashDetectionTool(),
+                apiMockingTool
             ],
             preferences: optionSwitchItems
         )
 
         Sentinel.shared.setup(with: configuration)
+    }
+
+    var apiMockingTool: Tool {
+        APIMockingTool(
+            mocks: [
+                APIMock(
+                    name: "Repository",
+                    description: "Made-up repository details",
+                    method: .get,
+                    url: .wildcard("/repos/infinum/ios-sentinel"),
+                    body: .json(#"{ "full_name": "infinum/ios-sentinel", "stargazers_count": 1234 }"#)
+                )
+            ]
+        )
     }
 
     var baseUrlTool: Tool {

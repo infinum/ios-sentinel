@@ -55,6 +55,7 @@ private extension AppDelegate {
                 CrashDetectionTool(),
                 ClearAppDataTool(),
                 CustomLocationTool(),
+                apiMockingTool,
                 PulseTool()
             ],
             preferences: optionSwitchItems
@@ -72,6 +73,37 @@ private extension AppDelegate {
         Task {
             _ = try? await session.data(from: URL(string: "https://api.github.com/repos/infinum/ios-sentinel")!)
         }
+    }
+
+    /// Three answers to the request the menu's "Fetch repository" button makes.
+    var apiMockingTool: Tool {
+        APIMockingTool(
+            mocks: [
+                APIMock(
+                    name: "Repository",
+                    description: "Made-up repository details, read from repository.json",
+                    method: .get,
+                    url: .wildcard("/repos/infinum/ios-sentinel"),
+                    body: .file(named: "repository")
+                ),
+                APIMock(
+                    name: "Repository – server error",
+                    description: "GitHub answers with a 500 after a second",
+                    method: .get,
+                    url: .wildcard("/repos/infinum/ios-sentinel"),
+                    statusCode: 500,
+                    body: .json(#"{ "message": "Server Error" }"#),
+                    delay: 1
+                ),
+                APIMock(
+                    name: "Repository – offline",
+                    description: "The request fails as if the device had no connection",
+                    url: .wildcard("/repos/infinum/ios-sentinel"),
+                    error: .notConnectedToInternet,
+                    delay: 2
+                )
+            ]
+        )
     }
 
     var colorChangeTool: Tool {
