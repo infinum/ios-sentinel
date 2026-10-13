@@ -9,7 +9,7 @@ import Foundation
 
 /// Holds the mocks and which of them are switched on, saves them, and tells the matcher which mocks
 /// answer requests. Used from the main thread.
-final class APIMockStore: ObservableObject {
+final class APIMockStore: APIMockStoring {
 
     static let shared = APIMockStore(
         persistence: APIMockPersistence(fileURL: APIMockPersistence.defaultFileURL),
@@ -18,20 +18,11 @@ final class APIMockStore: ObservableObject {
 
     // MARK: - Internal properties
 
-    /// Mocks the app passed to the tool, in the order they were given.
     @Published private(set) var appMocks: [APIMock] = []
-    /// Mocks made in the tool.
     @Published private(set) var localMocks: [APIMock]
     @Published private(set) var enabledIDs: Set<String>
-    /// The master switch: while it's off, no mock answers.
     @Published private(set) var isMockingEnabled: Bool
-
-    /// Mocks that answer requests, in the order they're tried: local mocks first, as testers make them to
-    /// override what the app ships with.
-    var activeMocks: [APIMock] {
-        guard isMockingEnabled else { return [] }
-        return allMocks.filter { enabledIDs.contains($0.id) }
-    }
+    let isEditable = true
 
     // MARK: - Private properties
 
@@ -72,15 +63,23 @@ extension APIMockStore {
     }
 }
 
+// MARK: - Looking mocks up
+
+extension APIMockStore {
+
+    func mock(withID id: String) -> APIMock? {
+        allMocks.first { $0.id == id }
+    }
+
+    func warning(for mock: APIMock) -> String? {
+        mock.warning
+    }
+}
+
 // MARK: - Switching mocks on and off
 
 extension APIMockStore {
 
-    func isEnabled(_ mock: APIMock) -> Bool {
-        enabledIDs.contains(mock.id)
-    }
-
-    /// Switching a mock on switches off the mocks that answer the same requests.
     func setEnabled(_ isEnabled: Bool, for mock: APIMock) {
         if isEnabled {
             switchOffMocks(sharingEndpointWith: mock)
@@ -105,7 +104,6 @@ extension APIMockStore {
         localMocks.contains { $0.id == mock.id }
     }
 
-    /// Adds the mock, or replaces the local mock with the same id.
     func save(_ mock: APIMock) {
         if let index = localMocks.firstIndex(where: { $0.id == mock.id }) {
             localMocks[index] = mock

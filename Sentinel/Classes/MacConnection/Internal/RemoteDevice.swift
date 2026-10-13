@@ -22,6 +22,9 @@ final class RemoteDevice: ObservableObject, Identifiable {
     let id: String
     @Published private(set) var info: RemoteDeviceInfo
     @Published private(set) var state = State.disconnected("Not connected yet.")
+    private(set) lazy var mockStore = RemoteAPIMockStore { [weak self] command in
+        self?.connection?.send(RemoteMessage.mockCommand(command))
+    }
 
     private var connection: RemoteConnection?
 
@@ -50,6 +53,7 @@ extension RemoteDevice {
         }
         self.connection = connection
         self.state = state
+        mockStore.isEditable = state == .connected
     }
 
     func isAttached(to connection: RemoteConnection) -> Bool {
@@ -59,6 +63,7 @@ extension RemoteDevice {
     func detach(reason: RemoteConnection.CloseReason) {
         connection = nil
         state = .disconnected(reason.message)
+        mockStore.isEditable = false
     }
 
     func allowPairing() {
@@ -69,7 +74,16 @@ extension RemoteDevice {
         connection?.rejectPairing()
     }
 
-    func handle(_ message: RemoteMessage) {}
+    func handle(_ message: RemoteMessage) {
+        switch message {
+        case .mocks(let mocks):
+            mockStore.apply(mocks)
+        case .mockSwitches(let switches):
+            mockStore.apply(switches)
+        default:
+            break
+        }
+    }
 }
 
 #endif

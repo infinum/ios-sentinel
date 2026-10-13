@@ -58,6 +58,17 @@ private extension RemoteDeviceView {
 private extension RemoteDeviceView {
 
     var details: some View {
+        TabView {
+            APIMockingView(title: device.info.appName, store: device.mockStore)
+                .tabItem { Text("API Mocking") }
+            info
+                .tabItem { Text("Device") }
+        }
+        .padding(.top, 8)
+        .navigationTitle(device.info.appName)
+    }
+
+    var info: some View {
         Form {
             LabeledContent("App", value: device.info.appName)
             LabeledContent("Version", value: device.info.appVersion)
@@ -66,7 +77,6 @@ private extension RemoteDeviceView {
             LabeledContent("System", value: device.info.systemVersion)
         }
         .formStyle(.grouped)
-        .navigationTitle(device.info.appName)
     }
 
     func banner(_ message: String) -> some View {

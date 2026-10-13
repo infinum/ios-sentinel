@@ -314,6 +314,9 @@ private extension RemoteConnection {
             session.isRemotelyReady = true
             state = .securing(session)
             connectIfBothReady()
+        default:
+            guard case .connected = state else { return }
+            emit(.message(message))
         }
     }
 

@@ -182,6 +182,17 @@ enum ToolNames {
     static let customLocation = "Custom Location"
     static let apiMocking = "API Mocking"
     static let pulse = "Pulse"
+    static let macConnection = "Connect to Mac"
 
-    static let all = [userDefaults, baseURL, colorChange, crashDetection, clearAppData, customLocation, apiMocking, pulse]
+    static let all = [
+        userDefaults,
+        baseURL,
+        colorChange,
+        crashDetection,
+        clearAppData,
+        customLocation,
+        apiMocking,
+        pulse,
+        macConnection
+    ]
 }

@@ -108,7 +108,8 @@ private extension MacConnectionView {
     }
 
     func isConnected(to mac: DeviceSession.DiscoveredMac) -> Bool {
-        session.status == .connected(macName: mac.name)
+        guard case .connected = session.status else { return false }
+        return session.selectedMac == mac
     }
 }
 

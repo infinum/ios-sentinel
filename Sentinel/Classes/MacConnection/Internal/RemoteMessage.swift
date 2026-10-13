@@ -17,4 +17,13 @@ enum RemoteMessage: Codable, Equatable {
     case rejected
     case ping
     case pong
+
+    // MARK: Device to Mac
+
+    case mocks([RemoteMock])
+    case mockSwitches(RemoteMockSwitches)
+
+    // MARK: Mac to device
+
+    case mockCommand(RemoteMockCommand)
 }

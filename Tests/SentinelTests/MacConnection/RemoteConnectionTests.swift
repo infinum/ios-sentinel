@@ -117,4 +117,35 @@ struct RemoteConnectionTests {
 
         #expect(try await loopback.deviceEvents.next { !$0.isClosed }.isPairingCode)
     }
+
+    @Test("Mocks reach the Mac, and a mock switched on there answers on the device")
+    func mocks() async throws {
+        let directory = try TemporaryDirectory()
+        let store = APIMockStore(
+            persistence: APIMockPersistence(fileURL: directory.url.appendingPathComponent("APIMocking.json")),
+            matcher: APIMockMatcher()
+        )
+        let mock = APIMock(name: "Products", url: .wildcard("/products"), body: .json("[]"))
+        store.setAppMocks([mock])
+        let loopback = try RemoteLoopback()
+        try await loopback.start()
+        try await loopback.pair()
+        let deviceConnection = loopback.deviceConnection
+        let bridge = RemoteMockBridge(store: store) { message in
+            deviceConnection?.send(message)
+        }
+
+        #expect(try await loopback.macEvents.next() == .message(.mocks([RemoteMock(mock: mock, isLocal: false)])))
+        #expect(try await loopback.macEvents.next() == .message(.mockSwitches(RemoteMockSwitches(isMockingEnabled: true, enabledIDs: []))))
+
+        loopback.macConnection?.send(.mockCommand(.setEnabled(id: mock.id, isEnabled: true)))
+        guard case .message(.mockCommand(let command)) = try await loopback.deviceEvents.next() else {
+            Issue.record("The device didn't receive the command")
+            return
+        }
+        bridge.apply(command)
+
+        #expect(store.activeMocks == [mock])
+        #expect(try await loopback.macEvents.next() == .message(.mockSwitches(RemoteMockSwitches(isMockingEnabled: true, enabledIDs: [mock.id]))))
+    }
 }

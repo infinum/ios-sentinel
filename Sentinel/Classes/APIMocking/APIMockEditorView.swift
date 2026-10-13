@@ -33,7 +33,10 @@ struct APIMockEditorView: View {
         case statusCode
     }
 
-    @ObservedObject var store: APIMockStore
+    /// `false` while the mock can't be saved, as while Sentinel for Mac is disconnected from the device.
+    let isEditable: Bool
+    let save: (APIMock) -> Void
+    let delete: (APIMock) -> Void
     let dismiss: () -> Void
 
     @FocusState private var focusedField: Field?
@@ -45,10 +48,14 @@ struct APIMockEditorView: View {
 
     init(
         route: APIMockEditorRoute,
-        store: APIMockStore,
+        isEditable: Bool,
+        save: @escaping (APIMock) -> Void,
+        delete: @escaping (APIMock) -> Void,
         dismiss: @escaping () -> Void
     ) {
-        self.store = store
+        self.isEditable = isEditable
+        self.save = save
+        self.delete = delete
         self.dismiss = dismiss
         _mode = State(initialValue: route.mode)
         _draft = State(initialValue: route.draft)
@@ -238,7 +245,7 @@ private extension APIMockEditorView {
             Alert(
                 title: Text("Delete “\(draft.trimmedName)”?"),
                 message: Text("This can't be undone."),
-                primaryButton: .destructive(Text("Delete"), action: delete),
+                primaryButton: .destructive(Text("Delete"), action: deleteMock),
                 secondaryButton: .cancel()
             )
         }
@@ -307,6 +314,7 @@ private extension APIMockEditorView {
                 Button("Delete mock", role: .destructive) {
                     isConfirmingDelete = true
                 }
+                .disabled(!isEditable)
             }
         case .viewApp:
             Section(footer: Text("Mocks the app ships with can't be changed. Duplicate one to edit a copy.")) {
@@ -329,10 +337,10 @@ private extension APIMockEditorView {
 
     var saveButton: some View {
         Button("Save") {
-            store.save(draft.makeMock())
+            save(draft.makeMock())
             dismiss()
         }
-        .disabled(!draft.canSave)
+        .disabled(!draft.canSave || !isEditable)
         .accessibilityIdentifier(AccessibilityIdentifier.apiMockingSaveButton)
     }
 }
@@ -341,8 +349,8 @@ private extension APIMockEditorView {
 
 private extension APIMockEditorView {
 
-    func delete() {
-        store.delete(draft.makeMock())
+    func deleteMock() {
+        delete(draft.makeMock())
         dismiss()
     }
 

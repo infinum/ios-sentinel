@@ -38,11 +38,14 @@ final class DeviceSession: ObservableObject {
     @Published private(set) var isEnabled: Bool
     @Published private(set) var status = Status.off
     @Published private(set) var macs: [DiscoveredMac] = []
+    /// The listed Mac the app connects to, whose name may differ from the one the Mac gives itself.
+    @Published private(set) var selectedMac: DiscoveredMac?
 
     private let store: MacConnectionStore
     private var isSearching = false
     private var browser: NWBrowser?
     private var connection: RemoteConnection?
+    private var mockBridge: RemoteMockBridge?
     /// Off after a pairing is turned down, so the app doesn't keep asking until the user picks a Mac again.
     private var reconnectsAutomatically = true
     private var reconnectWorkItem: DispatchWorkItem?
@@ -96,9 +99,10 @@ final class DeviceSession: ObservableObject {
         connection.onEvent = { [weak self, weak connection] event in
             // Events of a connection that was replaced or stopped don't matter any more.
             guard let self, let connection, connection === self.connection else { return }
-            handle(event, macName: mac.name)
+            handle(event)
         }
         self.connection = connection
+        selectedMac = mac
         status = .connecting(macName: mac.name)
         connection.start()
     }
@@ -171,6 +175,8 @@ private extension DeviceSession {
         isSearching = false
         connection?.cancel()
         connection = nil
+        mockBridge = nil
+        selectedMac = nil
         macs = []
         status = .off
     }
@@ -220,16 +226,22 @@ private extension DeviceSession {
 
 private extension DeviceSession {
 
-    func handle(_ event: RemoteConnection.Event, macName: String) {
+    func handle(_ event: RemoteConnection.Event) {
         switch event {
         case .pairingCode(let code, let mac):
             status = .pairing(code: code, macName: mac.name)
         case .connected(let mac):
             status = .connected(macName: mac.name)
+            mockBridge = RemoteMockBridge(store: APIMockStore.shared) { [weak connection] message in
+                connection?.send(message)
+            }
+        case .message(.mockCommand(let command)):
+            mockBridge?.apply(command)
         case .message:
             break
         case .closed(let reason):
             connection = nil
+            mockBridge = nil
             status = .failed(reason.message)
             switch reason {
             case .rejected, .unsupportedVersion:

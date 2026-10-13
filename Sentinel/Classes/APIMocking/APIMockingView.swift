@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct APIMockingView: View {
+struct APIMockingView<Store: APIMockStoring>: View {
 
     let title: String
-
-    // The store is a singleton, so observing it directly survives `SentinelListView` rebuilding this view.
-    @ObservedObject private var store = APIMockStore.shared
+    // Observed rather than owned: the app's store is a singleton, and Sentinel for Mac's belongs to its device,
+    // so either survives `SentinelListView` rebuilding this view.
+    @ObservedObject var store: Store
     @State private var searchText = ""
     @State private var editor: APIMockEditorRoute?
     @State private var expandedGroups: Set<String> = []
@@ -24,6 +24,7 @@ struct APIMockingView: View {
                     #if os(macOS)
                     .toggleStyle(.switch)
                     #endif
+                    .disabled(!store.isEditable)
                     .accessibilityIdentifier(AccessibilityIdentifier.apiMockingMasterSwitch)
             }
 
@@ -33,6 +34,7 @@ struct APIMockingView: View {
                 HStack {
                     TextField("Search mocks", text: $searchText)
                     Button("New mock", action: createMock)
+                        .disabled(!store.isEditable)
                         .accessibilityIdentifier(AccessibilityIdentifier.apiMockingNewButton)
                 }
             }
@@ -65,6 +67,7 @@ struct APIMockingView: View {
                 Button(action: createMock) {
                     Image(systemName: "plus")
                 }
+                .disabled(!store.isEditable)
                 .accessibilityLabel("New mock")
                 .accessibilityIdentifier(AccessibilityIdentifier.apiMockingNewButton)
             }
@@ -74,7 +77,9 @@ struct APIMockingView: View {
         .sheet(item: $editor) { route in
             APIMockEditorView(
                 route: route,
-                store: store,
+                isEditable: store.isEditable,
+                save: store.save,
+                delete: store.delete,
                 dismiss: { editor = nil }
             )
         }
@@ -134,14 +139,16 @@ private extension APIMockingView {
     func row(for mock: APIMock, isLocal: Bool) -> some View {
         APIMockRow(
             mock: mock,
+            warning: store.warning(for: mock),
             isOn: Binding(
                 get: { store.isEnabled(mock) },
                 set: { store.setEnabled($0, for: mock) }
             ),
+            isEditable: store.isEditable,
             didSelect: { open(mock, isLocal: isLocal) }
         )
         .swipeActions {
-            if isLocal {
+            if isLocal && store.isEditable {
                 Button(role: .destructive) {
                     store.delete(mock)
                 } label: {
@@ -160,7 +167,7 @@ private extension APIMockingView {
             } label: {
                 Label("Duplicate", systemImage: "plus.square.on.square")
             }
-            if isLocal {
+            if isLocal && store.isEditable {
                 Button(role: .destructive) {
                     store.delete(mock)
                 } label: {

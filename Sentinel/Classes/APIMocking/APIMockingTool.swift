@@ -71,11 +71,11 @@ public extension APIMockingTool {
 
     #if os(macOS)
     func createContent(selection: Binding<String?>) -> any View {
-        APIMockingView(title: name)
+        APIMockingView(title: name, store: APIMockStore.shared)
     }
     #else
     var content: any View {
-        APIMockingView(title: name)
+        APIMockingView(title: name, store: APIMockStore.shared)
     }
     #endif
 }

@@ -10,7 +10,9 @@ import SwiftUI
 struct APIMockRow: View {
 
     let mock: APIMock
+    let warning: String?
     @Binding var isOn: Bool
+    let isEditable: Bool
     let didSelect: () -> Void
 
     var body: some View {
@@ -39,7 +41,7 @@ struct APIMockRow: View {
                             .foregroundColor(.secondary)
                             .lineLimit(2)
                     }
-                    if let warning = mock.warning {
+                    if let warning {
                         Text(warning)
                             .font(.caption1Regular)
                             .foregroundColor(.red)
@@ -56,6 +58,7 @@ struct APIMockRow: View {
                 #if os(macOS)
                 .toggleStyle(.switch)
                 #endif
+                .disabled(!isEditable)
                 .accessibilityIdentifier(AccessibilityIdentifier.toggle(mock.name))
         }
         .padding(.vertical, 4)
