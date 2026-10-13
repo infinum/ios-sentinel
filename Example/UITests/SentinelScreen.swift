@@ -180,7 +180,8 @@ enum ToolNames {
     static let crashDetection = "Crash Detection Tool"
     static let clearAppData = "Clear App Data"
     static let customLocation = "Custom Location"
+    static let apiMocking = "API Mocking"
     static let pulse = "Pulse"
 
-    static let all = [userDefaults, baseURL, colorChange, crashDetection, clearAppData, customLocation, pulse]
+    static let all = [userDefaults, baseURL, colorChange, crashDetection, clearAppData, customLocation, apiMocking, pulse]
 }
