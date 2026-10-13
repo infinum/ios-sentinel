@@ -20,6 +20,10 @@ xcodebuild -project Example/Sentinel.xcodeproj -scheme Example-iOS -destination 
 xcodebuild -project Example/Sentinel.xcodeproj -scheme Example-MacOS -destination 'platform=macOS' build
 ```
 
+```bash
+xcodebuild -project SentinelMac/SentinelMac.xcodeproj -scheme SentinelMac -destination 'platform=macOS' build
+```
+
 Build the SwiftPM package for iOS (a plain `swift build` on a Mac only builds the macOS variant):
 
 ```bash
@@ -65,6 +69,10 @@ If several runtimes have a simulator with the same name, pass its `id=` instead 
 **iOS-only code.** Guard it with `#if os(iOS)` inside the source files, as `ClearAppData` does. Don't exclude it in `Package.swift`: the manifest's `#if os(iOS)` is evaluated on the host when SwiftPM compiles it, so a manifest exclusion also drops the code from iOS builds made on a Mac. SwiftPM also can't restrict a resource to one platform, so iOS-only tools build their UI in code rather than in storyboards or XIBs.
 
 **Resources.** `Sentinel/Assets` and `SupportingFiles/PrivacyInfo.xcprivacy` are declared in `Package.swift` (`resources`); declare new resources there.
+
+## Sentinel for Mac
+
+`SentinelMac/` is a Mac app that shows a device's network requests live and controls its API mocks. It's a thin shell around `SentinelMacView`, which lives in the `Sentinel` target behind `@_spi(SentinelMac)`, and it consumes the repository as a local package like the example apps. Devices connect through `MacConnectionTool`; the code for both sides is in `Sentinel/Classes/MacConnection`. Connections run over Network.framework with Bonjour (`_sentinel._tcp`), and the Simulator connects on localhost. Pairing and encryption use CryptoKit rather than TLS, because a TLS server can't pick a pre-shared key after the device says who it is. Network entries come from `SentinelPulse`, which reaches `RemoteNetworkRecorder` through `package` access.
 
 ## Example apps
 

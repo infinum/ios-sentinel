@@ -234,6 +234,10 @@ The tool will export the database file as a zip, and the file should be imported
 
 **PulseTool** shows the [Pulse](https://github.com/kean/Pulse) console with the app's logs and network requests. It is part of the separate `SentinelPulse` product, so add that product and `import SentinelPulse` to use it. The app also needs Pulse itself as a dependency, to log messages and network requests. The tool shows `LoggerStore.shared` unless a different store is passed in. The tool is available on iOS, and Pulse 5.2 and newer need iOS 18 to show the console.
 
+### MacConnectionTool
+
+**MacConnectionTool** connects the app to Sentinel for Mac, the Mac app in the repository's `SentinelMac` folder, which shows the requests the app logs through Pulse live and controls its API mocks. Switching on the connection in the tool lists the Macs found over Bonjour, on the same network or through peer-to-peer Wi-Fi; in the iOS Simulator, the Mac is reached on localhost. The first connection to a Mac pairs the two: both show a six-digit code, which the user confirms on the device and allows on the Mac. Later connections are made without asking, and everything sent between the two is encrypted. The app's Info.plist needs `NSLocalNetworkUsageDescription` and `_sentinel._tcp` under `NSBonjourServices`; nothing is searched for until the connection is switched on. The tool is available on iOS.
+
 ## Creating your own tools
 
 The next step on your Sentiel journey is tailoring a new tool to your own needs in <doc:CustomTools>

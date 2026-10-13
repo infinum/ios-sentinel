@@ -35,6 +35,7 @@ Sentinel is a debug tool which contains multiple debug tools with a single point
 - ``APIMockingTool``
 - ``APIMock``
 - ``DatabaseImportExportTool``
+- ``MacConnectionTool``
 
 ### Predefined items
 - ``ToolTableItem``
