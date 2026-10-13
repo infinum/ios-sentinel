@@ -47,14 +47,3 @@ enum APIMockListEntry: Identifiable, Equatable {
         }
     }
 }
-
-extension APIMock {
-
-    /// The group name, or `nil` when it's missing or blank.
-    var groupName: String? {
-        guard let group = group?.trimmingCharacters(in: .whitespacesAndNewlines), !group.isEmpty else {
-            return nil
-        }
-        return group
-    }
-}

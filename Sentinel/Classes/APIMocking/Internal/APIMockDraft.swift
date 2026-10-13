@@ -104,8 +104,7 @@ extension APIMockDraft {
 
     /// The group name, or `nil` when it's blank.
     var trimmedGroup: String? {
-        let group = group.trimmingCharacters(in: .whitespacesAndNewlines)
-        return group.isEmpty ? nil : group
+        APIMock.groupName(from: group)
     }
 
     var canSave: Bool {
@@ -168,56 +167,5 @@ extension APIMockDraft {
             response: response,
             delay: delay
         )
-    }
-}
-
-// MARK: - Sharing
-
-extension APIMockDraft {
-
-    /// A name usable as a file name and in code, e.g. `products-empty` for "Products – empty".
-    var fileName: String {
-        let words = trimmedName
-            .lowercased()
-            .components(separatedBy: CharacterSet.alphanumerics.inverted)
-            .filter { !$0.isEmpty }
-        return words.isEmpty ? "mock" : words.joined(separator: "-")
-    }
-
-    /// Swift code that adds the mock to the app, reading its body from `<fileName>.json`.
-    var swiftSnippet: String {
-        var arguments = ["name: \(swiftLiteral(trimmedName))"]
-        let description = description.trimmingCharacters(in: .whitespacesAndNewlines)
-        if !description.isEmpty {
-            arguments.append("description: \(swiftLiteral(description))")
-        }
-        if let group = trimmedGroup {
-            arguments.append("group: \(swiftLiteral(group))")
-        }
-        if let method {
-            arguments.append("method: .\(String(describing: method))")
-        }
-        arguments.append("url: .\(matchKind.rawValue)(\(swiftLiteral(pattern.trimmingCharacters(in: .whitespacesAndNewlines))))")
-        switch responseKind {
-        case .http:
-            if let statusCode = statusCodeValue, statusCode != 200 {
-                arguments.append("statusCode: \(statusCode)")
-            }
-            arguments.append("body: .file(named: \(swiftLiteral(fileName)))")
-        case .networkError:
-            arguments.append("error: .\(networkError.rawValue)")
-        }
-        if delay > 0 {
-            arguments.append("delay: \(delay)")
-        }
-        let lines = arguments.map { "    \($0)" }.joined(separator: ",\n")
-        return "APIMock(\n\(lines)\n)"
-    }
-
-    private func swiftLiteral(_ text: String) -> String {
-        let escaped = text
-            .replacingOccurrences(of: "\\", with: "\\\\")
-            .replacingOccurrences(of: "\"", with: "\\\"")
-        return "\"\(escaped)\""
     }
 }

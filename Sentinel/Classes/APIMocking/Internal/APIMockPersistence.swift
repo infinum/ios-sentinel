@@ -92,13 +92,11 @@ private extension APIMockPersistence {
 
 private struct PersistedState: Codable {
 
-    var version: Int?
     var isMockingEnabled: Bool?
     var enabledIDs: [String]?
     var localMocks: [PersistedMock]?
 
     init(state: APIMockPersistence.State) {
-        version = 1
         isMockingEnabled = state.isMockingEnabled
         enabledIDs = state.enabledIDs.sorted()
         localMocks = state.localMocks.map(PersistedMock.init(mock:))

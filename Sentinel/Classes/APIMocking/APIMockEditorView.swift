@@ -353,19 +353,8 @@ private extension APIMockEditorView {
     }
     #endif
 
-    /// Shares the body as a JSON file, together with the Swift code that adds the mock to the app.
     func share() {
-        var items: [Any] = [draft.swiftSnippet]
-        if draft.responseKind == .http {
-            let fileURL = FileManager.default.temporaryDirectory
-                .appendingPathComponent(draft.fileName)
-                .appendingPathExtension("json")
-            let body = JSONFormatter.prettyPrinted(JSONFormatter.repairingQuotes(in: draft.body)) ?? draft.body
-            if (try? Data(body.utf8).write(to: fileURL, options: .atomic)) != nil {
-                items.append(fileURL)
-            }
-        }
-        shareItems = items
+        shareItems = APIMockShare(draft: draft).makeItems()
         isSharing = true
     }
 }
