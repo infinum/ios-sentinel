@@ -19,7 +19,7 @@ struct APIMockingView: View {
     var body: some View {
         List {
             Section(footer: Text(activeSummary)) {
-                Toggle("Mocking", isOn: masterSwitch)
+                Toggle("Enabled", isOn: masterSwitch)
                     #if os(macOS)
                     .toggleStyle(.switch)
                     #endif
