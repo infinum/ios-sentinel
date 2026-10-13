@@ -25,9 +25,14 @@ struct APIMockRow: View {
                         .foregroundColor(.secondary)
                         .lineLimit(2)
                         .truncationMode(.middle)
-                    Text(mock.responseSummary)
-                        .font(.caption1Regular)
-                        .foregroundColor(.secondary)
+                    HStack(spacing: 6) {
+                        Circle()
+                            .fill(statusColor)
+                            .frame(width: 8, height: 8)
+                        Text(mock.responseSummary)
+                            .font(.caption1Regular.weight(.semibold))
+                            .foregroundColor(.secondary)
+                    }
                     if !mock.description.isEmpty {
                         Text(mock.description)
                             .font(.caption1Regular)
@@ -54,5 +59,24 @@ struct APIMockRow: View {
                 .accessibilityIdentifier(AccessibilityIdentifier.toggle(mock.name))
         }
         .padding(.vertical, 4)
+    }
+}
+
+// MARK: - Helpers
+
+private extension APIMockRow {
+
+    /// Green for a successful response, red for an error status or a network error, grey otherwise.
+    var statusColor: Color {
+        switch mock.response {
+        case .http(let statusCode, _, _):
+            switch statusCode {
+            case 200..<300: return .green
+            case 400..<600: return .red
+            default: return .gray
+            }
+        case .networkError:
+            return .red
+        }
     }
 }
