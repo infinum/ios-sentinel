@@ -23,4 +23,10 @@ enum AccessibilityIdentifier {
     static let userDefaultsSaveButton = "sentinel.userDefaults.save"
     static let userDefaultsDeleteButton = "sentinel.userDefaults.delete"
     static let crashesDeleteAllButton = "sentinel.crashes.deleteAll"
+    static let apiMockingMasterSwitch = "sentinel.apiMocking.masterSwitch"
+    static let apiMockingNewButton = "sentinel.apiMocking.new"
+    static let apiMockingNameField = "sentinel.apiMocking.name"
+    static let apiMockingPatternField = "sentinel.apiMocking.pattern"
+    static let apiMockingBodyEditor = "sentinel.apiMocking.body"
+    static let apiMockingSaveButton = "sentinel.apiMocking.save"
 }
