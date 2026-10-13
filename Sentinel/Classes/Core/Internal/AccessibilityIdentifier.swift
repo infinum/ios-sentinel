@@ -15,6 +15,7 @@ enum AccessibilityIdentifier {
 
     static func row(_ title: String) -> String { "sentinel.row.\(title)" }
     static func toggle(_ title: String) -> String { "sentinel.toggle.\(title)" }
+    static func apiMockingGroup(_ name: String) -> String { "sentinel.apiMocking.group.\(name)" }
 
     static let clearAllDataButton = "sentinel.clearAppData.clearAll"
     static let textEditingField = "sentinel.textEditing.field"
@@ -26,6 +27,7 @@ enum AccessibilityIdentifier {
     static let apiMockingMasterSwitch = "sentinel.apiMocking.masterSwitch"
     static let apiMockingNewButton = "sentinel.apiMocking.new"
     static let apiMockingNameField = "sentinel.apiMocking.name"
+    static let apiMockingGroupField = "sentinel.apiMocking.groupField"
     static let apiMockingPatternField = "sentinel.apiMocking.pattern"
     static let apiMockingBodyRow = "sentinel.apiMocking.bodyRow"
     static let apiMockingBodyEditor = "sentinel.apiMocking.body"

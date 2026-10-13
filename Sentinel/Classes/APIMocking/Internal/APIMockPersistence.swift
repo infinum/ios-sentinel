@@ -118,6 +118,7 @@ private struct PersistedMock: Codable {
     var id: String?
     var name: String?
     var description: String?
+    var group: String?
     var method: String?
     var matchKind: String?
     var pattern: String?
@@ -131,6 +132,7 @@ private struct PersistedMock: Codable {
         id = mock.id
         name = mock.name
         description = mock.description
+        group = mock.group
         method = mock.method?.rawValue
         matchKind = mock.url.kind.rawValue
         pattern = mock.url.pattern
@@ -162,6 +164,7 @@ private struct PersistedMock: Codable {
             id: id,
             name: name,
             description: description ?? "",
+            group: group,
             method: method.flatMap(APIMock.HTTPMethod.init(rawValue:)),
             url: APIMock.URLPattern(
                 kind: matchKind.flatMap(APIMock.URLPattern.Kind.init(rawValue:)) ?? .wildcard,

@@ -15,6 +15,7 @@ struct APIMockingView: View {
     @ObservedObject private var store = APIMockStore.shared
     @State private var searchText = ""
     @State private var editor: APIMockEditorRoute?
+    @State private var expandedGroups: Set<String> = []
 
     var body: some View {
         List {
@@ -43,16 +44,12 @@ struct APIMockingView: View {
                         .font(.caption1Regular)
                         .foregroundColor(.secondary)
                 }
-                ForEach(filteredLocalMocks) { mock in
-                    row(for: mock, isLocal: true)
-                }
+                rows(for: filteredLocalMocks, isLocal: true)
             }
 
             if !store.appMocks.isEmpty {
                 Section(header: Text("App mocks")) {
-                    ForEach(filteredAppMocks) { mock in
-                        row(for: mock, isLocal: false)
-                    }
+                    rows(for: filteredAppMocks, isLocal: false)
                 }
             }
         }
@@ -87,6 +84,52 @@ struct APIMockingView: View {
 // MARK: - Rows
 
 private extension APIMockingView {
+
+    func rows(for mocks: [APIMock], isLocal: Bool) -> some View {
+        ForEach(APIMockListEntry.entries(for: mocks)) { entry in
+            switch entry {
+            case .mock(let mock):
+                row(for: mock, isLocal: isLocal)
+            case .group(let name, let mocks):
+                DisclosureGroup(isExpanded: isExpanded(group: name, isLocal: isLocal)) {
+                    ForEach(mocks) { mock in
+                        row(for: mock, isLocal: isLocal)
+                    }
+                } label: {
+                    groupLabel(name: name, mocks: mocks)
+                }
+            }
+        }
+    }
+
+    func groupLabel(name: String, mocks: [APIMock]) -> some View {
+        let enabledCount = mocks.filter(store.isEnabled).count
+        return VStack(alignment: .leading, spacing: 4) {
+            Text(name)
+                .font(.body1Bold)
+            Text("\(mocks.count) \(mocks.count == 1 ? "mock" : "mocks") · \(enabledCount) on")
+                .font(.caption1Regular)
+                .foregroundColor(.secondary)
+        }
+        .padding(.vertical, 4)
+        .accessibilityIdentifier(AccessibilityIdentifier.apiMockingGroup(name))
+    }
+
+    /// Groups start collapsed, and open while a search matches mocks in them.
+    func isExpanded(group: String, isLocal: Bool) -> Binding<Bool> {
+        // The same name can be used in both sections, which expand on their own.
+        let key = "\(isLocal ? "local" : "app").\(group)"
+        return Binding(
+            get: { !searchText.isEmpty || expandedGroups.contains(key) },
+            set: { isExpanded in
+                if isExpanded {
+                    expandedGroups.insert(key)
+                } else {
+                    expandedGroups.remove(key)
+                }
+            }
+        )
+    }
 
     func row(for mock: APIMock, isLocal: Bool) -> some View {
         APIMockRow(
@@ -188,7 +231,7 @@ private extension APIMockingView {
     func matchesSearch(_ mock: APIMock) -> Bool {
         let query = searchText.trimmingCharacters(in: .whitespaces).lowercased()
         guard !query.isEmpty else { return true }
-        return [mock.name, mock.description, mock.url.pattern]
+        return [mock.name, mock.description, mock.group ?? "", mock.url.pattern]
             .contains { $0.lowercased().contains(query) }
     }
 }

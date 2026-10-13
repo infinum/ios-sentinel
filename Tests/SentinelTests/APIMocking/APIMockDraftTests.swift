@@ -51,6 +51,7 @@ struct APIMockDraftTests {
             id: "local.1",
             name: "Products",
             description: "Empty list",
+            group: "Catalog",
             method: .get,
             url: .regex("/products$"),
             statusCode: 404,
@@ -111,6 +112,19 @@ struct APIMockDraftTests {
         #expect(draft.bodySummary.hasPrefix("1 line · "))
     }
 
+    @Test("A blank group is no group")
+    func blankGroup() {
+        var draft = APIMockDraft()
+        draft.name = "Products"
+        draft.pattern = "/products"
+        draft.group = "  "
+
+        #expect(draft.makeMock().group == nil)
+
+        draft.group = " Catalog "
+        #expect(draft.makeMock().group == "Catalog")
+    }
+
     @Test("The file name is made of the name's words")
     func fileName() {
         var draft = APIMockDraft()
@@ -125,6 +139,7 @@ struct APIMockDraftTests {
     func swiftSnippet() {
         var draft = APIMockDraft()
         draft.name = "Products \"empty\""
+        draft.group = "Catalog"
         draft.method = .get
         draft.pattern = "/api/v2/products"
         draft.statusCode = "404"
@@ -133,6 +148,7 @@ struct APIMockDraftTests {
         #expect(draft.swiftSnippet == """
         APIMock(
             name: "Products \\"empty\\"",
+            group: "Catalog",
             method: .get,
             url: .wildcard("/api/v2/products"),
             statusCode: 404,

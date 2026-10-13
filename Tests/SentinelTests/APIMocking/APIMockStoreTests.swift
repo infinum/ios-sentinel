@@ -137,6 +137,7 @@ struct APIMockStoreTests {
             id: "local.1",
             name: "Local",
             description: "Saved",
+            group: "Orders",
             method: .post,
             url: .regex("/orders$"),
             statusCode: 201,

@@ -28,6 +28,7 @@ struct APIMockEditorView: View {
     private enum Field: Hashable {
         case name
         case description
+        case group
         case pattern
         case statusCode
     }
@@ -119,12 +120,23 @@ private extension APIMockEditorView {
                         Text(draft.description)
                             .foregroundColor(.secondary)
                     }
+                    if let group = draft.trimmedGroup {
+                        HStack {
+                            Text("Group")
+                            Spacer()
+                            Text(group)
+                                .foregroundColor(.secondary)
+                        }
+                    }
                 } else {
                     TextField("Name", text: $draft.name)
                         .focused($focusedField, equals: .name)
                         .accessibilityIdentifier(AccessibilityIdentifier.apiMockingNameField)
                     TextField("Description", text: $draft.description)
                         .focused($focusedField, equals: .description)
+                    TextField("Group (optional)", text: $draft.group)
+                        .focused($focusedField, equals: .group)
+                        .accessibilityIdentifier(AccessibilityIdentifier.apiMockingGroupField)
                 }
             }
 

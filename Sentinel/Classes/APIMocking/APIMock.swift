@@ -22,6 +22,8 @@ public struct APIMock: Identifiable, Equatable, Sendable {
     public var name: String
     /// Short explanation shown under the name.
     public var description: String
+    /// Name of the collapsible group the mock is listed in, or `nil` to list it on its own.
+    public var group: String?
     /// The HTTP method the mock answers, or `nil` for any method.
     public var method: HTTPMethod?
     /// The URLs the mock answers.
@@ -39,6 +41,7 @@ public struct APIMock: Identifiable, Equatable, Sendable {
     ///     - id: Identifies the mock; defaults to `name`. Set it to keep the mock switched on across renames.
     ///     - name: Name shown in the tool. Mocks passed to the tool need unique names, or unique ids.
     ///     - description: Short explanation shown under the name.
+    ///     - group: Name of the collapsible group the mock is listed in, or `nil` to list it on its own.
     ///     - method: The HTTP method the mock answers, or `nil` for any method.
     ///     - url: The URLs the mock answers.
     ///     - statusCode: HTTP status code of the response.
@@ -49,6 +52,7 @@ public struct APIMock: Identifiable, Equatable, Sendable {
         id: String? = nil,
         name: String,
         description: String = "",
+        group: String? = nil,
         method: HTTPMethod? = nil,
         url: URLPattern,
         statusCode: Int = 200,
@@ -60,6 +64,7 @@ public struct APIMock: Identifiable, Equatable, Sendable {
             id: id ?? name,
             name: name,
             description: description,
+            group: group,
             method: method,
             url: url,
             response: Response.http(statusCode: statusCode, headers: headers, body: body),
@@ -73,6 +78,7 @@ public struct APIMock: Identifiable, Equatable, Sendable {
     ///     - id: Identifies the mock; defaults to `name`. Set it to keep the mock switched on across renames.
     ///     - name: Name shown in the tool. Mocks passed to the tool need unique names, or unique ids.
     ///     - description: Short explanation shown under the name.
+    ///     - group: Name of the collapsible group the mock is listed in, or `nil` to list it on its own.
     ///     - method: The HTTP method the mock answers, or `nil` for any method.
     ///     - url: The URLs the mock answers.
     ///     - error: The error the request fails with.
@@ -81,6 +87,7 @@ public struct APIMock: Identifiable, Equatable, Sendable {
         id: String? = nil,
         name: String,
         description: String = "",
+        group: String? = nil,
         method: HTTPMethod? = nil,
         url: URLPattern,
         error: NetworkError,
@@ -90,6 +97,7 @@ public struct APIMock: Identifiable, Equatable, Sendable {
             id: id ?? name,
             name: name,
             description: description,
+            group: group,
             method: method,
             url: url,
             response: Response.networkError(error),
@@ -101,6 +109,7 @@ public struct APIMock: Identifiable, Equatable, Sendable {
         id: String,
         name: String,
         description: String,
+        group: String?,
         method: HTTPMethod?,
         url: URLPattern,
         response: Response,
@@ -109,6 +118,7 @@ public struct APIMock: Identifiable, Equatable, Sendable {
         self.id = id
         self.name = name
         self.description = description
+        self.group = group
         self.method = method
         self.url = url
         self.response = response

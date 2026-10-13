@@ -34,6 +34,7 @@ struct APIMockDraft: Equatable {
     private(set) var id: String
     var name = ""
     var description = ""
+    var group = ""
     var method: APIMock.HTTPMethod?
     var matchKind = APIMock.URLPattern.Kind.wildcard
     var pattern = ""
@@ -55,6 +56,7 @@ struct APIMockDraft: Equatable {
         id = mock.id
         name = mock.name
         description = mock.description
+        group = mock.group ?? ""
         method = mock.method
         matchKind = mock.url.kind
         pattern = mock.url.pattern
@@ -98,6 +100,12 @@ extension APIMockDraft {
 
     var trimmedName: String {
         name.trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+
+    /// The group name, or `nil` when it's blank.
+    var trimmedGroup: String? {
+        let group = group.trimmingCharacters(in: .whitespacesAndNewlines)
+        return group.isEmpty ? nil : group
     }
 
     var canSave: Bool {
@@ -154,6 +162,7 @@ extension APIMockDraft {
             id: id,
             name: trimmedName,
             description: description.trimmingCharacters(in: .whitespacesAndNewlines),
+            group: trimmedGroup,
             method: method,
             url: urlPattern,
             response: response,
@@ -181,6 +190,9 @@ extension APIMockDraft {
         let description = description.trimmingCharacters(in: .whitespacesAndNewlines)
         if !description.isEmpty {
             arguments.append("description: \(swiftLiteral(description))")
+        }
+        if let group = trimmedGroup {
+            arguments.append("group: \(swiftLiteral(group))")
         }
         if let method {
             arguments.append("method: .\(String(describing: method))")

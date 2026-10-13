@@ -82,6 +82,7 @@ private extension AppDelegate {
                 APIMock(
                     name: "Repository",
                     description: "Made-up repository details, read from repository.json",
+                    group: "Repository",
                     method: .get,
                     url: .wildcard("/repos/infinum/ios-sentinel"),
                     body: .file(named: "repository")
@@ -89,6 +90,7 @@ private extension AppDelegate {
                 APIMock(
                     name: "Repository – server error",
                     description: "GitHub answers with a 500 after a second",
+                    group: "Repository",
                     method: .get,
                     url: .wildcard("/repos/infinum/ios-sentinel"),
                     statusCode: 500,
@@ -98,6 +100,7 @@ private extension AppDelegate {
                 APIMock(
                     name: "Repository – offline",
                     description: "The request fails as if the device had no connection",
+                    group: "Repository",
                     url: .wildcard("/repos/infinum/ios-sentinel"),
                     error: .notConnectedToInternet,
                     delay: 2
