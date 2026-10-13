@@ -360,6 +360,59 @@ The app has to be force quit and relaunched afterwards. iOS cannot restart it, s
 
 Keychain items in shared access groups and data in app group containers are left alone, since both are shared with other apps and extensions. Clearing those stays the host app's responsibility.
 
+#### APIMockingTool
+
+*APIMockingTool* answers the app's network requests with mocked responses. The app passes the mocks it ships with, and testers create more in the tool by pasting a response body, without rebuilding the app. Every mock has its own switch, a short description, and an HTTP response or a network error, optionally after a delay.
+
+```swift
+APIMockingTool(
+    mocks: [
+        APIMock(
+            name: "Products – empty",
+            description: "No products, shows the empty state",
+            method: .get,
+            url: .wildcard("/api/v2/products"),
+            body: .file(named: "products-empty") // products-empty.json in the main bundle
+        ),
+        APIMock(
+            name: "Products – server error",
+            url: .wildcard("/api/v2/products"),
+            statusCode: 500,
+            body: .json(#"{ "error": "Server error" }"#),
+            delay: 1
+        ),
+        APIMock(
+            name: "Products – offline",
+            url: .wildcard("/api/v2/products"),
+            error: .notConnectedToInternet
+        )
+    ]
+)
+```
+
+A mock answers the requests that match its method (`nil` matches any method) and its URL pattern, ignoring case:
+
+- `.wildcard` matches URLs that end with the pattern, where `*` stands for any run of characters. The query and a trailing `/` are ignored unless the pattern contains `?`. `/api/v2/products` matches `https://example.com/api/v2/products?page=2` but not `/api/v2/products/42`. Use `/api/v2/products*` for every URL under the path, or `/accounts/*/details` for a path with an identifier in it.
+- `.regex` is a regular expression that has to match somewhere in the full URL.
+
+Switching a mock on switches off the other mocks with the same pattern and an overlapping method, so variants of one endpoint can sit side by side. When different patterns match the same request, mocks made in the tool win over the app's, then the app's mocks are tried in the order they were passed. A master switch at the top of the tool turns every mock off at once.
+
+Mocks are served by a `URLProtocol`, so a mocked request still goes through `URLSession`: the app's own networking code, such as Alamofire's validation and interceptors, runs as it would for a real response. When the tool is created, it adds its protocol to every `URLSessionConfiguration.default` and `.ephemeral` configuration created from then on, and to `URLSession.shared`. A configuration created before the tool, such as one made in a SwiftUI `App` initializer, needs the protocol added before a session is created from it:
+
+```swift
+let configuration = URLSessionConfiguration.default
+APIMockingTool.register(in: configuration)
+let session = URLSession(configuration: configuration)
+```
+
+Pass `injectsAutomatically: false` to leave the session configurations alone and register every one yourself. Background sessions, web views and media playback are never mocked, and mocked redirects aren't followed.
+
+[Pulse](https://github.com/kean/Pulse) shows mocked requests with a *Mock* badge, and every mocked response carries an `X-Sentinel-Mock` header naming the mock that answered.
+
+Mocks made in the tool and the switches are saved in `Library/Sentinel`, so they survive relaunches and *ClearAppDataTool*, which leaves that folder alone. They stay switched on until they're switched off in the tool, and the app logs how many mocks are on when it launches. A mock made in the tool can be shared as its JSON body together with the Swift code that adds it to the app.
+
+The tool is available on iOS and macOS.
+
 #### PulseTool
 
 *PulseTool* shows the [Pulse](https://github.com/kean/Pulse) console, with the app's logs and network requests, inside Sentinel. It lives in a separate `SentinelPulse` product, so Pulse is only added to apps that use the tool. The app also depends on Pulse itself, which it uses to log messages and network requests:
