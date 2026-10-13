@@ -11,6 +11,7 @@ struct TextEditingToolView: View {
 
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject var viewModel: TextEditingToolViewModel
+    @FocusState private var isEditing: Bool
     #if os(macOS)
     @Binding var selection: String?
     #endif
@@ -18,6 +19,7 @@ struct TextEditingToolView: View {
     var body: some View {
         VStack(spacing: 10) {
             TextField(viewModel.title, text: $viewModel.value)
+                .focused($isEditing)
                 .accessibilityIdentifier(AccessibilityIdentifier.textEditingField)
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
 
@@ -35,5 +37,6 @@ struct TextEditingToolView: View {
         }
         .padding(16)
         .navigationTitle(viewModel.title)
+        .doneEditingButton(isEditing: isEditing) { isEditing = false }
     }
 }

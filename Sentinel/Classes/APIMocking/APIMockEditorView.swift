@@ -68,7 +68,10 @@ struct APIMockEditorView: View {
                             saveButton
                         }
                     }
-                    // The status code's number pad has no return key, so every field gets a way out.
+                }
+                .toolbar {
+                    // The status code's number pad has no return key, so every field gets a way out. Above
+                    // the keyboard, as the navigation bar already holds Save and the form has no bottom buttons.
                     ToolbarItemGroup(placement: .keyboard) {
                         Spacer()
                         Button("Done") {

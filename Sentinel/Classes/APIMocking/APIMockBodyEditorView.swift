@@ -60,14 +60,7 @@ struct APIMockBodyEditorView: View {
         }
         .navigationTitle("Body")
         .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItemGroup(placement: .keyboard) {
-                Spacer()
-                Button("Done") {
-                    isEditing = false
-                }
-            }
-        }
+        .doneEditingButton(isEditing: isEditing) { isEditing = false }
     }
 }
 
