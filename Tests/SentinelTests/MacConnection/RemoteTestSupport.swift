@@ -147,7 +147,7 @@ final class RemoteLoopback {
                 port: port,
                 using: RemoteService.makeParameters()
             ),
-            role: .device(Self.device),
+            role: .device(Self.device, pairedMacIDs: deviceStore.pairedPeerIDs),
             keyStore: deviceStore
         )
         connection.onEvent = { [deviceEvents] event in

@@ -13,6 +13,15 @@ import Testing
 @Suite("Remote connection over localhost")
 struct RemoteConnectionTests {
 
+    @Test("The device tries again unless the pairing was turned down or the versions don't match")
+    func reconnectRule() {
+        let retried: [RemoteConnection.CloseReason] = [.cancelled, .authenticationFailed, .timedOut, .failed("Lost")]
+
+        #expect(retried.allSatisfy { $0.allowsReconnect })
+        #expect(!RemoteConnection.CloseReason.rejected.allowsReconnect)
+        #expect(!RemoteConnection.CloseReason.unsupportedVersion.allowsReconnect)
+    }
+
     @Test("A first connection pairs, with the same code on both sides")
     func pairs() async throws {
         let loopback = try RemoteLoopback()

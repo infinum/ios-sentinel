@@ -27,6 +27,21 @@ final class ToolsUITests: XCTestCase {
         }
     }
 
+    func testMacConnectionListsThisMacOnceSwitchedOn() {
+        let screen = SentinelScreen.launch()
+        screen.open()
+
+        screen.openTool(ToolNames.macConnection)
+        let toggle = screen.element("sentinel.macConnection.switch")
+        XCTAssertTrue(toggle.waitForExistence(timeout: 5))
+        XCTAssertFalse(screen.row("This Mac").exists, "Searched before the connection was switched on")
+        toggle.tapSwitch()
+
+        // The Simulator lists the Mac it runs on, reached on localhost.
+        XCTAssertTrue(screen.row("This Mac").waitForExistence(timeout: 5))
+        XCTAssertTrue(screen.app.staticTexts["Looking for Macs…"].exists)
+    }
+
     func testCrashDetectionShowsAnEmptyList() {
         let screen = SentinelScreen.launch()
         screen.open()

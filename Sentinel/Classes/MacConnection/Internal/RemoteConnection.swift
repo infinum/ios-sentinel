@@ -16,7 +16,8 @@ import Network
 final class RemoteConnection {
 
     enum Role {
-        case device(RemoteDeviceInfo)
+        /// A device, with the Macs it has a pairing key for.
+        case device(RemoteDeviceInfo, pairedMacIDs: [String])
         case mac(id: String, name: String)
     }
 
@@ -117,6 +118,17 @@ final class RemoteConnection {
 
 extension RemoteConnection.CloseReason {
 
+    /// Whether the device should try the same Mac again. Not after a user turned the pairing down or the
+    /// versions don't match: trying again would only fail the same way.
+    var allowsReconnect: Bool {
+        switch self {
+        case .rejected, .unsupportedVersion:
+            return false
+        case .cancelled, .authenticationFailed, .timedOut, .failed:
+            return true
+        }
+    }
+
     /// Why the connection ended, for either side to show.
     var message: String {
         switch self {
@@ -194,8 +206,8 @@ private extension RemoteConnection {
             lastReceived = Date()
             startTimer()
             switch role {
-            case .device(let device):
-                sendClientHello(for: device)
+            case .device(let device, let pairedMacIDs):
+                sendClientHello(for: device, pairedMacIDs: pairedMacIDs)
             case .mac:
                 state = .awaitingClientHello
             }
@@ -340,7 +352,7 @@ private extension RemoteConnection {
 
 private extension RemoteConnection {
 
-    func sendClientHello(for device: RemoteDeviceInfo) {
+    func sendClientHello(for device: RemoteDeviceInfo, pairedMacIDs: [String]) {
         let nonce = RemotePairing.makeNonce()
         let privateKey = Curve25519.KeyAgreement.PrivateKey()
         state = .awaitingServerHello(nonce: nonce, privateKey: privateKey)
@@ -348,7 +360,7 @@ private extension RemoteConnection {
             RemoteClientHello(
                 protocolVersion: RemoteHandshake.protocolVersion,
                 device: device,
-                pairedMacIDs: keyStore.pairedPeerIDs,
+                pairedMacIDs: pairedMacIDs,
                 nonce: nonce,
                 pairingPublicKey: privateKey.publicKey.rawRepresentation
             )

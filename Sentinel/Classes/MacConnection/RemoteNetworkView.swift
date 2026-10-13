@@ -217,11 +217,7 @@ private extension RemoteNetworkEntry {
         if errorDescription != nil {
             return .red
         }
-        switch statusCode {
-        case .some(200..<300): return .green
-        case .some(400..<600): return .red
-        default: return .secondary
-        }
+        return statusCode.map(Color.httpStatus) ?? .secondary
     }
 
     var durationText: String {

@@ -13,7 +13,6 @@ import Foundation
 /// A connection reads and writes it on its own queue, so implementations have to be thread-safe.
 protocol RemotePairingKeyStore: AnyObject {
 
-    var pairedPeerIDs: [String] { get }
     func key(forPeer id: String) -> SymmetricKey?
     func save(_ key: SymmetricKey, forPeer id: String)
     func removeKey(forPeer id: String)
@@ -28,17 +27,6 @@ final class RemoteKeychainKeyStore: RemotePairingKeyStore {
 
     init(service: String = "com.infinum.sentinel.mac.pairing") {
         self.service = service
-    }
-
-    var pairedPeerIDs: [String] {
-        var query = baseQuery
-        query[kSecMatchLimit as String] = kSecMatchLimitAll
-        query[kSecReturnAttributes as String] = true
-        var result: CFTypeRef?
-        guard SecItemCopyMatching(query as CFDictionary, &result) == errSecSuccess,
-              let items = result as? [[String: Any]]
-        else { return [] }
-        return items.compactMap { $0[kSecAttrAccount as String] as? String }
     }
 
     func key(forPeer id: String) -> SymmetricKey? {
@@ -65,17 +53,12 @@ final class RemoteKeychainKeyStore: RemotePairingKeyStore {
         SecItemDelete(query(forPeer: id) as CFDictionary)
     }
 
-    private var baseQuery: [String: Any] {
+    private func query(forPeer id: String) -> [String: Any] {
         [
             kSecClass as String: kSecClassGenericPassword,
-            kSecAttrService as String: service
+            kSecAttrService as String: service,
+            kSecAttrAccount as String: id
         ]
-    }
-
-    private func query(forPeer id: String) -> [String: Any] {
-        var query = baseQuery
-        query[kSecAttrAccount as String] = id
-        return query
     }
 }
 

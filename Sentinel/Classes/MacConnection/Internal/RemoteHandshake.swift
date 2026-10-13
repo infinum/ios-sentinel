@@ -60,25 +60,22 @@ struct RemoteDeviceInfo: Codable, Equatable, Identifiable {
     var appVersion: String
 }
 
+#if os(iOS)
+
 extension RemoteDeviceInfo {
 
     static func current(id: String) -> RemoteDeviceInfo {
         let info = Bundle.main.infoDictionary ?? [:]
         let appName = info["CFBundleDisplayName"] as? String ?? info["CFBundleName"] as? String ?? "App"
-        #if os(iOS)
-        let deviceName = UIDevice.current.name
-        let systemVersion = "\(UIDevice.current.systemName) \(UIDevice.current.systemVersion)"
-        #else
-        let deviceName = Host.current().localizedName ?? "Mac"
-        let systemVersion = "macOS \(ProcessInfo.processInfo.operatingSystemVersionString)"
-        #endif
         return RemoteDeviceInfo(
             id: id,
-            deviceName: deviceName,
-            systemVersion: systemVersion,
+            deviceName: UIDevice.current.name,
+            systemVersion: "\(UIDevice.current.systemName) \(UIDevice.current.systemVersion)",
             appName: appName,
             bundleID: Bundle.main.bundleIdentifier ?? "",
             appVersion: info["CFBundleShortVersionString"] as? String ?? ""
         )
     }
 }
+
+#endif

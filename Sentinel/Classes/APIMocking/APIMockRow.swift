@@ -69,17 +69,11 @@ struct APIMockRow: View {
 
 private extension APIMockRow {
 
-    /// Green for a successful response, red for an error status or a network error, grey otherwise.
+    /// The status's color, and red for a network error.
     var statusColor: Color {
         switch mock.response {
-        case .http(let statusCode, _, _):
-            switch statusCode {
-            case 200..<300: return .green
-            case 400..<600: return .red
-            default: return .gray
-            }
-        case .networkError:
-            return .red
+        case .http(let statusCode, _, _): return Color.httpStatus(statusCode)
+        case .networkError: return .red
         }
     }
 }

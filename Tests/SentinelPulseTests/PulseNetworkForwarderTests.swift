@@ -70,6 +70,24 @@ struct PulseNetworkForwarderTests {
         #expect(body.size == RemoteNetworkEntry.maximumBodySize * 2)
     }
 
+    @Test("A store is forwarded once, however many tools show it")
+    func forwardedOnce() throws {
+        let directory = FileManager.default.temporaryDirectory.appendingPathComponent("SentinelPulseTests-\(UUID().uuidString)")
+        try FileManager.default.createDirectory(at: directory, withIntermediateDirectories: true)
+        defer { try? FileManager.default.removeItem(at: directory) }
+        let store = try LoggerStore(storeURL: directory.appendingPathComponent("logs.pulse"), options: [.create])
+        let recorder = RemoteNetworkRecorder()
+        recorder.setRecording(true)
+        var forwardedCount = 0
+        recorder.startForwarding { _ in forwardedCount += 1 }
+
+        PulseNetworkForwarder.start(for: store, to: recorder)
+        PulseNetworkForwarder.start(for: store, to: recorder)
+        store.events.send(completedEvent(requestHeaders: [:], responseBody: nil))
+
+        #expect(forwardedCount == 1)
+    }
+
     @Test("Progress updates and log messages aren't forwarded")
     func otherEvents() {
         let progress = LoggerStore.Event.networkTaskProgressUpdated(

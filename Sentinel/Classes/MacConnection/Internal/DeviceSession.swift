@@ -42,6 +42,7 @@ final class DeviceSession: ObservableObject {
     @Published private(set) var selectedMac: DiscoveredMac?
 
     private let store: MacConnectionStore
+    private let recorder: RemoteNetworkRecorder
     private var isSearching = false
     private var browser: NWBrowser?
     private var connection: RemoteConnection?
@@ -53,8 +54,9 @@ final class DeviceSession: ObservableObject {
 
     // MARK: - Lifecycle
 
-    init(store: MacConnectionStore) {
+    init(store: MacConnectionStore, recorder: RemoteNetworkRecorder = .shared) {
         self.store = store
+        self.recorder = recorder
         isEnabled = store.isEnabled
         activeObserver = NotificationCenter.default.addObserver(
             forName: UIApplication.didBecomeActiveNotification,
@@ -70,7 +72,7 @@ final class DeviceSession: ObservableObject {
     /// switched it on, so searching at launch doesn't prompt.
     func activate() {
         if isEnabled {
-            RemoteNetworkRecorder.shared.setRecording(true)
+            recorder.setRecording(true)
             startSearching()
         }
     }
@@ -78,7 +80,7 @@ final class DeviceSession: ObservableObject {
     func setEnabled(_ isEnabled: Bool) {
         store.isEnabled = isEnabled
         self.isEnabled = isEnabled
-        RemoteNetworkRecorder.shared.setRecording(isEnabled)
+        recorder.setRecording(isEnabled)
         if isEnabled {
             reconnectsAutomatically = true
             startSearching()
@@ -95,7 +97,7 @@ final class DeviceSession: ObservableObject {
 
         let connection = RemoteConnection(
             connection: NWConnection(to: mac.endpoint, using: RemoteService.makeParameters()),
-            role: .device(RemoteDeviceInfo.current(id: store.deviceID)),
+            role: .device(RemoteDeviceInfo.current(id: store.deviceID), pairedMacIDs: store.pairedPeerIDs),
             keyStore: store
         )
         connection.onEvent = { [weak self, weak connection] event in
@@ -178,7 +180,7 @@ private extension DeviceSession {
         connection?.cancel()
         connection = nil
         mockBridge = nil
-        RemoteNetworkRecorder.shared.stopForwarding()
+        recorder.stopForwarding()
         selectedMac = nil
         macs = []
         status = .off
@@ -199,11 +201,7 @@ private extension DeviceSession {
     }
 
     func update(_ discoveredMacs: [DiscoveredMac]) {
-        // A Mac reachable over several links, such as Wi-Fi and peer-to-peer Wi-Fi, shows up once per link.
-        var names = Set<String>()
-        macs = discoveredMacs
-            .filter { names.insert($0.name).inserted }
-            .sorted { $0.name.localizedCaseInsensitiveCompare($1.name) == .orderedAscending }
+        macs = Self.listed(discoveredMacs)
         reconnectIfNeeded()
     }
 
@@ -238,7 +236,7 @@ private extension DeviceSession {
             mockBridge = RemoteMockBridge(store: APIMockStore.shared) { [weak connection] message in
                 connection?.send(message)
             }
-            RemoteNetworkRecorder.shared.startForwarding { [weak connection] entry in
+            recorder.startForwarding { [weak connection] entry in
                 connection?.send(RemoteMessage.networkEntry(entry), isDroppable: true)
             }
         case .message(.mockCommand(let command)):
@@ -248,21 +246,30 @@ private extension DeviceSession {
         case .closed(let reason):
             connection = nil
             mockBridge = nil
-            RemoteNetworkRecorder.shared.stopForwarding()
+            recorder.stopForwarding()
             status = .failed(reason.message)
-            switch reason {
-            case .rejected, .unsupportedVersion:
-                reconnectsAutomatically = false
-            case .cancelled:
-                status = isEnabled ? .searching : .off
-            case .authenticationFailed, .timedOut, .failed:
+            if reason.allowsReconnect {
                 scheduleReconnect()
+            } else {
+                reconnectsAutomatically = false
             }
         }
     }
 }
 
 // MARK: - Browse results
+
+extension DeviceSession {
+
+    /// The Macs to list: each once, as a Mac reachable over several links, such as Wi-Fi and peer-to-peer
+    /// Wi-Fi, shows up once per link, sorted by name.
+    static func listed(_ discoveredMacs: [DiscoveredMac]) -> [DiscoveredMac] {
+        var names = Set<String>()
+        return discoveredMacs
+            .filter { names.insert($0.name).inserted }
+            .sorted { $0.name.localizedCaseInsensitiveCompare($1.name) == .orderedAscending }
+    }
+}
 
 private extension DeviceSession.DiscoveredMac {
 

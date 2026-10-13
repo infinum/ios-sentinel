@@ -44,27 +44,28 @@ final class MacConnectionStore: RemotePairingKeyStore {
     }
 
     var deviceID: String {
-        locked { state.deviceID }
+        lock.locked { state.deviceID }
     }
 
     var isEnabled: Bool {
-        get { locked { state.isEnabled } }
+        get { lock.locked { state.isEnabled } }
         set { update { $0.isEnabled = newValue } }
     }
 
     var lastMacName: String? {
-        get { locked { state.lastMacName } }
+        get { lock.locked { state.lastMacName } }
         set { update { $0.lastMacName = newValue } }
+    }
+
+    /// The Macs the device has a pairing key for.
+    var pairedPeerIDs: [String] {
+        lock.locked { state.keys.keys.sorted() }
     }
 
     // MARK: - RemotePairingKeyStore
 
-    var pairedPeerIDs: [String] {
-        locked { state.keys.keys.sorted() }
-    }
-
     func key(forPeer id: String) -> SymmetricKey? {
-        locked { state.keys[id].map { SymmetricKey(data: $0) } }
+        lock.locked { state.keys[id].map { SymmetricKey(data: $0) } }
     }
 
     func save(_ key: SymmetricKey, forPeer id: String) {
@@ -80,15 +81,9 @@ final class MacConnectionStore: RemotePairingKeyStore {
 
 private extension MacConnectionStore {
 
-    func locked<T>(_ body: () -> T) -> T {
-        lock.lock()
-        defer { lock.unlock() }
-        return body()
-    }
-
     /// Writes while holding the lock, so two quick changes can't reach the file in the wrong order.
     func update(_ change: (inout State) -> Void) {
-        locked {
+        lock.locked {
             change(&state)
             write()
         }

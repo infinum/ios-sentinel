@@ -22,19 +22,19 @@ final class PulseNetworkForwarder {
     private let subscription: AnyCancellable
 
     /// Starts forwarding the store's requests. A store is forwarded once, however many tools show it.
-    static func start(for store: LoggerStore) {
+    static func start(for store: LoggerStore, to recorder: RemoteNetworkRecorder = .shared) {
         lock.lock()
         defer { lock.unlock() }
         let id = ObjectIdentifier(store)
         guard forwarders[id] == nil else { return }
-        forwarders[id] = PulseNetworkForwarder(store: store)
+        forwarders[id] = PulseNetworkForwarder(store: store, recorder: recorder)
     }
 
-    private init(store: LoggerStore) {
+    private init(store: LoggerStore, recorder: RemoteNetworkRecorder) {
         // Pulse sends events on the thread that logged them; the recorder takes them from any thread.
         subscription = store.events.sink { event in
             if let entry = RemoteNetworkEntry(event: event) {
-                RemoteNetworkRecorder.shared.record(entry)
+                recorder.record(entry)
             }
         }
     }

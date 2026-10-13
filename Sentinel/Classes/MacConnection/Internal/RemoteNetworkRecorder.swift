@@ -23,14 +23,14 @@ package final class RemoteNetworkRecorder: @unchecked Sendable {
     private var size = 0
     private var forward: ((RemoteNetworkEntry) -> Void)?
 
-    init(maximumSize: Int = 8 * 1024 * 1024) {
+    package init(maximumSize: Int = 8 * 1024 * 1024) {
         self.maximumSize = maximumSize
     }
 
     /// Keeps the request, replacing an earlier entry for it, and forwards it to a connected Mac.
     /// Does nothing while the Mac connection is switched off.
     package func record(_ entry: RemoteNetworkEntry) {
-        locked {
+        lock.locked {
             guard isRecording else { return }
             if let index = entries.firstIndex(where: { $0.id == entry.id }) {
                 size -= entries[index].approximateSize
@@ -46,17 +46,17 @@ package final class RemoteNetworkRecorder: @unchecked Sendable {
         }
     }
 
-    var recordedEntries: [RemoteNetworkEntry] {
-        locked { entries }
+    package var recordedEntries: [RemoteNetworkEntry] {
+        lock.locked { entries }
     }
 }
 
 // MARK: - Device session
 
-extension RemoteNetworkRecorder {
+package extension RemoteNetworkRecorder {
 
     func setRecording(_ isRecording: Bool) {
-        locked {
+        lock.locked {
             self.isRecording = isRecording
             if !isRecording {
                 entries = []
@@ -69,26 +69,15 @@ extension RemoteNetworkRecorder {
     /// Hands every kept request to `forward`, then each new one until ``stopForwarding()``. `forward` is
     /// called under the lock, so it must not block.
     func startForwarding(to forward: @escaping (RemoteNetworkEntry) -> Void) {
-        locked {
+        lock.locked {
             self.forward = forward
             entries.forEach(forward)
         }
     }
 
     func stopForwarding() {
-        locked {
+        lock.locked {
             forward = nil
         }
-    }
-}
-
-// MARK: - Helpers
-
-private extension RemoteNetworkRecorder {
-
-    func locked<T>(_ body: () -> T) -> T {
-        lock.lock()
-        defer { lock.unlock() }
-        return body()
     }
 }
