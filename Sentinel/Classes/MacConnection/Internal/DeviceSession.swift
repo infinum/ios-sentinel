@@ -11,7 +11,7 @@ import Foundation
 import Network
 import UIKit
 
-/// The app's connection to Sentinel for Mac: finds Macs, connects to the one the user picks, and comes back
+/// The app's connection to Sentinel Companion: finds Macs, connects to the one the user picks, and comes back
 /// to it while the connection is switched on. Used from the main thread.
 final class DeviceSession: ObservableObject {
 

@@ -9,7 +9,7 @@
 
 import SwiftUI
 
-/// Tool which connects the app to Sentinel for Mac, which shows the app's network traffic live and controls
+/// Tool which connects the app to Sentinel Companion, which shows the app's network traffic live and controls
 /// its API mocks.
 ///
 /// The first connection to a Mac pairs the two: both show a six-digit code, and the user allows the

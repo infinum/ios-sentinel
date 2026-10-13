@@ -25,7 +25,7 @@ final class RemoteKeychainKeyStore: RemotePairingKeyStore {
 
     private let service: String
 
-    init(service: String = "com.infinum.sentinel.mac.pairing") {
+    init(service: String = "com.infinum.sentinel.companion.pairing") {
         self.service = service
     }
 

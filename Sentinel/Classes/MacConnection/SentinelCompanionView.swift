@@ -1,5 +1,5 @@
 //
-//  SentinelMacView.swift
+//  SentinelCompanionView.swift
 //  Sentinel
 //
 //  Created by Nikola Simunko on 13.10.2026..
@@ -9,13 +9,13 @@
 
 import SwiftUI
 
-/// The window of Sentinel for Mac: the devices that connected to this Mac and, for the selected one, its
+/// The window of Sentinel Companion: the devices that connected to this Mac and, for the selected one, its
 /// network traffic and API mocks.
 ///
-/// Only Sentinel for Mac uses it, so it's left out of the public API: import it with
-/// `@_spi(SentinelMac) import Sentinel`. Creating it starts listening for devices.
-@_spi(SentinelMac)
-public struct SentinelMacView: View {
+/// Only Sentinel Companion uses it, so it's left out of the public API: import it with
+/// `@_spi(SentinelCompanion) import Sentinel`. Creating it starts listening for devices.
+@_spi(SentinelCompanion)
+public struct SentinelCompanionView: View {
 
     @StateObject private var server = RemoteDeviceServer.makeDefault()
     @State private var selectedDeviceID: String?
@@ -60,7 +60,7 @@ public struct SentinelMacView: View {
 
 // MARK: - Helpers
 
-private extension SentinelMacView {
+private extension SentinelCompanionView {
 
     var placeholder: some View {
         VStack(spacing: 8) {

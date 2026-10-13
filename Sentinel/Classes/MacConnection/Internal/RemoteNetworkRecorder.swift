@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// Collects the app's requests for Sentinel for Mac. It keeps the latest ones, so a Mac that connects sees
+/// Collects the app's requests for Sentinel Companion. It keeps the latest ones, so a Mac that connects sees
 /// what happened just before, and forwards each new one while a Mac is connected.
 ///
 /// Requests are recorded from whichever thread logs them, so everything happens behind a lock.

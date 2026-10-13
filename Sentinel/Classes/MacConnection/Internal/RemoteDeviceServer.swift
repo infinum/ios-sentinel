@@ -10,7 +10,7 @@
 import Foundation
 import Network
 
-/// Sentinel for Mac's side of the connection: advertises the Mac over Bonjour and keeps track of the devices
+/// Sentinel Companion's side of the connection: advertises the Mac over Bonjour and keeps track of the devices
 /// that connect to it. Used from the main thread.
 final class RemoteDeviceServer: ObservableObject {
 
@@ -43,9 +43,9 @@ final class RemoteDeviceServer: ObservableObject {
         self.keyStore = keyStore
     }
 
-    /// The server Sentinel for Mac runs, with the Mac's id kept in user defaults and the keys in the Keychain.
+    /// The server Sentinel Companion runs, with the Mac's id kept in user defaults and the keys in the Keychain.
     static func makeDefault() -> RemoteDeviceServer {
-        let idKey = "com.infinum.sentinel.mac.id"
+        let idKey = "com.infinum.sentinel.companion.id"
         let macID = UserDefaults.standard.string(forKey: idKey) ?? UUID().uuidString
         UserDefaults.standard.set(macID, forKey: idKey)
         return RemoteDeviceServer(

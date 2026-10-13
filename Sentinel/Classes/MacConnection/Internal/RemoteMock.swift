@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// An API mock as it travels between the device and Sentinel for Mac.
+/// An API mock as it travels between the device and Sentinel Companion.
 ///
 /// It's separate from the format the device saves mocks in: that one has to read old files forever, while
 /// this one changes with the protocol version, and it carries what only the device can work out.
@@ -82,7 +82,7 @@ extension RemoteMock {
             + appMocks.map { RemoteMock(mock: $0, isLocal: false) }
     }
 
-    /// The mock with its body written into it, as Sentinel for Mac shows it and as an edited mock comes back
+    /// The mock with its body written into it, as Sentinel Companion shows it and as an edited mock comes back
     /// to the device. Fails for a method, match or error this version doesn't know, rather than guessing.
     func makeAPIMock() throws -> APIMock {
         guard let kind = APIMock.URLPattern.Kind(rawValue: matchKind) else {
@@ -130,7 +130,7 @@ struct RemoteMockSwitches: Codable, Equatable {
     var enabledIDs: [String]
 }
 
-/// A change Sentinel for Mac asks the device to make. The device makes it through its own store, which keeps
+/// A change Sentinel Companion asks the device to make. The device makes it through its own store, which keeps
 /// rules such as one mock per endpoint in one place, and sends back what changed.
 enum RemoteMockCommand: Codable, Equatable {
 

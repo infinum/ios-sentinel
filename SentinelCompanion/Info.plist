@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>NSLocalNetworkUsageDescription</key>
-	<string>Sentinel for Mac finds the apps using Sentinel on devices nearby and shows their network traffic.</string>
+	<string>Sentinel Companion finds the apps using Sentinel on devices nearby and shows their network traffic.</string>
 	<key>NSBonjourServices</key>
 	<array>
 		<string>_sentinel._tcp</string>

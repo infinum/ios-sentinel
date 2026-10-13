@@ -9,7 +9,7 @@
 
 import SwiftUI
 
-/// One device in Sentinel for Mac: the pairing prompt while it pairs, and its tools once it's connected.
+/// One device in Sentinel Companion: the pairing prompt while it pairs, and its tools once it's connected.
 struct RemoteDeviceView: View {
 
     @ObservedObject var device: RemoteDevice

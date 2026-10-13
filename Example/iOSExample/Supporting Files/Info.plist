@@ -5,7 +5,7 @@
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Please share your location for testing usage.</string>
 	<key>NSLocalNetworkUsageDescription</key>
-	<string>Sentinel connects to Sentinel for Mac on your local network to show the app's network traffic.</string>
+	<string>Sentinel connects to Sentinel Companion on your local network to show the app's network traffic.</string>
 	<key>NSBonjourServices</key>
 	<array>
 		<string>_sentinel._tcp</string>

@@ -11,9 +11,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5E1A00000000000000000005 /* SentinelMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SentinelMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E1A00000000000000000005 /* SentinelCompanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SentinelCompanion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E1A00000000000000000006 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5E1A00000000000000000007 /* SentinelMac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SentinelMac.entitlements; sourceTree = "<group>"; };
+		5E1A00000000000000000007 /* SentinelCompanion.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SentinelCompanion.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -41,7 +41,7 @@
 			children = (
 				5E1A00000000000000000004 /* Sources */,
 				5E1A00000000000000000006 /* Info.plist */,
-				5E1A00000000000000000007 /* SentinelMac.entitlements */,
+				5E1A00000000000000000007 /* SentinelCompanion.entitlements */,
 				5E1A00000000000000000003 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -49,7 +49,7 @@
 		5E1A00000000000000000003 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5E1A00000000000000000005 /* SentinelMac.app */,
+				5E1A00000000000000000005 /* SentinelCompanion.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -57,9 +57,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5E1A00000000000000000008 /* SentinelMac */ = {
+		5E1A00000000000000000008 /* SentinelCompanion */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5E1A00000000000000000012 /* Build configuration list for PBXNativeTarget "SentinelMac" */;
+			buildConfigurationList = 5E1A00000000000000000012 /* Build configuration list for PBXNativeTarget "SentinelCompanion" */;
 			buildPhases = (
 				5E1A00000000000000000009 /* Sources */,
 				5E1A0000000000000000000A /* Frameworks */,
@@ -72,12 +72,12 @@
 			fileSystemSynchronizedGroups = (
 				5E1A00000000000000000004 /* Sources */,
 			);
-			name = SentinelMac;
+			name = SentinelCompanion;
 			packageProductDependencies = (
 				5E1A0000000000000000000E /* Sentinel */,
 			);
-			productName = SentinelMac;
-			productReference = 5E1A00000000000000000005 /* SentinelMac.app */;
+			productName = SentinelCompanion;
+			productReference = 5E1A00000000000000000005 /* SentinelCompanion.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -96,7 +96,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 5E1A0000000000000000000F /* Build configuration list for PBXProject "SentinelMac" */;
+			buildConfigurationList = 5E1A0000000000000000000F /* Build configuration list for PBXProject "SentinelCompanion" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -113,7 +113,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5E1A00000000000000000008 /* SentinelMac */,
+				5E1A00000000000000000008 /* SentinelCompanion */,
 			);
 		};
 /* End PBXProject section */
@@ -186,14 +186,14 @@
 		5E1A00000000000000000013 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = SentinelMac.entitlements;
+				CODE_SIGN_ENTITLEMENTS = SentinelCompanion.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Sentinel for Mac";
+				INFOPLIST_KEY_CFBundleDisplayName = "Sentinel Companion";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2026 Infinum. All rights reserved.";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -201,7 +201,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.infinum.sentinel.mac;
+				PRODUCT_BUNDLE_IDENTIFIER = com.infinum.sentinel.companion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -211,14 +211,14 @@
 		5E1A00000000000000000014 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = SentinelMac.entitlements;
+				CODE_SIGN_ENTITLEMENTS = SentinelCompanion.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Sentinel for Mac";
+				INFOPLIST_KEY_CFBundleDisplayName = "Sentinel Companion";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2026 Infinum. All rights reserved.";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -226,7 +226,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.infinum.sentinel.mac;
+				PRODUCT_BUNDLE_IDENTIFIER = com.infinum.sentinel.companion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -236,7 +236,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5E1A0000000000000000000F /* Build configuration list for PBXProject "SentinelMac" */ = {
+		5E1A0000000000000000000F /* Build configuration list for PBXProject "SentinelCompanion" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5E1A00000000000000000010 /* Debug */,
@@ -245,7 +245,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5E1A00000000000000000012 /* Build configuration list for PBXNativeTarget "SentinelMac" */ = {
+		5E1A00000000000000000012 /* Build configuration list for PBXNativeTarget "SentinelCompanion" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5E1A00000000000000000013 /* Debug */,

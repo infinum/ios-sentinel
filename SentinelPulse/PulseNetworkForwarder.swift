@@ -12,7 +12,7 @@ import Foundation
 import Pulse
 import Sentinel
 
-/// Hands the requests Pulse logs to Sentinel for Mac. It records nothing while the app's Mac connection is
+/// Hands the requests Pulse logs to Sentinel Companion. It records nothing while the app's Mac connection is
 /// switched off.
 final class PulseNetworkForwarder {
 

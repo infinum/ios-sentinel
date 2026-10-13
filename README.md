@@ -451,7 +451,7 @@ The tool is available on iOS. Pulse removed its embeddable macOS console in 5.0,
 
 #### MacConnectionTool
 
-*MacConnectionTool* connects the app to *Sentinel for Mac*, a Mac app that shows the app's network requests live and controls its API mocks. Sentinel for Mac lives in `SentinelMac/` in this repository; open `SentinelMac/SentinelMac.xcodeproj` and run it.
+*MacConnectionTool* connects the app to *Sentinel Companion*, a Mac app that shows the app's network requests live and controls its API mocks. Sentinel Companion lives in `SentinelCompanion/` in this repository; open `SentinelCompanion/SentinelCompanion.xcodeproj` and run it.
 
 ```swift
 let configuration = Sentinel.Configuration(
@@ -464,11 +464,11 @@ let configuration = Sentinel.Configuration(
 )
 ```
 
-Switch on *Connect to Mac* in the tool and pick a Mac from the list. Sentinel finds Macs running Sentinel for Mac over Bonjour, on the same Wi-Fi network or through peer-to-peer Wi-Fi, the link AirDrop uses, when the two aren't on one network. In the iOS Simulator, the Mac is listed as *This Mac* and reached on localhost.
+Switch on *Connect to Mac* in the tool and pick a Mac from the list. Sentinel finds Macs running Sentinel Companion over Bonjour, on the same Wi-Fi network or through peer-to-peer Wi-Fi, the link AirDrop uses, when the two aren't on one network. In the iOS Simulator, the Mac is listed as *This Mac* and reached on localhost.
 
 The first connection to a Mac pairs the two. Both show the same six-digit code: confirm it on the device, then allow the connection on the Mac. Later connections are made without asking, and the app reconnects to the last Mac on its own while the connection is switched on, including after it comes back from the background. Everything sent between the two is encrypted with keys only the paired device and Mac hold. The device keeps its pairings in `Library/Sentinel`, so *ClearAppDataTool* doesn't undo them.
 
-Once connected, Sentinel for Mac shows:
+Once connected, Sentinel Companion shows:
 
 - *Network*: the requests the app logs through [Pulse](https://github.com/kean/Pulse), as they happen, with their headers and bodies, and the ones an API mock answered marked. This needs *PulseTool* in the app; the Mac also gets the requests made shortly before it connected. Bodies over 1 MB are cut off.
 - *API Mocking*: the app's mocks, with the same screen as *APIMockingTool*. Every change made on the Mac, from the switches to creating and editing local mocks, is made on the device, and the screen is read-only while the device is disconnected.
@@ -477,7 +477,7 @@ Finding Macs needs local network access, so the app's Info.plist needs a usage d
 
 ```xml
 <key>NSLocalNetworkUsageDescription</key>
-<string>Sentinel connects to Sentinel for Mac on your local network to show the app's network traffic.</string>
+<string>Sentinel connects to Sentinel Companion on your local network to show the app's network traffic.</string>
 <key>NSBonjourServices</key>
 <array>
     <string>_sentinel._tcp</string>

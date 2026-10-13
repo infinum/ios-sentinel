@@ -9,7 +9,7 @@ import CryptoKit
 import Foundation
 import Network
 
-/// One connection between Sentinel in an app and Sentinel for Mac.
+/// One connection between Sentinel in an app and Sentinel Companion.
 ///
 /// It frames the TCP stream, runs the handshake, seals every later frame, and gives up on the connection when
 /// the other side goes quiet. Events arrive on the main queue; everything else runs on the connection's queue.
@@ -137,7 +137,7 @@ extension RemoteConnection.CloseReason {
         case .rejected:
             return "The pairing was turned down."
         case .unsupportedVersion:
-            return "Sentinel in the app and Sentinel for Mac speak different versions. Update the older one."
+            return "Sentinel in the app and Sentinel Companion speak different versions. Update the older one."
         case .authenticationFailed:
             return "The pairing no longer matches. Connect again to pair anew."
         case .timedOut:

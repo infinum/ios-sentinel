@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// A request the app made, as Sentinel for Mac shows it. Sent once when the request starts and again,
+/// A request the app made, as Sentinel Companion shows it. Sent once when the request starts and again,
 /// complete, when it finishes; the Mac replaces the first with the second.
 ///
 /// It doesn't depend on where it was recorded, so sources other than Pulse can produce it too.

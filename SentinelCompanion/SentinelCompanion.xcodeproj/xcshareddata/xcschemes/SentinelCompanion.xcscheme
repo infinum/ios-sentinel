@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5E1A00000000000000000008"
-               BuildableName = "SentinelMac.app"
-               BlueprintName = "SentinelMac"
-               ReferencedContainer = "container:SentinelMac.xcodeproj">
+               BuildableName = "SentinelCompanion.app"
+               BlueprintName = "SentinelCompanion"
+               ReferencedContainer = "container:SentinelCompanion.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5E1A00000000000000000008"
-            BuildableName = "SentinelMac.app"
-            BlueprintName = "SentinelMac"
-            ReferencedContainer = "container:SentinelMac.xcodeproj">
+            BuildableName = "SentinelCompanion.app"
+            BlueprintName = "SentinelCompanion"
+            ReferencedContainer = "container:SentinelCompanion.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -60,9 +60,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5E1A00000000000000000008"
-            BuildableName = "SentinelMac.app"
-            BlueprintName = "SentinelMac"
-            ReferencedContainer = "container:SentinelMac.xcodeproj">
+            BuildableName = "SentinelCompanion.app"
+            BlueprintName = "SentinelCompanion"
+            ReferencedContainer = "container:SentinelCompanion.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

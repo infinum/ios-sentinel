@@ -10,7 +10,7 @@ import SwiftUI
 struct APIMockingView<Store: APIMockStoring>: View {
 
     let title: String
-    // Observed rather than owned: the app's store is a singleton, and Sentinel for Mac's belongs to its device,
+    // Observed rather than owned: the app's store is a singleton, and Sentinel Companion's belongs to its device,
     // so either survives `SentinelListView` rebuilding this view.
     @ObservedObject var store: Store
     @State private var searchText = ""

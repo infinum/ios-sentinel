@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// What Sentinel and Sentinel for Mac send each other once the handshake has agreed on keys.
+/// What Sentinel and Sentinel Companion send each other once the handshake has agreed on keys.
 enum RemoteMessage: Codable, Equatable {
 
     /// The sender accepts the other side. Sent at once when a pairing resumes, and after the user compares

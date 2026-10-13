@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// Sentinel for Mac's copy of a device's API mocks, shown with the same screens as on the device.
+/// Sentinel Companion's copy of a device's API mocks, shown with the same screens as on the device.
 ///
 /// The device stays in charge: every change is sent to it as a command, and the copy changes only when the
 /// device sends back its new mocks and switches. Used from the main thread.
@@ -36,7 +36,7 @@ final class RemoteAPIMockStore: APIMockStoring {
         for remoteMock in mocks {
             guard let mock = try? remoteMock.makeAPIMock() else {
                 // A newer device may use a method or error this version doesn't know.
-                NSLog("Sentinel for Mac skips the mock \"%@\", which it can't read.", remoteMock.name)
+                NSLog("Sentinel Companion skips the mock \"%@\", which it can't read.", remoteMock.name)
                 continue
             }
             warnings[mock.id] = remoteMock.warning

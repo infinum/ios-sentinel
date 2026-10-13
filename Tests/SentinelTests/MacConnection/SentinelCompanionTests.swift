@@ -1,5 +1,5 @@
 //
-//  SentinelMacTests.swift
+//  SentinelCompanionTests.swift
 //  SentinelTests
 //
 //  Created by Nikola Simunko on 13.10.2026..
@@ -12,8 +12,8 @@ import Network
 import Testing
 @testable import Sentinel
 
-@Suite("Sentinel for Mac")
-struct SentinelMacTests {
+@Suite("Sentinel Companion")
+struct SentinelCompanionTests {
 
     // MARK: - Device
 

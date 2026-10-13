@@ -8,7 +8,7 @@
 import Combine
 import Foundation
 
-/// The device's side of API mocking over the Mac connection: sends Sentinel for Mac the mocks and switches
+/// The device's side of API mocking over the Mac connection: sends Sentinel Companion the mocks and switches
 /// as they change, and makes the changes it asks for. Used from the main thread, like the store.
 final class RemoteMockBridge {
 

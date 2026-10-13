@@ -18,7 +18,7 @@ protocol APIMockStoring: ObservableObject {
     var enabledIDs: Set<String> { get }
     /// The master switch: while it's off, no mock answers.
     var isMockingEnabled: Bool { get }
-    /// `false` while changes can't reach the mocks, as while Sentinel for Mac is disconnected from the device.
+    /// `false` while changes can't reach the mocks, as while Sentinel Companion is disconnected from the device.
     var isEditable: Bool { get }
 
     /// Why the mock can't answer as intended, or `nil` when it can.

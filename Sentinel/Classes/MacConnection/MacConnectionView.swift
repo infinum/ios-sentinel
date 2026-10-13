@@ -18,7 +18,7 @@ struct MacConnectionView: View {
 
     var body: some View {
         List {
-            Section(footer: Text("Sentinel for Mac shows the app's network traffic live and controls its API mocks.")) {
+            Section(footer: Text("Sentinel Companion shows the app's network traffic live and controls its API mocks.")) {
                 Toggle(
                     "Connect to Mac",
                     isOn: Binding(
@@ -43,7 +43,7 @@ struct MacConnectionView: View {
                     statusView
                 }
 
-                Section(header: Text("Macs"), footer: Text("Open Sentinel for Mac on a Mac nearby to see it here.")) {
+                Section(header: Text("Macs"), footer: Text("Open Sentinel Companion on a Mac nearby to see it here.")) {
                     ForEach(session.macs) { mac in
                         Button {
                             session.connect(to: mac)

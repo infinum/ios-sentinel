@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// Splits the TCP stream between Sentinel and Sentinel for Mac into frames: a big-endian `UInt32` length
+/// Splits the TCP stream between Sentinel and Sentinel Companion into frames: a big-endian `UInt32` length
 /// followed by that many bytes.
 enum RemoteFrame {
 

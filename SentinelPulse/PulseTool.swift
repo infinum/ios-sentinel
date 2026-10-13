@@ -14,7 +14,7 @@ import PulseUI
 
 /// Tool which shows the Pulse console with the app's logs and network requests.
 ///
-/// While the app is connected to Sentinel for Mac through `MacConnectionTool`, the requests Pulse logs
+/// While the app is connected to Sentinel Companion through `MacConnectionTool`, the requests Pulse logs
 /// also show up live on the Mac.
 ///
 /// Pulse removed its embeddable macOS console in 5.0, so the tool is available on iOS only.

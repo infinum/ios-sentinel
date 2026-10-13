@@ -7,7 +7,7 @@
 
 import Network
 
-/// How Sentinel finds Sentinel for Mac and connects to it.
+/// How Sentinel finds Sentinel Companion and connects to it.
 enum RemoteService {
 
     /// The Bonjour service the Mac advertises. Apps list it under `NSBonjourServices`.

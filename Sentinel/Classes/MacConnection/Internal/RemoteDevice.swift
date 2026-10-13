@@ -9,7 +9,7 @@
 
 import Foundation
 
-/// An app on a device, as Sentinel for Mac sees it. Used from the main thread.
+/// An app on a device, as Sentinel Companion sees it. Used from the main thread.
 final class RemoteDevice: ObservableObject, Identifiable {
 
     enum State: Equatable {

@@ -12,7 +12,7 @@ import Sentinel
 import Testing
 @testable import SentinelPulse
 
-@Suite("Pulse requests for Sentinel for Mac")
+@Suite("Pulse requests for Sentinel Companion")
 struct PulseNetworkForwarderTests {
 
     private let taskID = UUID()

@@ -10,7 +10,7 @@
 import AppKit
 import SwiftUI
 
-/// The app's requests in Sentinel for Mac, newest first, with the selected one in detail.
+/// The app's requests in Sentinel Companion, newest first, with the selected one in detail.
 struct RemoteNetworkView: View {
 
     @ObservedObject var device: RemoteDevice

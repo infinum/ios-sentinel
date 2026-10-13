@@ -33,7 +33,7 @@ struct APIMockEditorView: View {
         case statusCode
     }
 
-    /// `false` while the mock can't be saved, as while Sentinel for Mac is disconnected from the device.
+    /// `false` while the mock can't be saved, as while Sentinel Companion is disconnected from the device.
     let isEditable: Bool
     let save: (APIMock) -> Void
     let delete: (APIMock) -> Void
