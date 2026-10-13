@@ -56,7 +56,8 @@ private extension AppDelegate {
                 ClearAppDataTool(),
                 CustomLocationTool(),
                 apiMockingTool,
-                PulseTool()
+                PulseTool(),
+                MacConnectionTool()
             ],
             preferences: optionSwitchItems
         )

@@ -4,6 +4,12 @@
 <dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Please share your location for testing usage.</string>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>Sentinel connects to Sentinel for Mac on your local network to show the app's network traffic.</string>
+	<key>NSBonjourServices</key>
+	<array>
+		<string>_sentinel._tcp</string>
+	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>

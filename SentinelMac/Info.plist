@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>Sentinel for Mac finds the apps using Sentinel on devices nearby and shows their network traffic.</string>
+	<key>NSBonjourServices</key>
+	<array>
+		<string>_sentinel._tcp</string>
+	</array>
+</dict>
+</plist>
