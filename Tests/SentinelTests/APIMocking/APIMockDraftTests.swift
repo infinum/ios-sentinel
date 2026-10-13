@@ -90,6 +90,27 @@ struct APIMockDraftTests {
         #expect(draft.makeMock().response == .http(statusCode: 200, headers: [:], body: .json(#"{ "name": "Ana" }"#)))
     }
 
+    @Test("The body preview is the first five lines")
+    func bodyPreview() {
+        var draft = APIMockDraft()
+        draft.body = (1...8).map { "line \($0)" }.joined(separator: "\n")
+
+        #expect(draft.bodyPreview == "line 1\nline 2\nline 3\nline 4\nline 5")
+        #expect(draft.bodySummary.hasPrefix("8 lines · "))
+
+        draft.body += "\n"
+        #expect(draft.bodySummary.hasPrefix("8 lines · "))
+    }
+
+    @Test("The preview of a one-line body is cut short")
+    func minifiedBodyPreview() {
+        var draft = APIMockDraft()
+        draft.body = "[" + Array(repeating: "1", count: 1_000).joined(separator: ",") + "]"
+
+        #expect(draft.bodyPreview.count == APIMockDraft.bodyPreviewLineCount * 120)
+        #expect(draft.bodySummary.hasPrefix("1 line · "))
+    }
+
     @Test("The file name is made of the name's words")
     func fileName() {
         var draft = APIMockDraft()

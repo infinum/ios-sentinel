@@ -19,7 +19,17 @@ struct APIMockDraft: Equatable {
         case empty
         case valid
         case invalid
+
+        var message: String {
+            switch self {
+            case .empty: return "The response has no body."
+            case .valid: return "Valid JSON."
+            case .invalid: return "Not valid JSON. It's saved as it is, which is useful for testing malformed responses."
+            }
+        }
     }
+
+    static let bodyPreviewLineCount = 5
 
     private(set) var id: String
     var name = ""
@@ -99,6 +109,24 @@ extension APIMockDraft {
     var jsonStatus: JSONStatus {
         guard !body.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return .empty }
         return JSONFormatter.isValid(JSONFormatter.repairingQuotes(in: body)) ? .valid : .invalid
+    }
+
+    /// The first lines of the body. Capped in length too, as a minified body is one long line.
+    var bodyPreview: String {
+        let lines = body
+            .split(separator: "\n", maxSplits: Self.bodyPreviewLineCount, omittingEmptySubsequences: false)
+            .prefix(Self.bodyPreviewLineCount)
+            .joined(separator: "\n")
+        return String(lines.prefix(Self.bodyPreviewLineCount * 120))
+    }
+
+    /// How long the body is, e.g. `120 lines · 4 KB`.
+    var bodySummary: String {
+        let newlineCount = body.utf8.lazy.filter { $0 == UInt8(ascii: "\n") }.count
+        // A file usually ends with a newline, which doesn't start another line.
+        let lineCount = body.hasSuffix("\n") ? newlineCount : newlineCount + 1
+        let size = ByteCountFormatter.string(fromByteCount: Int64(body.utf8.count), countStyle: .file)
+        return "\(lineCount) \(lineCount == 1 ? "line" : "lines") · \(size)"
     }
 
     /// Re-indents the body when it's valid JSON.

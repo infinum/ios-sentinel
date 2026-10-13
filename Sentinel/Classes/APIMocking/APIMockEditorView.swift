@@ -25,9 +25,17 @@ struct APIMockEditorRoute: Identifiable {
 
 struct APIMockEditorView: View {
 
+    private enum Field: Hashable {
+        case name
+        case description
+        case pattern
+        case statusCode
+    }
+
     @ObservedObject var store: APIMockStore
     let dismiss: () -> Void
 
+    @FocusState private var focusedField: Field?
     @State private var mode: APIMockEditorRoute.Mode
     @State private var draft: APIMockDraft
     @State private var isConfirmingDelete = false
@@ -58,6 +66,13 @@ struct APIMockEditorView: View {
                     ToolbarItem(placement: .confirmationAction) {
                         if !isReadOnly {
                             saveButton
+                        }
+                    }
+                    // The status code's number pad has no return key, so every field gets a way out.
+                    ToolbarItemGroup(placement: .keyboard) {
+                        Spacer()
+                        Button("Done") {
+                            focusedField = nil
                         }
                     }
                 }
@@ -103,8 +118,10 @@ private extension APIMockEditorView {
                     }
                 } else {
                     TextField("Name", text: $draft.name)
+                        .focused($focusedField, equals: .name)
                         .accessibilityIdentifier(AccessibilityIdentifier.apiMockingNameField)
                     TextField("Description", text: $draft.description)
+                        .focused($focusedField, equals: .description)
                 }
             }
 
@@ -130,6 +147,7 @@ private extension APIMockEditorView {
                             .textInputAutocapitalization(.never)
                             .keyboardType(.URL)
                             #endif
+                            .focused($focusedField, equals: .pattern)
                             .accessibilityIdentifier(AccessibilityIdentifier.apiMockingPatternField)
                     }
                     Picker("Match", selection: $draft.matchKind) {
@@ -169,6 +187,7 @@ private extension APIMockEditorView {
                             #if os(iOS)
                             .keyboardType(.numberPad)
                             #endif
+                            .focused($focusedField, equals: .statusCode)
                     }
                     if draft.statusCodeValue == nil {
                         Text("Enter a status code from 100 to 599.")
@@ -212,7 +231,16 @@ private extension APIMockEditorView {
     }
 
     var bodySection: some View {
-        Section(header: Text("Body"), footer: Text(jsonHint)) {
+        Section(header: Text("Body"), footer: Text(draft.jsonStatus.message)) {
+            #if os(iOS)
+            // A preview that opens the body on a screen of its own, as a long body would crowd the form.
+            NavigationLink {
+                APIMockBodyEditorView(draft: $draft, isReadOnly: isReadOnly)
+            } label: {
+                bodyPreview
+            }
+            .accessibilityIdentifier(AccessibilityIdentifier.apiMockingBodyRow)
+            #else
             if isReadOnly {
                 Text(draft.body.isEmpty ? "No body" : draft.body)
                     .font(.system(.caption, design: .monospaced))
@@ -224,17 +252,34 @@ private extension APIMockEditorView {
                     .font(.system(.caption, design: .monospaced))
                     .frame(minHeight: 240)
                     .autocorrectionDisabled()
-                    #if os(iOS)
-                    .textInputAutocapitalization(.never)
-                    #endif
                     .accessibilityIdentifier(AccessibilityIdentifier.apiMockingBodyEditor)
                 Button("Format JSON") {
                     draft.formatBody()
                 }
                 .disabled(draft.jsonStatus != .valid)
             }
+            #endif
         }
     }
+
+    #if os(iOS)
+    var bodyPreview: some View {
+        VStack(alignment: .leading, spacing: 6) {
+            if draft.body.isEmpty {
+                Text(isReadOnly ? "No body" : "Add a body")
+                    .foregroundColor(.secondary)
+            } else {
+                Text(draft.bodyPreview)
+                    .font(.system(.caption, design: .monospaced))
+                    .lineLimit(APIMockDraft.bodyPreviewLineCount)
+                Text(draft.bodySummary)
+                    .font(.caption1Regular)
+                    .foregroundColor(.secondary)
+            }
+        }
+        .padding(.vertical, 4)
+    }
+    #endif
 
     @ViewBuilder
     var actionsSection: some View {
@@ -286,14 +331,12 @@ private extension APIMockEditorView {
         dismiss()
     }
 
+    #if os(macOS)
     func copyBody() {
-        #if os(iOS)
-        UIPasteboard.general.string = draft.body
-        #else
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString(draft.body, forType: .string)
-        #endif
     }
+    #endif
 
     /// Shares the body as a JSON file, together with the Swift code that adds the mock to the app.
     func share() {
@@ -341,14 +384,6 @@ private extension APIMockEditorView {
             return "Matches URLs ending with the pattern; * matches anything. The query is ignored unless the pattern has a ?."
         case .regex:
             return "A case-insensitive regular expression that has to match somewhere in the full URL."
-        }
-    }
-
-    var jsonHint: String {
-        switch draft.jsonStatus {
-        case .empty: return "The response has no body."
-        case .valid: return "Valid JSON."
-        case .invalid: return "Not valid JSON. It's saved as it is, which is useful for testing malformed responses."
         }
     }
 }
