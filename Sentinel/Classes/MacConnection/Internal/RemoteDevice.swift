@@ -19,9 +19,16 @@ final class RemoteDevice: ObservableObject, Identifiable {
         case disconnected(String)
     }
 
+    /// The Mac keeps this many requests per device, dropping the oldest.
+    static let maximumNetworkEntryCount = 2000
+
     let id: String
     @Published private(set) var info: RemoteDeviceInfo
     @Published private(set) var state = State.disconnected("Not connected yet.")
+    /// The app's requests, oldest first.
+    @Published private(set) var networkEntries: [RemoteNetworkEntry] = []
+    /// Requests the device left out because the connection fell behind.
+    @Published private(set) var droppedNetworkEntryCount = 0
     private(set) lazy var mockStore = RemoteAPIMockStore { [weak self] command in
         self?.connection?.send(RemoteMessage.mockCommand(command))
     }
@@ -80,8 +87,35 @@ extension RemoteDevice {
             mockStore.apply(mocks)
         case .mockSwitches(let switches):
             mockStore.apply(switches)
+        case .networkEntry(let entry):
+            record(entry)
+        case .droppedNetworkEntries(let count):
+            droppedNetworkEntryCount += count
         default:
             break
+        }
+    }
+
+    func clearNetworkEntries() {
+        networkEntries = []
+        droppedNetworkEntryCount = 0
+    }
+}
+
+// MARK: - Network entries
+
+private extension RemoteDevice {
+
+    /// A request the Mac already has is replaced in place: it started, and now it's complete. A device that
+    /// reconnects sends its kept requests again, so they're replaced too rather than listed twice.
+    func record(_ entry: RemoteNetworkEntry) {
+        if let index = networkEntries.lastIndex(where: { $0.id == entry.id }) {
+            networkEntries[index] = entry
+        } else {
+            networkEntries.append(entry)
+            if networkEntries.count > Self.maximumNetworkEntryCount {
+                networkEntries.removeFirst(networkEntries.count - Self.maximumNetworkEntryCount)
+            }
         }
     }
 }

@@ -59,6 +59,8 @@ private extension RemoteDeviceView {
 
     var details: some View {
         TabView {
+            RemoteNetworkView(device: device)
+                .tabItem { Text("Network") }
             APIMockingView(title: device.info.appName, store: device.mockStore)
                 .tabItem { Text("API Mocking") }
             info

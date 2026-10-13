@@ -70,6 +70,7 @@ final class DeviceSession: ObservableObject {
     /// switched it on, so searching at launch doesn't prompt.
     func activate() {
         if isEnabled {
+            RemoteNetworkRecorder.shared.setRecording(true)
             startSearching()
         }
     }
@@ -77,6 +78,7 @@ final class DeviceSession: ObservableObject {
     func setEnabled(_ isEnabled: Bool) {
         store.isEnabled = isEnabled
         self.isEnabled = isEnabled
+        RemoteNetworkRecorder.shared.setRecording(isEnabled)
         if isEnabled {
             reconnectsAutomatically = true
             startSearching()
@@ -176,6 +178,7 @@ private extension DeviceSession {
         connection?.cancel()
         connection = nil
         mockBridge = nil
+        RemoteNetworkRecorder.shared.stopForwarding()
         selectedMac = nil
         macs = []
         status = .off
@@ -235,6 +238,9 @@ private extension DeviceSession {
             mockBridge = RemoteMockBridge(store: APIMockStore.shared) { [weak connection] message in
                 connection?.send(message)
             }
+            RemoteNetworkRecorder.shared.startForwarding { [weak connection] entry in
+                connection?.send(RemoteMessage.networkEntry(entry), isDroppable: true)
+            }
         case .message(.mockCommand(let command)):
             mockBridge?.apply(command)
         case .message:
@@ -242,6 +248,7 @@ private extension DeviceSession {
         case .closed(let reason):
             connection = nil
             mockBridge = nil
+            RemoteNetworkRecorder.shared.stopForwarding()
             status = .failed(reason.message)
             switch reason {
             case .rejected, .unsupportedVersion:

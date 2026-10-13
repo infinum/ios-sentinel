@@ -22,6 +22,9 @@ enum RemoteMessage: Codable, Equatable {
 
     case mocks([RemoteMock])
     case mockSwitches(RemoteMockSwitches)
+    case networkEntry(RemoteNetworkEntry)
+    /// Network entries left out because the connection fell behind.
+    case droppedNetworkEntries(Int)
 
     // MARK: Mac to device
 

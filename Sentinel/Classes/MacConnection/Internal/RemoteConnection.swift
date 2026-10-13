@@ -82,17 +82,20 @@ final class RemoteConnection {
     private var cipher: RemoteFrameCipher?
     private var timer: DispatchSourceTimer?
     private var lastReceived = Date()
+    private var backlog: RemoteBacklog
 
     // MARK: - Lifecycle
 
     init(
         connection: NWConnection,
         role: Role,
-        keyStore: RemotePairingKeyStore
+        keyStore: RemotePairingKeyStore,
+        backlogLimit: Int = RemoteBacklog.defaultLimit
     ) {
         self.connection = connection
         self.role = role
         self.keyStore = keyStore
+        backlog = RemoteBacklog(limit: backlogLimit)
     }
 
     func start() {
@@ -160,10 +163,13 @@ extension RemoteConnection {
 extension RemoteConnection {
 
     /// Sends a message once both sides are connected; before that, it's dropped.
-    func send(_ message: RemoteMessage) {
+    ///
+    /// A droppable message is also left out while the network falls behind, so the app's memory doesn't grow
+    /// with a backlog the Mac can't take. The other side is told how many were left out.
+    func send(_ message: RemoteMessage, isDroppable: Bool = false) {
         queue.async { [self] in
             guard case .connected = state else { return }
-            sendSealed(message)
+            backlog.messages(for: message, isDroppable: isDroppable).forEach { sendSealed($0) }
         }
     }
 }
@@ -503,7 +509,9 @@ private extension RemoteConnection {
     }
 
     func write(_ frame: Data, then completion: (() -> Void)? = nil) {
-        connection.send(content: frame, completion: .contentProcessed { _ in
+        backlog.add(frame.count)
+        connection.send(content: frame, completion: .contentProcessed { [weak self] _ in
+            self?.backlog.remove(frame.count)
             completion?()
         })
     }
