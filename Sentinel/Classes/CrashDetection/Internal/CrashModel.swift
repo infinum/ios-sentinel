@@ -80,6 +80,76 @@ extension CrashModel {
 
 }
 
+// MARK: - Trace symbol
+
+extension CrashModel.StackTrace {
+
+    /// The symbol in `title`, without the frame index, image, address and `+ offset` that `Thread.callStackSymbols` adds;
+    /// the whole `title` when it has no address
+    var symbol: String {
+        guard
+            let addressStart = title.range(of: " 0x"),
+            let addressEnd = title[addressStart.upperBound...].firstIndex(of: " ")
+        else { return title }
+
+        let symbol = String(title[addressEnd...].drop { $0 == " " })
+        if let offset = symbol.range(of: " + ", options: .backwards),
+           symbol[offset.upperBound...].allSatisfy(\.isNumber) {
+            return String(symbol[..<offset.lowerBound])
+        }
+        return symbol
+    }
+}
+
+// MARK: - Search
+
+extension CrashModel {
+
+    /// A crash with the text search looks at, prepared once when the list loads rather than on every keystroke
+    struct Searchable {
+        let crash: CrashModel
+        /// Lowercased name and formatted date, the text the row shows
+        private let rowFields: [String]
+        private let symbols: [(original: String, lowercased: String)]
+
+        init(_ crash: CrashModel) {
+            self.crash = crash
+            rowFields = [crash.details.name, crash.details.formattedDate].map { $0.lowercased() }
+            symbols = crash.traces.map { trace in
+                let symbol = trace.symbol
+                return (symbol, symbol.lowercased())
+            }
+        }
+
+        /// Returns `nil` when a term is missing from the name, the formatted date and every symbol
+        /// - Parameter terms: Lowercased search terms
+        func result(for terms: [String]) -> SearchResult? {
+            let symbolTerms = terms.filter { term in
+                !rowFields.contains { $0.contains(term) }
+            }
+            guard !symbolTerms.isEmpty else { return SearchResult(crash: crash, matchedSymbol: nil) }
+
+            let allFound = symbolTerms.allSatisfy { term in
+                // Numbers in symbols are only mangled name lengths, so a number has to be in the name or date
+                !term.allSatisfy(\.isNumber) && symbols.contains { $0.lowercased.contains(term) }
+            }
+            guard allFound else { return nil }
+
+            let matchedSymbol = symbols.first { symbol in
+                symbolTerms.contains { symbol.lowercased.contains($0) }
+            }
+            return SearchResult(crash: crash, matchedSymbol: matchedSymbol?.original)
+        }
+    }
+
+    /// A crash that matched a search
+    struct SearchResult {
+        let crash: CrashModel
+        /// First symbol containing a term the row's name and date don't show, `nil` when they show every term
+        let matchedSymbol: String?
+    }
+}
+
 // MARK: - Trace helper
 
 extension [CrashModel.StackTrace] {
