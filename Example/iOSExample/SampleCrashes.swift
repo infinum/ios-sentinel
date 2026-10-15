@@ -166,7 +166,7 @@ private extension SampleCrashes {
     static let samples: [Sample] = [
         Sample(
             type: "nsexception",
-            name: "NSRangeException*** -[__NSArrayM objectAtIndex:]: index 7 beyond bounds [0 .. 4]",
+            name: "NSRangeException: *** -[__NSArrayM objectAtIndex:]: index 7 beyond bounds [0 .. 4]",
             secondsAgo: 12 * 60 + 8,
             frames: uncaughtExceptionHead + [
                 Frame("CoreFoundation", "-[__NSArrayM objectAtIndex:]", 188),
@@ -181,7 +181,7 @@ private extension SampleCrashes {
         ),
         Sample(
             type: "nsexception",
-            name: "NSInvalidArgumentException-[__NSCFString setAvatarURL:]: unrecognized selector sent to instance 0x600000c24120",
+            name: "NSInvalidArgumentException: -[__NSCFString setAvatarURL:]: unrecognized selector sent to instance 0x600000c24120",
             secondsAgo: 47 * 60 + 31,
             frames: uncaughtExceptionHead + [
                 Frame("CoreFoundation", "___forwarding___", 1472),
@@ -196,7 +196,7 @@ private extension SampleCrashes {
         ),
         Sample(
             type: "nsexception",
-            name: "NSInternalInconsistencyExceptionattempt to insert row 4 into section 0, but there are only 3 rows in section 0 after the update",
+            name: "NSInternalInconsistencyException: attempt to insert row 4 into section 0, but there are only 3 rows in section 0 after the update",
             secondsAgo: 5 * 3600 + 20 * 60 + 14,
             frames: uncaughtExceptionHead + [
                 Frame("UIKitCore", "-[UITableView _endCellAnimationsWithContext:]", 15868),
@@ -212,7 +212,7 @@ private extension SampleCrashes {
         ),
         Sample(
             type: "nsexception",
-            name: "NSUnknownKeyException[<Example_iOS.SettingsModel 0x600003d1c2a0> valueForUndefinedKey:]: this class is not key value coding-compliant for the key displayName.",
+            name: "NSUnknownKeyException: [<Example_iOS.SettingsModel 0x600003d1c2a0> valueForUndefinedKey:]: this class is not key value coding-compliant for the key displayName.",
             secondsAgo: 26 * 3600 + 3 * 60 + 52,
             frames: uncaughtExceptionHead + [
                 Frame("Foundation", "-[NSObject(NSKeyValueCoding) valueForUndefinedKey:]", 232),
