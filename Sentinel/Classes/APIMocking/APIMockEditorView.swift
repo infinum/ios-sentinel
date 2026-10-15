@@ -60,6 +60,7 @@ struct APIMockEditorView: View {
             form
                 .navigationTitle(title)
                 .navigationBarTitleDisplayMode(.inline)
+                .navigationBarMaterialBackground()
                 .toolbar {
                     ToolbarItem(placement: .cancellationAction) {
                         Button(isReadOnly ? "Done" : "Cancel", action: dismiss)

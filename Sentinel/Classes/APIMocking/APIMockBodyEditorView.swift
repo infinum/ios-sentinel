@@ -60,6 +60,7 @@ struct APIMockBodyEditorView: View {
         }
         .navigationTitle("Body")
         .navigationBarTitleDisplayMode(.inline)
+        .navigationBarMaterialBackground()
         .doneEditingButton(isEditing: isEditing) { isEditing = false }
     }
 }
