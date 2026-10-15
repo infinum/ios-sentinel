@@ -28,10 +28,14 @@ enum LaunchEnvironment {
         isUITesting && ProcessInfo.processInfo.arguments.contains(resetStateArgument)
     }
 
-    /// Starts every UI test from a clean slate: no saved defaults and no recorded crashes.
+    /// Starts every UI test from a clean slate: no saved defaults, no recorded crashes and no API mocks.
     static func resetStateForUITests() {
         if let bundleIdentifier = Bundle.main.bundleIdentifier {
             UserDefaults.standard.removePersistentDomain(forName: bundleIdentifier)
+        }
+        // API mocks are kept outside the folders Clear App Data empties, so they're removed on their own.
+        if let library = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask).first {
+            try? FileManager.default.removeItem(at: library.appendingPathComponent("Sentinel/APIMocking.json"))
         }
         guard let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
         for crashFile in ["nsexception_crashes.json", "signal_crashes.json"] {

@@ -33,7 +33,8 @@ private struct ContentView: View {
             } else {
                 ForEach(crashes, id: \.details.date) { model in
                     NavigationLink(
-                        destination: CrashDetectionToolDetailsView(crashModel: model),
+                        destination: CrashDetectionToolDetailsView(crashModel: model)
+                            .navigationBarMaterialBackground(),
                         tag: model.details.date.description,
                         selection: $selectedItem,
                         label: { Text(model.details.name) }

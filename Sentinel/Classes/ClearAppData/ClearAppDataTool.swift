@@ -14,7 +14,8 @@ import SwiftUI
 ///
 /// Clears the app's user defaults and the suites it created, the temporary, Caches, Application
 /// Support and Documents directories, the shared URL cache, cookies, web site data, and the
-/// keychain items in the app's own access group.
+/// keychain items in the app's own access group. Mocks made with `APIMockingTool` are kept, so they
+/// can be used to test the app from a clean state.
 ///
 /// - Warning: The app must be force quit and relaunched afterwards. iOS cannot restart it, so
 /// anything already held in memory — singletons, open database connections, cached credentials —

@@ -60,8 +60,9 @@ private struct ContentView: View {
                             AnyView(item.didSelect())
                             #endif
                         }
+                        // Set on the destination as well, so every pushed tool's content gets it, custom tools too.
                         NavigationLink(
-                            destination: destination(),
+                            destination: destination().navigationBarMaterialBackground(),
                             tag: item.id,
                             selection: $selectedItem,
                             label: { NavigationToolTableView(item: item) }
@@ -80,6 +81,7 @@ private struct ContentView: View {
             }
         }
         .pushedListTopMargin(isPushed: !isTabRoot)
+        .navigationBarMaterialBackground()
         .searchableIfAvailable(text: $viewModel.searchText, prompt: "Search for an item")
         .navigationTitle(title)
     }

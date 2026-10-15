@@ -21,7 +21,7 @@ struct ClearAppDataView: View {
             Text("""
             Removes this app's user defaults, caches, temporary files, Documents, \
             Application Support, cookies, web site data and keychain items, leaving it in the \
-            state of a fresh install.
+            state of a fresh install. Sentinel's API mocks are kept.
             """)
                 .font(.body1Regular)
                 .multilineTextAlignment(.center)

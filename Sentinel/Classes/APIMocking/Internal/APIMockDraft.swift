@@ -1,0 +1,171 @@
+//
+//  APIMockDraft.swift
+//  Sentinel
+//
+//  Created by Nikola Simunko on 13.10.2026..
+//
+
+import Foundation
+
+/// The editor's copy of a mock: plain fields the form binds to, validated before it becomes a mock.
+struct APIMockDraft: Equatable {
+
+    enum ResponseKind: CaseIterable {
+        case http
+        case networkError
+    }
+
+    enum JSONStatus: Equatable {
+        case empty
+        case valid
+        case invalid
+
+        var message: String {
+            switch self {
+            case .empty: return "The response has no body."
+            case .valid: return "Valid JSON."
+            case .invalid: return "Not valid JSON. It's saved as it is, which is useful for testing malformed responses."
+            }
+        }
+    }
+
+    static let bodyPreviewLineCount = 5
+
+    private(set) var id: String
+    var name = ""
+    var description = ""
+    var group = ""
+    var method: APIMock.HTTPMethod?
+    var matchKind = APIMock.URLPattern.Kind.wildcard
+    var pattern = ""
+    var responseKind = ResponseKind.http
+    var statusCode = "200"
+    var body = ""
+    var networkError = APIMock.NetworkError.notConnectedToInternet
+    var delay: TimeInterval = 0
+    // Not editable in the tool, but kept so editing a mock doesn't drop them.
+    var headers: [String: String] = [:]
+
+    /// A blank local mock.
+    init() {
+        id = "local.\(UUID().uuidString)"
+    }
+
+    /// The draft of an existing mock.
+    init(mock: APIMock) {
+        id = mock.id
+        name = mock.name
+        description = mock.description
+        group = mock.group ?? ""
+        method = mock.method
+        matchKind = mock.url.kind
+        pattern = mock.url.pattern
+        delay = mock.delay
+        switch mock.response {
+        case .http(let statusCode, let headers, let body):
+            self.statusCode = String(statusCode)
+            self.headers = headers
+            self.body = (try? body.loadText()) ?? ""
+        case .networkError(let error):
+            responseKind = .networkError
+            networkError = error
+        }
+    }
+
+    /// A new local mock with the same request and response as `mock`.
+    init(copying mock: APIMock) {
+        self.init(mock: mock)
+        id = "local.\(UUID().uuidString)"
+        name = "\(mock.name) copy"
+    }
+}
+
+// MARK: - Validation
+
+extension APIMockDraft {
+
+    var urlPattern: APIMock.URLPattern {
+        APIMock.URLPattern(kind: matchKind, pattern: pattern)
+    }
+
+    /// Shown under the URL field; an empty pattern isn't an error until the mock is saved.
+    var patternError: String? {
+        guard !pattern.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return nil }
+        return urlPattern.validationError
+    }
+
+    var statusCodeValue: Int? {
+        Int(statusCode.trimmingCharacters(in: .whitespaces)).flatMap { (100...599).contains($0) ? $0 : nil }
+    }
+
+    var trimmedName: String {
+        name.trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+
+    /// The group name, or `nil` when it's blank.
+    var trimmedGroup: String? {
+        APIMock.groupName(from: group)
+    }
+
+    var canSave: Bool {
+        guard !trimmedName.isEmpty, urlPattern.validationError == nil else { return false }
+        return responseKind == .networkError || statusCodeValue != nil
+    }
+
+    /// Invalid JSON is only a warning: a malformed body is a fair thing to test with.
+    var jsonStatus: JSONStatus {
+        guard !body.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return .empty }
+        return JSONFormatter.isValid(JSONFormatter.repairingQuotes(in: body)) ? .valid : .invalid
+    }
+
+    /// The first lines of the body. Capped in length too, as a minified body is one long line.
+    var bodyPreview: String {
+        let lines = body
+            .split(separator: "\n", maxSplits: Self.bodyPreviewLineCount, omittingEmptySubsequences: false)
+            .prefix(Self.bodyPreviewLineCount)
+            .joined(separator: "\n")
+        return String(lines.prefix(Self.bodyPreviewLineCount * 120))
+    }
+
+    /// How long the body is, e.g. `120 lines · 4 KB`.
+    var bodySummary: String {
+        let newlineCount = body.utf8.lazy.filter { $0 == UInt8(ascii: "\n") }.count
+        // A file usually ends with a newline, which doesn't start another line.
+        let lineCount = body.hasSuffix("\n") ? newlineCount : newlineCount + 1
+        let size = ByteCountFormatter.string(fromByteCount: Int64(body.utf8.count), countStyle: .file)
+        return "\(lineCount) \(lineCount == 1 ? "line" : "lines") · \(size)"
+    }
+
+    /// Re-indents the body when it's valid JSON.
+    mutating func formatBody() {
+        let repaired = JSONFormatter.repairingQuotes(in: body)
+        if let formatted = JSONFormatter.prettyPrinted(repaired) {
+            body = formatted
+        }
+    }
+
+    /// The mock the draft describes. Only meaningful when `canSave` is `true`.
+    func makeMock() -> APIMock {
+        let response: APIMock.Response
+        switch responseKind {
+        case .http:
+            response = APIMock.Response.http(
+                statusCode: statusCodeValue ?? 200,
+                headers: headers,
+                body: APIMock.Body.json(JSONFormatter.repairingQuotes(in: body))
+            )
+        case .networkError:
+            response = APIMock.Response.networkError(networkError)
+        }
+        return APIMock(
+            id: id,
+            name: trimmedName,
+            description: description.trimmingCharacters(in: .whitespacesAndNewlines),
+            group: trimmedGroup,
+            method: method,
+            url: urlPattern,
+            response: response,
+            delay: delay
+        )
+    }
+}
