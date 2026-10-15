@@ -24,7 +24,7 @@ public struct PreferencesTool: Tool {
     public init(name: String = "Preferences", sections: [PreferencesTool.Section]) {
         self.name = name
         self.sections = sections.map {
-            ToolTableSection(title: $0.title, items: $0.items.map { item in ToolTableItem.toggle(item) })
+            ToolTableSection(id: $0.id, title: $0.title, items: $0.items.map { item in ToolTableItem.toggle(item) })
         }
     }
 }
