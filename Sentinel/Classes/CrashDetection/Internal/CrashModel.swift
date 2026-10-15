@@ -80,9 +80,20 @@ extension CrashModel {
 
 }
 
-// MARK: - Trace symbol
+// MARK: - Trace image and symbol
 
 extension CrashModel.StackTrace {
+
+    /// The image (app, framework or library) in `title`, without the frame index before it;
+    /// `nil` when `title` has no address
+    var image: String? {
+        guard let addressStart = title.range(of: " 0x") else { return nil }
+
+        let image = title[..<addressStart.lowerBound]
+            .drop { $0.isNumber }
+            .trimmingCharacters(in: .whitespaces)
+        return image.isEmpty ? nil : image
+    }
 
     /// The symbol in `title`, without the frame index, image, address and `+ offset` that `Thread.callStackSymbols` adds;
     /// the whole `title` when it has no address
@@ -106,47 +117,82 @@ extension CrashModel.StackTrace {
 extension CrashModel {
 
     /// A crash with the text search looks at, prepared once when the list loads rather than on every keystroke
-    struct Searchable {
+    struct Searchable: Identifiable {
+        /// Position in the loaded list, so crashes sharing a date still get a row each
+        let id: Int
         let crash: CrashModel
         /// Lowercased name and formatted date, the text the row shows
         private let rowFields: [String]
-        private let symbols: [(original: String, lowercased: String)]
+        private let frames: [Frame]
 
-        init(_ crash: CrashModel) {
+        init(id: Int, crash: CrashModel) {
+            self.id = id
             self.crash = crash
             rowFields = [crash.details.name, crash.details.formattedDate].map { $0.lowercased() }
-            symbols = crash.traces.map { trace in
-                let symbol = trace.symbol
-                return (symbol, symbol.lowercased())
-            }
+            frames = crash.traces.map(Frame.init)
         }
 
-        /// Returns `nil` when a term is missing from the name, the formatted date and every symbol
+        /// Returns `nil` when a term is missing from the name, the formatted date and every frame's image and symbol
         /// - Parameter terms: Lowercased search terms
         func result(for terms: [String]) -> SearchResult? {
-            let symbolTerms = terms.filter { term in
+            let frameTerms = terms.filter { term in
                 !rowFields.contains { $0.contains(term) }
             }
-            guard !symbolTerms.isEmpty else { return SearchResult(crash: crash, matchedSymbol: nil) }
+            guard !frameTerms.isEmpty else { return SearchResult(id: id, crash: crash, matchedFrame: nil) }
 
-            let allFound = symbolTerms.allSatisfy { term in
-                // Numbers in symbols are only mangled name lengths, so a number has to be in the name or date
-                !term.allSatisfy(\.isNumber) && symbols.contains { $0.lowercased.contains(term) }
+            let allFound = frameTerms.allSatisfy { term in
+                frames.contains { $0.matches(term) }
             }
             guard allFound else { return nil }
 
-            let matchedSymbol = symbols.first { symbol in
-                symbolTerms.contains { symbol.lowercased.contains($0) }
+            let matchedFrame = frames.first { frame in
+                frameTerms.contains(where: frame.matches)
             }
-            return SearchResult(crash: crash, matchedSymbol: matchedSymbol?.original)
+            return SearchResult(id: id, crash: crash, matchedFrame: matchedFrame?.text(matching: frameTerms))
+        }
+
+        /// A stack trace frame's image and symbol, with lowercased copies to match against
+        private struct Frame {
+            let image: String?
+            let symbol: String
+            private let lowercasedImage: String?
+            private let lowercasedSymbol: String
+
+            init(_ trace: CrashModel.StackTrace) {
+                image = trace.image
+                symbol = trace.symbol
+                lowercasedImage = image?.lowercased()
+                lowercasedSymbol = symbol.lowercased()
+            }
+
+            func matches(_ term: String) -> Bool {
+                imageContains(term) || symbolContains(term)
+            }
+
+            /// The frame as "Matched in" shows it: the symbol, preceded by the image when a term is in the image
+            func text(matching terms: [String]) -> String {
+                guard let image, terms.contains(where: imageContains) else { return symbol }
+                return "\(image) \(symbol)"
+            }
+
+            private func imageContains(_ term: String) -> Bool {
+                lowercasedImage?.contains(term) == true
+            }
+
+            private func symbolContains(_ term: String) -> Bool {
+                // Numbers in symbols are only mangled name lengths, so a number has to be in the name, date or image
+                !term.allSatisfy(\.isNumber) && lowercasedSymbol.contains(term)
+            }
         }
     }
 
     /// A crash that matched a search
-    struct SearchResult {
+    struct SearchResult: Identifiable {
+        /// The `id` of the `Searchable` it came from
+        let id: Int
         let crash: CrashModel
-        /// First symbol containing a term the row's name and date don't show, `nil` when they show every term
-        let matchedSymbol: String?
+        /// First frame containing a term the row's name and date don't show, `nil` when they show every term
+        let matchedFrame: String?
     }
 }
 

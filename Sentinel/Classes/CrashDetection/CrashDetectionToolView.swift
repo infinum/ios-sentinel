@@ -24,7 +24,7 @@ struct CrashDetectionToolView: View {
 private struct ContentView: View {
 
     @State private var crashes: [CrashModel.Searchable] = []
-    @State private var selectedItem: String?
+    @State private var selectedItem: Int?
     @State private var searchText = ""
 
     private var searchTerms: [String] {
@@ -40,23 +40,21 @@ private struct ContentView: View {
             } else if results.isEmpty {
                 Text(verbatim: "No crashes match '\(searchText.trimmingCharacters(in: .whitespacesAndNewlines))'")
             } else {
-                ForEach(results, id: \.crash.details.date) { result in
+                ForEach(results) { result in
                     NavigationLink(
                         destination: CrashDetectionToolDetailsView(crashModel: result.crash),
-                        tag: String(result.crash.details.date.timeIntervalSinceReferenceDate),
+                        tag: result.id,
                         selection: $selectedItem,
-                        label: { CrashRow(crash: result.crash, matchedSymbol: result.matchedSymbol) }
+                        label: { CrashRow(crash: result.crash, matchedFrame: result.matchedFrame) }
                     )
                 }
             }
         }
         .searchableIfAvailable(text: $searchText, prompt: "Search crashes")
         .onAppear {
-            // The date is the row's ID, so a crash repeating an already seen date is dropped
-            var seenDates = Set<Date>()
             crashes = (CrashFileManager.recover(ofType: .nsexception) + CrashFileManager.recover(ofType: .signal))
-                .filter { seenDates.insert($0.details.date).inserted }
-                .map(CrashModel.Searchable.init)
+                .enumerated()
+                .map { CrashModel.Searchable(id: $0.offset, crash: $0.element) }
         }
         .navigationTitle("Crashes Tool")
         .toolbar {
@@ -85,7 +83,7 @@ private struct ContentView: View {
 private struct CrashRow: View {
 
     let crash: CrashModel
-    let matchedSymbol: String?
+    let matchedFrame: String?
 
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
@@ -94,8 +92,8 @@ private struct CrashRow: View {
             Text(crash.details.formattedDate)
                 .font(.caption1Regular)
                 .foregroundColor(.secondary)
-            if let matchedSymbol {
-                Text(verbatim: "Matched in: \(matchedSymbol)")
+            if let matchedFrame {
+                Text(verbatim: "Matched in: \(matchedFrame)")
                     .font(.caption1Regular)
                     .foregroundColor(.secondary)
                     .lineLimit(2)
