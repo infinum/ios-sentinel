@@ -103,7 +103,7 @@ private extension CrashDetectionToolDetailsView {
     var detailItems: [(String, String)] {
         [
             ("Error:", crashModel.details.name),
-            ("Date:", crashModel.details.date.description),
+            ("Date:", crashModel.details.formattedDateWithTimeZone),
             ("Other:", crashModel.details.deviceInfo.description)
         ]
     }

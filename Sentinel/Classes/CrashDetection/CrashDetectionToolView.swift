@@ -34,9 +34,9 @@ private struct ContentView: View {
                 ForEach(crashes, id: \.details.date) { model in
                     NavigationLink(
                         destination: CrashDetectionToolDetailsView(crashModel: model),
-                        tag: model.details.date.description,
+                        tag: String(model.details.date.timeIntervalSinceReferenceDate),
                         selection: $selectedItem,
-                        label: { Text(model.details.name) }
+                        label: { CrashRow(crash: model) }
                     )
                 }
             }
@@ -63,6 +63,21 @@ private struct ContentView: View {
                     }
                 )
             }
+        }
+    }
+}
+
+private struct CrashRow: View {
+
+    let crash: CrashModel
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 4) {
+            Text(crash.details.name)
+                .font(.body1Bold)
+            Text(crash.details.formattedDate)
+                .font(.caption1Regular)
+                .foregroundColor(.secondary)
         }
     }
 }

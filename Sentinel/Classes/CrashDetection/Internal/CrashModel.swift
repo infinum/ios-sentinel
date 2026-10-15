@@ -48,6 +48,16 @@ extension CrashModel {
         let date: Date
         let deviceInfo: DeviceTool.Info
 
+        /// Local date and time of the crash, down to the second
+        var formattedDate: String {
+            date.formatted(date: .abbreviated, time: .standard)
+        }
+
+        /// `formattedDate` followed by the time zone, so a shared crash stays unambiguous
+        var formattedDateWithTimeZone: String {
+            date.formatted(Date.FormatStyle(date: .abbreviated, time: .standard).timeZone())
+        }
+
         static func builder(name: String) -> Self {
             .init(
                 name: name,
