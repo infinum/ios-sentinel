@@ -19,11 +19,18 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             ZStack(alignment: .topTrailing) {
-                Text("Shake the device to open Sentinel")
-                    .font(.title2)
-                    .multilineTextAlignment(.center)
-                    .padding()
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                VStack(spacing: 24) {
+                    Text("Shake the device or tap the button to open Sentinel")
+                        .font(.title2)
+                        .multilineTextAlignment(.center)
+
+                    Button("Open Sentinel") {
+                        NotificationCenter.default.post(name: .openSentinel, object: nil)
+                    }
+                    .buttonStyle(.borderedProminent)
+                }
+                .padding()
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
 
                 menuButton
                     .padding(MenuButton.margin)
