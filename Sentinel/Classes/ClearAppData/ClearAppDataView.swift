@@ -32,6 +32,7 @@ struct ClearAppDataView: View {
                     .foregroundColor(.red)
             }
             .disabled(viewModel.isClearing)
+            .accessibilityIdentifier(AccessibilityIdentifier.clearAllDataButton)
 
             if viewModel.isClearing {
                 ProgressView()

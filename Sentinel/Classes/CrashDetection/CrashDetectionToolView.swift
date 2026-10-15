@@ -41,6 +41,7 @@ private struct ContentView: View {
                 }
             }
         }
+        .pushedListTopMargin(isPushed: true)
         .onAppear {
             crashes = CrashFileManager.recover(ofType: .nsexception) + CrashFileManager.recover(ofType: .signal)
         }
@@ -62,6 +63,7 @@ private struct ContentView: View {
                         Image(systemName: "trash")
                     }
                 )
+                .accessibilityIdentifier(AccessibilityIdentifier.crashesDeleteAllButton)
             }
         }
     }

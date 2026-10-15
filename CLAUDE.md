@@ -26,7 +26,29 @@ Build the SwiftPM package for iOS (a plain `swift build` on a Mac only builds th
 xcodebuild -scheme Sentinel -destination 'generic/platform=iOS' build
 ```
 
-There is no real test suite: `Example/Tests/Tests.swift` is an empty placeholder for the `Sentinel_Tests` target. Verify changes by building both platforms and running the example apps.
+## Tests
+
+There are three layers. Unit and integration tests use Swift Testing; UI tests use XCTest, because Swift Testing can't drive `XCUIApplication`.
+
+- **Unit tests** (`Tests/SentinelTests`, `Tests/SentinelPulseTests`) are SwiftPM test targets with `@testable import Sentinel`. They run on macOS and on the iOS simulator; iOS-only types are tested behind `#if os(iOS)`. Tests that touch shared state get a throwaway `UserDefaults` suite (`IsolatedUserDefaults`) or temp directory (`TemporaryDirectory`), because Swift Testing runs tests in parallel.
+- **Integration tests** (`Example/Tests`, target `Sentinel_Tests`) run inside the iOS example app (`TEST_HOST`) for anything that needs an app: the Keychain, the sandboxed Documents directory, `UIApplication` swizzling, presenting Sentinel. The bundle doesn't link the `Sentinel` product; it reaches the host app's copy through `BUNDLE_LOADER`, so there is one `Sentinel.shared`. Every suite is nested in the `.serialized` `IntegrationTests` suite. The example app skips its own Sentinel setup while hosting these tests.
+- **UI tests** (`Example/UITests`, target `Example-iOSUITests`) launch the example app with `-uiTesting` (shows an "Open Sentinel" button that sends a shake event, since XCUITest can't shake) and `-resetState` (wipes defaults and saved crashes). They find Sentinel views by the identifiers in `Core/Internal/AccessibilityIdentifier.swift`.
+
+Known bugs are pinned with `withKnownIssue` (Swift Testing) or `XCTExpectFailure` (XCTest), so the suites stay green and say when a bug gets fixed.
+
+```bash
+swift test
+```
+
+```bash
+xcodebuild test -scheme Sentinel-Package -destination 'platform=iOS Simulator,name=iPhone 17 Pro'
+```
+
+```bash
+xcodebuild test -project Example/Sentinel.xcodeproj -scheme Example-iOS -destination 'platform=iOS Simulator,name=iPhone 17 Pro'
+```
+
+If several runtimes have a simulator with the same name, pass its `id=` instead of `name=`.
 
 ## Architecture
 

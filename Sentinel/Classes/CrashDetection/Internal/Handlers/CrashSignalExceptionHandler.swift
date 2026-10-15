@@ -43,25 +43,36 @@ extension CrashSignalExceptionHandler: CrashExceptionPrepareable {
 private extension CrashSignalExceptionHandler {
 
     func backupOriginalHandler() {
-        Self.preHandlers.forEach { (signal, handler) in
-            var tempHandler = handler
-            backupSingleHandler(signal: signal, preHandler: &tempHandler)
+        for signal in Array(Self.preHandlers.keys) {
+            Self.preHandlers[signal] = installedHandler(for: signal)
         }
     }
 
-    func backupSingleHandler(signal: Int32, preHandler: inout SignalHandler?) {
+    /// The handler installed for `signal` before Sentinel's, if there is one worth calling.
+    func installedHandler(for signal: Int32) -> SignalHandler? {
         let empty: UnsafeMutablePointer<sigaction>? = nil
-        var old_action_abrt = sigaction()
-        sigaction(signal, empty, &old_action_abrt)
+        var installedAction = sigaction()
+        sigaction(signal, empty, &installedAction)
 
-        if old_action_abrt.__sigaction_u.__sa_sigaction != nil {
-            preHandler = old_action_abrt.__sigaction_u.__sa_sigaction
-        }
+        // A handler set with `sa_handler` shares this union slot. It is still safe to call with three
+        // arguments, because the C calling convention ignores the extra ones.
+        guard let handler = installedAction.__sigaction_u.__sa_sigaction else { return nil }
+        // SIG_IGN isn't a function, and backing up Sentinel's own handler, when `prepare()` runs more than
+        // once, would make the crash handler call itself.
+        let sentinelHandler: CSignalHandler = crashSignalHandler
+        let address = unsafeBitCast(handler, to: UnsafeRawPointer.self)
+        guard
+            address != unsafeBitCast(SIG_IGN, to: UnsafeRawPointer.self),
+            address != unsafeBitCast(sentinelHandler, to: UnsafeRawPointer.self)
+        else { return nil }
+        return handler
     }
 
 }
 
 // MARK: - Signal handling
+
+private typealias CSignalHandler = @convention(c) (Int32, UnsafeMutablePointer<__siginfo>?, UnsafeMutableRawPointer?) -> Void
 
 private extension CrashSignalExceptionHandler {
 

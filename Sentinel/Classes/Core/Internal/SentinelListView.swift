@@ -11,15 +11,25 @@ import Combine
 struct SentinelListView: View {
     let title: String
     let items: [ToolTableSection]
+    /// `true` for the list at the root of a tab, `false` for a list pushed from it.
+    var isTabRoot = false
 
     var body: some View {
     #if os(macOS)
         NavigationView {
-            ContentView(title: title, sections: items)
+            ContentView(
+                title: title,
+                sections: items,
+                isTabRoot: isTabRoot
+            )
                 .frame(minWidth: 400) // Expands the content in width so it's visible
         }
     #else
-        ContentView(title: title, sections: items)
+        ContentView(
+            title: title,
+            sections: items,
+            isTabRoot: isTabRoot
+        )
     #endif
     }
 }
@@ -28,6 +38,7 @@ private struct ContentView: View {
 
     @State private var selectedItem: String?
     let title: String
+    let isTabRoot: Bool
 
     @ObservedObject var viewModel: SentinelListViewModel
 
@@ -55,6 +66,7 @@ private struct ContentView: View {
                             selection: $selectedItem,
                             label: { NavigationToolTableView(item: item) }
                         )
+                        .accessibilityIdentifier(AccessibilityIdentifier.row(item.title))
                     case .toggle(let item):
                         PreferencesView(item: item)
                     case .customInfo(let item):
@@ -67,14 +79,20 @@ private struct ContentView: View {
                 }
             }
         }
+        .pushedListTopMargin(isPushed: !isTabRoot)
         .searchableIfAvailable(text: $viewModel.searchText, prompt: "Search for an item")
         .navigationTitle(title)
     }
 }
 extension ContentView {
 
-    init(title: String, sections: [ToolTableSection]) {
+    init(
+        title: String,
+        sections: [ToolTableSection],
+        isTabRoot: Bool
+    ) {
         self.title = title
+        self.isTabRoot = isTabRoot
         viewModel = .init(sections: sections)
     }
 }

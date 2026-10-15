@@ -14,6 +14,10 @@ import Pulse
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        guard !LaunchEnvironment.isHostingUnitTests else { return true }
+        if LaunchEnvironment.shouldResetState {
+            LaunchEnvironment.resetStateForUITests()
+        }
         setupSentinel()
         logSamplePulseEntries()
         return true
