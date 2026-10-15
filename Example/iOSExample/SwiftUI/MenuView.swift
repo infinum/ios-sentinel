@@ -9,7 +9,7 @@
 import SwiftUI
 
 /// Demonstrates `ClearAppDataTool`: save the current state, clear the app data from Sentinel, then
-/// relaunch — both values should read as empty again.
+/// relaunch — both values should read as empty again. Also seeds sample crashes for `CrashDetectionTool`.
 struct MenuView: View {
 
     @State private var userDefaultsValue: String?
@@ -26,6 +26,12 @@ struct MenuView: View {
                 Button("Save current state") {
                     StoredDataProvider.save()
                     reload()
+                }
+            }
+
+            Section(footer: Text("Fills the Crash Detection tool with sample crashes.")) {
+                Button("Add sample crashes") {
+                    SampleCrashes.seed()
                 }
             }
         }
