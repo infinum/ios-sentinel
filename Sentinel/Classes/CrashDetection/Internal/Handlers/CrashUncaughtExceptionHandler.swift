@@ -29,7 +29,7 @@ class CrashUncaughtExceptionHandler {
 
 func UncaughtExceptionHandler(exception: NSException) {
     let reason = exception.reason ?? "Unknown"
-    let exceptionInfo = exception.name.rawValue + reason
+    let exceptionInfo = "\(exception.name.rawValue): \(reason)"
     CrashUncaughtExceptionHandler.exceptionReceiveClosure?(nil, exception, exceptionInfo)
     preUncaughtExceptionHandler?(exception)
 }

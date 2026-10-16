@@ -340,6 +340,8 @@ var colorChangeTool: Tool {
 
 *CrashDetectionTool* sets up listeners on system exceptions which will be logged into a local json file with the stack trace. The tool is available on iOS.
 
+The crash list can be searched by crash name, date or stack trace.
+
 #### Database tool
 
 *DatabaseImportExportTool* gives the ability to import or export the database file which is located in the documents folder of the app. The tool is available on iOS and MacOS.
