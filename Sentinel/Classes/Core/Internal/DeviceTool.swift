@@ -23,10 +23,7 @@ struct DeviceTool: Tool {
 
     // MARK: - Private properties
 
-    private let tool = CustomInfoTool(
-        name: "Device",
-        info: [section]
-    )
+    private let tool = CustomInfoTool(name: "Device", info: DeviceInfoProvider.sections)
 
 }
 
@@ -51,38 +48,13 @@ extension DeviceTool {
 
 // MARK: - Info helpers
 
-private extension DeviceTool {
-
-    static var section: CustomInfoTool.Section {
-        #if os(macOS)
-        macOSSection
-        #else
-        iOSSection
-        #endif
-    }
+extension DeviceTool {
 
     static var systemVersion: String {
         #if os(iOS)
         "\(UIDevice.current.systemName) \(UIDevice.current.systemVersion)"
         #elseif os(macOS)
         "macOS \(ProcessInfo.processInfo.operatingSystemVersionString)"
-        #endif
-    }
-
-    static var batteryState: String {
-        #if os(macOS)
-        "Unknown"
-        #else
-        switch UIDevice.current.batteryState {
-        case .charging:
-            "Charging at: \(calculateBatteryPercentage(with: UIDevice.current.batteryLevel.description))%"
-        case .full:
-            "Full"
-        case .unplugged:
-            "\(calculateBatteryPercentage(with: UIDevice.current.batteryLevel.description))%"
-        default:
-            "Unknown"
-        }
         #endif
     }
 
@@ -95,11 +67,6 @@ private extension DeviceTool {
         fetchIOValue(for: kIOPlatformUUIDKey)
     }
     #endif
-
-    static func calculateBatteryPercentage(with amount: String) -> String {
-        guard let batteryLevel = Double(amount) else { return "Unknown" }
-        return "\(batteryLevel * 100.0)"
-    }
 }
 
 #if os(macOS)
@@ -121,30 +88,6 @@ private extension DeviceTool {
 
         IOObjectRelease(service)
         return valueIdentifier
-    }
-
-    static var macOSSection: CustomInfoTool.Section {
-        CustomInfoTool.Section(title: "Device", items: [
-            CustomInfoTool.Item(title: "Model", value: getModelIdentifier() ?? "Unknown"),
-            CustomInfoTool.Item(title: "Name", value: ProcessInfo.processInfo.hostName),
-            CustomInfoTool.Item(title: "System version", value: systemVersion),
-            CustomInfoTool.Item(title: "UUID", value: hardwareDeviceUUID ?? "Unknown")
-        ])
-    }
-}
-#else
-
-private extension DeviceTool {
-
-    static var iOSSection: CustomInfoTool.Section {
-        CustomInfoTool.Section(title: "Device", items: [
-            CustomInfoTool.Item(title: "Model", value: UIDevice.current.model),
-            CustomInfoTool.Item(title: "Name", value: UIDevice.current.name),
-            CustomInfoTool.Item(title: "System version", value: systemVersion),
-            CustomInfoTool.Item(title: "UUID", value: UIDevice.current.identifierForVendor?.uuidString ?? "Unknown"),
-            CustomInfoTool.Item(title: "Battery state", value: batteryState),
-            CustomInfoTool.Item(title: "Proximity state", value: UIDevice.current.proximityState ? "Close" : "Far")
-        ])
     }
 }
 #endif

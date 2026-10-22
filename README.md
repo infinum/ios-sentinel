@@ -14,7 +14,7 @@
 
 **Sentinel** supports **iOS**, and **MacOS**. There are some differences which will be mentioned in the following sections.
 
-**Sentinel** has a tab bar that contains five screens. Three of those aren't configurable, and two of them are. The first screen is the **Device** screen which allows the user to look into some of the device-specific information. The second screen is the **Application** screen which allows the user to look into some of the application-specific information from the <i>info.plist</i>. The third, the first configurable screen, is the **Tools** screen. **Tools** screen allows you to add as many `Tool` objects as your heart desires which can be used by the user to find out some specific information. The fourth, last configurable screen, is the **Preferences** screen. **Preferences** screen allows you to add options that allow or deny some activity inside the app. **Preferences** tab can also be used as a feature control entry point, the user will be able to enable or disable the features by pressing the option button. Last, but not the least, is the **Performance** screen which contains performance-specific information. Later on, we'll explain how you can configure those screens.
+**Sentinel** has a tab bar that contains five screens. Three of those aren't configurable, and two of them are. The first screen is the **Device** screen which allows the user to look into the device-specific information: the model, whether it is a simulator, the screen, the locale and the accessibility settings. The second screen is the **Application** screen which allows the user to look into the application-specific information: the runtime details, such as the app language and how the app was distributed, and the <i>info.plist</i>. Both screens have a share button which shares the device and application information together as plain text, and a row can be copied with a long press (a right-click on MacOS). The third, the first configurable screen, is the **Tools** screen. **Tools** screen allows you to add as many `Tool` objects as your heart desires which can be used by the user to find out some specific information. The fourth, last configurable screen, is the **Preferences** screen. **Preferences** screen allows you to add options that allow or deny some activity inside the app. **Preferences** tab can also be used as a feature control entry point, the user will be able to enable or disable the features by pressing the option button. Last, but not the least, is the **Performance** screen which contains performance-specific information. Later on, we'll explain how you can configure those screens.
 
 **Sentinel** contains a few custom tools which can be used. You can find out more about it in the [Usage](#usage) section.
 
@@ -326,7 +326,7 @@ var colorChangeTool: Tool {
 
 #### CustomInfoTool
 
-*CustomInfoTool* is used on the `Device`, and `Application` tabs. Its primary use is to list out properties and their values. The tool is available on both iOS, and MacOS platforms.
+*CustomInfoTool* is used on the `Device`, and `Application` tabs. Its primary use is to list out properties and their values. The tool is available on both iOS, and MacOS platforms. The tool has a share button which shares its properties and values as plain text.
 
 #### TextEditingTool
 

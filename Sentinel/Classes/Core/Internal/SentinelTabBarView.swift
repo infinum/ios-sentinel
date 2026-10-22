@@ -29,12 +29,12 @@ public struct SentinelTabBarView: View {
         TabView(selection: $selectedTab) {
             ForEach(tabs, id: \.barItemTitle) { tab in
                 #if os(macOS)
-                SentinelListView(title: tab.barItemTitle, items: tab.sections)
+                SentinelListView(title: tab.barItemTitle, items: tab.sections, shareText: tab.shareText)
                     .tabItem { TabBarView(tab: tab) }
                     .tag(tab.tabViewTab)
                 #else
                 NavigationView {
-                    SentinelListView(title: tab.barItemTitle, items: tab.sections)
+                    SentinelListView(title: tab.barItemTitle, items: tab.sections, shareText: tab.shareText)
                 }
                 .tabItem { TabBarView(tab: tab) }
                 .tag(tab.tabViewTab)

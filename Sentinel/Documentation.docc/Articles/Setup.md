@@ -196,7 +196,7 @@ Tool is a name for the wrapper around a debug tool that Sentinel will provide. T
 
 ### CustomInfoTool
 
-**CustomInfoTool** is used on the `Device`, and `Application` tabs. Its primary use is to list out properties and their values. The tool is available on iOS, and MacOS platforms.
+**CustomInfoTool** is used on the `Device`, and `Application` tabs. Its primary use is to list out properties and their values. The tool is available on iOS, and MacOS platforms. The tool has a share button which shares its properties and values as plain text. The `Device` and `Application` tabs share the device and application information together as one report.
 
 ### TextEditingTool
 
