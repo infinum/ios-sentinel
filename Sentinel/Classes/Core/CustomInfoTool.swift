@@ -32,11 +32,11 @@ public extension CustomInfoTool {
 
     #if os(macOS)
     func createContent(selection: Binding<String?>) -> any View  {
-        SentinelListView(title: name, items: createToolTable(with: info).sections)
+        listView
     }
     #else
     var content: any View {
-        SentinelListView(title: name, items: createToolTable(with: info).sections)
+        listView
     }
     #endif
 }
@@ -44,6 +44,10 @@ public extension CustomInfoTool {
 // MARK: - Helpers
 
 extension CustomInfoTool {
+
+    private var listView: SentinelListView {
+        SentinelListView(title: name, items: createToolTable(with: info).sections, shareText: { info.plainText })
+    }
 
     func createToolTable(with info: [Section]) -> ToolTable {
         let sections = info.map { (section) in

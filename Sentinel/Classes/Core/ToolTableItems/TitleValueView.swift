@@ -21,6 +21,24 @@ struct TitleValueView: View {
                 .font(.body1Regular)
                 .frame(maxWidth: .infinity, alignment: .trailing)
         }
+        .contextMenu {
+            Button("Copy") { copyToPasteboard() }
+        }
+    }
+}
+
+// MARK: - Private methods
+
+private extension TitleValueView {
+
+    func copyToPasteboard() {
+        let text = "\(title): \(value)"
+        #if os(macOS)
+        NSPasteboard.general.clearContents()
+        NSPasteboard.general.setString(text, forType: .string)
+        #else
+        UIPasteboard.general.string = text
+        #endif
     }
 }
 

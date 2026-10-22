@@ -58,6 +58,14 @@ extension SentinelTabItem {
     var sections: [ToolTableSection] {
         toolTable.sections
     }
+
+    /// The Device and Application tabs share the same report, so it doesn't matter which one the share button is on.
+    var shareText: (() -> String)? {
+        switch tab {
+        case .device, .application: { SentinelReport.plainText }
+        default: nil
+        }
+    }
 }
 
 // MARK: - Private helpers
