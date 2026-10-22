@@ -218,6 +218,8 @@ The tool will export the database file as a zip, and the file should be imported
 
 **CrashDetectionTool** sets up listeners on system exceptions which will be logged into a local json file with the stack trace. The tool is available on iOS.
 
+The crash list can be searched by crash name, date or stack trace.
+
 ### CustomLocationTool
 
 **CustomLocationTool** is used to change the user's current location. After changing the location, the application have to be restarted. The tool is available on iOS.

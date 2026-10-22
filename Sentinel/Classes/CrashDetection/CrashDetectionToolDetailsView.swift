@@ -19,8 +19,8 @@ struct CrashDetectionToolDetailsView: View {
                 Text("Details")
                     .font(.title1Bold)
 
-                ForEach(detailItems, id: \.0) {
-                    CrashToolDetailsRow(title: $0.0, value: $0.1)
+                ForEach(detailItems, id: \.title) {
+                    CrashToolDetailsRow(title: $0.title, value: $0.value)
                 }
             }
 
@@ -28,8 +28,8 @@ struct CrashDetectionToolDetailsView: View {
                 Text("Stack trace")
                     .font(.title1Bold)
 
-                ForEach(crashModel.traces, id: \.title) {
-                    StackTraceView(title: $0.title, description: $0.detail)
+                ForEach(Array(crashModel.traces.enumerated()), id: \.offset) {
+                    StackTraceView(index: $0.offset, trace: $0.element)
                 }
             }
         }
@@ -64,56 +64,79 @@ private struct CrashToolDetailsRow: View {
     let value: String
 
     var body: some View {
-        HStack(spacing: 0) {
+        VStack(alignment: .leading, spacing: 4) {
             Text(title)
-                .font(.body1Bold)
+                .font(.caption1Regular)
+                .foregroundColor(.secondary)
             Text(value)
                 .font(.body1Regular)
-                .frame(maxWidth: .infinity, alignment: .trailing)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .textSelection(.enabled)
         }
     }
 }
 
 private struct StackTraceView: View {
-    let title: String
-    let description: String?
+    let index: Int
+    let trace: CrashModel.StackTrace
 
     var body: some View {
-        VStack(spacing: 4) {
-            Text(title)
-                .font(.body1Bold)
-            if let description {
-                Text(description)
+        VStack(alignment: .leading, spacing: 4) {
+            Text(header)
+                .font(.caption1Regular)
+                .foregroundColor(.secondary)
+            Text(trace.symbol)
+                .font(.body1Regular.monospaced())
+            if !detail.isEmpty {
+                Text(detail)
                     .font(.caption1Regular)
+                    .foregroundColor(.secondary)
             }
         }
-        .onTapGesture { }
-        .onLongPressGesture {
-            #if os(macOS)
-            NSPasteboard.general.setString(title + String.newLine + (description ?? .empty), forType: .string)
-            #else
-            UIPasteboard.general.string = title + String.newLine + (description ?? .empty)
-            #endif
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .textSelection(.enabled)
+        .contextMenu {
+            Button("Copy") {
+                #if os(macOS)
+                NSPasteboard.general.clearContents()
+                NSPasteboard.general.setString(copyText, forType: .string)
+                #else
+                UIPasteboard.general.string = copyText
+                #endif
+            }
         }
+    }
+
+    /// Frame index and image, e.g. "#0 · Example-iOS"
+    private var header: String {
+        [("#\(index)"), trace.image].compactMap { $0 }.joined(separator: " · ")
+    }
+
+    private var detail: String {
+        trace.detail.trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+
+    private var copyText: String {
+        trace.title + String.newLine + trace.detail
     }
 }
 
 private extension CrashDetectionToolDetailsView {
 
-    var detailItems: [(String, String)] {
+    var detailItems: [(title: String, value: String)] {
         [
-            ("Error:", crashModel.details.name),
-            ("Date:", crashModel.details.date.description),
-            ("Other:", crashModel.details.deviceInfo.description)
-        ]
+            ("Error", crashModel.details.name),
+            ("Date", crashModel.details.formattedDateWithTimeZone)
+        ] + crashModel.details.deviceInfo.items
     }
 
     @StringBuilder
     var shareText: String {
-        detailItems.map { title, value in
-            "\(title): \(value)"
-        }.joined(separator: .newLine)
+        "Error: \(crashModel.details.name)"
         String.newLine
+        "Date: \(crashModel.details.formattedDateWithTimeZone)"
+        String.newLine
+        crashModel.details.deviceInfo.description
 
         "Stack Trace:"
         String.newLine
