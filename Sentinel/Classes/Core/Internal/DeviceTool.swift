@@ -173,15 +173,20 @@ extension DeviceTool {
         }
         #endif
 
+        /// Title and value of every device fact, except the manufacturer which is always Apple
+        var items: [(title: String, value: String)] {
+            [
+                ("Device model", model),
+                ("Device OS", systemVersion),
+                ("Device ID", UUID)
+            ]
+        }
+
         @StringBuilder
         var description: String {
             "Manufacturer: Apple"
             String.newLine
-            "Device model: \(model)"
-            String.newLine
-            "Device OS: \(systemVersion)"
-            String.newLine
-            "Device ID: \(UUID)"
+            items.map { "\($0.title): \($0.value)" }.joined(separator: .newLine)
             String.newLine
         }
     }
