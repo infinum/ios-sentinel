@@ -3,7 +3,6 @@
 //  Example-iOS
 //
 //  Created by Nikola Simunko on 22.09.2025..
-//  Copyright © 2025 CocoaPods. All rights reserved.
 //
 
 import Foundation
