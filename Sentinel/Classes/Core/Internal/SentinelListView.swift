@@ -67,7 +67,7 @@ private struct ContentView: View {
                 }
             }
         }
-        .searchableIfAvailable(text: $viewModel.searchText, prompt: "Search for an item")
+        .sentinelSearchable(text: $viewModel.searchText, prompt: "Search for an item")
         .navigationTitle(title)
     }
 }
