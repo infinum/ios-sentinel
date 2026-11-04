@@ -4,19 +4,9 @@ How you can set up Sentinel.
 
 ## 1. Add Sentinel
 
-### Cocoapods
-
-You can add Sentinel via Cocoapods.
-
-```
-pod 'Sentinel'
-```
-
-This will add the default subspec, if you want additional tools, check out other subspecs.
-
 ### SPM
 
-You can add Sentinel via SPM.
+You can add Sentinel via SPM. All of the tools are part of the `Sentinel` product.
 
 ```
 https://github.com/infinum/ios-sentinel.git

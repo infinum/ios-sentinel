@@ -8,11 +8,5 @@
 import Foundation
 
 extension Bundle {
-    static var sentinel: Bundle {
-        #if SWIFT_PACKAGE
-        .module
-        #else
-        Bundle(for: Sentinel.self)
-        #endif
-    }
+    static var sentinel: Bundle { .module }
 }

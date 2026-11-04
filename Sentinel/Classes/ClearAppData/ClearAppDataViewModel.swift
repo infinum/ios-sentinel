@@ -11,8 +11,8 @@ import Foundation
 
 final class ClearAppDataViewModel: ObservableObject {
 
-    /// Both alerts are driven by a single value. Two `alert(isPresented:)` modifiers on one view
-    /// silently collapse into one on iOS 14, so only one modifier may be attached.
+    /// Both alerts are driven by a single value, so the view attaches one `alert` modifier and the
+    /// confirmation and result alerts can never compete to be presented.
     enum AlertKind: Identifiable {
         case confirmation
         case result(ClearAppDataReport)
