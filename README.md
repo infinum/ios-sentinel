@@ -281,14 +281,14 @@ If you need more context, you can check out the `UserDefaultsTool` or `EditTextT
 #### iOS
 The `content` property provides the *View* which will be shown when the *Tool* is selected.
 
-At Infinum, we're using `Pulse` as our network logger. We only use it for internal builds, and it helps a lot if we can somehow access the logs from `Pulse`, as well as other debug tools. That's why we have a need to create the `PulseTool` which will be an example on how to create your own tool.
+For example, a tool which shows the app's own network log screen inside Sentinel only needs a name and the view to show. (For Pulse, use the ready-made [PulseTool](#pulsetool) instead.)
 
 ```swift
-final class PulseTool: Tool {
-    var name: String { "Pulse" }
+struct NetworkLogTool: Tool {
+    var name: String { "Network log" }
 
     var content: any View {
-        ConsoleView()
+        NetworkLogView()
     }
 }
 ```
@@ -359,6 +359,51 @@ var colorChangeTool: Tool {
 The app has to be force quit and relaunched afterwards. iOS cannot restart it, so anything already held in memory — singletons, open database connections, cached credentials — stays live until the app is relaunched.
 
 Keychain items in shared access groups and data in app group containers are left alone, since both are shared with other apps and extensions. Clearing those stays the host app's responsibility. System `com.apple.*` preference domains are left alone too.
+
+#### PulseTool
+
+*PulseTool* shows the [Pulse](https://github.com/kean/Pulse) console, with the app's logs and network requests, inside Sentinel. It lives in a separate `SentinelPulse` product, so Pulse is only added to apps that use the tool. The app also depends on Pulse itself, which it uses to log messages and network requests:
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/infinum/ios-sentinel.git", from: "3.0.0"),
+    .package(url: "https://github.com/kean/Pulse.git", from: "5.0.0")
+],
+targets: [
+    .target(
+        name: "YourApp",
+        dependencies: [
+            .product(name: "Sentinel", package: "ios-sentinel"),
+            .product(name: "SentinelPulse", package: "ios-sentinel"),
+            .product(name: "Pulse", package: "Pulse")
+        ]
+    )
+]
+```
+
+```swift
+import Sentinel
+import SentinelPulse
+
+let configuration = Sentinel.Configuration(
+    trigger: Triggers.shake,
+    tools: [
+        PulseTool()
+    ]
+)
+```
+
+By default the tool shows `LoggerStore.shared`; pass `PulseTool(store:)` to show a different store. The tool only displays what Pulse has already recorded, so set up network logging as described in Pulse's [Getting Started](https://kean-docs.github.io/pulse/documentation/pulse/gettingstarted) guide.
+
+The tool is available on iOS. `SentinelPulse` works with Pulse 4 and 5, but newer Pulse versions need a newer iOS to show the console. On older systems Pulse shows an *Unsupported* placeholder instead:
+
+| Pulse | Console shown on |
+| --- | --- |
+| 4.x, 5.0 | iOS 15 and newer |
+| 5.1 | iOS 16 and newer |
+| 5.2 and newer | iOS 18 and newer |
+
+`from: "5.0.0"` resolves to the newest 5.x, so apps that support iOS 15 to 17 should pin an older Pulse, for example `.upToNextMinor(from: "5.0.0")` for iOS 15 or `.upToNextMinor(from: "5.1.0")` for iOS 16, or stay on Pulse 4.
 
 ## Contributing
 
