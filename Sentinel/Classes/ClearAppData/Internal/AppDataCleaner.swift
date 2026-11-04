@@ -46,26 +46,41 @@ enum AppDataCleaner {
 
 private extension AppDataCleaner {
 
+    typealias DirectorySweep = (
+        directory: FileManager.SearchPathDirectory,
+        step: ClearAppDataStep,
+        excluding: Set<String>,
+        systemManagedItems: Set<String>
+    )
+
     /// Caches before Documents, so the cheap wins land even if a live database file in Documents
     /// causes trouble.
+    static let directorySweeps: [DirectorySweep] = [
+        (.cachesDirectory, .cachesDirectory, [], ["Snapshots"]),
+        (.applicationSupportDirectory, .applicationSupportDirectory, [], []),
+        // Preferences is left to `UserDefaultsCleaner`, because `cfprefsd` caches the plists and
+        // would write deleted ones back. Caches and Application Support have their own sweeps.
+        (.libraryDirectory, .libraryDirectory, ["Preferences", "Caches", "Application Support"], ["SplashBoard"]),
+        (.documentDirectory, .documentsDirectory, [], [])
+    ]
+
     static func clearDirectories() -> [ClearAppDataFailure] {
         var failures = FileSystemCleaner.clearContents(
             of: FileSystemCleaner.temporaryDirectoryURL,
             step: .temporaryDirectory
         )
 
-        let directories: [(FileManager.SearchPathDirectory, ClearAppDataStep)] = [
-            (.cachesDirectory, .cachesDirectory),
-            (.applicationSupportDirectory, .applicationSupportDirectory),
-            (.documentDirectory, .documentsDirectory)
-        ]
-
-        for (directory, step) in directories {
-            guard let url = FileSystemCleaner.url(for: directory) else {
-                failures.append(ClearAppDataFailure(step: step, reason: "directory not found"))
+        for sweep in directorySweeps {
+            guard let url = FileSystemCleaner.url(for: sweep.directory) else {
+                failures.append(ClearAppDataFailure(step: sweep.step, reason: "directory not found"))
                 continue
             }
-            failures += FileSystemCleaner.clearContents(of: url, step: step)
+            failures += FileSystemCleaner.clearContents(
+                of: url,
+                step: sweep.step,
+                excluding: sweep.excluding,
+                systemManagedItems: sweep.systemManagedItems
+            )
         }
 
         return failures
