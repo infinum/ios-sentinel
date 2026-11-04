@@ -31,6 +31,8 @@ struct MenuView: View {
         }
         .listStyle(InsetGroupedListStyle())
         .navigationTitle("Menu")
+        // On iOS 14 and 15 the root view's hidden bar carries over to pushed views.
+        .navigationBarHidden(false)
         .onAppear(perform: reload)
     }
 }
