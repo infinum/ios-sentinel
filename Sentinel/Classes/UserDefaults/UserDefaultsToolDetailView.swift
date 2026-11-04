@@ -22,6 +22,7 @@ struct UserDefaultsToolDetailView: View {
                 .padding(.top, 20)
 
             TextEditor(text: $viewModel.value)
+                .accessibilityIdentifier(AccessibilityIdentifier.userDefaultsEditor)
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
                 .padding(.top, 40)
 
@@ -34,6 +35,7 @@ struct UserDefaultsToolDetailView: View {
                     presentationMode.wrappedValue.dismiss() // on macOS dismisses the whole window which isn't desired
                     #endif
                 }, label: { Text("Delete") })
+                .accessibilityIdentifier(AccessibilityIdentifier.userDefaultsDeleteButton)
 
                 Button(action: {
                     viewModel.didPressSave()
@@ -43,6 +45,7 @@ struct UserDefaultsToolDetailView: View {
                     presentationMode.wrappedValue.dismiss() // on macOS dismisses the whole window which isn't desired
                     #endif
                 }, label: { Text("Save") })
+                .accessibilityIdentifier(AccessibilityIdentifier.userDefaultsSaveButton)
             }
             .padding(.bottom, 20)
         }

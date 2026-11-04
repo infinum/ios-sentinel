@@ -346,7 +346,7 @@ var colorChangeTool: Tool {
 
 #### CustomLocationTool
 
-*CustomLocationTool* is used to change the current user's location. After changing the location, the application will have to be restarted. The tool is available on iOS.
+*CustomLocationTool* is used to change the current user's location. While it's turned on, every `CLLocationManager` that calls `startUpdatingLocation()` receives the custom location instead of the real one, so restart location updates (or the app) after changing it. `requestLocation()` isn't affected. The tool is available on iOS.
 
 #### EmailSenderTool
 

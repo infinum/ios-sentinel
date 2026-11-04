@@ -220,7 +220,7 @@ The tool will export the database file as a zip, and the file should be imported
 
 ### CustomLocationTool
 
-**CustomLocationTool** is used to change the user's current location. After changing the location, the application have to be restarted. The tool is available on iOS.
+**CustomLocationTool** is used to change the user's current location. While it's turned on, every `CLLocationManager` that calls `startUpdatingLocation()` receives the custom location instead of the real one, so restart location updates (or the app) after changing it. `requestLocation()` isn't affected. The tool is available on iOS.
 
 ### EmailSenderTool
 

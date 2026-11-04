@@ -18,11 +18,18 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             ZStack(alignment: .topTrailing) {
-                Text("Shake the device to open Sentinel")
-                    .font(.title2)
-                    .multilineTextAlignment(.center)
-                    .padding()
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                VStack(spacing: 24) {
+                    Text("Shake the device to open Sentinel")
+                        .font(.title2)
+                        .multilineTextAlignment(.center)
+
+                    if LaunchEnvironment.isUITesting {
+                        openSentinelButton
+                        crashButton
+                    }
+                }
+                .padding()
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
 
                 menuButton
                     .padding(MenuButton.margin)
@@ -48,5 +55,25 @@ private extension ContentView {
                 .clipShape(Circle())
         }
         .accessibility(label: Text("Menu"))
+    }
+
+    /// UI tests can't shake the simulator, so they send the same shake event through this button.
+    var openSentinelButton: some View {
+        Button("Open Sentinel") {
+            UIApplication.shared.motionEnded(.motionShake, with: nil)
+        }
+        .accessibilityIdentifier("example.openSentinel")
+    }
+
+    /// Crashes the app so the UI tests have a real crash for the Crash Detection tool to list.
+    var crashButton: some View {
+        Button("Crash") {
+            NSException(
+                name: NSExceptionName("SentinelUITestCrash"),
+                reason: "Raised by the UI tests",
+                userInfo: nil
+            ).raise()
+        }
+        .accessibilityIdentifier("example.crash")
     }
 }

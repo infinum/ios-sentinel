@@ -11,6 +11,8 @@ import Combine
 struct SentinelListView: View {
     let title: String
     let items: [ToolTableSection]
+    /// `true` for the list at the root of a tab, `false` for a list pushed from it.
+    var isTabRoot = false
 
     @State private var selectedItem: String?
 
@@ -18,7 +20,12 @@ struct SentinelListView: View {
     #if os(macOS)
         NavigationSplitView(
             sidebar: {
-                ContentView(title: title, sections: items, selectedItem: $selectedItem)
+                ContentView(
+                    title: title,
+                    sections: items,
+                    isTabRoot: isTabRoot,
+                    selectedItem: $selectedItem
+                )
                     .frame(minWidth: 400) // Expands the content in width so it's visible
             },
             detail: {
@@ -28,7 +35,12 @@ struct SentinelListView: View {
             }
         )
     #else
-        ContentView(title: title, sections: items, selectedItem: $selectedItem)
+        ContentView(
+            title: title,
+            sections: items,
+            isTabRoot: isTabRoot,
+            selectedItem: $selectedItem
+        )
     #endif
     }
 }
@@ -53,6 +65,7 @@ private extension SentinelListView {
 private struct ContentView: View {
 
     let title: String
+    let isTabRoot: Bool
     @Binding var selectedItem: String?
 
     @ObservedObject var viewModel: SentinelListViewModel
@@ -72,6 +85,7 @@ private struct ContentView: View {
                         // The split view's detail column shows the selected row's tool.
                         NavigationToolTableView(item: item)
                             .tag(item.id)
+                            .accessibilityIdentifier(AccessibilityIdentifier.row(item.title))
                         #else
                         NavigationLink(
                             destination: AnyView(item.didSelect()),
@@ -79,6 +93,7 @@ private struct ContentView: View {
                             selection: $selectedItem,
                             label: { NavigationToolTableView(item: item) }
                         )
+                        .accessibilityIdentifier(AccessibilityIdentifier.row(item.title))
                         #endif
                     case .toggle(let item):
                         PreferencesView(item: item)
@@ -92,6 +107,7 @@ private struct ContentView: View {
                 }
             }
         }
+        .pushedListTopMargin(isPushed: !isTabRoot)
         .sentinelSearchable(text: $viewModel.searchText, prompt: "Search for an item")
         .navigationTitle(title)
     }
@@ -111,8 +127,14 @@ private extension ContentView {
 
 extension ContentView {
 
-    init(title: String, sections: [ToolTableSection], selectedItem: Binding<String?>) {
+    init(
+        title: String,
+        sections: [ToolTableSection],
+        isTabRoot: Bool,
+        selectedItem: Binding<String?>
+    ) {
         self.title = title
+        self.isTabRoot = isTabRoot
         _selectedItem = selectedItem
         viewModel = SentinelListViewModel(sections: sections)
     }

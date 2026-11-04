@@ -41,6 +41,16 @@ let package = Package(
                 .product(name: "PulseUI", package: "Pulse", condition: .when(platforms: [.iOS]))
             ],
             path: "SentinelPulse"
+        ),
+        .testTarget(
+            name: "SentinelTests",
+            dependencies: ["Sentinel"],
+            path: "Tests/SentinelTests"
+        ),
+        .testTarget(
+            name: "SentinelPulseTests",
+            dependencies: ["SentinelPulse"],
+            path: "Tests/SentinelPulseTests"
         )
     ]
 )

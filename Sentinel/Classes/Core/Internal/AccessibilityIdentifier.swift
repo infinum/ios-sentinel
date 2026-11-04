@@ -1,0 +1,26 @@
+//
+//  AccessibilityIdentifier.swift
+//  Sentinel
+//
+//  Created by Nikola Simunko on 12.10.2026..
+//
+
+import Foundation
+
+/// Accessibility identifiers for the Sentinel UI, used by the example app's UI tests.
+///
+/// Tab bar buttons and the search field aren't listed: SwiftUI doesn't forward identifiers set on
+/// `tabItem` or `searchable`, so tests find those by their visible labels.
+enum AccessibilityIdentifier {
+
+    static func row(_ title: String) -> String { "sentinel.row.\(title)" }
+    static func toggle(_ title: String) -> String { "sentinel.toggle.\(title)" }
+
+    static let clearAllDataButton = "sentinel.clearAppData.clearAll"
+    static let textEditingField = "sentinel.textEditing.field"
+    static let textEditingSaveButton = "sentinel.textEditing.save"
+    static let userDefaultsEditor = "sentinel.userDefaults.editor"
+    static let userDefaultsSaveButton = "sentinel.userDefaults.save"
+    static let userDefaultsDeleteButton = "sentinel.userDefaults.delete"
+    static let crashesDeleteAllButton = "sentinel.crashes.deleteAll"
+}
