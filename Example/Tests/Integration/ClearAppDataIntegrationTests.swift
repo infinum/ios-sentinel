@@ -59,7 +59,9 @@ extension IntegrationTests {
             #expect(HTTPCookieStorage.shared.cookies?.isEmpty ?? true)
         }
 
+        // `clearAll` clears defaults and cookies on the main queue, so it must be called from there.
         @Test("Clearing everything empties the temporary and Caches directories")
+        @MainActor
         func clearAll() async throws {
             let temporaryFile = FileSystemCleaner.temporaryDirectoryURL.appendingPathComponent("sentinel-tests.txt")
             let cachesFile = try #require(FileSystemCleaner.url(for: .cachesDirectory)).appendingPathComponent("sentinel-tests.txt")

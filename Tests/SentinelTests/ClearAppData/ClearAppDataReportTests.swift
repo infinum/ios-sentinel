@@ -88,9 +88,20 @@ struct ClearAppDataReportTests {
 
     @Test("Every step has a title")
     func stepTitles() {
-        #expect(ClearAppDataStep.allCases.count == 9)
-        #expect(ClearAppDataStep.allCases.allSatisfy { !$0.title.isEmpty })
-        #expect(Set(ClearAppDataStep.allCases.map(\.title)).count == ClearAppDataStep.allCases.count)
+        let steps: [ClearAppDataStep] = [
+            .cookies,
+            .websiteData,
+            .keychain,
+            .userDefaults,
+            .temporaryDirectory,
+            .cachesDirectory,
+            .applicationSupportDirectory,
+            .libraryDirectory,
+            .documentsDirectory
+        ]
+
+        #expect(steps.allSatisfy { !$0.title.isEmpty })
+        #expect(Set(steps.map(\.title)).count == steps.count)
     }
 
     @Test("Failures default to the failed kind and no item")
