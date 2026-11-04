@@ -110,6 +110,27 @@ extension IntegrationTests {
             }
         }
 
+        @Test("Preparing twice keeps the handler installed before Sentinel")
+        func previousHandlerSurvivesSecondPrepare() {
+            withRestoredSignalState {
+                var appHandler = sigaction()
+                appHandler.__sigaction_u.__sa_sigaction = { _, _, _ in }
+                appHandler.sa_flags = SA_SIGINFO
+                sigemptyset(&appHandler.sa_mask)
+                sigaction(
+                    SIGPIPE,
+                    &appHandler,
+                    nil
+                )
+
+                // `prepare()` runs each time a `CrashDetectionTool` is created.
+                CrashSignalExceptionHandler(preHandlers: SignalPrehandlerManager().preHandlers).prepare()
+                CrashSignalExceptionHandler(preHandlers: SignalPrehandlerManager().preHandlers).prepare()
+
+                #expect(CrashSignalExceptionHandler.preHandlers[SIGPIPE] ?? nil != nil)
+            }
+        }
+
         @Test("Preparing twice doesn't back up Sentinel's own handler")
         func ownHandlerIsNotBackedUp() {
             withRestoredSignalState {
