@@ -281,14 +281,14 @@ If you need more context, you can check out the `UserDefaultsTool` or `EditTextT
 #### iOS
 The `content` property provides the *View* which will be shown when the *Tool* is selected.
 
-At Infinum, we're using `Pulse` as our network logger. We only use it for internal builds, and it helps a lot if we can somehow access the logs from `Pulse`, as well as other debug tools. That's why we have a need to create the `PulseTool` which will be an example on how to create your own tool.
+For example, a tool which shows the app's own network log screen inside Sentinel only needs a name and the view to show. (For Pulse, use the ready-made [PulseTool](#pulsetool) instead.)
 
 ```swift
-final class PulseTool: Tool {
-    var name: String { "Pulse" }
+struct NetworkLogTool: Tool {
+    var name: String { "Network log" }
 
     var content: any View {
-        ConsoleView()
+        NetworkLogView()
     }
 }
 ```
@@ -354,11 +354,11 @@ var colorChangeTool: Tool {
 
 #### ClearAppDataTool
 
-*ClearAppDataTool* wipes the app's stored data so it can be tested from a clean state without being deleted and reinstalled, which is the iOS equivalent of Android's *Clear storage*. It clears the app's user defaults and the suites it created, the temporary, Caches, Application Support and Documents directories, the shared URL cache, cookies, web site data, and the keychain items in the app's own access group. The tool is available on iOS.
+*ClearAppDataTool* wipes the app's stored data so it can be tested from a clean state without being deleted and reinstalled, which is the iOS equivalent of Android's *Clear storage*. It clears the app's user defaults and the suites it created, the temporary and Documents directories, the Library directory including Caches and Application Support, the shared URL cache, cookies, web site data, and the keychain items in the app's own access group. The tool is available on iOS.
 
 The app has to be force quit and relaunched afterwards. iOS cannot restart it, so anything already held in memory — singletons, open database connections, cached credentials — stays live until the app is relaunched.
 
-Keychain items in shared access groups and data in app group containers are left alone, since both are shared with other apps and extensions. Clearing those stays the host app's responsibility.
+Keychain items in shared access groups and data in app group containers are left alone, since both are shared with other apps and extensions. Clearing those stays the host app's responsibility. System `com.apple.*` preference domains are left alone too.
 
 #### PulseTool
 
@@ -382,6 +382,7 @@ targets: [
 ```
 
 ```swift
+import Sentinel
 import SentinelPulse
 
 let configuration = Sentinel.Configuration(
@@ -394,7 +395,15 @@ let configuration = Sentinel.Configuration(
 
 By default the tool shows `LoggerStore.shared`; pass `PulseTool(store:)` to show a different store. The tool only displays what Pulse has already recorded, so set up network logging as described in Pulse's [Getting Started](https://kean-docs.github.io/pulse/documentation/pulse/gettingstarted) guide.
 
-The tool is available on iOS. Pulse removed its embeddable macOS console in 5.0, and Pulse 5.2 and newer need iOS 18 to show the console; on older systems Pulse shows an *Unsupported* placeholder.
+The tool is available on iOS. `SentinelPulse` works with Pulse 4 and 5, but newer Pulse versions need a newer iOS to show the console. On older systems Pulse shows an *Unsupported* placeholder instead:
+
+| Pulse | Console shown on |
+| --- | --- |
+| 4.x, 5.0 | iOS 15 and newer |
+| 5.1 | iOS 16 and newer |
+| 5.2 and newer | iOS 18 and newer |
+
+`from: "5.0.0"` resolves to the newest 5.x, so apps that support iOS 15 to 17 should pin an older Pulse, for example `.upToNextMinor(from: "5.0.0")` for iOS 15 or `.upToNextMinor(from: "5.1.0")` for iOS 16, or stay on Pulse 4.
 
 ## Contributing
 

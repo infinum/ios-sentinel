@@ -5,10 +5,10 @@
 //  Created by Nikola Simunko on 22.09.2025..
 //
 
+#if os(iOS)
+
 import Foundation
 import WebKit
-
-#if os(iOS)
 
 /// Removes cached responses, cookies and web view storage.
 enum WebDataCleaner {
@@ -27,28 +27,35 @@ enum WebDataCleaner {
         return [ClearAppDataFailure(step: .cookies, reason: "\(remaining) cookies could not be removed")]
     }
 
-    /// Clears every web site data type, blocking until WebKit reports back.
+    /// Clears every web site data type, calling back on the main queue once WebKit has finished or
+    /// `timeout` has passed, whichever comes first.
     ///
-    /// - Warning: Must not be called from the main queue — the work is dispatched there.
-    static func clearWebsiteData(timeout: DispatchTimeInterval) -> [ClearAppDataFailure] {
-        let group = DispatchGroup()
-        group.enter()
+    /// - Warning: Must be called from the main queue.
+    static func clearWebsiteData(
+        timeout: DispatchTimeInterval,
+        completion: @escaping ([ClearAppDataFailure]) -> Void
+    ) {
+        dispatchPrecondition(condition: .onQueue(.main))
 
-        DispatchQueue.main.async {
-            let store = WKWebsiteDataStore.default()
-            store.removeData(
-                ofTypes: WKWebsiteDataStore.allWebsiteDataTypes(),
-                modifiedSince: .distantPast,
-                completionHandler: { group.leave() }
-            )
+        // Both callbacks run on main, so the flag needs no lock.
+        var didFinish = false
+        let finish = { (failures: [ClearAppDataFailure]) in
+            guard !didFinish else { return }
+            didFinish = true
+            completion(failures)
         }
+
+        WKWebsiteDataStore.default().removeData(
+            ofTypes: WKWebsiteDataStore.allWebsiteDataTypes(),
+            modifiedSince: .distantPast,
+            completionHandler: { finish([]) }
+        )
 
         // WebKit occasionally never calls back when its networking process is wedged, and the tool
         // must not hang on it.
-        guard group.wait(timeout: .now() + timeout) == .success else {
-            return [ClearAppDataFailure(step: .websiteData, reason: "timed out waiting for WebKit")]
+        DispatchQueue.main.asyncAfter(deadline: .now() + timeout) {
+            finish([ClearAppDataFailure(step: .websiteData, reason: "timed out waiting for WebKit")])
         }
-        return []
     }
 }
 

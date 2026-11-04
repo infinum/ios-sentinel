@@ -1,13 +1,13 @@
 //
-//  SearchableIfAvaialbleModifier.swift
-//  Pods
+//  SearchableModifier.swift
+//  Sentinel
 //
 //  Created by Zvonimir Medak on 28.02.2025..
 //
 
 import SwiftUI
 
-struct SearchableIfAvaialbleModifier: ViewModifier {
+struct SearchableModifier: ViewModifier {
 
     @Binding var text: String
     let prompt: String
@@ -31,8 +31,8 @@ struct SearchableIfAvaialbleModifier: ViewModifier {
 
 extension View {
 
-    func searchableIfAvailable(text: Binding<String>, prompt: String) -> some View {
-        self.modifier(SearchableIfAvaialbleModifier(text: text, prompt: prompt))
+    func sentinelSearchable(text: Binding<String>, prompt: String) -> some View {
+        self.modifier(SearchableModifier(text: text, prompt: prompt))
     }
 
 }
