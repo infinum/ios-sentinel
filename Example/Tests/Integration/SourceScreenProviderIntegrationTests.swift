@@ -39,13 +39,5 @@ extension IntegrationTests {
                 .flatMap(\.windows)
                 .contains { $0.rootViewController?.presentedViewController != nil }
         }
-
-        /// Polls for up to five seconds, because presentation and dismissal are animated.
-        private func waitUntil(_ condition: () -> Bool) async throws {
-            for _ in 0..<50 where !condition() {
-                try await Task.sleep(nanoseconds: 100_000_000)
-            }
-            #expect(condition())
-        }
     }
 }
