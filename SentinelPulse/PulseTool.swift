@@ -15,8 +15,8 @@ import PulseUI
 /// Tool which shows the Pulse console with the app's logs and network requests.
 ///
 /// Pulse removed its embeddable macOS console in 5.0, so the tool is available on iOS only.
-/// Pulse 5.2 and newer require iOS 18 to show the console; on older systems Pulse shows
-/// an "Unsupported" placeholder instead.
+/// It works with Pulse 4 and 5. Pulse 5.2 and newer require iOS 18 to show the console, and
+/// 5.1 requires iOS 16; on older systems Pulse shows an "Unsupported" placeholder instead.
 public struct PulseTool: Tool {
 
     // MARK: - Public properties
