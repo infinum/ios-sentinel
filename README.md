@@ -281,14 +281,14 @@ If you need more context, you can check out the `UserDefaultsTool` or `EditTextT
 #### iOS
 The `content` property provides the *View* which will be shown when the *Tool* is selected.
 
-At Infinum, we're using `Pulse` as our network logger. We only use it for internal builds, and it helps a lot if we can somehow access the logs from `Pulse`, as well as other debug tools. That's why we have a need to create the `PulseTool` which will be an example on how to create your own tool.
+For example, a tool which shows the app's own network log screen inside Sentinel only needs a name and the view to show. (For Pulse, use the ready-made [PulseTool](#pulsetool) instead.)
 
 ```swift
-final class PulseTool: Tool {
-    var name: String { "Pulse" }
+struct NetworkLogTool: Tool {
+    var name: String { "Network log" }
 
     var content: any View {
-        ConsoleView()
+        NetworkLogView()
     }
 }
 ```
