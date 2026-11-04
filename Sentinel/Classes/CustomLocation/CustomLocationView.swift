@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+#if os(iOS)
+
 struct CustomLocationView: UIViewControllerRepresentable {
 
     let locationProvider: CustomLocationProvider
@@ -19,3 +21,5 @@ struct CustomLocationView: UIViewControllerRepresentable {
         // Nothing to do here
     }
 }
+
+#endif

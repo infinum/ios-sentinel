@@ -3,16 +3,6 @@
 
 import PackageDescription
 
-// Excluding some Tools due to being tightly coupled to some unsupported frameworks on macOS
-#if os(iOS)
-let excludedSources: [String] = []
-#else
-let excludedSources: [String] = [
-    "Classes/CustomLocation",
-    "Classes/EmailSender"
-]
-#endif
-
 let package = Package(
     name: "Sentinel",
     platforms: [
@@ -30,7 +20,6 @@ let package = Package(
             name: "Sentinel",
             dependencies: [],
             path: "Sentinel",
-            exclude: excludedSources,
             resources: [
                 .process("Assets"),
                 .copy("SupportingFiles/PrivacyInfo.xcprivacy")

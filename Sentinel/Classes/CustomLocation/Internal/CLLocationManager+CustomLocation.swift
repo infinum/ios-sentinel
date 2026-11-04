@@ -7,6 +7,8 @@
 
 import CoreLocation
 
+#if os(iOS)
+
 extension CLLocationManager {
     
     @objc
@@ -16,3 +18,5 @@ extension CLLocationManager {
         delegate?.locationManager?(self, didUpdateLocations: locations)
     }
 }
+
+#endif

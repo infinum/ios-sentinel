@@ -5,6 +5,8 @@
 //  Created by Antonijo Bezmalinovic on 22.11.2023..
 //
 
+#if os(iOS)
+
 import SwiftUI
 import MessageUI
 
@@ -84,3 +86,5 @@ public extension EmailSenderTool {
     }
 
 }
+
+#endif

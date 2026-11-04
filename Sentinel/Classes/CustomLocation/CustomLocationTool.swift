@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+#if os(iOS)
+
 /// Tool which gives the ability to change current user location.
 ///
 /// Chaniging the user location will be applied after the application has been restarted.
@@ -36,3 +38,5 @@ public extension CustomLocationTool {
         CustomLocationView(locationProvider: locationProvider)
     }
 }
+
+#endif
