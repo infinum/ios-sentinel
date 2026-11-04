@@ -27,15 +27,16 @@ final class ToolsUITests: XCTestCase {
         }
     }
 
-    func testCrashDetectionShowsAnEmptyList() {
+    // `-resetState` wipes saved crashes, so there's nothing for the delete button to remove here.
+    // Covering delete needs a launch argument that seeds a crash first.
+    func testCrashDetectionShowsAnEmptyListAfterReset() {
         let screen = SentinelScreen.launch()
         screen.open()
 
         screen.openTool(ToolNames.crashDetection)
 
         XCTAssertTrue(screen.app.staticTexts["No crashes available"].waitForExistence(timeout: 5))
-        screen.element("sentinel.crashes.deleteAll").tap()
-        XCTAssertTrue(screen.app.staticTexts["No crashes available"].exists)
+        XCTAssertTrue(screen.element("sentinel.crashes.deleteAll").exists)
     }
 
     func testBaseURLIsSavedAndSurvivesARelaunch() {
