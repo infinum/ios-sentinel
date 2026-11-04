@@ -354,11 +354,11 @@ var colorChangeTool: Tool {
 
 #### ClearAppDataTool
 
-*ClearAppDataTool* wipes the app's stored data so it can be tested from a clean state without being deleted and reinstalled, which is the iOS equivalent of Android's *Clear storage*. It clears the app's user defaults and the suites it created, the temporary, Caches, Application Support and Documents directories, the shared URL cache, cookies, web site data, and the keychain items in the app's own access group. The tool is available on iOS.
+*ClearAppDataTool* wipes the app's stored data so it can be tested from a clean state without being deleted and reinstalled, which is the iOS equivalent of Android's *Clear storage*. It clears the app's user defaults and the suites it created, the temporary and Documents directories, the Library directory including Caches and Application Support, the shared URL cache, cookies, web site data, and the keychain items in the app's own access group. The tool is available on iOS.
 
 The app has to be force quit and relaunched afterwards. iOS cannot restart it, so anything already held in memory — singletons, open database connections, cached credentials — stays live until the app is relaunched.
 
-Keychain items in shared access groups and data in app group containers are left alone, since both are shared with other apps and extensions. Clearing those stays the host app's responsibility.
+Keychain items in shared access groups and data in app group containers are left alone, since both are shared with other apps and extensions. Clearing those stays the host app's responsibility. System `com.apple.*` preference domains are left alone too.
 
 ## Contributing
 
