@@ -12,27 +12,53 @@ struct SentinelListView: View {
     let title: String
     let items: [ToolTableSection]
 
+    @State private var selectedItem: String?
+
     var body: some View {
     #if os(macOS)
-        NavigationView {
-            ContentView(title: title, sections: items)
-                .frame(minWidth: 400) // Expands the content in width so it's visible
-        }
+        NavigationSplitView(
+            sidebar: {
+                ContentView(title: title, sections: items, selectedItem: $selectedItem)
+                    .frame(minWidth: 400) // Expands the content in width so it's visible
+            },
+            detail: {
+                if let item = navigationItem(withID: selectedItem) {
+                    AnyView(item.didSelect($selectedItem))
+                }
+            }
+        )
     #else
-        ContentView(title: title, sections: items)
+        ContentView(title: title, sections: items, selectedItem: $selectedItem)
     #endif
     }
 }
 
+#if os(macOS)
+private extension SentinelListView {
+
+    /// Looks the item up in the unfiltered sections, so the open tool stays open while searching.
+    func navigationItem(withID id: String?) -> NavigationToolItem? {
+        items
+            .flatMap(\.items)
+            .lazy
+            .compactMap { item -> NavigationToolItem? in
+                guard case .navigation(let navigationItem) = item else { return nil }
+                return navigationItem
+            }
+            .first { $0.id == id }
+    }
+}
+#endif
+
 private struct ContentView: View {
 
-    @State private var selectedItem: String?
     let title: String
+    @Binding var selectedItem: String?
 
     @ObservedObject var viewModel: SentinelListViewModel
 
     var body: some View {
-        List(viewModel.sections, id: \.id) { currentSection in
+        List(viewModel.sections, id: \.id, selection: listSelection) { currentSection in
             Section {
                 if let title = currentSection.title {
                     Text(title)
@@ -42,19 +68,18 @@ private struct ContentView: View {
                 ForEach(currentSection.items) { item in
                     switch item {
                     case .navigation(let item):
-                        let destination = {
-                            #if os(macOS)
-                            AnyView(item.didSelect($selectedItem))
-                            #else
-                            AnyView(item.didSelect())
-                            #endif
-                        }
+                        #if os(macOS)
+                        // The split view's detail column shows the selected row's tool.
+                        NavigationToolTableView(item: item)
+                            .tag(item.id)
+                        #else
                         NavigationLink(
-                            destination: destination(),
+                            destination: AnyView(item.didSelect()),
                             tag: item.id,
                             selection: $selectedItem,
                             label: { NavigationToolTableView(item: item) }
                         )
+                        #endif
                     case .toggle(let item):
                         PreferencesView(item: item)
                     case .customInfo(let item):
@@ -67,14 +92,28 @@ private struct ContentView: View {
                 }
             }
         }
-        .searchableIfAvailable(text: $viewModel.searchText, prompt: "Search for an item")
+        .sentinelSearchable(text: $viewModel.searchText, prompt: "Search for an item")
         .navigationTitle(title)
     }
 }
+
+private extension ContentView {
+
+    /// On iOS rows push through `NavigationLink`, so the list itself doesn't track a selection.
+    var listSelection: Binding<String?>? {
+        #if os(macOS)
+        $selectedItem
+        #else
+        nil
+        #endif
+    }
+}
+
 extension ContentView {
 
-    init(title: String, sections: [ToolTableSection]) {
+    init(title: String, sections: [ToolTableSection], selectedItem: Binding<String?>) {
         self.title = title
-        viewModel = .init(sections: sections)
+        _selectedItem = selectedItem
+        viewModel = SentinelListViewModel(sections: sections)
     }
 }
