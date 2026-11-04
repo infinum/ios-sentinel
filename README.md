@@ -382,6 +382,7 @@ targets: [
 ```
 
 ```swift
+import Sentinel
 import SentinelPulse
 
 let configuration = Sentinel.Configuration(
@@ -394,7 +395,15 @@ let configuration = Sentinel.Configuration(
 
 By default the tool shows `LoggerStore.shared`; pass `PulseTool(store:)` to show a different store. The tool only displays what Pulse has already recorded, so set up network logging as described in Pulse's [Getting Started](https://kean-docs.github.io/pulse/documentation/pulse/gettingstarted) guide.
 
-The tool is available on iOS. Pulse removed its embeddable macOS console in 5.0, and Pulse 5.2 and newer need iOS 18 to show the console; on older systems Pulse shows an *Unsupported* placeholder.
+The tool is available on iOS. `SentinelPulse` works with Pulse 4 and 5, but newer Pulse versions need a newer iOS to show the console. On older systems Pulse shows an *Unsupported* placeholder instead:
+
+| Pulse | Console shown on |
+| --- | --- |
+| 4.x, 5.0 | iOS 15 and newer |
+| 5.1 | iOS 16 and newer |
+| 5.2 and newer | iOS 18 and newer |
+
+`from: "5.0.0"` resolves to the newest 5.x, so apps that support iOS 15 to 17 should pin an older Pulse, for example `.upToNextMinor(from: "5.0.0")` for iOS 15 or `.upToNextMinor(from: "5.1.0")` for iOS 16, or stay on Pulse 4.
 
 ## Contributing
 
