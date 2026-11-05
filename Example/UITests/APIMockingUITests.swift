@@ -68,6 +68,37 @@ final class APIMockingUITests: XCTestCase {
 
         XCTAssertTrue(fetchRepository(in: screen).contains("★ 7 · Made in the tool"))
     }
+
+    func testSwipingToDeleteALocalMockAsksFirst() {
+        let screen = SentinelScreen.launch()
+        screen.open()
+        screen.openTool(ToolNames.apiMocking)
+
+        screen.element("sentinel.apiMocking.new").tap()
+        let nameField = screen.element("sentinel.apiMocking.name")
+        XCTAssertTrue(nameField.waitForExistence(timeout: 5), "The editor didn't open")
+        nameField.focus()
+        nameField.typeText("Doomed")
+        let patternField = screen.element("sentinel.apiMocking.pattern")
+        patternField.focus()
+        patternField.typeText("/doomed")
+        screen.element("sentinel.apiMocking.save").tap()
+
+        let row = screen.row("Doomed")
+        // The row exists as soon as the mock is saved, while the editor sheet is still closing over it.
+        XCTAssertTrue(screen.waitUntilHittable(row), "The mock wasn't saved")
+        row.swipeLeft()
+        let swipeDelete = screen.app.buttons["Delete"].firstMatch
+        XCTAssertTrue(screen.waitUntilHittable(swipeDelete), "Swiping didn't show Delete")
+        swipeDelete.tap()
+
+        let confirmation = screen.app.alerts["Delete “Doomed”?"]
+        XCTAssertTrue(confirmation.waitForExistence(timeout: 5), "Deleting didn't ask first")
+        XCTAssertTrue(row.exists, "The mock was deleted before confirming")
+        confirmation.buttons["Delete"].tap()
+
+        XCTAssertTrue(screen.waitUntilGone(row), "The mock is still listed")
+    }
 }
 
 // MARK: - Helpers

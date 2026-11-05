@@ -16,6 +16,7 @@ struct APIMockingView: View {
     @State private var searchText = ""
     @State private var editor: APIMockEditorRoute?
     @State private var expandedGroups: Set<String> = []
+    @State private var mockPendingDeletion: APIMock?
 
     var body: some View {
         List {
@@ -71,6 +72,15 @@ struct APIMockingView: View {
         }
         #endif
         .navigationTitle(title)
+        // Asks first, like Delete in the editor, as a local mock can hold a long pasted body.
+        .alert(item: $mockPendingDeletion) { mock in
+            Alert(
+                title: Text("Delete “\(mock.name)”?"),
+                message: Text("This can't be undone."),
+                primaryButton: .destructive(Text("Delete")) { store.delete(mock) },
+                secondaryButton: .cancel()
+            )
+        }
         .sheet(item: $editor) { route in
             APIMockEditorView(
                 route: route,
@@ -143,7 +153,7 @@ private extension APIMockingView {
         .swipeActions {
             if isLocal {
                 Button(role: .destructive) {
-                    store.delete(mock)
+                    mockPendingDeletion = mock
                 } label: {
                     Label("Delete", systemImage: "trash")
                 }
@@ -162,7 +172,7 @@ private extension APIMockingView {
             }
             if isLocal {
                 Button(role: .destructive) {
-                    store.delete(mock)
+                    mockPendingDeletion = mock
                 } label: {
                     Label("Delete", systemImage: "trash")
                 }
