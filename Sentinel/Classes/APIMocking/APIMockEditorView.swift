@@ -247,35 +247,45 @@ private extension APIMockEditorView {
     }
 
     var bodySection: some View {
-        Section(header: Text("Body"), footer: Text(draft.jsonStatus.message)) {
-            #if os(iOS)
-            // A preview that opens the body on a screen of its own, as a long body would crowd the form.
-            NavigationLink {
-                APIMockBodyEditorView(draft: $draft, isReadOnly: isReadOnly)
-            } label: {
-                bodyPreview
-            }
-            .accessibilityIdentifier(AccessibilityIdentifier.apiMockingBodyRow)
-            #else
-            if isReadOnly {
-                Text(draft.body.isEmpty ? "No body" : draft.body)
-                    .font(.system(.caption, design: .monospaced))
-                    .textSelection(.enabled)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                Button("Copy body", action: copyBody)
+        Section(header: Text("Body"), footer: Text(draft.isBodyText ? draft.jsonStatus.message : "")) {
+            if draft.isBodyText {
+                bodyContent
             } else {
-                TextEditor(text: $draft.body)
-                    .font(.system(.caption, design: .monospaced))
-                    .frame(minHeight: 240)
-                    .autocorrectionDisabled()
-                    .accessibilityIdentifier(AccessibilityIdentifier.apiMockingBodyEditor)
-                Button("Format JSON") {
-                    draft.formatBody()
-                }
-                .disabled(draft.jsonStatus != .valid)
+                Text("This body isn't text, so it can't be shown or edited here.")
+                    .foregroundColor(.secondary)
             }
-            #endif
         }
+    }
+
+    @ViewBuilder
+    var bodyContent: some View {
+        #if os(iOS)
+        // A preview that opens the body on a screen of its own, as a long body would crowd the form.
+        NavigationLink {
+            APIMockBodyEditorView(draft: $draft, isReadOnly: isReadOnly)
+        } label: {
+            bodyPreview
+        }
+        .accessibilityIdentifier(AccessibilityIdentifier.apiMockingBodyRow)
+        #else
+        if isReadOnly {
+            Text(draft.body.isEmpty ? "No body" : draft.body)
+                .font(.system(.caption, design: .monospaced))
+                .textSelection(.enabled)
+                .frame(maxWidth: .infinity, alignment: .leading)
+            Button("Copy body", action: copyBody)
+        } else {
+            TextEditor(text: $draft.body)
+                .font(.system(.caption, design: .monospaced))
+                .frame(minHeight: 240)
+                .autocorrectionDisabled()
+                .accessibilityIdentifier(AccessibilityIdentifier.apiMockingBodyEditor)
+            Button("Format JSON") {
+                draft.formatBody()
+            }
+            .disabled(draft.jsonStatus != .valid)
+        }
+        #endif
     }
 
     #if os(iOS)
@@ -315,6 +325,7 @@ private extension APIMockEditorView {
                     draft = APIMockDraft(copying: draft.makeMock())
                     mode = .create
                 }
+                .disabled(!draft.isBodyText)
             }
         }
     }

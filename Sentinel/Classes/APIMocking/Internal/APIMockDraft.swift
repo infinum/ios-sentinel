@@ -41,6 +41,9 @@ struct APIMockDraft: Equatable {
     var responseKind = ResponseKind.http
     var statusCode = "200"
     var body = ""
+    /// `false` when the mock's body couldn't be read as UTF-8 text, such as an image or a missing file.
+    /// It then can't be shown or edited, and a copy can't be saved, as it would answer with an empty body.
+    private(set) var isBodyText = true
     var networkError = APIMock.NetworkError.notConnectedToInternet
     var delay: TimeInterval = 0
     // Not editable in the tool, but kept so editing a mock doesn't drop them.
@@ -65,7 +68,11 @@ struct APIMockDraft: Equatable {
         case .http(let statusCode, let headers, let body):
             self.statusCode = String(statusCode)
             self.headers = headers
-            self.body = (try? body.loadText()) ?? ""
+            if let text = try? body.loadText() {
+                self.body = text
+            } else {
+                isBodyText = false
+            }
         case .networkError(let error):
             responseKind = .networkError
             networkError = error
@@ -109,7 +116,7 @@ extension APIMockDraft {
 
     var canSave: Bool {
         guard !trimmedName.isEmpty, urlPattern.validationError == nil else { return false }
-        return responseKind == .networkError || statusCodeValue != nil
+        return responseKind == .networkError || (statusCodeValue != nil && isBodyText)
     }
 
     /// Invalid JSON is only a warning: a malformed body is a fair thing to test with.

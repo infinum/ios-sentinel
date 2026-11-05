@@ -80,6 +80,23 @@ struct APIMockDraftTests {
         #expect(copy.response == .http(statusCode: 200, headers: [:], body: .json(#"{ "items": [] }"#)))
     }
 
+    @Test("A body that isn't text is flagged, and a copy of it can't be saved")
+    func nonTextBody() throws {
+        let directory = try TemporaryDirectory()
+        let file = directory.url.appendingPathComponent("image.png")
+        try Data([0x89, 0x50, 0x4E, 0x47, 0xFF, 0xFE]).write(to: file)
+        let mock = APIMock(
+            name: "Image",
+            url: .wildcard("/image"),
+            body: .file(file)
+        )
+
+        let copy = APIMockDraft(copying: mock)
+
+        #expect(!copy.isBodyText)
+        #expect(!copy.canSave)
+    }
+
     @Test("Typographic quotes are straightened when the body is saved")
     func quotesAreRepaired() {
         var draft = APIMockDraft()
