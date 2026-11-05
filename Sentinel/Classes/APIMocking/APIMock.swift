@@ -30,8 +30,11 @@ public struct APIMock: Identifiable, Equatable, Sendable {
     public var url: URLPattern
     /// What the mock answers with.
     public var response: Response
-    /// Seconds to wait before answering.
-    public var delay: TimeInterval
+    /// Seconds to wait before answering, from 0 to an hour. Values outside that range are clamped, and
+    /// `nan` is 0, so `.infinity` simulates a request that hangs.
+    public var delay: TimeInterval {
+        didSet { delay = Self.clampedDelay(delay) }
+    }
 
     // MARK: - Lifecycle
 
@@ -47,7 +50,7 @@ public struct APIMock: Identifiable, Equatable, Sendable {
     ///     - statusCode: HTTP status code of the response.
     ///     - headers: Response headers. `Content-Type` defaults to `application/json`.
     ///     - body: Response body.
-    ///     - delay: Seconds to wait before answering.
+    ///     - delay: Seconds to wait before answering, clamped to between 0 and an hour.
     public init(
         id: String? = nil,
         name: String,
@@ -82,7 +85,7 @@ public struct APIMock: Identifiable, Equatable, Sendable {
     ///     - method: The HTTP method the mock answers, or `nil` for any method.
     ///     - url: The URLs the mock answers.
     ///     - error: The error the request fails with.
-    ///     - delay: Seconds to wait before failing.
+    ///     - delay: Seconds to wait before failing, clamped to between 0 and an hour.
     public init(
         id: String? = nil,
         name: String,
@@ -122,7 +125,20 @@ public struct APIMock: Identifiable, Equatable, Sendable {
         self.method = method
         self.url = url
         self.response = response
-        self.delay = delay
+        self.delay = Self.clampedDelay(delay)
+    }
+}
+
+// MARK: - Delay
+
+private extension APIMock {
+
+    /// An hour is long enough to look like a request that never answers, and keeps the value finite,
+    /// which the list's formatting and `JSONEncoder` both need.
+    static let maximumDelay: TimeInterval = 3600
+
+    static func clampedDelay(_ delay: TimeInterval) -> TimeInterval {
+        delay.isNaN ? 0 : min(max(delay, 0), maximumDelay)
     }
 }
 

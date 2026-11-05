@@ -165,6 +165,23 @@ struct APIMockStoreTests {
         #expect(!reloaded.isMockingEnabled)
     }
 
+    @Test("A copy of a mock with an infinite delay is saved and loaded")
+    func infiniteDelayIsSaved() {
+        let store = makeStore()
+        let hanging = APIMock(
+            name: "Hanging",
+            url: .wildcard("/orders"),
+            body: .json("[]"),
+            delay: .infinity
+        )
+        let copy = APIMockDraft(copying: hanging).makeMock()
+
+        store.save(copy)
+
+        #expect(makeStore().localMocks == [copy])
+        #expect(makeStore().localMocks.first?.delay == 3600)
+    }
+
     @Test("A file that can't be read is moved aside instead of being overwritten")
     func corruptFile() throws {
         try directory.createFile(named: "APIMocking.json", contents: "not json")
