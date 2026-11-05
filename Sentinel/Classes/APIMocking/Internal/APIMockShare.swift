@@ -56,6 +56,13 @@ struct APIMockShare {
             if let statusCode = draft.statusCodeValue, statusCode != 200 {
                 arguments.append("statusCode: \(statusCode)")
             }
+            if !draft.headers.isEmpty {
+                let headers = draft.headers
+                    .sorted { $0.key < $1.key }
+                    .map { "\(swiftLiteral($0.key)): \(swiftLiteral($0.value))" }
+                    .joined(separator: ", ")
+                arguments.append("headers: [\(headers)]")
+            }
             arguments.append("body: .file(named: \(swiftLiteral(fileName)))")
         case .networkError:
             arguments.append("error: .\(draft.networkError.rawValue)")

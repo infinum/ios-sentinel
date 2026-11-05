@@ -45,6 +45,23 @@ struct APIMockShareTests {
         """)
     }
 
+    @Test("The Swift snippet keeps the response headers")
+    func swiftSnippetWithHeaders() {
+        var draft = APIMockDraft()
+        draft.name = "Products"
+        draft.pattern = "/products"
+        draft.headers = ["X-Total-Count": "0", "Cache-Control": "no-store"]
+
+        #expect(APIMockShare(draft: draft).swiftSnippet == """
+        APIMock(
+            name: "Products",
+            url: .wildcard("/products"),
+            headers: ["Cache-Control": "no-store", "X-Total-Count": "0"],
+            body: .file(named: "products")
+        )
+        """)
+    }
+
     @Test("The Swift snippet of a network error mock names the error")
     func swiftSnippetForError() {
         var draft = APIMockDraft()
