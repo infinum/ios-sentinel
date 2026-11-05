@@ -41,6 +41,27 @@ struct URLPatternTests {
     @Test("A missing leading slash still matches")
     func wildcardWithoutLeadingSlash() {
         #expect(APIMock.URLPattern.wildcard("api/v2/products").matches("https://example.com/api/v2/products"))
+        #expect(APIMock.URLPattern.wildcard("products").matches("https://example.com/api/products"))
+    }
+
+    @Test(
+        "Without a leading slash, a wildcard still starts at a path segment",
+        arguments: [
+            "https://example.com/api/myproducts",
+            "https://example.com/api/v2/superproducts?page=2"
+        ]
+    )
+    func wildcardWithoutLeadingSlashStartsAtSegment(url: String) {
+        #expect(!APIMock.URLPattern.wildcard("products").matches(url))
+    }
+
+    @Test("A wildcard can start with the host")
+    func wildcardWithHost() {
+        let pattern = APIMock.URLPattern.wildcard("example.com/products")
+
+        #expect(pattern.matches("https://example.com/products"))
+        #expect(!pattern.matches("https://myexample.com/products"))
+        #expect(APIMock.URLPattern.wildcard("https://example.com/products").matches("https://example.com/products"))
     }
 
     @Test("* matches any run of characters")

@@ -77,8 +77,12 @@ private extension APIMock.URLPattern {
         guard !pattern.isEmpty else { throw PatternError.empty }
         switch kind {
         case .wildcard:
-            let body = NSRegularExpression.escapedPattern(for: pattern)
+            let escaped = NSRegularExpression.escapedPattern(for: pattern)
                 .replacingOccurrences(of: "\\*", with: ".*")
+            // A pattern without a leading `/` starts at a path segment or the host, so `products`
+            // doesn't match `/myproducts`.
+            let start = pattern.hasPrefix("/") || pattern.hasPrefix("*") ? "" : "(?:^|/)"
+            let body = start + escaped
             // Without a `?` the pattern describes a path, so the query and a trailing slash are let through.
             let ending = pattern.contains("?") ? "$" : "/?(\\?.*)?$"
             return try NSRegularExpression(pattern: body + ending, options: [.caseInsensitive])

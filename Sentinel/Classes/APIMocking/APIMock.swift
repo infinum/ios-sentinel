@@ -163,7 +163,8 @@ public extension APIMock {
 
     /// Describes which URLs a mock answers. Both kinds ignore case.
     enum URLPattern: Equatable, Sendable {
-        /// Matches URLs that end with the pattern, where `*` stands for any run of characters.
+        /// Matches URLs that end with the pattern, where `*` stands for any run of characters. A pattern
+        /// without a leading `/` starts at a path segment or the host, so `products` doesn't match `/myproducts`.
         ///
         /// The query is ignored unless the pattern contains `?`, and a trailing `/` doesn't matter, so
         /// `/api/v2/products` matches `https://example.com/api/v2/products?page=2` but not

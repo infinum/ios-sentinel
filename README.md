@@ -392,7 +392,7 @@ APIMockingTool(
 
 A mock answers the requests that match its method (`nil` matches any method) and its URL pattern, ignoring case:
 
-- `.wildcard` matches URLs that end with the pattern, where `*` stands for any run of characters. The query and a trailing `/` are ignored unless the pattern contains `?`. `/api/v2/products` matches `https://example.com/api/v2/products?page=2` but not `/api/v2/products/42`. Use `/api/v2/products*` for every URL under the path, or `/accounts/*/details` for a path with an identifier in it.
+- `.wildcard` matches URLs that end with the pattern, where `*` stands for any run of characters. The query and a trailing `/` are ignored unless the pattern contains `?`. A pattern without a leading `/` still starts at a path segment or the host, so `products` matches `/api/products` but not `/api/myproducts`. `/api/v2/products` matches `https://example.com/api/v2/products?page=2` but not `/api/v2/products/42`. Use `/api/v2/products*` for every URL under the path, or `/accounts/*/details` for a path with an identifier in it.
 - `.regex` is a regular expression that has to match somewhere in the full URL.
 
 Switching a mock on switches off the other mocks with the same pattern and an overlapping method, so variants of one endpoint can sit side by side. When different patterns match the same request, mocks made in the tool win over the app's, then the app's mocks are tried in the order they were passed. The *Enabled* switch at the top of the tool turns every mock off at once. Mocks given the same `group` name, in code or in the tool, are listed together under a row that expands and collapses, so a long list stays manageable.
