@@ -22,6 +22,7 @@ final class APIMockToastPresenter {
     private let model = APIMockToastModel()
     private var window: UIWindow?
     private var hideWork: DispatchWorkItem?
+    private var burst = APIMockRequestBurst()
     private var activationObserver: NSObjectProtocol?
 }
 
@@ -48,6 +49,11 @@ extension APIMockToastPresenter {
             activationObserver = nil
             show(message)
         }
+    }
+
+    func mockAnswered(_ request: URLRequest, with mock: APIMock) {
+        guard APIMockStore.shared.showsRequestToasts else { return }
+        show(burst.add(request, mockedBy: mock))
     }
 
     /// Shows the message, or puts it in place of the one already up, and starts the timer again.
@@ -91,6 +97,7 @@ private extension APIMockToastPresenter {
         withAnimation(.easeIn(duration: 0.25)) {
             model.message = nil
         }
+        burst = APIMockRequestBurst()
         // Released after the fade, unless a new toast came in meanwhile.
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
             guard let self, model.message == nil else { return }

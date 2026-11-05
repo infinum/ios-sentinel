@@ -18,7 +18,7 @@ import SwiftUI
 /// would for a real response. Pulse marks mocked requests as mocked, and every mocked response carries
 /// an `X-Sentinel-Mock` header with the id of the mock that answered.
 ///
-/// On iOS, a toast over the app says when mocks are on at launch.
+/// On iOS, a toast over the app says when mocks are on at launch and, if asked for, when a mock answers a request.
 ///
 /// - Note: By default the tool adds its protocol to every `URLSessionConfiguration.default` and
 /// `.ephemeral` configuration created after the tool, and to `URLSession.shared`. A configuration
@@ -37,6 +37,8 @@ public struct APIMockingTool: Tool {
     ///     - mocks: Mocks the app ships with. Testers switch them on in the tool.
     ///     - showsLaunchToast: Whether to show a toast over the app at launch while a mock is switched on,
     ///     as mocks stay on across launches and are easy to forget. iOS only.
+    ///     - showsRequestToasts: Whether to show a toast naming the mock each time one answers a request.
+    ///     iOS only.
     ///     - injectsAutomatically: Whether to add mocking to every `default` and `ephemeral` session
     ///     configuration created from now on, and to `URLSession.shared`. Without it, every configuration
     ///     needs ``register(in:)``.
@@ -44,11 +46,13 @@ public struct APIMockingTool: Tool {
         name: String = "API Mocking",
         mocks: [APIMock] = [],
         showsLaunchToast: Bool = true,
+        showsRequestToasts: Bool = false,
         injectsAutomatically: Bool = true
     ) {
         self.name = name
         let store = APIMockStore.shared
         store.setAppMocks(mocks)
+        store.setRequestToastDefault(showsRequestToasts)
         if injectsAutomatically {
             URLSessionConfiguration.installAPIMocking
         }

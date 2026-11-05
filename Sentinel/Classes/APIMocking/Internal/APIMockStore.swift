@@ -25,6 +25,8 @@ final class APIMockStore: ObservableObject {
     @Published private(set) var enabledIDs: Set<String>
     /// The master switch: while it's off, no mock answers.
     @Published private(set) var isMockingEnabled: Bool
+    /// Whether a toast shows each time a mock answers a request, as the app passed to the tool.
+    private(set) var showsRequestToasts = false
 
     /// Mocks that answer requests, in the order they're tried: local mocks first, as testers make them to
     /// override what the app ships with.
@@ -69,6 +71,15 @@ extension APIMockStore {
             return true
         }
         matcher.update(activeMocks: activeMocks)
+    }
+}
+
+// MARK: - Toasts
+
+extension APIMockStore {
+
+    func setRequestToastDefault(_ showsRequestToasts: Bool) {
+        self.showsRequestToasts = showsRequestToasts
     }
 }
 

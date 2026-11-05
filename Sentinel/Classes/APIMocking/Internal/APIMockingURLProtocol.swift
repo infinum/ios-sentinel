@@ -34,6 +34,14 @@ final class APIMockingURLProtocol: URLProtocol {
     override func startLoading() {
         // Looked up again, as the mock may have been switched off since `canInit`.
         let mock = APIMockMatcher.shared.mock(for: request)
+        #if os(iOS)
+        if let mock {
+            let request = request
+            DispatchQueue.main.async {
+                APIMockToastPresenter.shared.mockAnswered(request, with: mock)
+            }
+        }
+        #endif
         // The client is called back on the thread that started loading, as URLProtocol requires,
         // which also keeps `isStopped` on a single thread.
         let runLoop = CFRunLoopGetCurrent()
