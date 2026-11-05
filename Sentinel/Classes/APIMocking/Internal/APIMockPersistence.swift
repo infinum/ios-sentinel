@@ -21,9 +21,9 @@ struct APIMockPersistence {
 
     let fileURL: URL
 
-    /// `Library/Sentinel/APIMocking.json` on iOS, which `ClearAppDataTool` leaves alone, as it clears
-    /// Application Support but not the rest of Library. On macOS, where apps outside the sandbox share
-    /// `~/Library`, it's under the app's own Application Support folder.
+    /// `Library/Sentinel/APIMocking.json` on iOS, a folder `ClearAppDataTool` skips when it clears
+    /// Library. On macOS, where apps outside the sandbox share `~/Library`, it's under the app's own
+    /// Application Support folder.
     static var defaultFileURL: URL {
         let fileManager = FileManager.default
         #if os(macOS)

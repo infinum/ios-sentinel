@@ -78,6 +78,28 @@ extension IntegrationTests {
             #expect(!FileManager.default.fileExists(atPath: cachesFile.path))
             #expect(!passwordExists())
         }
+
+        @Test("Clearing everything keeps the API mocks")
+        @MainActor
+        func clearAllKeepsAPIMocks() async throws {
+            let mocksFile = APIMockPersistence.defaultFileURL
+            let previousMocks = try? Data(contentsOf: mocksFile)
+            defer {
+                if let previousMocks {
+                    try? previousMocks.write(to: mocksFile)
+                } else {
+                    try? FileManager.default.removeItem(at: mocksFile)
+                }
+            }
+            APIMockPersistence(fileURL: mocksFile).save(APIMockPersistence.State())
+            try #require(FileManager.default.fileExists(atPath: mocksFile.path))
+
+            _ = await withCheckedContinuation { continuation in
+                AppDataCleaner.clearAll { continuation.resume(returning: $0) }
+            }
+
+            #expect(FileManager.default.fileExists(atPath: mocksFile.path))
+        }
     }
 }
 
