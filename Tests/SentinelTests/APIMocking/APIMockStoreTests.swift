@@ -205,6 +205,26 @@ struct APIMockStoreTests {
         #expect(store.localMocks.map(\.id) == ["local.1"])
         #expect(store.localMocks.first?.response == .http(statusCode: 200, headers: [:], body: .json("")))
     }
+
+    @Test(
+        "A saved mock with a value this version doesn't know is skipped",
+        arguments: [
+            #""networkError": "renamedError""#,
+            #""method": "BREW""#,
+            #""matchKind": "glob""#
+        ]
+    )
+    func unknownValueIsSkipped(field: String) throws {
+        try directory.createFile(
+            named: "APIMocking.json",
+            contents: #"{ "localMocks": [{ "id": "local.1", "name": "Unknown", "pattern": "/a", "# + field + #" }, "#
+                + #"{ "id": "local.2", "name": "Known", "pattern": "/b", "networkError": "timedOut" }] }"#
+        )
+
+        let store = makeStore()
+
+        #expect(store.localMocks.map(\.id) == ["local.2"])
+    }
 }
 
 // MARK: - Helpers

@@ -148,9 +148,22 @@ private struct PersistedMock: Codable {
 
     var mock: APIMock? {
         guard let id, let name, let pattern else { return nil }
+        // A value this version doesn't know, from a renamed case or a newer Sentinel, would otherwise fall
+        // back to a default and answer differently from how the mock was set up, e.g. a 200 for a failure.
+        let decodedMethod = method.flatMap(APIMock.HTTPMethod.init(rawValue:))
+        let decodedKind = matchKind.flatMap(APIMock.URLPattern.Kind.init(rawValue:))
+        let decodedError = networkError.flatMap(APIMock.NetworkError.init(rawValue:))
+        guard
+            (method == nil) == (decodedMethod == nil),
+            (matchKind == nil) == (decodedKind == nil),
+            (networkError == nil) == (decodedError == nil)
+        else {
+            NSLog("Sentinel API mocking skipped the saved mock %@, which uses a value this version doesn't know", name)
+            return nil
+        }
         let response: APIMock.Response
-        if let networkError = networkError.flatMap(APIMock.NetworkError.init(rawValue:)) {
-            response = APIMock.Response.networkError(networkError)
+        if let decodedError {
+            response = APIMock.Response.networkError(decodedError)
         } else {
             response = APIMock.Response.http(
                 statusCode: statusCode ?? 200,
@@ -163,9 +176,9 @@ private struct PersistedMock: Codable {
             name: name,
             description: description ?? "",
             group: group,
-            method: method.flatMap(APIMock.HTTPMethod.init(rawValue:)),
+            method: decodedMethod,
             url: APIMock.URLPattern(
-                kind: matchKind.flatMap(APIMock.URLPattern.Kind.init(rawValue:)) ?? .wildcard,
+                kind: decodedKind ?? .wildcard,
                 pattern: pattern
             ),
             response: response,
