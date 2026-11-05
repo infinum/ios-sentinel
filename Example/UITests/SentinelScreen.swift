@@ -45,6 +45,24 @@ struct SentinelScreen {
         )
     }
 
+    /// Taps the example app's crash button and waits for the app to go down.
+    func crashApp(file: StaticString = #filePath, line: UInt = #line) {
+        let crashButton = app.buttons["example.crash"]
+        XCTAssertTrue(
+            crashButton.waitForExistence(timeout: 5),
+            "The example app isn't showing",
+            file: file,
+            line: line
+        )
+        crashButton.tap()
+        XCTAssertTrue(
+            app.wait(for: .notRunning, timeout: 10),
+            "The app didn't crash",
+            file: file,
+            line: line
+        )
+    }
+
     /// Swipes the Sentinel sheet away.
     func dismiss(file: StaticString = #filePath, line: UInt = #line) {
         app.navigationBars.firstMatch.swipeDown(velocity: .fast)

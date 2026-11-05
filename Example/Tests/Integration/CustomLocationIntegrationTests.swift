@@ -40,13 +40,16 @@ extension IntegrationTests {
             manager.delegate = delegate
 
             manager.startUpdatingLocation()
-            try await Task.sleep(nanoseconds: 500_000_000)
+            try await waitUntil { !delegate.locations.isEmpty }
 
             #expect(delegate.locations.map(\.coordinate.latitude) == [45.815])
             #expect(delegate.locations.map(\.coordinate.longitude) == [15.982])
         }
 
-        @Test("With the custom location turned off, the real location updates start")
+        // This only shows that the custom location isn't delivered. Without location permission the
+        // simulator sends no real updates, so it can't show that the real `startUpdatingLocation` ran.
+        // Waiting for something not to happen can't be polled, so this waits a fixed half second.
+        @Test("With the custom location turned off, it isn't delivered")
         func disabledCustomLocationIsIgnored() async throws {
             tool.locationProvider.setCustomLocationUsageEnabled(false)
             let manager = CLLocationManager()
@@ -69,7 +72,7 @@ extension IntegrationTests {
             manager.delegate = delegate
 
             manager.startUpdatingLocation()
-            try await Task.sleep(nanoseconds: 500_000_000)
+            try await waitUntil { !delegate.locations.isEmpty }
 
             #expect(delegate.locations.map(\.coordinate.latitude) == [45.815])
         }

@@ -19,9 +19,9 @@ struct ClearAppDataView: View {
     var body: some View {
         VStack(spacing: 24) {
             Text("""
-            Removes this app's user defaults, caches, temporary files, Documents, \
-            Application Support, cookies, web site data and keychain items, leaving it in the \
-            state of a fresh install. Sentinel's API mocks are kept.
+            Removes this app's user defaults, caches, temporary files, Documents, Library, \
+            cookies, web site data and keychain items, leaving it in the state of a fresh install. \
+            Sentinel's API mocks are kept.
             """)
                 .font(.body1Regular)
                 .multilineTextAlignment(.center)

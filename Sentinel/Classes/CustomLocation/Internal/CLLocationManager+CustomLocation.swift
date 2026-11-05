@@ -34,6 +34,9 @@ extension CLLocationManager {
             return
         }
         // Real updates arrive asynchronously, so callers can finish setting up before the delegate is called.
+        // CLLocationManager calls its delegate on the run loop of the thread that created it; that's the main
+        // thread for almost every app, so the main queue is used. The configuration above is read on
+        // whichever thread called `startUpdatingLocation()`.
         DispatchQueue.main.async { [weak self] in
             guard let self else { return }
             delegate?.locationManager?(self, didUpdateLocations: locations)

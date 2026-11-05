@@ -63,7 +63,7 @@ final class CustomLocationViewController: UIViewController {
         configureButton(for: isEnabled, animated: true)
         showAlert(
             title: isEnabled ? "Custom location enabled" : "Custom location disabled",
-            message: "To apply changes, please restart the application.",
+            message: "Applies the next time location updates start.",
             actionTitle: "OK",
             delay: .long
         )
@@ -369,7 +369,7 @@ private extension CustomLocationViewController {
         view.endEditing(true)
         showAlert(
             title: "Custom location changed",
-            message: "To apply changes, please restart the application.",
+            message: "Applies the next time location updates start.",
             actionTitle: "OK",
             delay: .long
         )

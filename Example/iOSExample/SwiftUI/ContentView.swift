@@ -3,7 +3,6 @@
 //  Example-iOS
 //
 //  Created by Nikola Simunko on 22.09.2025..
-//  Copyright © 2025 CocoaPods. All rights reserved.
 //
 
 import SwiftUI
@@ -26,6 +25,7 @@ struct ContentView: View {
 
                     if LaunchEnvironment.isUITesting {
                         openSentinelButton
+                        crashButton
                     }
                 }
                 .padding()
@@ -63,5 +63,17 @@ private extension ContentView {
             UIApplication.shared.motionEnded(.motionShake, with: nil)
         }
         .accessibilityIdentifier("example.openSentinel")
+    }
+
+    /// Crashes the app so the UI tests have a real crash for the Crash Detection tool to list.
+    var crashButton: some View {
+        Button("Crash") {
+            NSException(
+                name: NSExceptionName("SentinelUITestCrash"),
+                reason: "Raised by the UI tests",
+                userInfo: nil
+            ).raise()
+        }
+        .accessibilityIdentifier("example.crash")
     }
 }

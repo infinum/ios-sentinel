@@ -3,7 +3,6 @@
 //  Example-iOS
 //
 //  Created by Nikola Simunko on 22.09.2025..
-//  Copyright © 2025 CocoaPods. All rights reserved.
 //
 
 import SwiftUI
@@ -46,6 +45,8 @@ struct MenuView: View {
         }
         .listStyle(InsetGroupedListStyle())
         .navigationTitle("Menu")
+        // On iOS 14 and 15 the root view's hidden bar carries over to pushed views.
+        .navigationBarHidden(false)
         .onAppear(perform: reload)
     }
 }
