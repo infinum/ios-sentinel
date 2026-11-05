@@ -32,4 +32,5 @@ enum AccessibilityIdentifier {
     static let apiMockingBodyRow = "sentinel.apiMocking.bodyRow"
     static let apiMockingBodyEditor = "sentinel.apiMocking.body"
     static let apiMockingSaveButton = "sentinel.apiMocking.save"
+    static let apiMockingToast = "sentinel.apiMocking.toast"
 }

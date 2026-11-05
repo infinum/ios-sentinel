@@ -409,7 +409,7 @@ Pass `injectsAutomatically: false` to leave the session configurations alone and
 
 [Pulse](https://github.com/kean/Pulse) shows mocked requests with a *Mock* badge, and every mocked response carries an `X-Sentinel-Mock` header naming the mock that answered.
 
-Mocks made in the tool and the switches are saved in `Library/Sentinel`, so they survive relaunches and *ClearAppDataTool*, which leaves that folder alone. They stay switched on until they're switched off in the tool, and the app logs how many mocks are on when it launches. A mock made in the tool can be shared as its JSON body together with the Swift code that adds it to the app.
+Mocks made in the tool and the switches are saved in `Library/Sentinel`, so they survive relaunches and *ClearAppDataTool*, which leaves that folder alone. They stay switched on until they're switched off in the tool, so the app logs how many mocks are on when it launches, and on iOS shows a toast over the app saying so. Pass `showsLaunchToast: false` to leave the toast out. A mock made in the tool can be shared as its JSON body together with the Swift code that adds it to the app.
 
 The tool is available on iOS and macOS.
 

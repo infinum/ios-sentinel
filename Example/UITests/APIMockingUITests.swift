@@ -19,15 +19,24 @@ final class APIMockingUITests: XCTestCase {
         let screen = SentinelScreen.launch()
         screen.open()
         screen.openTool(ToolNames.apiMocking)
-
-        let group = screen.element("sentinel.apiMocking.group.Repository")
-        XCTAssertTrue(group.waitForExistence(timeout: 5), "No Repository group")
-        group.tap()
-        let toggle = screen.element("sentinel.toggle.Repository")
-        XCTAssertTrue(toggle.waitForExistence(timeout: 5), "The group didn't expand")
-        toggle.tapSwitch()
+        switchOnRepositoryMock(in: screen)
 
         XCTAssertTrue(fetchRepository(in: screen).contains("★ 1234"))
+    }
+
+    func testLaunchToastShowsWhileAMockIsOn() {
+        let screen = SentinelScreen.launch()
+        XCTAssertTrue(screen.openButton.waitForExistence(timeout: 5), "The example app isn't showing")
+        XCTAssertFalse(screen.toast.exists, "A toast showed with no mock on")
+        screen.open()
+        screen.openTool(ToolNames.apiMocking)
+        switchOnRepositoryMock(in: screen)
+
+        let relaunched = SentinelScreen.launch(resetState: false)
+
+        XCTAssertTrue(relaunched.toast.waitForExistence(timeout: 5), "No toast at launch")
+        XCTAssertTrue(relaunched.toast.label.contains("Repository"), relaunched.toast.label)
+        XCTAssertTrue(relaunched.waitUntilGone(relaunched.toast, timeout: 6), "The toast didn't go away")
     }
 
     func testLocalMockCanBeCreatedAndAnswersTheRequest() {
@@ -104,6 +113,15 @@ final class APIMockingUITests: XCTestCase {
 // MARK: - Helpers
 
 private extension APIMockingUITests {
+
+    func switchOnRepositoryMock(in screen: SentinelScreen) {
+        let group = screen.element("sentinel.apiMocking.group.Repository")
+        XCTAssertTrue(group.waitForExistence(timeout: 5), "No Repository group")
+        group.tap()
+        let toggle = screen.element("sentinel.toggle.Repository")
+        XCTAssertTrue(toggle.waitForExistence(timeout: 5), "The group didn't expand")
+        toggle.tapSwitch()
+    }
 
     /// Closes Sentinel, fetches the repository from the example app's menu and returns what the menu shows.
     func fetchRepository(in screen: SentinelScreen) -> String {

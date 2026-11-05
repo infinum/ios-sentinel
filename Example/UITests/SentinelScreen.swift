@@ -29,6 +29,9 @@ struct SentinelScreen {
 
     var openButton: XCUIElement { app.buttons["example.openSentinel"] }
 
+    /// The API mocking toast Sentinel shows over the app.
+    var toast: XCUIElement { element("sentinel.apiMocking.toast") }
+
     func open(file: StaticString = #filePath, line: UInt = #line) {
         XCTAssertTrue(
             openButton.waitForExistence(timeout: 5),

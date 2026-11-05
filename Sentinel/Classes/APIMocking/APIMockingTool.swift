@@ -18,6 +18,8 @@ import SwiftUI
 /// would for a real response. Pulse marks mocked requests as mocked, and every mocked response carries
 /// an `X-Sentinel-Mock` header with the id of the mock that answered.
 ///
+/// On iOS, a toast over the app says when mocks are on at launch.
+///
 /// - Note: By default the tool adds its protocol to every `URLSessionConfiguration.default` and
 /// `.ephemeral` configuration created after the tool, and to `URLSession.shared`. A configuration
 /// created earlier needs ``register(in:)`` before a session is made from it. Background sessions,
@@ -33,12 +35,15 @@ public struct APIMockingTool: Tool {
     /// - Parameters:
     ///     - name: Name of the tool
     ///     - mocks: Mocks the app ships with. Testers switch them on in the tool.
+    ///     - showsLaunchToast: Whether to show a toast over the app at launch while a mock is switched on,
+    ///     as mocks stay on across launches and are easy to forget. iOS only.
     ///     - injectsAutomatically: Whether to add mocking to every `default` and `ephemeral` session
     ///     configuration created from now on, and to `URLSession.shared`. Without it, every configuration
     ///     needs ``register(in:)``.
     public init(
         name: String = "API Mocking",
         mocks: [APIMock] = [],
+        showsLaunchToast: Bool = true,
         injectsAutomatically: Bool = true
     ) {
         self.name = name
@@ -48,10 +53,14 @@ public struct APIMockingTool: Tool {
             URLSessionConfiguration.installAPIMocking
         }
         // Mocks stay on across launches, so say so where a developer will see it.
-        let activeCount = store.activeMocks.count
-        if activeCount > 0 {
-            NSLog("Sentinel API mocking: %d mock(s) switched on.", activeCount)
+        let activeMocks = store.activeMocks
+        guard !activeMocks.isEmpty else { return }
+        NSLog("Sentinel API mocking: %d mock(s) switched on.", activeMocks.count)
+        #if os(iOS)
+        if showsLaunchToast {
+            APIMockToastPresenter.shared.showWhenActive(APIMockToastMessage.launch(activeMocks: activeMocks))
         }
+        #endif
     }
 
     /// Adds mocking to a session configuration.
