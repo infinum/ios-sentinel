@@ -165,6 +165,31 @@ struct APIMockStoreTests {
         #expect(!reloaded.isMockingEnabled)
     }
 
+    @Test("Request toasts follow the app until a tester switches them, and the choice is saved")
+    func requestToasts() {
+        let store = makeStore()
+        store.setRequestToastDefault(true)
+        #expect(store.showsRequestToasts)
+
+        store.setShowsRequestToasts(false)
+
+        let reloaded = makeStore()
+        reloaded.setRequestToastDefault(true)
+        #expect(!reloaded.showsRequestToasts)
+    }
+
+    @Test("A file saved before request toasts could be switched follows the app")
+    func requestToastsMissingFromAnOlderFile() throws {
+        let fileURL = directory.url.appendingPathComponent("APIMocking.json")
+        try Data(#"{ "isMockingEnabled": true, "enabledIDs": [], "localMocks": [] }"#.utf8).write(to: fileURL)
+
+        let store = makeStore()
+        store.setRequestToastDefault(true)
+
+        #expect(store.requestToastOverride == nil)
+        #expect(store.showsRequestToasts)
+    }
+
     @Test("A copy of a mock with an infinite delay is saved and loaded")
     func infiniteDelayIsSaved() {
         let store = makeStore()

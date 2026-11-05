@@ -26,6 +26,10 @@ struct APIMockingView: View {
                     .toggleStyle(.switch)
                     #endif
                     .accessibilityIdentifier(AccessibilityIdentifier.apiMockingMasterSwitch)
+                #if os(iOS)
+                Toggle("Show a toast for mocked requests", isOn: requestToastSwitch)
+                    .accessibilityIdentifier(AccessibilityIdentifier.apiMockingRequestToastSwitch)
+                #endif
             }
 
             #if os(macOS)
@@ -209,6 +213,13 @@ private extension APIMockingView {
         Binding(
             get: { store.isMockingEnabled },
             set: { store.setMockingEnabled($0) }
+        )
+    }
+
+    var requestToastSwitch: Binding<Bool> {
+        Binding(
+            get: { store.showsRequestToasts },
+            set: { store.setShowsRequestToasts($0) }
         )
     }
 

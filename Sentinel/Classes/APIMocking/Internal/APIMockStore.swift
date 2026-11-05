@@ -25,8 +25,8 @@ final class APIMockStore: ObservableObject {
     @Published private(set) var enabledIDs: Set<String>
     /// The master switch: while it's off, no mock answers.
     @Published private(set) var isMockingEnabled: Bool
-    /// Whether a toast shows each time a mock answers a request, as the app passed to the tool.
-    private(set) var showsRequestToasts = false
+    /// The tester's choice of request toasts, which wins over the app's.
+    @Published private(set) var requestToastOverride: Bool?
 
     /// Mocks that answer requests, in the order they're tried: local mocks first, as testers make them to
     /// override what the app ships with.
@@ -35,7 +35,14 @@ final class APIMockStore: ObservableObject {
         return allMocks.filter { enabledIDs.contains($0.id) }
     }
 
+    /// Whether a toast shows each time a mock answers a request.
+    var showsRequestToasts: Bool {
+        requestToastOverride ?? requestToastDefault
+    }
+
     // MARK: - Private properties
+
+    private var requestToastDefault = false
 
     private let persistence: APIMockPersistence
     private let matcher: APIMockMatcher
@@ -53,6 +60,7 @@ final class APIMockStore: ObservableObject {
         isMockingEnabled = state.isMockingEnabled
         enabledIDs = state.enabledIDs
         localMocks = state.localMocks
+        requestToastOverride = state.showsRequestToasts
         matcher.update(activeMocks: activeMocks)
     }
 }
@@ -78,8 +86,14 @@ extension APIMockStore {
 
 extension APIMockStore {
 
+    /// What the app passed to the tool, used until a tester changes it.
     func setRequestToastDefault(_ showsRequestToasts: Bool) {
-        self.showsRequestToasts = showsRequestToasts
+        requestToastDefault = showsRequestToasts
+    }
+
+    func setShowsRequestToasts(_ showsRequestToasts: Bool) {
+        requestToastOverride = showsRequestToasts
+        didChange()
     }
 }
 
@@ -153,7 +167,8 @@ private extension APIMockStore {
             APIMockPersistence.State(
                 isMockingEnabled: isMockingEnabled,
                 enabledIDs: enabledIDs,
-                localMocks: localMocks
+                localMocks: localMocks,
+                showsRequestToasts: requestToastOverride
             )
         )
     }

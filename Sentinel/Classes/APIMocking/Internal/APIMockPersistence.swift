@@ -17,6 +17,8 @@ struct APIMockPersistence {
         var isMockingEnabled = true
         var enabledIDs: Set<String> = []
         var localMocks: [APIMock] = []
+        /// The tester's choice, or `nil` to follow what the app passed to the tool.
+        var showsRequestToasts: Bool?
     }
 
     let fileURL: URL
@@ -95,18 +97,21 @@ private struct PersistedState: Codable {
     var isMockingEnabled: Bool?
     var enabledIDs: [String]?
     var localMocks: [PersistedMock]?
+    var showsRequestToasts: Bool?
 
     init(state: APIMockPersistence.State) {
         isMockingEnabled = state.isMockingEnabled
         enabledIDs = state.enabledIDs.sorted()
         localMocks = state.localMocks.map(PersistedMock.init(mock:))
+        showsRequestToasts = state.showsRequestToasts
     }
 
     var state: APIMockPersistence.State {
         APIMockPersistence.State(
             isMockingEnabled: isMockingEnabled ?? true,
             enabledIDs: Set(enabledIDs ?? []),
-            localMocks: (localMocks ?? []).compactMap(\.mock)
+            localMocks: (localMocks ?? []).compactMap(\.mock),
+            showsRequestToasts: showsRequestToasts
         )
     }
 }

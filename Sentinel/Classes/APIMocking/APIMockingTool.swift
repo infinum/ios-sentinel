@@ -37,8 +37,8 @@ public struct APIMockingTool: Tool {
     ///     - mocks: Mocks the app ships with. Testers switch them on in the tool.
     ///     - showsLaunchToast: Whether to show a toast over the app at launch while a mock is switched on,
     ///     as mocks stay on across launches and are easy to forget. iOS only.
-    ///     - showsRequestToasts: Whether to show a toast naming the mock each time one answers a request.
-    ///     iOS only.
+    ///     - showsRequestToasts: Whether to show a toast naming the mock each time one answers a request,
+    ///     until a tester changes it in the tool. iOS only.
     ///     - injectsAutomatically: Whether to add mocking to every `default` and `ephemeral` session
     ///     configuration created from now on, and to `URLSession.shared`. Without it, every configuration
     ///     needs ``register(in:)``.

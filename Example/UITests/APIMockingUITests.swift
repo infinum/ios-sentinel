@@ -22,6 +22,20 @@ final class APIMockingUITests: XCTestCase {
         switchOnRepositoryMock(in: screen)
 
         XCTAssertTrue(fetchRepository(in: screen).contains("★ 1234"))
+        XCTAssertFalse(screen.toast.exists, "A request toast showed while they're switched off")
+    }
+
+    func testRequestToastNamesTheMock() {
+        let screen = SentinelScreen.launch()
+        screen.open()
+        screen.openTool(ToolNames.apiMocking)
+        screen.element("sentinel.apiMocking.requestToastSwitch").tapSwitch()
+        switchOnRepositoryMock(in: screen)
+
+        _ = fetchRepository(in: screen)
+
+        XCTAssertTrue(screen.toast.waitForExistence(timeout: 5), "No toast for the mocked request")
+        XCTAssertTrue(screen.toast.label.contains("Mocked by “Repository”"), screen.toast.label)
     }
 
     func testLaunchToastShowsWhileAMockIsOn() {
