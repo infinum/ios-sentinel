@@ -52,7 +52,8 @@ private struct ContentView: View {
                         .tag(model.selectionID)
                     #else
                     NavigationLink(
-                        destination: CrashDetectionToolDetailsView(crashModel: model),
+                        destination: CrashDetectionToolDetailsView(crashModel: model)
+                            .navigationBarMaterialBackground(),
                         tag: model.selectionID,
                         selection: $selectedItem,
                         label: { Text(model.details.name) }

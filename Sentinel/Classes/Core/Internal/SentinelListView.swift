@@ -87,8 +87,9 @@ private struct ContentView: View {
                             .tag(item.id)
                             .accessibilityIdentifier(AccessibilityIdentifier.row(item.title))
                         #else
+                        // Set on the destination as well, so every pushed tool's content gets it, custom tools too.
                         NavigationLink(
-                            destination: AnyView(item.didSelect()),
+                            destination: AnyView(item.didSelect()).navigationBarMaterialBackground(),
                             tag: item.id,
                             selection: $selectedItem,
                             label: { NavigationToolTableView(item: item) }
@@ -108,6 +109,7 @@ private struct ContentView: View {
             }
         }
         .pushedListTopMargin(isPushed: !isTabRoot)
+        .navigationBarMaterialBackground()
         .sentinelSearchable(text: $viewModel.searchText, prompt: "Search for an item")
         .navigationTitle(title)
     }

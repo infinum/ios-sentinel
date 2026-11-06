@@ -29,6 +29,9 @@ struct SentinelScreen {
 
     var openButton: XCUIElement { app.buttons["example.openSentinel"] }
 
+    /// The API mocking toast Sentinel shows over the app.
+    var toast: XCUIElement { element("sentinel.apiMocking.toast") }
+
     func open(file: StaticString = #filePath, line: UInt = #line) {
         XCTAssertTrue(
             openButton.waitForExistence(timeout: 5),
@@ -198,7 +201,8 @@ enum ToolNames {
     static let crashDetection = "Crash Detection Tool"
     static let clearAppData = "Clear App Data"
     static let customLocation = "Custom Location"
+    static let apiMocking = "API Mocking"
     static let pulse = "Pulse"
 
-    static let all = [userDefaults, baseURL, colorChange, crashDetection, clearAppData, customLocation, pulse]
+    static let all = [userDefaults, baseURL, colorChange, crashDetection, clearAppData, customLocation, apiMocking, pulse]
 }
