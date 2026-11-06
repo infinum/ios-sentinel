@@ -62,7 +62,7 @@ public struct APIMockingTool: Tool {
         NSLog("Sentinel API mocking: %d mock(s) switched on.", activeMocks.count)
         #if os(iOS)
         if showsLaunchToast {
-            APIMockToastPresenter.shared.showWhenActive(APIMockToastMessage.launch(activeMocks: activeMocks))
+            APIMockToastPresenter.shared.showLaunchToast(APIMockToastMessage.launch(activeMocks: activeMocks))
         }
         #endif
     }

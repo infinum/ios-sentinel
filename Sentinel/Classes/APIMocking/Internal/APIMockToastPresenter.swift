@@ -24,14 +24,18 @@ final class APIMockToastPresenter {
     private var hideWork: DispatchWorkItem?
     private var burst = APIMockRequestBurst()
     private var activationObserver: NSObjectProtocol?
+    /// Request toasts wait while the launch toast is due or up, as apps often make requests at launch.
+    private var isShowingLaunchToast = false
+    private var heldRequestMessage: APIMockToastMessage?
 }
 
 // MARK: - Showing toasts
 
 extension APIMockToastPresenter {
 
-    /// Shows the toast once a scene is on screen, as the tool is usually made before the app has a window.
-    func showWhenActive(_ message: APIMockToastMessage) {
+    /// Shows the launch toast once a scene is on screen, as the tool is usually made before the app has a window.
+    func showLaunchToast(_ message: APIMockToastMessage) {
+        isShowingLaunchToast = true
         if activeScene != nil {
             show(message)
             return
@@ -53,11 +57,16 @@ extension APIMockToastPresenter {
 
     func mockAnswered(_ request: URLRequest, with mock: APIMock) {
         guard APIMockStore.shared.showsRequestToasts else { return }
-        show(burst.add(request, mockedBy: mock))
+        let message = burst.add(request, mockedBy: mock)
+        if isShowingLaunchToast {
+            heldRequestMessage = message
+        } else {
+            show(message)
+        }
     }
 
     /// Shows the message, or puts it in place of the one already up, and starts the timer again.
-    func show(_ message: APIMockToastMessage) {
+    private func show(_ message: APIMockToastMessage) {
         guard let window = window ?? makeWindow() else { return }
         self.window = window
         withAnimation(.easeOut(duration: 0.25)) {
@@ -94,6 +103,12 @@ private extension APIMockToastPresenter {
     }
 
     func hide() {
+        isShowingLaunchToast = false
+        if let message = heldRequestMessage {
+            heldRequestMessage = nil
+            show(message)
+            return
+        }
         withAnimation(.easeIn(duration: 0.25)) {
             model.message = nil
         }
