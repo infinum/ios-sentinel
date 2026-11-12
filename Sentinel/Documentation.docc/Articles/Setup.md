@@ -189,6 +189,12 @@ PreferencesTool.Section(
 )
 ```
 
+On iOS, **Sentinel** always adds a "Sentinel" section in front of your own sections, with a **Show touches** toggle that draws a circle under every finger so screen recordings show where the tester tapped. It is off by default and needs no code in your app. It stays on across launches: after a relaunch it takes effect once `Sentinel.shared.setup(with:)` runs or, if your app only calls `createSentinelView(with:)`, once that view is first created. Show touches has some limitations:
+
+- Touches outside the app's windows aren't shown, such as alerts, system sheets and, on iOS 17 and later, the system keyboard.
+- Indicators appear in recordings and screenshots, including taps on custom PIN pads and in-app secure keypads.
+- It swizzles `UIWindow.sendEvent(_:)` the first time it is turned on, which affects every window in the process. Apps which swizzle `sendEvent(_:)` themselves still work, because both implementations call through.
+
 ## Add Tools
 
 As mentioned before, the **Configuration** struct has a property named tools which will add `Tool` items to the `SentinelTabBarView`.
@@ -217,6 +223,8 @@ The tool will export the database file as a zip, and the file should be imported
 ### CrashDetectionTool
 
 **CrashDetectionTool** sets up listeners on system exceptions which will be logged into a local json file with the stack trace. The tool is available on iOS.
+
+The crash list can be searched by crash name, date or stack trace.
 
 ### CustomLocationTool
 

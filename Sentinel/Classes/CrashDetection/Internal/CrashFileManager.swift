@@ -41,9 +41,11 @@ enum CrashFileManager {
         } catch { }
     }
 
+    /// Returns the saved crashes of the given type, newest first
     static func recover(ofType type: CrashType) -> [CrashModel] {
         let filePath = getDocumentsDirectory().appendingPathComponent(type.fileName)
-        return (try? readCrashModels(from: filePath)) ?? []
+        let crashes = (try? readCrashModels(from: filePath)) ?? []
+        return crashes.sorted { $0.details.date > $1.details.date }
     }
 
     static func deleteAll() {

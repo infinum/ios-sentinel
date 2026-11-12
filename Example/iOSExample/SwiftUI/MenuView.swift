@@ -8,7 +8,7 @@
 import SwiftUI
 
 /// Demonstrates `ClearAppDataTool`: save the current state, clear the app data from Sentinel, then
-/// relaunch — both values should read as empty again.
+/// relaunch — both values should read as empty again. Also seeds sample crashes for `CrashDetectionTool`.
 ///
 /// Also demonstrates `APIMockingTool`: switch on a repository mock in Sentinel, then fetch the repository.
 struct MenuView: View {
@@ -29,6 +29,12 @@ struct MenuView: View {
                 Button("Save current state") {
                     StoredDataProvider.save()
                     reload()
+                }
+            }
+
+            Section(footer: Text("Fills the Crash Detection tool with sample crashes.")) {
+                Button("Add sample crashes") {
+                    SampleCrashes.seed()
                 }
             }
 

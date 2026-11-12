@@ -36,7 +36,8 @@ extension IntegrationTests {
             CrashFileManager.save(crash: makeCrash(type: .nsexception, name: "first"))
             CrashFileManager.save(crash: makeCrash(type: .nsexception, name: "second"))
 
-            #expect(CrashFileManager.recover(ofType: .nsexception).map(\.details.name) == ["first", "second"])
+            // `recover` lists the newest crash first; this test only cares that both were kept.
+            #expect(CrashFileManager.recover(ofType: .nsexception).map(\.details.name).sorted() == ["first", "second"])
         }
 
         @Test("deleteAll removes the crashes of every type")
@@ -58,7 +59,7 @@ extension IntegrationTests {
             CrashHandler.shared.registerUncaughtExceptionHandler(exceptionReceiveHandler: nil)
             UncaughtExceptionHandler(exception: NSException(name: .genericException, reason: "Boom"))
 
-            #expect(CrashFileManager.recover(ofType: .nsexception).map(\.details.name) == ["NSGenericExceptionBoom"])
+            #expect(CrashFileManager.recover(ofType: .nsexception).map(\.details.name) == ["NSGenericException: Boom"])
         }
 
         @Test("A custom handler replaces saving the crash")

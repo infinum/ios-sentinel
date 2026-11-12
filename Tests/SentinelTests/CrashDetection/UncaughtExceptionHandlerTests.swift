@@ -25,8 +25,7 @@ struct UncaughtExceptionHandlerTests {
 
         #expect(received?.signal == nil)
         #expect(received?.exception === exception)
-        // The name and the reason are concatenated without a separator.
-        #expect(received?.info == "NSInvalidArgumentExceptionBad argument")
+        #expect(received?.info == "NSInvalidArgumentException: Bad argument")
     }
 
     @Test("An exception without a reason is reported as Unknown")
@@ -38,7 +37,7 @@ struct UncaughtExceptionHandlerTests {
 
         UncaughtExceptionHandler(exception: NSException(name: .genericException, reason: nil))
 
-        #expect(info == "NSGenericExceptionUnknown")
+        #expect(info == "NSGenericException: Unknown")
     }
 
     @Test("Preparing twice still calls the app's handler exactly once")
