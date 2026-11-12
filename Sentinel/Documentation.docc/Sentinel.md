@@ -31,6 +31,7 @@ Sentinel is a debug tool which contains multiple debug tools with a single point
 - ``ToolTable``
 - ``TextEditingTool``
 - ``CrashDetectionTool``
+- ``ClearAppDataTool``
 - ``DatabaseImportExportTool``
 
 ### Predefined items

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 77;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -41,21 +41,21 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		3789028D2D4A26390088860E /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+		3789028D2D4A26390088860E /* Exceptions for "iOSExample" folder in "Example-iOS" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				"Supporting Files/Info.plist",
 			);
 			target = 607FACCF1AFB9204008FA782 /* Example-iOS */;
 		};
-		378902952D4A265A0088860E /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+		378902952D4A265A0088860E /* Exceptions for "Tests" folder in "Sentinel_Tests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Tests.swift,
 			);
 			target = 607FACE41AFB9204008FA782 /* Sentinel_Tests */;
 		};
-		37C7BEC02D4A37D900B9B028 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+		37C7BEC02D4A37D900B9B028 /* Exceptions for "MacOSExample" folder in "Example-iOS" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				SwiftUI/SentinelButtonView.swift,
@@ -65,9 +65,42 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		376E3A272D3E746A0029DE62 /* MacOSExample */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (37C7BEC02D4A37D900B9B028 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = MacOSExample; sourceTree = "<group>"; };
-		378902842D4A26390088860E /* iOSExample */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (3789028D2D4A26390088860E /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = iOSExample; sourceTree = "<group>"; };
-		378902932D4A265A0088860E /* Tests */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (378902952D4A265A0088860E /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Tests; sourceTree = "<group>"; };
+		376E3A272D3E746A0029DE62 /* MacOSExample */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				37C7BEC02D4A37D900B9B028 /* Exceptions for "MacOSExample" folder in "Example-iOS" target */,
+			);
+			explicitFileTypes = {
+			};
+			explicitFolders = (
+			);
+			path = MacOSExample;
+			sourceTree = "<group>";
+		};
+		378902842D4A26390088860E /* iOSExample */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				3789028D2D4A26390088860E /* Exceptions for "iOSExample" folder in "Example-iOS" target */,
+			);
+			explicitFileTypes = {
+			};
+			explicitFolders = (
+			);
+			path = iOSExample;
+			sourceTree = "<group>";
+		};
+		378902932D4A265A0088860E /* Tests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				378902952D4A265A0088860E /* Exceptions for "Tests" folder in "Sentinel_Tests" target */,
+			);
+			explicitFileTypes = {
+			};
+			explicitFolders = (
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -247,7 +280,6 @@
 				};
 			};
 			buildConfigurationList = 607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "Sentinel" */;
-			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -256,6 +288,7 @@
 				Base,
 			);
 			mainGroup = 607FACC71AFB9204008FA782;
+			preferredProjectObjectVersion = 77;
 			productRefGroup = 607FACD11AFB9204008FA782 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -363,13 +396,12 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Example-MacOS/Pods-Example-MacOS-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Sentinel.common/Sentinel.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Example-MacOS/Pods-Example-MacOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sentinel.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Example-MacOS/Pods-Example-MacOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -381,13 +413,12 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Example-iOS/Pods-Example-iOS-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Sentinel.common-EmailSender/Sentinel.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Example-iOS/Pods-Example-iOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sentinel.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Example-iOS/Pods-Example-iOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -464,7 +495,8 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.infinum.demo.Sentinel.MacOSExample;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = Example_MacOS;
+				PRODUCT_NAME = Sentinel;
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -505,7 +537,8 @@
 				MARKETING_VERSION = 1.0;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.infinum.demo.Sentinel.MacOSExample;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = Example_MacOS;
+				PRODUCT_NAME = Sentinel;
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

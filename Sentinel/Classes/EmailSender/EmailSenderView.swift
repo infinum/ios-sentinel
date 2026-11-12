@@ -5,6 +5,8 @@
 //  Created by Zvonimir Medak on 10.12.2024..
 //
 
+#if os(iOS)
+
 import SwiftUI
 import MessageUI
 
@@ -69,3 +71,5 @@ extension EmailSenderView {
     }
 
 }
+
+#endif

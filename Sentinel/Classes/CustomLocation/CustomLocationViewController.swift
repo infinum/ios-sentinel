@@ -5,13 +5,11 @@
 //  Created by Nikola Majcen on 01/10/2020.
 //
 
+#if os(iOS)
+
 import CoreLocation
 import MapKit
 import UIKit
-
-extension UIStoryboard {
-    static var customLocation: UIStoryboard { UIStoryboard(name: "CustomLocation", bundle: .sentinel) }
-}
 
 final class CustomLocationViewController: UIViewController {
 
@@ -20,15 +18,15 @@ final class CustomLocationViewController: UIViewController {
         case long = 0.67
     }
     
-    // MARK: - IBOutlets
+    // MARK: - Views
     
-    @IBOutlet private weak var gestureInfoLabel: UILabel!
-    @IBOutlet private weak var mapView: MKMapView!
-    @IBOutlet private weak var locationMockSwitch: UISwitch!
-    @IBOutlet private weak var latitudeTextField: UITextField!
-    @IBOutlet private weak var longitudeTextField: UITextField!
-    @IBOutlet private weak var updateLocationButton: UIButton!
-    @IBOutlet private weak var bottomOffset: NSLayoutConstraint!
+    private let gestureInfoLabel = CustomLocationViewController.makeLabel(text: "Long press to change location", font: .systemFont(ofSize: 13))
+    private let mapView = MKMapView()
+    private let locationMockSwitch = UISwitch()
+    private let latitudeTextField = CustomLocationViewController.makeTextField(placeholder: "Enter latitude", returnKeyType: .next)
+    private let longitudeTextField = CustomLocationViewController.makeTextField(placeholder: "Enter longitude", returnKeyType: .done)
+    private let updateLocationButton = UIButton(type: .system)
+    private var bottomOffset: NSLayoutConstraint!
     
     // MARK: - Private properties
     
@@ -39,6 +37,7 @@ final class CustomLocationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureLayout()
         configureView()
         configureLocationManager()
     }
@@ -50,14 +49,14 @@ final class CustomLocationViewController: UIViewController {
     // MARK: - Internal methods
     
     static func create(locationProvider: CustomLocationProvider) -> CustomLocationViewController {
-        let viewController = UIStoryboard.customLocation.instantiateViewController(ofType: CustomLocationViewController.self)
+        let viewController = CustomLocationViewController()
         viewController.locationProvider = locationProvider
         return viewController
     }
     
-    // MARK: - IBActions
+    // MARK: - Actions
     
-    @IBAction func locationMockSwitchHandler(_ sender: UISwitch) {
+    @objc func locationMockSwitchHandler(_ sender: UISwitch) {
         locationProvider?.setCustomLocationUsageEnabled(sender.isOn)
         let isEnabled = locationProvider?.isCustomLocationUsageEnabled ?? false
         handleInfoLabelVisibility()
@@ -70,7 +69,7 @@ final class CustomLocationViewController: UIViewController {
         )
     }
 
-    @IBAction func updateLocationButtonActionHandler() {
+    @objc func updateLocationButtonActionHandler() {
         setLocation()
     }
 }
@@ -109,6 +108,125 @@ extension CustomLocationViewController: UITextFieldDelegate {
             longitudeTextField.resignFirstResponder()
         }
         return false
+    }
+}
+
+// MARK: - Layout
+
+private extension CustomLocationViewController {
+
+    func configureLayout() {
+        view.backgroundColor = .systemBackground
+
+        mapView.showsUserLocation = true
+        mapView.showsCompass = false
+        mapView.delegate = self
+
+        locationMockSwitch.addTarget(self, action: #selector(locationMockSwitchHandler), for: .valueChanged)
+
+        updateLocationButton.setTitle("Update", for: .normal)
+        updateLocationButton.setTitleColor(.white, for: .normal)
+        updateLocationButton.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
+        updateLocationButton.backgroundColor = .systemBlue
+        updateLocationButton.layer.cornerRadius = 8
+        updateLocationButton.addTarget(self, action: #selector(updateLocationButtonActionHandler), for: .touchUpInside)
+
+        let switchStackView = UIStackView(arrangedSubviews: [
+            Self.makeLabel(text: "Custom location", font: .systemFont(ofSize: 16, weight: .medium)),
+            locationMockSwitch
+        ])
+        switchStackView.alignment = .center
+
+        let switchContainerView = UIView()
+        switchContainerView.backgroundColor = .systemBackground
+        switchContainerView.layer.cornerRadius = 8
+
+        let fieldsStackView = UIStackView(arrangedSubviews: [
+            gestureInfoLabel,
+            Self.makeFieldStackView(title: "Latitude", textField: latitudeTextField),
+            Self.makeFieldStackView(title: "Longitude", textField: longitudeTextField),
+            updateLocationButton
+        ])
+        fieldsStackView.axis = .vertical
+        fieldsStackView.spacing = 24
+
+        let fieldsContainerView = UIView()
+        fieldsContainerView.backgroundColor = .systemBackground
+
+        // Fills the gap below the fields container, which is pinned to the safe area and lifted by the keyboard.
+        let bottomFillerView = UIView()
+        bottomFillerView.backgroundColor = .systemBackground
+
+        [mapView, switchContainerView, fieldsContainerView, bottomFillerView].forEach(view.addSubview)
+        switchContainerView.addSubview(switchStackView)
+        fieldsContainerView.addSubview(fieldsStackView)
+        [mapView, switchContainerView, switchStackView, fieldsContainerView, fieldsStackView, bottomFillerView, updateLocationButton]
+            .forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
+
+        let safeArea = view.safeAreaLayoutGuide
+        bottomOffset = safeArea.bottomAnchor.constraint(equalTo: fieldsContainerView.bottomAnchor)
+        bottomOffset.priority = .required - 1
+
+        NSLayoutConstraint.activate([
+            mapView.topAnchor.constraint(equalTo: view.topAnchor),
+            mapView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
+            mapView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
+            mapView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.75),
+
+            switchContainerView.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 16),
+            switchContainerView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 16),
+            switchContainerView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -16),
+
+            switchStackView.topAnchor.constraint(equalTo: switchContainerView.topAnchor, constant: 12),
+            switchStackView.leadingAnchor.constraint(equalTo: switchContainerView.leadingAnchor, constant: 16),
+            switchStackView.trailingAnchor.constraint(equalTo: switchContainerView.trailingAnchor, constant: -16),
+            switchStackView.bottomAnchor.constraint(equalTo: switchContainerView.bottomAnchor, constant: -12),
+
+            fieldsContainerView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
+            fieldsContainerView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
+            fieldsContainerView.bottomAnchor.constraint(lessThanOrEqualTo: view.bottomAnchor),
+            bottomOffset,
+
+            fieldsStackView.topAnchor.constraint(equalTo: fieldsContainerView.topAnchor, constant: 16),
+            fieldsStackView.leadingAnchor.constraint(equalTo: fieldsContainerView.leadingAnchor, constant: 16),
+            fieldsStackView.trailingAnchor.constraint(equalTo: fieldsContainerView.trailingAnchor, constant: -16),
+            fieldsStackView.bottomAnchor.constraint(equalTo: fieldsContainerView.bottomAnchor, constant: -16),
+
+            updateLocationButton.heightAnchor.constraint(equalToConstant: 44),
+
+            bottomFillerView.topAnchor.constraint(equalTo: fieldsContainerView.bottomAnchor),
+            bottomFillerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            bottomFillerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            bottomFillerView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+    }
+
+    static func makeLabel(text: String, font: UIFont) -> UILabel {
+        let label = UILabel()
+        label.text = text
+        label.font = font
+        return label
+    }
+
+    static func makeTextField(placeholder: String, returnKeyType: UIReturnKeyType) -> UITextField {
+        let textField = UITextField()
+        textField.placeholder = placeholder
+        textField.font = .systemFont(ofSize: 14)
+        textField.borderStyle = .roundedRect
+        textField.backgroundColor = .systemBackground
+        textField.keyboardType = .numbersAndPunctuation
+        textField.returnKeyType = returnKeyType
+        return textField
+    }
+
+    static func makeFieldStackView(title: String, textField: UITextField) -> UIStackView {
+        let stackView = UIStackView(arrangedSubviews: [
+            makeLabel(text: title, font: .systemFont(ofSize: 16)),
+            textField
+        ])
+        stackView.axis = .vertical
+        stackView.spacing = 8
+        return stackView
     }
 }
 
@@ -280,3 +398,5 @@ private extension CustomLocationViewController {
     }
 
 }
+
+#endif
