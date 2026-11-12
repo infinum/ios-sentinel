@@ -12,16 +12,17 @@ import SwiftUI
 /// Tool which wipes the app's stored data, so it can be tested from a clean state without being
 /// deleted and reinstalled.
 ///
-/// Clears the app's user defaults and the suites it created, the temporary, Caches, Application
-/// Support and Documents directories, the shared URL cache, cookies, web site data, and the
-/// keychain items in the app's own access group.
+/// Clears the app's user defaults and the suites it created, the temporary and Documents
+/// directories, the Library directory including Caches and Application Support, the shared URL
+/// cache, cookies, web site data, and the keychain items in the app's own access group. Mocks made
+/// with `APIMockingTool` are kept, so they can be used to test the app from a clean state.
 ///
 /// - Warning: The app must be force quit and relaunched afterwards. iOS cannot restart it, so
 /// anything already held in memory — singletons, open database connections, cached credentials —
 /// stays live and can leave the app in an inconsistent state until it is relaunched.
 /// - Note: Keychain items in shared access groups and data in app group containers are left alone,
 /// as both are shared with other apps and extensions. Clearing those remains the host app's
-/// responsibility.
+/// responsibility. System `com.apple.*` preference domains are left alone too.
 public struct ClearAppDataTool: Tool {
 
     // MARK: - Public properties

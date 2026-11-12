@@ -9,22 +9,36 @@ import SwiftUI
 
 struct CrashDetectionToolView: View {
 
+    @State private var crashes: [CrashModel.Searchable] = []
+    @State private var selectedItem: Int?
+
     var body: some View {
         #if os(macOS)
-        NavigationView {
-            ContentView()
+        // This view is already the detail column of the tool list's split view, and a nested
+        // NavigationSplitView lays its detail column out past the window edge.
+        HSplitView {
+            ContentView(crashes: $crashes, selectedItem: $selectedItem)
                 .frame(minWidth: 300)
+
+            Group {
+                if let crash = crashes.first(where: { $0.id == selectedItem })?.crash {
+                    CrashDetectionToolDetailsView(crashModel: crash)
+                } else {
+                    Color.clear
+                }
+            }
+            .frame(minWidth: 300, maxWidth: .infinity, maxHeight: .infinity)
         }
         #else
-        ContentView()
+        ContentView(crashes: $crashes, selectedItem: $selectedItem)
         #endif
     }
 }
 
 private struct ContentView: View {
 
-    @State private var crashes: [CrashModel.Searchable] = []
-    @State private var selectedItem: Int?
+    @Binding var crashes: [CrashModel.Searchable]
+    @Binding var selectedItem: Int?
     @State private var searchText = ""
 
     private var searchTerms: [String] {
@@ -34,23 +48,31 @@ private struct ContentView: View {
     var body: some View {
         let results = crashes.compactMap { $0.result(for: searchTerms) }
 
-        List {
+        List(selection: listSelection) {
             if crashes.isEmpty {
                 Text("No crashes available")
             } else if results.isEmpty {
                 Text(verbatim: "No crashes match '\(searchText.trimmingCharacters(in: .whitespacesAndNewlines))'")
             } else {
                 ForEach(results) { result in
+                    #if os(macOS)
+                    // The split view's detail column shows the selected crash.
+                    CrashRow(crash: result.crash, matchedFrame: result.matchedFrame)
+                        .tag(result.id)
+                    #else
                     NavigationLink(
-                        destination: CrashDetectionToolDetailsView(crashModel: result.crash),
+                        destination: CrashDetectionToolDetailsView(crashModel: result.crash)
+                            .navigationBarMaterialBackground(),
                         tag: result.id,
                         selection: $selectedItem,
                         label: { CrashRow(crash: result.crash, matchedFrame: result.matchedFrame) }
                     )
+                    #endif
                 }
             }
         }
-        .searchableIfAvailable(text: $searchText, prompt: "Search crashes")
+        .sentinelSearchable(text: $searchText, prompt: "Search crashes")
+        .pushedListTopMargin(isPushed: true)
         .onAppear {
             crashes = (CrashFileManager.recover(ofType: .nsexception) + CrashFileManager.recover(ofType: .signal))
                 .enumerated()
@@ -69,14 +91,28 @@ private struct ContentView: View {
                     action: {
                         CrashFileManager.deleteAll()
                         crashes = []
+                        selectedItem = nil
                     },
                     label: {
                         Image(systemName: "trash")
                     }
                 )
                 .disabled(!searchTerms.isEmpty)
+                .accessibilityIdentifier(AccessibilityIdentifier.crashesDeleteAllButton)
             }
         }
+    }
+}
+
+private extension ContentView {
+
+    /// On iOS rows push through `NavigationLink`, so the list itself doesn't track a selection.
+    var listSelection: Binding<Int?>? {
+        #if os(macOS)
+        $selectedItem
+        #else
+        nil
+        #endif
     }
 }
 

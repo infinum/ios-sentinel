@@ -22,7 +22,15 @@ class CrashUncaughtExceptionHandler {
     }
 
     func prepare() {
-        preUncaughtExceptionHandler = NSGetUncaughtExceptionHandler()
+        let installedHandler = NSGetUncaughtExceptionHandler()
+        let sentinelHandler: @convention(c) (NSException) -> Void = UncaughtExceptionHandler
+        // When `prepare()` runs more than once, the installed handler is Sentinel's own. Backing it up
+        // would make the handler call itself, so keep the one backed up the first time.
+        let installedAddress = unsafeBitCast(installedHandler, to: UnsafeRawPointer?.self)
+        let sentinelAddress = unsafeBitCast(sentinelHandler, to: UnsafeRawPointer.self)
+        if installedAddress != sentinelAddress {
+            preUncaughtExceptionHandler = installedHandler
+        }
         NSSetUncaughtExceptionHandler(UncaughtExceptionHandler)
     }
 }

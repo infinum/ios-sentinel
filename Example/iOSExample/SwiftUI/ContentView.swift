@@ -3,7 +3,6 @@
 //  Example-iOS
 //
 //  Created by Nikola Simunko on 22.09.2025..
-//  Copyright © 2025 CocoaPods. All rights reserved.
 //
 
 import SwiftUI
@@ -24,10 +23,16 @@ struct ContentView: View {
                         .font(.title2)
                         .multilineTextAlignment(.center)
 
-                    Button("Open Sentinel") {
-                        NotificationCenter.default.post(name: .openSentinel, object: nil)
+                    // The UI tests get their own button, which goes through the shake trigger.
+                    if LaunchEnvironment.isUITesting {
+                        openSentinelButton
+                        crashButton
+                    } else {
+                        Button("Open Sentinel") {
+                            NotificationCenter.default.post(name: .openSentinel, object: nil)
+                        }
+                        .buttonStyle(.borderedProminent)
                     }
-                    .buttonStyle(.borderedProminent)
                 }
                 .padding()
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -56,5 +61,25 @@ private extension ContentView {
                 .clipShape(Circle())
         }
         .accessibility(label: Text("Menu"))
+    }
+
+    /// UI tests can't shake the simulator, so they send the same shake event through this button.
+    var openSentinelButton: some View {
+        Button("Open Sentinel") {
+            UIApplication.shared.motionEnded(.motionShake, with: nil)
+        }
+        .accessibilityIdentifier("example.openSentinel")
+    }
+
+    /// Crashes the app so the UI tests have a real crash for the Crash Detection tool to list.
+    var crashButton: some View {
+        Button("Crash") {
+            NSException(
+                name: NSExceptionName("SentinelUITestCrash"),
+                reason: "Raised by the UI tests",
+                userInfo: nil
+            ).raise()
+        }
+        .accessibilityIdentifier("example.crash")
     }
 }

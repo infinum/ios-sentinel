@@ -222,11 +222,19 @@ The crash list can be searched by crash name, date or stack trace.
 
 ### CustomLocationTool
 
-**CustomLocationTool** is used to change the user's current location. After changing the location, the application have to be restarted. The tool is available on iOS.
+**CustomLocationTool** is used to change the user's current location. While it's turned on, every `CLLocationManager` that calls `startUpdatingLocation()` receives the custom location instead of the real one, so restart location updates (or the app) after changing it. `requestLocation()` isn't affected. The tool is available on iOS.
 
 ### EmailSenderTool
 
 **EmailSenderTool** is used to let the user send emails with attachments from the app with ease. The tool is available on iOS.
+
+### APIMockingTool
+
+**APIMockingTool** answers the app's network requests with mocked responses: an HTTP response with a JSON body, or a network error, optionally after a delay. The app passes the ``APIMock``s it ships with, and testers create more in the tool by pasting a response body, without rebuilding the app. A mock matches requests by method and by a `.wildcard` URL pattern, which matches URLs ending with the pattern, starting at a path segment or the host, and where `*` stands for any run of characters, or by a `.regex`. Switching a mock on switches off the others for the same endpoint. Mocks are served by a `URLProtocol` that the tool adds to every `default` and `ephemeral` session configuration created after it, and to `URLSession.shared`; call ``APIMockingTool/register(in:)`` for a configuration created earlier. Mocks made in the tool and the switches survive relaunches and ``ClearAppDataTool``, so on iOS the tool shows a toast over the app at launch while a mock is on, unless `showsLaunchToast` is `false`. With `showsRequestToasts`, it also shows one each time a mock answers a request; testers can switch these on or off in the tool. The tool is available on iOS and macOS.
+
+### PulseTool
+
+**PulseTool** shows the [Pulse](https://github.com/kean/Pulse) console with the app's logs and network requests. It is part of the separate `SentinelPulse` product, so add that product and `import SentinelPulse` to use it. The app also needs Pulse itself as a dependency, to log messages and network requests. The tool shows `LoggerStore.shared` unless a different store is passed in. The tool is available on iOS and works with Pulse 4 and 5. Pulse 5.2 and newer need iOS 18 to show the console, and 5.1 needs iOS 16, so apps that support older systems should pin Pulse 5.0 or 5.1, or use Pulse 4.
 
 ## Creating your own tools
 

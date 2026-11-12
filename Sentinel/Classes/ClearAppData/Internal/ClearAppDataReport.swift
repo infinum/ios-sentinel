@@ -12,8 +12,7 @@ import Foundation
 // MARK: - Step
 
 /// A single unit of work performed when clearing the app data.
-enum ClearAppDataStep: CaseIterable {
-    case urlCache
+enum ClearAppDataStep {
     case cookies
     case websiteData
     case keychain
@@ -21,11 +20,11 @@ enum ClearAppDataStep: CaseIterable {
     case temporaryDirectory
     case cachesDirectory
     case applicationSupportDirectory
+    case libraryDirectory
     case documentsDirectory
 
     var title: String {
         switch self {
-        case .urlCache: return "URL cache"
         case .cookies: return "Cookies"
         case .websiteData: return "Web site data"
         case .keychain: return "Keychain"
@@ -33,6 +32,7 @@ enum ClearAppDataStep: CaseIterable {
         case .temporaryDirectory: return "Temporary directory"
         case .cachesDirectory: return "Caches directory"
         case .applicationSupportDirectory: return "Application Support directory"
+        case .libraryDirectory: return "Library directory"
         case .documentsDirectory: return "Documents directory"
         }
     }
@@ -45,9 +45,10 @@ struct ClearAppDataFailure {
 
     /// Distinguishes a genuine error from something worth mentioning but not worth failing over.
     ///
-    /// Directories such as `Caches/Snapshots` are managed by the OS and cannot be removed by the
-    /// app. Reporting those as failures would make a healthy run look broken, so warnings are
-    /// listed alongside failures but do not affect ``ClearAppDataReport/isFullySuccessful``.
+    /// A few entries, such as `Caches/Snapshots`, are managed by the OS and cannot be removed by
+    /// the app. Reporting those as failures would make a healthy run look broken, so only those
+    /// known entries are reported as warnings. Warnings are listed alongside failures but do not
+    /// affect ``ClearAppDataReport/isFullySuccessful``.
     enum Kind {
         case failed
         case warning

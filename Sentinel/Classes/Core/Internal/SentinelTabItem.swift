@@ -35,7 +35,7 @@ extension SentinelTabItem {
         }
     }
 
-    var barItemImage: Image? {
+    var barItemImage: Image {
         switch tab {
         case .device: .image("device")
         case .application: .image("application")
