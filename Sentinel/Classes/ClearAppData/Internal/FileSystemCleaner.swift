@@ -55,6 +55,9 @@ enum FileSystemCleaner {
                 do {
                     try fileManager.removeItem(at: item)
                     return nil
+                } catch let error as NSError where error.domain == NSCocoaErrorDomain && error.code == NSFileNoSuchFileError {
+                    // Deleted by its owner after the listing, e.g. SQLite's temporary files in `tmp`.
+                    return nil
                 } catch {
                     return failure(
                         for: error,
