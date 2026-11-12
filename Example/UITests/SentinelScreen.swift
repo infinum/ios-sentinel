@@ -154,6 +154,16 @@ struct SentinelScreen {
         return XCTWaiter().wait(for: [expectation], timeout: timeout) == .completed
     }
 
+    /// Swipes up until `element` is in the hierarchy. Lists are lazy, so a row below the fold doesn't
+    /// exist until it scrolls in, which happens on short screens like the iPhone Duo's. Once it
+    /// exists, `tap()` scrolls it the rest of the way, even from under the keyboard.
+    func scrollTo(_ element: XCUIElement, maxSwipes: Int = 5) -> Bool {
+        for _ in 0..<maxSwipes where !element.exists {
+            app.swipeUp()
+        }
+        return element.exists
+    }
+
     func waitUntilGone(_ element: XCUIElement, timeout: TimeInterval = 5) -> Bool {
         let expectation = XCTNSPredicateExpectation(predicate: NSPredicate(format: "exists == false"), object: element)
         return XCTWaiter().wait(for: [expectation], timeout: timeout) == .completed

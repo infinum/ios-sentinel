@@ -67,7 +67,9 @@ final class APIMockingUITests: XCTestCase {
         patternField.focus()
         patternField.typeText("/repos/infinum/ios-sentinel")
 
-        screen.element("sentinel.apiMocking.bodyRow").tap()
+        let bodyRow = screen.element("sentinel.apiMocking.bodyRow")
+        XCTAssertTrue(screen.scrollTo(bodyRow), "No Body row")
+        bodyRow.tap()
         let bodyEditor = screen.element("sentinel.apiMocking.body")
         XCTAssertTrue(bodyEditor.waitForExistence(timeout: 5), "The body screen didn't open")
         XCTAssertTrue(screen.waitUntilHittable(bodyEditor), "The body editor isn't ready")
@@ -82,7 +84,7 @@ final class APIMockingUITests: XCTestCase {
         )
         // The keyboard may turn the quotes typographic; the tool straightens them when saving.
         screen.app.typeText(#"{"description":"Made in the tool","stargazers_count":7}"#)
-        screen.app.navigationBars["Body"].buttons.element(boundBy: 0).tap()
+        screen.goBack()
 
         screen.element("sentinel.apiMocking.save").tap()
         let toggle = screen.element("sentinel.toggle.Local repository")
@@ -110,7 +112,13 @@ final class APIMockingUITests: XCTestCase {
         let row = screen.row("Doomed")
         // The row exists as soon as the mock is saved, while the editor sheet is still closing over it.
         XCTAssertTrue(screen.waitUntilHittable(row), "The mock wasn't saved")
-        row.swipeLeft()
+        // A short drag: `swipeLeft` counts as a full swipe on narrow lists, which runs Delete
+        // straight away and leaves its confirmation's own Delete button to be tapped below.
+        row.coordinate(withNormalizedOffset: CGVector(dx: 0.9, dy: 0.5)).press(
+            forDuration: 0.05,
+            thenDragTo: row.coordinate(withNormalizedOffset: CGVector(dx: 0.4, dy: 0.5))
+        )
+        XCTAssertFalse(screen.app.alerts.firstMatch.exists, "Swiping deleted without showing the actions")
         let swipeDelete = screen.app.buttons["Delete"].firstMatch
         XCTAssertTrue(screen.waitUntilHittable(swipeDelete), "Swiping didn't show Delete")
         swipeDelete.tap()
