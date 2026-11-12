@@ -20,7 +20,8 @@ final class CrashSignalExceptionHandler {
     // MARK: - Init -
 
     init(preHandlers: [Int32: SignalHandler?]) {
-        Self.preHandlers = preHandlers
+        // Keep handlers backed up by an earlier instance; replacing them would drop the app's handler.
+        Self.preHandlers.merge(preHandlers) { current, _ in current }
     }
 
 }
@@ -43,25 +44,43 @@ extension CrashSignalExceptionHandler: CrashExceptionPrepareable {
 private extension CrashSignalExceptionHandler {
 
     func backupOriginalHandler() {
-        Self.preHandlers.forEach { (signal, handler) in
-            var tempHandler = handler
-            backupSingleHandler(signal: signal, preHandler: &tempHandler)
+        // When `prepare()` runs more than once, Sentinel's handler is the installed one. Keep the handler
+        // backed up the first time instead; backing up Sentinel's own would make it call itself.
+        for signal in Array(Self.preHandlers.keys) where !isSentinelHandlerInstalled(for: signal) {
+            Self.preHandlers[signal] = installedHandler(for: signal)
         }
     }
 
-    func backupSingleHandler(signal: Int32, preHandler: inout SignalHandler?) {
-        let empty: UnsafeMutablePointer<sigaction>? = nil
-        var old_action_abrt = sigaction()
-        sigaction(signal, empty, &old_action_abrt)
+    /// The handler installed for `signal`, if there is one worth calling.
+    func installedHandler(for signal: Int32) -> SignalHandler? {
+        // A handler set with `sa_handler` shares this union slot. It is still safe to call with three
+        // arguments, because the C calling convention ignores the extra ones.
+        guard let handler = installedAction(for: signal).__sigaction_u.__sa_sigaction else { return nil }
+        // SIG_IGN isn't a function.
+        let address = unsafeBitCast(handler, to: UnsafeRawPointer.self)
+        guard address != unsafeBitCast(SIG_IGN, to: UnsafeRawPointer.self) else { return nil }
+        return handler
+    }
 
-        if old_action_abrt.__sigaction_u.__sa_sigaction != nil {
-            preHandler = old_action_abrt.__sigaction_u.__sa_sigaction
-        }
+    func isSentinelHandlerInstalled(for signal: Int32) -> Bool {
+        guard let handler = installedAction(for: signal).__sigaction_u.__sa_sigaction else { return false }
+        let sentinelHandler: CSignalHandler = crashSignalHandler
+        let address = unsafeBitCast(handler, to: UnsafeRawPointer.self)
+        return address == unsafeBitCast(sentinelHandler, to: UnsafeRawPointer.self)
+    }
+
+    func installedAction(for signal: Int32) -> sigaction {
+        let empty: UnsafeMutablePointer<sigaction>? = nil
+        var action = sigaction()
+        sigaction(signal, empty, &action)
+        return action
     }
 
 }
 
 // MARK: - Signal handling
+
+private typealias CSignalHandler = @convention(c) (Int32, UnsafeMutablePointer<__siginfo>?, UnsafeMutableRawPointer?) -> Void
 
 private extension CrashSignalExceptionHandler {
 

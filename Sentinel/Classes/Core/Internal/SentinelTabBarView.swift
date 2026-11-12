@@ -29,12 +29,20 @@ public struct SentinelTabBarView: View {
         TabView(selection: $selectedTab) {
             ForEach(tabs, id: \.barItemTitle) { tab in
                 #if os(macOS)
-                SentinelListView(title: tab.barItemTitle, items: tab.sections)
+                SentinelListView(
+                    title: tab.barItemTitle,
+                    items: tab.sections,
+                    isTabRoot: true
+                )
                     .tabItem { TabBarView(tab: tab) }
                     .tag(tab.tabViewTab)
                 #else
                 NavigationView {
-                    SentinelListView(title: tab.barItemTitle, items: tab.sections)
+                    SentinelListView(
+                        title: tab.barItemTitle,
+                        items: tab.sections,
+                        isTabRoot: true
+                    )
                 }
                 .tabItem { TabBarView(tab: tab) }
                 .tag(tab.tabViewTab)
@@ -50,10 +58,8 @@ private struct TabBarView: View {
 
     var body: some View {
         VStack(spacing: 5) {
-            if let image = tab.barItemImage {
-                image
-                    .renderingMode(.template)
-            }
+            tab.barItemImage
+                .renderingMode(.template)
 
             Text(tab.barItemTitle)
         }
