@@ -3,17 +3,20 @@
 //  Example-iOS
 //
 //  Created by Nikola Simunko on 22.09.2025..
-//  Copyright © 2025 CocoaPods. All rights reserved.
 //
 
 import SwiftUI
 
 /// Demonstrates `ClearAppDataTool`: save the current state, clear the app data from Sentinel, then
 /// relaunch — both values should read as empty again.
+///
+/// Also demonstrates `APIMockingTool`: switch on a repository mock in Sentinel, then fetch the repository.
 struct MenuView: View {
 
     @State private var userDefaultsValue: String?
     @State private var keychainValue: String?
+    @State private var repositoryValue: String?
+    @State private var isFetchingRepository = false
 
     var body: some View {
         List {
@@ -28,9 +31,22 @@ struct MenuView: View {
                     reload()
                 }
             }
+
+            Section(
+                header: Text("API mocking"),
+                footer: Text("Switch on a Repository mock in Sentinel → Tools → API Mocking, then fetch again.")
+            ) {
+                row(title: "GitHub repository", description: repositoryValue ?? "Not fetched")
+                Button(isFetchingRepository ? "Fetching…" : "Fetch repository") {
+                    fetchRepository()
+                }
+                .disabled(isFetchingRepository)
+            }
         }
         .listStyle(InsetGroupedListStyle())
         .navigationTitle("Menu")
+        // On iOS 14 and 15 the root view's hidden bar carries over to pushed views.
+        .navigationBarHidden(false)
         .onAppear(perform: reload)
     }
 }
@@ -53,5 +69,13 @@ private extension MenuView {
     func reload() {
         userDefaultsValue = StoredDataProvider.userDefaultsValue
         keychainValue = StoredDataProvider.keychainValue
+    }
+
+    func fetchRepository() {
+        isFetchingRepository = true
+        Task {
+            repositoryValue = await RepositoryProvider.fetch()
+            isFetchingRepository = false
+        }
     }
 }

@@ -281,14 +281,14 @@ If you need more context, you can check out the `UserDefaultsTool` or `EditTextT
 #### iOS
 The `content` property provides the *View* which will be shown when the *Tool* is selected.
 
-At Infinum, we're using `Pulse` as our network logger. We only use it for internal builds, and it helps a lot if we can somehow access the logs from `Pulse`, as well as other debug tools. That's why we have a need to create the `PulseTool` which will be an example on how to create your own tool.
+For example, a tool which shows the app's own network log screen inside Sentinel only needs a name and the view to show. (For Pulse, use the ready-made [PulseTool](#pulsetool) instead.)
 
 ```swift
-final class PulseTool: Tool {
-    var name: String { "Pulse" }
+struct NetworkLogTool: Tool {
+    var name: String { "Network log" }
 
     var content: any View {
-        ConsoleView()
+        NetworkLogView()
     }
 }
 ```
@@ -346,7 +346,7 @@ var colorChangeTool: Tool {
 
 #### CustomLocationTool
 
-*CustomLocationTool* is used to change the current user's location. After changing the location, the application will have to be restarted. The tool is available on iOS.
+*CustomLocationTool* is used to change the current user's location. While it's turned on, every `CLLocationManager` that calls `startUpdatingLocation()` receives the custom location instead of the real one, so restart location updates (or the app) after changing it. `requestLocation()` isn't affected. The tool is available on iOS.
 
 #### EmailSenderTool
 
@@ -354,11 +354,109 @@ var colorChangeTool: Tool {
 
 #### ClearAppDataTool
 
-*ClearAppDataTool* wipes the app's stored data so it can be tested from a clean state without being deleted and reinstalled, which is the iOS equivalent of Android's *Clear storage*. It clears the app's user defaults and the suites it created, the temporary, Caches, Application Support and Documents directories, the shared URL cache, cookies, web site data, and the keychain items in the app's own access group. The tool is available on iOS.
+*ClearAppDataTool* wipes the app's stored data so it can be tested from a clean state without being deleted and reinstalled, which is the iOS equivalent of Android's *Clear storage*. It clears the app's user defaults and the suites it created, the temporary and Documents directories, the Library directory including Caches and Application Support, the shared URL cache, cookies, web site data, and the keychain items in the app's own access group. The tool is available on iOS.
 
 The app has to be force quit and relaunched afterwards. iOS cannot restart it, so anything already held in memory — singletons, open database connections, cached credentials — stays live until the app is relaunched.
 
-Keychain items in shared access groups and data in app group containers are left alone, since both are shared with other apps and extensions. Clearing those stays the host app's responsibility.
+Keychain items in shared access groups and data in app group containers are left alone, since both are shared with other apps and extensions. Clearing those stays the host app's responsibility. System `com.apple.*` preference domains are left alone too.
+
+#### APIMockingTool
+
+*APIMockingTool* answers the app's network requests with mocked responses. The app passes the mocks it ships with, and testers create more in the tool by pasting a response body, without rebuilding the app. Every mock has its own switch, a short description, and an HTTP response or a network error, optionally after a delay.
+
+```swift
+APIMockingTool(
+    mocks: [
+        APIMock(
+            name: "Products – empty",
+            description: "No products, shows the empty state",
+            method: .get,
+            url: .wildcard("/api/v2/products"),
+            body: .file(named: "products-empty") // products-empty.json in the main bundle
+        ),
+        APIMock(
+            name: "Products – server error",
+            url: .wildcard("/api/v2/products"),
+            statusCode: 500,
+            body: .json(#"{ "error": "Server error" }"#),
+            delay: 1
+        ),
+        APIMock(
+            name: "Products – offline",
+            url: .wildcard("/api/v2/products"),
+            error: .notConnectedToInternet
+        )
+    ]
+)
+```
+
+A mock answers the requests that match its method (`nil` matches any method) and its URL pattern, ignoring case:
+
+- `.wildcard` matches URLs that end with the pattern, where `*` stands for any run of characters. The query and a trailing `/` are ignored unless the pattern contains `?`. A pattern without a leading `/` still starts at a path segment or the host, so `products` matches `/api/products` but not `/api/myproducts`. `/api/v2/products` matches `https://example.com/api/v2/products?page=2` but not `/api/v2/products/42`. Use `/api/v2/products*` for every URL under the path, or `/accounts/*/details` for a path with an identifier in it.
+- `.regex` is a regular expression that has to match somewhere in the full URL.
+
+Switching a mock on switches off the other mocks with the same pattern and an overlapping method, so variants of one endpoint can sit side by side. When different patterns match the same request, mocks made in the tool win over the app's, then the app's mocks are tried in the order they were passed. The *Enabled* switch at the top of the tool turns every mock off at once. Mocks given the same `group` name, in code or in the tool, are listed together under a row that expands and collapses, so a long list stays manageable.
+
+Mocks are served by a `URLProtocol`, so a mocked request still goes through `URLSession`: the app's own networking code, such as Alamofire's validation and interceptors, runs as it would for a real response. When the tool is created, it adds its protocol to every `URLSessionConfiguration.default` and `.ephemeral` configuration created from then on, and to `URLSession.shared`. A configuration created before the tool, such as one made in a SwiftUI `App` initializer, needs the protocol added before a session is created from it:
+
+```swift
+let configuration = URLSessionConfiguration.default
+APIMockingTool.register(in: configuration)
+let session = URLSession(configuration: configuration)
+```
+
+Pass `injectsAutomatically: false` to leave the session configurations alone and register every one yourself. Background sessions, web views and media playback are never mocked, and mocked redirects aren't followed.
+
+[Pulse](https://github.com/kean/Pulse) shows mocked requests with a *Mock* badge, and every mocked response carries an `X-Sentinel-Mock` header naming the mock that answered.
+
+Mocks made in the tool and the switches are saved in `Library/Sentinel`, so they survive relaunches and *ClearAppDataTool*, which leaves that folder alone. They stay switched on until they're switched off in the tool, so the app logs how many mocks are on when it launches, and on iOS shows a toast over the app saying so. Pass `showsLaunchToast: false` to leave the toast out. Pass `showsRequestToasts: true` to also show a toast naming the mock each time one answers a request; requests that come in while it's up are counted in the same toast. Testers can switch request toasts on or off in the tool, and their choice is saved with the mocks. A mock made in the tool can be shared as its JSON body together with the Swift code that adds it to the app.
+
+The tool is available on iOS and macOS.
+
+#### PulseTool
+
+*PulseTool* shows the [Pulse](https://github.com/kean/Pulse) console, with the app's logs and network requests, inside Sentinel. It lives in a separate `SentinelPulse` product, so Pulse is only added to apps that use the tool. The app also depends on Pulse itself, which it uses to log messages and network requests:
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/infinum/ios-sentinel.git", from: "3.0.0"),
+    .package(url: "https://github.com/kean/Pulse.git", from: "5.0.0")
+],
+targets: [
+    .target(
+        name: "YourApp",
+        dependencies: [
+            .product(name: "Sentinel", package: "ios-sentinel"),
+            .product(name: "SentinelPulse", package: "ios-sentinel"),
+            .product(name: "Pulse", package: "Pulse")
+        ]
+    )
+]
+```
+
+```swift
+import Sentinel
+import SentinelPulse
+
+let configuration = Sentinel.Configuration(
+    trigger: Triggers.shake,
+    tools: [
+        PulseTool()
+    ]
+)
+```
+
+By default the tool shows `LoggerStore.shared`; pass `PulseTool(store:)` to show a different store. The tool only displays what Pulse has already recorded, so set up network logging as described in Pulse's [Getting Started](https://kean-docs.github.io/pulse/documentation/pulse/gettingstarted) guide.
+
+The tool is available on iOS. `SentinelPulse` works with Pulse 4 and 5, but newer Pulse versions need a newer iOS to show the console. On older systems Pulse shows an *Unsupported* placeholder instead:
+
+| Pulse | Console shown on |
+| --- | --- |
+| 4.x, 5.0 | iOS 15 and newer |
+| 5.1 | iOS 16 and newer |
+| 5.2 and newer | iOS 18 and newer |
+
+`from: "5.0.0"` resolves to the newest 5.x, so apps that support iOS 15 to 17 should pin an older Pulse, for example `.upToNextMinor(from: "5.0.0")` for iOS 15 or `.upToNextMinor(from: "5.1.0")` for iOS 16, or stay on Pulse 4.
 
 ## Contributing
 

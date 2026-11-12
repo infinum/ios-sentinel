@@ -118,7 +118,7 @@ private extension ApplicationInfoProvider {
 
 // MARK: - Info.plist helpers
 
-private extension ApplicationInfoProvider {
+extension ApplicationInfoProvider {
 
     static func stringFromPlist(for key: CFString) -> String {
         stringFromPlist(for: key as String)
