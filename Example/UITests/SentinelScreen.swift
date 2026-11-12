@@ -41,7 +41,7 @@ struct SentinelScreen {
         )
         openButton.tap()
         XCTAssertTrue(
-            tabBar.waitForExistence(timeout: 5),
+            tab("Tools").waitForExistence(timeout: 5),
             "Sentinel didn't open",
             file: file,
             line: line
@@ -66,9 +66,17 @@ struct SentinelScreen {
         )
     }
 
-    /// Swipes the Sentinel sheet away.
+    /// Drags the Sentinel sheet down to the bottom of the screen. `swipeDown` isn't enough: its drag
+    /// scales with the element, and an inline navigation bar is too short to pull the sheet away.
     func dismiss(file: StaticString = #filePath, line: UInt = #line) {
-        app.navigationBars.firstMatch.swipeDown(velocity: .fast)
+        let start = app.navigationBars.firstMatch.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5))
+        let end = app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.95))
+        start.press(
+            forDuration: 0.05,
+            thenDragTo: end,
+            withVelocity: .fast,
+            thenHoldForDuration: 0
+        )
         XCTAssertTrue(
             waitUntilHittable(openButton),
             "Sentinel didn't close",
@@ -79,10 +87,13 @@ struct SentinelScreen {
 
     // MARK: - Sentinel
 
-    var tabBar: XCUIElement { app.tabBars.firstMatch }
-
+    /// Finds a tab by its title. It doesn't look inside `app.tabBars`: on some devices (iPhone Duo on
+    /// iOS 27) SwiftUI shows the tabs as a side rail, which isn't exposed as a tab bar. The empty
+    /// identifier keeps out the list rows and the back button, which can carry the same title.
     func tab(_ title: String) -> XCUIElement {
-        tabBar.buttons[title]
+        app.buttons
+            .matching(NSPredicate(format: "label == %@ AND identifier == ''", title))
+            .firstMatch
     }
 
     func selectTab(_ title: String) {
@@ -109,8 +120,10 @@ struct SentinelScreen {
         toolRow.tap()
     }
 
+    /// Taps the back button by its identifier: on iOS 27 it isn't a descendant of the navigation bar,
+    /// and with the tabs in a side rail it sits at the top of the rail instead.
     func goBack() {
-        app.navigationBars.buttons.element(boundBy: 0).tap()
+        app.buttons["BackButton"].firstMatch.tap()
     }
 
     func search(for text: String, file: StaticString = #filePath, line: UInt = #line) {
