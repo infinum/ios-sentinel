@@ -137,6 +137,6 @@ private extension ToolsUITests {
         screen.app.buttons["Menu"].tap()
         screen.app.buttons["Save current state"].tap()
         XCTAssertFalse(screen.app.staticTexts["No data stored"].exists)
-        screen.app.navigationBars.buttons.element(boundBy: 0).tap()
+        screen.goBack()
     }
 }
