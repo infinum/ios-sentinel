@@ -6,22 +6,18 @@ This project can use AI assistance freely.
 
 ## What this is
 
-Sentinel is an Infinum library (iOS 14+, macOS 12+) that gives an app one debug screen hosting all of its debug tools, opened by a trigger such as a shake, a screenshot or a notification. It is distributed through both CocoaPods (`Sentinel.podspec`) and SwiftPM (`Package.swift`), and the two must be kept in sync.
+Sentinel is an Infinum library (iOS 15+, macOS 13+) that gives an app one debug screen hosting all of its debug tools, opened by a trigger such as a shake, a screenshot or a notification. It is distributed only through SwiftPM (`Package.swift`); CocoaPods support was dropped after 2.3.0.
 
 ## Commands
 
-The example apps consume the library as local pods, so run `pod install` in `Example/` after changing the Podfile or adding/removing source files in a subspec.
+The example apps consume the repository root as a local Swift package (`Example/Sentinel.xcodeproj` → package reference `..`), so new source files are picked up without any extra step.
 
 ```bash
-cd Example && pod install
+xcodebuild -project Example/Sentinel.xcodeproj -scheme Example-iOS -destination 'generic/platform=iOS Simulator' build
 ```
 
 ```bash
-xcodebuild -workspace Example/Sentinel.xcworkspace -scheme Example-iOS -destination 'generic/platform=iOS Simulator' build
-```
-
-```bash
-xcodebuild -workspace Example/Sentinel.xcworkspace -scheme Example-MacOS -destination 'platform=macOS' build
+xcodebuild -project Example/Sentinel.xcodeproj -scheme Example-MacOS -destination 'platform=macOS' build
 ```
 
 Build the SwiftPM package for iOS (a plain `swift build` on a Mac only builds the macOS variant):
@@ -30,11 +26,29 @@ Build the SwiftPM package for iOS (a plain `swift build` on a Mac only builds th
 xcodebuild -scheme Sentinel -destination 'generic/platform=iOS' build
 ```
 
+## Tests
+
+There are three layers. Unit and integration tests use Swift Testing; UI tests use XCTest, because Swift Testing can't drive `XCUIApplication`.
+
+- **Unit tests** (`Tests/SentinelTests`, `Tests/SentinelPulseTests`) are SwiftPM test targets with `@testable import Sentinel`. They run on macOS and on the iOS simulator; iOS-only types are tested behind `#if os(iOS)`. Tests that touch shared state get a throwaway `UserDefaults` suite (`IsolatedUserDefaults`) or temp directory (`TemporaryDirectory`), because Swift Testing runs tests in parallel.
+- **Integration tests** (`Example/Tests`, target `Sentinel_Tests`) run inside the iOS example app (`TEST_HOST`) for anything that needs an app: the Keychain, the sandboxed Documents directory, `UIApplication` swizzling, presenting Sentinel. The bundle doesn't link the `Sentinel` product; it reaches the host app's copy through `BUNDLE_LOADER`, so there is one `Sentinel.shared`. Every suite is nested in the `.serialized` `IntegrationTests` suite. The example app skips its own Sentinel setup while hosting these tests.
+- **UI tests** (`Example/UITests`, target `Example-iOSUITests`) launch the example app with `-uiTesting` (shows an "Open Sentinel" button that sends a shake event, since XCUITest can't shake) and `-resetState` (wipes defaults and saved crashes). They find Sentinel views by the identifiers in `Core/Internal/AccessibilityIdentifier.swift`.
+
+Known bugs are pinned with `withKnownIssue` (Swift Testing) or `XCTExpectFailure` (XCTest), so the suites stay green and say when a bug gets fixed.
+
 ```bash
-pod lib lint Sentinel.podspec
+swift test
 ```
 
-There is no real test suite: `Example/Tests/Tests.swift` is an empty placeholder for the `Sentinel_Tests` target. Verify changes by building both platforms and running the example apps.
+```bash
+xcodebuild test -scheme Sentinel-Package -destination 'platform=iOS Simulator,name=iPhone 17 Pro'
+```
+
+```bash
+xcodebuild test -project Example/Sentinel.xcodeproj -scheme Example-iOS -destination 'platform=iOS Simulator,name=iPhone 17 Pro'
+```
+
+If several runtimes have a simulator with the same name, pass its `id=` instead of `name=`.
 
 ## Architecture
 
@@ -44,20 +58,21 @@ There is no real test suite: `Example/Tests/Tests.swift` is an empty placeholder
 
 **The `Tool` protocol differs per platform** because navigation differs: on iOS a tool provides `var content: any View`; on macOS it provides `func createContent(selection: Binding<String?>) -> any View`, where setting `selection` to `nil` navigates back. Every tool implements the right one behind `#if os(macOS)`. List-style tools are usually built from `ToolTable` + `ToolTableSection` + `ToolTableItem` (`navigation`, `toggle`, `customInfo`, `performance`, `custom`) instead of a bespoke view.
 
-**One folder per subspec.** Each directory in `Sentinel/Classes/` is a CocoaPods subspec depending on `Sentinel/Core`. `Default` bundles Core, UserDefaults, TextEditing and CrashDetection; the others (EmailSender, CustomLocation, ClearAppData, Database) are opt-in. Non-public types live in `Internal/` subfolders. Adding a tool means: a new folder, a subspec in the podspec, a section under "Available custom tools" in `README.md`, and registering it in the example app (Podfile + `AppDelegate`) if it should be showcased.
+**One folder per tool.** Each directory in `Sentinel/Classes/` holds one tool (`Core` holds the framework itself); they all compile into the single `Sentinel` SwiftPM target, so every tool ships with the `Sentinel` product. Non-public types live in `Internal/` subfolders. Adding a tool means: a new folder, a section under "Available custom tools" in `README.md` and in the DocC `Setup` article, and registering it in the example app's `AppDelegate` if it should be showcased.
+
+**`SentinelPulse` is the one tool outside the `Sentinel` target.** It lives in the top-level `SentinelPulse/` folder as its own SwiftPM target and product, so only apps that use it compile and link [Pulse](https://github.com/kean/Pulse). Pulse is linked for iOS only through `condition: .when(platforms: [.iOS])`, because Pulse 5 has no embeddable macOS console. Pulse 5 is also why the package requires iOS 15 / macOS 13. The Pulse version range in `Package.swift` (`"4.0.0"..<"6.0.0"`) still constrains every app that adds the package, even one that uses only `Sentinel`, so it deliberately allows both Pulse 4 and 5. SwiftPM platforms apply to the whole package too, so allowing a new Pulse major can raise the minimum platforms for every Sentinel user; check Pulse's requirements and that `ConsoleView(store:)` and `closeButtonHidden()` still exist before widening the range.
 
 **iOS-only code.** Guard it with `#if os(iOS)` inside the source files, as `ClearAppData` does. Don't exclude it in `Package.swift`: the manifest's `#if os(iOS)` is evaluated on the host when SwiftPM compiles it, so a manifest exclusion also drops the code from iOS builds made on a Mac. SwiftPM also can't restrict a resource to one platform, so iOS-only tools build their UI in code rather than in storyboards or XIBs.
 
-**Resources.** `Sentinel/Assets` and `SupportingFiles/PrivacyInfo.xcprivacy` are declared in both the podspec (`resource_bundles`) and `Package.swift` (`resources`); update both when adding resources.
+**Resources.** `Sentinel/Assets` and `SupportingFiles/PrivacyInfo.xcprivacy` are declared in `Package.swift` (`resources`); declare new resources there.
 
 ## Example apps
 
 - `Example/iOSExample` is a SwiftUI `App` that keeps an `AppDelegate` through `UIApplicationDelegateAdaptor`; Sentinel is configured there.
 - `Example/MacOSExample` is an AppKit storyboard app. Its product is named `Sentinel` but `PRODUCT_MODULE_NAME` is pinned to `Example_MacOS`, so the app module doesn't clash with the `Sentinel` framework it imports.
-- The `[CP] Embed Pods Frameworks` phase in `project.pbxproj` references a path that encodes the enabled subspecs (e.g. `Sentinel.common-ClearAppData-EmailSender`); `pod install` rewrites it when the Podfile's subspecs change.
 
 ## Conventions
 
 - Swift sources use 4-space indentation, the Xcode file header, `// MARK: -` sections and `///` doc comments on public API.
 - Public API is documented in both `README.md` and the DocC catalog in `Sentinel/Documentation.docc`.
-- The library version lives in `Sentinel.podspec` (`s.version`).
+- The library version is the git tag; there is no version number in the sources.

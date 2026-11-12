@@ -60,7 +60,8 @@ private extension AppDataCleaner {
         (.applicationSupportDirectory, .applicationSupportDirectory, [], []),
         // Preferences is left to `UserDefaultsCleaner`, because `cfprefsd` caches the plists and
         // would write deleted ones back. Caches and Application Support have their own sweeps.
-        (.libraryDirectory, .libraryDirectory, ["Preferences", "Caches", "Application Support"], ["SplashBoard"]),
+        // Sentinel holds `APIMockingTool`'s mocks, which testers expect to survive a reset.
+        (.libraryDirectory, .libraryDirectory, ["Preferences", "Caches", "Application Support", "Sentinel"], ["SplashBoard"]),
         (.documentDirectory, .documentsDirectory, [], [])
     ]
 

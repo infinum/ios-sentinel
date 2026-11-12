@@ -8,11 +8,18 @@
 
 import UIKit
 import Sentinel
+import SentinelPulse
+import Pulse
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        guard !LaunchEnvironment.isHostingUnitTests else { return true }
+        if LaunchEnvironment.shouldResetState {
+            LaunchEnvironment.resetStateForUITests()
+        }
         setupSentinel()
+        logSamplePulseEntries()
         return true
     }
 }
@@ -47,12 +54,59 @@ private extension AppDelegate {
                 colorChangeTool,
                 CrashDetectionTool(),
                 ClearAppDataTool(),
-                CustomLocationTool()
+                CustomLocationTool(),
+                apiMockingTool,
+                PulseTool()
             ],
             preferences: optionSwitchItems
         )
 
         Sentinel.shared.setup(with: configuration)
+    }
+
+    /// Gives the Pulse tool something to show: a few messages and one request logged through `URLSessionProxy`.
+    func logSamplePulseEntries() {
+        LoggerStore.shared.storeMessage(label: "app", level: .info, message: "Example app did finish launching")
+        LoggerStore.shared.storeMessage(label: "app", level: .warning, message: "Sample warning logged by the example app")
+
+        let session = URLSessionProxy(configuration: .default)
+        Task {
+            _ = try? await session.data(from: URL(string: "https://api.github.com/repos/infinum/ios-sentinel")!)
+        }
+    }
+
+    /// Three answers to the request the menu's "Fetch repository" button makes.
+    var apiMockingTool: Tool {
+        APIMockingTool(
+            mocks: [
+                APIMock(
+                    name: "Repository",
+                    description: "Made-up repository details, read from repository.json",
+                    group: "Repository",
+                    method: .get,
+                    url: .wildcard("/repos/infinum/ios-sentinel"),
+                    body: .file(named: "repository")
+                ),
+                APIMock(
+                    name: "Repository – server error",
+                    description: "GitHub answers with a 500 after a second",
+                    group: "Repository",
+                    method: .get,
+                    url: .wildcard("/repos/infinum/ios-sentinel"),
+                    statusCode: 500,
+                    body: .json(#"{ "message": "Server Error" }"#),
+                    delay: 1
+                ),
+                APIMock(
+                    name: "Repository – offline",
+                    description: "The request fails as if the device had no connection",
+                    group: "Repository",
+                    url: .wildcard("/repos/infinum/ios-sentinel"),
+                    error: .notConnectedToInternet,
+                    delay: 2
+                )
+            ]
+        )
     }
 
     var colorChangeTool: Tool {
