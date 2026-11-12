@@ -28,6 +28,7 @@ public final class Sentinel {
     ///
     /// - Parameter configuration: The configuration used to setup current instance of the Sentinel.
     public func setup(with configuration: Configuration) {
+        Self.restoreBuiltInPreferences()
         self.configuration = configuration
         configuration.trigger?.subscribe {
             guard !configuration.sourceScreenProvider.isShown() else {
@@ -42,6 +43,7 @@ public final class Sentinel {
     ///
     /// - Parameter configuration: The configuration used to setup current instance of the Sentinel.
     public static func createSentinelView(with configuration: Configuration) -> SentinelTabBarView {
+        restoreBuiltInPreferences()
         let tabItems = createTabItems(
             with: configuration.tools,
             preferences: configuration.preferences
