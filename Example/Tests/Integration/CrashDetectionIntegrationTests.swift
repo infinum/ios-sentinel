@@ -40,6 +40,16 @@ extension IntegrationTests {
             #expect(CrashFileManager.recover(ofType: .nsexception).map(\.details.name).sorted() == ["first", "second"])
         }
 
+        @Test("Crashes are recovered newest first, whatever order they were saved in")
+        func recoverSortsNewestFirst() {
+            let now = Date()
+            CrashFileManager.save(crash: makeCrash(type: .signal, name: "middle", date: now.addingTimeInterval(-60)))
+            CrashFileManager.save(crash: makeCrash(type: .signal, name: "oldest", date: now.addingTimeInterval(-3600)))
+            CrashFileManager.save(crash: makeCrash(type: .signal, name: "newest", date: now))
+
+            #expect(CrashFileManager.recover(ofType: .signal).map(\.details.name) == ["newest", "middle", "oldest"])
+        }
+
         @Test("deleteAll removes the crashes of every type")
         func deleteAll() {
             CrashFileManager.save(crash: makeCrash(type: .nsexception, name: "exception"))
@@ -75,10 +85,14 @@ extension IntegrationTests {
             #expect(CrashFileManager.recover(ofType: .signal).isEmpty)
         }
 
-        private func makeCrash(type: CrashType, name: String) -> CrashModel {
+        private func makeCrash(type: CrashType, name: String, date: Date = Date()) -> CrashModel {
             CrashModel(
                 type: type,
-                details: CrashModel.Details.builder(name: name),
+                details: CrashModel.Details(
+                    name: name,
+                    date: date,
+                    deviceInfo: DeviceTool.Info()
+                ),
                 traces: [CrashModel.StackTrace(title: "frame", detail: "")]
             )
         }

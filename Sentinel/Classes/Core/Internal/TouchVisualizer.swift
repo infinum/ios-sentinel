@@ -20,7 +20,7 @@ final class TouchVisualizer {
     var isEnabled: Bool {
         didSet {
             guard isEnabled != oldValue else { return }
-            UserDefaults.standard.set(isEnabled, forKey: Self.userDefaultsKey)
+            userDefaults.set(isEnabled, forKey: Self.userDefaultsKey)
             if isEnabled {
                 UIWindow.installTouchVisualizerHook
             } else {
@@ -33,12 +33,15 @@ final class TouchVisualizer {
 
     private static let userDefaultsKey = "com.infinum.sentinel.showTouches"
 
+    private let userDefaults: UserDefaults
     private var indicators: [ObjectIdentifier: UIView] = [:]
 
     // MARK: - Lifecycle
 
-    private init() {
-        isEnabled = UserDefaults.standard.bool(forKey: Self.userDefaultsKey)
+    /// Tests pass their own defaults; the app uses `shared`.
+    init(userDefaults: UserDefaults = .standard) {
+        self.userDefaults = userDefaults
+        isEnabled = userDefaults.bool(forKey: Self.userDefaultsKey)
     }
 
     // MARK: - Internal methods
@@ -51,23 +54,42 @@ final class TouchVisualizer {
 
     func handle(_ touches: Set<UITouch>, in window: UIWindow) {
         for touch in touches {
-            let id = ObjectIdentifier(touch)
-            switch touch.phase {
-            case .began:
-                indicators[id]?.removeFromSuperview()
-                let indicator = makeIndicator(for: window)
-                indicator.center = touch.location(in: window)
-                window.addSubview(indicator)
-                indicators[id] = indicator
-            case .moved:
-                indicators[id]?.center = touch.location(in: window)
-            case .ended, .cancelled:
-                guard let indicator = indicators.removeValue(forKey: id) else { continue }
-                fadeOut(indicator)
-            default:
-                break
-            }
+            handleTouch(
+                ObjectIdentifier(touch),
+                phase: touch.phase,
+                at: touch.location(in: window),
+                in: window
+            )
         }
+    }
+
+    /// One touch of `handle(_:in:)`, split out because tests can't create a `UITouch`.
+    func handleTouch(
+        _ id: ObjectIdentifier,
+        phase: UITouch.Phase,
+        at location: CGPoint,
+        in window: UIWindow
+    ) {
+        switch phase {
+        case .began:
+            indicators[id]?.removeFromSuperview()
+            let indicator = makeIndicator(for: window)
+            indicator.center = location
+            window.addSubview(indicator)
+            indicators[id] = indicator
+        case .moved:
+            indicators[id]?.center = location
+        case .ended, .cancelled:
+            guard let indicator = indicators.removeValue(forKey: id) else { return }
+            fadeOut(indicator)
+        default:
+            break
+        }
+    }
+
+    /// The indicator drawn for a touch still in progress.
+    func indicator(for id: ObjectIdentifier) -> UIView? {
+        indicators[id]
     }
 }
 
