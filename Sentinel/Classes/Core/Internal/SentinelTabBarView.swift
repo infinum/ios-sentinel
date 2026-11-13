@@ -32,7 +32,8 @@ public struct SentinelTabBarView: View {
                 SentinelListView(
                     title: tab.barItemTitle,
                     items: tab.sections,
-                    isTabRoot: true
+                    isTabRoot: true,
+                    shareText: tab.shareText
                 )
                     .tabItem { TabBarView(tab: tab) }
                     .tag(tab.tabViewTab)
@@ -41,7 +42,8 @@ public struct SentinelTabBarView: View {
                     SentinelListView(
                         title: tab.barItemTitle,
                         items: tab.sections,
-                        isTabRoot: true
+                        isTabRoot: true,
+                        shareText: tab.shareText
                     )
                 }
                 .tabItem { TabBarView(tab: tab) }

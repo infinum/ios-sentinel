@@ -19,12 +19,13 @@ final class TabsUITests: XCTestCase {
         screen.open()
 
         screen.selectTab("Device")
-        XCTAssertTrue(screen.app.staticTexts["Model"].waitForExistence(timeout: 5))
+        XCTAssertTrue(screen.app.staticTexts["Model identifier"].waitForExistence(timeout: 5))
         XCTAssertTrue(screen.app.staticTexts["System version"].exists)
 
         screen.selectTab("Application")
-        XCTAssertTrue(screen.app.staticTexts["Standard Plist Info"].waitForExistence(timeout: 5))
-        XCTAssertTrue(screen.app.staticTexts["Bundle id"].exists)
+        XCTAssertTrue(screen.app.staticTexts["Runtime"].waitForExistence(timeout: 5))
+        // The Runtime section comes first, so the plist rows can start below the fold.
+        XCTAssertTrue(screen.scrollTo(screen.app.staticTexts["Bundle id"]), "No Bundle id row")
 
         screen.selectTab("Performance")
         XCTAssertTrue(screen.app.staticTexts["CPU"].waitForExistence(timeout: 5))
@@ -40,7 +41,7 @@ final class TabsUITests: XCTestCase {
 
         screen.search(for: "model")
 
-        XCTAssertTrue(screen.app.staticTexts["Model"].waitForExistence(timeout: 5))
+        XCTAssertTrue(screen.app.staticTexts["Model identifier"].waitForExistence(timeout: 5))
         XCTAssertTrue(screen.waitUntilGone(screen.app.staticTexts["Name"]))
     }
 

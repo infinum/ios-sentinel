@@ -15,9 +15,10 @@ extension Sentinel {
         with tools: [Tool],
         preferences: [PreferencesTool.Section]
     ) -> [SentinelTabItem] {
-        [
-            SentinelTabItem(tab: .device),
-            SentinelTabItem(tab: .application),
+        let report = SentinelReport()
+        return [
+            SentinelTabItem(tab: .device, report: report),
+            SentinelTabItem(tab: .application, report: report),
             SentinelTabItem(tab: .tools(items: tools)),
             SentinelTabItem(tab: .preferences(items: builtInPreferences + preferences)),
             SentinelTabItem(tab: .performance)
