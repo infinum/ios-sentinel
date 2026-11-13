@@ -74,7 +74,9 @@ private extension AppDelegate {
                 apiMockingTool,
                 PulseTool()
             ],
-            preferences: optionSwitchItems
+            preferences: optionSwitchItems,
+            // The default; pass `false` to leave out the Show touches toggle and its `sendEvent(_:)` hook.
+            showsTouchesToggle: true
         )
 
         Sentinel.shared.setup(with: configuration)

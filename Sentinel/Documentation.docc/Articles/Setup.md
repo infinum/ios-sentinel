@@ -37,6 +37,9 @@ struct Configuration {
     /// Items which are shown on preferences screen
     public let preferences: [PreferencesTool.Section]
 
+    /// Whether the Preferences tab starts with Sentinel's own section and its Show touches toggle. Only used on iOS.
+    public let showsTouchesToggle: Bool
+
     // MARK: - Lifecycle
 
     /// Creates a new configuration.
@@ -46,16 +49,19 @@ struct Configuration {
     ///     - sourceScreenProvider: The screen from which Sentinel can be presented.
     ///     - tools: Tools available from the Sentinel.
     ///     - preferences: Section items which can allow or deny an activity inside the app
+    ///     - showsTouchesToggle: Whether the Preferences tab starts with Sentinel's own section and its Show touches toggle. Only used on iOS.
     public init(
         trigger: Trigger? = nil,
         sourceScreenProvider: SourceScreenProvider = SourceScreenProviders.default,
         tools: [Tool],
-        preferences: [PreferencesTool.Section] = []
+        preferences: [PreferencesTool.Section] = [],
+        showsTouchesToggle: Bool = true
     ) {
         self.trigger = trigger
         self.sourceScreenProvider = sourceScreenProvider
         self.tools = tools
         self.preferences = preferences
+        self.showsTouchesToggle = showsTouchesToggle
     }
 }
 ```
@@ -189,11 +195,11 @@ PreferencesTool.Section(
 )
 ```
 
-On iOS, **Sentinel** always adds a "Sentinel" section in front of your own sections, with a **Show touches** toggle that draws a circle under every finger so screen recordings show where the tester tapped. It is off by default and needs no code in your app. It stays on across launches: after a relaunch it takes effect once `Sentinel.shared.setup(with:)` runs or, if your app only calls `createSentinelView(with:)`, once that view is first created. Show touches has some limitations:
+On iOS, **Sentinel** adds a "Sentinel" section in front of your own sections, with a **Show touches** toggle that draws a circle under every finger so screen recordings show where the tester tapped. It is off by default and needs no code in your app. To leave the section out, pass `showsTouchesToggle: false` to `Configuration`; Sentinel then never installs the touch hook, even if the toggle was left on in an earlier build. It stays on across launches: after a relaunch it takes effect once `Sentinel.shared.setup(with:)` runs or, if your app only calls `createSentinelView(with:)`, once that view is first created. Show touches has some limitations:
 
 - Touches outside the app's windows aren't shown, such as alerts, system sheets and, on iOS 17 and later, the system keyboard.
 - Indicators appear in recordings and screenshots, including taps on custom PIN pads and in-app secure keypads.
-- It swizzles `UIWindow.sendEvent(_:)` the first time it is turned on, which affects every window in the process. Apps which swizzle `sendEvent(_:)` themselves still work, because both implementations call through.
+- It swizzles `UIWindow.sendEvent(_:)` the first time it is turned on, which affects every window in the process. Apps that swizzle `sendEvent(_:)` themselves keep working as long as their implementation calls the original one.
 
 ## Add Tools
 

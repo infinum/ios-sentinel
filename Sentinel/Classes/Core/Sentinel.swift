@@ -28,7 +28,7 @@ public final class Sentinel {
     ///
     /// - Parameter configuration: The configuration used to setup current instance of the Sentinel.
     public func setup(with configuration: Configuration) {
-        Self.restoreBuiltInPreferences()
+        Self.restoreBuiltInPreferences(for: configuration)
         self.configuration = configuration
         configuration.trigger?.subscribe {
             guard !configuration.sourceScreenProvider.isShown() else {
@@ -43,10 +43,11 @@ public final class Sentinel {
     ///
     /// - Parameter configuration: The configuration used to setup current instance of the Sentinel.
     public static func createSentinelView(with configuration: Configuration) -> SentinelTabBarView {
-        restoreBuiltInPreferences()
+        restoreBuiltInPreferences(for: configuration)
         let tabItems = createTabItems(
             with: configuration.tools,
-            preferences: configuration.preferences
+            preferences: configuration.preferences,
+            showsTouchesToggle: configuration.showsTouchesToggle
         )
 
         return SentinelTabBarView(tabs: tabItems)
@@ -77,6 +78,9 @@ public extension Sentinel {
         /// Items which are shown on preferences screen
         public let preferences: [PreferencesTool.Section]
 
+        /// Whether the Preferences tab starts with Sentinel's own section and its Show touches toggle. Only used on iOS.
+        public let showsTouchesToggle: Bool
+
         // MARK: - Lifecycle
 
         /// Creates a new configuration.
@@ -86,16 +90,20 @@ public extension Sentinel {
         ///     - sourceScreenProvider: The screen from which Sentinel can be presented.
         ///     - tools: Tools available from the Sentinel.
         ///     - preferences: Section items which can allow or deny an activity inside the app
+        ///     - showsTouchesToggle: Whether the Preferences tab starts with Sentinel's own section and its Show touches toggle.
+        ///       Pass `false` to leave the section out and never install the touch hook, even if the toggle was left on. Only used on iOS.
         public init(
             trigger: Trigger? = nil,
             sourceScreenProvider: SourceScreenProvider = SourceScreenProviders.default,
             tools: [Tool],
-            preferences: [PreferencesTool.Section] = []
+            preferences: [PreferencesTool.Section] = [],
+            showsTouchesToggle: Bool = true
         ) {
             self.trigger = trigger
             self.sourceScreenProvider = sourceScreenProvider
             self.tools = tools
             self.preferences = preferences
+            self.showsTouchesToggle = showsTouchesToggle
         }
     }
 }

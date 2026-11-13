@@ -13,21 +13,27 @@ extension Sentinel {
     
     static func createTabItems(
         with tools: [Tool],
-        preferences: [PreferencesTool.Section]
+        preferences: [PreferencesTool.Section],
+        showsTouchesToggle: Bool = true
     ) -> [SentinelTabItem] {
+        let builtIn = showsTouchesToggle ? builtInPreferences : []
         let report = SentinelReport()
         return [
             SentinelTabItem(tab: .device, report: report),
             SentinelTabItem(tab: .application, report: report),
             SentinelTabItem(tab: .tools(items: tools)),
-            SentinelTabItem(tab: .preferences(items: builtInPreferences + preferences)),
+            SentinelTabItem(tab: .preferences(items: builtIn + preferences)),
             SentinelTabItem(tab: .performance)
         ]
     }
 
-    /// Brings back the built-in preferences' state saved in a previous launch.
-    static func restoreBuiltInPreferences() {
+    /// Brings back the built-in preferences' state saved in a previous launch, unless the configuration leaves them out.
+    ///
+    /// Called eagerly from both public entry points: nothing else reaches `TouchVisualizer.shared` before Sentinel is
+    /// first opened, so restoring lazily would hide the touches after a relaunch until then.
+    static func restoreBuiltInPreferences(for configuration: Configuration) {
         #if os(iOS)
+        guard configuration.showsTouchesToggle else { return }
         TouchVisualizer.shared.restore()
         #endif
     }
