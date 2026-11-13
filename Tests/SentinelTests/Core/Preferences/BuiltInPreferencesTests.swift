@@ -39,6 +39,16 @@ struct BuiltInPreferencesTests {
         #endif
     }
 
+    @Test("Turning off showsTouchesToggle leaves only the app's own sections")
+    func showsTouchesToggleOff() throws {
+        let sections = try preferencesSections(
+            for: [PreferencesTool.Section(title: "Flags", items: [toggle("A")])],
+            showsTouchesToggle: false
+        )
+
+        #expect(sections.map(\.title) == ["Flags"])
+    }
+
     @Test("An app section titled Sentinel doesn't share the built-in section's identity")
     func appSectionTitledSentinel() throws {
         let sections = try preferencesSections(for: [
@@ -63,8 +73,15 @@ struct BuiltInPreferencesTests {
 
 private extension BuiltInPreferencesTests {
 
-    func preferencesSections(for preferences: [PreferencesTool.Section]) throws -> [ToolTableSection] {
-        let tabItems = Sentinel.createTabItems(with: [], preferences: preferences)
+    func preferencesSections(
+        for preferences: [PreferencesTool.Section],
+        showsTouchesToggle: Bool = true
+    ) throws -> [ToolTableSection] {
+        let tabItems = Sentinel.createTabItems(
+            with: [],
+            preferences: preferences,
+            showsTouchesToggle: showsTouchesToggle
+        )
         return try #require(tabItems.first { $0.tabViewTab == .preferences }).sections
     }
 

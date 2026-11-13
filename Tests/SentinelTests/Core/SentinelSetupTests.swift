@@ -46,13 +46,14 @@ struct SentinelSetupTests {
         #expect(screenProvider.dismissCount == 1)
     }
 
-    @Test("Configuration defaults to no trigger and no preferences")
+    @Test("Configuration defaults to no trigger, no preferences and the Show touches toggle")
     func configurationDefaults() {
         let configuration = Sentinel.Configuration(tools: [])
 
         #expect(configuration.trigger == nil)
         #expect(configuration.preferences.isEmpty)
         #expect(configuration.tools.isEmpty)
+        #expect(configuration.showsTouchesToggle)
     }
 }
 
