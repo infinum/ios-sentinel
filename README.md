@@ -53,7 +53,7 @@ dependencies: [
 
 or add `https://github.com/infinum/ios-sentinel.git` in Xcode under *File › Add Package Dependencies…*. All of the tools are part of the `Sentinel` product.
 
-CocoaPods is no longer supported; the last version published to CocoaPods is 2.3.0.
+CocoaPods is no longer supported; the last version published to CocoaPods is 2.3.0. See the [changelog](CHANGELOG.md) for what changed in 3.0.0 and in earlier versions.
 
 ## Usage
 
