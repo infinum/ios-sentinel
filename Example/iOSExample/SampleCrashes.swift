@@ -99,7 +99,15 @@ private extension SampleCrashes {
         guard let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
         let url = directory.appendingPathComponent(fileName)
 
-        let existing = (try? Data(contentsOf: url)).flatMap { try? JSONDecoder().decode([Record].self, from: $0) } ?? []
+        var existing: [Record] = []
+        if let data = try? Data(contentsOf: url) {
+            // A file this can't read was written by a newer `CrashModel` layout; overwriting it would lose real crashes.
+            guard let decoded = try? JSONDecoder().decode([Record].self, from: data) else {
+                print("SampleCrashes: \(fileName) doesn't match the sample format, so samples were not added to it")
+                return
+            }
+            existing = decoded
+        }
         guard let data = try? JSONEncoder().encode(existing + records) else { return }
         try? data.write(to: url)
     }
