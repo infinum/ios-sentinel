@@ -180,8 +180,14 @@ extension CrashModel {
             }
 
             private func symbolContains(_ term: String) -> Bool {
-                // Numbers in symbols are only mangled name lengths, so a number has to be in the name, date or image
-                !term.allSatisfy(\.isNumber) && lowercasedSymbol.contains(term)
+                // Numbers in a mangled Swift symbol are only name lengths, but in C and Objective-C symbols
+                // (`CC_SHA256`, `sqlite3_step`) they are part of the name
+                if isMangledSwift && term.allSatisfy(\.isNumber) { return false }
+                return lowercasedSymbol.contains(term)
+            }
+
+            private var isMangledSwift: Bool {
+                lowercasedSymbol.hasPrefix("$s") || lowercasedSymbol.hasPrefix("_$s")
             }
         }
     }

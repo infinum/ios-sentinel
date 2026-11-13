@@ -33,6 +33,10 @@ struct CrashSearchTests {
                 CrashModel.StackTrace(
                     title: "2   Example-iOS   0x0000000102684def $s9876WidgetC4loadyyF + 8",
                     detail: ""
+                ),
+                CrashModel.StackTrace(
+                    title: "3   libcommonCrypto.dylib   0x00000001a0b1c2d4 CC_SHA256 + 40",
+                    detail: ""
                 )
             ]
         )
@@ -87,6 +91,13 @@ struct CrashSearchTests {
         // "9876" is only in the mangled `$s9876Widget` length prefix; "7" is in the crash name.
         #expect(searchable.result(for: ["9876"]) == nil)
         #expect(searchable.result(for: ["7"]) != nil)
+    }
+
+    @Test("A number matches inside a symbol that isn't mangled")
+    func numbersMatchUnmangledSymbols() throws {
+        let result = try #require(searchable.result(for: ["256"]))
+
+        #expect(result.matchedFrame == "CC_SHA256")
     }
 
     @Test("A term that matches nothing hides the crash")
