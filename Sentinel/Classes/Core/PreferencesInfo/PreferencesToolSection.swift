@@ -25,9 +25,13 @@ extension PreferencesTool {
         let items: [any PreferenceItem]
 
         public init(title: String?, items: [any PreferenceItem]) {
+            self.init(id: title ?? UUID().uuidString, title: title, items: items)
+        }
+
+        init(id: String, title: String?, items: [any PreferenceItem]) {
+            self.id = id
             self.title = title
             self.items = items
-            id = title ?? UUID().uuidString
         }
     }
 

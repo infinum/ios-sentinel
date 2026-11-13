@@ -24,6 +24,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
+extension Notification.Name {
+
+    /// Posted by the "Open Sentinel" button, since newer simulators make shaking cumbersome.
+    static let openSentinel = Notification.Name("com.infinum.sentinel.example.openSentinel")
+}
+
+/// Opens Sentinel on a shake as well as on the `openSentinel` notification.
+private struct ExampleTrigger: Trigger {
+
+    private let triggers: [Trigger] = [Triggers.shake, Triggers.notification(forName: .openSentinel)]
+
+    func subscribe(on events: @escaping () -> ()) {
+        triggers.forEach { $0.subscribe(on: events) }
+    }
+}
+
 enum AppUrl {
     static var baseURL = "http://google.com"
 }
@@ -47,7 +63,7 @@ private extension AppDelegate {
 
     func setupSentinel() {
         let configuration = Sentinel.Configuration(
-            trigger: Triggers.shake,
+            trigger: ExampleTrigger(),
             tools: [
                 UserDefaultsTool(),
                 baseUrlTool,
@@ -58,7 +74,9 @@ private extension AppDelegate {
                 apiMockingTool,
                 PulseTool()
             ],
-            preferences: optionSwitchItems
+            preferences: optionSwitchItems,
+            // The default; pass `false` to leave out the Show touches toggle and its `sendEvent(_:)` hook.
+            showsTouchesToggle: true
         )
 
         Sentinel.shared.setup(with: configuration)

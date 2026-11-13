@@ -19,13 +19,19 @@ struct ContentView: View {
         NavigationView {
             ZStack(alignment: .topTrailing) {
                 VStack(spacing: 24) {
-                    Text("Shake the device to open Sentinel")
+                    Text("Shake the device or tap the button to open Sentinel")
                         .font(.title2)
                         .multilineTextAlignment(.center)
 
+                    // The UI tests get their own button, which goes through the shake trigger.
                     if LaunchEnvironment.isUITesting {
                         openSentinelButton
                         crashButton
+                    } else {
+                        Button("Open Sentinel") {
+                            NotificationCenter.default.post(name: .openSentinel, object: nil)
+                        }
+                        .buttonStyle(.borderedProminent)
                     }
                 }
                 .padding()

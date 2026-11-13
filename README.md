@@ -126,7 +126,7 @@ Sentinel.shared.setup(with: configuration)
 
 ### Configuration
 
-To configure the `Sentinel` object, the `Configuration` object is introduced. `Configuration` contains multiple objects which define general *Sentinel* behaviour. The inputs which this object needs are; `trigger`, `sourceScreenProvider`, `tools`, and `preferences`.
+To configure the `Sentinel` object, the `Configuration` object is introduced. `Configuration` contains multiple objects which define general *Sentinel* behaviour. The inputs which this object needs are; `trigger`, `sourceScreenProvider`, `tools`, `preferences` and, on iOS, `showsTouchesToggle` (see [Preferences](#preferences)).
 
 #### Trigger
 
@@ -249,6 +249,13 @@ PreferencesTool.Section(
     ]
 )
 ```
+
+On iOS, Sentinel adds a **Sentinel** section in front of your own sections. It contains the **Show touches** toggle, which draws a circle under every finger so screen recordings show where the tester tapped. The toggle is off by default and needs no code in your app. To leave the section out, pass `showsTouchesToggle: false` to `Configuration`; Sentinel then never installs the touch hook, even if the toggle was left on in an earlier build. It stays on across launches: after a relaunch it takes effect once `Sentinel.shared.setup(with:)` runs or, if your app only calls `createSentinelView(with:)`, once that view is first created.
+
+Show touches has some limitations:
+- Touches outside the app's windows aren't shown, such as alerts, system sheets and, on iOS 17 and later, the system keyboard.
+- Indicators appear in recordings and screenshots, including taps on custom PIN pads and in-app secure keypads.
+- It swizzles `UIWindow.sendEvent(_:)` the first time it is turned on, which affects every window in the process. Apps that swizzle `sendEvent(_:)` themselves keep working as long as their implementation calls the original one.
 
 ### Custom tools
 
