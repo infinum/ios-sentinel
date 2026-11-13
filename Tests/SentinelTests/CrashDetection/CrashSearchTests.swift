@@ -13,7 +13,6 @@ import Testing
 struct CrashSearchTests {
 
     private let searchable = CrashModel.Searchable(
-        id: 3,
         crash: CrashModel(
             type: .nsexception,
             details: CrashModel.Details(
@@ -46,7 +45,7 @@ struct CrashSearchTests {
     func noTerms() throws {
         let result = try #require(searchable.result(for: []))
 
-        #expect(result.id == 3)
+        #expect(result.id == searchable.id)
         #expect(result.matchedFrame == nil)
     }
 
@@ -103,5 +102,33 @@ struct CrashSearchTests {
     @Test("A term that matches nothing hides the crash")
     func noMatch() {
         #expect(searchable.result(for: ["sigsegv"]) == nil)
+    }
+
+    @Test("A crash keeps its id when a newer crash is added before it")
+    func idSurvivesNewCrash() {
+        let older = makeCrash(name: "older", date: Date(timeIntervalSince1970: 1_000))
+        let newer = makeCrash(name: "newer", date: Date(timeIntervalSince1970: 2_000))
+
+        let before = CrashModel.Searchable.list(from: [older])
+        let after = CrashModel.Searchable.list(from: [newer, older])
+
+        #expect(after.first { $0.crash.details.name == "older" }?.id == before.first?.id)
+    }
+
+    @Test("Crashes with the same date and name still get an id each")
+    func duplicatesGetDistinctIds() {
+        let crash = makeCrash(name: "same", date: Date(timeIntervalSince1970: 1_000))
+
+        let ids = CrashModel.Searchable.list(from: [crash, crash]).map(\.id)
+
+        #expect(Set(ids).count == 2)
+    }
+
+    private func makeCrash(name: String, date: Date) -> CrashModel {
+        CrashModel(
+            type: .signal,
+            details: CrashModel.Details(name: name, date: date, deviceInfo: DeviceTool.Info()),
+            traces: []
+        )
     }
 }

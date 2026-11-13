@@ -118,18 +118,37 @@ extension CrashModel {
 
     /// A crash with the text search looks at, prepared once when the list loads rather than on every keystroke
     struct Searchable: Identifiable {
-        /// Position in the loaded list, so crashes sharing a date still get a row each
-        let id: Int
+
+        /// Stays the same when the list reloads with a new crash, so a selected crash stays selected
+        struct ID: Hashable {
+            let date: Date
+            let name: String
+            /// Tells apart crashes with the same date and name, so each still gets a row
+            let occurrence: Int
+        }
+
+        let id: ID
         let crash: CrashModel
         /// Lowercased name and formatted date, the text the row shows
         private let rowFields: [String]
         private let frames: [Frame]
 
-        init(id: Int, crash: CrashModel) {
-            self.id = id
+        init(crash: CrashModel, occurrence: Int = 0) {
+            id = ID(date: crash.details.date, name: crash.details.name, occurrence: occurrence)
             self.crash = crash
             rowFields = [crash.details.name, crash.details.formattedDate].map { $0.lowercased() }
             frames = crash.traces.map(Frame.init)
+        }
+
+        /// Prepares `crashes` for searching, keeping their order
+        static func list(from crashes: [CrashModel]) -> [Searchable] {
+            var occurrences: [ID: Int] = [:]
+            return crashes.map { crash in
+                let key = ID(date: crash.details.date, name: crash.details.name, occurrence: 0)
+                let occurrence = occurrences[key, default: 0]
+                occurrences[key] = occurrence + 1
+                return Searchable(crash: crash, occurrence: occurrence)
+            }
         }
 
         /// Returns `nil` when a term is missing from the name, the formatted date and every frame's image and symbol
@@ -195,7 +214,7 @@ extension CrashModel {
     /// A crash that matched a search
     struct SearchResult: Identifiable {
         /// The `id` of the `Searchable` it came from
-        let id: Int
+        let id: Searchable.ID
         let crash: CrashModel
         /// First frame containing a term the row's name and date don't show, `nil` when they show every term
         let matchedFrame: String?

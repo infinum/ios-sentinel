@@ -10,7 +10,7 @@ import SwiftUI
 struct CrashDetectionToolView: View {
 
     @State private var crashes: [CrashModel.Searchable] = []
-    @State private var selectedItem: Int?
+    @State private var selectedItem: CrashModel.Searchable.ID?
 
     var body: some View {
         #if os(macOS)
@@ -38,7 +38,7 @@ struct CrashDetectionToolView: View {
 private struct ContentView: View {
 
     @Binding var crashes: [CrashModel.Searchable]
-    @Binding var selectedItem: Int?
+    @Binding var selectedItem: CrashModel.Searchable.ID?
     @State private var searchText = ""
 
     private var searchTerms: [String] {
@@ -74,9 +74,7 @@ private struct ContentView: View {
         .sentinelSearchable(text: $searchText, prompt: "Search crashes")
         .pushedListTopMargin(isPushed: true)
         .onAppear {
-            crashes = CrashFileManager.recoverAll()
-                .enumerated()
-                .map { CrashModel.Searchable(id: $0.offset, crash: $0.element) }
+            crashes = CrashModel.Searchable.list(from: CrashFileManager.recoverAll())
         }
         .navigationTitle("Crashes Tool")
         .toolbar {
@@ -107,7 +105,7 @@ private struct ContentView: View {
 private extension ContentView {
 
     /// On iOS rows push through `NavigationLink`, so the list itself doesn't track a selection.
-    var listSelection: Binding<Int?>? {
+    var listSelection: Binding<CrashModel.Searchable.ID?>? {
         #if os(macOS)
         $selectedItem
         #else
