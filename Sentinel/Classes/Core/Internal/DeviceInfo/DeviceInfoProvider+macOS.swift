@@ -54,9 +54,9 @@ extension DeviceInfoProvider {
         let workspace = NSWorkspace.shared
         return CustomInfoTool.Section(title: "Accessibility", items: [
             CustomInfoTool.Item(title: "Appearance", value: appearance),
-            CustomInfoTool.Item(title: "VoiceOver", value: workspace.isVoiceOverEnabled.yesNo),
-            CustomInfoTool.Item(title: "Reduce Motion", value: workspace.accessibilityDisplayShouldReduceMotion.yesNo),
-            CustomInfoTool.Item(title: "Increase Contrast", value: workspace.accessibilityDisplayShouldIncreaseContrast.yesNo)
+            CustomInfoTool.Item(title: "VoiceOver", value: yesNo(workspace.isVoiceOverEnabled)),
+            CustomInfoTool.Item(title: "Reduce Motion", value: yesNo(workspace.accessibilityDisplayShouldReduceMotion)),
+            CustomInfoTool.Item(title: "Increase Contrast", value: yesNo(workspace.accessibilityDisplayShouldIncreaseContrast))
         ])
     }
 

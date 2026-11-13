@@ -47,12 +47,9 @@ extension DeviceInfoProvider {
     static func format(_ size: CGSize, unit: String) -> String {
         String(format: "%g × %g %@", size.width, size.height, unit)
     }
-}
 
-extension Bool {
-
-    var yesNo: String {
-        self ? "Yes" : "No"
+    static func yesNo(_ flag: Bool) -> String {
+        flag ? "Yes" : "No"
     }
 }
 
@@ -69,7 +66,7 @@ extension DeviceInfoProvider {
         #if os(iOS)
         items.append(CustomInfoTool.Item(title: "Battery state", value: batteryState))
         #endif
-        items.append(CustomInfoTool.Item(title: "Low Power Mode", value: ProcessInfo.processInfo.isLowPowerModeEnabled.yesNo))
+        items.append(CustomInfoTool.Item(title: "Low Power Mode", value: yesNo(ProcessInfo.processInfo.isLowPowerModeEnabled)))
         items.append(CustomInfoTool.Item(title: "Thermal state", value: thermalState))
         return items
     }
@@ -90,7 +87,7 @@ extension DeviceInfoProvider {
             CustomInfoTool.Item(title: "Calendar", value: String(describing: locale.calendar.identifier)),
             CustomInfoTool.Item(title: "Currency", value: currencyCode(of: locale) ?? unknown),
             CustomInfoTool.Item(title: "Measurement system", value: measurementSystem(of: locale)),
-            CustomInfoTool.Item(title: "24-hour time", value: uses24HourTime(locale: locale).yesNo)
+            CustomInfoTool.Item(title: "24-hour time", value: yesNo(uses24HourTime(locale: locale)))
         ])
     }
 

@@ -128,7 +128,7 @@ struct SentinelReportTests {
 
     @Test("Flags read as Yes or No")
     func yesNo() {
-        #expect(true.yesNo == "Yes")
-        #expect(false.yesNo == "No")
+        #expect(DeviceInfoProvider.yesNo(true) == "Yes")
+        #expect(DeviceInfoProvider.yesNo(false) == "No")
     }
 }

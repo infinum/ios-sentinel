@@ -20,7 +20,7 @@ extension DeviceInfoProvider {
             CustomInfoTool.Item(title: "System version", value: DeviceTool.systemVersion),
             CustomInfoTool.Item(title: "UUID", value: UIDevice.current.identifierForVendor?.uuidString ?? unknown),
             CustomInfoTool.Item(title: "Architecture", value: architecture),
-            CustomInfoTool.Item(title: "Simulator", value: isSimulator.yesNo),
+            CustomInfoTool.Item(title: "Simulator", value: yesNo(isSimulator)),
             CustomInfoTool.Item(title: "Runs on", value: runsOn)
         ])
     }
@@ -149,10 +149,10 @@ extension DeviceInfoProvider {
         CustomInfoTool.Section(title: "Accessibility", items: [
             CustomInfoTool.Item(title: "Text size", value: textSize),
             CustomInfoTool.Item(title: "Appearance", value: appearance),
-            CustomInfoTool.Item(title: "VoiceOver", value: UIAccessibility.isVoiceOverRunning.yesNo),
-            CustomInfoTool.Item(title: "Reduce Motion", value: UIAccessibility.isReduceMotionEnabled.yesNo),
-            CustomInfoTool.Item(title: "Increase Contrast", value: UIAccessibility.isDarkerSystemColorsEnabled.yesNo),
-            CustomInfoTool.Item(title: "Bold Text", value: UIAccessibility.isBoldTextEnabled.yesNo)
+            CustomInfoTool.Item(title: "VoiceOver", value: yesNo(UIAccessibility.isVoiceOverRunning)),
+            CustomInfoTool.Item(title: "Reduce Motion", value: yesNo(UIAccessibility.isReduceMotionEnabled)),
+            CustomInfoTool.Item(title: "Increase Contrast", value: yesNo(UIAccessibility.isDarkerSystemColorsEnabled)),
+            CustomInfoTool.Item(title: "Bold Text", value: yesNo(UIAccessibility.isBoldTextEnabled))
         ])
     }
 
