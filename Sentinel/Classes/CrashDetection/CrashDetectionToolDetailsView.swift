@@ -94,7 +94,8 @@ private struct StackTraceView: View {
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .textSelection(.enabled)
+        // No `textSelection` here: on iOS it takes the long press the context menu needs,
+        // and the menu copies the whole frame, details included.
         .contextMenu {
             Button("Copy") {
                 #if os(macOS)
