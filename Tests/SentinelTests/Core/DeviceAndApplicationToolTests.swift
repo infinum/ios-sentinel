@@ -14,17 +14,26 @@ struct DeviceAndApplicationToolTests {
 
     // MARK: - DeviceTool
 
-    @Test("Device tab has one Device section with the platform's rows")
+    @Test("Device tab has its sections, starting with the platform's Device rows")
     func deviceSection() {
         let tool = DeviceTool()
         let table = tool.toolTable
 
         #expect(tool.name == "Device")
-        #expect(table.sections.map(\.title) == ["Device"])
+        #expect(table.sections.map(\.title) == ["Device", "Power", "Screen", "Locale", "Accessibility"])
         #if os(iOS)
-        let expected = ["Model", "Name", "System version", "UUID", "Battery state", "Proximity state"]
+        let expected = [
+            "Manufacturer",
+            "Model identifier",
+            "Name",
+            "System version",
+            "UUID",
+            "Architecture",
+            "Simulator",
+            "Runs on"
+        ]
         #else
-        let expected = ["Model", "Name", "System version", "UUID"]
+        let expected = ["Manufacturer", "Model identifier", "Name", "System version", "UUID", "Architecture"]
         #endif
         #expect(table.sections.first?.items.map(\.id) == expected)
     }
@@ -53,15 +62,15 @@ struct DeviceAndApplicationToolTests {
 
     // MARK: - ApplicationTool
 
-    @Test("Application tab has the plist section and the full bundle section")
+    @Test("Application tab has the runtime, plist and full bundle sections")
     func applicationSections() {
         let tool = ApplicationTool()
         let table = tool.toolTable
 
         #expect(tool.name == "Application")
-        #expect(table.sections.map(\.title) == ["Standard Plist Info", "Bundle all info"])
+        #expect(table.sections.map(\.title) == ["Runtime", "Standard Plist Info", "Bundle all info"])
         #expect(
-            table.sections.first?.items.map(\.id) == [
+            table.sections.first { $0.title == "Standard Plist Info" }?.items.map(\.id) == [
                 "App version",
                 "Build version",
                 "Bundle name",
@@ -77,7 +86,7 @@ struct DeviceAndApplicationToolTests {
 
     @Test("A missing plist key reads as an empty string")
     func missingPlistKey() {
-        #expect(ApplicationTool.stringFromPlist(for: "SentinelTestsMissingKey") == "")
+        #expect(ApplicationInfoProvider.stringFromPlist(for: "SentinelTestsMissingKey") == "")
     }
 
     // `swift test` on macOS runs from a runner without an Info.plist, so this only runs in a bundled host.
@@ -85,6 +94,6 @@ struct DeviceAndApplicationToolTests {
     func presentPlistKey() throws {
         let identifier = try #require(Bundle.main.bundleIdentifier)
 
-        #expect(ApplicationTool.stringFromPlist(for: kCFBundleIdentifierKey) == identifier)
+        #expect(ApplicationInfoProvider.stringFromPlist(for: kCFBundleIdentifierKey) == identifier)
     }
 }

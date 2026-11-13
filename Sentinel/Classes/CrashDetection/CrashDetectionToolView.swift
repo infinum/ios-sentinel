@@ -9,8 +9,8 @@ import SwiftUI
 
 struct CrashDetectionToolView: View {
 
-    @State private var crashes: [CrashModel] = []
-    @State private var selectedItem: String?
+    @State private var crashes: [CrashModel.Searchable] = []
+    @State private var selectedItem: CrashModel.Searchable.ID?
 
     var body: some View {
         #if os(macOS)
@@ -21,7 +21,7 @@ struct CrashDetectionToolView: View {
                 .frame(minWidth: 300)
 
             Group {
-                if let crash = crashes.first(where: { $0.selectionID == selectedItem }) {
+                if let crash = crashes.first(where: { $0.id == selectedItem })?.crash {
                     CrashDetectionToolDetailsView(crashModel: crash)
                 } else {
                     Color.clear
@@ -37,34 +37,44 @@ struct CrashDetectionToolView: View {
 
 private struct ContentView: View {
 
-    @Binding var crashes: [CrashModel]
-    @Binding var selectedItem: String?
+    @Binding var crashes: [CrashModel.Searchable]
+    @Binding var selectedItem: CrashModel.Searchable.ID?
+    @State private var searchText = ""
+
+    private var searchTerms: [String] {
+        searchText.lowercased().split(whereSeparator: \.isWhitespace).map(String.init)
+    }
 
     var body: some View {
+        let results = crashes.compactMap { $0.result(for: searchTerms) }
+
         List(selection: listSelection) {
             if crashes.isEmpty {
                 Text("No crashes available")
+            } else if results.isEmpty {
+                Text(verbatim: "No crashes match '\(searchText.trimmingCharacters(in: .whitespacesAndNewlines))'")
             } else {
-                ForEach(crashes, id: \.details.date) { model in
+                ForEach(results) { result in
                     #if os(macOS)
                     // The split view's detail column shows the selected crash.
-                    Text(model.details.name)
-                        .tag(model.selectionID)
+                    CrashRow(crash: result.crash, matchedFrame: result.matchedFrame)
+                        .tag(result.id)
                     #else
                     NavigationLink(
-                        destination: CrashDetectionToolDetailsView(crashModel: model)
+                        destination: CrashDetectionToolDetailsView(crashModel: result.crash)
                             .navigationBarMaterialBackground(),
-                        tag: model.selectionID,
+                        tag: result.id,
                         selection: $selectedItem,
-                        label: { Text(model.details.name) }
+                        label: { CrashRow(crash: result.crash, matchedFrame: result.matchedFrame) }
                     )
                     #endif
                 }
             }
         }
+        .sentinelSearchable(text: $searchText, prompt: "Search crashes")
         .pushedListTopMargin(isPushed: true)
         .onAppear {
-            crashes = CrashFileManager.recover(ofType: .nsexception) + CrashFileManager.recover(ofType: .signal)
+            crashes = CrashModel.Searchable.list(from: CrashFileManager.recoverAll())
         }
         .navigationTitle("Crashes Tool")
         .toolbar {
@@ -85,6 +95,7 @@ private struct ContentView: View {
                         Image(systemName: "trash")
                     }
                 )
+                .disabled(!searchTerms.isEmpty)
                 .accessibilityIdentifier(AccessibilityIdentifier.crashesDeleteAllButton)
             }
         }
@@ -94,7 +105,7 @@ private struct ContentView: View {
 private extension ContentView {
 
     /// On iOS rows push through `NavigationLink`, so the list itself doesn't track a selection.
-    var listSelection: Binding<String?>? {
+    var listSelection: Binding<CrashModel.Searchable.ID?>? {
         #if os(macOS)
         $selectedItem
         #else
@@ -103,10 +114,24 @@ private extension ContentView {
     }
 }
 
-private extension CrashModel {
+private struct CrashRow: View {
 
-    /// Crashes are listed by their date, so it doubles as the selection value.
-    var selectionID: String {
-        details.date.description
+    let crash: CrashModel
+    let matchedFrame: String?
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 4) {
+            Text(crash.details.name)
+                .font(.body1Bold)
+            Text(crash.details.formattedDate)
+                .font(.caption1Regular)
+                .foregroundColor(.secondary)
+            if let matchedFrame {
+                Text(verbatim: "Matched in: \(matchedFrame)")
+                    .font(.caption1Regular)
+                    .foregroundColor(.secondary)
+                    .lineLimit(2)
+            }
+        }
     }
 }

@@ -17,9 +17,10 @@ extension Sentinel {
         showsTouchesToggle: Bool = true
     ) -> [SentinelTabItem] {
         let builtIn = showsTouchesToggle ? builtInPreferences : []
+        let report = SentinelReport()
         return [
-            SentinelTabItem(tab: .device),
-            SentinelTabItem(tab: .application),
+            SentinelTabItem(tab: .device, report: report),
+            SentinelTabItem(tab: .application, report: report),
             SentinelTabItem(tab: .tools(items: tools)),
             SentinelTabItem(tab: .preferences(items: builtIn + preferences)),
             SentinelTabItem(tab: .performance)

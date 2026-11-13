@@ -36,7 +36,28 @@ extension IntegrationTests {
             CrashFileManager.save(crash: makeCrash(type: .nsexception, name: "first"))
             CrashFileManager.save(crash: makeCrash(type: .nsexception, name: "second"))
 
-            #expect(CrashFileManager.recover(ofType: .nsexception).map(\.details.name) == ["first", "second"])
+            // `recover` lists the newest crash first; this test only cares that both were kept.
+            #expect(CrashFileManager.recover(ofType: .nsexception).map(\.details.name).sorted() == ["first", "second"])
+        }
+
+        @Test("Crashes are recovered newest first, whatever order they were saved in")
+        func recoverSortsNewestFirst() {
+            let now = Date()
+            CrashFileManager.save(crash: makeCrash(type: .signal, name: "middle", date: now.addingTimeInterval(-60)))
+            CrashFileManager.save(crash: makeCrash(type: .signal, name: "oldest", date: now.addingTimeInterval(-3600)))
+            CrashFileManager.save(crash: makeCrash(type: .signal, name: "newest", date: now))
+
+            #expect(CrashFileManager.recover(ofType: .signal).map(\.details.name) == ["newest", "middle", "oldest"])
+        }
+
+        @Test("Crashes of every type are recovered together, newest first")
+        func recoverAllSortsAcrossTypes() {
+            let now = Date()
+            CrashFileManager.save(crash: makeCrash(type: .nsexception, name: "old exception", date: now.addingTimeInterval(-2 * 86400)))
+            CrashFileManager.save(crash: makeCrash(type: .signal, name: "new signal", date: now.addingTimeInterval(-60)))
+            CrashFileManager.save(crash: makeCrash(type: .nsexception, name: "newest exception", date: now))
+
+            #expect(CrashFileManager.recoverAll().map(\.details.name) == ["newest exception", "new signal", "old exception"])
         }
 
         @Test("deleteAll removes the crashes of every type")
@@ -58,7 +79,7 @@ extension IntegrationTests {
             CrashHandler.shared.registerUncaughtExceptionHandler(exceptionReceiveHandler: nil)
             UncaughtExceptionHandler(exception: NSException(name: .genericException, reason: "Boom"))
 
-            #expect(CrashFileManager.recover(ofType: .nsexception).map(\.details.name) == ["NSGenericExceptionBoom"])
+            #expect(CrashFileManager.recover(ofType: .nsexception).map(\.details.name) == ["NSGenericException: Boom"])
         }
 
         @Test("A custom handler replaces saving the crash")
@@ -74,10 +95,14 @@ extension IntegrationTests {
             #expect(CrashFileManager.recover(ofType: .signal).isEmpty)
         }
 
-        private func makeCrash(type: CrashType, name: String) -> CrashModel {
+        private func makeCrash(type: CrashType, name: String, date: Date = Date()) -> CrashModel {
             CrashModel(
                 type: type,
-                details: CrashModel.Details.builder(name: name),
+                details: CrashModel.Details(
+                    name: name,
+                    date: date,
+                    deviceInfo: DeviceTool.Info()
+                ),
                 traces: [CrashModel.StackTrace(title: "frame", detail: "")]
             )
         }

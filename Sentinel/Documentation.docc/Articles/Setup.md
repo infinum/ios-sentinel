@@ -208,7 +208,7 @@ Tool is a name for the wrapper around a debug tool that Sentinel will provide. T
 
 ### CustomInfoTool
 
-**CustomInfoTool** is used on the `Device`, and `Application` tabs. Its primary use is to list out properties and their values. The tool is available on iOS, and MacOS platforms.
+**CustomInfoTool** is used on the `Device`, and `Application` tabs. Its primary use is to list out properties and their values. The tool is available on iOS, and MacOS platforms. The tool has a share button which shares its properties and values as plain text. The `Device` and `Application` tabs share the device and application information together as one report. The report includes the device name, the vendor identifier (`identifierForVendor`) and the app's sandbox path, so check it before posting it somewhere public.
 
 ### TextEditingTool
 
@@ -229,6 +229,8 @@ The tool will export the database file as a zip, and the file should be imported
 ### CrashDetectionTool
 
 **CrashDetectionTool** sets up listeners on system exceptions which will be logged into a local json file with the stack trace. The tool is available on iOS.
+
+The crash list can be searched by crash name, date or stack trace.
 
 ### CustomLocationTool
 

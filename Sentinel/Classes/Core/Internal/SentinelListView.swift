@@ -16,6 +16,9 @@ struct SentinelListView: View {
 
     @State private var selectedItem: String?
 
+    /// When set, the screen gets a share button which shares the returned text.
+    var shareText: (() -> String)?
+
     var body: some View {
     #if os(macOS)
         NavigationSplitView(
@@ -24,6 +27,7 @@ struct SentinelListView: View {
                     title: title,
                     sections: items,
                     isTabRoot: isTabRoot,
+                    shareText: shareText,
                     selectedItem: $selectedItem
                 )
                     .frame(minWidth: 400) // Expands the content in width so it's visible
@@ -39,6 +43,7 @@ struct SentinelListView: View {
             title: title,
             sections: items,
             isTabRoot: isTabRoot,
+            shareText: shareText,
             selectedItem: $selectedItem
         )
     #endif
@@ -66,7 +71,10 @@ private struct ContentView: View {
 
     let title: String
     let isTabRoot: Bool
+    let shareText: (() -> String)?
     @Binding var selectedItem: String?
+    @State private var showShare = false
+    @State private var sharedText = String.empty
 
     @ObservedObject var viewModel: SentinelListViewModel
 
@@ -112,6 +120,32 @@ private struct ContentView: View {
         .navigationBarMaterialBackground()
         .sentinelSearchable(text: $viewModel.searchText, prompt: "Search for an item")
         .navigationTitle(title)
+        .toolbar {
+            #if os(macOS)
+            let placement = ToolbarItemPlacement.navigation
+            #else
+            let placement = ToolbarItemPlacement.topBarTrailing
+            #endif
+
+            ToolbarItemGroup(placement: placement) {
+                if let shareText {
+                    Button(
+                        action: {
+                            sharedText = shareText()
+                            showShare = true
+                        },
+                        label: {
+                            Image(systemName: "square.and.arrow.up")
+                        }
+                    )
+                }
+            }
+        }
+        .share(
+            showShare: $showShare,
+            items: [sharedText],
+            didFinish: { showShare = false }
+        )
     }
 }
 
@@ -133,10 +167,12 @@ extension ContentView {
         title: String,
         sections: [ToolTableSection],
         isTabRoot: Bool,
+        shareText: (() -> String)?,
         selectedItem: Binding<String?>
     ) {
         self.title = title
         self.isTabRoot = isTabRoot
+        self.shareText = shareText
         _selectedItem = selectedItem
         viewModel = SentinelListViewModel(sections: sections)
     }
