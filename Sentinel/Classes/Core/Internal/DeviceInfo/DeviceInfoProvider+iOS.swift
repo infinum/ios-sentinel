@@ -33,7 +33,8 @@ extension DeviceInfoProvider {
         #endif
     }
 
-    private static var modelIdentifier: String? {
+    /// Such as `iPhone16,2`, which tells models apart, unlike `UIDevice.model`.
+    static var modelIdentifier: String? {
         #if targetEnvironment(simulator)
         ProcessInfo.processInfo.environment["SIMULATOR_MODEL_IDENTIFIER"]
         #else

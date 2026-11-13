@@ -109,7 +109,7 @@ extension DeviceTool {
         }
         #else
         init() {
-            model = UIDevice.current.model
+            model = DeviceInfoProvider.modelIdentifier ?? UIDevice.current.model
             name = UIDevice.current.name
             systemVersion = DeviceTool.systemVersion
             UUID = UIDevice.current.identifierForVendor?.uuidString ?? "???"
