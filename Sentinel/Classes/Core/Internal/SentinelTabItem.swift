@@ -10,9 +10,30 @@ import SwiftUI
 struct SentinelTabItem {
 
     let tab: SentinelTab
+    /// When set, the screen gets a share button which shares the returned text.
+    let shareText: (() -> String)?
 
-    init(tab: SentinelTab) {
+    /// The Device and Application tabs' rows, read once here rather than on every SwiftUI update.
+    private let infoSections: [ToolTableSection]
+
+    /// - Parameter report: The device and application information the Device and Application tabs show and share.
+    ///   Pass the same report to both, so they show the same values. Other tabs don't read it.
+    init(tab: SentinelTab, report: @autoclosure () -> SentinelReport = SentinelReport()) {
         self.tab = tab
+        switch tab {
+        case .device:
+            let report = report()
+            infoSections = DeviceTool(sections: report.deviceSections).toolTable.sections
+            shareText = { report.plainText }
+        case .application:
+            let report = report()
+            let sections = report.applicationSections + [ApplicationInfoProvider.bundleAllInfoSection]
+            infoSections = ApplicationTool(sections: sections).toolTable.sections
+            shareText = { report.plainText }
+        case .tools, .preferences, .performance:
+            infoSections = []
+            shareText = nil
+        }
     }
 }
 
@@ -58,14 +79,6 @@ extension SentinelTabItem {
     var sections: [ToolTableSection] {
         toolTable.sections
     }
-
-    /// The Device and Application tabs share the same report, so it doesn't matter which one the share button is on.
-    var shareText: (() -> String)? {
-        switch tab {
-        case .device, .application: { SentinelReport.plainText }
-        default: nil
-        }
-    }
 }
 
 // MARK: - Private helpers
@@ -74,14 +87,8 @@ private extension SentinelTabItem {
 
     var toolTable: ToolTable {
         switch tab {
-        case .device:
-            let deviceInfoItem = DeviceTool()
-            let toolTable = deviceInfoItem.toolTable
-            return toolTable
-        case .application:
-            let applicationInfoTool = ApplicationTool()
-            let toolTable = applicationInfoTool.toolTable
-            return toolTable
+        case .device, .application:
+            return ToolTable(name: barItemTitle, sections: infoSections)
         case .tools(let items):
             let navigationItems = items
                 .map { tool in

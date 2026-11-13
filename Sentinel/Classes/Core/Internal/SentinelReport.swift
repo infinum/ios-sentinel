@@ -7,15 +7,34 @@
 
 import Foundation
 
-/// The device and application information in a single text, which is what the Device and Application tabs share.
-enum SentinelReport {
+/// The device and application information, read once when Sentinel opens. The Device and Application tabs show it
+/// and share it as one text, so the shared report matches what is on screen.
+struct SentinelReport {
 
-    static var plainText: String {
+    // MARK: - Internal properties
+
+    let deviceSections: [CustomInfoTool.Section]
+    /// The Application tab's sections without the raw `Info.plist` dump, which is long and doesn't go into the report.
+    let applicationSections: [CustomInfoTool.Section]
+
+    // MARK: - Lifecycle
+
+    init(
+        deviceSections: [CustomInfoTool.Section] = DeviceInfoProvider.sections,
+        applicationSections: [CustomInfoTool.Section] = ApplicationInfoProvider.reportSections
+    ) {
+        self.deviceSections = deviceSections
+        self.applicationSections = applicationSections
+    }
+
+    // MARK: - Report
+
+    var plainText: String {
         [
-            heading("DEVICE"),
-            DeviceInfoProvider.sections.plainText,
-            heading("APPLICATION"),
-            ApplicationInfoProvider.reportSections.plainText
+            Self.heading("DEVICE"),
+            deviceSections.plainText,
+            Self.heading("APPLICATION"),
+            applicationSections.plainText
         ]
         .joined(separator: .newLine + .newLine)
     }

@@ -17,11 +17,13 @@ struct ApplicationTool: Tool {
 
     // MARK: - Lifecycle
 
-    public init() {}
+    init(sections: [CustomInfoTool.Section] = ApplicationInfoProvider.sections) {
+        tool = CustomInfoTool(name: "Application", info: sections)
+    }
 
     // MARK: - Private properties
 
-    private let tool = CustomInfoTool(name: "Application", info: ApplicationInfoProvider.sections)
+    private let tool: CustomInfoTool
 }
 
 // MARK: - Extensions

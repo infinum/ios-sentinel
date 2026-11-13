@@ -22,6 +22,10 @@ enum ApplicationInfoProvider {
     static var reportSections: [CustomInfoTool.Section] {
         [runtimeSection, standardPlistSection]
     }
+
+    static var bundleAllInfoSection: CustomInfoTool.Section {
+        CustomInfoTool.Section(title: "Bundle all info", items: bundleAllInfos)
+    }
 }
 
 // MARK: - Sections
@@ -63,10 +67,6 @@ private extension ApplicationInfoProvider {
                 CustomInfoTool.Item(title: "Version of the plist", value: stringFromPlist(for: kCFBundleInfoDictionaryVersionKey)),
             ]
         )
-    }
-
-    static var bundleAllInfoSection: CustomInfoTool.Section {
-        CustomInfoTool.Section(title: "Bundle all info", items: bundleAllInfos)
     }
 }
 

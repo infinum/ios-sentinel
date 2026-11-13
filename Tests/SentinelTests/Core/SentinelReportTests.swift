@@ -55,21 +55,54 @@ struct SentinelReportTests {
 
     @Test("The report has the device info and then the application info, each under its own heading")
     func reportLayout() throws {
-        let report = SentinelReport.plainText
-        let device = try #require(report.range(of: "DEVICE\n======\n\n"))
-        let application = try #require(report.range(of: "\n\nAPPLICATION\n===========\n\n"))
+        let report = SentinelReport()
+        let text = report.plainText
+        let device = try #require(text.range(of: "DEVICE\n======\n\n"))
+        let application = try #require(text.range(of: "\n\nAPPLICATION\n===========\n\n"))
 
-        #expect(device.lowerBound == report.startIndex)
+        #expect(device.lowerBound == text.startIndex)
         #expect(device.upperBound <= application.lowerBound)
-        #expect(report.contains(DeviceInfoProvider.sections.plainText))
-        #expect(report.hasSuffix(ApplicationInfoProvider.reportSections.plainText))
+        #expect(text.contains(report.deviceSections.plainText))
+        #expect(text.hasSuffix(report.applicationSections.plainText))
     }
 
     @Test("The report leaves out the raw Info.plist dump")
     func reportSkipsBundleDump() {
         #expect(ApplicationInfoProvider.reportSections.map(\.title) == ["Runtime", "Standard Plist Info"])
         #expect(ApplicationInfoProvider.sections.map(\.title) == ["Runtime", "Standard Plist Info", "Bundle all info"])
-        #expect(!SentinelReport.plainText.contains("Bundle all info"))
+        #expect(!SentinelReport().plainText.contains("Bundle all info"))
+    }
+
+    // MARK: - Snapshot
+
+    @Test("The Device and Application tabs show and share the report they were given")
+    func tabsUseTheirReport() {
+        let report = SentinelReport(
+            deviceSections: [CustomInfoTool.Section(title: "Fake device", items: [CustomInfoTool.Item(title: "A", value: "1")])],
+            applicationSections: [CustomInfoTool.Section(title: "Fake app", items: [CustomInfoTool.Item(title: "B", value: "2")])]
+        )
+        let device = SentinelTabItem(tab: .device, report: report)
+        let application = SentinelTabItem(tab: .application, report: report)
+
+        #expect(device.sections.map(\.title) == ["Fake device"])
+        #expect(application.sections.map(\.title) == ["Fake app", "Bundle all info"])
+        #expect(device.shareText?() == report.plainText)
+        #expect(application.shareText?() == report.plainText)
+    }
+
+    @Test("Tabs other than Device and Application don't read the report")
+    func otherTabsSkipTheReport() {
+        var reads = 0
+        let makeReport = {
+            reads += 1
+            return SentinelReport(deviceSections: [], applicationSections: [])
+        }
+
+        _ = SentinelTabItem(tab: .tools(items: []), report: makeReport())
+        _ = SentinelTabItem(tab: .preferences(items: []), report: makeReport())
+        _ = SentinelTabItem(tab: .performance, report: makeReport())
+
+        #expect(reads == 0)
     }
 
     // MARK: - Share button

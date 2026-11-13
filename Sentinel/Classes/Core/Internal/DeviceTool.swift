@@ -19,11 +19,13 @@ struct DeviceTool: Tool {
 
     // MARK: - Lifecycle
 
-    public init() {}
+    init(sections: [CustomInfoTool.Section] = DeviceInfoProvider.sections) {
+        tool = CustomInfoTool(name: "Device", info: sections)
+    }
 
     // MARK: - Private properties
 
-    private let tool = CustomInfoTool(name: "Device", info: DeviceInfoProvider.sections)
+    private let tool: CustomInfoTool
 
 }
 
