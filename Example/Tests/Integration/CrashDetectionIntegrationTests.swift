@@ -50,6 +50,16 @@ extension IntegrationTests {
             #expect(CrashFileManager.recover(ofType: .signal).map(\.details.name) == ["newest", "middle", "oldest"])
         }
 
+        @Test("Crashes of every type are recovered together, newest first")
+        func recoverAllSortsAcrossTypes() {
+            let now = Date()
+            CrashFileManager.save(crash: makeCrash(type: .nsexception, name: "old exception", date: now.addingTimeInterval(-2 * 86400)))
+            CrashFileManager.save(crash: makeCrash(type: .signal, name: "new signal", date: now.addingTimeInterval(-60)))
+            CrashFileManager.save(crash: makeCrash(type: .nsexception, name: "newest exception", date: now))
+
+            #expect(CrashFileManager.recoverAll().map(\.details.name) == ["newest exception", "new signal", "old exception"])
+        }
+
         @Test("deleteAll removes the crashes of every type")
         func deleteAll() {
             CrashFileManager.save(crash: makeCrash(type: .nsexception, name: "exception"))

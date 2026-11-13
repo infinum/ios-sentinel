@@ -48,6 +48,12 @@ enum CrashFileManager {
         return crashes.sorted { $0.details.date > $1.details.date }
     }
 
+    /// Returns the saved crashes of every type, newest first
+    static func recoverAll() -> [CrashModel] {
+        (recover(ofType: .nsexception) + recover(ofType: .signal))
+            .sorted { $0.details.date > $1.details.date }
+    }
+
     static func deleteAll() {
         let nsExceptionPath = getDocumentsDirectory().appendingPathComponent(CrashType.nsexception.fileName)
         let signalPath = getDocumentsDirectory().appendingPathComponent(CrashType.signal.fileName)

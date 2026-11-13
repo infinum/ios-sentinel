@@ -74,7 +74,7 @@ private struct ContentView: View {
         .sentinelSearchable(text: $searchText, prompt: "Search crashes")
         .pushedListTopMargin(isPushed: true)
         .onAppear {
-            crashes = (CrashFileManager.recover(ofType: .nsexception) + CrashFileManager.recover(ofType: .signal))
+            crashes = CrashFileManager.recoverAll()
                 .enumerated()
                 .map { CrashModel.Searchable(id: $0.offset, crash: $0.element) }
         }
