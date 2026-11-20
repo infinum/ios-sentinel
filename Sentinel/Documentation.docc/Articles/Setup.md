@@ -4,19 +4,9 @@ How you can set up Sentinel.
 
 ## 1. Add Sentinel
 
-### Cocoapods
-
-You can add Sentinel via Cocoapods.
-
-```
-pod 'Sentinel'
-```
-
-This will add the default subspec, if you want additional tools, check out other subspecs.
-
 ### SPM
 
-You can add Sentinel via SPM.
+You can add Sentinel via SPM. All of the tools are part of the `Sentinel` product.
 
 ```
 https://github.com/infinum/ios-sentinel.git
@@ -47,6 +37,9 @@ struct Configuration {
     /// Items which are shown on preferences screen
     public let preferences: [PreferencesTool.Section]
 
+    /// Whether the Preferences tab starts with Sentinel's own section and its Show touches toggle. Only used on iOS.
+    public let showsTouchesToggle: Bool
+
     // MARK: - Lifecycle
 
     /// Creates a new configuration.
@@ -56,16 +49,19 @@ struct Configuration {
     ///     - sourceScreenProvider: The screen from which Sentinel can be presented.
     ///     - tools: Tools available from the Sentinel.
     ///     - preferences: Section items which can allow or deny an activity inside the app
+    ///     - showsTouchesToggle: Whether the Preferences tab starts with Sentinel's own section and its Show touches toggle. Only used on iOS.
     public init(
         trigger: Trigger? = nil,
         sourceScreenProvider: SourceScreenProvider = SourceScreenProviders.default,
         tools: [Tool],
-        preferences: [PreferencesTool.Section] = []
+        preferences: [PreferencesTool.Section] = [],
+        showsTouchesToggle: Bool = true
     ) {
         self.trigger = trigger
         self.sourceScreenProvider = sourceScreenProvider
         self.tools = tools
         self.preferences = preferences
+        self.showsTouchesToggle = showsTouchesToggle
     }
 }
 ```
@@ -199,6 +195,12 @@ PreferencesTool.Section(
 )
 ```
 
+On iOS, **Sentinel** adds a "Sentinel" section in front of your own sections, with a **Show touches** toggle that draws a circle under every finger so screen recordings show where the tester tapped. It is off by default and needs no code in your app. To leave the section out, pass `showsTouchesToggle: false` to `Configuration`; Sentinel then never installs the touch hook, even if the toggle was left on in an earlier build. It stays on across launches: after a relaunch it takes effect once `Sentinel.shared.setup(with:)` runs or, if your app only calls `createSentinelView(with:)`, once that view is first created. Show touches has some limitations:
+
+- Touches outside the app's windows aren't shown, such as alerts, system sheets and, on iOS 17 and later, the system keyboard.
+- Indicators appear in recordings and screenshots, including taps on custom PIN pads and in-app secure keypads.
+- It swizzles `UIWindow.sendEvent(_:)` the first time it is turned on, which affects every window in the process. Apps that swizzle `sendEvent(_:)` themselves keep working as long as their implementation calls the original one.
+
 ## Add Tools
 
 As mentioned before, the **Configuration** struct has a property named tools which will add `Tool` items to the `SentinelTabBarView`.
@@ -206,7 +208,7 @@ Tool is a name for the wrapper around a debug tool that Sentinel will provide. T
 
 ### CustomInfoTool
 
-**CustomInfoTool** is used on the `Device`, and `Application` tabs. Its primary use is to list out properties and their values. The tool is available on iOS, and MacOS platforms.
+**CustomInfoTool** is used on the `Device`, and `Application` tabs. Its primary use is to list out properties and their values. The tool is available on iOS, and MacOS platforms. The tool has a share button which shares its properties and values as plain text. The `Device` and `Application` tabs share the device and application information together as one report. The report includes the device name, the vendor identifier (`identifierForVendor`) and the app's sandbox path, so check it before posting it somewhere public.
 
 ### TextEditingTool
 
@@ -228,13 +230,23 @@ The tool will export the database file as a zip, and the file should be imported
 
 **CrashDetectionTool** sets up listeners on system exceptions which will be logged into a local json file with the stack trace. The tool is available on iOS.
 
+The crash list can be searched by crash name, date or stack trace.
+
 ### CustomLocationTool
 
-**CustomLocationTool** is used to change the user's current location. After changing the location, the application have to be restarted. The tool is available on iOS.
+**CustomLocationTool** is used to change the user's current location. While it's turned on, every `CLLocationManager` that calls `startUpdatingLocation()` receives the custom location instead of the real one, so restart location updates (or the app) after changing it. `requestLocation()` isn't affected. The tool is available on iOS.
 
 ### EmailSenderTool
 
 **EmailSenderTool** is used to let the user send emails with attachments from the app with ease. The tool is available on iOS.
+
+### APIMockingTool
+
+**APIMockingTool** answers the app's network requests with mocked responses: an HTTP response with a JSON body, or a network error, optionally after a delay. The app passes the ``APIMock``s it ships with, and testers create more in the tool by pasting a response body, without rebuilding the app. A mock matches requests by method and by a `.wildcard` URL pattern, which matches URLs ending with the pattern, starting at a path segment or the host, and where `*` stands for any run of characters, or by a `.regex`. Switching a mock on switches off the others for the same endpoint. Mocks are served by a `URLProtocol` that the tool adds to every `default` and `ephemeral` session configuration created after it, and to `URLSession.shared`; call ``APIMockingTool/register(in:)`` for a configuration created earlier. Mocks made in the tool and the switches survive relaunches and ``ClearAppDataTool``, so on iOS the tool shows a toast over the app at launch while a mock is on, unless `showsLaunchToast` is `false`. With `showsRequestToasts`, it also shows one each time a mock answers a request; testers can switch these on or off in the tool. The tool is available on iOS and macOS.
+
+### PulseTool
+
+**PulseTool** shows the [Pulse](https://github.com/kean/Pulse) console with the app's logs and network requests. It is part of the separate `SentinelPulse` product, so add that product and `import SentinelPulse` to use it. The app also needs Pulse itself as a dependency, to log messages and network requests. The tool shows `LoggerStore.shared` unless a different store is passed in. The tool is available on iOS and works with Pulse 4 and 5. Pulse 5.2 and newer need iOS 18 to show the console, and 5.1 needs iOS 16, so apps that support older systems should pin Pulse 5.0 or 5.1, or use Pulse 4.
 
 ## Creating your own tools
 

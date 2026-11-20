@@ -7,6 +7,8 @@
 
 import Foundation
 
+#if os(iOS)
+
 /// Item which represents the mail attachment
 public struct Attachment {
     
@@ -54,3 +56,5 @@ public struct MailData {
         self.bccRecipients = bccRecipients
     }
 }
+
+#endif

@@ -3,7 +3,6 @@
 //  MacOSExample
 //
 //  Created by Zvonimir Medak on 20.01.2025..
-//  Copyright © 2025 CocoaPods. All rights reserved.
 //
 
 import Cocoa
