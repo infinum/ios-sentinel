@@ -22,6 +22,11 @@ DerivedData
 # Bundler
 .bundle
 
+# fastlane
+fastlane/report.xml
+fastlane/README.md
+fastlane/test_output
+
 # Add this line if you want to avoid checking in source code from Carthage dependencies.
 # Carthage/Checkouts
 

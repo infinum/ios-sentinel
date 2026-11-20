@@ -1,0 +1,31 @@
+default_platform(:ios)
+
+platform :ios do
+	lane :test do |options|
+		scan(
+			project: "Example/Sentinel.xcodeproj",
+			scheme: options[:scheme],
+			destination: "platform=iOS Simulator,id=#{options[:device]}",
+			# Diagnostics collection after a failed run can hang on CI simulators.
+			xcargs: "-collect-test-diagnostics never COMPILER_INDEX_STORE_ENABLE=NO",
+			number_of_retries: 2,
+			result_bundle: true,
+			output_directory: "fastlane/test_output"
+		)
+	end
+end
+
+platform :mac do
+	# Checks that the macOS example still archives; nothing is exported or signed.
+	# Plain xcodebuild rather than gym: gym only accepts shared schemes, and Example-MacOS is
+	# autocreated by Xcode (gym would quietly fall back to Example-iOS).
+	lane :build do |options|
+		xcarchive(
+			project: "Example/Sentinel.xcodeproj",
+			scheme: options[:scheme],
+			destination: "generic/platform=macOS",
+			archive_path: "build/#{options[:scheme]}.xcarchive",
+			raw_buildlog: true   # xcpretty isn't installed on the runners
+		)
+	end
+end
