@@ -347,6 +347,7 @@ final class AnnotationOverlayCoordinator {
         previousKeyWindow = hostWindow()
         // Text input needs the overlay window to be key, or the keyboard would be handed to the
         // app's own window and the field would never receive a character.
+        overlayWindow.acceptsKeyStatus = true
         overlayWindow.makeKeyAndVisible()
 
         var hosting: UIHostingController<AnnotationNoteSheet>?
@@ -396,6 +397,7 @@ final class AnnotationOverlayCoordinator {
     }
 
     private func restoreKeyWindow() {
+        window?.acceptsKeyStatus = false
         previousKeyWindow?.makeKeyAndVisible()
         previousKeyWindow = nil
     }

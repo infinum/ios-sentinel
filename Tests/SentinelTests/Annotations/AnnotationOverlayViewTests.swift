@@ -5,6 +5,7 @@
 
 #if canImport(UIKit)
 
+import SwiftUI
 import UIKit
 import XCTest
 @testable import Sentinel
@@ -86,6 +87,51 @@ final class AnnotationOverlayViewTests: XCTestCase {
                 targetPath: "UILabel"
             )
         )
+    }
+}
+
+/// The overlay window must not take key status on its own. Sentinel presents itself from the key
+/// window's top controller, so a key overlay would make Sentinel open inside the overlay, which
+/// then hides itself (and the panel with it) every frame while the panel is shown.
+final class AnnotationOverlayWindowTests: XCTestCase {
+
+    func testRefusesKeyStatusByDefault() {
+        let window = AnnotationOverlayWindow(frame: CGRect(x: 0, y: 0, width: 320, height: 480))
+
+        XCTAssertFalse(window.canBecomeKey)
+    }
+
+    func testAcceptsKeyStatusWhileTextInputNeedsIt() {
+        let window = AnnotationOverlayWindow(frame: CGRect(x: 0, y: 0, width: 320, height: 480))
+
+        window.acceptsKeyStatus = true
+
+        XCTAssertTrue(window.canBecomeKey)
+    }
+}
+
+/// The overlay hides while Sentinel is on screen. The panel must count as on screen when
+/// something, such as the export result alert, is presented over it. Otherwise the armed overlay
+/// comes back and takes every touch, so that alert could not be dismissed.
+final class SentinelPanelDetectionTests: XCTestCase {
+
+    func testFindsThePanelUnderAnAlertPresentedOverIt() {
+        let chain = [
+            UIViewController(),
+            UIHostingController(rootView: SentinelTabBarView(tabs: [])),
+            UIAlertController(title: "Copied", message: nil, preferredStyle: .alert)
+        ]
+
+        XCTAssertTrue(Sentinel.containsPanel(chain))
+    }
+
+    func testIgnoresAChainWithoutThePanel() {
+        let chain = [
+            UIViewController(),
+            UIAlertController(title: "Copied", message: nil, preferredStyle: .alert)
+        ]
+
+        XCTAssertFalse(Sentinel.containsPanel(chain))
     }
 }
 
