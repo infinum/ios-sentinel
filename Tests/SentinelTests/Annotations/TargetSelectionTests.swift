@@ -21,6 +21,32 @@ final class TargetSelectionTests: XCTestCase {
         XCTAssertEqual(hit?.type, "Front")
     }
 
+    /// iOS 26 puts a full-screen, empty `FloatingBarContainerView` on top of a navigation
+    /// container's content. It must not hide the content drawn underneath it.
+    func testDeepestLooksPastATopSiblingThatHoldsNothingAnnotatable() {
+        let fullScreen = CGRect(x: 0, y: 0, width: 100, height: 100)
+        let label = FakeTargetNode(type: "Label", frame: CGRect(x: 10, y: 40, width: 80, height: 20))
+        let content = FakeTargetNode(type: "Content", frame: fullScreen, isAnnotatable: false)
+        content.attach([label])
+        let floatingBarHost = FakeTargetNode(type: "FloatingBarHost", frame: fullScreen, isAnnotatable: false)
+        let floatingBars = FakeTargetNode(type: "FloatingBars", frame: fullScreen, isAnnotatable: false)
+        floatingBars.attach([floatingBarHost])
+        let root = FakeTargetNode(type: "Root", frame: fullScreen)
+        root.attach([content, floatingBars])
+
+        XCTAssertEqual(TargetSelection.deepest(in: root, at: CGPoint(x: 50, y: 50))?.type, "Label")
+    }
+
+    func testDeepestKeepsTheTopmostHitWhenNoSiblingHoldsAnythingAnnotatable() {
+        let fullScreen = CGRect(x: 0, y: 0, width: 100, height: 100)
+        let back = FakeTargetNode(type: "Back", frame: fullScreen, isAnnotatable: false)
+        let front = FakeTargetNode(type: "Front", frame: fullScreen, isAnnotatable: false)
+        let root = FakeTargetNode(type: "Root", frame: fullScreen)
+        root.attach([back, front])
+
+        XCTAssertEqual(TargetSelection.deepest(in: root, at: CGPoint(x: 50, y: 50))?.type, "Front")
+    }
+
     func testDeepestReturnsNilWhenThePointMissesTheRoot() {
         let root = FakeTargetNode(type: "Root", frame: CGRect(x: 0, y: 0, width: 10, height: 10))
 

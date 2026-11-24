@@ -17,14 +17,23 @@ enum TargetSelection {
 
     /// The innermost node containing `point`, or `nil` when the point misses `root`.
     /// Children are tested last-first because the last child draws on top.
+    ///
+    /// A child only wins when its branch holds something annotatable at `point`. Containing the
+    /// point is not enough: iOS 26 lays a full-screen, empty `FloatingBarContainerView` over a
+    /// navigation container's content, and taking the topmost branch blindly made every tap
+    /// resolve to the hosting view around the whole screen. When no branch qualifies, the
+    /// topmost hit is still returned, so ``nearestAnnotatable(from:)`` behaves as before.
     static func deepest(in root: TargetNode, at point: CGPoint) -> TargetNode? {
         guard root.screenFrame.contains(point) else { return nil }
+        var topmostHit: TargetNode?
         for child in root.children.reversed() {
-            if let hit = deepest(in: child, at: point) {
+            guard let hit = deepest(in: child, at: point) else { continue }
+            if hasAnnotatable(from: hit, upTo: child) {
                 return hit
             }
+            topmostHit = topmostHit ?? hit
         }
-        return root
+        return topmostHit ?? root
     }
 
     /// The deepest annotatable node at or above `node`, or `nil` when none qualifies.
@@ -97,6 +106,17 @@ enum TargetSelection {
     }
 
     // MARK: - Private methods
+
+    /// Whether `node` or an ancestor up to and including `top` is annotatable.
+    private static func hasAnnotatable(from node: TargetNode, upTo top: TargetNode) -> Bool {
+        var current: TargetNode? = node
+        while let candidate = current {
+            if candidate.isAnnotatable { return true }
+            if candidate === top { return false }
+            current = candidate.parent
+        }
+        return false
+    }
 
     private static func collect(type: String, from node: TargetNode, into matches: inout [TargetNode]) {
         if node.type == type && !node.screenFrame.isEmpty {
