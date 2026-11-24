@@ -31,6 +31,20 @@ To make changes to the project, please follow these steps:
 
 Once we check everything, we will merge the changes into the main branch and include it in the next release.
 
+## Running tests
+
+Unit tests are SwiftPM test targets and run on macOS with `swift test`. On the iOS simulator, run the `Sentinel-Package` scheme:
+
+```bash
+xcodebuild test -scheme Sentinel-Package -destination 'platform=iOS Simulator,name=iPhone 17 Pro'
+```
+
+Integration and UI tests run inside the iOS example app:
+
+```bash
+xcodebuild test -project Example/Sentinel.xcodeproj -scheme Example-iOS -destination 'platform=iOS Simulator,name=iPhone 17 Pro'
+```
+
 ## Guidelines for pull requests
 
 When submitting a pull request, please ensure that:

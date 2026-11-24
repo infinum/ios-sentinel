@@ -25,8 +25,12 @@ public struct ToolTableSection: Identifiable {
     // MARK: - Lifecycle
 
     public init(title: String? = nil, items: [ToolTableItem]) {
+        self.init(id: title ?? UUID().uuidString, title: title, items: items)
+    }
+
+    init(id: String, title: String?, items: [ToolTableItem]) {
+        self.id = id
         self.title = title
         self.items = items
-        id = title ?? UUID().uuidString
     }
 }
