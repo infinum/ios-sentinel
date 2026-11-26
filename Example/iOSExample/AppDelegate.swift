@@ -72,7 +72,8 @@ private extension AppDelegate {
                 ClearAppDataTool(),
                 CustomLocationTool(),
                 apiMockingTool,
-                PulseTool()
+                PulseTool(),
+                AnnotationsTool()
             ],
             preferences: optionSwitchItems,
             // The default; pass `false` to leave out the Show touches toggle and its `sendEvent(_:)` hook.
