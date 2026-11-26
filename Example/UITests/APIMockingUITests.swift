@@ -32,10 +32,15 @@ final class APIMockingUITests: XCTestCase {
         screen.element("sentinel.apiMocking.requestToastSwitch").tapSwitch()
         switchOnRepositoryMock(in: screen)
 
-        _ = fetchRepository(in: screen)
+        startFetchingRepository(in: screen)
 
-        XCTAssertTrue(screen.toast.waitForExistence(timeout: 5), "No toast for the mocked request")
-        XCTAssertTrue(screen.toast.label.contains("Mocked by “Repository”"), screen.toast.label)
+        // The toast is up for only 3 seconds, so wait for it, label included, before anything else; on a slow
+        // simulator, waiting for the response text first could outlast it.
+        let namesTheMock = XCTNSPredicateExpectation(
+            predicate: NSPredicate(format: "label CONTAINS %@", "Mocked by “Repository”"),
+            object: screen.toast
+        )
+        XCTAssertEqual(XCTWaiter().wait(for: [namesTheMock], timeout: 5), .completed, "No toast naming the mock")
     }
 
     func testLaunchToastShowsWhileAMockIsOn() {
@@ -145,13 +150,18 @@ private extension APIMockingUITests {
         toggle.tapSwitch()
     }
 
-    /// Closes Sentinel, fetches the repository from the example app's menu and returns what the menu shows.
-    func fetchRepository(in screen: SentinelScreen) -> String {
+    /// Closes Sentinel and taps Fetch repository in the example app's menu, without waiting for the response.
+    func startFetchingRepository(in screen: SentinelScreen) {
         screen.dismiss()
         screen.app.buttons["Menu"].tap()
         let fetchButton = screen.app.buttons["Fetch repository"]
         XCTAssertTrue(fetchButton.waitForExistence(timeout: 5), "No Fetch repository button")
         fetchButton.tap()
+    }
+
+    /// Closes Sentinel, fetches the repository from the example app's menu and returns what the menu shows.
+    func fetchRepository(in screen: SentinelScreen) -> String {
+        startFetchingRepository(in: screen)
         let result = screen.text(containing: "200:")
         XCTAssertTrue(result.waitForExistence(timeout: 10), "The request didn't come back with a 200")
         return result.label

@@ -1,0 +1,72 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [master, 'release/*']
+    types: [opened, synchronize, reopened, ready_for_review]
+  # The README badge shows the status of runs on master.
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+# Build and test code from the PR must not get a token that can do more than read.
+permissions:
+  contents: read
+
+defaults:
+  run:
+    shell: bash
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: CI   # the required status check's name
+    if: ${{ !github.event.pull_request.draft }}
+    # Xcode 27 is only on GitHub's preview image so far; move to macos-latest once it ships Xcode 27.
+    runs-on: xcode-27
+    # The xcode-27 image is much slower than Bitrise was: a full run takes about 45 minutes, mostly UI tests.
+    timeout-minutes: 60
+    steps:
+      - name: Check out
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Select Xcode
+        run: sudo xcode-select -s /Applications/Xcode_27.1.app
+
+      - name: Create simulator
+        run: |
+          SDK=$(xcrun --sdk iphonesimulator --show-sdk-version)
+          # Only a runtime of the SDK's own major.minor; Xcode may not be able to test on a newer one.
+          RUNTIME=$(xcrun simctl list runtimes -j | jq -r --arg sdk "$SDK" '
+            def v: split(".") | map(tonumber);
+            [.runtimes[] | select(.isAvailable and .platform == "iOS" and (.version | v)[0:2] == ($sdk | v)[0:2])]
+            | sort_by(.version | v) | last | .identifier // empty')
+          [ -n "$RUNTIME" ] || { echo "::error::No iOS runtime for SDK $SDK"; exit 1; }
+          echo "Simulator runtime: $RUNTIME (SDK $SDK)"
+          SIM_ID=$(xcrun simctl create 'iPhone Duo' 'iPhone Duo' "$RUNTIME")
+          echo "SIM_ID=$SIM_ID" >> "$GITHUB_ENV"
+          # Boot in the background while the macOS build runs, then stop media indexing, which eats CPU on a fresh simulator.
+          export SIM_ID
+          nohup bash -c 'xcrun simctl bootstatus "$SIM_ID" -b > /dev/null &&
+            xcrun simctl spawn "$SIM_ID" launchctl disable user/foreground/com.apple.mediaanalysisd &&
+            xcrun simctl spawn "$SIM_ID" launchctl bootout user/foreground/com.apple.mediaanalysisd' > /dev/null 2>&1 &
+
+      - name: Build macOS example (Example-MacOS)
+        run: fastlane mac build scheme:"Example-MacOS"
+
+      - name: Run tests (Example-iOS)
+        run: fastlane test scheme:"Example-iOS" device:"$SIM_ID"
+
+      - name: Upload test results
+        # cancelled() covers the job timeout, e.g. a hung test run.
+        if: failure() || cancelled()
+        uses: actions/upload-artifact@v7
+        with:
+          name: test-results-${{ github.job }}
+          path: fastlane/test_output/*.xcresult
+          retention-days: 7

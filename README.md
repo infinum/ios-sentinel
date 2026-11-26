@@ -4,7 +4,7 @@
     <img src="Resources/ic-sentinel.svg" width="300" max-width="50%" alt="Sentinel"/>
 </p>
 
-[![Build Status](https://app.bitrise.io/app/56dc4082e9c3bb9e/status.svg?token=aHG6rIR2XDrJ3xNOIO2hXw&branch=master)](https://app.bitrise.io/app/56dc4082e9c3bb9e)
+![CI](https://github.com/infinum/ios-sentinel/actions/workflows/ci.yml/badge.svg)
 [![Version](https://img.shields.io/github/v/tag/infinum/ios-sentinel?label=version&style=flat)](https://github.com/infinum/ios-sentinel/releases)
 [![License](https://img.shields.io/github/license/infinum/ios-sentinel?style=flat)](LICENSE)
 
